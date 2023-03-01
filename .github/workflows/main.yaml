@@ -20,3 +20,13 @@ jobs:
           node-version: '18.x'
       - run: npm install
       - run: npm run build
+      - id: 'auth'
+        uses: 'google-github-actions/auth@v1'
+        with:
+          workload_identity_provider: 'projects/36109138678/locations/global/workloadIdentityPools/estuary-marketing-pool/providers/estuary-marketing-provider'
+          service_account: 'estuary-marketing-ci-cd@estuary-marketing.iam.gserviceaccount.com'
+      - id: 'upload-folder'
+        uses: 'google-github-actions/upload-cloud-storage@v1'
+        with:
+          path: "/workspace/public"
+          destination: "gs://estuary-marketing"
