@@ -33,4 +33,4 @@ jobs:
         uses: 'google-github-actions/upload-cloud-storage@v1'
         with:
           path: "${{ github.workspace }}/public"
-          destination: "gs://estuary-marketing"
+          destination: "estuary-marketing"
