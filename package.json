@@ -3,8 +3,10 @@
   "private": true,
   "version": "0.1.0",
   "dependencies": {
+    "@contentful/rich-text-types": "^16.0.2",
     "@fontsource/merriweather": "^4.5.14",
     "@fontsource/montserrat": "^4.5.14",
+    "dotenv": "^16.0.3",
     "gatsby": "^5.7.0",
     "gatsby-plugin-feed": "^5.7.0",
     "gatsby-plugin-image": "^3.7.0",
@@ -14,6 +16,7 @@
     "gatsby-remark-normalize-paths": "^1.1.0",
     "gatsby-remark-prismjs": "^7.7.0",
     "gatsby-remark-responsive-iframe": "^6.7.0",
+    "gatsby-source-contentful": "^8.7.0",
     "gatsby-source-filesystem": "^5.7.0",
     "gatsby-transformer-remark": "^6.7.0",
     "gatsby-transformer-sharp": "^5.7.0",

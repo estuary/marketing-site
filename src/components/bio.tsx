@@ -1,25 +1,51 @@
 import * as React from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
-export interface BioProps {
-  name: string;
-  profile_pic: string;
+export interface BioAuthor {
+  name: string
+  profilePic: {
+    gatsbyImageData: any
+  }
 }
 
-const Bio = ({name, profile_pic}) => {
-  const image = getImage(profile_pic)
+export interface BioProps {
+  authors: BioAuthor[]
+}
+
+const Bio = ({ authors }) => {
+  const rendered = authors.map(({ profilePic, name }) => {
+    const image = getImage(profilePic.gatsbyImageData)
+    return (
+      <>
+        <GatsbyImage
+          className="bio-avatar"
+          image={image}
+          alt="Profile picture"
+          style={{marginLeft: 8}}
+        />
+        {name && (
+          <>
+            <strong style={{marginRight:8}}>{name}</strong>
+          </>
+        )}
+      </>
+    )
+  })
   return (
     <div className="bio">
-      <GatsbyImage
-        className="bio-avatar"
-        image={image}
-        alt="Profile picture"
-      />
-      {name && (
-        <p>
-          Written by <strong>{name}</strong> 
-        </p>
-      )}
+      <p style={{ display: "flex", alignItems: "center" }}>
+        Written by
+        {rendered.map((r, idx) => (
+          <>
+            {r}
+            {idx === rendered.length - 2
+              ? " and "
+              : idx < rendered.length - 2
+              ? ","
+              : null}
+          </>
+        ))}
+      </p>
     </div>
   )
 }
