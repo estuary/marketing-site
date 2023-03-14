@@ -3,11 +3,15 @@ import { Link, graphql } from "gatsby"
 
 import { BLOCKS, MARKS } from "@contentful/rich-text-types"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
+import dayjs from "dayjs"
+import reltime from "dayjs/plugin/relativeTime"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Bio from "../components/bio"
 import { GatsbyImage } from "gatsby-plugin-image"
+
+dayjs.extend(reltime)
 
 const Bold = ({ children }) => <span className="bold">{children}</span>
 const Text = ({ children }) => <p className="align-center">{children}</p>
@@ -69,6 +73,7 @@ const HeroImage = ({ image, title }) => (
         style={{
           textAlign: "center",
           color: "white",
+          textShadow: "0px 0px 2px black",
         }}
       >
         {title}
@@ -97,7 +102,9 @@ const BlogPostTemplate = ({
           />
           <br />
           <Bio authors={post.authors} />
-          <p>{post.publicationDate}</p>
+          {post.publicationDate && (
+            <p>{dayjs(post.publicationDate).fromNow()}</p>
+          )}
         </header>
         <section>
           {post.body && renderRichText(post.body, richTextOptions)}
@@ -134,7 +141,7 @@ const BlogPostTemplate = ({
 }
 
 export const Head = ({ data: { post } }) => {
-  return <Seo title={post.title} description={post.excerpt.excerpt} />
+  return <Seo title={post.title} description={post.excerpt?.excerpt ?? ""} />
 }
 
 export default BlogPostTemplate
@@ -149,6 +156,7 @@ export const pageQuery = graphql`
     post: contentfulBlogPost(id: { eq: $id }) {
       contentful_id
       title
+      publicationDate
       excerpt {
         excerpt
       }

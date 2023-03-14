@@ -13,7 +13,7 @@ export interface BioProps {
 }
 
 const Bio = ({ authors }) => {
-  const rendered = authors.map(({ profilePic, name }) => {
+  const rendered = (authors??[]).map(({ profilePic, name }) => {
     const image = getImage(profilePic.gatsbyImageData)
     return (
       <>
@@ -31,6 +31,9 @@ const Bio = ({ authors }) => {
       </>
     )
   })
+  if(rendered.length < 1){
+    return null;
+  }
   return (
     <div className="bio">
       <p style={{ display: "flex", alignItems: "center" }}>

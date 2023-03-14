@@ -41,12 +41,13 @@ const BlogIndex = ({ data, location }) => {
                   <small>{post.publishDate}</small>
                 </header>
                 <section>
+                  {post.excerpt ? 
                   <p
                     dangerouslySetInnerHTML={{
                       __html: post.excerpt.childMarkdownRemark.html
                     }}
                     itemProp="description"
-                  />
+                  /> : null}
                 </section>
               </article>
             </li>
