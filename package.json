@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "dependencies": {
-    "@contentful/rich-text-types": "^16.0.2",
+    "@draftbox-co/gatsby-rehype-inline-images": "^1.0.2",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@fontsource/merriweather": "^4.5.14",
@@ -13,26 +13,34 @@
     "dayjs": "^1.11.7",
     "dotenv": "^16.0.3",
     "gatsby": "^5.7.0",
+    "gatsby-image": "^3.11.0",
     "gatsby-plugin-feed": "^5.7.0",
     "gatsby-plugin-image": "^3.7.0",
     "gatsby-plugin-manifest": "^5.7.0",
     "gatsby-plugin-sharp": "^5.7.0",
+    "gatsby-rehype-inline-images": "^2.0.1",
     "gatsby-remark-images": "^7.7.0",
     "gatsby-remark-normalize-paths": "^1.1.0",
     "gatsby-remark-prismjs": "^7.7.0",
     "gatsby-remark-responsive-iframe": "^6.7.0",
-    "gatsby-source-contentful": "^8.7.0",
     "gatsby-source-filesystem": "^5.7.0",
+    "gatsby-source-strapi": "^3.0.6",
+    "gatsby-transformer-rehype": "^2.0.1",
     "gatsby-transformer-remark": "^6.7.0",
     "gatsby-transformer-sharp": "^5.7.0",
     "material-ui-popup-state": "^5.0.5",
+    "patch-package": "^6.5.1",
     "prismjs": "^1.29.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "react-player": "^2.12.0"
+    "react-player": "^2.12.0",
+    "rehype-react": "^7.1.2"
   },
   "devDependencies": {
     "prettier": "^2.8.4"
+  },
+  "resolutions": {
+    "sharp": "0.31.3"
   },
   "scripts": {
     "build": "gatsby build",

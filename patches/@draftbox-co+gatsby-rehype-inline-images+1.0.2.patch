@@ -1,0 +1,57 @@
+diff --git a/node_modules/@draftbox-co/gatsby-rehype-inline-images/gatsby-node.js b/node_modules/@draftbox-co/gatsby-rehype-inline-images/gatsby-node.js
+index 320309d..179d379 100644
+--- a/node_modules/@draftbox-co/gatsby-rehype-inline-images/gatsby-node.js
++++ b/node_modules/@draftbox-co/gatsby-rehype-inline-images/gatsby-node.js
+@@ -28,7 +28,7 @@ var parse = require('rehype-parse');
+ 
+ const getContext = (node, field) => node && node.context && node.context[field];
+ 
+-module.exports = async ({
++module.exports = {default: async ({
+   htmlAst,
+   htmlNode,
+   actions: {
+@@ -56,10 +56,6 @@ module.exports = async ({
+ 
+   const cmsUrl = _.head(_.split(url, slug, 1));
+ 
+-  if (!isUrl(cmsUrl)) {
+-    return htmlAst;
+-  }
+-
+   const nodes = [];
+   visit(htmlAst, {
+     tagName: `img`
+@@ -83,7 +79,7 @@ module.exports = async ({
+     return node;
+   }));
+   return htmlAst;
+-};
++}};
+ 
+ const replaceNewImage = async (node, cache, store, createNode, createNodeId, reporter, options) => {
+   //console.log(node);
+@@ -182,21 +178,10 @@ const generateImagesAndUpdateNode = async function ({
+     }
+ 
+     const imgOptions = {
+-      fluid: fluidResult,
+-      style: {
+-        maxWidth: "100%"
+-      },
+-      // Force show full image instantly
+-      // critical: true, // depricated
+-      loading: "eager",
++      fluidImg: JSON.stringify(fluidResult),
+       alt: formattedImgTag.alt,
+-      // fadeIn: true,
+-      imgStyle: {
+-        opacity: 1
+-      }
+     };
+-    if (formattedImgTag.width) imgOptions.style.width = formattedImgTag.width;
+-    const ReactImgEl = React.createElement(Img.default, imgOptions, null);
++    const ReactImgEl = React.createElement("img-sharp-inline", imgOptions, null);
+     return ReactDOMServer.renderToString(ReactImgEl);
+   } catch (e) {
+     console.log('err', e);
