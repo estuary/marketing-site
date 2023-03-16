@@ -11,7 +11,7 @@ require("dotenv").config({
 const strapiConfig = {
     apiURL: process.env.STRAPI_API_URL,
     accessToken: process.env.STRAPI_TOKEN,
-    collectionTypes: ["blog-post", "blog-post-tag", "author"],
+    collectionTypes: ["blog-post", "tag", "author"],
     singleTypes: [],
     // remoteFileHeaders: {
     //     /**
