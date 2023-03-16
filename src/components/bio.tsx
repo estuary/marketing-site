@@ -18,18 +18,22 @@ export interface BioProps {
 
 const Bio = ({ authors }) => {
     const rendered = (authors ?? []).map(({ picture, name }) => {
-        const image = getImage(picture.localFile.childImageSharp.gatsbyImageData)
+        const image =
+            picture &&
+            getImage(picture.localFile.childImageSharp.gatsbyImageData)
         return (
             <>
-                <GatsbyImage
-                    className="bio-avatar"
-                    image={image}
-                    alt="Profile picture"
-                    style={{ marginLeft: 8 }}
-                />
+                {image && (
+                    <GatsbyImage
+                        className="bio-avatar"
+                        image={image}
+                        alt="Profile picture"
+                        style={{ marginLeft: 8 }}
+                    />
+                )}
                 {name && (
                     <>
-                        <strong style={{ marginRight: 8 }}>{name}</strong>
+                        <strong style={{ marginRight: 8, marginLeft: image ? 0 : 8 }}>{name}</strong>
                     </>
                 )}
             </>
