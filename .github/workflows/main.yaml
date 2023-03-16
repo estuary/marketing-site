@@ -22,7 +22,8 @@ jobs:
       - run: npm install
       - run: npm run build
         env:
-            CONTENTFUL_DELIVERY_API_KEY: ${{ secrets.CONTENTFUL_DELIVERY_API_KEY }}
+            STRAPI_API_URL: ${{ secrets.STRAPI_API_URL }}
+            STRAPI_TOKEN: ${{ secrets.STRAPI_TOKEN }}
       - id: 'auth'
         uses: 'google-github-actions/auth@v1'
         with:
