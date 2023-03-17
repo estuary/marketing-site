@@ -37,6 +37,10 @@ jobs:
           path: "${{ github.workspace }}/public"
           destination: "estuary-marketing"
           parent: false
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v1'
+        with:
+          version: '>= 422.0.0'
       - name: Set cache control on HTML files
         uses: actions-hub/gcloud@master
         env:
