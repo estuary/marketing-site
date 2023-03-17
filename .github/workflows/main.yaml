@@ -43,8 +43,16 @@ jobs:
           version: '>= 422.0.0'
       - name: Set cache control on HTML files
         run: "gsutil -m setmeta -h 'cache-control: public, max-age=0, must-revalidate' 'gs://estuary-marketing/**/*.html' 'gs://estuary-marketing/**/*.json'"
+      - name: Set cache control on js assets
+        run: "gsutil -m setmeta -h 'cache-control: public, max-age=31536000, immutable' 'gs://estuary-marketing/**/*.js'"
+      - name: Set cache control on svg assets
+        run: "gsutil -m setmeta -h 'cache-control: public, max-age=31536000, immutable' 'gs://estuary-marketing/**/*.svg'"
+      - name: Set cache control on png assets
+        run: "gsutil -m setmeta -h 'cache-control: public, max-age=31536000, immutable' 'gs://estuary-marketing/**/*.png'"
+      - name: Set cache control on webp assets
+        run: "gsutil -m setmeta -h 'cache-control: public, max-age=31536000, immutable' 'gs://estuary-marketing/**/*.webp'"
       - name: Set cache control on static assets
-        run: "gsutil -m setmeta -h 'cache-control: public, max-age=31536000, immutable' 'gs://estuary-marketing/**/*.js' 'gs://estuary-marketing/**/*.svg' 'gs://estuary-marketing/**/*.png' 'gs://estuary-marketing/**/*.webp' 'gs://estuary-marketing/static**/*'"
+        run: "gsutil -m setmeta -h 'cache-control: public, max-age=31536000, immutable' 'gs://estuary-marketing/static**/*'"
       - name: Invalidate cache
         if: success()
         run: "gcloud compute url-maps invalidate-cdn-cache estuary-marketing-new --path='/*'"
