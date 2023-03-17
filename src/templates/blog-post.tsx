@@ -8,7 +8,6 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Bio from "../components/bio"
 import { GatsbyImage, IGatsbyImageData, StaticImage } from "gatsby-plugin-image"
-import ImgSharpInline from "../components/ImgSharp"
 import { ProcessedPost } from "../components/BlogPostProcessor"
 
 dayjs.extend(reltime)

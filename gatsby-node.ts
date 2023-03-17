@@ -23,6 +23,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                 nodes {
                     Slug
                     id
+                    tags {
+                        Name
+                        Slug
+                        Type
+                    }
                 }
             }
         }
@@ -36,27 +41,41 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         return
     }
 
-    const posts = result.data.allStrapiBlogPost.nodes
+    const allPosts = result.data.allStrapiBlogPost.nodes
+
+    const categories = new Set(
+        allPosts.flatMap(post =>
+            post.tags
+                .filter(tag => tag.Type === "category")
+                .map(tag => tag.Slug)
+        )
+    )
+
+    const postsByCategory = [...categories].map(category =>
+        allPosts.filter(post => post.tags.some(tag => tag.Slug === category))
+    )
 
     // Create blog posts pages
     // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
     // `context` is available in the template as a prop and as a variable in GraphQL
 
-    if (posts.length > 0) {
-        posts.forEach((post, index) => {
-            const previousPostId = index === 0 ? null : posts[index - 1].id
-            const nextPostId =
-                index === posts.length - 1 ? null : posts[index + 1].id
+    for (const posts of postsByCategory) {
+        if (posts.length > 0) {
+            posts.forEach((post, index) => {
+                const previousPostId = index === 0 ? null : posts[index - 1].id
+                const nextPostId =
+                    index === posts.length - 1 ? null : posts[index + 1].id
 
-            createPage({
-                path: post.Slug,
-                component: blogPost,
-                context: {
-                    id: post.id,
-                    previousPostId,
-                    nextPostId,
-                },
+                createPage({
+                    path: post.Slug,
+                    component: blogPost,
+                    context: {
+                        id: post.id,
+                        previousPostId,
+                        nextPostId,
+                    },
+                })
             })
-        })
+        }
     }
 }
