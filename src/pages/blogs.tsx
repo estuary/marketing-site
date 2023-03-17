@@ -7,6 +7,17 @@ import { StaticImage } from "gatsby-plugin-image"
 
 const BlogIndex = ({ data }) => {
     const posts = data.allStrapiBlogPost.nodes
+    const categories = new Set(
+        posts.flatMap(post =>
+            post.tags
+                .filter(tag => tag.Type === "category")
+                .map(tag => tag.Slug)
+        )
+    )
+
+    const postsByCategory = [...categories].map(category =>
+        posts.filter(post => post.tags.some(tag => tag.Slug === category))
+    )
 
     return (
         <Layout>
@@ -119,6 +130,11 @@ export const pageQuery = graphql`
                 #         html
                 #     }
                 # }
+                tags: tags {
+                    Name
+                    Slug
+                    Type
+                }
                 authors {
                     name: Name
                     picture: Picture {
