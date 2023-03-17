@@ -39,10 +39,14 @@ jobs:
           parent: false
       - name: Set cache control on HTML files
         uses: actions-hub/gcloud@master
+        env:
+          CLI: gsutil
         with:
           args: "-m setmeta -h 'cache-control: public, max-age=0, must-revalidate' 'gs://estuary-marketing/**/*.html' 'gs://estuary-marketing/**/*.json'"
       - name: Set cache control on static assets
         uses: actions-hub/gcloud@master
+        env:
+          CLI: gsutil
         with:
           args: "-m setmeta -h 'cache-control: public, max-age=31536000, immutable' 'gs://estuary-marketing/**/*.js' 'gs://estuary-marketing/**/*.svg' 'gs://estuary-marketing/**/*.png' 'gs://estuary-marketing/**/*.webp' 'gs://estuary-marketing/static**/*'"
       - name: Invalidate cache
