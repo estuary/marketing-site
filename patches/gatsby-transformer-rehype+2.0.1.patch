@@ -1,0 +1,20 @@
+diff --git a/node_modules/gatsby-transformer-rehype/create-schema-customization.js b/node_modules/gatsby-transformer-rehype/create-schema-customization.js
+index 64d27b6..f240b26 100644
+--- a/node_modules/gatsby-transformer-rehype/create-schema-customization.js
++++ b/node_modules/gatsby-transformer-rehype/create-schema-customization.js
+@@ -25,15 +25,6 @@ module.exports = (nodeApiArgs, pluginOptions = {}) => {
+   const {
+     plugins = []
+   } = pluginOptions;
+-  const typeExistsDeprecated = useTypeExists(nodeApiArgs.store, `jamify-source-ghost`);
+-  const typeExists = useTypeExists(nodeApiArgs.store, `gatsby-source-try-ghost`);
+-
+-  if (!(typeExists(`HtmlRehype`) || typeExistsDeprecated(`HtmlRehype`))) {
+-    nodeApiArgs.actions.createTypes(typeDefs);
+-  } // This allows subplugins to use Node APIs bound to `gatsby-transformer-remark`
+-  // to customize the GraphQL schema. This makes it possible for subplugins to
+-  // modify types owned by `gatsby-transformer-html`.
+-
+ 
+   plugins.forEach(plugin => {
+     const resolvedPlugin = require(plugin.resolve);
