@@ -3,63 +3,91 @@ import { Link, graphql, PageProps, useStaticQuery } from "gatsby"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import { StaticImage } from "gatsby-plugin-image"
 
 const BlogIndex = ({ data }) => {
     const posts = data.allStrapiBlogPost.nodes
 
-    if (posts.length === 0) {
-        return (
-            <Layout>
-                <p>
-                    No blog posts found. Add markdown posts to "content/blog"
-                    (or the directory you specified for the
-                    "gatsby-source-filesystem" plugin in gatsby-config.js).
-                </p>
-            </Layout>
-        )
-    }
-
     return (
         <Layout>
-            <ol style={{ listStyle: `none` }}>
-                {posts.map(post => {
-                    const title = post.title
-                    return (
-                        <li key={post.slug}>
-                            <article
-                                className="post-list-item"
-                                itemScope
-                                itemType="http://schema.org/Article"
-                            >
-                                <header>
-                                    <h2>
-                                        <Link
-                                            to={`/${post.slug}`}
-                                            itemProp="url"
-                                        >
-                                            <span itemProp="headline">
-                                                {title}
-                                            </span>
-                                        </Link>
-                                    </h2>
-                                    <small>{post.publishDate}</small>
-                                </header>
-                                <section>
-                                    {post.excerpt ? (
-                                        <p
-                                            dangerouslySetInnerHTML={{
-                                                __html: post.excerpt
-                                                    .childMarkdownRemark.html,
-                                            }}
-                                            itemProp="description"
-                                        />
-                                    ) : null}
-                                </section>
-                            </article>
-                        </li>
-                    )
-                })}
-            </ol>
+            <div className="blogs-index-wrapper">
+                <div className="blogs-index-header-wrapper">
+                    <div className="blogs-index-header">
+                        <div className="blog-post-header-vectors">
+                            <StaticImage
+                                placeholder="none"
+                                alt="estuary logo top"
+                                src="../images/estuary-top-logo-vector-2.svg"
+                                className="blog-post-header-vector"
+                                layout="constrained"
+                                style={{
+                                    zIndex: 1,
+                                }}
+                            />
+                            <StaticImage
+                                placeholder="none"
+                                alt="estuary logo bottom"
+                                src="../images/estuary-top-logo-vector-1.svg"
+                                className="blog-post-header-vector"
+                                layout="constrained"
+                            />
+                        </div>
+                        <h2>Blog</h2>
+                        <p>
+                            More about Estuary and related technologies,
+                            straight from the team.
+                        </p>
+                        <p>
+                            Our blog breaks down basic concepts and takes you
+                            into the minds of our engineers. We also dig into
+                            the business principles that guide our company and
+                            allow us to build great solutions for yours.
+                        </p>
+                    </div>
+                </div>
+                <div className="blogs-index-body">
+                    <ol style={{ listStyle: `none` }}>
+                        {posts.map(post => {
+                            const title = post.title
+                            return (
+                                <li key={post.slug}>
+                                    <article
+                                        className="post-list-item"
+                                        itemScope
+                                        itemType="http://schema.org/Article"
+                                    >
+                                        <header>
+                                            <h2>
+                                                <Link
+                                                    to={`/${post.slug}`}
+                                                    itemProp="url"
+                                                >
+                                                    <span itemProp="headline">
+                                                        {title}
+                                                    </span>
+                                                </Link>
+                                            </h2>
+                                            <small>{post.publishDate}</small>
+                                        </header>
+                                        <section>
+                                            {post.excerpt ? (
+                                                <p
+                                                    dangerouslySetInnerHTML={{
+                                                        __html: post.excerpt
+                                                            .childMarkdownRemark
+                                                            .html,
+                                                    }}
+                                                    itemProp="description"
+                                                />
+                                            ) : null}
+                                        </section>
+                                    </article>
+                                </li>
+                            )
+                        })}
+                    </ol>
+                </div>
+            </div>
         </Layout>
     )
 }
