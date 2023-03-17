@@ -3,61 +3,15 @@ import { Link, graphql } from "gatsby"
 
 import dayjs from "dayjs"
 import reltime from "dayjs/plugin/relativeTime"
-import rehypeReact from "rehype-react"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Bio from "../components/bio"
-import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
+import { GatsbyImage, IGatsbyImageData, StaticImage } from "gatsby-plugin-image"
 import ImgSharpInline from "../components/ImgSharp"
+import { ProcessedPost } from "../components/BlogPostProcessor"
 
 dayjs.extend(reltime)
-
-const renderAst = new rehypeReact({
-    Fragment: React.Fragment,
-    createElement: React.createElement,
-    // @ts-ignore
-    components: { "img-sharp-inline": ImgSharpInline },
-}).Compiler
-
-const HeroImage = ({ image, title }) => (
-    <div style={{ display: "grid" }}>
-        {/* You can use a GatsbyImage component if the image is dynamic */}
-        <GatsbyImage
-            style={{
-                gridArea: "1/1",
-                // You can optionally force an aspect ratio for the generated image
-                // aspectRatio: "3 / 1",
-                maxHeight: "300px",
-            }}
-            // This is a presentational image, so the alt should be an empty string
-            alt=""
-            // Assisi, Perúgia, Itália by Bernardo Ferrari, via Unsplash
-            image={image}
-        />
-        <div
-            style={{
-                // By using the same grid area for both, they are stacked on top of each other
-                gridArea: "1/1",
-                position: "relative",
-                // This centers the other elements inside the hero component
-                placeItems: "center",
-                display: "grid",
-            }}
-        >
-            {/* Any content here will be centered in the component */}
-            <h1
-                style={{
-                    textAlign: "center",
-                    color: "white",
-                    textShadow: "0px 0px 2px black",
-                }}
-            >
-                {title}
-            </h1>
-        </div>
-    </div>
-)
 
 const BlogPostTemplate = ({ data: { previous, next, post } }) => {
     return (
@@ -68,21 +22,49 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
                 itemType="http://schema.org/Article"
             >
                 <header>
-                    <HeroImage
+                    <div className="blog-post-header-vectors">
+                        <StaticImage
+                            placeholder="none"
+                            alt="estuary logo top"
+                            src="../images/estuary-top-logo-vector-2.svg"
+                            className="blog-post-header-vector"
+                            layout="constrained"
+                            style={{
+                                zIndex: 1,
+                            }}
+                        />
+                        <StaticImage
+                            placeholder="none"
+                            alt="estuary logo bottom"
+                            src="../images/estuary-top-logo-vector-1.svg"
+                            className="blog-post-header-vector"
+                            layout="constrained"
+                        />
+                    </div>
+                    <span className="blog-post-date">{post.publishedAt}</span>
+                    <h1
+                        style={{
+                            textAlign: "center",
+                            color: "black",
+                        }}
+                    >
+                        {post.title}
+                    </h1>
+                    <Bio authors={post.authors} />
+
+                    <GatsbyImage
+                        alt=""
                         image={
                             post.hero.localFile.childImageSharp.gatsbyImageData
                         }
-                        title={post.title}
                     />
-                    <br />
-                    <Bio authors={post.authors} />
-                    {post.publicationDate && (
-                        <p>{dayjs(post.publicationDate).fromNow()}</p>
-                    )}
                 </header>
                 <section>
-                    {post.body &&
-                        renderAst(post.body.data.childHtmlRehype.htmlAst)}
+                    {post.body && (
+                        <ProcessedPost
+                            body={post.body.data.childHtmlRehype.html}
+                        />
+                    )}
                 </section>
             </article>
             <nav className="blog-post-nav">
@@ -125,15 +107,12 @@ export const pageQuery = graphql`
     query BlogPostBySlug($id: String!, $previousId: String, $nextId: String) {
         post: strapiBlogPost(id: { eq: $id }) {
             title: Title
-            publicationDate: publishedAt
-            #   excerpt {
-            #     excerpt
-            #   }
+            publishedAt(formatString: "MMMM D, YYYY")
             body: Body {
                 data {
                     Body
                     childHtmlRehype {
-                        htmlAst
+                        html
                     }
                 }
             }

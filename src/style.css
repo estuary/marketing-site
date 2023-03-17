@@ -51,7 +51,7 @@
   --fontSize-3: 1.44rem;
   --fontSize-4: 1.728rem;
   --fontSize-5: 3.5rem;
-  --fontSize-6: 4.438rem;
+  --fontSize-6: 3.838rem;
   --fontSize-7: 2.986rem;
   --color-primary: #005b99;
   --color-text: #2e353f;
@@ -264,10 +264,6 @@ input {
   /* margin: var(--spacing-0) auto; */
   /* max-width: var(--maxWidth-wrapper); */
   /* padding: var(--spacing-10) var(--spacing-5); */
-}
-
-.global-wrapper[data-is-root-path="true"] .bio {
-  margin-bottom: var(--spacing-20);
 }
 
 .global-header {
@@ -1001,7 +997,7 @@ input {
 .bio {
   display: flex;
   align-items: center;
-  margin-bottom: var(--spacing-16);
+  margin-bottom: var(--spacing-8);
 }
 
 .bio p {
@@ -1016,8 +1012,59 @@ input {
   border-radius: 100%;
 }
 
+.blog-post {
+    padding: 2rem;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.blog-post header {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inter', sans-serif;
+}
+
+.blog-post section img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.blog-post section {
+    margin: 0 calc(min(5vw,85px));
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    margin-top: var(--spacing-12);
+    margin-bottom: var(--spacing-6);
+    line-height: var(--lineHeight-tight);
+    letter-spacing: -0.025em;
+}
+
+.blog-post section pre {
+    overflow-y: scroll;
+}
+
+.blog-post .bio {
+    justify-content: center;
+    font-weight: 200;
+    font-size: 12pt;
+}
+
+.blog-post-header-vectors {
+  display: flex;
+  flex-direction: column;
+  width: 4rem;
+  margin-bottom: -4em;
+  margin-left: auto;
+}
+
 .blog-post header h1 {
-  margin: var(--spacing-0) var(--spacing-0) var(--spacing-4) var(--spacing-0);
+    margin: 1rem 15%;
+}
+
+.blog-post-date {
+    font-weight: 200;
+    text-align: center;
 }
 
 .blog-post header p {
@@ -1046,6 +1093,19 @@ input {
 }
 
 @media (max-width: 810px) {
+    .blog-post section {
+        margin: 0 1rem;
+    }
+    .blog-post header h1 {
+        margin: 1rem 0.5rem;
+        font-size: 30pt;
+    }
+
+    .blog-post-header-vectors {
+        margin-bottom: -2em;
+      }
+
+
   .global-header {
     justify-content: space-between;
     padding-left: 16px;

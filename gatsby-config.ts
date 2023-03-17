@@ -41,7 +41,7 @@ module.exports = {
         {
             resolve: `gatsby-source-filesystem`,
             options: {
-                path: `${__dirname}/content/images`,
+                path: `${__dirname}/src/images`,
                 name: `blog_images`,
             },
         },
@@ -82,8 +82,9 @@ module.exports = {
                             withWebp: true,
                             // disable, if you need to save memory
                             useImageCache: true,
+                            quality: 100
                         },
-                    },
+                    }
                 ],
             },
         },
