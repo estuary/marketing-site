@@ -51,12 +51,15 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
                     </h1>
                     <Bio authors={post.authors} />
 
-                    <GatsbyImage
-                        alt=""
-                        image={
-                            post.hero.localFile.childImageSharp.gatsbyImageData
-                        }
-                    />
+                    {post.hero ? (
+                        <GatsbyImage
+                            alt=""
+                            image={
+                                post.hero.localFile.childImageSharp
+                                    .gatsbyImageData
+                            }
+                        />
+                    ) : null}
                 </header>
                 <section>
                     {post.body && (
