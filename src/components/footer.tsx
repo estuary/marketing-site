@@ -78,7 +78,7 @@ const Footer = () => {
                             className="global-footer-copyright-link"
                             href="https://www.estuary.dev/"
                         >
-                            esturary.dev
+                            estuary.dev
                         </a>
                     </div>
 
