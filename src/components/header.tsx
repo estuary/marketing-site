@@ -18,10 +18,6 @@ const navItems: NavItem[] = [
                 path: "/product",
             },
             {
-                title: "Pricing",
-                path: "/pricing",
-            },
-            {
                 title: "Integrations",
                 path: "/integrations",
                 children: [
@@ -42,6 +38,10 @@ const navItems: NavItem[] = [
         ],
     },
     {
+        title: "Pricing",
+        path: "/pricing",
+    },
+    {
         title: "Resources",
         children: [
             {
@@ -50,7 +50,7 @@ const navItems: NavItem[] = [
             },
             {
                 title: "Blog",
-                path: "/blogs",
+                path: "/blog",
             },
             {
                 title: "Contact",
@@ -140,7 +140,7 @@ const Header = () => {
                     sx={{
                         width: "100%",
                         bgcolor: "var(--background-color-primary)",
-                        color: "white"
+                        color: "white",
                     }}
                     component="nav"
                 >

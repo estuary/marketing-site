@@ -14,7 +14,12 @@ const blogPost = path.resolve(`./src/templates/blog-post.tsx`)
  * @type {import('gatsby').GatsbyNode['createPages']}
  */
 exports.createPages = async ({ graphql, actions, reporter }) => {
-    const { createPage } = actions
+    const { createPage, createRedirect } = actions
+    
+    createRedirect({
+        fromPath: `/blogs`,
+        toPath: `/blog`,
+      })
 
     // Get all markdown blog posts sorted by date
     const result = await graphql(`
