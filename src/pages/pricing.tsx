@@ -12,7 +12,7 @@ import PricingEnterprise from "../svgs/pricing-enterprise.svg"
 import ComingSoon from "../svgs/coming-soon-icon.svg"
 import GraphicQuote from "../svgs/graphic-quote.svg"
 
-function gByteLabel(gb: number) {
+function gByteLabel(gb: number,maxPrec=10) {
     const units = ["GB", "TB"]
 
     let unitIndex = 0
@@ -23,7 +23,7 @@ function gByteLabel(gb: number) {
         scaledValue /= 1000
     }
 
-    return `${scaledValue} ${units[unitIndex]}`
+    return `${scaledValue.toFixed(Math.min(unitIndex,maxPrec))} ${units[unitIndex]}`
 }
 
 const ChecklistItem = ({ children }) => (
@@ -35,17 +35,20 @@ const ChecklistItem = ({ children }) => (
 
 // $0.75/GB up to 1000 GB / month and then we cut pricing in half after that per GB
 const calculatePrice = (gbs: number) => {
-    if (gbs <= 10) {
-        return <span className="pricing-page-price-bold">{gbs}GB Free</span>
+    if (gbs <= 10.001) {
+        return <span className="pricing-page-price-bold">{gbs.toFixed(0)}GB Free</span>
     } else {
+        let calc: string|number = Math.min(gbs, 1000) * 0.75 + Math.max(0, (gbs - 1000) * 0.375);
+        if(calc < 20) {
+            calc = calc.toFixed(1);
+        } else {
+            calc = Math.round(calc);
+        }
         return (
             <>
                 <span className="pricing-page-price-bold">
                     $
-                    {Math.round(
-                        Math.min(gbs, 1000) * 0.75 +
-                            Math.max(0, (gbs - 1000) * 0.375)
-                    )}
+                    {calc}
                 </span>
                 /month
             </>
@@ -53,8 +56,12 @@ const calculatePrice = (gbs: number) => {
     }
 }
 
+
+const sliderScale = x=>Math.log2(x);
+const inverseSliderScale = x=>(2**x);
+
 const PricingPage = () => {
-    const [selectedGB, setSelectedGB] = React.useState(10)
+    const [selectedGB, setSelectedGB] = React.useState(sliderScale(10))
     return (
         <Layout headerTheme="light">
             <div className="pricing-page">
@@ -134,28 +141,28 @@ const PricingPage = () => {
                             <PricingCloud className="pricing-page-tile-icon icon-wrapper" />
                             <p className="pricing-page-tile-name">cloud</p>
                             <p className="pricing-page-price">
-                                {calculatePrice(selectedGB)}
+                                {calculatePrice(inverseSliderScale(selectedGB))}
                             </p>
                             <Slider
                                 value={selectedGB}
                                 onChange={(_, val) =>
-                                    setSelectedGB(val || val[0])
+                                    setSelectedGB(sliderScale(Math.round(inverseSliderScale(val || val[0]))))
                                 }
-                                min={10}
-                                max={1000}
-                                step={10}
-                                marks={[10, 250,500,1000].map(v => ({
-                                    label: gByteLabel(v),
-                                    value: v,
+                                min={sliderScale(10)}
+                                max={sliderScale(5000)}
+                                step={sliderScale(10)/128}
+                                scale={sliderScale}
+                                marks={[10,25,100,500,1000,5000].map(v => ({
+                                    label: gByteLabel(v,0),
+                                    value: sliderScale(v),
                                 }))}
-                                valueLabelFormat={val => gByteLabel(val)}
                                 style={{ margin: `1rem 0 3rem 0` }}
                             />
 
                             <div className="pricing-page-checklist-wrapper">
                                 <ChecklistItem>
                                     <span className="pricing-page-checklist-item-text-bold">
-                                        {gByteLabel(selectedGB)}
+                                        {gByteLabel(inverseSliderScale(selectedGB))}
                                     </span>{" "}
                                     average monthly changes
                                 </ChecklistItem>

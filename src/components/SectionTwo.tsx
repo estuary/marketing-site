@@ -108,6 +108,7 @@ const SectionTwo = () => {
                             src="../images/realtime-replication.png"
                             className="section-two-second-graphic"
                             layout="constrained"
+                            height={400}
                         />
                     </div>
                 </div>
