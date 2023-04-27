@@ -107,7 +107,8 @@ const SectionTwo = () => {
                             alt="estuary product screenshot"
                             src="../images/realtime-replication.png"
                             className="section-two-second-graphic"
-                            layout="constrained"
+                            layout="fixed"
+                            quality={100}
                             height={400}
                         />
                     </div>

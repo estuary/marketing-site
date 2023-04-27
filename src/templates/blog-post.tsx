@@ -17,30 +17,31 @@ const BlogPostTemplate = ({ data: { previous, next, post }, pageContext }) => {
     const postTags = post.tags.filter(tag => tag.type === "tag")
     return (
         <Layout headerTheme="light">
+            <div className="blog-post-header-vectors">
+                <FlowLogo
+                    className="blog-post-header-vector"
+                    style={{
+                        zIndex: 1,
+                    }}
+                />
+            </div>
+
             <article
                 className="blog-post"
                 itemScope
                 itemType="http://schema.org/Article"
             >
                 <header>
-                    <div className="blog-post-header-vectors">
-                        <FlowLogo
-                            className="blog-post-header-vector"
-                            style={{
-                                zIndex: 1,
-                            }}
-                        />
-                    </div>
-                    <span className="blog-post-date">{post.publishedAt}</span>
                     <h1
                         style={{
-                            textAlign: "center",
+                            textAlign: "left",
                             color: "black",
                         }}
                     >
                         {post.title}
                     </h1>
                     <Bio authors={post.authors} />
+                    <span className="blog-post-date">{post.publishedAt}</span>
 
                     {post.hero ? (
                         <GatsbyImage
@@ -124,7 +125,10 @@ export const pageQuery = graphql`
                 picture: Picture {
                     localFile {
                         childImageSharp {
-                            gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
+                            gatsbyImageData(
+                                layout: CONSTRAINED
+                                placeholder: BLURRED
+                            )
                         }
                     }
                 }
@@ -156,7 +160,10 @@ export const pageQuery = graphql`
                 picture: Picture {
                     localFile {
                         childImageSharp {
-                            gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
+                            gatsbyImageData(
+                                layout: CONSTRAINED
+                                placeholder: BLURRED
+                            )
                         }
                     }
                 }
@@ -171,7 +178,10 @@ export const pageQuery = graphql`
                 picture: Picture {
                     localFile {
                         childImageSharp {
-                            gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
+                            gatsbyImageData(
+                                layout: CONSTRAINED
+                                placeholder: BLURRED
+                            )
                         }
                     }
                 }

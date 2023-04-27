@@ -37,7 +37,7 @@ const SectionFive = () => {
             </div>
             <div className="section-five-tile-wrapper">
                 {testimonials.allStrapiTestimonial.nodes.map(node => (
-                    <div className="section-five-tile">
+                    <div key={node.name} className="section-five-tile">
                         <p className="section-five-tile-text">{node.body}</p>
                         <div className="section-five-logo-wrapper">
                             {node.logo.localFile.internal.mediaType === "image/svg+xml" ? <div style={{width:24}} dangerouslySetInnerHTML={{__html:node.logo.localFile.svg.content}}/> :
@@ -47,6 +47,8 @@ const SectionFive = () => {
                                     node.logo.localFile.childImageSharp
                                         .gatsbyImageData
                                 }
+                                loading="eager"
+                                
                             />}
                         <p className="section-five-tile-logo-text">
                             {node.name}

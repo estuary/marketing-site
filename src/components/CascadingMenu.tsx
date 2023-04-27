@@ -125,7 +125,7 @@ export const NavMenuItem = ({ item }: { item: NavItem }) => {
         )
         if (item.path) {
             submenu = (
-                <Link className="global-header-menu-link" to={item.path}>
+                <Link className="global-header-menu-link" to={item.path||"#"}>
                     {submenu}
                 </Link>
             )
@@ -133,7 +133,7 @@ export const NavMenuItem = ({ item }: { item: NavItem }) => {
         return submenu
     } else {
         return (
-            <Link className="global-header-menu-link" to={item.path}>
+            <Link className="global-header-menu-link" to={item.path||"#"}>
                 <CascadingMenuItem>
                     {item.title}
                 </CascadingMenuItem>
@@ -151,7 +151,7 @@ export const NavMenuTopLevel = ({ item }: { item: NavItem }) => {
         <>
             <Link
                 className="global-header-link"
-                to={item.path}
+                to={item.path || "#"}
                 {...bindHover(popupState)}
                 {...bindFocus(popupState)}
             >
@@ -167,7 +167,7 @@ export const NavMenuTopLevel = ({ item }: { item: NavItem }) => {
                     transformOrigin={{ vertical: "top", horizontal: "left" }}
                 >
                     {item.children.map(child => (
-                        <NavMenuItem item={child} />
+                        <NavMenuItem key={`${child.path}-${child.title}`} item={child} />
                     ))}
                 </CascadingMenu>
             )}

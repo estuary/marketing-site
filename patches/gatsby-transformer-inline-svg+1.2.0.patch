@@ -1,0 +1,38 @@
+diff --git a/node_modules/gatsby-transformer-inline-svg/gatsby-node.js b/node_modules/gatsby-transformer-inline-svg/gatsby-node.js
+index 44fb895..3fff189 100644
+--- a/node_modules/gatsby-transformer-inline-svg/gatsby-node.js
++++ b/node_modules/gatsby-transformer-inline-svg/gatsby-node.js
+@@ -147,33 +147,5 @@ exports.createResolvers = ({ cache, createResolvers, store, reporter }) => {
+         }
+       }
+     },
+-    ContentfulAsset: {
+-      svg: {
+-        type: `InlineSvg`,
+-        resolve: async (source) => {
+-          // Catch empty Contentful assets
+-          if (!source.file) {
+-            return null
+-          }
+-
+-          const {
+-            file: { url, contentType }
+-          } = source
+-
+-          // Ensure to process only svgs and files with an url
+-          if (contentType !== 'image/svg+xml' || !url) {
+-            return null
+-          }
+-
+-          // Get remote file
+-          const absolutePath = await fetchRemoteFile({
+-            url: `https:${url}#${source.updatedAt}`,
+-            cache
+-          })
+-
+-          return queueSVG({ absolutePath, store, reporter, cache })
+-        }
+-      }
+-    }
+   })
+ }

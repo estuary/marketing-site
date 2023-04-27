@@ -4,6 +4,7 @@
  * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/
  */
 
+import { GatsbyConfig } from "gatsby"
 import { normalizeConnector } from "./src/utils"
 
 require("dotenv").config({
@@ -11,7 +12,7 @@ require("dotenv").config({
 })
 
 // Disable multiple prepared statements because pgbouncer doesn't like 'em very much
-process.env["POSTGRAPHILE_PREPARED_STATEMENT_CACHE_SIZE"]="1";
+process.env["POSTGRAPHILE_PREPARED_STATEMENT_CACHE_SIZE"] = "1"
 
 const strapiConfig = {
     apiURL: process.env.STRAPI_API_URL,
@@ -41,7 +42,8 @@ const strapiConfig = {
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
-module.exports = {
+
+const cfg: GatsbyConfig = {
     siteMetadata: {
         title: `Estuary`,
         description: `Estuary`,
@@ -49,6 +51,9 @@ module.exports = {
         social: {
             twitter: "estuary twitter",
         },
+    },
+    flags: {
+        PARALLEL_SOURCING: true,
     },
     // graphqlTypegen: true,
     plugins: [
@@ -95,10 +100,36 @@ module.exports = {
             resolve: `gatsby-source-strapi`,
             options: strapiConfig,
         },
-        `gatsby-plugin-sitemap`,
+        {
+            resolve: `gatsby-plugin-sitemap`,
+            options: {
+                query: `
+              {
+                site {
+                  siteMetadata {
+                    siteUrl
+                  }
+                }
+                allSitePage {
+                  nodes {
+                    path
+                    pageContext
+                  }
+                }
+              }
+              `,
+                serialize: ({ path, pageContext }) => {
+                    return {
+                        url: path,
+                        lastmod: pageContext?.lastMod,
+                    }
+                },
+            },
+        },
         `gatsby-plugin-robots-txt`,
         `gatsby-transformer-inline-svg`,
         `gatsby-plugin-image`,
+        // `gatsby-plugin-svgr-svgo`,
         `gatsby-plugin-less`,
         {
             resolve: `gatsby-transformer-rehype`,
@@ -308,7 +339,7 @@ module.exports = {
                     "logo",
                     "recommended",
                     "type",
-                    "slug"
+                    "slug",
                 ],
 
                 // Function used to map the result from the GraphQL query. This should
@@ -388,3 +419,5 @@ module.exports = {
         // },
     ],
 }
+
+module.exports = cfg

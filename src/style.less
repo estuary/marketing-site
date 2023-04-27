@@ -515,13 +515,16 @@ input {
 
 .section-one-right-image {
   width: 100%;
-}
 
-.section-one-right-image svg {
-  overflow: visible;
-  max-height: 80vh;
-  width: 100%;
-  height: 100%;
+  & > :first-child {
+    overflow: visible;
+    max-height: 80vh;
+    width: 100%;
+    height: 100%;
+  }
+  & > :not(:first-child) {
+    display: none;
+  }
 }
 
 .section-one-bottom {
@@ -1176,7 +1179,6 @@ input {
 .bio {
   display: flex;
   align-items: center;
-  margin-bottom: var(--spacing-8);
 }
 
 .bio p {
@@ -1279,6 +1281,7 @@ input {
 
 .blog-post {
   padding: 5rem;
+  padding-top: 2rem;
   max-width: 60rem;
 
   @media(min-width: 1500px) {
@@ -1369,7 +1372,7 @@ table th {
 }
 
 .blog-post .bio {
-  justify-content: center;
+  justify-content: left;
   font-weight: 200;
   font-size: 12pt;
 }
@@ -1377,7 +1380,8 @@ table th {
 .blog-post-header-vectors {
   display: flex;
   flex-direction: column;
-  margin-bottom: -5em;
+  margin-bottom: -10em;
+  margin-right: 1rem;
   margin-left: auto;
   justify-content: center;
   align-items: center;
@@ -1388,12 +1392,15 @@ table th {
 }
 
 .blog-post header h1 {
-  margin: 1rem 15%;
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  padding-right: 2rem; // To account for the estuary logo
 }
 
 .blog-post-date {
   font-weight: 200;
-  text-align: center;
+  text-align: left;
+  margin: var(--spacing-4) 0;
 }
 
 .blog-post header p {
@@ -2094,10 +2101,6 @@ table th {
   }
 }
 
-.gatsby-image-wrapper [data-main-image] {
-  transition: none;
-}
-
 // ABOUT 
 
 .about-section-one-h1 {
@@ -2614,9 +2617,12 @@ img.connectors-link-menu-img {
   }
 
   .blog-post-header-vectors {
-    margin-bottom: -2em;
+    margin-bottom: -8em;
   }
 
+  .blog-post-header-vector {
+    width: 4rem;
+  }
 
   .global-header {
     justify-content: space-between;
@@ -2644,6 +2650,10 @@ img.connectors-link-menu-img {
     background-color: #5072EB;
     border: none;
     margin: auto 16px auto 16px;
+    padding-top: 4px;
+    padding-right: 6px;
+    padding-left: 6px;
+    padding-bottom: 4px;
   }
 
   .global-footer {
@@ -2701,16 +2711,22 @@ img.connectors-link-menu-img {
 
   .section-one-right-image {
     margin-left: 0px;
+
+    & > :first-child {
+        overflow: visible;
+        max-height: 55vw;
+        min-height: 14rem;
+        left: unset;
+        object-fit: contain;
+        & img {
+            object-fit: contain;
+        }
+    }
+    & > :not(:first-child) {
+        display: none;
+    }
   }
-
-  .section-one-right-image svg {
-    overflow: visible;
-    max-height: 55vw;
-    left: unset;
-
-    object-fit: contain;
-  }
-
+  
   .section-one-bottom {
     margin-top: 0px;
     margin-bottom: 1rem;

@@ -118,10 +118,10 @@ const Header = (props: { theme: "light" | "dark" }) => {
                 <div className="global-header-wrapper">
                     <div className="global-header-link-wrapper">
                         {navItems.map(item => (
-                            <>
+                            <React.Fragment key={`${item.path}-${item.title}`}>
                                 <NavMenuTopLevel item={item} />
                                 <div style={{ flex: "0 1 1rem" }} />
-                            </>
+                            </React.Fragment>
                         ))}
                     </div>
                     <div className="global-header-login-try">
@@ -175,7 +175,7 @@ const Header = (props: { theme: "light" | "dark" }) => {
                     component="nav"
                 >
                     {navItems.map(item => (
-                        <NavMenuList item={item} />
+                        <NavMenuList key={`${item.path}-${item.title}`} item={item} />
                     ))}
                 </List>
             ) : null}

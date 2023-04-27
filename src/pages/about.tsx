@@ -138,7 +138,7 @@ const AboutPage = () => {
                             passionate about providing data integration tools
                             for users across a spectrum of use-cases,
                             industries, and budgets. You can read more about our
-                            story here.
+                            story <a href="https://estuary.dev/the-estuary-story-and-guiding-principles/">here.</a>
                         </p>
                     </div>
                     <div className="product-flow-section-one-right">

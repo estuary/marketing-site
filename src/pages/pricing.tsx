@@ -2,7 +2,7 @@ import * as React from "react"
 import Layout from "../components/layout"
 import { StaticImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
-import { Slider } from "@mui/material"
+import { Slider, useMediaQuery, useTheme } from "@mui/material"
 
 import FlowLogo from "../svgs/flow-logo.svg"
 import BlueCheckmark from "../svgs/blue-checkmark.svg"
@@ -32,18 +32,14 @@ const ChecklistItem = ({ children }) => (
         <p className="pricing-page-tile-checklist-item-text">{children}</p>
     </div>
 )
-
+const FREE_TIER_GBS = 10
 // $0.75/GB up to 1000 GB / month and then we cut pricing in half after that per GB
 const calculatePrice = (gbs: number) => {
-    if (gbs <= 10.001) {
-        return <span className="pricing-page-price-bold">{gbs.toFixed(0)}GB Free</span>
+    if (gbs <= FREE_TIER_GBS +0.001) {
+        return <span className="pricing-page-price-bold">{FREE_TIER_GBS}GB Free</span>
     } else {
-        let calc: string|number = Math.min(gbs, 1000) * 0.75 + Math.max(0, (gbs - 1000) * 0.375);
-        if(calc < 20) {
-            calc = calc.toFixed(1);
-        } else {
-            calc = Math.round(calc);
-        }
+        let calc: string|number = Math.min(1000,gbs) * 0.75 + Math.max(0, (gbs - 1001) * 0.375);
+        calc = Math.round(calc);
         return (
             <>
                 <span className="pricing-page-price-bold">
@@ -56,11 +52,19 @@ const calculatePrice = (gbs: number) => {
     }
 }
 
-
-const sliderScale = x=>Math.log2(x);
-const inverseSliderScale = x=>(2**x);
-
 const PricingPage = () => {
+    const theme = useTheme();
+    const isMedium = useMediaQuery(theme.breakpoints.between("sm", "lg"))
+
+    const x_factor = isMedium ? 0.0022 : 0.0028
+
+    const sliderScale = x=>1/(1+Math.E**((x*x_factor)*-1));
+    const inverseSliderScale = x=>Math.log(x/(1-x)) / x_factor
+    const marks = (isMedium ? [10,500,1000,5000] : [10,250,500,1000,5000]).map(v => ({
+        label: gByteLabel(v,0),
+        value: sliderScale(v),
+    }));
+    console.log(marks)
     const [selectedGB, setSelectedGB] = React.useState(sliderScale(10))
     return (
         <Layout headerTheme="light">
@@ -103,12 +107,6 @@ const PricingPage = () => {
                             </p>
                             <div className="pricing-page-checklist-wrapper">
                                 <ChecklistItem>
-                                    <span className="pricing-page-checklist-item-text-bold">
-                                        20GB
-                                    </span>{" "}
-                                    data
-                                </ChecklistItem>
-                                <ChecklistItem>
                                     Millisecond latency
                                 </ChecklistItem>
                                 <ChecklistItem>
@@ -132,7 +130,7 @@ const PricingPage = () => {
                             </div>
                             <Link
                                 className="pricing-page-tile-button"
-                                to="https://dashboard.estuary.dev/register"
+                                to="https://github.com/estuary/flow"
                             >
                                 Get started
                             </Link>
@@ -150,12 +148,9 @@ const PricingPage = () => {
                                 }
                                 min={sliderScale(10)}
                                 max={sliderScale(5000)}
-                                step={sliderScale(10)/128}
-                                scale={sliderScale}
-                                marks={[10,25,100,500,1000,5000].map(v => ({
-                                    label: gByteLabel(v,0),
-                                    value: sliderScale(v),
-                                }))}
+                                step={sliderScale(10)/1000}
+                                // scale={sliderScale}
+                                marks={marks}
                                 style={{ margin: `1rem 0 3rem 0` }}
                             />
 
@@ -169,8 +164,9 @@ const PricingPage = () => {
                                 <ChecklistItem>
                                     All in Open Source
                                 </ChecklistItem>
+                                <ChecklistItem>All the benefits of Open Source plus</ChecklistItem>
                                 <ChecklistItem>Cloud-hosted Flow</ChecklistItem>
-                                <ChecklistItem>99% uptime SLA</ChecklistItem>
+                                <ChecklistItem>99.9% uptime SLA</ChecklistItem>
 
                                 <ChecklistItem>Free 30-day trial</ChecklistItem>
 
@@ -197,7 +193,7 @@ const PricingPage = () => {
                             </p>
                             <div className="pricing-page-checklist-wrapper-custom">
                                 <ChecklistItem>
-                                    All in Open Source and Cloud
+                                    Everything in Open Source and Cloud plus
                                 </ChecklistItem>
                                 <ChecklistItem>
                                     24/7 hands-on support
