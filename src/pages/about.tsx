@@ -12,6 +12,8 @@ import LinkIcon from "../svgs/link-icon.svg"
 import HubspotForm from "react-hubspot-form"
 import { ProcessedPost } from "../components/BlogPostProcessor"
 import Seo from "../components/seo"
+import { StaticImage } from "gatsby-plugin-image"
+import { OutboundLink } from "gatsby-plugin-google-gtag"
 
 // const jobs = [
 //     {
@@ -67,7 +69,11 @@ import Seo from "../components/seo"
 //         ],
 //     },
 // ]
-
+// export const pageQuery = graphql`
+//   query {
+    
+//   }
+// `
 const AboutPage = () => {
     const {
         allStrapiJobPosting: { nodes: jobs },
@@ -147,6 +153,304 @@ const AboutPage = () => {
                     </div>
                 </div>
             </div>
+            <section className="about-history">
+                <div className="history-wrap">
+                    <div className="history-left">
+                        <div className="image-heading">9 years of real-time innovation</div>
+                        <div className="image-wrap">
+                        <StaticImage
+                            placeholder="none"
+                            alt="Estuary history"
+                            loading="lazy"
+                            src="../images/timeline-img.png"
+                            layout="constrained"
+                            width={508}
+                            height={526}
+                            quality={100}
+                        />
+                        </div>
+                    </div>
+                    <div className="history-right">
+                        <p className="product-flow-section-two-header-small">about us</p>
+                        <h2 className="about-section-header-top">History</h2>
+                        <p>We didn't start at trying to make real-time data flows more accessible by abstracting away the low-level work… it is just what happened.</p>
+                        <p>Our team researched streaming frameworks while working with billions of daily events, and ultimately realized that we'd have to build our own (<a href='https://gazette.readthedocs.io/en/latest/'>Gazette</a>) to have a scalable distributed streaming framework that is built with kappa architectures in mind, required less continuous resource management, and could unify both our batch and real-time pipelines.</p>
+                        <p>We've been innovating to make real-time data more accessible to all ever since.</p>
+                    </div>
+                </div>
+            </section>
+            <section className="about-media">
+                <p className="product-flow-section-two-header-small">what’s happening</p>
+                <h2 className="about-section-header-top">In the Media</h2>
+                <FlowLogo className="media-logo"/>
+                <div className="media-wrap">
+                    <div className="media-item">
+                        <StaticImage
+                            placeholder="none"
+                            alt="Engineering podcast"
+                            loading="lazy"
+                            src="../images/engineering-podcast.png"
+                            layout="constrained"
+                            width={342}
+                            height={179}
+                            quality={100}
+                        />
+                        <div className="item-heading">
+                            <OutboundLink
+                                target="_blank"
+                                href="https://podcasts.apple.com/us/podcast/data-engineering-podcast/id1193040557"
+                                aria-label="media item link"
+                            >
+                                Data Engineering Podcast
+                            </OutboundLink>
+                        </div>
+                        <div className="item-description">Johnny, Dave, and Tobias discuss why we built Gazette, the growth of streaming, and the rise of the real-time data lake.</div>
+                    </div>
+                    <div className="media-item">
+                        <StaticImage
+                            placeholder="none"
+                            alt="FirstMark invests in Estuary"
+                            loading="lazy"
+                            src="../images/firstmark-estuary.png"
+                            layout="constrained"
+                            width={342}
+                            height={179}
+                            quality={100}
+                        />
+                        <div className="item-heading">
+                            <OutboundLink
+                                target="_blank"
+                                href="https://venturebeat.com/business/how-estuary-helps-enterprises-harness-historical-and-real-time-data-pipelines/"
+                                aria-label="media item link"
+                            >
+                                FirstMark invests in Estuary
+                            </OutboundLink>
+                        </div>
+                        <div className="item-description">Matt Turck of FirstMark announces their $7 million Series A investment in Estuary to simplify streaming + batch unification.</div>
+                    </div>
+                    <div className="media-item">
+                        <StaticImage
+                            placeholder="none"
+                            alt="Data landscape"
+                            loading="lazy"
+                            src="../images/data-landscape.png"
+                            layout="constrained"
+                            width={342}
+                            height={179}
+                            quality={100}
+                        />
+                        <div className="item-heading">
+                            <OutboundLink
+                                target="_blank"
+                                href="https://www.linkedin.com/feed/update/urn:li:activity:6980910741046382592/"
+                                aria-label="media item link"
+                            >
+                                Real-Time Data Landscape
+                            </OutboundLink>
+                        </div>
+                        <div className="item-description">LinkedIn post from our Founder Dave Yaffe where he (and 50+ others) chart out the evolving ecosystem of real-time data integration players</div>
+                    </div>
+                </div>
+            </section>
+            <section className="meet-the-team">
+                <p className="product-flow-section-two-header-small">say hello</p>
+                <h2 className="about-section-header-top">Meet Our Team</h2>
+                <div className="team-wrap">
+                    <div className="team-item">
+                        <StaticImage
+                            placeholder="none"
+                            alt="Dave Yaffe"
+                            loading="lazy"
+                            src="../images/team/dave-yaffe.png"
+                            layout="constrained"
+                            width={180}
+                            height={180}
+                            quality={100}
+                        />
+                        <div className="item-name">Dave Yaffe</div>
+                        <div className="item-position">Founder & CEO</div>
+                    </div>
+                    <div className="team-item">
+                        <StaticImage
+                            placeholder="none"
+                            alt="Johnny Graettinger"
+                            loading="lazy"
+                            src="../images/team/johnny-graettinger.png"
+                            layout="constrained"
+                            width={180}
+                            height={180}
+                            quality={100}
+                        />
+                        <div className="item-name">Johnny Graettinger</div>
+                        <div className="item-position">Founder & CTO</div>
+                    </div>
+                    <div className="team-item">
+                        <StaticImage
+                            placeholder="none"
+                            alt="Philip Fried"
+                            loading="lazy"
+                            src="../images/team/philip-fried.png"
+                            layout="constrained"
+                            width={180}
+                            height={180}
+                            quality={100}
+                        />
+                        <div className="item-name">Philip Fried</div>
+                        <div className="item-position">VP Engineering</div>
+                    </div>
+                    <div className="team-item">
+                        <StaticImage
+                            placeholder="none"
+                            alt="Kiahna Tucker"
+                            loading="lazy"
+                            src="../images/team/user-placeholder.png"
+                            layout="constrained"
+                            width={180}
+                            height={180}
+                            quality={100}
+                        />
+                        <div className="item-name">Kiahna Tucker</div>
+                        <div className="item-position">Engineer</div>
+                    </div>
+                    <div className="team-item">
+                        <StaticImage
+                            placeholder="none"
+                            alt="Mahdi Dibaiee"
+                            loading="lazy"
+                            src="../images/team/mahdi-dibaiee.png"
+                            layout="constrained"
+                            width={180}
+                            height={180}
+                            quality={100}
+                        />
+                        <div className="item-name">Mahdi Dibaiee</div>
+                        <div className="item-position">Engineer</div>
+                    </div>
+                    <div className="team-item">
+                        <StaticImage
+                            placeholder="none"
+                            alt="Jenny Man"
+                            loading="lazy"
+                            src="../images/team/jenny-man.png"
+                            layout="constrained"
+                            width={180}
+                            height={180}
+                            quality={100}
+                        />
+                        <div className="item-name">Jenny Man</div>
+                        <div className="item-position">Developer Relations</div>
+                    </div>
+                    <div className="team-item">
+                        <StaticImage
+                            placeholder="none"
+                            alt="Olivia Lannone"
+                            loading="lazy"
+                            src="../images/team/user-placeholder.png"
+                            layout="constrained"
+                            width={180}
+                            height={180}
+                            quality={100}
+                        />
+                        <div className="item-name">Olivia Lannone</div>
+                        <div className="item-position">Managing Editor</div>
+                    </div>
+                    <div className="team-item">
+                        <StaticImage
+                            placeholder="none"
+                            alt="Will Donnelly"
+                            loading="lazy"
+                            src="../images/team/will-donnelly.png"
+                            layout="constrained"
+                            width={180}
+                            height={180}
+                            quality={100}
+                        />
+                        <div className="item-name">Will Donnellye</div>
+                        <div className="item-position">Engineer</div>
+                    </div>
+                    <div className="team-item">
+                        <StaticImage
+                            placeholder="none"
+                            alt="Will Baker"
+                            loading="lazy"
+                            src="../images/team/will-baker.png"
+                            layout="constrained"
+                            width={180}
+                            height={180}
+                            quality={100}
+                        />
+                        <div className="item-name">Will Baker</div>
+                        <div className="item-position">Engineer</div>
+                    </div>
+                    <div className="team-item">
+                        <StaticImage
+                            placeholder="none"
+                            alt="Samantha Jacobus"
+                            loading="lazy"
+                            src="../images/team/samantha-jacobus.png"
+                            layout="constrained"
+                            width={180}
+                            height={180}
+                            quality={100}
+                        />
+                        <div className="item-name">Samantha Jacobus</div>
+                        <div className="item-position">Title</div>
+                    </div>
+                    <div className="team-item">
+                        <StaticImage
+                            placeholder="none"
+                            alt="Joseph Shearer"
+                            loading="lazy"
+                            src="../images/team/joseph-shearer.png"
+                            layout="constrained"
+                            width={180}
+                            height={180}
+                            quality={100}
+                        />
+                        <div className="item-name">Joseph Shearer</div>
+                        <div className="item-position">Title</div>
+                    </div>
+                    <div className="team-item">
+                        <StaticImage
+                            placeholder="none"
+                            alt="Mike Danko"
+                            loading="lazy"
+                            src="../images/team/mike-danko.png"
+                            layout="constrained"
+                            width={180}
+                            height={180}
+                            quality={100}
+                        />
+                        <div className="item-name">Mike Danko</div>
+                        <div className="item-position">Engineer</div>
+                    </div>
+                </div>
+            </section>
+            <section className="investors">
+                <h2 className="investors-heading">Our Investors</h2>
+                <div className="investors-wrap">
+                    <StaticImage
+                        placeholder="none"
+                        alt="Firstmark"
+                        loading="lazy"
+                        src="../images/firstmark-logo.png"
+                        layout="constrained"
+                        width={180}
+                        height={48}
+                        quality={100}
+                    />
+                    <StaticImage
+                        placeholder="none"
+                        alt="Operator"
+                        loading="lazy"
+                        src="../images/operator-logo.png"
+                        layout="constrained"
+                        width={180}
+                        height={48}
+                        quality={100}
+                    />
+                </div>
+            </section>
             <div className="about-section-two">
                 <p className="product-flow-section-two-header-small">
                     Come work with us
