@@ -10,7 +10,7 @@ import Bio from "../components/bio"
 import { GatsbyImage, IGatsbyImageData, StaticImage } from "gatsby-plugin-image"
 import { ProcessedPost } from "../components/BlogPostProcessor"
 import FlowLogo from "../svgs/flow-logo.svg"
-import logoUrl from "../images/combination-mark__multi-blue.png";
+import logoUrl from "../images/combination-mark__multi-blue.png"
 
 dayjs.extend(reltime)
 
@@ -109,14 +109,24 @@ export const Head = ({
         url: author.link,
         image: author.picture && {
             "@type": "ImageObject",
-            url: `${siteUrl}/${author.picture.localFile.childImageSharp.fixed.src}`
-        }
+            url: `${siteUrl}/${author.picture.localFile.childImageSharp.fixed.src}`,
+        },
     }))
 
-    const postTags = post.tags.filter(tag => tag.type === "tag").map(t=>t.name)
+    const postTags = post.tags
+        .filter(tag => tag.type === "tag")
+        .map(t => t.name)
     return (
         <>
-            <Seo title={post.title} description={post.description ?? ""} />
+            <Seo
+                title={post.title}
+                description={post.description ?? ""}
+                url={`${siteUrl}/${post.slug}`}
+                image={
+                    post.hero &&
+                    `${siteUrl}${post.hero.localFile.childImageSharp.meta_img.src}`
+                }
+            />
             <script type="application/ld+json">
                 {JSON.stringify({
                     "@context": "https://schema.org",
@@ -127,8 +137,13 @@ export const Head = ({
                     },
                     headline: post.title,
                     description: post.description ?? "",
-                    image: post.hero && `${siteUrl}${post.hero.localFile.childImageSharp.fixed.src}`,
-                    author: post.authors.length > 1 ? mappedAuthors : mappedAuthors[0],
+                    image:
+                        post.hero &&
+                        `${siteUrl}${post.hero.localFile.childImageSharp.meta_img.src}`,
+                    author:
+                        post.authors.length > 1
+                            ? mappedAuthors
+                            : mappedAuthors[0],
                     keywords: postTags,
                     publisher: {
                         "@type": "Organization",
@@ -181,7 +196,7 @@ export const pageQuery = graphql`
                                 layout: CONSTRAINED
                                 placeholder: BLURRED
                             )
-                            fixed(width:60) {
+                            fixed(width: 60) {
                                 src
                             }
                         }
@@ -198,7 +213,7 @@ export const pageQuery = graphql`
                             # aspectRatio: 2
                             formats: [AUTO, WEBP, AVIF]
                         )
-                        fixed(width:800) {
+                        meta_img: fixed(width: 1200) {
                             src
                         }
                         # Further below in this doc you can learn how to use these response images

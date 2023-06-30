@@ -2,7 +2,17 @@ import * as React from "react"
 import Layout from "../components/layout"
 import { StaticImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
-import { Slider, useMediaQuery, useTheme } from "@mui/material"
+import {
+    Box,
+    Divider,
+    FormControl,
+    FormControlLabel,
+    Slider,
+    Stack,
+    Typography,
+    useMediaQuery,
+    useTheme,
+} from "@mui/material"
 
 import FlowLogo from "../svgs/flow-logo.svg"
 import BlueCheckmark from "../svgs/blue-checkmark.svg"
@@ -24,7 +34,7 @@ function gByteLabel(gb: number, maxPrec = 10) {
         scaledValue /= 1000
     }
 
-    return `${scaledValue.toFixed(Math.min(unitIndex, maxPrec))} ${
+    return `${scaledValue.toFixed(Math.min(unitIndex, maxPrec))}${
         units[unitIndex]
     }`
 }
@@ -39,14 +49,31 @@ const ChecklistItem = ({ children, bullet = false }) => (
         <p className="pricing-page-tile-checklist-item-text">{children}</p>
     </div>
 )
-// $0.75/GB up to 1000 GB / month and then we cut pricing in half after that per GB
-const calculatePrice = (gbs: number) => {
-    let calc: string | number =
-        Math.min(1000, gbs) * 0.75 + Math.max(0, (gbs - 1001) * 0.375)
-    calc = Math.round(calc)
+
+const currencyFormatter = Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+})
+
+const roundTo = (num: number, decimals: number) =>
+    Math.round((num + Number.EPSILON) * 10 ** decimals) / 10 ** decimals
+
+const calculateDataPrice = (gbs: number): number => {
+    let gb_calc: string | number =
+        Math.min(1000, gbs) * 0.5 + Math.max(0, (gbs - 1001) * 0.2)
+    return roundTo(gb_calc, 2)
+}
+
+// $0.75/GB up to 1000 GB / month, then $0.20 after
+const calculatePrice = (tasks: number, gbs: number) => {
+    let gb_calc = roundTo(calculateDataPrice(gbs), 2)
+
+    let task_calc = tasks * 100
     return (
         <>
-            <span className="pricing-page-price-bold">${calc}</span>
+            <span className="pricing-page-price-bold">
+                {currencyFormatter.format(task_calc + gb_calc)}
+            </span>
             /month
         </>
     )
@@ -54,20 +81,22 @@ const calculatePrice = (gbs: number) => {
 
 const PricingPage = () => {
     const theme = useTheme()
-    const isMedium = useMediaQuery(theme.breakpoints.between("sm", "lg"))
+    const isMedium = useMediaQuery(theme.breakpoints.between(811,1100))
 
-    const x_factor = isMedium ? 0.0022 : 0.0028
+    const x_factor = isMedium ? 0.0016 : 0.0024
 
     const sliderScale = x => 1 / (1 + Math.E ** (x * x_factor * -1))
     const inverseSliderScale = x => Math.log(x / (1 - x)) / x_factor
     const marks = (
-        isMedium ? [27, 500, 1000, 5000] : [27, 250, 500, 1000, 5000]
+        isMedium ? [1, 500, 1000, 5000] : [1, 250, 600, 1000, 5000]
     ).map(v => ({
         label: gByteLabel(v, 0),
         value: sliderScale(v),
     }))
     console.log(marks)
-    const [selectedGB, setSelectedGB] = React.useState(sliderScale(27))
+    const [selectedGB, setSelectedGB] = React.useState(1)
+    const [selectedTasks, setSelectedTasks] = React.useState(1)
+
     return (
         <Layout headerTheme="light">
             <div className="pricing-page">
@@ -125,7 +154,9 @@ const PricingPage = () => {
                                     </OutboundLink>
                                 </ChecklistItem>
                                 <ChecklistItem>
-                                    Use up to 50 collections, 2 total tasks (Captures, Materializations and/or transformations)
+                                    Use up to 50 collections, 2 total tasks
+                                    (sources, sestinations and/or
+                                    transformations)
                                 </ChecklistItem>
                                 <ChecklistItem>
                                     Up to 50 collections
@@ -142,40 +173,124 @@ const PricingPage = () => {
                             <PricingCloud className="pricing-page-tile-icon icon-wrapper" />
                             <p className="pricing-page-tile-name">Cloud</p>
                             <p className="pricing-page-tile-price-subtext">
-                                Up to 27GB/month for $20 then $0.75/GB.
+                                <b>Sources & Destinations</b>: $0.14/hr - $100/month
+                                <br />
+                                <b>Data</b>: $0.50/GB per task up to 1TB, then
+                                $0.20/GB
                             </p>
                             <p className="pricing-page-price">
-                                {calculatePrice(inverseSliderScale(selectedGB))}
+                                {calculatePrice(
+                                    selectedTasks,
+                                    selectedGB
+                                )}
                             </p>
-                            <Slider
-                                value={selectedGB}
-                                onChange={(_, val) =>
-                                    setSelectedGB(
-                                        sliderScale(
-                                            Math.round(
-                                                inverseSliderScale(
-                                                    val || val[0]
-                                                )
+                            <Stack
+                                margin="1rem 0 2rem 0"
+                                justifyContent="center"
+                            >
+                                <Stack
+                                    spacing={2}
+                                    alignItems="center"
+                                    direction="column"
+                                    marginBottom={"2em"}
+                                >
+                                    <Typography component="div">
+                                        {isMedium ? "Tasks" : "Sources & Destinations"}:{" "}
+                                        <Typography
+                                            display="inline"
+                                            fontWeight="bold"
+                                        >
+                                            {currencyFormatter.format(
+                                                selectedTasks * 100
+                                            )}
+                                        </Typography>
+                                    </Typography>
+                                    <Slider
+                                        value={selectedTasks}
+                                        onChange={(_, val) =>
+                                            setSelectedTasks(
+                                                typeof val === "number"
+                                                    ? val
+                                                    : val[0]
                                             )
-                                        )
-                                    )
-                                }
-                                min={marks[0].value}
-                                max={marks[marks.length - 1].value}
-                                step={marks[0].value / 1000}
-                                marks={marks}
-                                style={{ margin: `0 0 3rem 0` }}
-                            />
-
+                                        }
+                                        marks={[1,2, 3, 4, 5, 6, 7, 8, 9, 10].map(
+                                            id => ({
+                                                value: id,
+                                                label: id,
+                                            })
+                                        )}
+                                        min={1}
+                                        max={10}
+                                        step={1}
+                                        valueLabelDisplay="auto"
+                                        valueLabelFormat={v => `${v} tasks`}
+                                        style={{ marginTop: 0 }}
+                                    />
+                                </Stack>
+                                <Stack
+                                    spacing={2}
+                                    alignItems="center"
+                                    direction="column"
+                                    marginBottom="1.75rem"
+                                >
+                                    <Typography>
+                                        Data:{" "}
+                                        <Typography
+                                            display="inline"
+                                            fontWeight="bold"
+                                        >
+                                            {currencyFormatter.format(
+                                                calculateDataPrice(
+                                                        selectedGB
+                                                )
+                                            )}
+                                        </Typography>
+                                    </Typography>
+                                    <Slider
+                                        value={sliderScale(selectedGB)}
+                                        onChange={(_, val) =>
+                                            setSelectedGB(
+                                                    Math.round(
+                                                        inverseSliderScale(
+                                                            val || val[0]
+                                                        )
+                                                    )
+                                            )
+                                        }
+                                        min={marks[0].value}
+                                        max={marks[marks.length - 1].value}
+                                        step={marks[0].value / 1000}
+                                        marks={marks}
+                                        valueLabelDisplay="auto"
+                                        valueLabelFormat={v =>
+                                            gByteLabel(inverseSliderScale(v))
+                                        }
+                                        style={{ marginTop: 0 }}
+                                    />
+                                </Stack>
+                                <Typography
+                                    variant="caption"
+                                    style={{
+                                        lineHeight: "1.1",
+                                        letterSpacing: "0.02133em",
+                                    }}
+                                >
+                                    *A task represents a source, destination or
+                                    transformation.
+                                </Typography>
+                            </Stack>
                             <div className="pricing-page-checklist-wrapper">
-                                <p style={{marginTop:0}}>Everything in Flow Free plus:</p>
+                                <p style={{ marginTop: 0 }}>
+                                    Everything in Flow Free plus:
+                                </p>
                                 <ChecklistItem>99.9% SLA</ChecklistItem>
                                 <ChecklistItem>
                                     Limitless horizontal scaling
                                 </ChecklistItem>
                                 <ChecklistItem>
-                                    Unlimited collections, captures and
-                                    materializations
+                                    Unlimited collections, sources and
+                                    destinations
                                 </ChecklistItem>
                                 <ChecklistItem>
                                     Pay as you go, monthly and annual payment

@@ -1,9 +1,12 @@
-name: Deploy to Firebase Preview
+name: Deploy to Firebase Hosting
 
 on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [strapi_updated,database_updated]
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build_and_preview:

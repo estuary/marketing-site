@@ -11,10 +11,12 @@ import { useStaticQuery, graphql } from "gatsby"
 export interface SeoProps {
   title: string;
   description?: string;
+  image?: string;
+  url?: string;
   children?: React.ReactElement
 }
 
-const Seo: React.FC<SeoProps> = ({ description, title, children }) => {
+const Seo: React.FC<SeoProps> = ({ description, title, image, url, children }) => {
   const { site } = useStaticQuery(
     graphql`
       query SeoData{
@@ -42,6 +44,11 @@ const Seo: React.FC<SeoProps> = ({ description, title, children }) => {
       <meta property="og:title" content={title} />
       <meta property="og:description" content={metaDescription} />
       <meta property="og:type" content="website" />
+      {url ? <meta property="og:url" content={url}/> : null}
+      {image ? <>
+        <meta property="og:image" content={image}/>
+        <meta property="twitter:image" content={image}/>
+      </>:null}
       <meta name="twitter:card" content="summary" />
       <meta
         name="twitter:creator"
