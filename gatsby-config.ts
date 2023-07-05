@@ -164,7 +164,6 @@ const cfg: GatsbyConfig = {
                         options: {
                             // all images larger are scaled down to maxWidth (default: maxWidth = imageWidth)
                             // maxWidth: 2000,
-                            withWebp: true,
                             // disable, if you need to save memory
                             useImageCache: true,
                             quality: 100,

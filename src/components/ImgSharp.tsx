@@ -1,17 +1,17 @@
 import React from "react"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
-const ImgSharpInline = ({ className, fluidimg, alt }) => {
-    const parsed = JSON.parse(fluidimg)
+const ImgSharpInline = ({ className, imgdata, alt }) => {
+    const parsed = JSON.parse(imgdata)
     return (
-    <Img
-        className={className}
-        style={{maxWidth: parsed?.presentationWidth, margin:"0 auto"}}
-        fluid={parsed}
-        alt={alt}
-        loading="eager"
-    />
+        <GatsbyImage
+            className={className}
+            style={{ margin: "0 auto" }}
+            image={parsed}
+            alt={alt || "Blog Post Image"}
+            loading="eager"
+        />
     )
-    }
+}
 
 export default ImgSharpInline

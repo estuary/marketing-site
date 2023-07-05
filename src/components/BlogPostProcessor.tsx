@@ -5,8 +5,9 @@ import rehypeParse from "rehype-parse"
 import rehypeReact from "rehype-react"
 import rehypeSlug from "rehype-slug"
 import rehypeToc from "rehype-toc"
-import { visit } from "unist-util-visit"
+import { SKIP, visit } from "unist-util-visit"
 import ImgSharpInline from "./ImgSharp"
+import { Root } from "rehype-parse/lib"
 
 let LANG_RE = /hljs language\-(.*)/
 
@@ -23,12 +24,12 @@ export const ProcessedPost = ({
             .use(rehypeParse, { fragment: true })
             .use(rehypeHighlight, { detect: true })
             .use(() => root => {
-                visit(root, (node: any) => {
+                visit(root as Root, (node) => {
                     if (
                         node.type === "element" &&
                         node.properties?.className !== undefined
                     ) {
-                        let match = node.properties.className
+                        let match = (node.properties.className instanceof Array ? node.properties.className : [node.properties.className])
                             .join(" ")
                             .match(LANG_RE)
                         if (match) {
@@ -46,6 +47,22 @@ export const ProcessedPost = ({
                                 ],
                             })
                         }
+                    }
+                })
+            })
+            // Replace <p><img></p> with <img>
+            .use(() => root => {
+                visit(root as Root, (node,idx,parent) => {
+                    if (
+                        node.type === "element" &&
+                        node.tagName === "p" &&
+                        node.children.length === 1 &&
+                        node.children[0].type === "element" &&
+                        node.children[0].tagName === "img-sharp-inline"
+                    ) {
+                        parent.children.splice(idx, 1, ...node.children)
+                        // Do not traverse `node`, continue at the node *now* at `idx`.
+                        return [SKIP, idx]
                     }
                 })
             })
