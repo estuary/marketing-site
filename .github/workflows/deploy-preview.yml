@@ -38,8 +38,10 @@ jobs:
             GATSBY_DB_PORT: ${{ secrets.GATSBY_DB_PORT }}
             GATSBY_DB_NAME: ${{ secrets.GATSBY_DB_NAME }}
       - uses: FirebaseExtended/action-hosting-deploy@v0
+        id: firebase
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
           expires: 30d
           projectId: estuary-marketing
+    - run: echo ${{steps.firebase.outputs.urls}}
