@@ -82,7 +82,7 @@
     "graphql": "15.8.0"
   },
   "scripts": {
-    "build:plugins": "yarn --cwd ./plugins/estuary-rehype-transformers build",
+    "build:plugins": "yarn --cwd ./plugins/estuary-rehype-transformers install && yarn --cwd ./plugins/estuary-rehype-transformers build",
     "build": "yarn run build:plugins && gatsby build",
     "develop": "yarn run build:plugins && gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
