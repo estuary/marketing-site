@@ -2,7 +2,7 @@
   "name": "estuary-rehype-transformers",
   "version": "1.0.0",
   "source": "src/index.js",
-  "main": "index.js",
+  "main": "build.js",
   "targets": {
     "main": {
       "includeNodeModules": true
