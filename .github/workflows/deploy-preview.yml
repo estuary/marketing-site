@@ -44,4 +44,4 @@ jobs:
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
           expires: 30d
           projectId: estuary-marketing
-    - run: echo ${{steps.firebase.outputs.urls}}
+      - run: echo ${{steps.firebase.outputs.urls}}
