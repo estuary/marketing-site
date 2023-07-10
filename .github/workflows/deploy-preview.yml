@@ -20,9 +20,11 @@ jobs:
         with:
           path: |
             node_modules
-          key: ${{ runner.os }}-gatsby-build-preview-${{ github.run_id }}
+            .cache
+            public
+          key: ${{ runner.os }}-gatsby-build-preview-${{github.head_ref}}-${{ github.run_id }}
           restore-keys: |
-            ${{ runner.os }}-gatsby-build-preview
+            ${{ runner.os }}-gatsby-build-preview-${{github.head_ref}}-
       - run: yarn install
       - run: yarn run patch-package
       - run: yarn run build --log-pages

@@ -25,6 +25,8 @@ jobs:
         with:
           path: |
             node_modules
+            .cache
+            public
           key: ${{ runner.os }}-gatsby-build-prod-${{ github.run_id }}
           restore-keys: |
             ${{ runner.os }}-gatsby-build-prod-
