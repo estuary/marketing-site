@@ -7,18 +7,44 @@ import "./src/normalize.css"
 // custom CSS styles
 import "./src/style.less"
 import "./src/highlighting-atom-one-dark.css"
+import { isMobile } from "react-device-detect"
 
 // Highlighting for code blocks
 // import "prismjs/themes/prism.css"
 
 import { Script, ScriptStrategy } from "gatsby"
 
+import { useSyncExternalStore } from 'react';
+
+export function useWindowDimensions() {
+    // the 3rd parameter is optional and only needed for server side rendering
+    return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+}
+
+function subscribe(callback) {
+    window.addEventListener('resize', callback);
+    return () => window.removeEventListener('resize', callback);
+}
+
+function getSnapshot() {
+    return { width: window.innerWidth, height: window.innerHeight };
+}
+
+function getServerSnapshot() {
+    return {
+        width: 0,
+        height: 0,
+    };
+}
+
 const ZD_KEY = "3271265c-16a8-4e0d-b1ab-72ed8fbe7e5a"
 
 export const wrapPageElement = ({ element }) => {
+    const dimensions = useWindowDimensions();
     if (
         process.env.NODE_ENV === "development" ||
-        (window?.innerWidth ?? 9999) < 768
+        isMobile ||
+        dimensions.width < 768
     ) {
         return element
     } else {

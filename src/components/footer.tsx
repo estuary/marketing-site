@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Link, Script } from "gatsby"
+import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import SlackIcon from "../svgs/slack-outline.svg"
 import GithubIcon from "../svgs/github-outline.svg"
@@ -10,7 +10,6 @@ import { OutboundLink } from "gatsby-plugin-google-gtag"
 const Footer = () => {
     return (
         <footer className="global-footer">
-            <Script src="https://js.hs-scripts.com/8635875.js" async defer id="hs-script-loader" />
             <div className="global-footer-wrapper">
                 <div className="global-footer-left">
                     <Link className="global-footer-logo-link" to="/">
