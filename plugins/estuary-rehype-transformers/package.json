@@ -1,0 +1,25 @@
+{
+  "name": "estuary-rehype-transformers",
+  "version": "1.0.0",
+  "source": "src/index.js",
+  "main": "index.js",
+  "targets": {
+    "main": {
+      "includeNodeModules": true
+    }
+  },
+  "type": "commonjs",
+  "scripts": {
+    "watch": "parcel watch",
+    "build": "parcel build"
+  },
+  "dependencies": {
+    "babel-preset-gatsby-package": "^3.11.0",
+    "parcel": "^2.9.3",
+    "rehype-highlight": "^6.0.0",
+    "rehype-slug": "^5.1.0",
+    "rehype-toc": "^3.0.2",
+    "unified": "^10.1.2",
+    "unist-util-visit": "^2"
+  }
+}

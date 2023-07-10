@@ -26,7 +26,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gatsby-build-preview-${{github.head_ref}}-
       - run: yarn install
-      - run: yarn run patch-package
       - run: yarn run build --log-pages
         env:
             CI: true

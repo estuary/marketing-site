@@ -82,11 +82,12 @@
     "graphql": "15.8.0"
   },
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
+    "build:plugins": "yarn --cwd ./plugins/estuary-rehype-transformers build",
+    "build": "yarn run build:plugins && gatsby build",
+    "develop": "yarn run build:plugins && gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "gatsby develop",
-    "serve": "gatsby serve",
+    "start": "yarn run build:plugins && gatsby develop",
+    "serve": "yarn run build:plugins && gatsby serve",
     "clean": "gatsby clean",
     "postinstall": "patch-package"
   }

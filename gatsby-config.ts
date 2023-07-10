@@ -6,6 +6,7 @@
 
 import { GatsbyConfig } from "gatsby"
 import { normalizeConnector } from "./src/utils"
+import path from "path"
 
 import { SUPABASE_CONNECTION_STRING } from "./config"
 
@@ -38,6 +39,49 @@ const strapiConfig = {
     // },
 }
 
+const generateRehypePlugin = (filter, source, options) => ({
+    resolve: `gatsby-transformer-rehype`,
+    options: {
+        // Condition for selecting an existing GrapghQL node (optional)
+        // If not set, the transformer operates on file nodes.
+        filter,
+        // Only needed when using filter (optional, default: node.html)
+        // Source location of the html to be transformed
+        source,
+        // Additional fields of the sourced node can be added here (optional)
+        // These fields are then available on the htmlNode on `htmlNode.context`
+        contextFields: [],
+        // Fragment mode (optional, default: true)
+        fragment: true,
+        // Space mode (optional, default: `html`)
+        space: `html`,
+        // EmitParseErrors mode (optional, default: false)
+        emitParseErrors: true,
+        // Verbose mode (optional, default: false)
+        verbose: true,
+        // Plugins configs (optional but most likely you need one)
+        plugins: [
+            {
+                resolve: `@draftbox-co/gatsby-rehype-inline-images`,
+                // all options are optional and can be omitted
+                pluginOptions: {
+                    // all images larger are scaled down to maxWidth (default: maxWidth = imageWidth)
+                    // maxWidth: 2000,
+                    // disable, if you need to save memory
+                    useImageCache: true,
+                    quality: 100,
+                },
+            },
+            {
+                // Can't use require.resolve
+                // https://www.gatsbyjs.com/docs/how-to/custom-configuration/typescript/#requireresolve
+                resolve: path.resolve("./plugins/estuary-rehype-transformers"),
+                pluginOptions: options,
+            },
+        ],
+    },
+})
+
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
@@ -60,9 +104,7 @@ const cfg: GatsbyConfig = {
             resolve: `gatsby-plugin-google-gtag`,
             options: {
                 // You can add multiple tracking ids and a pageview event will be fired for all of them.
-                trackingIds: [
-                    "G-P1PZPE4HHZ",
-                ],
+                trackingIds: ["G-P1PZPE4HHZ"],
                 // This object gets passed directly to the gtag config command
                 // This config will be shared across all trackingIds
                 gtagConfig: {
@@ -72,7 +114,7 @@ const cfg: GatsbyConfig = {
                 // This object is used for configuration specific to this plugin
                 pluginConfig: {
                     head: true,
-                    respectDNT: true
+                    respectDNT: true,
                 },
             },
         },
@@ -129,49 +171,20 @@ const cfg: GatsbyConfig = {
         `gatsby-plugin-image`,
         // `gatsby-plugin-svgr-svgo`,
         `gatsby-plugin-less`,
-        {
-            resolve: `gatsby-transformer-rehype`,
-            options: {
-                // Condition for selecting an existing GrapghQL node (optional)
-                // If not set, the transformer operates on file nodes.
-                filter: node =>
-                    node.internal.type === `STRAPI_BLOG_POST_BODY_TEXTNODE` ||
-                    node.internal.type ===
-                        `STRAPI_JOB_POSTING_DESCRIPTION_TEXTNODE`,
-                // Only needed when using filter (optional, default: node.html)
-                // Source location of the html to be transformed
-                source: node =>
-                    node.internal.type ===
-                    `STRAPI_JOB_POSTING_DESCRIPTION_TEXTNODE`
-                        ? node.Description
-                        : node.Body,
-                // Additional fields of the sourced node can be added here (optional)
-                // These fields are then available on the htmlNode on `htmlNode.context`
-                contextFields: [],
-                // Fragment mode (optional, default: true)
-                fragment: true,
-                // Space mode (optional, default: `html`)
-                space: `html`,
-                // EmitParseErrors mode (optional, default: false)
-                emitParseErrors: true,
-                // Verbose mode (optional, default: false)
-                verbose: true,
-                // Plugins configs (optional but most likely you need one)
-                plugins: [
-                    {
-                        resolve: `@draftbox-co/gatsby-rehype-inline-images`,
-                        // all options are optional and can be omitted
-                        options: {
-                            // all images larger are scaled down to maxWidth (default: maxWidth = imageWidth)
-                            // maxWidth: 2000,
-                            // disable, if you need to save memory
-                            useImageCache: true,
-                            quality: 100,
-                        },
-                    },
-                ],
-            },
-        },
+        generateRehypePlugin(
+            node => node.internal.type === `STRAPI_BLOG_POST_BODY_TEXTNODE`,
+            node => node.Body,
+            {
+                enableToc: true
+            }
+        ),
+        generateRehypePlugin(
+            node => node.internal.type === `STRAPI_JOB_POSTING_DESCRIPTION_TEXTNODE`,
+            node => node.Description,
+            {
+                enableToc: false
+            }
+        ),
         `gatsby-plugin-less`,
         {
             resolve: "gatsby-plugin-local-search",
