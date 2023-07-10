@@ -13,34 +13,17 @@ import { isMobile } from "react-device-detect"
 // import "prismjs/themes/prism.css"
 
 import { Script, ScriptStrategy } from "gatsby"
-
-import { useSyncExternalStore } from 'react';
-
-export function useWindowDimensions() {
-    // the 3rd parameter is optional and only needed for server side rendering
-    return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
-}
-
-function subscribe(callback) {
-    window.addEventListener('resize', callback);
-    return () => window.removeEventListener('resize', callback);
-}
-
-function getSnapshot() {
-    return { width: window.innerWidth, height: window.innerHeight };
-}
-
-function getServerSnapshot() {
-    return {
-        width: 0,
-        height: 0,
-    };
-}
+import { useState } from "react"
 
 const ZD_KEY = "3271265c-16a8-4e0d-b1ab-72ed8fbe7e5a"
 
 export const wrapPageElement = ({ element }) => {
-    const dimensions = useWindowDimensions();
+    const [dimensions,setDimensions] = useState({width:0,height:0})
+    React.useEffect(() => {
+        const subscriber = ()=>setDimensions({width: window.innerWidth, height: window.innerHeight})
+        window.addEventListener('load',subscriber)
+        return () => window.removeEventListener('load', subscriber)
+    }, [])
     if (
         process.env.NODE_ENV === "development" ||
         isMobile ||
