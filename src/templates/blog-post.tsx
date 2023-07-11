@@ -70,7 +70,6 @@ const BlogPostTemplate = ({ data: { previous, next, post }, pageContext }) => {
                     </section>
                 ) : null}
                 <nav className="blog-post-nav">
-                   
                         {previous && previous.slug !== post.slug && (
                             <Link to={`/${previous.slug}`} rel="prev">
                                 ← {previous.title}
