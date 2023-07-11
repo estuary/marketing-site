@@ -25,7 +25,7 @@
     "gatsby-omni-font-loader": "^2.0.2",
     "gatsby-plugin-feed": "^5.8.0",
     "gatsby-plugin-google-gtag": "^5.9.0",
-    "gatsby-plugin-image": "^3.8.0",
+    "gatsby-plugin-image": "^3.11.0",
     "gatsby-plugin-less": "^7.8.0",
     "gatsby-plugin-loadable-components-ssr": "^4.3.2",
     "gatsby-plugin-local-search": "^2.0.1",
@@ -88,7 +88,7 @@
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "yarn run build:plugins && gatsby develop",
     "serve": "yarn run build:plugins && gatsby serve",
-    "clean": "gatsby clean",
+    "clean": "rm -r plugins/estuary-rehype-transformers/.parcel-cache && gatsby clean",
     "postinstall": "patch-package"
   }
 }

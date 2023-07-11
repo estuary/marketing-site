@@ -1,0 +1,15 @@
+diff --git a/node_modules/gatsby-plugin-image/package.json b/node_modules/gatsby-plugin-image/package.json
+index 7d4912c..91bb78d 100644
+--- a/node_modules/gatsby-plugin-image/package.json
++++ b/node_modules/gatsby-plugin-image/package.json
+@@ -26,10 +26,6 @@
+   "main": "dist/gatsby-image.js",
+   "module": "dist/gatsby-image.module.js",
+   "esmodule": "dist/gatsby-image.modern.js",
+-  "browser": {
+-    "./dist/gatsby-image.js": "./dist/gatsby-image.browser.js",
+-    "./dist/gatsby-image.module.js": "./dist/gatsby-image.browser.modern.js"
+-  },
+   "files": [
+     "dist/*",
+     "gatsby-node.js",

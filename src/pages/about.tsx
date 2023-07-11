@@ -294,7 +294,6 @@ const AboutPage = () => {
                                             job.description.data
                                                 .childHtmlRehype.html
                                         }
-                                        enableToc={false}
                                     />
                                     <Link
                                         className="about-get-in-touch-button-mobile"

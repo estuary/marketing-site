@@ -10,6 +10,7 @@ const ImgSharpInline = ({ className, imgdata, alt }) => {
             image={parsed}
             alt={alt || "Blog Post Image"}
             loading="eager"
+            placeholder="none"
         />
     )
 }

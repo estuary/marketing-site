@@ -39,48 +39,18 @@ const strapiConfig = {
     // },
 }
 
-const generateRehypePlugin = (filter, source, options) => ({
-    resolve: `gatsby-transformer-rehype`,
-    options: {
-        // Condition for selecting an existing GrapghQL node (optional)
-        // If not set, the transformer operates on file nodes.
-        filter,
-        // Only needed when using filter (optional, default: node.html)
-        // Source location of the html to be transformed
-        source,
-        // Additional fields of the sourced node can be added here (optional)
-        // These fields are then available on the htmlNode on `htmlNode.context`
-        contextFields: [],
-        // Fragment mode (optional, default: true)
-        fragment: true,
-        // Space mode (optional, default: `html`)
-        space: `html`,
-        // EmitParseErrors mode (optional, default: false)
-        emitParseErrors: true,
-        // Verbose mode (optional, default: false)
-        verbose: true,
-        // Plugins configs (optional but most likely you need one)
-        plugins: [
-            {
-                resolve: `@draftbox-co/gatsby-rehype-inline-images`,
-                // all options are optional and can be omitted
-                pluginOptions: {
-                    // all images larger are scaled down to maxWidth (default: maxWidth = imageWidth)
-                    // maxWidth: 2000,
-                    // disable, if you need to save memory
-                    useImageCache: true,
-                    quality: 100,
-                },
-            },
-            {
-                // Can't use require.resolve
-                // https://www.gatsbyjs.com/docs/how-to/custom-configuration/typescript/#requireresolve
-                resolve: path.resolve("./plugins/estuary-rehype-transformers"),
-                pluginOptions: options,
-            },
-        ],
+const rehypeSelectors = {
+    [`STRAPI_BLOG_POST_BODY_TEXTNODE`]: {
+        extractor: node => node.Body,
+        pluginOpts: {
+            enableToc: true,
+        },
     },
-})
+    [`STRAPI_JOB_POSTING_DESCRIPTION_TEXTNODE`]: {
+        extractor: node => {debugger; return node.Description},
+        pluginOpts: { enableToc: false },
+    },
+}
 
 /**
  * @type {import('gatsby').GatsbyConfig}
@@ -171,20 +141,56 @@ const cfg: GatsbyConfig = {
         `gatsby-plugin-image`,
         // `gatsby-plugin-svgr-svgo`,
         `gatsby-plugin-less`,
-        generateRehypePlugin(
-            node => node.internal.type === `STRAPI_BLOG_POST_BODY_TEXTNODE`,
-            node => node.Body,
-            {
-                enableToc: true
-            }
-        ),
-        generateRehypePlugin(
-            node => node.internal.type === `STRAPI_JOB_POSTING_DESCRIPTION_TEXTNODE`,
-            node => node.Description,
-            {
-                enableToc: false
-            }
-        ),
+        {
+            resolve: `gatsby-transformer-rehype`,
+            options: {
+                // Condition for selecting an existing GrapghQL node (optional)
+                // If not set, the transformer operates on file nodes.
+                filter: node =>
+                    Object.keys(rehypeSelectors).includes(node.internal.type),
+                // Only needed when using filter (optional, default: node.html)
+                // Source location of the html to be transformed
+                source: node => rehypeSelectors[node.internal.type].extractor(node),
+                // Additional fields of the sourced node can be added here (optional)
+                // These fields are then available on the htmlNode on `htmlNode.context`
+                contextFields: [],
+                // Fragment mode (optional, default: true)
+                fragment: true,
+                // Space mode (optional, default: `html`)
+                space: `html`,
+                // EmitParseErrors mode (optional, default: false)
+                emitParseErrors: true,
+                // Verbose mode (optional, default: false)
+                verbose: true,
+                // Plugins configs (optional but most likely you need one)
+                plugins: [
+                    {
+                        resolve: `@draftbox-co/gatsby-rehype-inline-images`,
+                        // all options are optional and can be omitted
+                        pluginOptions: {
+                            // all images larger are scaled down to maxWidth (default: maxWidth = imageWidth)
+                            // maxWidth: 2000,
+                            // disable, if you need to save memory
+                            useImageCache: true,
+                            quality: 100,
+                        },
+                    },
+                    {
+                        // Can't use require.resolve
+                        // https://www.gatsbyjs.com/docs/how-to/custom-configuration/typescript/#requireresolve
+                        resolve: path.resolve(
+                            "./plugins/estuary-rehype-transformers"
+                        ),
+                        pluginOptions: Object.assign(
+                            {},
+                            ...Object.entries(rehypeSelectors).map(
+                                ([k, { pluginOpts }]) => ({ [k]: pluginOpts })
+                            )
+                        ),
+                    },
+                ],
+            },
+        },
         `gatsby-plugin-less`,
         {
             resolve: "gatsby-plugin-local-search",
