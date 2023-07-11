@@ -1333,25 +1333,33 @@ input {
 }
 
 nav.blog-post-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0;
     width: 100%;
-    li {
+
+    a {
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
-    }
-
-    a {
-        text-decoration: none;
-        @media (max-width:800px) {
-            max-width: 100%;
+        &:last-child {
+            text-overflow: "→";
         }
-        max-width: 50%;
+        @media (max-width:800px) {
+            width: 100%;
+            &:last-child {
+                text-align: right;
+                text-overflow: "→";
+            }
+        }
+        @media (min-width: 801px){
+            max-width: calc(50% - 10px);
+        }
 
         &:hover {
             text-decoration: underline;
         }
-
-        display: flex;
 
         & > :first-child {
             margin-right: 5px;

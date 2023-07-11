@@ -70,26 +70,18 @@ const BlogPostTemplate = ({ data: { previous, next, post }, pageContext }) => {
                     </section>
                 ) : null}
                 <nav className="blog-post-nav">
-                    <ul
-                        style={{
-                            display: `flex`,
-                            flexWrap: `wrap`,
-                            justifyContent: `space-between`,
-                            listStyle: `none`,
-                            padding: 0,
-                        }}
-                    >
+                   
                         {previous && previous.slug !== post.slug && (
                             <Link to={`/${previous.slug}`} rel="prev">
-                                ←<li>{previous.title}</li>
+                                ← {previous.title}
                             </Link>
                         )}
+                        <div style={{flexGrow: 1, flexBasis:20}}/>
                         {next && next.slug !== post.slug && (
                             <Link to={`/${next.slug}`} rel="next">
-                                <li>{next.title}</li>→
+                                {next.title}→
                             </Link>
                         )}
-                    </ul>
                 </nav>
             </article>
         </Layout>
@@ -213,7 +205,7 @@ export const pageQuery = graphql`
                             # aspectRatio: 2
                             formats: [AUTO, WEBP, AVIF]
                         )
-                        meta_img: fixed(width: 1200) {
+                        meta_img: fixed(width: 500) {
                             src
                         }
                         # Further below in this doc you can learn how to use these response images

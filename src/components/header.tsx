@@ -185,6 +185,7 @@ const Header = (props: { theme: "light" | "dark" }) => {
                     <button
                         onClick={() => setMobileMenuOpen(open => !open)}
                         className="global-header-mobile-menu-button"
+                        title="Menu"
                     >
                         <MenuBarsImage />
                     </button>
