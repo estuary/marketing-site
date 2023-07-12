@@ -22,6 +22,7 @@ import PricingCloud from "../svgs/pricing-cloud.svg"
 import PricingEnterprise from "../svgs/pricing-enterprise.svg"
 import GraphicQuote from "../svgs/graphic-quote.svg"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
+import Seo from "../components/seo"
 
 function gByteLabel(gb: number, maxPrec = 10) {
     const units = ["GB", "TB"]
@@ -502,6 +503,10 @@ const PricingPage = () => {
             </div>
         </Layout>
     )
+}
+
+export const Head = ({ data: { post } }) => {
+    return <Seo title={"Pricing"} description={"Managed streaming data pipelines, streaming SQL & turnkey connectivity to clouds, databases, and apps"} />
 }
 
 export default PricingPage

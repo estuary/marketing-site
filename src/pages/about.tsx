@@ -11,6 +11,7 @@ import CommunityIcon from "../svgs/about-careers-community-icon.svg"
 import LinkIcon from "../svgs/link-icon.svg"
 import HubspotForm from "react-hubspot-form"
 import { ProcessedPost } from "../components/BlogPostProcessor"
+import Seo from "../components/seo"
 
 // const jobs = [
 //     {
@@ -323,6 +324,10 @@ const AboutPage = () => {
             </div>
         </Layout>
     )
+}
+
+export const Head = () => {
+    return <Seo title={"About"} description={"Estuary helps your team get the most out of the ever-expanding list of valuable databases, warehouses, and other tools so you can focus on insights instead of pipelines."} />
 }
 
 export default AboutPage

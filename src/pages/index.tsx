@@ -24,17 +24,7 @@ const IndexPage = () => {
 }
 
 export const Head = ({ data: { post } }) => {
-    const titleQuery = useStaticQuery(graphql`
-        query SiteTitleQuery {
-            site {
-                siteMetadata {
-                    title
-                }
-            }
-        }
-    `)
-    const siteTitle = titleQuery.site.siteMetadata?.title || `Estuary`
-    return <Seo title={siteTitle} description={"Managed streaming data pipelines, streaming SQL & turnkey connectivity to clouds, databases, and apps"} />
+    return <Seo title={"Real-time ETL"} description={"Managed streaming data pipelines, streaming SQL & turnkey connectivity to clouds, databases, and apps"} />
 }
 
 export default IndexPage
