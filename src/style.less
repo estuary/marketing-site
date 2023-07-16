@@ -4352,6 +4352,12 @@ table th {
             display: flex;
             justify-content: space-between;
             align-items: stretch;
+            @media(max-width: 1199px){
+                max-width: calc(100% - 32px);
+            }
+            @media(max-width: 575px){
+                flex-direction: column;
+            }
         }
         .hero-left {
             max-width: 700px;

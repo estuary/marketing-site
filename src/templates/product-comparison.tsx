@@ -45,8 +45,7 @@ const ComparisonPageTemplate = ({
                         <div className="hero-left">
                             <div className="hero-heading">
                                 Estuary Flow
-                                <br /> vs
-                                <br />
+                                <br /> vs <br />
                                 {competitorName}
                             </div>
                         </div>
