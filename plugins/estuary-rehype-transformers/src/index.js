@@ -32,6 +32,17 @@ const transform = async ({ htmlAst, htmlNode, getNode }, opts) => {
                     return [visit.SKIP, idx]
                 }
 
+                // Clear out unneccesary "&nbsp"s inside <li>s
+                if(
+                    node.type === "text" &&
+                    node.value.trim().length === 0 &&
+                    parent.type === "element" &&
+                    parent.tagName === "li"
+                ) {
+                    parent.children.splice(idx, 1)
+                    // Do not traverse `node`, continue at the node *now* at `idx`.
+                    return [visit.SKIP, idx]                   
+                }
                 // Apply correct language tag classes to syntax blocks
                 if (
                     node.type === "element" &&
