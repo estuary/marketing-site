@@ -139,6 +139,7 @@ export const Connectors = ({
     const mappedConnectors = useMemo(
         () =>
             postgres.allConnectors.nodes
+                .filter(connector=>connector?.connectorTagsByConnectorIdList?.length > 0)
                 .map(normalizeConnector)
                 .filter(connector =>
                     connectorType ? connector.type === connectorType : true

@@ -52,8 +52,12 @@ export const ConnectorsLink = ({
         }
     `)
     const [captureConnectors, materializationConnectors] = useMemo(() => {
-        let mapped: ReturnType<typeof normalizeConnector>[] =
-            connectors.map(normalizeConnector)
+        let mapped: ReturnType<typeof normalizeConnector>[] = connectors
+            .filter(
+                connector =>
+                    connector?.connectorTagsByConnectorIdList?.length > 0
+            )
+            .map(normalizeConnector)
 
         return [
             mapped.filter(connector => connector.type === "capture"),
