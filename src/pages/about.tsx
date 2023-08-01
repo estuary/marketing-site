@@ -71,7 +71,7 @@ import { OutboundLink } from "gatsby-plugin-google-gtag"
 // ]
 // export const pageQuery = graphql`
 //   query {
-    
+
 //   }
 // `
 const AboutPage = () => {
@@ -120,7 +120,7 @@ const AboutPage = () => {
                             data integration solutions.
                         </h1>
                         <p className="about-section-one-text">
-                            We’re creating a new kind of DataOps platform that{" "}
+                            We're creating a new kind of DataOps platform that{" "}
                             <span className="about-text-bold">
                                 empowers engineering teams
                             </span>{" "}
@@ -144,8 +144,10 @@ const AboutPage = () => {
                             and an ecosystem of open-source connectors. We’re
                             passionate about providing data integration tools
                             for users across a spectrum of use-cases,
-                            industries, and budgets. You can read more about our
-                            story <Link to="/the-estuary-story-and-guiding-principles/">here.</Link>
+                            industries, and budgets. You can read more about{" "}
+                            <Link to="/the-estuary-story-and-guiding-principles/">
+                                our story here.
+                            </Link>
                         </p>
                     </div>
                     <div className="product-flow-section-one-right">
@@ -156,33 +158,58 @@ const AboutPage = () => {
             <section className="about-history">
                 <div className="history-wrap">
                     <div className="history-left">
-                        <div className="image-heading">9 years of real-time innovation</div>
+                        <div className="image-heading">
+                            9 years of real-time innovation
+                        </div>
                         <div className="image-wrap">
-                        <StaticImage
-                            placeholder="none"
-                            alt="Estuary history"
-                            loading="lazy"
-                            src="../images/timeline-img.png"
-                            layout="constrained"
-                            width={508}
-                            height={526}
-                            quality={100}
-                        />
+                            <StaticImage
+                                placeholder="none"
+                                alt="Estuary history"
+                                loading="lazy"
+                                src="../images/timeline-img.png"
+                                layout="constrained"
+                                width={508}
+                                height={526}
+                                quality={100}
+                            />
                         </div>
                     </div>
                     <div className="history-right">
-                        <p className="product-flow-section-two-header-small">about us</p>
+                        <p className="product-flow-section-two-header-small">
+                            about us
+                        </p>
                         <h2 className="about-section-header-top">History</h2>
-                        <p>We didn't start at trying to make real-time data flows more accessible by abstracting away the low-level work… it is just what happened.</p>
-                        <p>Our team researched streaming frameworks while working with billions of daily events, and ultimately realized that we'd have to build our own (<a href='https://gazette.readthedocs.io/en/latest/'>Gazette</a>) to have a scalable distributed streaming framework that is built with kappa architectures in mind, required less continuous resource management, and could unify both our batch and real-time pipelines.</p>
-                        <p>We've been innovating to make real-time data more accessible to all ever since.</p>
+                        <p>
+                            We didn't start at trying to make real-time data
+                            flows more accessible by abstracting away the
+                            low-level work… it is just what happened.
+                        </p>
+                        <p>
+                            Our team researched streaming frameworks while
+                            working with billions of daily events, and
+                            ultimately realized that we'd have to build our own
+                            (
+                            <a href="https://gazette.readthedocs.io/en/latest/">
+                                Gazette
+                            </a>
+                            ) to have a scalable distributed streaming framework
+                            that is built with kappa architectures in mind,
+                            required less continuous resource management, and
+                            could unify both our batch and real-time pipelines.
+                        </p>
+                        <p>
+                            We've been innovating to make real-time data more
+                            accessible to all ever since.
+                        </p>
                     </div>
                 </div>
             </section>
             <section className="about-media">
-                <p className="product-flow-section-two-header-small">what’s happening</p>
+                <p className="product-flow-section-two-header-small">
+                    what’s happening
+                </p>
                 <h2 className="about-section-header-top">In the Media</h2>
-                <FlowLogo className="media-logo"/>
+                <FlowLogo className="media-logo" />
                 <div className="media-wrap">
                     <div className="media-item">
                         <StaticImage
@@ -204,7 +231,11 @@ const AboutPage = () => {
                                 Data Engineering Podcast
                             </OutboundLink>
                         </div>
-                        <div className="item-description">Johnny, Dave, and Tobias discuss why we built Gazette, the growth of streaming, and the rise of the real-time data lake.</div>
+                        <div className="item-description">
+                            Johnny, Dave, and Tobias discuss why we built
+                            Gazette, the growth of streaming, and the rise of
+                            the real-time data lake.
+                        </div>
                     </div>
                     <div className="media-item">
                         <StaticImage
@@ -226,7 +257,11 @@ const AboutPage = () => {
                                 FirstMark invests in Estuary
                             </OutboundLink>
                         </div>
-                        <div className="item-description">Matt Turck of FirstMark announces their $7 million Series A investment in Estuary to simplify streaming + batch unification.</div>
+                        <div className="item-description">
+                            Matt Turck of FirstMark announces their $7 million
+                            Series A investment in Estuary to simplify streaming
+                            + batch unification.
+                        </div>
                     </div>
                     <div className="media-item">
                         <StaticImage
@@ -248,12 +283,18 @@ const AboutPage = () => {
                                 Real-Time Data Landscape
                             </OutboundLink>
                         </div>
-                        <div className="item-description">LinkedIn post from our Founder Dave Yaffe where he (and 50+ others) chart out the evolving ecosystem of real-time data integration players</div>
+                        <div className="item-description">
+                            LinkedIn post from our Founder Dave Yaffe where he
+                            (and 50+ others) chart out the evolving ecosystem of
+                            real-time data integration players
+                        </div>
                     </div>
                 </div>
             </section>
             <section className="meet-the-team">
-                <p className="product-flow-section-two-header-small">say hello</p>
+                <p className="product-flow-section-two-header-small">
+                    say hello
+                </p>
                 <h2 className="about-section-header-top">Meet Our Team</h2>
                 <div className="team-wrap">
                     <div className="team-item">
@@ -345,14 +386,14 @@ const AboutPage = () => {
                             placeholder="none"
                             alt="Olivia Lannone"
                             loading="lazy"
-                            src="../images/team/user-placeholder.png"
+                            src="../images/team/travis-jenkins.png"
                             layout="constrained"
                             width={180}
                             height={180}
                             quality={100}
                         />
-                        <div className="item-name">Olivia Lannone</div>
-                        <div className="item-position">Managing Editor</div>
+                        <div className="item-name">Travis Jenkins</div>
+                        <div className="item-position">Front-End Engineer</div>
                     </div>
                     <div className="team-item">
                         <StaticImage
@@ -559,13 +600,13 @@ const AboutPage = () => {
                     <div className="about-current-openings-list">
                         {jobs.length > 0
                             ? jobs.map(job => (
-                                <Link
-                                    to={`#${job.slug}`}
-                                    className="about-current-opening-title"
-                                >
-                                    {job.title}
-                                </Link>
-                            ))
+                                  <Link
+                                      to={`#${job.slug}`}
+                                      className="about-current-opening-title"
+                                  >
+                                      {job.title}
+                                  </Link>
+                              ))
                             : null}
                         <Link
                             className="about-get-in-touch-button"
@@ -577,38 +618,38 @@ const AboutPage = () => {
                     <div className="about-current-openings-description-wrapper">
                         {jobs.length > 0
                             ? jobs.map(job => (
-                                <div id={job.slug}>
-                                    <div className="about-current-openings-title-wrapper">
-                                        <p className="about-opening-title">
-                                            {job.title}
-                                        </p>
-                                        <Link
-                                            to={`#${job.slug}`}
-                                            className="about-link"
-                                        >
-                                            <LinkIcon />
-                                        </Link>
-                                    </div>
-                                    <div className="about-current-openings-location-wrapper">
-                                        <p className="about-opening-text">
-                                            Location: <b>{job.location}</b>
-                                        </p>
-                                    </div>
-                                    <ProcessedPost
-                                        body={
-                                            job.description.data
-                                                .childHtmlRehype.html
-                                        }
-                                    />
-                                    <Link
-                                        className="about-get-in-touch-button-mobile"
-                                        to="mailto:careers@estuary.dev"
-                                    >
-                                        Get in touch to apply
-                                    </Link>
-                                    <div className="current-openings-divider"></div>
-                                </div>
-                            ))
+                                  <div id={job.slug}>
+                                      <div className="about-current-openings-title-wrapper">
+                                          <p className="about-opening-title">
+                                              {job.title}
+                                          </p>
+                                          <Link
+                                              to={`#${job.slug}`}
+                                              className="about-link"
+                                          >
+                                              <LinkIcon />
+                                          </Link>
+                                      </div>
+                                      <div className="about-current-openings-location-wrapper">
+                                          <p className="about-opening-text">
+                                              Location: <b>{job.location}</b>
+                                          </p>
+                                      </div>
+                                      <ProcessedPost
+                                          body={
+                                              job.description.data
+                                                  .childHtmlRehype.html
+                                          }
+                                      />
+                                      <Link
+                                          className="about-get-in-touch-button-mobile"
+                                          to="mailto:careers@estuary.dev"
+                                      >
+                                          Get in touch to apply
+                                      </Link>
+                                      <div className="current-openings-divider"></div>
+                                  </div>
+                              ))
                             : null}
                     </div>
                 </div>
@@ -631,7 +672,14 @@ const AboutPage = () => {
 }
 
 export const Head = () => {
-    return <Seo title={"About"} description={"Estuary helps your team get the most out of the ever-expanding list of valuable databases, warehouses, and other tools so you can focus on insights instead of pipelines."} />
+    return (
+        <Seo
+            title={"About"}
+            description={
+                "Estuary helps your team get the most out of the ever-expanding list of valuable databases, warehouses, and other tools so you can focus on insights instead of pipelines."
+            }
+        />
+    )
 }
 
 export default AboutPage
