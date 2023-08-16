@@ -3,6 +3,7 @@ import ColoredLogo from "../svgs/colored-logo.svg"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
+import { calculateDataPrice, calculateTaskPrice, currencyFormatter } from "./pricing"
 
 export const Step0 = ({ activePage, setState }) => {
     return (
@@ -155,7 +156,7 @@ export const Step4 = ({ activePage, setState }) => {
                         Your Data 'Collections'
                     </div>
                     <div className="tooltip-description">
-                        Flow stores data from your extracts as collections:
+                        Flow stores data from your captures as collections:
                         groups of cleaned, de-duped, and validated, JSON files
                         in your cloud storage. Both your real-time and
                         historical data live here.
@@ -235,8 +236,9 @@ export const Step7 = ({ activePage }) => {
             <div className="step-content">
                 <div className="step-heading">Predictable Pricing</div>
                 <ul>
-                    <li>$1.00/GB of change data</li>
-                    <li>Free 10GB/mo</li>
+                    <li><b>{currencyFormatter.format(calculateDataPrice(1))}</b>/GB</li>
+                    <li><b>{currencyFormatter.format(calculateTaskPrice(1))}</b>/task month</li>
+                    <li>Free for up to two tasks and 10 GB/month</li>
                 </ul>
                 <div className="step-ctas">
                     <OutboundLink
