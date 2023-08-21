@@ -124,16 +124,8 @@ const AboutPage = () => {
                             <span className="about-text-bold">
                                 empowers engineering teams
                             </span>{" "}
-                            to build real-time, data-intensive applications at
-                            scale with minimal friction. This platform{" "}
-                            <span className="about-text-bold">unifies</span> a
-                            team’s databases, pub/sub systems, and SaaS around
-                            their data,{" "}
-                            <span className="about-text-bold">
-                                without requiring new investments in
-                                infrastructure
-                            </span>{" "}
-                            or development.
+                            to build real-time, data-intensive pipelines and applications at
+                            scale, with minimal friction, in a UI or CLI. We aim to make real-time data accessible to the analyst, while bringing power tooling to the streaming enthusiast. Flow <span className="about-text-bold">unifies</span> a team's databases, pub/sub systems, and SaaS around their data, <span className="about-text-bold">without requiring new investments in infrastructure</span> or development.
                         </p>
                         <p className="about-section-one-text about-section-margin-bottom">
                             Estuary{" "}
@@ -141,10 +133,7 @@ const AboutPage = () => {
                                 develops in the open
                             </span>{" "}
                             to produce both the runtime for our managed service
-                            and an ecosystem of open-source connectors. We’re
-                            passionate about providing data integration tools
-                            for users across a spectrum of use-cases,
-                            industries, and budgets. You can read more about{" "}
+                            and an ecosystem of open-source connectors. You can read more about{" "}
                             <Link to="/the-estuary-story-and-guiding-principles/">
                                 our story here.
                             </Link>
@@ -351,7 +340,7 @@ const AboutPage = () => {
                             quality={100}
                         />
                         <div className="item-name">Kiahna Tucker</div>
-                        <div className="item-position">Engineer</div>
+                        <div className="item-position">Front-End Engineer</div>
                     </div>
                     <div className="team-item">
                         <StaticImage
@@ -365,21 +354,21 @@ const AboutPage = () => {
                             quality={100}
                         />
                         <div className="item-name">Mahdi Dibaiee</div>
-                        <div className="item-position">Engineer</div>
+                        <div className="item-position">Senior Software Engineer</div>
                     </div>
                     <div className="team-item">
                         <StaticImage
                             placeholder="none"
-                            alt="Jenny Man"
+                            alt="Andrew Gale"
                             loading="lazy"
-                            src="../images/team/jenny-man.png"
+                            src="../images/team/andrew-gale.png"
                             layout="constrained"
                             width={180}
                             height={180}
                             quality={100}
                         />
-                        <div className="item-name">Jenny Man</div>
-                        <div className="item-position">Developer Relations</div>
+                        <div className="item-name">Andrew Gale</div>
+                        <div className="item-position">Account Executive</div>
                     </div>
                     <div className="team-item">
                         <StaticImage
@@ -407,7 +396,7 @@ const AboutPage = () => {
                             quality={100}
                         />
                         <div className="item-name">Will Donnellye</div>
-                        <div className="item-position">Engineer</div>
+                        <div className="item-position">Senior Software Engineer</div>
                     </div>
                     <div className="team-item">
                         <StaticImage
@@ -421,7 +410,7 @@ const AboutPage = () => {
                             quality={100}
                         />
                         <div className="item-name">Will Baker</div>
-                        <div className="item-position">Engineer</div>
+                        <div className="item-position">Senior Software Engineer</div>
                     </div>
                     <div className="team-item">
                         <StaticImage
@@ -435,7 +424,7 @@ const AboutPage = () => {
                             quality={100}
                         />
                         <div className="item-name">Samantha Jacobus</div>
-                        <div className="item-position">Title</div>
+                        <div className="item-position">Chief Of Staff</div>
                     </div>
                     <div className="team-item">
                         <StaticImage
@@ -449,7 +438,7 @@ const AboutPage = () => {
                             quality={100}
                         />
                         <div className="item-name">Joseph Shearer</div>
-                        <div className="item-position">Title</div>
+                        <div className="item-position">Senior Software Engineer</div>
                     </div>
                     <div className="team-item">
                         <StaticImage
@@ -463,7 +452,7 @@ const AboutPage = () => {
                             quality={100}
                         />
                         <div className="item-name">Mike Danko</div>
-                        <div className="item-position">Engineer</div>
+                        <div className="item-position">Cloud Infrastructure</div>
                     </div>
                 </div>
             </section>
