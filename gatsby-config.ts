@@ -375,6 +375,13 @@ const cfg: GatsbyConfig = {
             },
         },
         {
+            resolve: `gatsby-plugin-hotjar`,
+            options: {
+            id: 3439470,
+            sv: 6,
+            },
+        },
+        {
             resolve: "gatsby-source-pg",
             options: {
                 connectionString: SUPABASE_CONNECTION_STRING,
