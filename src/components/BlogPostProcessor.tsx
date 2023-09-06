@@ -3,36 +3,41 @@ import * as React from "react"
 // import rehypeParse from "rehype-parse"
 // import rehypeReact from "rehype-react"
 // import ImgSharpInline from "../../plugins/estuary-rehype-transformers/src/ImgSharp"
-import { StaticImage } from "gatsby-plugin-image"
+import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
 
 export const ProcessedPost = ({
-    body
+    body,
+    popularArticles
 }: {
     body: string,
+    popularArticles: any
 }) => {
-    // return (JSON.stringify(body,null,4))
-    const parser = new DOMParser();
-    const html = parser.parseFromString(body, 'text/html');
     const navArray = []
     let h2Index = 0
-    html.querySelectorAll("h2, h3").forEach((item, index)=>{
+    // return (JSON.stringify(body,null,4))
+    if (typeof window !== 'undefined') {
+        const parser = new DOMParser();
+        const html = parser.parseFromString(body, 'text/html');
+        html.querySelectorAll("h2, h3").forEach((item, index) => {
+            console.log('item&&& ', item)
             index !== 0 &&
-            navArray.push({
-                itemTag: item.tagName,
-                itemLink: item.id,
-                itemName: item.innerText,
-            }) 
-    })
+                navArray.push({
+                    itemTag: item.tagName,
+                    itemLink: item.id,
+                    itemName: item.innerText,
+                })
+        })
+    }
     return (
-        <section className="blog-post-content">
+        <>
             <div className="post-sidebar">
                 <div className="table-of-contents">
                     <h3>Table of Contents</h3>
                     <ul>
-                        {navArray.map((item, index)=>{
-                            item.itemTag !== 'H3' && h2Index ++
-                            return(
+                        {navArray.map((item, index) => {
+                            item.itemTag !== 'H3' && h2Index++
+                            return (
                                 <li key={index} className={item.itemTag === 'H3' ? 'sub-item' : ''}>
                                     <Link to={`#${item.itemLink}`}><span>{item.itemTag !== 'H3' && h2Index}</span> {item.itemName}</Link>
                                 </li>
@@ -43,20 +48,25 @@ export const ProcessedPost = ({
                 <div className="popular-articles">
                     <h3>Popular Articles</h3>
                     <ul>
-                        <li>
-                            <StaticImage
-                                quality={90}
-                                placeholder="none"
-                                alt="debezium alternatives"
-                                src="../images/popular-articles/debezium_alternatives_cover_image_748007bac5.avif"
-                                width={48}
-                                height={48}
-                                layout="fixed"
-                                className="icon-image"
-                            />
-                            <Link to="/debezium-alternatives">Why you should re-consider Debezium: Challenges & Alts</Link>
-                        </li>
-                        <li>
+                        {popularArticles.nodes &&
+                            popularArticles.nodes.map((article: any, index: number) => (
+                                <>
+                                    {console.log('first', article?.hero?.localFile?.childImageSharp?.gatsbyImageData.images.fallback.src)}
+                                    <li key={index}>
+                                        <GatsbyImage
+                                            image={article?.hero?.localFile?.childImageSharp?.gatsbyImageData}
+                                            layout='fixed'
+                                            width={48}
+                                            height={48}
+                                            alt="debezium alternatives"
+                                            className="icon-image"
+                                        />
+                                        <Link to={article?.slug}>{article?.title}</Link>
+                                    </li>
+                                </>
+                            ))
+                        }
+                        {/* <li>
                             <StaticImage
                                 quality={90}
                                 placeholder="none"
@@ -68,33 +78,8 @@ export const ProcessedPost = ({
                                 className="icon-image"
                             />
                             <Link to="/guide-change-data-capture-sql-server">Guide to SQL Server CDC</Link>
-                        </li>
-                        <li>
-                            <StaticImage
-                                quality={90}
-                                placeholder="none"
-                                alt="The Real-time Data Landscape"
-                                src="../images/popular-articles/16eed6_Real_time_Data_Landscape_3_78206a6d80.avif"
-                                width={48}
-                                height={48}
-                                layout="fixed"
-                                className="icon-image"
-                            />
-                            <Link to="/the-real-time-data-landscape">The Real-time Data Landscape</Link>
-                        </li>
-                        <li>
-                            <StaticImage
-                                quality={90}
-                                placeholder="none"
-                                alt="Don't Use Kafka as a Data Lake"
-                                src="../images/popular-articles/c5ca61_kafka_as_data_lake_a361174828.avif"
-                                width={48}
-                                height={48}
-                                layout="fixed"
-                                className="icon-image"
-                            />
-                            <Link to="/kafka-as-data-lake">Don't Use Kafka as a Data Lake, Do this instead</Link>
-                        </li>
+                        </li> */}
+
                     </ul>
                 </div>
                 <div className="sidebar-cta">
@@ -102,7 +87,6 @@ export const ProcessedPost = ({
                     <Link to="https://dashboard.estuary.dev/register" className="pipeline-link">Build a Pipeline</Link>
                 </div>
             </div>
-            <div className="post-content" dangerouslySetInnerHTML={{__html: body}} />
-        </section>
+        </>
     )
 }

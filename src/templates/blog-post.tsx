@@ -14,7 +14,7 @@ import logoUrl from "../images/combination-mark__multi-blue.png"
 
 dayjs.extend(reltime)
 
-const BlogPostTemplate = ({ data: { previous, next, post }, pageContext }) => {
+const BlogPostTemplate = ({ data: { previous, next, post, popularArticles }, pageContext }) => {
     const postTags = post.tags.filter(tag => tag.type === "tag")
     return (
         <Layout headerTheme="light">
@@ -29,7 +29,7 @@ const BlogPostTemplate = ({ data: { previous, next, post }, pageContext }) => {
                             <section className="tags-wrap">
                                 {postTags.map(tag => {
                                     return (
-                                        <span class="blog-tag">{tag.name}</span>
+                                        <span className="blog-tag">{tag.name}</span>
                                     )
                                 })}
                             </section>
@@ -56,25 +56,37 @@ const BlogPostTemplate = ({ data: { previous, next, post }, pageContext }) => {
                     </div>
                 </header>
                 <div className="post-description">{post && post.description}</div>
-                    {post.body && (
+                {post.body && (
+                    <section className="blog-post-content">
+
                         <ProcessedPost
                             body={post.body.data.childHtmlRehype.html}
+                            popularArticles={popularArticles}
                         />
-                    )}
-                <nav className="blog-post-nav">
-                    {previous && previous.slug !== post.slug && (
-                        <Link to={`/${previous.slug}`} rel="prev">
-                            ← {previous.title}
-                        </Link>
-                    )}
-                    <div style={{ flexGrow: 1, flexBasis: 20 }} />
-                    {next && next.slug !== post.slug && (
-                        <Link to={`/${next.slug}`} rel="next">
-                            {next.title}→
-                        </Link>
-                    )}
-                </nav>
-                <div className="popular-articles mobile-only">
+                        <div className="post-content">
+                            <div dangerouslySetInnerHTML={{ __html: post.body.data.childHtmlRehype.html }} />
+                            <hr />
+                            <nav className="blog-post-nav">
+                                {previous && previous.slug !== post.slug && (
+                                    <Link to={`/${previous.slug}`} rel="prev">
+                                        ← {previous.title}
+                                    </Link>
+                                )}
+                                <div style={{ flexBasis: 20 }} />
+                                {next && next.slug !== post.slug && (
+                                    <Link to={`/${next.slug}`} rel="next">
+                                        {next.title} →
+                                    </Link>
+                                )}
+                            </nav>
+                        </div>
+                    </section >
+                )}
+
+
+                {/* To Do */}
+
+                {/* <div className="popular-articles mobile-only">
                     <h3>Popular Articles</h3>
                     <ul>
                         <li>
@@ -130,7 +142,7 @@ const BlogPostTemplate = ({ data: { previous, next, post }, pageContext }) => {
                             <Link to="/kafka-as-data-lake">Don't Use Kafka as a Data Lake, Do this instead</Link>
                         </li>
                     </ul>
-                </div>
+                </div> */}
                 <div className="sidebar-cta mobile-only">
                     <h3>Start streaming your data for free</h3>
                     <Link to="https://dashboard.estuary.dev/register" className="pipeline-link">Build a Pipeline</Link>
@@ -267,6 +279,37 @@ export const pageQuery = graphql`
             tags: tags {
                 name: Name
                 type: Type
+            }
+        }
+        popularArticles:  allStrapiBlogPost(
+            sort: { publishedAt: DESC }
+            filter: {tags: {elemMatch: {Name: {eq: "Popular" }}}}
+        ) {
+            nodes {
+                updatedAt
+                slug: Slug
+                id
+                hero: Hero {
+                    localFile {
+                        childImageSharp {
+                            gatsbyImageData(
+                                layout: CONSTRAINED
+                                width: 400
+                                placeholder: BLURRED
+                                aspectRatio: 1.7
+                                formats: [AUTO, WEBP, AVIF]
+                            )
+                            # Further below in this doc you can learn how to use these response images
+                        }
+                    }
+                }
+                title: Title
+                tags {
+                    Name
+                    Slug
+                    Type
+                    IsTab
+                }
             }
         }
         previous: strapiBlogPost(id: { eq: $previousPostId }) {
