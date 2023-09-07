@@ -247,7 +247,7 @@ export const pageQuery = graphql`
         }
         popularArticles:  allStrapiBlogPost(
             sort: { publishedAt: DESC }
-            filter: {tags: {elemMatch: {Name: {eq: "Popular" }}}}
+            filter: {tags: {elemMatch: {Name: {eq: "popular" }}}}
         ) {
             nodes {
                 updatedAt
