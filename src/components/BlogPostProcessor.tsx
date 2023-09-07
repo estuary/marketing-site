@@ -44,10 +44,11 @@ export const ProcessedPost = ({
                         })}
                     </ul>
                 </div>
+                        {/* Popular Articles */}
                 <div className="popular-articles">
-
                     <PopularArticles popularArticles={popularArticles} />
                 </div>
+
                 <div className="sidebar-cta">
                     <h3>Start streaming your data for free</h3>
                     <Link to="https://dashboard.estuary.dev/register" className="pipeline-link">Build a Pipeline</Link>
