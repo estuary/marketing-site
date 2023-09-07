@@ -20,12 +20,14 @@ export const ProcessedPost = ({
         const parser = new DOMParser();
         const html = parser.parseFromString(body, 'text/html');
         html.querySelectorAll("h2, h3").forEach((item, index) => {
-            index !== 0 &&
-                navArray.push({
-                    itemTag: item.tagName,
-                    itemLink: item.id,
-                    itemName: item.innerText,
-                })
+            if (item instanceof HTMLElement) {
+                index !== 0 &&
+                    navArray.push({
+                        itemTag: item.tagName,
+                        itemLink: item.id,
+                        itemName: item.innerText,
+                    })
+            }
         })
     }
     return (
@@ -44,7 +46,7 @@ export const ProcessedPost = ({
                         })}
                     </ul>
                 </div>
-                        {/* Popular Articles */}
+                {/* Popular Articles */}
                 <div className="popular-articles">
                     <PopularArticles popularArticles={popularArticles} />
                 </div>
