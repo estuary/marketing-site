@@ -59,7 +59,7 @@ export const ProcessedPost = ({
                                             width={48}
                                             height={48}
                                             alt="debezium alternatives"
-                                            className="icon-image"
+                                            className="icon-image popular-articles-image"
                                         />
                                         <Link to={article?.slug}>{article?.title}</Link>
                                     </li>
