@@ -367,6 +367,13 @@ const cfg: GatsbyConfig = {
             },
         },
         {
+            resolve: `gatsby-plugin-hotjar`,
+            options: {
+                id: 3439470,
+                sv: 6,
+            },
+        },
+        {
             resolve: "gatsby-plugin-react-svg",
             options: {
                 rule: {
