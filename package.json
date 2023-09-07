@@ -25,6 +25,7 @@
     "gatsby-omni-font-loader": "^2.0.2",
     "gatsby-plugin-feed": "^5.8.0",
     "gatsby-plugin-google-gtag": "^5.9.0",
+    "gatsby-plugin-hotjar": "^1.1.1",
     "gatsby-plugin-image": "^3.11.0",
     "gatsby-plugin-less": "^7.8.0",
     "gatsby-plugin-loadable-components-ssr": "^4.3.2",
