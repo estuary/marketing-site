@@ -3,8 +3,8 @@ import * as React from "react"
 // import rehypeParse from "rehype-parse"
 // import rehypeReact from "rehype-react"
 // import ImgSharpInline from "../../plugins/estuary-rehype-transformers/src/ImgSharp"
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
+import { PopularArticles } from "./BlogPopularArticles"
 
 export const ProcessedPost = ({
     body,
@@ -20,7 +20,6 @@ export const ProcessedPost = ({
         const parser = new DOMParser();
         const html = parser.parseFromString(body, 'text/html');
         html.querySelectorAll("h2, h3").forEach((item, index) => {
-            console.log('item&&& ', item)
             index !== 0 &&
                 navArray.push({
                     itemTag: item.tagName,
@@ -35,7 +34,7 @@ export const ProcessedPost = ({
                 <div className="table-of-contents">
                     <h3>Table of Contents</h3>
                     <ul>
-                        {navArray.map((item, index) => {
+                        {navArray?.map((item, index) => {
                             item.itemTag !== 'H3' && h2Index++
                             return (
                                 <li key={index} className={item.itemTag === 'H3' ? 'sub-item' : ''}>
@@ -46,41 +45,8 @@ export const ProcessedPost = ({
                     </ul>
                 </div>
                 <div className="popular-articles">
-                    <h3>Popular Articles</h3>
-                    <ul>
-                        {popularArticles.nodes &&
-                            popularArticles.nodes.map((article: any, index: number) => (
-                                <>
-                                    {console.log('first', article?.hero?.localFile?.childImageSharp?.gatsbyImageData.images.fallback.src)}
-                                    <li key={index}>
-                                        <GatsbyImage
-                                            image={article?.hero?.localFile?.childImageSharp?.gatsbyImageData}
-                                            layout='fixed'
-                                            width={48}
-                                            height={48}
-                                            alt="debezium alternatives"
-                                            className="icon-image popular-articles-image"
-                                        />
-                                        <Link to={article?.slug}>{article?.title}</Link>
-                                    </li>
-                                </>
-                            ))
-                        }
-                        {/* <li>
-                            <StaticImage
-                                quality={90}
-                                placeholder="none"
-                                alt="Guide to SQL Server CDC"
-                                src="../images/popular-articles/eccbd3_sql_server_cdc_8a24e6c7c2.avif"
-                                width={48}
-                                height={48}
-                                layout="fixed"
-                                className="icon-image"
-                            />
-                            <Link to="/guide-change-data-capture-sql-server">Guide to SQL Server CDC</Link>
-                        </li> */}
 
-                    </ul>
+                    <PopularArticles popularArticles={popularArticles} />
                 </div>
                 <div className="sidebar-cta">
                     <h3>Start streaming your data for free</h3>
