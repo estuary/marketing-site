@@ -503,10 +503,7 @@ input {
     text-decoration: none;
     border-radius: 4px;
     padding: 10px 10px;
-    @media (min-width: 811px) {
-        flex-grow: 1;
-    }
-    min-width: 100px;
+    width: 290px;
     height: 60px;
     text-align: center;
     line-height: 40px;
@@ -515,27 +512,6 @@ input {
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
-}
-
-.section-one-tour-button {
-    border: 2px solid #5072eb;
-    color: #ffffff;
-    text-decoration: none;
-    border-radius: 4px;
-    padding: 10px 10px;
-    flex-grow: 1;
-    min-width: 100px;
-    height: 60px;
-    text-align: center;
-    line-height: 40px;
-    margin-top: 8px;
-    font-family: "Inter", sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    @media (max-width: 810px) {
-        display: none;
-    }
 }
 
 .section-one-right {
@@ -4798,6 +4774,10 @@ table th {
         @media (max-width: 1199px) {
             display: none;
         }
+        @media(max-height: 900px){
+            height: auto;
+            padding-top: 31px;
+        }
         .sidebar-logo {
             h1 {
                 color: #fff;
@@ -4813,6 +4793,9 @@ table th {
                 line-height: normal;
                 padding: 15px 0;
                 cursor: pointer;
+                @media(max-height: 900px){
+                    padding-top: 0;
+                }
                 &.active,
                 &:hover {
                     color: #fff;
@@ -4850,6 +4833,10 @@ table th {
             bottom: 50px;
             left: 0;
             width: 100%;
+            @media(max-height: 900px){
+                position: unset;
+                margin-top: 50px;
+            }
             .pipeline-link {
                 max-width: 195px;
                 margin-left: auto;
@@ -4882,14 +4869,15 @@ table th {
         background: url(./images/product-demo-background.png) no-repeat top
             center / cover;
         width: 100%;
-        padding: 132px calc((100% - 1180px - 340px) / 2);
+        padding: 66px calc((100% - 1180px - 340px) / 2);
         @media (max-width: 1560px) and (min-width: 1200px) {
             padding: 132px 32px;
         }
         @media (max-width: 1119px) {
             padding: 65px 32px;
         }
-        @media (min-height: 815px) {
+        @media (min-height: 900px) {
+            padding: 132px calc((100% - 1180px - 340px) / 2);
             height: 100vh;
             display: flex;
             align-items: center;
@@ -5268,6 +5256,18 @@ table th {
     }
     .step-3 {
         position: relative;
+        .zoom-in-out-circle {
+            right: 520px;
+            top: 235px;
+            @media(max-width: 1280px){
+                top: 40%;
+                right: 355px;
+            }
+            @media (max-width: 1024px) {
+                top: 40%;
+                right: 375px;
+            }
+        }
         .button-tooltip {
             top: 235px;
             right: 165px;
@@ -5385,12 +5385,12 @@ table th {
             margin-right: auto;
             li {
                 color: #fff;
-                text-align: left;
+                text-align: center;
                 font-family: "Roboto", sans-serif;
                 font-size: 25px;
                 font-style: normal;
                 font-weight: 400;
-                line-height: 20px;
+                line-height: 42px;
                 @media (max-width: 1360px) and (min-width: 1200px) {
                     font-size: 18px;
                 }

@@ -1,7 +1,13 @@
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import React from "react"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import { normalizeConnector } from "../utils"
+import FlowLogo from "../svgs/flow-logo.svg"
+import ColoredLogo from "../svgs/colored-logo.svg"
+import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
+import { ConnectorsLink } from "../components/ConnectorsLink"
+import BackgroundImageWrapper from "../components/BackgroundImageWrapper"
 import { ConnectorPage } from "../components/ConnectorPage"
 
 export interface ConnectorProps {

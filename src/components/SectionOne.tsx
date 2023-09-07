@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Link } from "gatsby"
-import { isDesktop, isMobile } from "react-device-detect"
+import { isMobile } from "react-device-detect"
 import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 import type { LottieRef } from "lottie-react"
@@ -114,23 +114,13 @@ const SectionOne = () => {
                             Managed CDC and Real-time ETL pipelines with streaming SQL transforms.
                         </p>
                     </div>
-                    <div style={{display:"flex", flexShrink: 1}}>
-                        <OutboundLink
-                            target="_blank"
-                            href="https://dashboard.estuary.dev/register"
-                            className="section-one-try-it-button"
-                        >
-                            Build a pipeline
-                        </OutboundLink>
-                        {isDesktop && !isSmall && (
-                            <OutboundLink
-                                target="_blank"
-                                href="/why"
-                                className="section-one-tour-button"
-                                style={{marginLeft:16}}
-                            >Product Tour</OutboundLink>
-                        )}
-                    </div>
+                    <OutboundLink
+                        target="_blank"
+                        href="https://dashboard.estuary.dev/register"
+                        className="section-one-try-it-button"
+                    >
+                        Build a free streaming pipeline
+                    </OutboundLink>
                 </div>
                 <div className="section-one-right">
                     {isMobile || isSmall ? animFallback : <AnimatedHero/>}

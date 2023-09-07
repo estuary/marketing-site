@@ -35,7 +35,7 @@ const Seo: React.FC<SeoProps> = ({
                         }
                     }
                 }
-                defaultMetaImg: file(relativePath: { eq: "estuary-logo-metaimg.png" }) {
+                defaultMetaImg: file(relativePath: { eq: "estuary-logo.png" }) {
                     childImageSharp {
                         fixed(width: 400) {
                             src

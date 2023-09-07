@@ -9,7 +9,6 @@ import SlackIcon from "../svgs/slack-outline.svg"
 import GithubIcon from "../svgs/github-outline.svg"
 import clsx from "clsx"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
-import { isDesktop } from "react-device-detect"
 
 const useNavItems = (): NavItem[] => {
     const comparisons = useStaticQuery(graphql` 
@@ -29,12 +28,8 @@ const useNavItems = (): NavItem[] => {
     {
         title: "Product",
         children: [
-            isDesktop && {
-                title: "Why Flow",
-                path: "/why"
-            },
             {
-                title: "About Flow",
+                title: "Flow",
                 path: "/product",
             },
             {
@@ -55,7 +50,7 @@ const useNavItems = (): NavItem[] => {
                 title: "Solutions",
                 path: "/solutions",
             },
-        ].filter(Boolean),
+        ],
     },
     {
         title: "Pricing",
