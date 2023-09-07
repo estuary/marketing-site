@@ -106,6 +106,10 @@ export const Step3 = ({ activePage, setState }) => {
                     height={597}
                     quality={100}
                 />
+                <div
+                    className="zoom-in-out-circle"
+                    onClick={() => setState(activePage + 1)}
+                ></div>
                 <div className="button-tooltip left">
                     <div className="tooltip-heading">Success!</div>
                     <div className="tooltip-description">
