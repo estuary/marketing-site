@@ -26,6 +26,7 @@ const strapiConfig = {
         "vanity-logo",
         "job-posting",
         "product-comparison-page",
+        "employee",
     ],
     singleTypes: [],
     // remoteFileHeaders: {
