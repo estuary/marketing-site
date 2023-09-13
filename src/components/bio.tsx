@@ -56,7 +56,7 @@ const Bio = ({ authors }: BioProps) => {
                     alignItems: "center",
                 }}
             >
-                {/* {rendered_img} */}
+                {rendered_img}
                 {rendered_name}
             </div>
         )
@@ -72,14 +72,17 @@ const Bio = ({ authors }: BioProps) => {
             )
         }
 
-        return <React.Fragment key={name}>Author: {combined}</React.Fragment>
+        return <React.Fragment key={name}>
+            Author: {combined}
+
+        </React.Fragment>
     })
     if (rendered.length < 1) {
         return null
     }
     return (
         <div className="bio">
-            <div style={{ display: "flex", alignItems: "center", fontSize: 19, flexWrap:"wrap", gap:8 }}>
+            <div style={{ display: "flex", alignItems: "center", fontSize: 19, flexWrap: "wrap", gap: 8 }}>
                 {rendered}
             </div>
         </div>
