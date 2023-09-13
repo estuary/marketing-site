@@ -32,30 +32,30 @@ export const ProcessedPost = ({
     }
     return (
         <>
-            <div className="post-sidebar">
-                <div className="table-of-contents">
-                    <h3>Table of Contents</h3>
-                    <ul>
-                        {navArray?.map((item, index) => {
-                            item.itemTag !== 'H3' && h2Index++
-                            return (
-                                <li key={index} className={item.itemTag === 'H3' ? 'sub-item' : ''}>
-                                    <Link to={`#${item.itemLink}`}><span>{item.itemTag !== 'H3' && h2Index}</span> {item.itemName}</Link>
-                                </li>
-                            )
-                        })}
-                    </ul>
-                </div>
-                {/* Popular Articles */}
-                <div className="popular-articles">
-                    <PopularArticles popularArticles={popularArticles} />
-                </div>
+            <aside className="post-sidebar sticky">
+                    <div className="table-of-contents">
+                        <h3>Table of Contents</h3>
+                        <ul>
+                            {navArray?.map((item, index) => {
+                                item.itemTag !== 'H3' && h2Index++
+                                return (
+                                    <li key={index} className={item.itemTag === 'H3' ? 'sub-item' : ''}>
+                                        <Link to={`#${item.itemLink}`}><span>{item.itemTag !== 'H3' && h2Index}</span> {item.itemName}</Link>
+                                    </li>
+                                )
+                            })}
+                        </ul>
+                    </div>
+                    {/* Popular Articles */}
+                    <div className="popular-articles">
+                        <PopularArticles popularArticles={popularArticles} />
+                    </div>
 
-                <div className="sidebar-cta">
-                    <h3>Start streaming your data for free</h3>
-                    <Link to="https://dashboard.estuary.dev/register" className="pipeline-link">Build a Pipeline</Link>
-                </div>
-            </div>
+                    <div className="sidebar-cta">
+                        <h3>Start streaming your data for free</h3>
+                        <Link to="https://dashboard.estuary.dev/register" className="pipeline-link">Build a Pipeline</Link>
+                    </div>
+            </aside>
         </>
     )
 }
