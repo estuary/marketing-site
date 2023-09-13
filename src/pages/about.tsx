@@ -12,7 +12,7 @@ import LinkIcon from "../svgs/link-icon.svg"
 import HubspotForm from "react-hubspot-form"
 import { ProcessedPost } from "../components/BlogPostProcessor"
 import Seo from "../components/seo"
-import { StaticImage } from "gatsby-plugin-image"
+import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
 
 // const jobs = [
@@ -77,39 +77,69 @@ import { OutboundLink } from "gatsby-plugin-google-gtag"
 const AboutPage = () => {
     const {
         allStrapiJobPosting: { nodes: jobs },
+        allStrapiEmployee: { nodes: employees },
     } = useStaticQuery<{
         allStrapiJobPosting: {
             nodes: {
-                slug: string
-                title: string
-                location: string
+                slug: string;
+                title: string;
+                location: string;
                 description: {
                     data: {
                         childHtmlRehype: {
-                            html: string
+                            html: string;
+                        };
+                    };
+                };
+            }[];
+        };
+        allStrapiEmployee: {
+            nodes: {
+                name: string;
+                ProfilePic: {
+                    localFile: {
+                        childImageSharp: {
+                            gatsbyImageData: any
                         }
                     }
-                }
-            }[]
-        }
+                };
+                title: string
+            }[];
+        };
     }>(graphql`
         {
-            allStrapiJobPosting {
-                nodes {
-                    slug
-                    title: Title
-                    location: Location
-                    description: Description {
-                        data {
-                            childHtmlRehype {
-                                html
-                            }
-                        }
-                    }
+          allStrapiJobPosting {
+            nodes {
+              slug
+              title: Title
+              location: Location
+              description: Description {
+                data {
+                  childHtmlRehype {
+                    html
+                  }
                 }
+              }
             }
+          }
+          allStrapiEmployee {
+            nodes {
+              name: Name
+              title: Title
+              ProfilePic {
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData
+                  }
+                }
+              }
+            }
+          }
         }
-    `)
+      `);
+
+    console.log('employees', employees)
+
     return (
         <Layout headerTheme="light">
             <div className="product-flow-section-one-background-image-wrapper">
@@ -117,7 +147,7 @@ const AboutPage = () => {
                     <div className="product-flow-section-one-left">
                         <h1 className="about-section-one-h1">
                             Estuary is building the next generation of real-time
-                            data integration solutions.
+                            data integration solutions dd.
                         </h1>
                         <p className="about-section-one-text">
                             We're creating a new kind of DataOps platform that{" "}
@@ -286,174 +316,17 @@ const AboutPage = () => {
                 </p>
                 <h2 className="about-section-header-top">Meet Our Team</h2>
                 <div className="team-wrap">
-                    <div className="team-item">
-                        <StaticImage
-                            placeholder="none"
-                            alt="Dave Yaffe"
-                            loading="lazy"
-                            src="../images/team/dave-yaffe.png"
-                            layout="constrained"
-                            width={180}
-                            height={180}
-                            quality={100}
-                        />
-                        <div className="item-name">Dave Yaffe</div>
-                        <div className="item-position">Founder & CEO</div>
-                    </div>
-                    <div className="team-item">
-                        <StaticImage
-                            placeholder="none"
-                            alt="Johnny Graettinger"
-                            loading="lazy"
-                            src="../images/team/johnny-graettinger.png"
-                            layout="constrained"
-                            width={180}
-                            height={180}
-                            quality={100}
-                        />
-                        <div className="item-name">Johnny Graettinger</div>
-                        <div className="item-position">Founder & CTO</div>
-                    </div>
-                    <div className="team-item">
-                        <StaticImage
-                            placeholder="none"
-                            alt="Philip Fried"
-                            loading="lazy"
-                            src="../images/team/philip-fried.png"
-                            layout="constrained"
-                            width={180}
-                            height={180}
-                            quality={100}
-                        />
-                        <div className="item-name">Philip Fried</div>
-                        <div className="item-position">VP Engineering</div>
-                    </div>
-                    <div className="team-item">
-                        <StaticImage
-                            placeholder="none"
-                            alt="Kiahna Tucker"
-                            loading="lazy"
-                            src="../images/team/user-placeholder.png"
-                            layout="constrained"
-                            width={180}
-                            height={180}
-                            quality={100}
-                        />
-                        <div className="item-name">Kiahna Tucker</div>
-                        <div className="item-position">Front-End Engineer</div>
-                    </div>
-                    <div className="team-item">
-                        <StaticImage
-                            placeholder="none"
-                            alt="Mahdi Dibaiee"
-                            loading="lazy"
-                            src="../images/team/mahdi-dibaiee.png"
-                            layout="constrained"
-                            width={180}
-                            height={180}
-                            quality={100}
-                        />
-                        <div className="item-name">Mahdi Dibaiee</div>
-                        <div className="item-position">Senior Software Engineer</div>
-                    </div>
-                    <div className="team-item">
-                        <StaticImage
-                            placeholder="none"
-                            alt="Andrew Gale"
-                            loading="lazy"
-                            src="../images/team/andrew-gale.png"
-                            layout="constrained"
-                            width={180}
-                            height={180}
-                            quality={100}
-                        />
-                        <div className="item-name">Andrew Gale</div>
-                        <div className="item-position">Account Executive</div>
-                    </div>
-                    <div className="team-item">
-                        <StaticImage
-                            placeholder="none"
-                            alt="Olivia Lannone"
-                            loading="lazy"
-                            src="../images/team/travis-jenkins.png"
-                            layout="constrained"
-                            width={180}
-                            height={180}
-                            quality={100}
-                        />
-                        <div className="item-name">Travis Jenkins</div>
-                        <div className="item-position">Front-End Engineer</div>
-                    </div>
-                    <div className="team-item">
-                        <StaticImage
-                            placeholder="none"
-                            alt="Will Donnelly"
-                            loading="lazy"
-                            src="../images/team/will-donnelly.png"
-                            layout="constrained"
-                            width={180}
-                            height={180}
-                            quality={100}
-                        />
-                        <div className="item-name">Will Donnellye</div>
-                        <div className="item-position">Senior Software Engineer</div>
-                    </div>
-                    <div className="team-item">
-                        <StaticImage
-                            placeholder="none"
-                            alt="Will Baker"
-                            loading="lazy"
-                            src="../images/team/will-baker.png"
-                            layout="constrained"
-                            width={180}
-                            height={180}
-                            quality={100}
-                        />
-                        <div className="item-name">Will Baker</div>
-                        <div className="item-position">Senior Software Engineer</div>
-                    </div>
-                    <div className="team-item">
-                        <StaticImage
-                            placeholder="none"
-                            alt="Samantha Jacobus"
-                            loading="lazy"
-                            src="../images/team/samantha-jacobus.png"
-                            layout="constrained"
-                            width={180}
-                            height={180}
-                            quality={100}
-                        />
-                        <div className="item-name">Samantha Jacobus</div>
-                        <div className="item-position">Chief Of Staff</div>
-                    </div>
-                    <div className="team-item">
-                        <StaticImage
-                            placeholder="none"
-                            alt="Joseph Shearer"
-                            loading="lazy"
-                            src="../images/team/joseph-shearer.png"
-                            layout="constrained"
-                            width={180}
-                            height={180}
-                            quality={100}
-                        />
-                        <div className="item-name">Joseph Shearer</div>
-                        <div className="item-position">Senior Software Engineer</div>
-                    </div>
-                    <div className="team-item">
-                        <StaticImage
-                            placeholder="none"
-                            alt="Mike Danko"
-                            loading="lazy"
-                            src="../images/team/mike-danko.png"
-                            layout="constrained"
-                            width={180}
-                            height={180}
-                            quality={100}
-                        />
-                        <div className="item-name">Mike Danko</div>
-                        <div className="item-position">Cloud Infrastructure</div>
-                    </div>
+                    {employees?.map((employee, index) => (
+                        <div className="team-item employee-list" key={index}>
+                            <GatsbyImage
+                                image={employee.ProfilePic.localFile?.childImageSharp?.gatsbyImageData}
+                                alt="debezium alternatives"
+                                className="employee-img"
+                            />
+                            <div className="item-name">{employee.name}</div>
+                            <div className="item-position">{employee.title}</div>
+                        </div>
+                    ))}
                 </div>
             </section>
             <section className="investors">
@@ -589,13 +462,13 @@ const AboutPage = () => {
                     <div className="about-current-openings-list">
                         {jobs.length > 0
                             ? jobs.map(job => (
-                                  <Link
-                                      to={`#${job.slug}`}
-                                      className="about-current-opening-title"
-                                  >
-                                      {job.title}
-                                  </Link>
-                              ))
+                                <Link
+                                    to={`#${job.slug}`}
+                                    className="about-current-opening-title"
+                                >
+                                    {job.title}
+                                </Link>
+                            ))
                             : null}
                         <Link
                             className="about-get-in-touch-button"
@@ -607,38 +480,38 @@ const AboutPage = () => {
                     <div className="about-current-openings-description-wrapper">
                         {jobs.length > 0
                             ? jobs.map(job => (
-                                  <div id={job.slug}>
-                                      <div className="about-current-openings-title-wrapper">
-                                          <p className="about-opening-title">
-                                              {job.title}
-                                          </p>
-                                          <Link
-                                              to={`#${job.slug}`}
-                                              className="about-link"
-                                          >
-                                              <LinkIcon />
-                                          </Link>
-                                      </div>
-                                      <div className="about-current-openings-location-wrapper">
-                                          <p className="about-opening-text">
-                                              Location: <b>{job.location}</b>
-                                          </p>
-                                      </div>
-                                      <ProcessedPost
-                                          body={
-                                              job.description.data
-                                                  .childHtmlRehype.html
-                                          }
-                                      />
-                                      <Link
-                                          className="about-get-in-touch-button-mobile"
-                                          to="mailto:careers@estuary.dev"
-                                      >
-                                          Get in touch to apply
-                                      </Link>
-                                      <div className="current-openings-divider"></div>
-                                  </div>
-                              ))
+                                <div id={job.slug}>
+                                    <div className="about-current-openings-title-wrapper">
+                                        <p className="about-opening-title">
+                                            {job.title}
+                                        </p>
+                                        <Link
+                                            to={`#${job.slug}`}
+                                            className="about-link"
+                                        >
+                                            <LinkIcon />
+                                        </Link>
+                                    </div>
+                                    <div className="about-current-openings-location-wrapper">
+                                        <p className="about-opening-text">
+                                            Location: <b>{job.location}</b>
+                                        </p>
+                                    </div>
+                                    <ProcessedPost
+                                        body={
+                                            job.description.data
+                                                .childHtmlRehype.html
+                                        }
+                                    />
+                                    <Link
+                                        className="about-get-in-touch-button-mobile"
+                                        to="mailto:careers@estuary.dev"
+                                    >
+                                        Get in touch to apply
+                                    </Link>
+                                    <div className="current-openings-divider"></div>
+                                </div>
+                            ))
                             : null}
                     </div>
                 </div>
@@ -672,3 +545,4 @@ export const Head = () => {
 }
 
 export default AboutPage
+
