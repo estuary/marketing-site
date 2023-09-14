@@ -13,7 +13,7 @@ concurrency:
 
 jobs:
   build_and_preview:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-2004-large
     steps:
       - env:
           MESSAGE: ${{ toJson(github.event.client_payload) }}
