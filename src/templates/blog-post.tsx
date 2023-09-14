@@ -19,7 +19,7 @@ dayjs.extend(reltime)
 
 const BlogPostTemplate = ({ data: { previous, next, post }, pageContext }) => {
     const postTags = post.tags.filter(tag => tag.type === "tag")
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+    const [windowWidth, setWindowWidth] = useState(typeof window === "undefined" ? 1500 : window.innerWidth)
 
     const handleResize = () => {
         setWindowWidth(window.innerWidth)
@@ -33,7 +33,7 @@ const BlogPostTemplate = ({ data: { previous, next, post }, pageContext }) => {
         return () => {
             window.removeEventListener("resize", handleResize)
         }
-    }, [window])
+    }, [])
 
     return (
         <Layout headerTheme="light">
