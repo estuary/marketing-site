@@ -11,77 +11,98 @@ import { GatsbyImage, IGatsbyImageData, StaticImage } from "gatsby-plugin-image"
 import { ProcessedPost } from "../components/BlogPostProcessor"
 import FlowLogo from "../svgs/flow-logo.svg"
 import logoUrl from "../images/combination-mark__multi-blue.png"
+import { useEffect, useState } from "react"
+import { PopularArticles } from "../components/BlogPopularArticles"
+import { RenderToc } from "../components/BlogPostToc"
 
 dayjs.extend(reltime)
 
 const BlogPostTemplate = ({ data: { previous, next, post }, pageContext }) => {
     const postTags = post.tags.filter(tag => tag.type === "tag")
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+
+    const handleResize = () => {
+        setWindowWidth(window.innerWidth)
+    }
+
+    useEffect(() => {
+        // Event listener for window resize
+        window.addEventListener("resize", handleResize)
+
+        // Clean up the event listener when the component unmounts
+        return () => {
+            window.removeEventListener("resize", handleResize)
+        }
+    }, [window])
+
     return (
         <Layout headerTheme="light">
-            <div className="blog-post-header-vectors">
-                <FlowLogo
-                    className="blog-post-header-vector"
-                    style={{
-                        zIndex: 1,
-                    }}
-                />
-            </div>
-
             <article
                 className="blog-post"
                 itemScope
                 itemType="http://schema.org/Article"
             >
                 <header>
-                    <h1
-                        style={{
-                            textAlign: "left",
-                            color: "black",
-                        }}
-                    >
-                        {post.title}
-                    </h1>
-                    <Bio authors={post.authors} />
-                    <span className="blog-post-date">{post.publishedAt}</span>
-
-                    {post.hero ? (
-                        <GatsbyImage
-                            alt={post.title}
-                            image={
-                                post.hero.localFile.childImageSharp
-                                    .gatsbyImageData
-                            }
-                            loading="eager"
-                        />
-                    ) : null}
+                    <div className="header-info">
+                        <span className="blog-post-date">
+                            {post.publishedAt}
+                        </span>
+                        <h1>{post.title}</h1>
+                        <Bio authors={post.authors} />
+                    </div>
+                    <div className="hero-image">
+                        {post.hero ? (
+                            <GatsbyImage
+                                alt={post.title}
+                                image={
+                                    post.hero.localFile.childImageSharp
+                                        .gatsbyImageData
+                                }
+                                loading="eager"
+                            />
+                        ) : null}
+                    </div>
                 </header>
-                <section>
-                    {post.body && (
+                <div className="post-description">
+                    {post && post.description}
+                </div>
+                {post.body && (
+                    <section className="blog-post-content">
+                        <aside className="post-sidebar sticky">
+                            <RenderToc items={post.body.data.childHtmlRehype.tableOfContents}/>
+                            <div className="popular-articles">
+                                <PopularArticles />
+                            </div>
+
+                            <div className="sidebar-cta">
+                                <h3>Start streaming your data for free</h3>
+                                <Link
+                                    to="https://dashboard.estuary.dev/register"
+                                    className="pipeline-link"
+                                >
+                                    Build a Pipeline
+                                </Link>
+                            </div>
+                        </aside>
                         <ProcessedPost
                             body={post.body.data.childHtmlRehype.html}
                         />
-                    )}
-                </section>
-                {postTags?.length > 0 ? (
-                    <section>
-                        <p>
-                            Keywords: {postTags.map(tag => tag.name).join(", ")}
-                        </p>
                     </section>
-                ) : null}
-                <nav className="blog-post-nav">
-                        {previous && previous.slug !== post.slug && (
-                            <Link to={`/${previous.slug}`} rel="prev">
-                                ← {previous.title}
-                            </Link>
-                        )}
-                        <div style={{flexGrow: 1, flexBasis:20}}/>
-                        {next && next.slug !== post.slug && (
-                            <Link to={`/${next.slug}`} rel="next">
-                                {next.title}→
-                            </Link>
-                        )}
-                </nav>
+                )}
+                {windowWidth <= 767 && (
+                    <div className="popular-articles mobile-only">
+                        <PopularArticles />
+                    </div>
+                )}
+                <div className="sidebar-cta mobile-only">
+                    <h3>Start streaming your data for free</h3>
+                    <Link
+                        to="https://dashboard.estuary.dev/register"
+                        className="pipeline-link"
+                    >
+                        Build a Pipeline
+                    </Link>
+                </div>
             </article>
         </Layout>
     )
@@ -175,6 +196,7 @@ export const pageQuery = graphql`
                     Body
                     childHtmlRehype {
                         html
+                        tableOfContents
                     }
                 }
             }
@@ -186,6 +208,7 @@ export const pageQuery = graphql`
                             gatsbyImageData(
                                 layout: CONSTRAINED
                                 placeholder: BLURRED
+                                quality: 100
                             )
                             fixed(width: 60) {
                                 src

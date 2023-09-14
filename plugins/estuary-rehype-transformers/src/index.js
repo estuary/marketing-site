@@ -70,38 +70,6 @@ const transform = async ({ htmlAst, htmlNode, getNode }, opts) => {
             })
         });
 
-    if (pluginOptions.enableToc) {
-        processor = processor.use(rehypeToc, {
-            headings: ["h1", "h2", "h3"], // Only include <h1> and <h2> headings in the TOC
-            cssClasses: {
-                toc: "page-toc", // Change the CSS class for the TOC
-                link: "page-toc-link", // Change the CSS class for links in the TOC
-            },
-            customizeTOC(toc) {
-                if (
-                    toc.children?.length < 1 ||
-                    (toc?.children.length === 1 &&
-                        //@ts-ignore
-                        toc.children[0]?.children?.length === 0)
-                ) {
-                    return false
-                }
-                toc.children.unshift({
-                    type: "element",
-                    tagName: "h3",
-                    children: [
-                        {
-                            type: "text",
-                            value: "Table of Contents",
-                        },
-                    ],
-                })
-
-                return toc
-            },
-        })
-    }
-
     processor = processor.use(rehypeReact,
         {
             createElement,
