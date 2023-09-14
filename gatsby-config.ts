@@ -44,7 +44,7 @@ const rehypeSelectors = {
     [`STRAPI_BLOG_POST_BODY_TEXTNODE`]: {
         extractor: node => node.Body,
         pluginOpts: {
-            enableToc: true,
+            enableToc: false,
         },
     },
     [`STRAPI_JOB_POSTING_DESCRIPTION_TEXTNODE`]: {

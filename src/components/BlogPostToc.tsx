@@ -8,20 +8,25 @@ type TocItem = {
     items?: TocItem[]
 }
 
-const RenderTocItem = ({ item, depth }: { item: TocItem; depth: number }) => (
-    <>
-        <li className={depth > 0 ? "sub-item" : ""}>
-            <Link to={`#${item.id}`}>{item.heading}</Link>
-        </li>
-        {item.items?.length > 0 && (
-            <ul>
-                {item.items.map(child => (
-                    <RenderTocItem item={child} depth={depth + 1} />
-                ))}
-            </ul>
-        )}
-    </>
-)
+const RenderTocItem = ({ item, depth }: { item: TocItem; depth: number }) => {
+    if (depth > 1) {
+        return null
+    }
+    return (
+        <>
+            <li className={depth > 0 ? "sub-item" : ""}>
+                <Link to={`#${item.id}`}>{item.heading}</Link>
+            </li>
+            {item.items?.length > 0 && (
+                <ul>
+                    {item.items.map(child => (
+                        <RenderTocItem item={child} depth={depth + 1} />
+                    ))}
+                </ul>
+            )}
+        </>
+    )
+}
 
 export const RenderToc = ({ items }: { items: TocItem[] }) => (
     <div className="table-of-contents">
