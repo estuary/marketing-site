@@ -8,10 +8,16 @@ on:
     branches:
       - master
 
+concurrency:
+  group: prod
+
 jobs:
   build_and_preview:
     runs-on: ubuntu-latest
     steps:
+      - env:
+          MESSAGE: ${{ toJson(github.event.client_payload) }}
+        run: echo PAYLOAD $MESSAGE
       - name: Checkout
         uses: actions/checkout@v2
         with:

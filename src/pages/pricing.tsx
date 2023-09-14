@@ -51,7 +51,7 @@ const ChecklistItem = ({ children, bullet = false }) => (
     </div>
 )
 
-const currencyFormatter = Intl.NumberFormat("en-US", {
+export const currencyFormatter = Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
 })
@@ -59,17 +59,18 @@ const currencyFormatter = Intl.NumberFormat("en-US", {
 const roundTo = (num: number, decimals: number) =>
     Math.round((num + Number.EPSILON) * 10 ** decimals) / 10 ** decimals
 
-const calculateDataPrice = (gbs: number): number => {
+export const calculateDataPrice = (gbs: number): number => {
     let gb_calc: string | number =
         Math.min(1000, gbs) * 0.5 + Math.max(0, (gbs - 1001) * 0.2)
     return roundTo(gb_calc, 2)
 }
 
-// $0.75/GB up to 1000 GB / month, then $0.20 after
-const calculatePrice = (tasks: number, gbs: number) => {
-    let gb_calc = roundTo(calculateDataPrice(gbs), 2)
+export const calculateTaskPrice = (tasks: number): number => tasks * 100
 
-    let task_calc = tasks * 100
+export const calculatePrice = (tasks: number, gbs: number) => {
+    let gb_calc = calculateDataPrice(gbs)
+
+    let task_calc = calculateTaskPrice(tasks)
     return (
         <>
             <span className="pricing-page-price-bold">
