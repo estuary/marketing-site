@@ -147,7 +147,7 @@ const AboutPage = () => {
                     <div className="product-flow-section-one-left">
                         <h1 className="about-section-one-h1">
                             Estuary is building the next generation of real-time
-                            data integration solutions dd.
+                            data integration solutions.
                         </h1>
                         <p className="about-section-one-text">
                             We're creating a new kind of DataOps platform that{" "}
