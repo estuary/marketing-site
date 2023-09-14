@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
+import StickyBox from "react-sticky-box"
 
 import dayjs from "dayjs"
 import reltime from "dayjs/plugin/relativeTime"
@@ -19,7 +20,9 @@ dayjs.extend(reltime)
 
 const BlogPostTemplate = ({ data: { previous, next, post }, pageContext }) => {
     const postTags = post.tags.filter(tag => tag.type === "tag")
-    const [windowWidth, setWindowWidth] = useState(typeof window === "undefined" ? 1500 : window.innerWidth)
+    const [windowWidth, setWindowWidth] = useState(
+        typeof window === "undefined" ? 1500 : window.innerWidth
+    )
 
     const handleResize = () => {
         setWindowWidth(window.innerWidth)
@@ -68,8 +71,13 @@ const BlogPostTemplate = ({ data: { previous, next, post }, pageContext }) => {
                 </div>
                 {post.body && (
                     <section className="blog-post-content">
-                        <aside className="post-sidebar sticky">
-                            <RenderToc items={post.body.data.childHtmlRehype.tableOfContents}/>
+                        <StickyBox offsetBottom={16} offsetTop={16} className="post-sidebar">
+                            <RenderToc
+                                items={
+                                    post.body.data.childHtmlRehype
+                                        .tableOfContents
+                                }
+                            />
                             <div className="popular-articles">
                                 <PopularArticles />
                             </div>
@@ -83,7 +91,7 @@ const BlogPostTemplate = ({ data: { previous, next, post }, pageContext }) => {
                                     Build a Pipeline
                                 </Link>
                             </div>
-                        </aside>
+                        </StickyBox>
                         <ProcessedPost
                             body={post.body.data.childHtmlRehype.html}
                         />
