@@ -438,3 +438,4 @@ const cfg: GatsbyConfig = {
 }
 
 module.exports = cfg
+
