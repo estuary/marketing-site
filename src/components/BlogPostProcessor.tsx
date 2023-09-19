@@ -10,5 +10,5 @@ export const ProcessedPost = ({
     body: string
 }) => {
     // return (JSON.stringify(body,null,4))
-    return <div dangerouslySetInnerHTML={{__html: body}}></div>
+    return <div className="dynamic-html" dangerouslySetInnerHTML={{__html: body}}></div>
 }
