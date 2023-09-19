@@ -38,6 +38,25 @@ const BlogPostTemplate = ({ data: { previous, next, post }, pageContext }) => {
         }
     }, [])
 
+    const tocBody = (
+        <>
+            <RenderToc items={post.body.data.childHtmlRehype.tableOfContents} />
+            <div className="popular-articles">
+                <PopularArticles />
+            </div>
+
+            <div className="sidebar-cta">
+                <h3>Start streaming your data for free</h3>
+                <Link
+                    to="https://dashboard.estuary.dev/register"
+                    className="pipeline-link"
+                >
+                    Build a Pipeline
+                </Link>
+            </div>
+        </>
+    )
+
     return (
         <Layout headerTheme="light">
             <article
@@ -71,27 +90,18 @@ const BlogPostTemplate = ({ data: { previous, next, post }, pageContext }) => {
                 </div>
                 {post.body && (
                     <section className="blog-post-content">
-                        <StickyBox offsetBottom={16} offsetTop={16} className="post-sidebar">
-                            <RenderToc
-                                items={
-                                    post.body.data.childHtmlRehype
-                                        .tableOfContents
-                                }
-                            />
-                            <div className="popular-articles">
-                                <PopularArticles />
-                            </div>
+                        {windowWidth > 767 ? (
+                            <StickyBox
+                                offsetBottom={16}
+                                offsetTop={16}
+                                className="post-sidebar"
+                            >
+                                {tocBody}
+                            </StickyBox>
+                        ) : (
+                            tocBody
+                        )}
 
-                            <div className="sidebar-cta">
-                                <h3>Start streaming your data for free</h3>
-                                <Link
-                                    to="https://dashboard.estuary.dev/register"
-                                    className="pipeline-link"
-                                >
-                                    Build a Pipeline
-                                </Link>
-                            </div>
-                        </StickyBox>
                         <ProcessedPost
                             body={post.body.data.childHtmlRehype.html}
                         />
