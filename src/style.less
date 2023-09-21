@@ -5107,6 +5107,8 @@ table th {
         background: #000;
         height: 100vh;
         padding: 62px 42px 50px 56px;
+        overflow: hidden;
+        overflow-y: scroll;
         position: relative;
         @media (max-width: 1199px) {
             display: none;
@@ -5194,6 +5196,11 @@ table th {
             center / cover;
         width: 100%;
         padding: 132px calc((100% - 1180px - 340px) / 2);
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
         @media (max-width: 1560px) and (min-width: 1200px) {
             padding: 132px 32px;
         }
