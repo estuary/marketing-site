@@ -9,6 +9,9 @@ import "./src/style.less"
 import "./src/highlighting-atom-one-dark.css"
 import { isMobile } from "react-device-detect"
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 // Highlighting for code blocks
 // import "prismjs/themes/prism.css"
 

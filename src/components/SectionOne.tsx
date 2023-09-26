@@ -6,6 +6,7 @@ import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 import type { LottieRef } from "lottie-react"
 import { useMediaQuery, useTheme } from "@mui/material"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
+import Slider from "react-slick";
 
 
 const animFallback = (
@@ -18,10 +19,18 @@ const animFallback = (
         />
     </div>
 )
+let settings = {
+    dots: false,
+    infinite: true,
+    arrows: false,
+    speed: 500,
+    slidesToShow: 6,
+    slidesToScroll: 3
+};
 
 const AnimatedHero = () => {
-    const HeroAnimation = React.useMemo(()=>import("../images/hero-animation.json"),[]);
-    const Lottie = React.useMemo(()=>React.lazy(() => import("lottie-react")),[]);
+    const HeroAnimation = React.useMemo(() => import("../images/hero-animation.json"), []);
+    const Lottie = React.useMemo(() => React.lazy(() => import("lottie-react")), []);
 
     const [heroAnim, setHeroAnim] = React.useState<Awaited<
         typeof HeroAnimation
@@ -98,7 +107,7 @@ const SectionOne = () => {
             }
         }
     `)
-    
+
     const theme = useTheme();
     const isSmall = useMediaQuery(theme.breakpoints.down("sm"))
 
@@ -107,14 +116,14 @@ const SectionOne = () => {
             <div className="section-one-wrapper">
                 <div className="section-one-left">
                     <h1>Your data,</h1>
-                    <h1>where you <span style={{whiteSpace:"nowrap"}}>want it,</span></h1>
-                    <h1>in <span style={{wordBreak:"break-word", hyphens:"auto"}}>milliseconds</span></h1>
+                    <h1>where you <span style={{ whiteSpace: "nowrap" }}>want it,</span></h1>
+                    <h1>in <span style={{ wordBreak: "break-word", hyphens: "auto" }}>milliseconds</span></h1>
                     <div className="section-one-subtext-wrapper">
                         <p className="section-one-subtext">
                             Managed CDC and Real-time ETL pipelines with streaming SQL transforms.
                         </p>
                     </div>
-                    <div style={{display:"flex", flexShrink: 1}}>
+                    <div style={{ display: "flex", flexShrink: 1 }}>
                         <OutboundLink
                             target="_blank"
                             href="https://dashboard.estuary.dev/register"
@@ -127,39 +136,40 @@ const SectionOne = () => {
                                 target="_blank"
                                 href="/why"
                                 className="section-one-tour-button"
-                                style={{marginLeft:16}}
+                                style={{ marginLeft: 16 }}
                             >Product Tour</OutboundLink>
                         )}
                     </div>
                 </div>
                 <div className="section-one-right">
-                    {isMobile || isSmall ? animFallback : <AnimatedHero/>}
+                    {isMobile || isSmall ? animFallback : <AnimatedHero />}
                 </div>
             </div>
-            <div className="section-one-bottom">
-                {logos.allStrapiVanityLogo.nodes.map(logo =>
-                    logo.logo.localFile.internal.mediaType ===
-                    "image/svg+xml" ? (
-                        <div
-                            key={logo.id}
-                            style={{ width: 120 }}
-                            dangerouslySetInnerHTML={{
-                                __html: logo.logo.localFile.svg.content,
-                            }}
-                        />
-                    ) : (
-                        <GatsbyImage
-                            key={logo.id}
-                            alt={`logo`}
-                            className="section-one-bottom-logo"
-                            loading="eager"
-                            image={
-                                logo.logo.localFile.childImageSharp
-                                    .gatsbyImageData
-                            }
-                        />
-                    )
-                )}
+            <div className="custom-slides">
+                <Slider {...settings}>
+                    {logos.allStrapiVanityLogo.nodes.map((logo) =>
+                        logo.logo.localFile.internal.mediaType === "image/svg+xml" ? (
+                            <div className="custom-slider" key={logo.id} >
+                                <div
+                                    dangerouslySetInnerHTML={{
+                                        __html: logo.logo.localFile.svg.content,
+                                    }}
+                                />
+                            </div>
+                        ) : (
+                            <div className="custom-slider">
+                            <GatsbyImage
+                                key={logo.id}
+                                alt={`logo`}
+                                loading="eager"
+                                image={
+                                    logo.logo.localFile.childImageSharp.gatsbyImageData
+                                }
+                            />
+                            </div>
+                        )
+                    )}
+                </Slider>
             </div>
         </div>
     )
