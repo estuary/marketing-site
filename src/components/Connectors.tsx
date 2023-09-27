@@ -50,7 +50,7 @@ const ConnectorCard = ({
         <div className="connector-card">
             <div className="connector-card-top">
                 <GatsbyImage
-                    image={logo.childImageSharp.gatsbyImageData}
+                    image={logo?.childImageSharp?.gatsbyImageData}
                     alt={`${title} Logo`}
                     className="connector-post-card-image icon-wrapper"
                     loading="eager"

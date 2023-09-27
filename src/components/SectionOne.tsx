@@ -23,9 +23,11 @@ let settings = {
     dots: false,
     infinite: true,
     arrows: false,
-    speed: 500,
+    speed: 400,
     slidesToShow: 6,
-    slidesToScroll: 3
+    slidesToScroll: 1,
+    autoplay: true,
+    useTransform: true
 };
 
 const AnimatedHero = () => {
