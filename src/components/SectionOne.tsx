@@ -6,7 +6,8 @@ import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 import type { LottieRef } from "lottie-react"
 import { useMediaQuery, useTheme } from "@mui/material"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
-import Slider from "react-slick";
+import Marquee from "react-fast-marquee";
+
 
 
 const animFallback = (
@@ -19,16 +20,6 @@ const animFallback = (
         />
     </div>
 )
-let settings = {
-    dots: false,
-    infinite: true,
-    arrows: false,
-    speed: 400,
-    slidesToShow: 6,
-    slidesToScroll: 1,
-    autoplay: true,
-    useTransform: true
-};
 
 const AnimatedHero = () => {
     const HeroAnimation = React.useMemo(() => import("../images/hero-animation.json"), []);
@@ -113,6 +104,7 @@ const SectionOne = () => {
     const theme = useTheme();
     const isSmall = useMediaQuery(theme.breakpoints.down("sm"))
 
+
     return (
         <div className="section-one">
             <div className="section-one-wrapper">
@@ -148,8 +140,9 @@ const SectionOne = () => {
                 </div>
             </div>
             <div className="custom-slides">
-                <Slider {...settings}>
-                    {logos.allStrapiVanityLogo.nodes.map((logo) =>
+            <Marquee>
+
+                    {logos.allStrapiVanityLogo.nodes?.map((logo) =>
                         logo.logo.localFile.internal.mediaType === "image/svg+xml" ? (
                             <div className="custom-slider" key={logo.id} >
                                 <div
@@ -171,7 +164,8 @@ const SectionOne = () => {
                             </div>
                         )
                     )}
-                </Slider>
+                </Marquee>
+
             </div>
         </div>
     )
