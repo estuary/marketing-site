@@ -139,7 +139,7 @@ const SectionOne = () => {
                     {isMobile || isSmall ? animFallback : <AnimatedHero />}
                 </div>
             </div>
-            <div className="custom-slides">
+            <div className="custom-slides slider-container">
             <Marquee>
 
                     {logos.allStrapiVanityLogo.nodes?.map((logo) =>
