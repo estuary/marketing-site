@@ -6227,7 +6227,7 @@ table th {
     }
    .slick-list{height: 80px;}
    .gatsby-image-wrapper{
-    height: 80px !important;
+    height: 46px !important;
     display: flex !important;
     align-items: center;
     justify-content: space-between;
@@ -6235,6 +6235,7 @@ table th {
     }
     .rfm-marquee, .rfm-initial-child-container{
         display: flex;
+        align-items: end;
         gap: 120px;
         @media (max-width: 810px){
             gap: 50px;
@@ -6264,13 +6265,14 @@ table th {
 }
 
 .slider-container{
-    padding-top: 75px;
-    padding-left: 0px;
-    padding-bottom: 0px;
-    padding-right:  ~"calc(min(9%, 146px))";
+    padding: 0px  ~"calc(min(9%, 146px))" 0px  0px;
+    height: 140px;
+    padding-bottom: 20px;
+    display: flex;
     @media (max-width: 810px){
      padding-right: 16px;
-     padding-top: 50px;
+     height: 120px;
+     padding-bottom: 20px;
     }
 }   
 
