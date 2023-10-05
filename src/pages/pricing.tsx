@@ -273,7 +273,7 @@ const PricingPage = () => {
                         <div className="frequently-container">
                             <div className="question">
                                 <div className="faq-drawer">
-                                    <input id="faq-drawer" className="faq-drawer__trigger" type="checkbox" checked/>
+                                    <input id="faq-drawer" className="faq-drawer__trigger" type="checkbox" checked />
                                     <label className="faq-drawer__title" htmlFor="faq-drawer">How is my my bill calculated?</label>
                                     <div className="faq-drawer__content-wrapper">
                                         <div className="faq-drawer__content">
@@ -289,7 +289,7 @@ const PricingPage = () => {
                                     </div>
                                 </div>
                                 <div className="faq-drawer">
-                                    <input id="faq-drawer-2" className="faq-drawer__trigger" type="checkbox" checked/>
+                                    <input id="faq-drawer-2" className="faq-drawer__trigger" type="checkbox" checked />
                                     <label className="faq-drawer__title" htmlFor="faq-drawer-2">Do you offer discounted rates?</label>
                                     <div className="faq-drawer__content-wrapper">
                                         <div className="faq-drawer__content">
@@ -299,7 +299,7 @@ const PricingPage = () => {
                                 </div>
 
                                 <div className="faq-drawer">
-                                    <input id="faq-drawer-3" className="faq-drawer__trigger" type="checkbox" checked/>
+                                    <input id="faq-drawer-3" className="faq-drawer__trigger" type="checkbox" checked />
                                     <label className="faq-drawer__title" htmlFor="faq-drawer-3">How does Pay-as-you-Go pricing work?</label>
                                     <div className="faq-drawer__content-wrapper">
                                         <div className="faq-drawer__content">
@@ -312,7 +312,7 @@ const PricingPage = () => {
                                 </div>
 
                                 <div className="faq-drawer">
-                                    <input id="faq-drawer-4" className="faq-drawer__trigger" type="checkbox" checked/>
+                                    <input id="faq-drawer-4" className="faq-drawer__trigger" type="checkbox" checked />
                                     <label className="faq-drawer__title" htmlFor="faq-drawer-4">How does pre-pay work?</label>
                                     <div className="faq-drawer__content-wrapper">
                                         <div className="faq-drawer__content">
@@ -324,7 +324,7 @@ const PricingPage = () => {
                                 </div>
 
                                 <div className="faq-drawer">
-                                    <input id="faq-drawer-5" className="faq-drawer__trigger" type="checkbox" checked/>
+                                    <input id="faq-drawer-5" className="faq-drawer__trigger" type="checkbox" checked />
                                     <label className="faq-drawer__title" htmlFor="faq-drawer-5">How does the Free Trial work?</label>
                                     <div className="faq-drawer__content-wrapper">
                                         <div className="faq-drawer__content">
@@ -335,7 +335,7 @@ const PricingPage = () => {
                                 </div>
 
                                 <div className="faq-drawer">
-                                    <input id="faq-drawer-6" className="faq-drawer__trigger" type="checkbox" checked/>
+                                    <input id="faq-drawer-6" className="faq-drawer__trigger" type="checkbox" checked />
                                     <label className="faq-drawer__title" htmlFor="faq-drawer-6">What are my billing options?</label>
                                     <div className="faq-drawer__content-wrapper">
                                         <div className="faq-drawer__content">
@@ -349,363 +349,79 @@ const PricingPage = () => {
 
                     </div>
 
-
-                    {/* <div className="pricing-page-tiles-wrapper">
-                        <div className="pricing-page-tile">
-                            <PricingOpenSource className="pricing-page-tile-icon icon-wrapper" />
-                            <p className="pricing-page-tile-name">Free</p>
-                            <p className="pricing-page-tile-price-subtext">
-                                Free for up to two tasks and 10 GB/Mo. No credit
-                                card required.
-                            </p>
-                            <p className="pricing-page-price">
-                                <span className="pricing-page-price-bold">
-                                    $0
-                                </span>
-                                /month
-                            </p>
-                            <div className="pricing-page-checklist-wrapper">
-                                <ChecklistItem>
-                                    Millisecond latency
-                                </ChecklistItem>
-                                <ChecklistItem>
-                                    UI for creating, testing and monitoring
-                                    pipelines
-                                </ChecklistItem>
-                                <ChecklistItem>
-                                    Incremental transfers for much lower CDC
-                                    costs
-                                </ChecklistItem>
-                                <ChecklistItem>
-                                    Create and access entities{" "}
-                                    <OutboundLink href="https://docs.estuary.dev/concepts/flowctl/">
-                                        programatically
-                                    </OutboundLink>
-                                </ChecklistItem>
-                                <ChecklistItem>
-                                    Use up to 50 collections, 2 total tasks
-                                    (sources, sestinations and/or
-                                    transformations)
-                                </ChecklistItem>
-                                <ChecklistItem>
-                                    Up to 50 collections
-                                </ChecklistItem>
-                            </div>
-                            <Link
-                                className="pricing-page-tile-button"
-                                to="https://github.com/estuary/flow"
-                            >
-                                Get started
-                            </Link>
+                    <div className="related-post">
+                        <div className="heading">
+                            <h2>Related Posts</h2>
                         </div>
-                        <div className="pricing-page-tile">
-                            <PricingCloud className="pricing-page-tile-icon icon-wrapper" />
-                            <p className="pricing-page-tile-name">Cloud</p>
-                            <p className="pricing-page-tile-price-subtext">
-                                <b>Sources & Destinations</b>: $0.14/hr - $100/month
-                                <br />
-                                <b>Data</b>: $0.50/GB up to 1TB, then $0.20/GB
-                            </p>
-                            <p className="pricing-page-price">
-                                {calculatePrice(
-                                    selectedTasks,
-                                    selectedGB
-                                )}
-                            </p>
-                            <Stack
-                                margin="1rem 0 2rem 0"
-                                justifyContent="center"
-                            >
-                                <Stack
-                                    spacing={2}
-                                    alignItems="center"
-                                    direction="column"
-                                    marginBottom={"2em"}
-                                >
-                                    <Typography component="div">
-                                        {isMedium ? "Tasks" : "Sources & Destinations"}:{" "}
-                                        <Typography
-                                            display="inline"
-                                            fontWeight="bold"
-                                        >
-                                            {currencyFormatter.format(
-                                                selectedTasks * 100
-                                            )}
-                                        </Typography>
-                                    </Typography>
-                                    <Slider
-                                        value={selectedTasks}
-                                        onChange={(_, val) =>
-                                            setSelectedTasks(
-                                                typeof val === "number"
-                                                    ? val
-                                                    : val[0]
-                                            )
-                                        }
-                                        marks={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(
-                                            id => ({
-                                                value: id,
-                                                label: id,
-                                            })
-                                        )}
-                                        min={1}
-                                        max={10}
-                                        step={1}
-                                        valueLabelDisplay="auto"
-                                        valueLabelFormat={v => `${v} tasks`}
-                                        style={{ marginTop: 0 }}
-                                    />
-                                </Stack>
-                                <Stack
-                                    spacing={2}
-                                    alignItems="center"
-                                    direction="column"
-                                    marginBottom="1.75rem"
-                                >
-                                    <Typography>
-                                        Data:{" "}
-                                        <Typography
-                                            display="inline"
-                                            fontWeight="bold"
-                                        >
-                                            {currencyFormatter.format(
-                                                calculateDataPrice(
-                                                    selectedGB
-                                                )
-                                            )}
-                                        </Typography>
-                                    </Typography>
-                                    <Slider
-                                        value={sliderScale(selectedGB)}
-                                        onChange={(_, val) =>
-                                            setSelectedGB(
-                                                Math.round(
-                                                    inverseSliderScale(
-                                                        val || val[0]
-                                                    )
-                                                )
-                                            )
-                                        }
-                                        min={marks[0].value}
-                                        max={marks[marks.length - 1].value}
-                                        step={marks[0].value / 1000}
-                                        marks={marks}
-                                        valueLabelDisplay="auto"
-                                        valueLabelFormat={v =>
-                                            gByteLabel(inverseSliderScale(v))
-                                        }
-                                        style={{ marginTop: 0 }}
-                                    />
-                                </Stack>
-                                <Typography
-                                    variant="caption"
-                                    style={{
-                                        lineHeight: "1.1",
-                                        letterSpacing: "0.02133em",
-                                    }}
-                                >
-                                    *A task represents a source, destination or
-                                    transformation.
-                                </Typography>
-                            </Stack>
-                            <div className="pricing-page-checklist-wrapper">
-                                <p style={{ marginTop: 0 }}>
-                                    Everything in Flow Free plus:
-                                </p>
-                                <ChecklistItem>99.9% SLA</ChecklistItem>
-                                <ChecklistItem>
-                                    Limitless horizontal scaling
-                                </ChecklistItem>
-                                <ChecklistItem>
-                                    Unlimited collections, sources and
-                                    destinations
-                                </ChecklistItem>
-                                <ChecklistItem>
-                                    Pay as you go, monthly and annual payment
-                                    options
-                                </ChecklistItem>
-                                <ChecklistItem>Free 30-day trial</ChecklistItem>
-                                <ChecklistItem>
-                                    9x5 Customer Support - Slack + email
-                                </ChecklistItem>
-                            </div>
-                            <p className="pricing-page-tile-price-subtext">
-                                Users typically save 70-80% over other solutions
-                                while enabling real-time data.
-                            </p>
+                        <div className="related-index-body">
+                            <Link to='' className="related-post-card">
+                                <StaticImage
+                                    placeholder="none"
+                                    alt="Estuary history"
+                                    loading="lazy"
+                                    src="../images/lp-podcast/episode-image.webp"
+                                    layout="constrained"
+                                    width={308}
+                                    height={326}
+                                    quality={100}
+                                />
+                                <div className="related-post-card-title">Why ELT won’t fix your data problems</div>
+                            </Link>
+                            <Link to='' className="related-post-card">
+                                <StaticImage
+                                    placeholder="none"
+                                    alt="Estuary history"
+                                    loading="lazy"
+                                    src="../images/lp-podcast/episode-image.webp"
+                                    layout="constrained"
+                                    width={308}
+                                    height={326}
+                                    quality={100}
+                                />
+                                <div className="related-post-card-title">How to avoid the  MDS high speed data tax</div>
+                            </Link>
+                            <Link to='' className="related-post-card">
+                                <StaticImage
+                                    placeholder="none"
+                                    alt="Estuary history"
+                                    loading="lazy"
+                                    src="../images/lp-podcast/episode-image.webp"
+                                    className=""
+                                    layout="constrained"
+                                    width={308}
+                                    height={326}
+                                    quality={100}
+                                />
+                                <div className="related-post-card-title">Estuary vs. Competitors</div>
+                            </Link>
+
+                        </div>
+                    </div>
+
+
+                    <div className="start-move-demo">
+                        <div className="start-move-demo-container">
+                        <div className="start-container">
+                            <h2>Start moving your data the faster way</h2>
+                            <p>Start a 30-day free trial with Estuary</p>
+                        </div>
+                        <div className="buttons-container">
                             <OutboundLink
                                 target="_blank"
                                 href="https://dashboard.estuary.dev/register"
-                                className="pricing-page-tile-button"
+                                className="build-button"
                             >
-                                Try it free
+                                Build a pipeline
                             </OutboundLink>
+                            <OutboundLink
+                                target="_blank"
+                                href="/why"
+                                className="demo-button"
+                            >Interactive Demo</OutboundLink>
                         </div>
-                        <div className="pricing-page-tile">
-                            <PricingEnterprise className="pricing-page-tile-icon icon-wrapper" />
-                            <p className="pricing-page-tile-name">Enterprise</p>
-                            <p className="pricing-page-tile-price-subtext">
-                                For large or custom deployments of Flow.
-                            </p>
-                            <p className="pricing-page-price">
-                                <span className="pricing-page-price-bold">
-                                    Custom
-                                </span>
-                            </p>
-                            <div className="pricing-page-checklist-wrapper-custom">
-                                <p>Everything in Flow Cloud plus:</p>
-                                <ChecklistItem>
-                                    Certificates of SOC2 & HIPAA compliance
-                                </ChecklistItem>
-                                <ChecklistItem>
-                                    Provisioned servers
-                                </ChecklistItem>
-                                <ChecklistItem>
-                                    9x5 Support standard, 24x7 support available
-                                </ChecklistItem>
-                                <ChecklistItem>
-                                    Customer Success Manager
-                                </ChecklistItem>
-                                <div className="pricing-page-checklist-item">
-                                    <div className="pricing-page-tile-coming-soon-image">
-                                        <p>Coming Soon</p>
-                                    </div>
-                                </div>
-                                <ChecklistItem bullet>
-                                    Advanced SSO (OAuth / SAML / SCIM)
-                                </ChecklistItem>
-                                <ChecklistItem bullet>
-                                    Custom VPC deployment
-                                </ChecklistItem>
-                            </div>
-                            <p className="pricing-page-tile-price-subtext">
-                                Want to try Flow for free for 30 days, with no
-                                limit on data transfer?
-                            </p>
-                            <Link
-                                className="pricing-page-tile-button"
-                                to="/about#contact-us"
-                            >
-                                Contact us
-                            </Link>
                         </div>
                     </div>
-                    <div className="pricing-page-faq">
-                        <h2 className="pricing-page-faq-title">
-                            Frequently Asked Questions
-                        </h2>
-                        <div className="pricing-page-faq-qa-wrapper">
-                            <p className="pricing-page-faq-question">
-                                How is my monthly bill calculated?
-                            </p>
-                            <p className="pricing-page-faq-answer">
-                                Your bill is calculated based on the amount of
-                                data that is Captured, Transformed and
-                                Materialized by Flow to your destinations. Each
-                                of these are “tasks” and activity from all tasks
-                                are summed on a monthly basis. Unlike other
-                                platforms, Flow doesn’t store data and you’ll
-                                only pay on data that is actively moved during
-                                that month. In the free tier, you are given 10
-                                GB of streaming data at no charge, at which
-                                point the product will stop capturing and
-                                materializing additional data.
-                            </p>
-                        </div>
-                        <div className="pricing-page-faq-qa-wrapper">
-                            <p className="pricing-page-faq-question">
-                                How can I get Flow discounts?
-                            </p>
-                            <p className="pricing-page-faq-answer">
-                                Discounts are based on two things - volume
-                                commitments and contract duration. Please
-                                contact us to learn more about the discounts
-                                available for your use case.
-                            </p>
-                        </div>
-                        <div className="pricing-page-faq-qa-wrapper">
-                            <p className="pricing-page-faq-question">
-                                How does Pay as you Go (PAYG) pricing work?
-                            </p>
-                            <p className="pricing-page-faq-answer">
-                                For customers that are just starting out, or
-                                don’t want to commit to a specific volume of
-                                data or time commitment, you can simply use Flow
-                                and pay for actual consumption on a monthly
-                                basis. You enter your credit card information
-                                and at the end of each month, your bill is
-                                computed based on the amount of data transfer.
-                            </p>
-                        </div>
-                        <div className="pricing-page-faq-qa-wrapper">
-                            <p className="pricing-page-faq-question">
-                                How does prepay work?
-                            </p>
-                            <p className="pricing-page-faq-answer">
-                                Customers that want to pay for a fixed amount of
-                                data transfer can pay up front and then burn
-                                down that usage over time (no more than 12
-                                months). The more data transfer that is paid for
-                                up front, the larger the discount from the PAYG
-                                price.
-                            </p>
-                        </div>
-                        <div className="pricing-page-faq-qa-wrapper">
-                            <p className="pricing-page-faq-question">
-                                How long can I trial Flow?
-                            </p>
-                            <p className="pricing-page-faq-answer">
-                                Flow can be used for free indefinitely, with the
-                                only gate that you are limited to 10 GB of data
-                                transfer each month. For customers with larger
-                                needs, we do offer a 30 day free trial upon
-                                request. Please contact us to learn more and to
-                                qualify.
-                            </p>
-                        </div>
-                        <div className="pricing-page-faq-qa-wrapper">
-                            <p className="pricing-page-faq-question">
-                                What if I need more time than 30 days to trial
-                                Flow?
-                            </p>
-                            <p className="pricing-page-faq-answer">
-                                Your bill is calculated based on the amount of
-                                data that is Captured, Transformed and
-                                Materialized by Flow to your destinations. Each
-                                of these are “tasks” and activity from all tasks
-                                are summed on a monthly basis. Unlike other
-                                platforms, Flow doesn’t store data and you’ll
-                                only pay on data that is actively moved during
-                                that month. In the free tier, you are given 10
-                                GB of streaming data at no charge, at which
-                                point the product will stop capturing and
-                                materializing additional data.
-                            </p>
-                        </div>
-                        <div className="pricing-page-faq-qa-wrapper">
-                            <p className="pricing-page-faq-question">
-                                What are my billing options?
-                            </p>
-                            <p className="pricing-page-faq-answer">
-                                The Free tier does not require a credit card or
-                                any billing information. The Standard tier can
-                                be paid via credit card, debit card (for
-                                prepay), or Invoice. The Enterprise tier is paid
-                                for via Invoice.
-                            </p>
-                        </div>
-                        <div className="pricing-page-faq-qa-wrapper">
-                            <p className="pricing-page-faq-question">
-                                How do you keep the costs down with very large
-                                data sets?
-                            </p>
-                            <p className="pricing-page-faq-answer">
-                                If your dataset is very large, we are happy to
-                                create a custom pricing to meet all of your
-                                needs.
-                            </p>
-                        </div>
-                    </div> */}
+
                     <div className="pricing-page-quote-box">
                         <GraphicQuote className="pricing-page-tile-graphic-quote-image" />
                         <p className="pricing-page-quote-box-quote">

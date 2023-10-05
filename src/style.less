@@ -6497,5 +6497,69 @@ table th {
      }
     }
      
-}
+    }
+    .related-post {
+        .heading{
+            display: flex;
+            justify-content: center;
+            h2 {
+                font-size: 40px;
+            }
+        }
+        .related-index-body {
+            margin: ~"0 calc(min(10vw,200px))";
+            padding-top: 2rem;
+            display: grid;
+            grid-column-gap: 24px;
+            grid-row-gap: 24px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            .related-post-card {
+                cursor: pointer;
+                text-decoration: none;
+                color: black;
+                background-color: #f5f5f5;
+                border-radius: 4px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 20px;
+            }
+            .related-post-card-title{
+                padding-top: 15px;
+                font-size: 20px;
+                font-weight: 500;
+                font-family: inter;
+            }
+        }
+    }
+    .start-move-demo{
+        padding-left: ~"calc(min(9%, 146px))";
+        padding-right: ~"calc(min(9%, 146px))";
+        padding-top: 70px;
+      
+      
+        .start-move-demo-container{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 100px;
+            background: #E4E4E7;
+        h2,p{
+            font-size: 22px;
+            margin: 0px;
+        }
+        p{
+            color: #A1A1AA;
+        }
+        .buttons-container{
+            .build-button{
+                
+            }
+        }
+      }
+    }
+
+    .pricing-page-quote-box{
+        margin-top: 0px;
+    }
 }
