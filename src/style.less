@@ -6236,6 +6236,10 @@ table th {
     .rfm-marquee, .rfm-initial-child-container{
         display: flex;
         gap: 120px;
+        @media (max-width: 810px){
+            gap: 50px;
+        }
+
     }
     .rfm-initial-child-container{
         padding-right: 60px;
@@ -6260,11 +6264,19 @@ table th {
 }
 
 .slider-container{
-    padding-top: 100px;
+    padding-top: 75px;
     padding-left: 0px;
     padding-bottom: 0px;
     padding-right:  ~"calc(min(9%, 146px))";
     @media (max-width: 810px){
      padding-right: 16px;
+     padding-top: 50px;
     }
 }   
+
+// section-one-subtext-wrapper
+.section-one-subtext-wrapper {
+    @media (max-width: 810px){
+        margin-top: 0px;
+    }
+}
