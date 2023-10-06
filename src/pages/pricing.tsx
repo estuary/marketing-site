@@ -315,6 +315,35 @@ const PricingPage = () => {
                         </div>
                     </div>
 
+                    {/* Cost Calculator */}
+
+                    <div className="cost-calculator">
+                        <div className="heading">
+                            <h2>Cost Calculator</h2>
+                        </div>
+                        <div className="cost-calculator-container">
+                            <div className="cost-calculator-left">
+                            <div className="card">
+                                    <div>
+                                        <p>GB of Change Data</p>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div className="cost-calculator-right">
+                                <div className="card">
+                                    <div>
+                                        <h2>Our Plan</h2>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
 
                     {/* Frequently question */}
                     <div className="frequently-question">
