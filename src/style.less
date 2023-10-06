@@ -6292,11 +6292,12 @@ table th {
                     margin: 1rem;
                     position: relative;
                     border: 2px solid transparent;
+                    width: 90%;
 
                     &-body {
                         display: flex;
                         align-items: center;
-                        justify-content: center;
+                        justify-content: space-between;
                         gap: 40px;
                         h3{
                             font-size: var(--fontSize-4);
@@ -6507,7 +6508,8 @@ table th {
             }
         }
         .related-index-body {
-            margin: ~"0 calc(min(10vw,200px))";
+            padding-left: ~"calc(min(9%, 146px))";
+            padding-right: ~"calc(min(9%, 146px))";
             padding-top: 2rem;
             display: grid;
             grid-column-gap: 24px;
@@ -6523,6 +6525,7 @@ table th {
                 flex-direction: column;
                 justify-content: center;
                 padding: 20px;
+                height: 315px;
             }
             .related-post-card-title{
                 padding-top: 15px;
@@ -6535,15 +6538,16 @@ table th {
     .start-move-demo{
         padding-left: ~"calc(min(9%, 146px))";
         padding-right: ~"calc(min(9%, 146px))";
-        padding-top: 70px;
+        margin-top: 70px;
+        background: #E4E4E7;
       
       
         .start-move-demo-container{
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 30px 100px;
-            background: #E4E4E7;
+            padding: 30px 22px;
+           
         h2,p{
             font-size: 22px;
             margin: 0px;
