@@ -206,6 +206,15 @@ const PricingPage = () => {
                                 className="icon-image"
                             />
                         </div>
+                        <div className="main-section-buttons-mobile">
+                            <OutboundLink
+                                target="_blank"
+                                href="https://dashboard.estuary.dev/register"
+                                className="section-one-try-it-button"
+                            >
+                                Build free pipeline
+                            </OutboundLink>
+                        </div>
                     </div>
 
                     {/* Plans */}
@@ -216,7 +225,7 @@ const PricingPage = () => {
 
                         <div className="content">
                             <div className="content-left">
-                                <div>
+                                <div className="plans-section">
                                     <div
                                         className={
                                             selectedPlan === "Free"
@@ -243,7 +252,6 @@ const PricingPage = () => {
                                             </div>
                                         </div>
                                     </div>
-
                                     <div
                                         className={
                                             selectedPlan === "After Free Trial"
@@ -274,7 +282,6 @@ const PricingPage = () => {
                                             </div>
                                         </div>
                                     </div>
-
                                     <div
                                         className={
                                             selectedPlan === "Custom"
@@ -303,22 +310,22 @@ const PricingPage = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="buttons-section">
-                                        <OutboundLink
-                                            target="_blank"
-                                            href="https://dashboard.estuary.dev/register"
-                                            className="build-button"
-                                        >
-                                            Build a Pipeline
-                                        </OutboundLink>
-                                        <OutboundLink
-                                            target="_blank"
-                                            href="/why"
-                                            className="contact-button"
-                                        >
-                                            Contact
-                                        </OutboundLink>
-                                    </div>
+                                </div>
+                                <div className="buttons-section">
+                                    <OutboundLink
+                                        target="_blank"
+                                        href="https://dashboard.estuary.dev/register"
+                                        className="build-button"
+                                    >
+                                        Build a Pipeline
+                                    </OutboundLink>
+                                    <OutboundLink
+                                        target="_blank"
+                                        href="/why"
+                                        className="contact-button"
+                                    >
+                                        Contact
+                                    </OutboundLink>
                                 </div>
                             </div>
                             <div className="content-right">
@@ -395,6 +402,16 @@ const PricingPage = () => {
                                                 className="icon-image"
                                             />
                                             <p>Streaming infrastructure</p>
+                                        </div>
+                                        <div className="list">
+                                            <StaticImage
+                                                placeholder="none"
+                                                alt="salesforce logo"
+                                                src="../svgs/cdc-cost.svg"
+                                                layout="fixed"
+                                                className="icon-image"
+                                            />
+                                            <p>Limited data retention</p>
                                         </div>
                                     </div>
                                 </div>
@@ -501,7 +518,6 @@ const PricingPage = () => {
                                             id={`faq-drawer-${index}`}
                                             className="faq-drawer__trigger"
                                             type="checkbox"
-                                            checked
                                         />
                                         <label
                                             className="faq-drawer__title"
