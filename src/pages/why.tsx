@@ -107,6 +107,10 @@ export const Step3 = ({ activePage, setState }) => {
                     height={597}
                     quality={100}
                 />
+                 <div
+                    className="zoom-in-out-circle"
+                    onClick={() => setState(activePage + 1)}
+                ></div>
                 <div className="button-tooltip left">
                     <div className="tooltip-heading">Success!</div>
                     <div className="tooltip-description">
@@ -267,110 +271,112 @@ const WhyEstuary = () => {
     return (
         <main className="why-estuary">
             <div className="sidebar-wrap">
-                <div className="sidebar-logo">
-                    <Link className="global-header-logo-link" to="/">
-                        <ColoredLogo
-                            className="global-header-logo"
-                            style={{ width: 27, height: 35 }}
-                        />
-                        <h1 className={"global-header-title"}>Estuary</h1>
-                    </Link>
-                </div>
-                <div className="sidebar-nav">
-                    <div
-                        className={`nav-item ${
-                            activePage === 0 ? "active" : ""
-                        }`}
-                        onClick={() => setActivePage(0)}
-                    >
-                        Welcome
+                <div>
+                    <div className="sidebar-logo">
+                        <Link className="global-header-logo-link" to="/">
+                            <ColoredLogo
+                                className="global-header-logo"
+                                style={{ width: 27, height: 35 }}
+                            />
+                            <h1 className={"global-header-title"}>Estuary</h1>
+                        </Link>
                     </div>
-                    <div
-                        className={`nav-item ${
-                            activePage === 1 ||
-                            activePage === 2 ||
-                            activePage === 3
-                                ? "active"
-                                : ""
-                        }`}
-                        onClick={() => setActivePage(1)}
-                    >
-                        Extract
-                    </div>
-                    <ul className="item-steps">
-                        <li
-                            className={`${activePage === 1 ? "active" : ""}`}
+                    <div className="sidebar-nav">
+                        <div
+                            className={`nav-item ${
+                                activePage === 0 ? "active" : ""
+                            }`}
+                            onClick={() => setActivePage(0)}
+                        >
+                            Welcome
+                        </div>
+                        <div
+                            className={`nav-item ${
+                                activePage === 1 ||
+                                activePage === 2 ||
+                                activePage === 3
+                                    ? "active"
+                                    : ""
+                            }`}
                             onClick={() => setActivePage(1)}
                         >
-                            Create Capture
-                        </li>
-                        <li
-                            className={`${activePage === 2 ? "active" : ""}`}
-                            onClick={() => setActivePage(2)}
-                        >
-                            Discover Schema
-                        </li>
-                        <li
-                            className={`${activePage === 3 ? "active" : ""}`}
-                            onClick={() => setActivePage(3)}
-                        >
-                            Monitoring
-                        </li>
-                    </ul>
-                    <div
-                        className={`nav-item ${
-                            activePage === 4 || activePage === 5 ? "active" : ""
-                        }`}
-                        onClick={() => setActivePage(4)}
-                    >
-                        Manage
-                    </div>
-                    <ul className="item-steps">
-                        <li
-                            className={`${activePage === 4 ? "active" : ""}`}
+                            Extract
+                        </div>
+                        <ul className="item-steps">
+                            <li
+                                className={`${activePage === 1 ? "active" : ""}`}
+                                onClick={() => setActivePage(1)}
+                            >
+                                Create Capture
+                            </li>
+                            <li
+                                className={`${activePage === 2 ? "active" : ""}`}
+                                onClick={() => setActivePage(2)}
+                            >
+                                Discover Schema
+                            </li>
+                            <li
+                                className={`${activePage === 3 ? "active" : ""}`}
+                                onClick={() => setActivePage(3)}
+                            >
+                                Monitoring
+                            </li>
+                        </ul>
+                        <div
+                            className={`nav-item ${
+                                activePage === 4 || activePage === 5 ? "active" : ""
+                            }`}
                             onClick={() => setActivePage(4)}
                         >
-                            Store history & real-time
-                        </li>
-                        <li
-                            className={`${activePage === 5 ? "active" : ""}`}
-                            onClick={() => setActivePage(5)}
-                        >
-                            Streaming SQL Transforms
-                        </li>
-                    </ul>
-                    <div
-                        className={`nav-item ${
-                            activePage === 6 ? "active" : ""
-                        }`}
-                        onClick={() => setActivePage(6)}
-                    >
-                        Load
-                    </div>
-                    <ul className="item-steps">
-                        <li
-                            className={`${activePage === 6 ? "active" : ""}`}
+                            Manage
+                        </div>
+                        <ul className="item-steps">
+                            <li
+                                className={`${activePage === 4 ? "active" : ""}`}
+                                onClick={() => setActivePage(4)}
+                            >
+                                Store history & real-time
+                            </li>
+                            <li
+                                className={`${activePage === 5 ? "active" : ""}`}
+                                onClick={() => setActivePage(5)}
+                            >
+                                Streaming SQL Transforms
+                            </li>
+                        </ul>
+                        <div
+                            className={`nav-item ${
+                                activePage === 6 ? "active" : ""
+                            }`}
                             onClick={() => setActivePage(6)}
                         >
-                            Stream to destination
-                        </li>
-                    </ul>
-                    <div
-                        className={`nav-item ${
-                            activePage === 7 ? "active" : ""
-                        }`}
-                        onClick={() => setActivePage(7)}
-                    >
-                        Pricing
-                    </div>
-                    <ul className="item-steps">
-                        <li
-                            className={`${activePage === 7 ? "active" : ""}`}
+                            Load
+                        </div>
+                        <ul className="item-steps">
+                            <li
+                                className={`${activePage === 6 ? "active" : ""}`}
+                                onClick={() => setActivePage(6)}
+                            >
+                                Stream to destination
+                            </li>
+                        </ul>
+                        <div
+                            className={`nav-item ${
+                                activePage === 7 ? "active" : ""
+                            }`}
                             onClick={() => setActivePage(7)}
                         >
-                            Flat Pricing
-                        </li>
-                    </ul>
+                            Pricing
+                        </div>
+                        <ul className="item-steps">
+                            <li
+                                className={`${activePage === 7 ? "active" : ""}`}
+                                onClick={() => setActivePage(7)}
+                            >
+                                Flat Pricing
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <div className="ctas-wrap">
                     <OutboundLink
