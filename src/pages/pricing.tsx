@@ -1,6 +1,7 @@
 import * as React from "react"
 import Layout from "../components/layout"
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
+import SliderComponent from "../components/StorageSlider"
 import {
     Box,
     Divider,
@@ -35,8 +36,9 @@ function gByteLabel(gb: number, maxPrec = 10) {
         scaledValue /= 1000
     }
 
-    return `${scaledValue.toFixed(Math.min(unitIndex, maxPrec))}${units[unitIndex]
-        }`
+    return `${scaledValue.toFixed(Math.min(unitIndex, maxPrec))}${
+        units[unitIndex]
+    }`
 }
 
 const ChecklistItem = ({ children, bullet = false }) => (
@@ -83,19 +85,23 @@ export const calculatePrice = (tasks: number, gbs: number) => {
 const PricingPage = () => {
     const relatedPost = useStaticQuery(graphql`
         {
-            allStrapiBlogPost(filter: {tags: {elemMatch: {Name: {eq: "billing articles"}}}}) {
-                nodes {
-                  title: Title
-                  hero: Hero {
-                    localFile {
-                      childImageSharp {
-                        gatsbyImageData
-                      }
-                    }
-                  }
+            allStrapiBlogPost(
+                filter: {
+                    tags: { elemMatch: { Name: { eq: "billing articles" } } }
                 }
-              }
+            ) {
+                nodes {
+                    title: Title
+                    hero: Hero {
+                        localFile {
+                            childImageSharp {
+                                gatsbyImageData
+                            }
+                        }
+                    }
+                }
             }
+        }
     `)
     const theme = useTheme()
     const isMedium = useMediaQuery(theme.breakpoints.between(811, 1100))
@@ -123,40 +129,38 @@ const PricingPage = () => {
             For a given connector running all month, this typically equates to about ~$100/month/connector. in a
             standard 720 hour month.   There is no storage fee as Estuary does not store your data, it will be hosted
             in your own cloud storage. In the free tier, you are given 10GB of data to move at no charge and up t
-            o 2 connectors.`
+            o 2 connectors.`,
         },
         {
             title: "Do you offer discounted rates?",
-            description: `Discounts are based on two variables - volume commitments and contract duration.`
+            description: `Discounts are based on two variables - volume commitments and contract duration.`,
         },
         {
             title: "How does Pay-as-you-Go pricing work?",
             description: `For customers that are just starting out, or don’t want to commit to a specific volume of data or time
             you can use Estuary and pay for actual consumption on a monthly basis. Your bill will be computed
             at the end of each month based on the amount of data transfer and number of active connector hours.
-            Billing is done through Stripe, and you’ll be able to add a credit card.`
+            Billing is done through Stripe, and you’ll be able to add a credit card.`,
         },
         {
             title: "How does pre-pay work?",
             description: `Customers that want to pay for a fixed amount of data transfer can pay up front and then amortize
             that usage over time (no more than 12 months). The more data transfer paid up front, the greater the
-            discount on the Pay-As-You-Go price.`
+            discount on the Pay-As-You-Go price.`,
         },
         {
             title: "How does the Free Trial work?",
             description: `Flow can be used for free indefinitely. With the only gate being the 10GB of data transfer each month
-            usage over 2 connectors. For customers on our Cloud Plan, there is a 30-day free trial upon request.`
+            usage over 2 connectors. For customers on our Cloud Plan, there is a 30-day free trial upon request.`,
         },
         {
             title: "What are my billing options?",
             description: `The free tier does not require a credit card nor any billing information. The Cloud Plan can be paid via
-            credit card, debit card, or 30-day Invoice. The Enterprise tier is paid via invoice.`
-        }
+            credit card, debit card, or 30-day Invoice. The Enterprise tier is paid via invoice.`,
+        },
     ]
 
-
     const [selectedPlan, setSelectedPlan] = React.useState("Free")
-
 
     return (
         <Layout headerTheme="light">
@@ -168,7 +172,13 @@ const PricingPage = () => {
                                 Simply priced, pay as you go
                             </h1>
                             <p className="pricing-page-subheader-text">
-                                Get instant back-fills without instant bad-bills. We price predictably, on <strong>GB of change data</strong> moved per month and <strong>active connector hours.</strong> Put away the TI-83 trying to calculate ‘monthly active rows’.
+                                Get instant back-fills without instant
+                                bad-bills. We price predictably, on{" "}
+                                <strong>GB of change data</strong> moved per
+                                month and{" "}
+                                <strong>active connector hours.</strong> Put
+                                away the TI-83 trying to calculate ‘monthly
+                                active rows’.
                             </p>
                             <div className="main-section-buttons">
                                 <OutboundLink
@@ -182,7 +192,9 @@ const PricingPage = () => {
                                     target="_blank"
                                     href="/why"
                                     className="section-one-demo-button"
-                                >Interactive Demo</OutboundLink>
+                                >
+                                    Interactive Demo
+                                </OutboundLink>
                             </div>
                         </div>
                         <div className="pricing-page-top-right">
@@ -205,32 +217,89 @@ const PricingPage = () => {
                         <div className="content">
                             <div className="content-left">
                                 <div>
-                                    <div className={selectedPlan === "Free" ? "card selected-border" : "card"} onClick={() => setSelectedPlan("Free")}>
+                                    <div
+                                        className={
+                                            selectedPlan === "Free"
+                                                ? "card selected-border"
+                                                : "card"
+                                        }
+                                        onClick={() => setSelectedPlan("Free")}
+                                    >
                                         <div className="card-body">
                                             <h3>$0.00/GB</h3>
-                                            <p>Free production use 2 connections and up to 10GB/mo od data</p>
+                                            <p>
+                                                Free production use 2
+                                                connections and up to 10GB/mo od
+                                                data
+                                            </p>
                                             <div className="radio">
-                                                <div className={selectedPlan === "Free" ? "radio-circle" : "selected-radio-circle"}></div>
+                                                <div
+                                                    className={
+                                                        selectedPlan === "Free"
+                                                            ? "radio-circle"
+                                                            : "selected-radio-circle"
+                                                    }
+                                                ></div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div className={selectedPlan === "After Free Trial" ? "card selected-border" : "card"} onClick={() => setSelectedPlan("After Free Trial")}>
+                                    <div
+                                        className={
+                                            selectedPlan === "After Free Trial"
+                                                ? "card selected-border"
+                                                : "card"
+                                        }
+                                        onClick={() =>
+                                            setSelectedPlan("After Free Trial")
+                                        }
+                                    >
                                         <div className="card-body">
                                             <h3>$0.50/GB</h3>
-                                            <p>$0.50/GB of the data moved + ~$100 per connector ($0.14/hour/connector). Pay-as-you-go after free trial.</p>
+                                            <p>
+                                                $0.50/GB of the data moved +
+                                                ~$100 per connector
+                                                ($0.14/hour/connector).
+                                                Pay-as-you-go after free trial.
+                                            </p>
                                             <div className="radio">
-                                                <div className={selectedPlan === "After Free Trial" ? "radio-circle" : "selected-radio-circle"}></div>
+                                                <div
+                                                    className={
+                                                        selectedPlan ===
+                                                        "After Free Trial"
+                                                            ? "radio-circle"
+                                                            : "selected-radio-circle"
+                                                    }
+                                                ></div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div className={selectedPlan === "Custom" ? "card selected-border" : "card"} onClick={() => setSelectedPlan("Custom")}>
+                                    <div
+                                        className={
+                                            selectedPlan === "Custom"
+                                                ? "card selected-border"
+                                                : "card"
+                                        }
+                                        onClick={() =>
+                                            setSelectedPlan("Custom")
+                                        }
+                                    >
                                         <div className="card-body">
                                             <h3>Custom</h3>
-                                            <p>Custom pricing for large enterprise deployments</p>
+                                            <p>
+                                                Custom pricing for large
+                                                enterprise deployments
+                                            </p>
                                             <div className="radio">
-                                                <div className={selectedPlan === "Custom" ? "radio-circle" : "selected-radio-circle"}></div>
+                                                <div
+                                                    className={
+                                                        selectedPlan ===
+                                                        "Custom"
+                                                            ? "radio-circle"
+                                                            : "selected-radio-circle"
+                                                    }
+                                                ></div>
                                             </div>
                                         </div>
                                     </div>
@@ -246,7 +315,9 @@ const PricingPage = () => {
                                             target="_blank"
                                             href="/why"
                                             className="contact-button"
-                                        >Contact</OutboundLink>
+                                        >
+                                            Contact
+                                        </OutboundLink>
                                     </div>
                                 </div>
                             </div>
@@ -264,7 +335,10 @@ const PricingPage = () => {
                                                 layout="fixed"
                                                 className="icon-image"
                                             />
-                                            <p>UI & CLI for building, monitoring, testing pipelines</p>
+                                            <p>
+                                                UI & CLI for building,
+                                                monitoring, testing pipelines
+                                            </p>
                                         </div>
                                         <div className="list">
                                             <StaticImage
@@ -273,7 +347,9 @@ const PricingPage = () => {
                                                 src="../svgs/latency.svg"
                                                 layout="fixed"
                                                 className="icon-image"
-                                            /> <p>Millisecond latency</p> </div>
+                                            />{" "}
+                                            <p>Millisecond latency</p>{" "}
+                                        </div>
                                         <div className="list">
                                             <StaticImage
                                                 placeholder="none"
@@ -281,7 +357,12 @@ const PricingPage = () => {
                                                 src="../svgs/cdc-cost.svg"
                                                 layout="fixed"
                                                 className="icon-image"
-                                            /><p>Incremental syncing for lower CDC cost</p> </div>
+                                            />
+                                            <p>
+                                                Incremental syncing for lower
+                                                CDC cost
+                                            </p>{" "}
+                                        </div>
                                         <div className="list">
                                             <StaticImage
                                                 placeholder="none"
@@ -299,7 +380,12 @@ const PricingPage = () => {
                                                 src="../svgs/programmatic.svg"
                                                 layout="fixed"
                                                 className="icon-image"
-                                            /><p>Programmatic building and editing of pipelines</p> </div>
+                                            />
+                                            <p>
+                                                Programmatic building and
+                                                editing of pipelines
+                                            </p>{" "}
+                                        </div>
                                         <div className="list">
                                             <StaticImage
                                                 placeholder="none"
@@ -307,7 +393,8 @@ const PricingPage = () => {
                                                 src="../svgs/streaming-infrastructure.svg"
                                                 layout="fixed"
                                                 className="icon-image"
-                                            /><p>Streaming infrastructure</p>
+                                            />
+                                            <p>Streaming infrastructure</p>
                                         </div>
                                     </div>
                                 </div>
@@ -323,26 +410,82 @@ const PricingPage = () => {
                         </div>
                         <div className="cost-calculator-container">
                             <div className="cost-calculator-left">
-                            <div className="card">
-                                    <div>
-                                        <p>GB of Change Data</p>
-
+                                <div className="content-top">
+                                    <p>GB of Change Data</p>
+                                    <SliderComponent />
+                                </div>
+                                <div className="content-bottom">
+                                    <p>Number of connectors</p>
+                                    <div className="count-input">
+                                        <div className="btn-left">
+                                            <svg
+                                                width="15"
+                                                height="5"
+                                                viewBox="0 0 15 5"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <rect
+                                                    width="15"
+                                                    height="5"
+                                                    rx="1"
+                                                    fill="#3F3F46"
+                                                />
+                                            </svg>
+                                        </div>
+                                        <input type="text" />
+                                        <div className="btn-right">
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="17"
+                                                height="16"
+                                                viewBox="0 0 17 16"
+                                                fill="none"
+                                            >
+                                                <path
+                                                    d="M7.74037 0C7.28294 0 6.97999 0.31889 6.97999 0.800397V6.4H1.66037C1.20294 6.4 0.899994 6.71889 0.899994 7.2004V8.8004C0.899994 9.28111 1.20294 9.6 1.66037 9.6H6.97999V15.2004C6.97999 15.6811 7.28294 16 7.74037 16H9.26037C9.71705 16 10.02 15.6811 10.02 15.2004V9.6H15.3404C15.797 9.6 16.1 9.28111 16.1 8.8004V7.2004C16.1 6.71889 15.797 6.4 15.3404 6.4H10.02V0.800397C10.02 0.31889 9.71705 0 9.26037 0H7.74037Z"
+                                                    fill="#3F3F46"
+                                                />
+                                            </svg>
+                                        </div>
                                     </div>
-
                                 </div>
                             </div>
                             <div className="cost-calculator-right">
                                 <div className="card">
-                                    <div>
-                                        <h2>Our Plan</h2>
-
+                                    <div className="content-top">
+                                        <p className="content-top-heading">
+                                            Our Plan
+                                        </p>
+                                        <p className="content-top-description">
+                                            XXX GB of change data
+                                        </p>
+                                        <p className="content-top-description">
+                                            XXX connectors
+                                        </p>
+                                        <p className="content-top-price-tag">
+                                            $104 / Month
+                                        </p>
+                                        <p className="content-top-hint">
+                                            -$ from closest competitor
+                                        </p>
                                     </div>
-
+                                    <div className="content-bottom">
+                                        <p className="content-bottom-heading">
+                                            The 'Others'
+                                        </p>
+                                        <div className="content-bottom-description">
+                                            <p>Fivetran</p>
+                                            <p>$XXX / Mo</p>
+                                        </div>
+                                        <div className="content-bottom-description">
+                                            <p>Confluent</p>
+                                            <p>$XXX / Mo</p>
+                                        </div>
+                                    </div>
                                 </div>
-
                             </div>
                         </div>
-
                     </div>
 
                     {/* Frequently question */}
@@ -352,11 +495,20 @@ const PricingPage = () => {
                         </div>
                         <div className="frequently-container">
                             <div className="question">
-
                                 {frequentlyQuestions.map((item, index) => (
                                     <div className="faq-drawer">
-                                        <input id={`faq-drawer-${index}`} className="faq-drawer__trigger" type="checkbox" checked />
-                                        <label className="faq-drawer__title" htmlFor={`faq-drawer-${index}`}>{item.title}</label>
+                                        <input
+                                            id={`faq-drawer-${index}`}
+                                            className="faq-drawer__trigger"
+                                            type="checkbox"
+                                            checked
+                                        />
+                                        <label
+                                            className="faq-drawer__title"
+                                            htmlFor={`faq-drawer-${index}`}
+                                        >
+                                            {item.title}
+                                        </label>
                                         <div className="faq-drawer__content-wrapper">
                                             <div className="faq-drawer__content">
                                                 <p>{item.description}</p>
@@ -366,7 +518,6 @@ const PricingPage = () => {
                                 ))}
                             </div>
                         </div>
-
                     </div>
 
                     <div className="related-post">
@@ -375,21 +526,29 @@ const PricingPage = () => {
                         </div>
                         <div className="related-index-body">
                             {relatedPost?.allStrapiBlogPost?.nodes &&
-                                relatedPost?.allStrapiBlogPost?.nodes?.map((post: any, index: number) => (
-                                    <>
-                                        <Link to='' className="related-post-card">
-                                            <GatsbyImage
-                                                image={post?.hero?.localFile?.childImageSharp?.gatsbyImageData}
-                                                alt="debezium alternatives"
-                                                className="icon-image popular-articles-image"
-                                            />
-                                            <div className="related-post-card-title">{post.title}</div>
-                                        </Link>
-
-                                    </>
-
-                                ))
-                            }
+                                relatedPost?.allStrapiBlogPost?.nodes?.map(
+                                    (post: any, index: number) => (
+                                        <>
+                                            <Link
+                                                to=""
+                                                className="related-post-card"
+                                            >
+                                                <GatsbyImage
+                                                    image={
+                                                        post?.hero?.localFile
+                                                            ?.childImageSharp
+                                                            ?.gatsbyImageData
+                                                    }
+                                                    alt="debezium alternatives"
+                                                    className="icon-image popular-articles-image"
+                                                />
+                                                <div className="related-post-card-title">
+                                                    {post.title}
+                                                </div>
+                                            </Link>
+                                        </>
+                                    )
+                                )}
                         </div>
                     </div>
 
@@ -411,7 +570,9 @@ const PricingPage = () => {
                                     target="_blank"
                                     href="/why"
                                     className="demo-button"
-                                >Interactive Demo</OutboundLink>
+                                >
+                                    Interactive Demo
+                                </OutboundLink>
                             </div>
                         </div>
                     </div>
@@ -422,7 +583,14 @@ const PricingPage = () => {
 }
 
 export const Head = ({ data: { post } }) => {
-    return <Seo title={"Pricing"} description={"Managed streaming data pipelines, streaming SQL & turnkey connectivity to clouds, databases, and apps"} />
+    return (
+        <Seo
+            title={"Pricing"}
+            description={
+                "Managed streaming data pipelines, streaming SQL & turnkey connectivity to clouds, databases, and apps"
+            }
+        />
+    )
 }
 
 export default PricingPage
