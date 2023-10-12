@@ -3932,6 +3932,12 @@ table th {
     }
 }
 
+@media (max-width: 375px) {
+    .global-footer-input-email {
+        max-width: 196px;
+    }
+}
+
 .page-toc {
     background-color: #edf6ff;
     margin-top: 2rem;
@@ -6991,6 +6997,7 @@ table th {
 
                 transition: all 0.25s ease-out;
                 cursor: pointer;
+                font-family: Inter;
             }
 
             .faq-drawer__title::after {
@@ -7040,6 +7047,7 @@ table th {
                 p {
                     font-size: 14.8px;
                     line-height: 26.66px;
+                    font-family: Inter;
                 }
             }
         }
@@ -7352,36 +7360,44 @@ table th {
                         font-size: 20px;
                     }
                 }
+
                 .content-bottom {
                     p {
                         font-size: 20px;
                     }
                 }
+
                 .MuiBox-root {
                     width: 336px;
                 }
             }
+
             &-right {
                 .card {
                     .content-top {
                         .content-top-heading {
                             font-size: 20px;
                         }
+
                         .content-top-description {
                             font-size: 18px;
                         }
+
                         .content-top-price-tag {
                             font-size: 22px;
                             text-align: center;
                         }
+
                         .content-top-hint {
                             font-size: 12px;
                         }
                     }
+
                     .content-bottom {
                         .content-bottom-heading {
                             font-size: 20px;
                         }
+
                         .content-bottom-description {
                             p {
                                 font-size: 18px;
@@ -7392,7 +7408,9 @@ table th {
             }
         }
     }
+}
 
+.pricing-page {
     @media(max-width: 1024px) {
         .frequently-question {
             .frequently-container {
@@ -7515,7 +7533,6 @@ table th {
         }
     }
 
-
     @media(max-width: 425px) {
         padding-top: 0px;
 
@@ -7542,12 +7559,116 @@ table th {
 
                     .buttons-section {
                         gap: 0px;
+
                         .build-button {
                             line-height: 28px;
                             font-size: 16px;
                             padding: 10px 28px;
                         }
                     }
+                }
+            }
+        }
+
+        .related-post {
+            .related-index-body {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        .start-move-demo {
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+    }
+
+    @media(max-width: 375px) {
+        padding-top: 0px;
+
+        .pricing-page-background-image-wrapper {
+            .pricing-page-top {
+                .pricing-page-top-left {
+                    .product-flow-section-one-h1 {
+                        font-size: 40px;
+                    }
+                }
+
+                .pricing-page-top-right {
+                    .icon-image {
+                        height: 284px !important;
+                    }
+                }
+            }
+        }
+
+        .plan-container {
+            .content {
+                flex-direction: column-reverse;
+
+                .content-left {
+                    .plans-section {
+                        .card {
+                            .card-body {
+                                gap: 12px;
+
+                                h3 {
+                                    font-size: 12px;
+                                }
+
+                                p {
+                                    font-size: 8px;
+                                }
+                            }
+                        }
+                    }
+
+                    .buttons-section {
+                        gap: 0px;
+                        justify-content: space-around;
+
+                        .build-button {
+                            line-height: 16px;
+                            font-size: 10px;
+                            padding: 10px 16px;
+                        }
+
+                        .contact-button {
+                            font-size: 12px;
+                            padding: 0px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .cost-calculator {
+            .heading {
+                h2 {
+                    font-size: 36px;
+                }
+            }
+
+            .cost-calculator-container {
+                .cost-calculator-left {
+                    .MuiBox-root {
+                        width: 264px;
+                    }
+                }
+
+                .cost-calculator-right {
+                    .card {
+                        padding: 20px 20px;
+                    }
+                }
+            }
+        }
+
+        .frequently-question {
+            padding-top: 20px;
+
+            .heading {
+                h2 {
+                    font-size: 20px;
                 }
             }
         }
