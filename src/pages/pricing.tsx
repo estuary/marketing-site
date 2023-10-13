@@ -158,6 +158,10 @@ const PricingPage = () => {
             description: `The free tier does not require a credit card nor any billing information. The Cloud Plan can be paid via
             credit card, debit card, or 30-day Invoice. The Enterprise tier is paid via invoice.`,
         },
+        {
+            title: "Where is my data stored?",
+            description: "In the free tier, your data will be stored securely stored in Estuary’s cloud storage. Estuary will only retain this data for a limited window. In the Cloud Plan and beyond, your data will be stored in your cloud bucket for whatever length you set."
+        }
     ]
 
     const [selectedPlan, setSelectedPlan] = React.useState("Free")
