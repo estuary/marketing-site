@@ -238,7 +238,7 @@ const PricingPage = () => {
                                             <h3>$0.00/GB</h3>
                                             <p>
                                                 Free production use 2
-                                                connections and up to 10GB/mo od
+                                                connections and up to 10GB/mo of
                                                 data
                                             </p>
                                             <div className="radio">
@@ -268,7 +268,6 @@ const PricingPage = () => {
                                                 $0.50/GB of the data moved +
                                                 ~$100 per connector
                                                 ($0.14/hour/connector).
-                                                Pay-as-you-go after free trial.
                                             </p>
                                             <div className="radio">
                                                 <div
@@ -407,11 +406,11 @@ const PricingPage = () => {
                                             <StaticImage
                                                 placeholder="none"
                                                 alt="salesforce logo"
-                                                src="../svgs/cdc-cost.svg"
+                                                src="../svgs/floppy.svg"
                                                 layout="fixed"
                                                 className="icon-image"
                                             />
-                                            <p>Limited data retention</p>
+                                            <p>Limited Data Retention in Estuary Cloud</p>
                                         </div>
                                     </div>
                                 </div>
