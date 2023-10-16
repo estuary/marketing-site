@@ -2,25 +2,10 @@ import * as React from "react"
 import Layout from "../components/layout"
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 import SliderComponent from "../components/StorageSlider"
-import {
-    Box,
-    Divider,
-    FormControl,
-    FormControlLabel,
-    Slider,
-    Stack,
-    Typography,
-    useMediaQuery,
-    useTheme,
-} from "@mui/material"
+import { useMediaQuery, useTheme } from "@mui/material"
 
-import FlowLogo from "../svgs/flow-logo.svg"
 import BlueCheckmark from "../svgs/blue-checkmark.svg"
 import BlueBullet from "../svgs/blue-bullet.svg"
-import PricingOpenSource from "../svgs/pricing-open-source.svg"
-import PricingCloud from "../svgs/pricing-cloud.svg"
-import PricingEnterprise from "../svgs/pricing-enterprise.svg"
-import GraphicQuote from "../svgs/graphic-quote.svg"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
 import Seo from "../components/seo"
 import { Link, graphql, useStaticQuery } from "gatsby"
@@ -103,22 +88,6 @@ const PricingPage = () => {
             }
         }
     `)
-    const theme = useTheme()
-    const isMedium = useMediaQuery(theme.breakpoints.between(811, 1100))
-
-    const x_factor = isMedium ? 0.0016 : 0.0024
-
-    const sliderScale = x => 1 / (1 + Math.E ** (x * x_factor * -1))
-    const inverseSliderScale = x => Math.log(x / (1 - x)) / x_factor
-    const marks = (
-        isMedium ? [1, 500, 1000, 5000] : [1, 250, 600, 1000, 5000]
-    ).map(v => ({
-        label: gByteLabel(v, 0),
-        value: sliderScale(v),
-    }))
-    console.log(marks)
-    const [selectedGB, setSelectedGB] = React.useState(1)
-    const [selectedTasks, setSelectedTasks] = React.useState(1)
 
     const frequentlyQuestions = [
         {
@@ -160,11 +129,12 @@ const PricingPage = () => {
         },
         {
             title: "Where is my data stored?",
-            description: "In the free tier, your data will be stored securely stored in Estuary’s cloud storage. Estuary will only retain this data for a limited window. In the Cloud Plan and beyond, your data will be stored in your cloud bucket for whatever length you set."
-        }
+            description:
+                "In the free tier, your data will be stored securely stored in Estuary’s cloud storage. Estuary will only retain this data for a limited window. In the Cloud Plan and beyond, your data will be stored in your cloud bucket for whatever length you set.",
+        },
     ]
 
-    const [selectedPlan, setSelectedPlan] = React.useState("Free")
+    const [selectedPlan, setSelectedPlan] = React.useState("free")
 
     return (
         <Layout headerTheme="light">
@@ -232,11 +202,11 @@ const PricingPage = () => {
                                 <div className="plans-section">
                                     <div
                                         className={
-                                            selectedPlan === "Free"
+                                            selectedPlan === "free"
                                                 ? "card selected-border"
                                                 : "card"
                                         }
-                                        onClick={() => setSelectedPlan("Free")}
+                                        onClick={() => setSelectedPlan("free")}
                                     >
                                         <div className="card-body">
                                             <h3>$0.00/GB</h3>
@@ -248,7 +218,7 @@ const PricingPage = () => {
                                             <div className="radio">
                                                 <div
                                                     className={
-                                                        selectedPlan === "Free"
+                                                        selectedPlan === "free"
                                                             ? "radio-circle"
                                                             : "selected-radio-circle"
                                                     }
@@ -258,13 +228,11 @@ const PricingPage = () => {
                                     </div>
                                     <div
                                         className={
-                                            selectedPlan === "After Free Trial"
+                                            selectedPlan === "cloud"
                                                 ? "card selected-border"
                                                 : "card"
                                         }
-                                        onClick={() =>
-                                            setSelectedPlan("After Free Trial")
-                                        }
+                                        onClick={() => setSelectedPlan("cloud")}
                                     >
                                         <div className="card-body">
                                             <h3>$0.50/GB</h3>
@@ -276,8 +244,7 @@ const PricingPage = () => {
                                             <div className="radio">
                                                 <div
                                                     className={
-                                                        selectedPlan ===
-                                                        "After Free Trial"
+                                                        selectedPlan === "cloud"
                                                             ? "radio-circle"
                                                             : "selected-radio-circle"
                                                     }
@@ -287,12 +254,12 @@ const PricingPage = () => {
                                     </div>
                                     <div
                                         className={
-                                            selectedPlan === "Custom"
+                                            selectedPlan === "custom"
                                                 ? "card selected-border"
                                                 : "card"
                                         }
                                         onClick={() =>
-                                            setSelectedPlan("Custom")
+                                            setSelectedPlan("custom")
                                         }
                                     >
                                         <div className="card-body">
@@ -305,7 +272,7 @@ const PricingPage = () => {
                                                 <div
                                                     className={
                                                         selectedPlan ===
-                                                        "Custom"
+                                                        "custom"
                                                             ? "radio-circle"
                                                             : "selected-radio-circle"
                                                     }
@@ -332,92 +299,322 @@ const PricingPage = () => {
                                 </div>
                             </div>
                             <div className="content-right">
-                                <div className="card">
-                                    <div>
-                                        <h5>Free plan includes:</h5>
+                                {selectedPlan === "free" && (
+                                    <div className="card">
+                                        <div>
+                                            <h5>Free Plan includes:</h5>
+                                        </div>
+                                        <div className="container-list">
+                                            <div className="list">
+                                                <StaticImage
+                                                    placeholder="none"
+                                                    alt="salesforce logo"
+                                                    src="../svgs/ui-ux-testing.svg"
+                                                    layout="constrained"
+                                                    className="icon-image"
+                                                />
+                                                <p>
+                                                    UI & CLI for building,
+                                                    monitoring, testing
+                                                    pipelines
+                                                </p>
+                                            </div>
+                                            <div className="list">
+                                                <StaticImage
+                                                    placeholder="none"
+                                                    alt="salesforce logo"
+                                                    src="../svgs/latency.svg"
+                                                    layout="constrained"
+                                                    className="icon-image"
+                                                />{" "}
+                                                <p>Millisecond latency</p>{" "}
+                                            </div>
+                                            <div className="list">
+                                                <StaticImage
+                                                    placeholder="none"
+                                                    alt="salesforce logo"
+                                                    src="../svgs/cdc-cost.svg"
+                                                    layout="constrained"
+                                                    className="icon-image"
+                                                />
+                                                <p>
+                                                    Incremental syncing for
+                                                    lower CDC cost
+                                                </p>{" "}
+                                            </div>
+                                            <div className="list">
+                                                <StaticImage
+                                                    placeholder="none"
+                                                    alt="salesforce logo"
+                                                    src="../svgs/access-connectors.svg"
+                                                    layout="constrained"
+                                                    className="icon-image"
+                                                />
+                                                <p>Access to all connectors</p>
+                                            </div>
+                                            <div className="list">
+                                                <StaticImage
+                                                    placeholder="none"
+                                                    alt="salesforce logo"
+                                                    src="../svgs/programmatic.svg"
+                                                    layout="constrained"
+                                                    className="icon-image"
+                                                />
+                                                <p>
+                                                    Programmatic building and
+                                                    editing of pipelines
+                                                </p>{" "}
+                                            </div>
+                                            <div className="list">
+                                                <StaticImage
+                                                    placeholder="none"
+                                                    alt="salesforce logo"
+                                                    src="../svgs/streaming-infrastructure.svg"
+                                                    layout="constrained"
+                                                    className="icon-image"
+                                                />
+                                                <p>Streaming infrastructure</p>
+                                            </div>
+                                            <div className="list">
+                                                <StaticImage
+                                                    placeholder="none"
+                                                    alt="salesforce logo"
+                                                    src="../svgs/floppy.svg"
+                                                    layout="constrained"
+                                                    className="icon-image"
+                                                />
+                                                <p>
+                                                    Limited Data Retention in
+                                                    Estuary Cloud
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div className="container-list">
-                                        <div className="list">
-                                            <StaticImage
-                                                placeholder="none"
-                                                alt="salesforce logo"
-                                                src="../svgs/ui-ux-testing.svg"
-                                                layout="fixed"
-                                                className="icon-image"
-                                            />
-                                            <p>
-                                                UI & CLI for building,
-                                                monitoring, testing pipelines
-                                            </p>
+                                )}
+                                {selectedPlan === "cloud" && (
+                                    <div className="card">
+                                        <div>
+                                            <h5>Cloud Plan includes:</h5>
                                         </div>
-                                        <div className="list">
-                                            <StaticImage
-                                                placeholder="none"
-                                                alt="salesforce logo"
-                                                src="../svgs/latency.svg"
-                                                layout="fixed"
-                                                className="icon-image"
-                                            />{" "}
-                                            <p>Millisecond latency</p>{" "}
-                                        </div>
-                                        <div className="list">
-                                            <StaticImage
-                                                placeholder="none"
-                                                alt="salesforce logo"
-                                                src="../svgs/cdc-cost.svg"
-                                                layout="fixed"
-                                                className="icon-image"
-                                            />
-                                            <p>
-                                                Incremental syncing for lower
-                                                CDC cost
-                                            </p>{" "}
-                                        </div>
-                                        <div className="list">
-                                            <StaticImage
-                                                placeholder="none"
-                                                alt="salesforce logo"
-                                                src="../svgs/access-connectors.svg"
-                                                layout="fixed"
-                                                className="icon-image"
-                                            />
-                                            <p>Access to all connectors</p>
-                                        </div>
-                                        <div className="list">
-                                            <StaticImage
-                                                placeholder="none"
-                                                alt="salesforce logo"
-                                                src="../svgs/programmatic.svg"
-                                                layout="fixed"
-                                                className="icon-image"
-                                            />
-                                            <p>
-                                                Programmatic building and
-                                                editing of pipelines
-                                            </p>{" "}
-                                        </div>
-                                        <div className="list">
-                                            <StaticImage
-                                                placeholder="none"
-                                                alt="salesforce logo"
-                                                src="../svgs/streaming-infrastructure.svg"
-                                                layout="fixed"
-                                                className="icon-image"
-                                            />
-                                            <p>Streaming infrastructure</p>
-                                        </div>
-                                        <div className="list">
-                                            <StaticImage
-                                                placeholder="none"
-                                                alt="salesforce logo"
-                                                src="../svgs/floppy.svg"
-                                                layout="fixed"
-                                                className="icon-image"
-                                            />
-                                            <p>Limited Data Retention in Estuary Cloud</p>
+                                        <div className="container-list">
+                                            <div className="list">
+                                                <StaticImage
+                                                    placeholder="none"
+                                                    alt="salesforce logo"
+                                                    src="../svgs/programmatic.svg"
+                                                    layout="constrained"
+                                                    className="icon-image"
+                                                />
+                                                <p>
+                                                    Everything from Free Plan...
+                                                </p>
+                                            </div>
+                                            <div className="list">
+                                                <StaticImage
+                                                    placeholder="none"
+                                                    alt="salesforce logo"
+                                                    src="../svgs/ui-ux-testing.svg"
+                                                    layout="constrained"
+                                                    className="icon-image"
+                                                />
+                                                <p>
+                                                    UI & CLI for building,
+                                                    monitoring, testing
+                                                    pipelines
+                                                </p>
+                                            </div>
+                                            <div className="list">
+                                                <StaticImage
+                                                    placeholder="none"
+                                                    alt="salesforce logo"
+                                                    src="../svgs/latency.svg"
+                                                    layout="constrained"
+                                                    className="icon-image"
+                                                />{" "}
+                                                <p>Millisecond latency</p>{" "}
+                                            </div>
+                                            <div className="list">
+                                                <StaticImage
+                                                    placeholder="none"
+                                                    alt="salesforce logo"
+                                                    src="../svgs/cdc-cost.svg"
+                                                    layout="constrained"
+                                                    className="icon-image"
+                                                />
+                                                <p>
+                                                    Incremental syncing for
+                                                    lower CDC cost
+                                                </p>{" "}
+                                            </div>
+                                            <div className="list">
+                                                <StaticImage
+                                                    placeholder="none"
+                                                    alt="salesforce logo"
+                                                    src="../svgs/pie.svg"
+                                                    layout="constrained"
+                                                    className="icon-image"
+                                                />
+                                                <p>99.9% SLA</p>{" "}
+                                            </div>
+                                            <div className="list">
+                                                <StaticImage
+                                                    placeholder="none"
+                                                    alt="salesforce logo"
+                                                    src="../svgs/list.svg"
+                                                    layout="constrained"
+                                                    className="icon-image"
+                                                />
+                                                <p>
+                                                    Unlimited connectors and
+                                                    collections
+                                                </p>
+                                            </div>
+                                            <div className="list">
+                                                <StaticImage
+                                                    placeholder="none"
+                                                    alt="salesforce logo"
+                                                    src="../svgs/slack.svg"
+                                                    layout="constrained"
+                                                    className="icon-image"
+                                                />
+                                                <p>
+                                                    9x5 Customer Support - Slack
+                                                    & Email
+                                                </p>
+                                            </div>
+                                            <div className="list">
+                                                <StaticImage
+                                                    placeholder="none"
+                                                    alt="salesforce logo"
+                                                    src="../svgs/calendar.svg"
+                                                    layout="constrained"
+                                                    className="icon-image"
+                                                />
+                                                <p>30-day Trial</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                )}
+                                {selectedPlan === "custom" && (
+                                    <div className="card">
+                                        <div>
+                                            <h5>Enterprise Plan includes:</h5>
+                                        </div>
+                                        <div className="container-list">
+                                            <div className="list">
+                                                <StaticImage
+                                                    placeholder="none"
+                                                    alt="salesforce logo"
+                                                    src="../svgs/pie.svg"
+                                                    layout="constrained"
+                                                    className="icon-image"
+                                                />
+                                                <p>
+                                                    Everything from Free Plan +
+                                                    Cloud...
+                                                </p>
+                                            </div>
+                                            <div className="list">
+                                                <StaticImage
+                                                    placeholder="none"
+                                                    alt="salesforce logo"
+                                                    src="../svgs/ui-ux-testing.svg"
+                                                    layout="constrained"
+                                                    className="icon-image"
+                                                />
+                                                <p>
+                                                    UI & CLI for building,
+                                                    monitoring, testing
+                                                    pipelines
+                                                </p>
+                                            </div>
+                                            <div className="list">
+                                                <StaticImage
+                                                    placeholder="none"
+                                                    alt="salesforce logo"
+                                                    src="../svgs/latency.svg"
+                                                    layout="constrained"
+                                                    className="icon-image"
+                                                />{" "}
+                                                <p>Millisecond latency</p>{" "}
+                                            </div>
+                                            <div className="list">
+                                                <StaticImage
+                                                    placeholder="none"
+                                                    alt="salesforce logo"
+                                                    src="../svgs/percent.svg"
+                                                    layout="constrained"
+                                                    className="icon-image"
+                                                />
+                                                <p>99.9% SLA</p>{" "}
+                                            </div>
+                                            <div className="list">
+                                                <StaticImage
+                                                    placeholder="none"
+                                                    alt="salesforce logo"
+                                                    src="../svgs/pie.svg"
+                                                    layout="constrained"
+                                                    className="icon-image"
+                                                />
+                                                <p>Access to all connectors</p>{" "}
+                                            </div>
+                                            <div className="list">
+                                                <StaticImage
+                                                    placeholder="none"
+                                                    alt="salesforce logo"
+                                                    src="../svgs/access-connectors.svg"
+                                                    layout="constrained"
+                                                    className="icon-image"
+                                                />
+                                                <p>SOC2 & HIPAA Certificates</p>
+                                            </div>
+                                            <div className="list">
+                                                <StaticImage
+                                                    placeholder="none"
+                                                    alt="salesforce logo"
+                                                    src="../svgs/server.svg"
+                                                    layout="constrained"
+                                                    className="icon-image"
+                                                />
+                                                <p>Provisioned Servers</p>
+                                            </div>
+                                            <div className="list">
+                                                <StaticImage
+                                                    placeholder="none"
+                                                    alt="salesforce logo"
+                                                    src="../svgs/list.svg"
+                                                    layout="constrained"
+                                                    className="icon-image"
+                                                />
+                                                <p>Customer Success Manager</p>
+                                            </div>
+                                            <div className="list">
+                                                <StaticImage
+                                                    placeholder="none"
+                                                    alt="salesforce logo"
+                                                    src="../svgs/slack.svg"
+                                                    layout="constrained"
+                                                    className="icon-image"
+                                                />
+                                                <p>24x7 Support Available</p>
+                                            </div>
+                                            <div className="list">
+                                                <StaticImage
+                                                    placeholder="none"
+                                                    alt="salesforce logo"
+                                                    src="../svgs/download.svg"
+                                                    layout="constrained"
+                                                    className="icon-image"
+                                                />
+                                                <p>
+                                                    <span>Coming Soon:</span>{" "}
+                                                    Advance SSO, Custom VPC
+                                                    deployment
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </div>
