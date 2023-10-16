@@ -211,8 +211,8 @@ const PricingPage = () => {
                                         <div className="card-body">
                                             <h3>$0.00/GB</h3>
                                             <p>
-                                                Free production use 2
-                                                connections and up to 10GB/mo of
+                                                Free production use of 2
+                                                connectors and up to 10GB/mo of
                                                 data
                                             </p>
                                             <div className="radio">
@@ -306,13 +306,20 @@ const PricingPage = () => {
                                         </div>
                                         <div className="container-list">
                                             <div className="list">
-                                                <StaticImage
-                                                    placeholder="none"
-                                                    alt="salesforce logo"
-                                                    src="../svgs/ui-ux-testing.svg"
-                                                    layout="constrained"
-                                                    className="icon-image"
-                                                />
+                                                <div
+                                                    style={{
+                                                        minWidth: 30,
+                                                        minHeight: 20,
+                                                    }}
+                                                >
+                                                    <StaticImage
+                                                        placeholder="none"
+                                                        alt="salesforce logo"
+                                                        src="../svgs/ui-ux-testing.svg"
+                                                        layout="constrained"
+                                                        className="icon-image"
+                                                    />
+                                                </div>
                                                 <p>
                                                     UI & CLI for building,
                                                     monitoring, testing
@@ -320,69 +327,111 @@ const PricingPage = () => {
                                                 </p>
                                             </div>
                                             <div className="list">
-                                                <StaticImage
-                                                    placeholder="none"
-                                                    alt="salesforce logo"
-                                                    src="../svgs/latency.svg"
-                                                    layout="constrained"
-                                                    className="icon-image"
-                                                />{" "}
-                                                <p>Millisecond latency</p>{" "}
+                                                <div
+                                                    style={{
+                                                        minWidth: 30,
+                                                        minHeight: 20,
+                                                    }}
+                                                >
+                                                    <StaticImage
+                                                        placeholder="none"
+                                                        alt="salesforce logo"
+                                                        src="../svgs/latency.svg"
+                                                        layout="constrained"
+                                                        className="icon-image"
+                                                    />
+                                                </div>
+                                                <p>Millisecond latency</p>
                                             </div>
                                             <div className="list">
-                                                <StaticImage
-                                                    placeholder="none"
-                                                    alt="salesforce logo"
-                                                    src="../svgs/cdc-cost.svg"
-                                                    layout="constrained"
-                                                    className="icon-image"
-                                                />
+                                                <div
+                                                    style={{
+                                                        minWidth: 30,
+                                                        minHeight: 20,
+                                                    }}
+                                                >
+                                                    <StaticImage
+                                                        placeholder="none"
+                                                        alt="salesforce logo"
+                                                        src="../svgs/cdc-cost.svg"
+                                                        layout="constrained"
+                                                        className="icon-image"
+                                                    />
+                                                </div>
                                                 <p>
                                                     Incremental syncing for
                                                     lower CDC cost
-                                                </p>{" "}
+                                                </p>
                                             </div>
                                             <div className="list">
-                                                <StaticImage
-                                                    placeholder="none"
-                                                    alt="salesforce logo"
-                                                    src="../svgs/access-connectors.svg"
-                                                    layout="constrained"
-                                                    className="icon-image"
-                                                />
+                                                <div
+                                                    style={{
+                                                        minWidth: 30,
+                                                        minHeight: 20,
+                                                    }}
+                                                >
+                                                    <StaticImage
+                                                        placeholder="none"
+                                                        alt="salesforce logo"
+                                                        src="../svgs/access-connectors.svg"
+                                                        layout="constrained"
+                                                        className="icon-image"
+                                                    />
+                                                </div>
                                                 <p>Access to all connectors</p>
                                             </div>
                                             <div className="list">
-                                                <StaticImage
-                                                    placeholder="none"
-                                                    alt="salesforce logo"
-                                                    src="../svgs/programmatic.svg"
-                                                    layout="constrained"
-                                                    className="icon-image"
-                                                />
+                                                <div
+                                                    style={{
+                                                        minWidth: 30,
+                                                        minHeight: 20,
+                                                    }}
+                                                >
+                                                    <StaticImage
+                                                        placeholder="none"
+                                                        alt="salesforce logo"
+                                                        src="../svgs/programmatic.svg"
+                                                        layout="constrained"
+                                                        className="icon-image"
+                                                    />
+                                                </div>
                                                 <p>
                                                     Programmatic building and
                                                     editing of pipelines
-                                                </p>{" "}
+                                                </p>
                                             </div>
                                             <div className="list">
-                                                <StaticImage
-                                                    placeholder="none"
-                                                    alt="salesforce logo"
-                                                    src="../svgs/streaming-infrastructure.svg"
-                                                    layout="constrained"
-                                                    className="icon-image"
-                                                />
+                                                <div
+                                                    style={{
+                                                        minWidth: 30,
+                                                        minHeight: 20,
+                                                    }}
+                                                >
+                                                    <StaticImage
+                                                        placeholder="none"
+                                                        alt="salesforce logo"
+                                                        src="../svgs/streaming-infrastructure.svg"
+                                                        layout="constrained"
+                                                        className="icon-image"
+                                                    />
+                                                </div>
                                                 <p>Streaming infrastructure</p>
                                             </div>
                                             <div className="list">
-                                                <StaticImage
-                                                    placeholder="none"
-                                                    alt="salesforce logo"
-                                                    src="../svgs/floppy.svg"
-                                                    layout="constrained"
-                                                    className="icon-image"
-                                                />
+                                                <div
+                                                    style={{
+                                                        minWidth: 30,
+                                                        minHeight: 20,
+                                                    }}
+                                                >
+                                                    <StaticImage
+                                                        placeholder="none"
+                                                        alt="salesforce logo"
+                                                        src="../svgs/floppy.svg"
+                                                        layout="constrained"
+                                                        className="icon-image"
+                                                    />
+                                                </div>
                                                 <p>
                                                     Limited Data Retention in
                                                     Estuary Cloud
@@ -398,25 +447,39 @@ const PricingPage = () => {
                                         </div>
                                         <div className="container-list">
                                             <div className="list">
-                                                <StaticImage
-                                                    placeholder="none"
-                                                    alt="salesforce logo"
-                                                    src="../svgs/programmatic.svg"
-                                                    layout="constrained"
-                                                    className="icon-image"
-                                                />
+                                                <div
+                                                    style={{
+                                                        minWidth: 30,
+                                                        minHeight: 20,
+                                                    }}
+                                                >
+                                                    <StaticImage
+                                                        placeholder="none"
+                                                        alt="salesforce logo"
+                                                        src="../svgs/programmatic.svg"
+                                                        layout="constrained"
+                                                        className="icon-image"
+                                                    />
+                                                </div>
                                                 <p>
                                                     Everything from Free Plan...
                                                 </p>
                                             </div>
                                             <div className="list">
-                                                <StaticImage
-                                                    placeholder="none"
-                                                    alt="salesforce logo"
-                                                    src="../svgs/ui-ux-testing.svg"
-                                                    layout="constrained"
-                                                    className="icon-image"
-                                                />
+                                                <div
+                                                    style={{
+                                                        minWidth: 30,
+                                                        minHeight: 20,
+                                                    }}
+                                                >
+                                                    <StaticImage
+                                                        placeholder="none"
+                                                        alt="salesforce logo"
+                                                        src="../svgs/ui-ux-testing.svg"
+                                                        layout="constrained"
+                                                        className="icon-image"
+                                                    />
+                                                </div>
                                                 <p>
                                                     UI & CLI for building,
                                                     monitoring, testing
@@ -424,72 +487,114 @@ const PricingPage = () => {
                                                 </p>
                                             </div>
                                             <div className="list">
-                                                <StaticImage
-                                                    placeholder="none"
-                                                    alt="salesforce logo"
-                                                    src="../svgs/latency.svg"
-                                                    layout="constrained"
-                                                    className="icon-image"
-                                                />{" "}
-                                                <p>Millisecond latency</p>{" "}
+                                                <div
+                                                    style={{
+                                                        minWidth: 30,
+                                                        minHeight: 20,
+                                                    }}
+                                                >
+                                                    <StaticImage
+                                                        placeholder="none"
+                                                        alt="salesforce logo"
+                                                        src="../svgs/latency.svg"
+                                                        layout="constrained"
+                                                        className="icon-image"
+                                                    />
+                                                </div>
+                                                <p>Millisecond latency</p>
                                             </div>
                                             <div className="list">
-                                                <StaticImage
-                                                    placeholder="none"
-                                                    alt="salesforce logo"
-                                                    src="../svgs/cdc-cost.svg"
-                                                    layout="constrained"
-                                                    className="icon-image"
-                                                />
+                                                <div
+                                                    style={{
+                                                        minWidth: 30,
+                                                        minHeight: 20,
+                                                    }}
+                                                >
+                                                    <StaticImage
+                                                        placeholder="none"
+                                                        alt="salesforce logo"
+                                                        src="../svgs/cdc-cost.svg"
+                                                        layout="constrained"
+                                                        className="icon-image"
+                                                    />
+                                                </div>
                                                 <p>
                                                     Incremental syncing for
                                                     lower CDC cost
-                                                </p>{" "}
+                                                </p>
                                             </div>
                                             <div className="list">
-                                                <StaticImage
-                                                    placeholder="none"
-                                                    alt="salesforce logo"
-                                                    src="../svgs/pie.svg"
-                                                    layout="constrained"
-                                                    className="icon-image"
-                                                />
-                                                <p>99.9% SLA</p>{" "}
+                                                <div
+                                                    style={{
+                                                        minWidth: 30,
+                                                        minHeight: 20,
+                                                    }}
+                                                >
+                                                    <StaticImage
+                                                        placeholder="none"
+                                                        alt="salesforce logo"
+                                                        src="../svgs/pie.svg"
+                                                        layout="constrained"
+                                                        className="icon-image"
+                                                    />
+                                                </div>
+                                                <p>99.9% SLA</p>
                                             </div>
                                             <div className="list">
-                                                <StaticImage
-                                                    placeholder="none"
-                                                    alt="salesforce logo"
-                                                    src="../svgs/list.svg"
-                                                    layout="constrained"
-                                                    className="icon-image"
-                                                />
+                                                <div
+                                                    style={{
+                                                        minWidth: 30,
+                                                        minHeight: 20,
+                                                    }}
+                                                >
+                                                    <StaticImage
+                                                        placeholder="none"
+                                                        alt="salesforce logo"
+                                                        src="../svgs/list.svg"
+                                                        layout="constrained"
+                                                        className="icon-image"
+                                                    />
+                                                </div>
                                                 <p>
                                                     Unlimited connectors and
                                                     collections
                                                 </p>
                                             </div>
                                             <div className="list">
-                                                <StaticImage
-                                                    placeholder="none"
-                                                    alt="salesforce logo"
-                                                    src="../svgs/slack.svg"
-                                                    layout="constrained"
-                                                    className="icon-image"
-                                                />
+                                                <div
+                                                    style={{
+                                                        minWidth: 30,
+                                                        minHeight: 20,
+                                                    }}
+                                                >
+                                                    <StaticImage
+                                                        placeholder="none"
+                                                        alt="salesforce logo"
+                                                        src="../svgs/slack.svg"
+                                                        layout="constrained"
+                                                        className="icon-image"
+                                                    />
+                                                </div>
                                                 <p>
                                                     9x5 Customer Support - Slack
                                                     & Email
                                                 </p>
                                             </div>
                                             <div className="list">
-                                                <StaticImage
-                                                    placeholder="none"
-                                                    alt="salesforce logo"
-                                                    src="../svgs/calendar.svg"
-                                                    layout="constrained"
-                                                    className="icon-image"
-                                                />
+                                                <div
+                                                    style={{
+                                                        minWidth: 30,
+                                                        minHeight: 20,
+                                                    }}
+                                                >
+                                                    <StaticImage
+                                                        placeholder="none"
+                                                        alt="salesforce logo"
+                                                        src="../svgs/calendar.svg"
+                                                        layout="constrained"
+                                                        className="icon-image"
+                                                    />
+                                                </div>
                                                 <p>30-day Trial</p>
                                             </div>
                                         </div>
@@ -502,26 +607,40 @@ const PricingPage = () => {
                                         </div>
                                         <div className="container-list">
                                             <div className="list">
-                                                <StaticImage
-                                                    placeholder="none"
-                                                    alt="salesforce logo"
-                                                    src="../svgs/pie.svg"
-                                                    layout="constrained"
-                                                    className="icon-image"
-                                                />
+                                                <div
+                                                    style={{
+                                                        minWidth: 30,
+                                                        minHeight: 20,
+                                                    }}
+                                                >
+                                                    <StaticImage
+                                                        placeholder="none"
+                                                        alt="salesforce logo"
+                                                        src="../svgs/pie.svg"
+                                                        layout="constrained"
+                                                        className="icon-image"
+                                                    />
+                                                </div>
                                                 <p>
                                                     Everything from Free Plan +
                                                     Cloud...
                                                 </p>
                                             </div>
                                             <div className="list">
-                                                <StaticImage
-                                                    placeholder="none"
-                                                    alt="salesforce logo"
-                                                    src="../svgs/ui-ux-testing.svg"
-                                                    layout="constrained"
-                                                    className="icon-image"
-                                                />
+                                                <div
+                                                    style={{
+                                                        minWidth: 30,
+                                                        minHeight: 20,
+                                                    }}
+                                                >
+                                                    <StaticImage
+                                                        placeholder="none"
+                                                        alt="salesforce logo"
+                                                        src="../svgs/ui-ux-testing.svg"
+                                                        layout="constrained"
+                                                        className="icon-image"
+                                                    />
+                                                </div>
                                                 <p>
                                                     UI & CLI for building,
                                                     monitoring, testing
@@ -529,85 +648,141 @@ const PricingPage = () => {
                                                 </p>
                                             </div>
                                             <div className="list">
-                                                <StaticImage
-                                                    placeholder="none"
-                                                    alt="salesforce logo"
-                                                    src="../svgs/latency.svg"
-                                                    layout="constrained"
-                                                    className="icon-image"
-                                                />{" "}
-                                                <p>Millisecond latency</p>{" "}
+                                                <div
+                                                    style={{
+                                                        minWidth: 30,
+                                                        minHeight: 20,
+                                                    }}
+                                                >
+                                                    <StaticImage
+                                                        placeholder="none"
+                                                        alt="salesforce logo"
+                                                        src="../svgs/latency.svg"
+                                                        layout="constrained"
+                                                        className="icon-image"
+                                                    />
+                                                </div>
+                                                <p>Millisecond latency</p>
                                             </div>
                                             <div className="list">
-                                                <StaticImage
-                                                    placeholder="none"
-                                                    alt="salesforce logo"
-                                                    src="../svgs/percent.svg"
-                                                    layout="constrained"
-                                                    className="icon-image"
-                                                />
-                                                <p>99.9% SLA</p>{" "}
+                                                <div
+                                                    style={{
+                                                        minWidth: 30,
+                                                        minHeight: 20,
+                                                    }}
+                                                >
+                                                    <StaticImage
+                                                        placeholder="none"
+                                                        alt="salesforce logo"
+                                                        src="../svgs/percent.svg"
+                                                        layout="constrained"
+                                                        className="icon-image"
+                                                    />
+                                                </div>
+                                                <p>99.9% SLA</p>
                                             </div>
                                             <div className="list">
-                                                <StaticImage
-                                                    placeholder="none"
-                                                    alt="salesforce logo"
-                                                    src="../svgs/pie.svg"
-                                                    layout="constrained"
-                                                    className="icon-image"
-                                                />
-                                                <p>Access to all connectors</p>{" "}
+                                                <div
+                                                    style={{
+                                                        minWidth: 30,
+                                                        minHeight: 20,
+                                                    }}
+                                                >
+                                                    <StaticImage
+                                                        placeholder="none"
+                                                        alt="salesforce logo"
+                                                        src="../svgs/pie.svg"
+                                                        layout="constrained"
+                                                        className="icon-image"
+                                                    />
+                                                </div>
+                                                <p>Access to all connectors</p>
                                             </div>
                                             <div className="list">
-                                                <StaticImage
-                                                    placeholder="none"
-                                                    alt="salesforce logo"
-                                                    src="../svgs/access-connectors.svg"
-                                                    layout="constrained"
-                                                    className="icon-image"
-                                                />
+                                                <div
+                                                    style={{
+                                                        minWidth: 30,
+                                                        minHeight: 20,
+                                                    }}
+                                                >
+                                                    <StaticImage
+                                                        placeholder="none"
+                                                        alt="salesforce logo"
+                                                        src="../svgs/access-connectors.svg"
+                                                        layout="constrained"
+                                                        className="icon-image"
+                                                    />
+                                                </div>
                                                 <p>SOC2 & HIPAA Certificates</p>
                                             </div>
                                             <div className="list">
-                                                <StaticImage
-                                                    placeholder="none"
-                                                    alt="salesforce logo"
-                                                    src="../svgs/server.svg"
-                                                    layout="constrained"
-                                                    className="icon-image"
-                                                />
+                                                <div
+                                                    style={{
+                                                        minWidth: 30,
+                                                        minHeight: 20,
+                                                    }}
+                                                >
+                                                    <StaticImage
+                                                        placeholder="none"
+                                                        alt="salesforce logo"
+                                                        src="../svgs/server.svg"
+                                                        layout="constrained"
+                                                        className="icon-image"
+                                                    />
+                                                </div>
                                                 <p>Provisioned Servers</p>
                                             </div>
                                             <div className="list">
-                                                <StaticImage
-                                                    placeholder="none"
-                                                    alt="salesforce logo"
-                                                    src="../svgs/list.svg"
-                                                    layout="constrained"
-                                                    className="icon-image"
-                                                />
+                                                <div
+                                                    style={{
+                                                        minWidth: 30,
+                                                        minHeight: 20,
+                                                    }}
+                                                >
+                                                    <StaticImage
+                                                        placeholder="none"
+                                                        alt="salesforce logo"
+                                                        src="../svgs/list.svg"
+                                                        layout="constrained"
+                                                        className="icon-image"
+                                                    />
+                                                </div>
                                                 <p>Customer Success Manager</p>
                                             </div>
                                             <div className="list">
-                                                <StaticImage
-                                                    placeholder="none"
-                                                    alt="salesforce logo"
-                                                    src="../svgs/slack.svg"
-                                                    layout="constrained"
-                                                    className="icon-image"
-                                                />
+                                                <div
+                                                    style={{
+                                                        minWidth: 30,
+                                                        minHeight: 20,
+                                                    }}
+                                                >
+                                                    <StaticImage
+                                                        placeholder="none"
+                                                        alt="salesforce logo"
+                                                        src="../svgs/slack.svg"
+                                                        layout="constrained"
+                                                        className="icon-image"
+                                                    />
+                                                </div>
                                                 <p>24x7 Support Available</p>
                                             </div>
                                             <div className="list">
-                                                <StaticImage
-                                                    placeholder="none"
-                                                    alt="salesforce logo"
-                                                    src="../svgs/download.svg"
-                                                    layout="constrained"
-                                                    className="icon-image"
-                                                />
+                                                <div
+                                                    style={{
+                                                        minWidth: 30,
+                                                        minHeight: 20,
+                                                    }}
+                                                >
+                                                    <StaticImage
+                                                        placeholder="none"
+                                                        alt="salesforce logo"
+                                                        src="../svgs/download.svg"
+                                                        layout="constrained"
+                                                        className="icon-image"
+                                                    />
+                                                </div>
                                                 <p>
-                                                    <span>Coming Soon:</span>{" "}
+                                                    <span>Coming Soon:</span>
                                                     Advance SSO, Custom VPC
                                                     deployment
                                                 </p>

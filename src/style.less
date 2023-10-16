@@ -6896,7 +6896,13 @@ table th {
                         .list {
                             display: flex;
                             align-items: center;
-                            gap: 9px;
+                            gap: 8px;
+
+                            p {
+                                font-size: 14px;
+                                font-weight: 500;
+                                line-height: 17px;
+                            }
                         }
                     }
 
@@ -7410,19 +7416,107 @@ table th {
 .pricing-page {
     @media(max-width: 1246px) {
         .frequently-question {
+            padding-left: ~"calc(min(9%, 146px))";
+            padding-right: ~"calc(min(9%, 146px))";
+            padding-top: 80px;
+
+            .heading {
+                display: flex;
+                justify-content: center;
+
+                h2 {
+                    font-size: 37px;
+                }
+            }
+
             .frequently-container {
                 padding: 0px;
+                display: flex;
+                justify-content: center;
 
                 .question {
                     width: 100%;
+                }
 
-                    .faq-drawer {
-                        .faq-drawer__content-wrapper {
-                            max-height: fit-content;
-                        }
+                input[type="checkbox"] {
+                    display: none;
+                }
+
+                .faq-drawer {
+                    margin-bottom: 1.8rem;
+                    flex: 1;
+                    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+                }
+
+                .faq-drawer__title {
+                    display: block;
+                    position: relative;
+                    padding: 20px 20px 20px 40px;
+                    margin-bottom: 0;
+
+                    background: #C8C8C8;
+
+                    color: #27272A;
+                    font-weight: 500;
+                    font-size: 15.8px;
+
+                    transition: all 0.25s ease-out;
+                    cursor: pointer;
+                    font-family: Inter;
+                }
+
+                .faq-drawer__title::after {
+                    content: " ";
+
+                    position: absolute;
+                    width: 0;
+                    height: 0;
+                    top: 34px;
+                    right: 20px;
+                    float: right;
+
+                    border-left: 5px solid transparent;
+                    border-right: 5px solid transparent;
+                    border-top: 5px solid currentColor;
+                    transition: transform 0.2s ease-out;
+                }
+
+                .faq-drawer__trigger:checked+.faq-drawer__title::after {
+                    transform: rotate(-180deg);
+                }
+
+                .faq-drawer__content-wrapper {
+                    overflow: hidden;
+                    max-height: 0px;
+                    font-size: 15px;
+                    line-height: 23px;
+
+                    transition: max-height 0.25s ease-in-out;
+                }
+
+                .faq-drawer__trigger:checked+.faq-drawer__title+.faq-drawer__content-wrapper {
+                    max-height: fit-content;
+                }
+
+                .faq-drawer__trigger:checked+.faq-drawer__title {
+                    border-bottom-right-radius: 0;
+                    border-bottom-left-radius: 0;
+                }
+
+                .faq-drawer__content-wrapper .faq-drawer__content {
+                    background: white;
+                    padding: 2px 44px 14px;
+                    border-bottom-left-radius: 8px;
+                    border-bottom-right-radius: 8px;
+
+                    p {
+                        font-size: 14.8px;
+                        line-height: 26.66px;
+                        font-family: Inter;
                     }
                 }
             }
+
         }
     }
 
@@ -7500,22 +7594,6 @@ table th {
                         margin-top: 32px;
                     }
 
-                }
-            }
-        }
-
-        .frequently-question {
-            .frequently-container {
-                padding: 0px;
-
-                .question {
-                    width: 100%;
-
-                    .faq-drawer {
-                        .faq-drawer__content-wrapper {
-                            max-height: fit-content;
-                        }
-                    }
                 }
             }
         }
