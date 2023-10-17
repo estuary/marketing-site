@@ -7000,7 +7000,7 @@ table th {
 
                 transition: all 0.25s ease-out;
                 cursor: pointer;
-                font-family: Inter;
+                font-family: Inter, sans-serif;
             }
 
             .faq-drawer__title::after {
@@ -7050,7 +7050,7 @@ table th {
                 p {
                     font-size: 14.8px;
                     line-height: 26.66px;
-                    font-family: Inter;
+                    font-family: Inter, sans-serif;
                 }
             }
         }
@@ -7462,7 +7462,7 @@ table th {
 
                     transition: all 0.25s ease-out;
                     cursor: pointer;
-                    font-family: Inter;
+                    font-family: Inter, sans-serif;
                 }
 
                 .faq-drawer__title::after {
@@ -7512,7 +7512,7 @@ table th {
                     p {
                         font-size: 14.8px;
                         line-height: 26.66px;
-                        font-family: Inter;
+                        font-family: Inter, sans-serif;
                     }
                 }
             }
@@ -7759,6 +7759,66 @@ table th {
         .start-move-demo {
             padding-left: 0px;
             padding-right: 0px;
+        }
+    }
+
+    @media(min-width: 1460px) {
+        .plan-container {
+            .content {
+                .content-left {
+                    width: 100%;
+                }
+
+                .content-right {
+                    width: 100%;
+                }
+            }
+        }
+
+        .frequently-question {
+            .frequently-container {
+                .question {
+                    width: 100%;
+                }
+            }
+        }
+
+        .related-post {
+            .related-index-body {
+                .related-post-card {
+                    height: unset;
+                }
+            }
+        }
+
+        .start-move-demo {
+            .start-move-demo-container {
+                .buttons-container {
+                    .build-button {
+                        display: flex;
+                        width: 160px;
+                        height: 60px;
+                        padding: 12px;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: 24px;
+                        background: #F0F0F2;
+                        font-size: 16px;
+                    }
+
+                    .demo-button {
+                        display: flex;
+                        width: 172px;
+                        height: 60px;
+                        padding: 12px;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: 24px;
+                        background: #3F3F46;
+                        font-size: 16px;
+                    }
+                }
+            }
         }
     }
 }
