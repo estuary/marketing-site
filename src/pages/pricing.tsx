@@ -1,8 +1,9 @@
 import * as React from "react"
+import { useState } from "react"
 import Layout from "../components/layout"
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 import SliderComponent from "../components/StorageSlider"
-import { useMediaQuery, useTheme } from "@mui/material"
+import { Typography, useMediaQuery, useTheme } from "@mui/material"
 
 import BlueCheckmark from "../svgs/blue-checkmark.svg"
 import BlueBullet from "../svgs/blue-bullet.svg"
@@ -10,6 +11,10 @@ import QuestionMark from "../svgs/question-mark.svg"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
 import Seo from "../components/seo"
 import { Link, graphql, useStaticQuery } from "gatsby"
+import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip';
+import ClickAwayListener from '@mui/material/ClickAwayListener';
+import { ContextToolTip } from "../components/ContextTooltip"
 
 function gByteLabel(gb: number, maxPrec = 10) {
     const units = ["GB", "TB"]
@@ -66,6 +71,8 @@ export const calculatePrice = (tasks: number, gbs: number) => {
         </>
     )
 }
+
+
 
 const PricingPage = () => {
     const relatedPost = useStaticQuery(graphql`
@@ -134,7 +141,8 @@ const PricingPage = () => {
         },
     ]
 
-    const [selectedPlan, setSelectedPlan] = React.useState("free")
+    const [selectedPlan, setSelectedPlan] = useState("free");
+
 
     return (
         <Layout headerTheme="light">
@@ -697,13 +705,16 @@ const PricingPage = () => {
                             <div className="cost-calculator-left">
                                 <div className="content-top">
                                     <div className="cost-calculator-title">
-                                        <p>GB of Change Data</p><QuestionMark className="question-mark" />
+                                        <p>GB of Change Data</p>
+                                        <ContextToolTip title={(<Typography>Some text</Typography>)}>
+                                            <QuestionMark id="change-data" className="question-mark" />
+                                        </ContextToolTip>
                                     </div>
                                     <SliderComponent />
                                 </div>
                                 <div className="content-bottom">
                                     <div className="cost-calculator-title">
-                                        <p>Number of connectors</p><QuestionMark className="question-mark" />
+                                        <p>Number of connectors</p><QuestionMark id="num-connectors" className="question-mark" />
                                     </div>
                                     <div className="count-input">
                                         <div className="btn-left">
@@ -747,7 +758,7 @@ const PricingPage = () => {
                                             <p className="content-top-heading">
                                                 Our Plan
                                             </p>
-                                            <QuestionMark className="question-mark-small" />
+                                            <QuestionMark id="our-plan" className="question-mark-small" />
                                         </div>
 
                                         <p className="content-top-description">
@@ -768,7 +779,7 @@ const PricingPage = () => {
                                             <p className="content-bottom-heading">
                                                 The 'Others'
                                             </p>
-                                            <QuestionMark className="question-mark-small" />
+                                            <QuestionMark id="others" className="question-mark-small" />
                                         </div>
                                         <div className="content-bottom-description">
                                             <p>Fivetran</p>
