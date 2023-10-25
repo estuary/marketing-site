@@ -6,6 +6,7 @@ import { useMediaQuery, useTheme } from "@mui/material"
 
 import BlueCheckmark from "../svgs/blue-checkmark.svg"
 import BlueBullet from "../svgs/blue-bullet.svg"
+import QuestionMark from "../svgs/question-mark.svg"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
 import Seo from "../components/seo"
 import { Link, graphql, useStaticQuery } from "gatsby"
@@ -21,9 +22,8 @@ function gByteLabel(gb: number, maxPrec = 10) {
         scaledValue /= 1000
     }
 
-    return `${scaledValue.toFixed(Math.min(unitIndex, maxPrec))}${
-        units[unitIndex]
-    }`
+    return `${scaledValue.toFixed(Math.min(unitIndex, maxPrec))}${units[unitIndex]
+        }`
 }
 
 const ChecklistItem = ({ children, bullet = false }) => (
@@ -272,7 +272,7 @@ const PricingPage = () => {
                                                 <div
                                                     className={
                                                         selectedPlan ===
-                                                        "custom"
+                                                            "custom"
                                                             ? "radio-circle"
                                                             : "selected-radio-circle"
                                                     }
@@ -696,11 +696,15 @@ const PricingPage = () => {
                         <div className="cost-calculator-container">
                             <div className="cost-calculator-left">
                                 <div className="content-top">
-                                    <p>GB of Change Data</p>
+                                    <div className="cost-calculator-title">
+                                        <p>GB of Change Data</p><QuestionMark className="question-mark" />
+                                    </div>
                                     <SliderComponent />
                                 </div>
                                 <div className="content-bottom">
-                                    <p>Number of connectors</p>
+                                    <div className="cost-calculator-title">
+                                        <p>Number of connectors</p><QuestionMark className="question-mark" />
+                                    </div>
                                     <div className="count-input">
                                         <div className="btn-left">
                                             <svg
@@ -739,9 +743,13 @@ const PricingPage = () => {
                             <div className="cost-calculator-right">
                                 <div className="card">
                                     <div className="content-top">
-                                        <p className="content-top-heading">
-                                            Our Plan
-                                        </p>
+                                        <div className="cost-calculator-right-wrapper">
+                                            <p className="content-top-heading">
+                                                Our Plan
+                                            </p>
+                                            <QuestionMark className="question-mark-small" />
+                                        </div>
+
                                         <p className="content-top-description">
                                             XXX GB of change data
                                         </p>
@@ -756,9 +764,12 @@ const PricingPage = () => {
                                         </p>
                                     </div>
                                     <div className="content-bottom">
-                                        <p className="content-bottom-heading">
-                                            The 'Others'
-                                        </p>
+                                        <div className="cost-calculator-right-wrapper">
+                                            <p className="content-bottom-heading">
+                                                The 'Others'
+                                            </p>
+                                            <QuestionMark className="question-mark-small" />
+                                        </div>
                                         <div className="content-bottom-description">
                                             <p>Fivetran</p>
                                             <p>$XXX / Mo</p>

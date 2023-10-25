@@ -6715,7 +6715,7 @@ table th {
         }
 
         p {
-            font-size: var(--fontSize-1);
+            font-size: 13px;
         }
 
         .main-section-buttons {
@@ -7050,7 +7050,7 @@ table th {
 
             .faq-drawer__content-wrapper .faq-drawer__content {
                 background: white;
-                padding: 2px 44px 14px;
+                padding: 2px 40px 14px;
                 border-bottom-left-radius: 8px;
                 border-bottom-right-radius: 8px;
 
@@ -7159,6 +7159,15 @@ table th {
 
     // cost-calculator
 
+    .question-mark-small {
+        height: 20px;
+        width: 20px;
+    }
+
+    .cost-calculator-right-wrapper {
+        display: flex;
+    }
+
     .cost-calculator {
         padding-left: ~"calc(min(9%, 146px))";
         padding-right: ~"calc(min(9%, 146px))";
@@ -7196,6 +7205,19 @@ table th {
                     line-height: 22px;
                     text-align: center;
                 }
+            }
+
+            .cost-calculator-title {
+                display: flex;
+                align-items: center;
+                p {
+                    margin-right: 10px;
+                }
+            }
+
+            .question-mark {
+                height: 32px;
+                width: 32px;
             }
 
             .content-bottom {
@@ -7512,7 +7534,7 @@ table th {
 
                 .faq-drawer__content-wrapper .faq-drawer__content {
                     background: white;
-                    padding: 2px 44px 14px;
+                    padding: 2px 40px 14px;
                     border-bottom-left-radius: 8px;
                     border-bottom-right-radius: 8px;
 
@@ -7680,7 +7702,7 @@ table th {
             .pricing-page-top {
                 .pricing-page-top-left {
                     .product-flow-section-one-h1 {
-                        font-size: 40px;
+                        font-size: 37px;
                     }
                 }
 
@@ -7693,6 +7715,11 @@ table th {
         }
 
         .plan-container {
+            .heading {
+                h2 {
+                    font-size: 30px;
+                }
+            }
             .content {
                 flex-direction: column-reverse;
 
@@ -7716,13 +7743,14 @@ table th {
 
                     .buttons-section {
                         gap: 0px;
-                        justify-content: space-around;
+                        justify-content: center;
 
                         .build-button  {
                             line-height: 16px;
-                            font-size: 10px;
+                            font-size: 10px;    
                             padding: 10px 16px;
                             height: 36px;
+                            margin-right: 25px;
                         }
                         .contact-button  {
                             line-height: 13px;
@@ -7738,7 +7766,7 @@ table th {
         .cost-calculator {
             .heading {
                 h2 {
-                    font-size: 36px;
+                    font-size: 30px;
                 }
             }
 

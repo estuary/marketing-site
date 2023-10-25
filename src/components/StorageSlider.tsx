@@ -48,6 +48,7 @@ const StSlider = styled(Slider)({
       color: '#D9D9D9',
       opacity: 1,
       height: 28,
+      width: '104%'
     },
 })
 
