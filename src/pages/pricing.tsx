@@ -103,7 +103,7 @@ const PricingPage = () => {
                     nodes {
                     their_name
                     Slug
-                    logo {
+                    logo: DescriptivePicture {
                         localFile {
                         childImageSharp {
                             gatsbyImageData(
