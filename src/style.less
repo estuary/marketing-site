@@ -7091,9 +7091,13 @@ table th {
                 border-radius: 4px;
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
+                justify-content: start;
                 padding: 20px;
                 height: 315px;
+            }
+
+            .related-post-image {
+                height: 200px;
             }
 
             .related-post-card-title {
@@ -7648,6 +7652,10 @@ table th {
     @media(max-width: 595px) {
         padding-top: 0px;
 
+        .demo-button {
+            display: none !important;
+        }
+
         .plan-container {
             .content {
                 flex-direction: column-reverse;
@@ -7706,7 +7714,13 @@ table th {
     @media(max-width: 420px) {
         padding-top: 0px;
 
-      
+        .related-post {
+            .related-index-body {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
 
         .pricing-page-background-image-wrapper {
             .pricing-page-top {

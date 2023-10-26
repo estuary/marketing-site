@@ -99,6 +99,26 @@ const PricingPage = () => {
         }
     `)
 
+    const relatedComparison = useStaticQuery(graphql`
+        {
+            allStrapiBlogPost(
+                filter: {id: {eq: "a61e27d1-7b8b-506b-ade2-3a7af4e11666"}}
+            ) {
+                nodes {
+                id: id
+                title: Title
+                hero: Hero {
+                    localFile {
+                    childImageSharp {
+                        gatsbyImageData
+                    }
+                    }
+                }
+                }
+            }
+        }
+    `)
+
     const frequentlyQuestions = [
         {
             title: "How is my my bill calculated?",
@@ -880,7 +900,7 @@ const PricingPage = () => {
                                                             ?.gatsbyImageData
                                                     }
                                                     alt="debezium alternatives"
-                                                    className="icon-image popular-articles-image"
+                                                    className="icon-image popular-articles-image related-post-image"
                                                 />
                                                 <div className="related-post-card-title">
                                                     {post.title}
@@ -913,6 +933,9 @@ const PricingPage = () => {
                                 >
                                     Interactive Demo
                                 </OutboundLink>
+                            </div>
+                            <div>
+
                             </div>
                         </div>
                     </div>
