@@ -6,14 +6,16 @@ const HtmlTooltip = styled(({ className, ...props }: TooltipProps) => (
     <Tooltip {...props} classes={{ popper: className }} />
 ))(({ theme }) => ({
     [`& .${tooltipClasses.tooltip}`]: {
-        backgroundColor: "#f5f5f9",
-        color: "rgba(0, 0, 0, 0.87)",
-        maxWidth: 220,
-        fontSize: theme.typography.pxToRem(12),
+        backgroundColor: "#70D3D6",
+        color: "#3F3F46",
+        maxWidth: 320,
+        fontSize: theme.typography.pxToRem(15),
         border: "1px solid #dadde9",
+        padding: "20px",
+        textAlign: "center"
     },
     [`& .${tooltipClasses.arrow}`]: {
-        color: "#f5f5f9",
+        color: "#70D3D6",
         "&::before": {
             border: "1px solid #dadde9",
         }

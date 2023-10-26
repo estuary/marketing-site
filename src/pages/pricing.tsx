@@ -709,7 +709,15 @@ const PricingPage = () => {
                                 <div className="content-top">
                                     <div className="cost-calculator-title">
                                         <p>GB of Change Data</p>
-                                        <ContextToolTip placement="top-start" title={(<Typography>Some text</Typography>)} >
+                                        <ContextToolTip
+                                            placement="top-start"
+                                            title={(<Typography className="context-tooltip-text">
+                                                ‘Change Data’ is defined as any incremental
+                                                upsert event. You are only billed on the bytes
+                                                of moving that particular new event. For example, a single
+                                                database row being backfilled or updated will be billed based on the total size of
+                                                the corresponding JSON document.
+                                            </Typography>)} >
                                             <QuestionMarkIcon id="change-data" className="question-mark" />
                                         </ContextToolTip>
                                     </div>
@@ -717,7 +725,14 @@ const PricingPage = () => {
                                 </div>
                                 <div className="content-bottom">
                                     <div className="cost-calculator-title">
-                                        <p>Number of connectors</p><QuestionMarkIcon id="num-connectors" className="question-mark" />
+                                        <p>Number of connectors</p>
+                                        <ContextToolTip
+                                            placement="top-start"
+                                            title={(<Typography className="context-tooltip-text">
+                                                A connector is defined as any unique database connection. For example, 3 connectors to Postgres and 1 to Salesforce would be 4 active connectors that are billed at $.14/hour (about $100/month)
+                                            </Typography>)} >
+                                            <QuestionMarkIcon id="num-connectors" className="question-mark" />
+                                        </ContextToolTip>
                                     </div>
                                     <div className="count-input">
                                         <div className="btn-left">
@@ -761,7 +776,15 @@ const PricingPage = () => {
                                             <p className="content-top-heading">
                                                 Our Plan
                                             </p>
-                                            <QuestionMarkIcon id="our-plan" className="question-mark-small" />
+                                            <ContextToolTip
+                                                placement="top-start"
+                                                title={(<Typography className="context-tooltip-text">
+                                                    Price Estimate Derivation <br />
+                                                    Fivetran X plan: <br />
+                                                    Confluent:
+                                                </Typography>)} >
+                                                <QuestionMarkIcon id="our-plan" className="question-mark-small" />
+                                            </ContextToolTip>
                                         </div>
 
                                         <p className="content-top-description">
@@ -782,7 +805,15 @@ const PricingPage = () => {
                                             <p className="content-bottom-heading">
                                                 The 'Others'
                                             </p>
-                                            <QuestionMarkIcon id="others" className="question-mark-small" />
+                                            <ContextToolTip
+                                                placement="top-start"
+                                                title={(<Typography className="context-tooltip-text">
+                                                    Price Estimate Derivation <br />
+                                                    Fivetran X plan: <br />
+                                                    Confluent:
+                                                </Typography>)} >
+                                                <QuestionMarkIcon id="others" className="question-mark-small" />
+                                            </ContextToolTip>
                                         </div>
                                         <div className="content-bottom-description">
                                             <p>Fivetran</p>
