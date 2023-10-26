@@ -208,9 +208,9 @@ const PricingPage = () => {
                             <StaticImage
                                 placeholder="none"
                                 alt="pricing logo"
-                                src="../svgs/pricing_page.svg"
+                                src="../images/dude_desk_plant.png"
                                 layout="fixed"
-                                className="icon-image"
+                                className="icon-image pricing-landing-image"
                             />
                         </div>
                         <div className="main-section-buttons-mobile">
