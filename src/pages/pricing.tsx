@@ -87,6 +87,7 @@ const PricingPage = () => {
             ) {
                 nodes {
                     title: Title
+                    Slug
                     hero: Hero {
                         localFile {
                             childImageSharp {
@@ -96,27 +97,28 @@ const PricingPage = () => {
                     }
                 }
             }
-        }
-    `)
-
-    const relatedComparison = useStaticQuery(graphql`
-        {
-            allStrapiBlogPost(
-                filter: {id: {eq: "a61e27d1-7b8b-506b-ade2-3a7af4e11666"}}
-            ) {
-                nodes {
-                id: id
-                title: Title
-                hero: Hero {
-                    localFile {
-                    childImageSharp {
-                        gatsbyImageData
+            allStrapiProductComparisonPage(
+                    filter: {Published: {}, Slug: {eq: "vs-fivetran"}}
+                ) {
+                    nodes {
+                    their_name
+                    Slug
+                    logo {
+                        localFile {
+                        childImageSharp {
+                            gatsbyImageData(
+                            layout: CONSTRAINED
+                            width: 400
+                            placeholder: BLURRED
+                            aspectRatio: 1.7
+                            formats: [AUTO, WEBP, AVIF]
+                            )
+                        }
+                        }
                     }
                     }
                 }
-                }
-            }
-        }
+             }   
     `)
 
     const frequentlyQuestions = [
@@ -890,7 +892,7 @@ const PricingPage = () => {
                                     (post: any, index: number) => (
                                         <>
                                             <Link
-                                                to=""
+                                                to={`/${post.Slug}`}
                                                 className="related-post-card"
                                             >
                                                 <GatsbyImage
@@ -904,6 +906,30 @@ const PricingPage = () => {
                                                 />
                                                 <div className="related-post-card-title">
                                                     {post.title}
+                                                </div>
+                                            </Link>
+                                        </>
+                                    )
+                                )}
+                                {relatedPost?.allStrapiProductComparisonPage?.nodes &&
+                                relatedPost?.allStrapiProductComparisonPage?.nodes?.map(
+                                    (post: any, index: number) => (
+                                        <>
+                                            <Link
+                                                to={`/${post.Slug}`}
+                                                className="related-post-card"
+                                            >
+                                                <GatsbyImage
+                                                    image={
+                                                        post?.logo?.localFile
+                                                            ?.childImageSharp
+                                                            ?.gatsbyImageData
+                                                    }
+                                                    alt="debezium alternatives"
+                                                    className="icon-image popular-articles-image related-post-image"
+                                                />
+                                                <div className="related-post-card-title">
+                                                   Estuary Flow vs. {post.their_name}
                                                 </div>
                                             </Link>
                                         </>
