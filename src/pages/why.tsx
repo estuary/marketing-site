@@ -3,7 +3,7 @@ import ColoredLogo from "../svgs/colored-logo.svg"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import { calculateDataPrice, calculateTaskPrice, currencyFormatter } from "./pricing"
+import { calculatePrice, currencyFormatter } from "./pricing"
 
 export const Step0 = ({ activePage, setState }) => {
     return (
@@ -240,8 +240,8 @@ export const Step7 = ({ activePage }) => {
             <div className="step-content">
                 <div className="step-heading">Predictable Pricing</div>
                 <ul>
-                    <li><b>{currencyFormatter.format(calculateDataPrice(1))}</b>/GB</li>
-                    <li><b>{currencyFormatter.format(calculateTaskPrice(1))}</b>/task month</li>
+                    <li><b>{currencyFormatter.format(calculatePrice(1,0).estuary)}</b>/GB</li>
+                    <li><b>{currencyFormatter.format(calculatePrice(0,1).estuary)}</b>/task month</li>
                     <li>Free for up to two tasks and 10 GB/month</li>
                 </ul>
                 <div className="step-ctas">

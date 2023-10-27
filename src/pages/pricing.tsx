@@ -2,8 +2,7 @@ import * as React from "react"
 import { useState } from "react"
 import Layout from "../components/layout"
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
-import SliderComponent from "../components/StorageSlider"
-import { SvgIconProps, Typography, createSvgIcon, useMediaQuery, useTheme } from "@mui/material"
+import { Slider, SvgIconProps, Typography, createSvgIcon, styled, useMediaQuery, useTheme } from "@mui/material"
 
 import BlueCheckmark from "../svgs/blue-checkmark.svg"
 import BlueBullet from "../svgs/blue-bullet.svg"
@@ -19,6 +18,32 @@ import { ContextToolTip } from "../components/ContextTooltip"
 const QuestionIcon = createSvgIcon(QuestionMarkSvg({}), "Question Mark");
 const QuestionMarkIcon = React.forwardRef((props: SvgIconProps, ref: React.Ref<SVGSVGElement>) => <QuestionIcon ref={ref} viewBox="0 0 32 32" {...props} />)
 
+const SliderComponent = styled(Slider)({
+    color: "#7D65F4",
+    "& .MuiSlider-thumb": {
+        height: 36,
+        width: 36,
+        backgroundColor: "#7D65F4",
+        border: "6px solid white",
+        boxShadow: "0px 2px 7px rgba(0, 0, 0, 0.25)",
+        "&:focus, &:hover, &.Mui-active, &.Mui-focusVisible": {
+            boxShadow: "0px 2px 7px rgba(0, 0, 0, 0.25)",
+        },
+        "&:before": {
+            display: "none",
+        },
+    },
+    '& .MuiSlider-track': {
+      height: 28,
+    },
+    '& .MuiSlider-rail': {
+      color: '#D9D9D9',
+      opacity: 1,
+      height: 28,
+      width: '104%'
+    },
+})
+
 function gByteLabel(gb: number, maxPrec = 10) {
     const units = ["GB", "TB"]
 
@@ -30,52 +55,101 @@ function gByteLabel(gb: number, maxPrec = 10) {
         scaledValue /= 1000
     }
 
-    return `${scaledValue.toFixed(Math.min(unitIndex, maxPrec))}${units[unitIndex]
-        }`
+    return `${scaledValue.toFixed(Math.min(unitIndex, maxPrec))}${units[unitIndex]}`
 }
-
-const ChecklistItem = ({ children, bullet = false }) => (
-    <div className="pricing-page-checklist-item">
-        {bullet ? (
-            <BlueBullet className="pricing-page-tile-checkmark-image" />
-        ) : (
-            <BlueCheckmark className="pricing-page-tile-checkmark-image" />
-        )}
-        <p className="pricing-page-tile-checklist-item-text">{children}</p>
-    </div>
-)
 
 export const currencyFormatter = Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
 })
 
-const roundTo = (num: number, decimals: number) =>
-    Math.round((num + Number.EPSILON) * 10 ** decimals) / 10 ** decimals
+const gbPoints = [
+    1,
+    250,
+    500,
+    1000,
+    2000
+]
 
-export const calculateDataPrice = (gbs: number): number => {
-    let gb_calc: string | number =
-        Math.min(1000, gbs) * 0.5 + Math.max(0, (gbs - 1001) * 0.2)
-    return roundTo(gb_calc, 2)
-}
+const scale = idx => {
 
-export const calculateTaskPrice = (tasks: number): number => tasks * 100
+    const previousMarkIndex = Math.floor(idx-1);
+    const previousMark = gbPoints[previousMarkIndex];
 
-export const calculatePrice = (tasks: number, gbs: number) => {
-    let gb_calc = calculateDataPrice(gbs)
+    if (idx === previousMarkIndex) {
+        return previousMark;
+    }
 
-    let task_calc = calculateTaskPrice(tasks)
-    return (
-        <>
-            <span className="pricing-page-price-bold">
-                {currencyFormatter.format(task_calc + gb_calc)}
-            </span>
-            /month
-        </>
-    )
-}
+    const nextMark = gbPoints[previousMarkIndex + 1];
+
+    if(!nextMark){
+        return previousMark
+    }
+
+    const frac = ((idx-1)-previousMarkIndex) * (nextMark-previousMark)
+
+    return previousMark + frac;
+  };
+
+  const marks = gbPoints.map((_,index)=>({
+    value: index+1,
+    label: gByteLabel(scale(index+1)) 
+}));
+
+console.log(marks)
+  
+
+export const calculatePrice = (gb: number, connectors: number) => ({
+    estuary: 1.0 * gb + 100 * connectors,
+    fivetran: (1590 + 45.7*gb + -0.0517*gb**2 + 2.79*10**-5*gb**3 + -5.37*10**-9*gb**4),
+    confluent: connectors * 150 + (1.73*gb + 1100)
+})
 
 
+const frequentlyQuestions = [
+    {
+        title: "How is my my bill calculated?",
+        description: `There are two components to your monthly bill. Primarily, your bill is  calculated based on the amount of
+        data that is Sourced, Transformed, and Delivered by Flow to your destinations. The activity of each of these
+        ‘tasks’ are summed on a monthly basis.Secondarily, there is a charge of $0.14/hour per active connector.
+        For a given connector running all month, this typically equates to about ~$100/month/connector. in a
+        standard 720 hour month.   There is no storage fee as Estuary does not store your data, it will be hosted
+        in your own cloud storage. In the free tier, you are given 10GB of data to move at no charge and up t
+        o 2 connectors.`,
+    },
+    {
+        title: "Do you offer discounted rates?",
+        description: `Discounts are based on two variables - volume commitments and contract duration.`,
+    },
+    {
+        title: "How does Pay-as-you-Go pricing work?",
+        description: `For customers that are just starting out, or don’t want to commit to a specific volume of data or time
+        you can use Estuary and pay for actual consumption on a monthly basis. Your bill will be computed
+        at the end of each month based on the amount of data transfer and number of active connector hours.
+        Billing is done through Stripe, and you’ll be able to add a credit card.`,
+    },
+    {
+        title: "How does pre-pay work?",
+        description: `Customers that want to pay for a fixed amount of data transfer can pay up front and then amortize
+        that usage over time (no more than 12 months). The more data transfer paid up front, the greater the
+        discount on the Pay-As-You-Go price.`,
+    },
+    {
+        title: "How does the Free Trial work?",
+        description: `Flow can be used for free indefinitely. With the only gate being the 10GB of data transfer each month
+        usage over 2 connectors. For customers on our Cloud Plan, there is a 30-day free trial upon request.`,
+    },
+    {
+        title: "What are my billing options?",
+        description: `The free tier does not require a credit card nor any billing information. The Cloud Plan can be paid via
+        credit card, debit card, or 30-day Invoice. The Enterprise tier is paid via invoice.`,
+    },
+    {
+        title: "Where is my data stored?",
+        description:
+            "In the free tier, your data will be stored securely stored in Estuary’s cloud storage. Estuary will only retain this data for a limited window. In the Cloud Plan and beyond, your data will be stored in your cloud bucket for whatever length you set.",
+    },
+]
 
 const PricingPage = () => {
     const relatedPost = useStaticQuery(graphql`
@@ -121,53 +195,11 @@ const PricingPage = () => {
              }   
     `)
 
-    const frequentlyQuestions = [
-        {
-            title: "How is my my bill calculated?",
-            description: `There are two components to your monthly bill. Primarily, your bill is  calculated based on the amount of
-            data that is Sourced, Transformed, and Delivered by Flow to your destinations. The activity of each of these
-            ‘tasks’ are summed on a monthly basis.Secondarily, there is a charge of $0.14/hour per active connector.
-            For a given connector running all month, this typically equates to about ~$100/month/connector. in a
-            standard 720 hour month.   There is no storage fee as Estuary does not store your data, it will be hosted
-            in your own cloud storage. In the free tier, you are given 10GB of data to move at no charge and up t
-            o 2 connectors.`,
-        },
-        {
-            title: "Do you offer discounted rates?",
-            description: `Discounts are based on two variables - volume commitments and contract duration.`,
-        },
-        {
-            title: "How does Pay-as-you-Go pricing work?",
-            description: `For customers that are just starting out, or don’t want to commit to a specific volume of data or time
-            you can use Estuary and pay for actual consumption on a monthly basis. Your bill will be computed
-            at the end of each month based on the amount of data transfer and number of active connector hours.
-            Billing is done through Stripe, and you’ll be able to add a credit card.`,
-        },
-        {
-            title: "How does pre-pay work?",
-            description: `Customers that want to pay for a fixed amount of data transfer can pay up front and then amortize
-            that usage over time (no more than 12 months). The more data transfer paid up front, the greater the
-            discount on the Pay-As-You-Go price.`,
-        },
-        {
-            title: "How does the Free Trial work?",
-            description: `Flow can be used for free indefinitely. With the only gate being the 10GB of data transfer each month
-            usage over 2 connectors. For customers on our Cloud Plan, there is a 30-day free trial upon request.`,
-        },
-        {
-            title: "What are my billing options?",
-            description: `The free tier does not require a credit card nor any billing information. The Cloud Plan can be paid via
-            credit card, debit card, or 30-day Invoice. The Enterprise tier is paid via invoice.`,
-        },
-        {
-            title: "Where is my data stored?",
-            description:
-                "In the free tier, your data will be stored securely stored in Estuary’s cloud storage. Estuary will only retain this data for a limited window. In the Cloud Plan and beyond, your data will be stored in your cloud bucket for whatever length you set.",
-        },
-    ]
-
     const [selectedPlan, setSelectedPlan] = useState("free");
+    const [selectedGbs, setSelectedGbs] = useState(1);
+    const [selectedConnectors, setSelectedConnectors] = useState(1);
 
+    const prices = React.useMemo(() => calculatePrice(scale(selectedGbs),selectedConnectors),[selectedGbs,selectedConnectors])
 
     return (
         <Layout headerTheme="light">
@@ -743,7 +775,17 @@ const PricingPage = () => {
                                             <QuestionMarkIcon id="change-data" className="question-mark" />
                                         </ContextToolTip>
                                     </div>
-                                    <SliderComponent />
+                                    <SliderComponent
+                                        value={selectedGbs}    
+                                        min={1}
+                                        max={gbPoints.length}
+                                        step={0.0001}
+                                        valueLabelFormat={val=>gByteLabel(scale(val))}
+                                        valueLabelDisplay="auto"
+                                        marks={marks}
+                                        // scale={scale}
+                                        onChange={(_,val: number)=>setSelectedGbs(val)}
+                                    />
                                 </div>
                                 <div className="content-bottom">
                                     <div className="cost-calculator-title">
@@ -757,7 +799,7 @@ const PricingPage = () => {
                                         </ContextToolTip>
                                     </div>
                                     <div className="count-input">
-                                        <div className="btn-left">
+                                        <div className="btn-left" onClick={()=>setSelectedConnectors(c=>Math.max(0,c-1))}>
                                             <svg
                                                 width="15"
                                                 height="5"
@@ -773,8 +815,8 @@ const PricingPage = () => {
                                                 />
                                             </svg>
                                         </div>
-                                        <input type="text" />
-                                        <div className="btn-right">
+                                        <input type="number" value={selectedConnectors} onChange={evt=>setSelectedConnectors(+evt.target.value)} />
+                                        <div className="btn-right" onClick={()=>setSelectedConnectors(c=>Math.max(0,c+1))}>
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 width="17"
@@ -798,25 +840,16 @@ const PricingPage = () => {
                                             <p className="content-top-heading">
                                                 Our Plan
                                             </p>
-                                            <ContextToolTip
-                                                placement="top-start"
-                                                title={(<Typography className="context-tooltip-text">
-                                                    Price Estimate Derivation <br />
-                                                    Fivetran X plan: <br />
-                                                    Confluent:
-                                                </Typography>)} >
-                                                <QuestionMarkIcon id="our-plan" className="question-mark-small" />
-                                            </ContextToolTip>
                                         </div>
 
                                         <p className="content-top-description">
-                                            XXX GB of change data
+                                            {gByteLabel(scale(selectedGbs))} of change data
                                         </p>
                                         <p className="content-top-description">
-                                            XXX connectors
+                                            {selectedConnectors} connectors
                                         </p>
                                         <p className="content-top-price-tag">
-                                            $104 / Month
+                                            {currencyFormatter.format(prices.estuary)} / Month
                                         </p>
                                         <p className="content-top-hint">
                                             -$ from closest competitor
@@ -827,23 +860,14 @@ const PricingPage = () => {
                                             <p className="content-bottom-heading">
                                                 The 'Others'
                                             </p>
-                                            <ContextToolTip
-                                                placement="top-start"
-                                                title={(<Typography className="context-tooltip-text">
-                                                    Price Estimate Derivation <br />
-                                                    Fivetran X plan: <br />
-                                                    Confluent:
-                                                </Typography>)} >
-                                                <QuestionMarkIcon id="others" className="question-mark-small" />
-                                            </ContextToolTip>
                                         </div>
                                         <div className="content-bottom-description">
                                             <p>Fivetran</p>
-                                            <p>$XXX / Mo</p>
+                                            <p>{currencyFormatter.format(prices.fivetran)} / Mo</p>
                                         </div>
                                         <div className="content-bottom-description">
                                             <p>Confluent</p>
-                                            <p>$XXX / Mo</p>
+                                            <p>{currencyFormatter.format(prices.confluent)} / Mo</p>
                                         </div>
                                     </div>
                                 </div>
