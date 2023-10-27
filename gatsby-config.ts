@@ -80,6 +80,7 @@ const cfg: GatsbyConfig = {
                 // This config will be shared across all trackingIds
                 gtagConfig: {
                     anonymize_ip: true,
+                    ignore_referrer: true,
                     cookie_expires: 0,
                 },
                 // This object is used for configuration specific to this plugin
