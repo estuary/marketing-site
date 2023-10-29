@@ -16,6 +16,10 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 // Define the template for blog and blog post
 const blogPost = path.resolve(`./src/templates/blog-post.tsx`)
 const blog = path.resolve(`./src/templates/blog.tsx`)
+
+const caseStudyPost = path.resolve(`./src/templates/case-study-post.tsx`)
+const caseStudy = path.resolve(`./src/templates/case-study.tsx`)
+
 const comparisonTemplate = path.resolve(`./src/templates/product-comparison.tsx`)
 
 const connector = path.resolve(`./src/templates/connector.tsx`)
@@ -69,6 +73,44 @@ export const createPages: GatsbyNode["createPages"] = async ({
         }
     `)
 
+    // Get all strapi case study posts sorted by date
+
+    //just stubbing this out as there isn't any data in strapi to my knowledge :) 
+    const caseStudyresult = await graphql<{
+        allStrapiCaseStudyPost: {
+            nodes: {
+                updatedAt: any
+                Slug: string
+                id: string
+                tags: {
+                    Name: string
+                    Slug: string
+                    Type: string
+                    IsTab: boolean
+                }[]
+            }[]
+        }
+    }>(`
+        {
+            allStrapiCaseStudyPost(
+                sort: { publishedAt: DESC }
+                filter: { publishedAt: { ne: null } }
+            ) {
+                nodes {
+                    updatedAt
+                    Slug
+                    id
+                    tags {
+                        Name
+                        Slug
+                        Type
+                        IsTab
+                    }
+                }
+            }
+        }
+    `)
+
     // Get all strapi comparison pages
     const comparisonPages = await graphql<{
         allStrapiProductComparisonPage: {
@@ -94,6 +136,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
         )
         return
     }
+    
 
     const allPosts = result.data.allStrapiBlogPost.nodes
     const allComparisonPages = comparisonPages.data.allStrapiProductComparisonPage.nodes
