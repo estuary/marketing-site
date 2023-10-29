@@ -18,7 +18,7 @@ import { RenderToc } from "../components/BlogPostToc"
 
 dayjs.extend(reltime)
 
-const BlogPostTemplate = ({ data: { previous, next, post }, pageContext }) => {
+const CaseStudyPostTemplate = ({ data: { previous, next, post }, pageContext }) => {
     const postTags = post.tags.filter(tag => tag.type === "tag")
     const [windowWidth, setWindowWidth] = useState(
         typeof window === "undefined" ? 1500 : window.innerWidth
@@ -190,10 +190,10 @@ export const Head = ({
     )
 }
 
-export default BlogPostTemplate
+export default CaseStudyPostTemplate
 
 export const pageQuery = graphql`
-    query BlogPostBySlug(
+    query CaseStudyPostBySlug(
         $id: String!
         $previousPostId: String
         $nextPostId: String

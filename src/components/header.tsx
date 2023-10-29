@@ -73,6 +73,10 @@ const useNavItems = (): NavItem[] => {
                 path: "/blog",
             },
             {
+                title: "Case Study",
+                path: "/case-study-page"
+            },
+            {
                 title: "Comparisons",
                 children: comparisons.allStrapiProductComparisonPage.nodes.map(comparison => ({
                     title: comparison.their_name,

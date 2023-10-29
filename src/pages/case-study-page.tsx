@@ -66,8 +66,8 @@ const CaseStudyIndex = ({
     const results = [
         {
             "id": "a61e27d1-7b8b-506b-ade2-3a7af4e11666",
-            "title": "Case Study: Connect & Go",
-            "slug": "introducing-estuarys-open-source-connector-repository",
+            "title": "Connect&GO refreshes visitor data in Snowflake every 15 seconds, while saving 30% on ELT costs",
+            "slug": "case-study-connect-go",
             "publishedAt": "October 12, 2021",
             "tags": [
                 {

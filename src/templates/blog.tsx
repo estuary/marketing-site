@@ -79,6 +79,8 @@ const BlogIndex = ({
         return query_result.map(r => data.localSearchPosts.store[r.ref])
     }, [query, index, data.localSearchPosts.store])
 
+    console.log(results)
+
     const tabCategories = [
         { Slug: "", Name: "All", Type: "category" },
         ...realTabCategories,
