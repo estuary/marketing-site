@@ -5,8 +5,9 @@ import Bio from "./bio"
 import ArrowRight from "../svgs/arrow-right.svg"
 
 export interface CaseStudyPostCardProps {
-    title: string
-    slug: string
+    Title: string
+    Description: string
+    Slug: string
     publishedAt: string
     tags: {
         Name: string
@@ -24,7 +25,7 @@ export interface CaseStudyPostCardProps {
         }
         link: string
     }[]
-    hero: {
+    Logo: {
         localFile: {
             childImageSharp: {
                 gatsbyImageData: any
@@ -34,16 +35,17 @@ export interface CaseStudyPostCardProps {
 }
 
 export const CaseStudyPostCard = (props: CaseStudyPostCardProps) => (
-    <Link to={`/${props.slug}`} className="case-study-post-card">
-        {props.hero ? (
+    <Link to={`/${props.Slug}`} className="case-study-post-card">
+        {props.Logo ? (
             <GatsbyImage
-                alt={props.title}
-                image={props.hero.localFile.childImageSharp.gatsbyImageData}
-                className="blog-post-card-image"
+                alt={props.Description}
+                image={props.Logo.localFile.childImageSharp.gatsbyImageData}
+                className=""
                 loading="eager"
             />
         ) : null}
-        <div className="case-study-card-title">{props.title}</div>
+        <div className="case-study-card-title">{props.Title}</div>
+        <div className="case-study-card-description">{props.Description}</div>
         <div className="case-study-card-link-wrapper">
             <p className="case-study-card-link-text">View Case Study</p>
             <ArrowRight />

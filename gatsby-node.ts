@@ -17,8 +17,7 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 const blogPost = path.resolve(`./src/templates/blog-post.tsx`)
 const blog = path.resolve(`./src/templates/blog.tsx`)
 
-const caseStudyPost = path.resolve(`./src/templates/case-study-post.tsx`)
-const caseStudy = path.resolve(`./src/templates/case-study.tsx`)
+const caseStudyTemplate = path.resolve(`./src/templates/case-study.tsx`)
 
 const comparisonTemplate = path.resolve(`./src/templates/product-comparison.tsx`)
 
@@ -73,43 +72,37 @@ export const createPages: GatsbyNode["createPages"] = async ({
         }
     `)
 
-    // Get all strapi case study posts sorted by date
-
-    //just stubbing this out as there isn't any data in strapi to my knowledge :) 
-    const caseStudyresult = await graphql<{
-        allStrapiCaseStudyPost: {
+    const caseStudyPages = await graphql<{
+        allStrapiCaseStudy: {
             nodes: {
-                updatedAt: any
-                Slug: string
+                Slug : string
                 id: string
-                tags: {
-                    Name: string
-                    Slug: string
-                    Type: string
-                    IsTab: boolean
-                }[]
             }[]
         }
     }>(`
         {
-            allStrapiCaseStudyPost(
-                sort: { publishedAt: DESC }
-                filter: { publishedAt: { ne: null } }
-            ) {
+            allStrapiCaseStudy {
                 nodes {
-                    updatedAt
-                    Slug
                     id
-                    tags {
-                        Name
-                        Slug
-                        Type
-                        IsTab
-                    }
-                }
-            }
+                    Slug
+                } 
+              }
         }
     `)
+    
+
+    const allCaseStudies = caseStudyPages.data.allStrapiCaseStudy.nodes
+    
+    allCaseStudies.forEach(node => {
+        createPage({
+            path: node.Slug,
+            component: caseStudyTemplate,
+            context: {
+                id: node.id,
+            }
+        })
+    })
+
 
     // Get all strapi comparison pages
     const comparisonPages = await graphql<{
@@ -129,7 +122,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
               }
         }
     `)
-    if (result.errors || comparisonPages.errors) {
+    if (result.errors || comparisonPages.errors || caseStudyPages.errors) {
         reporter.panicOnBuild(
             `There was an error loading your blog posts`,
             result.errors
@@ -140,6 +133,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
 
     const allPosts = result.data.allStrapiBlogPost.nodes
     const allComparisonPages = comparisonPages.data.allStrapiProductComparisonPage.nodes
+
+    //TODO mirror allComparisonPages
     
     allComparisonPages.forEach(node => {
         createPage({

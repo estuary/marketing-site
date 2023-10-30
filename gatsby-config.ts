@@ -27,6 +27,7 @@ const strapiConfig = {
         "job-posting",
         "product-comparison-page",
         "employee",
+        "case-study"
     ],
     singleTypes: [],
     // remoteFileHeaders: {
@@ -47,8 +48,14 @@ const rehypeSelectors = {
             enableToc: false,
         },
     },
+    [`STRAPI_CASE_STUDY_BODY_TEXTNODE`]: {
+        extractor: node => node.Body,
+        pluginOpts: {
+            enableToc: false,
+        },
+    },
     [`STRAPI_JOB_POSTING_DESCRIPTION_TEXTNODE`]: {
-        extractor: node => {debugger; return node.Description},
+        extractor: node => node.Description,
         pluginOpts: { enableToc: false },
     },
 }

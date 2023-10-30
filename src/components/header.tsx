@@ -12,12 +12,18 @@ import { OutboundLink } from "gatsby-plugin-google-gtag"
 import { isDesktop } from "react-device-detect"
 
 const useNavItems = (): NavItem[] => {
-    const comparisons = useStaticQuery(graphql` 
-        query GetAllProductComparisons {
+    const queryResults = useStaticQuery(graphql` 
+        query GetNavData {
             allStrapiProductComparisonPage {
                 nodes {
                     Slug
                     their_name
+                }
+            }
+            allStrapiCaseStudy {
+                nodes {
+                    Slug
+                    Title
                 }
             }
         }`)
@@ -74,11 +80,14 @@ const useNavItems = (): NavItem[] => {
             },
             {
                 title: "Case Study",
-                path: "/case-study-page"
+                children: queryResults.allStrapiCaseStudy.nodes.map(caseStudy => ({
+                    title: caseStudy.Title,
+                    path: `/${caseStudy.Slug}`
+                }))
             },
             {
                 title: "Comparisons",
-                children: comparisons.allStrapiProductComparisonPage.nodes.map(comparison => ({
+                children: queryResults.allStrapiProductComparisonPage.nodes.map(comparison => ({
                     title: comparison.their_name,
                     path: `/${comparison.Slug}`
                 }))
