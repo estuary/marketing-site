@@ -15,6 +15,11 @@ import Tooltip from '@mui/material/Tooltip';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import { ContextToolTip } from "../components/ContextTooltip"
 
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
 const QuestionIcon = createSvgIcon(QuestionMarkSvg({}), "Question Mark");
 const QuestionMarkIcon = React.forwardRef((props: SvgIconProps, ref: React.Ref<SVGSVGElement>) => <QuestionIcon ref={ref} viewBox="0 0 32 32" {...props} />)
 
@@ -34,13 +39,13 @@ const SliderComponent = styled(Slider)({
         },
     },
     '& .MuiSlider-track': {
-      height: 28,
+        height: 28,
     },
     '& .MuiSlider-rail': {
-      color: '#D9D9D9',
-      opacity: 1,
-      height: 28,
-      width: '104%'
+        color: '#D9D9D9',
+        opacity: 1,
+        height: 28,
+        width: '104%'
     },
 })
 
@@ -73,7 +78,7 @@ const gbPoints = [
 
 const scale = idx => {
 
-    const previousMarkIndex = Math.floor(idx-1);
+    const previousMarkIndex = Math.floor(idx - 1);
     const previousMark = gbPoints[previousMarkIndex];
 
     if (idx === previousMarkIndex) {
@@ -82,27 +87,27 @@ const scale = idx => {
 
     const nextMark = gbPoints[previousMarkIndex + 1];
 
-    if(!nextMark){
+    if (!nextMark) {
         return previousMark
     }
 
-    const frac = ((idx-1)-previousMarkIndex) * (nextMark-previousMark)
+    const frac = ((idx - 1) - previousMarkIndex) * (nextMark - previousMark)
 
     return previousMark + frac;
-  };
+};
 
-  const marks = gbPoints.map((_,index)=>({
-    value: index+1,
-    label: gByteLabel(scale(index+1)) 
+const marks = gbPoints.map((_, index) => ({
+    value: index + 1,
+    label: gByteLabel(scale(index + 1))
 }));
 
 console.log(marks)
-  
+
 
 export const calculatePrice = (gb: number, connectors: number) => ({
     estuary: 1.0 * gb + 100 * connectors,
-    fivetran: (1590 + 45.7*gb + -0.0517*gb**2 + 2.79*10**-5*gb**3 + -5.37*10**-9*gb**4),
-    confluent: connectors * 150 + (1.73*gb + 1100)
+    fivetran: (1590 + 45.7 * gb + -0.0517 * gb ** 2 + 2.79 * 10 ** -5 * gb ** 3 + -5.37 * 10 ** -9 * gb ** 4),
+    confluent: connectors * 150 + (1.73 * gb + 1100)
 })
 
 
@@ -199,7 +204,7 @@ const PricingPage = () => {
     const [selectedGbs, setSelectedGbs] = useState(1);
     const [selectedConnectors, setSelectedConnectors] = useState(1);
 
-    const prices = React.useMemo(() => calculatePrice(scale(selectedGbs),selectedConnectors),[selectedGbs,selectedConnectors])
+    const prices = React.useMemo(() => calculatePrice(scale(selectedGbs), selectedConnectors), [selectedGbs, selectedConnectors])
 
     return (
         <Layout headerTheme="light">
@@ -762,7 +767,7 @@ const PricingPage = () => {
                             <div className="cost-calculator-left">
                                 <div className="content-top">
                                     <div className="cost-calculator-title">
-                                        <p>GB of Change Data</p>
+                                        <p className="cost-calculator-left-title">GB of Change Data</p>
                                         <ContextToolTip
                                             placement="top-start"
                                             title={(<Typography className="context-tooltip-text">
@@ -776,20 +781,20 @@ const PricingPage = () => {
                                         </ContextToolTip>
                                     </div>
                                     <SliderComponent
-                                        value={selectedGbs}    
+                                        value={selectedGbs}
                                         min={1}
                                         max={gbPoints.length}
                                         step={0.0001}
-                                        valueLabelFormat={val=>gByteLabel(scale(val))}
+                                        valueLabelFormat={val => gByteLabel(scale(val))}
                                         valueLabelDisplay="auto"
                                         marks={marks}
                                         // scale={scale}
-                                        onChange={(_,val: number)=>setSelectedGbs(val)}
+                                        onChange={(_, val: number) => setSelectedGbs(val)}
                                     />
                                 </div>
                                 <div className="content-bottom">
                                     <div className="cost-calculator-title">
-                                        <p>Number of connectors</p>
+                                        <p className="cost-calculator-left-title">Number of connectors</p>
                                         <ContextToolTip
                                             placement="top-start"
                                             title={(<Typography className="context-tooltip-text">
@@ -799,7 +804,7 @@ const PricingPage = () => {
                                         </ContextToolTip>
                                     </div>
                                     <div className="count-input">
-                                        <div className="btn-left" onClick={()=>setSelectedConnectors(c=>Math.max(0,c-1))}>
+                                        <div className="btn-left" onClick={() => setSelectedConnectors(c => Math.max(0, c - 1))}>
                                             <svg
                                                 width="15"
                                                 height="5"
@@ -815,8 +820,8 @@ const PricingPage = () => {
                                                 />
                                             </svg>
                                         </div>
-                                        <input type="number" value={selectedConnectors} onChange={evt=>setSelectedConnectors(+evt.target.value)} />
-                                        <div className="btn-right" onClick={()=>setSelectedConnectors(c=>Math.max(0,c+1))}>
+                                        <input type="number" value={selectedConnectors} onChange={evt => setSelectedConnectors(+evt.target.value)} />
+                                        <div className="btn-right" onClick={() => setSelectedConnectors(c => Math.max(0, c + 1))}>
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 width="17"
@@ -882,25 +887,26 @@ const PricingPage = () => {
                         </div>
                         <div className="frequently-container">
                             <div className="question">
+
                                 {frequentlyQuestions.map((item, index) => (
-                                    <div className="faq-drawer">
-                                        <input
-                                            id={`faq-drawer-${index}`}
-                                            className="faq-drawer__trigger"
-                                            type="checkbox"
-                                        />
-                                        <label
-                                            className="faq-drawer__title"
-                                            htmlFor={`faq-drawer-${index}`}
-                                        >
-                                            {item.title}
-                                        </label>
-                                        <div className="faq-drawer__content-wrapper">
-                                            <div className="faq-drawer__content">
-                                                <p>{item.description}</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <>
+                                        <Accordion>
+                                            <AccordionSummary
+                                                expandIcon={<ExpandMoreIcon sx={{color: "#27272A", fontSize: "2rem"}} />}
+                                                aria-controls="panel1a-content"
+                                                id="panel1a-header"
+                                                className="faq-question"
+                                            >
+                                                <Typography >{item.title}</Typography>
+                                            </AccordionSummary>
+                                            <AccordionDetails>
+                                                <Typography sx={{lineHeight: "2.5rem", color: "#3F3F46"}}>
+                                                  {item.description}
+                                                </Typography>
+                                            </AccordionDetails>
+                                        </Accordion>
+                                    </>
+
                                 ))}
                             </div>
                         </div>
@@ -935,7 +941,7 @@ const PricingPage = () => {
                                         </>
                                     )
                                 )}
-                                {relatedPost?.allStrapiProductComparisonPage?.nodes &&
+                            {relatedPost?.allStrapiProductComparisonPage?.nodes &&
                                 relatedPost?.allStrapiProductComparisonPage?.nodes?.map(
                                     (post: any, index: number) => (
                                         <>
@@ -953,7 +959,7 @@ const PricingPage = () => {
                                                     className="icon-image popular-articles-image related-post-image"
                                                 />
                                                 <div className="related-post-card-title">
-                                                   Estuary Flow vs. {post.their_name}
+                                                    Estuary Flow vs. {post.their_name}
                                                 </div>
                                             </Link>
                                         </>

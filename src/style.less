@@ -1731,6 +1731,11 @@ table th {
     background-size: contain;
 }
 
+.pricing-landing-image {
+    max-height: 500px;
+    max-width: 475px;
+}
+
 .pricing-page-top {
     display: flex;
     justify-content: space-between;
@@ -1909,6 +1914,10 @@ table th {
 }
 
 .pricing-page-faq-title {}
+
+.faq-question {
+    background-color: #C8C8C8 !important;
+}
 
 .pricing-page-faq-question {
     font-weight: 600;
@@ -6715,7 +6724,7 @@ table th {
         }
 
         p {
-            font-size: 13px;
+            font-size: var(--fontSize-1);
         }
 
         .main-section-buttons {
@@ -6756,11 +6765,6 @@ table th {
         display: flex;
         justify-content: center;
         align-items: center;
-    }
-
-    .pricing-landing-image {
-        max-width: 500px;
-        max-height: 500px;
     }
 
     .main-section-buttons-mobile {
@@ -6876,18 +6880,12 @@ table th {
                     }
 
                     .contact-button {
-                        color: #3F3F46;
-                        text-decoration: none;
-                        border-radius: 4px;
-                        padding: 10px 40px;
-                        text-align: center;
-                        line-height: 36px;
-                        font-family: "Inter", sans-serif;
-                        font-style: normal;
-                        font-weight: 400;
-                        border: 2px solid#5374EA;
-                        font-size: 18px;
-                        height: 60px;
+                        color: #7D65F4;
+                        text-decoration: underline;
+                        font-size: 17px;
+                        font-weight: 700;
+                        line-height: 20px;
+                        padding: 10px 50px;
                     }
                 }
             }
@@ -6902,7 +6900,6 @@ table th {
                     background: #F0F0F2;
                     border-radius: 6px;
                     box-shadow: 2px 3px 7px 4px rgba(0, 0, 0, 0.25);
-                    width: 450px;
 
                     .container-list {
                         .list {
@@ -7013,15 +7010,15 @@ table th {
                 transition: all 0.25s ease-out;
                 cursor: pointer;
                 font-family: Inter, sans-serif;
+
             }
 
             .faq-drawer__title::after {
-                content: " ";
 
                 position: absolute;
                 width: 0;
                 height: 0;
-                top: 34px;
+                top: 28px;
                 right: 20px;
                 float: right;
 
@@ -7055,7 +7052,7 @@ table th {
 
             .faq-drawer__content-wrapper .faq-drawer__content {
                 background: white;
-                padding: 2px 40px 14px;
+                padding: 2px 44px 14px;
                 border-bottom-left-radius: 8px;
                 border-bottom-right-radius: 8px;
 
@@ -7096,20 +7093,19 @@ table th {
                 border-radius: 4px;
                 display: flex;
                 flex-direction: column;
-                justify-content: start;
+                justify-content: flex-start;
                 padding: 20px;
                 height: 315px;
-            }
-
-            .related-post-image {
-                height: 200px;
             }
 
             .related-post-card-title {
                 padding-top: 15px;
                 font-size: 20px;
                 font-weight: 500;
-                font-family: inter;
+            }
+
+            .related-post-image {
+                height: 200px;
             }
         }
     }
@@ -7168,26 +7164,23 @@ table th {
 
     // cost-calculator
 
-    .question-mark-small {
-        height: 20px;
-        width: 20px;
-        cursor: pointer;
-        margin-top: 2px;
-        margin-left: 10px;
-    }
-
-    .context-tooltip-text {
-        font-size: 15px;
-    }
-
-    .cost-calculator-right-wrapper {
-        display: flex;
-    }
-
     .cost-calculator {
         padding-left: ~"calc(min(9%, 146px))";
         padding-right: ~"calc(min(9%, 146px))";
         padding-top: 70px;
+
+        .cost-calculator-title {
+            display: flex;
+            align-items: center;
+        }
+
+        .cost-calculator-left-title {
+            margin-right: 10px;
+        }
+
+        .question-mark {
+            cursor: pointer;
+        }
 
         .heading {
             display: flex;
@@ -7221,20 +7214,6 @@ table th {
                     line-height: 22px;
                     text-align: center;
                 }
-            }
-
-            .cost-calculator-title {
-                display: flex;
-                align-items: center;
-                p {
-                    margin-right: 10px !important;
-                }
-            }
-
-            .question-mark {
-                height: 32px;
-                width: 32px;
-                cursor: pointer;
             }
 
             .content-bottom {
@@ -7296,11 +7275,11 @@ table th {
         &-right {
             width: 50%;
             display: flex;
-            justify-content: center;
+            justify-content: flex-end;
 
             .card {
                 padding: 28px 48px;
-                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+                box-shadow: 2px 3px 7px 4px rgba(0, 0, 0, 0.25) !important;
                 transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
                 background: #F0F0F2;
                 border-radius: 2px;
@@ -7320,9 +7299,9 @@ table th {
                     }
 
                     &-heading {
-                        color: var(--Grey-2, #686868);
+                        color: #3F3F46;
                         text-align: center;
-                        font-size: 30px;
+                        font-size: 22px;
                         font-weight: 600;
                         line-height: 22.8px;
                         margin: 0px;
@@ -7332,7 +7311,7 @@ table th {
                     &-description {
                         color: var(--Secondary-Text, #3F3F46);
                         text-align: center;
-                        font-size: 18px;
+                        font-size: 14px;
                         font-weight: 500;
                         line-height: 22.8px;
                         margin: 0px;
@@ -7359,9 +7338,9 @@ table th {
 
                 .content-bottom {
                     &-heading {
-                        color: var(--Grey-2, #686868);
+                        color: #3F3F46;
                         text-align: center;
-                        font-size: 30px;
+                        font-size: 22px;
                         font-weight: 600;
                         line-height: 22.8px;
                         margin: 0px;
@@ -7378,14 +7357,14 @@ table th {
 
                         p:nth-child(1) {
                             color: var(--Grey-2, #686868);
-                            font-size: 20px;
+                            font-size: 18px;
                             font-weight: 500;
                             line-height: 22.8px;
                         }
 
                         p:nth-child(2) {
                             color: var(--estuary_purple, #7D65F4);
-                            font-size: 20px;
+                            font-size: 18px;
                             font-weight: 500;
                             line-height: 22.8px;
                         }
@@ -7551,7 +7530,7 @@ table th {
 
                 .faq-drawer__content-wrapper .faq-drawer__content {
                     background: white;
-                    padding: 2px 40px 14px;
+                    padding: 2px 44px 14px;
                     border-bottom-left-radius: 8px;
                     border-bottom-right-radius: 8px;
 
@@ -7657,10 +7636,6 @@ table th {
     @media(max-width: 595px) {
         padding-top: 0px;
 
-        .demo-button {
-            display: none !important;
-        }
-
         .plan-container {
             .content {
                 flex-direction: column-reverse;
@@ -7685,19 +7660,11 @@ table th {
 
                     .buttons-section {
                         gap: 0px;
-                        justify-content: space-around;
 
                         .build-button {
                             line-height: 28px;
                             font-size: 16px;
                             padding: 10px 28px;
-                        }
-
-                        .contact-button {
-                            padding: 10px 28px;
-                            line-height: 25px;
-                            font-size: 16px;
-                            height: auto;
                         }
                     }
                 }
@@ -7719,37 +7686,23 @@ table th {
     @media(max-width: 420px) {
         padding-top: 0px;
 
-        .related-post {
-            .related-index-body {
-                display: flex;
-                flex-direction: column;
-            }
-        }
-
-
         .pricing-page-background-image-wrapper {
             .pricing-page-top {
                 .pricing-page-top-left {
                     .product-flow-section-one-h1 {
-                        font-size: 37px;
+                        font-size: 40px;
                     }
                 }
 
                 .pricing-page-top-right {
                     .icon-image {
-                        height: 284px !important;
+                        height: 300px !important;
                     }
-        
                 }
             }
         }
 
         .plan-container {
-            .heading {
-                h2 {
-                    font-size: 30px;
-                }
-            }
             .content {
                 flex-direction: column-reverse;
 
@@ -7773,20 +7726,17 @@ table th {
 
                     .buttons-section {
                         gap: 0px;
-                        justify-content: center;
+                        justify-content: space-around;
 
-                        .build-button  {
+                        .build-button {
                             line-height: 16px;
-                            font-size: 10px;    
-                            padding: 10px 16px;
-                            height: 36px;
-                            margin-right: 25px;
-                        }
-                        .contact-button  {
-                            line-height: 13px;
                             font-size: 10px;
                             padding: 10px 16px;
-                            height: 36px;
+                        }
+
+                        .contact-button {
+                            font-size: 12px;
+                            padding: 0px;
                         }
                     }
                 }
@@ -7796,7 +7746,7 @@ table th {
         .cost-calculator {
             .heading {
                 h2 {
-                    font-size: 30px;
+                    font-size: 36px;
                 }
             }
 
@@ -7814,18 +7764,6 @@ table th {
                 }
             }
         }
-
-        .question-mark {
-            width: 18px !important;
-            height: 18px !important;
-        }
-
-        .question-mark-small {
-            width: 18px !important;
-            height: 18px !important;
-        }
-
-
 
         .frequently-question {
             padding-top: 20px;
@@ -7858,6 +7796,7 @@ table th {
 
                 .content-right {
                     width: 100%;
+                    justify-content: flex-end;
                 }
             }
         }
@@ -7907,81 +7846,5 @@ table th {
                 }
             }
         }
-    }
-}
-
-
-/*Blog post template updates end*/
-.custom-slides{
-   .slick-slider{
-    @media(min-width: 801px){
-        padding-right: 100px;
-    }
-    @media(max-width: 800px){
-        padding-right: 20px;
-    }
-   }
-   .slick-slide{margin: 0px 10px;overflow: visible !important; width: 190px !important;}
-   .slick-track{
-        overflow: visible !important; 
-        display: flex;
-        justify-content: center; 
-        align-items: center;
-    }
-   .slick-list{height: 80px;}
-   .gatsby-image-wrapper{
-    height: 46px !important;
-    display: flex !important;
-    align-items: center;
-    justify-content: space-between;
-
-    }
-    .rfm-marquee, .rfm-initial-child-container{
-        display: flex;
-        align-items: end;
-        gap: 120px;
-        @media (max-width: 810px){
-            gap: 50px;
-        }
-
-    }
-    .rfm-initial-child-container{
-        padding-right: 60px;
-    }
-}
-
-.custom-slider{
-    display: flex !important;
-    align-items: center;
-    justify-content: space-between;
-
-    img,svg{
-        width:100%;
-        max-width: 120px;
-        height: 40px;
-        opacity: 1;visibility: visible;
-        object-fit:contain !important;
-    }
-    .slick-slide{
-        width: 130px !important;
-    }
-}
-
-.slide-container{
-    padding: 0px  ~"calc(min(9%, 146px))" 0px  0px;
-    height: 140px;
-    padding-bottom: 20px;
-    display: flex;
-    @media (max-width: 810px){
-     padding-right: 16px;
-     height: 120px;
-     padding-bottom: 20px;
-    }
-}   
-
-// section-one-subtext-wrapper
-.section-one-subtext-wrapper {
-    @media (max-width: 810px){
-        margin-top: 0px;
     }
 }
