@@ -1,5 +1,22 @@
 {
     "hosting": {
+        "redirects": [
+            {
+                "source": "/real-time-data-pros-cons", 
+                "destination": "/real-time-data-processing",
+                "type": 301
+            },
+            {
+                "source": "/cloud-etl-tools", 
+                "destination": "/cloud-etl-tool",
+                "type": 301
+            },
+            {
+                "source": "/how-to-create-data-pipeline-automation/", 
+                "destination": "/data-pipeline-automation",
+                "type": 301
+            }   
+        ],
         "public": "public",
         "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
         "cleanUrls": true,
