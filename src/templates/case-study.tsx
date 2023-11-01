@@ -137,6 +137,11 @@ export default CaseStudyTemplate
 
 export const pageQuery = graphql`
     query CaseStudyQueryById($id: String!) {
+        site {
+            siteMetadata {
+                siteUrl
+            }
+        }
         caseStudy: strapiCaseStudy(id: { eq: $id }) {
             body: Body {
                 data {
