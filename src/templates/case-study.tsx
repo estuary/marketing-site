@@ -20,7 +20,6 @@ import { CaseStudyPostCard } from "../components/CaseStudyPostCard"
 dayjs.extend(reltime)
 
 const CaseStudyTemplate = ({ data: { caseStudy, relatedStudies } }) => {
-
     console.log(relatedStudies)
     const [windowWidth, setWindowWidth] = useState(
         typeof window === "undefined" ? 1500 : window.innerWidth
@@ -53,7 +52,7 @@ const CaseStudyTemplate = ({ data: { caseStudy, relatedStudies } }) => {
                     <div className="case-study-logo">
                         {caseStudy.Logo ? (
                             <GatsbyImage
-                                alt={caseStudy.title}
+                                alt={caseStudy.Title}
                                 image={
                                     caseStudy.Logo.localFile.childImageSharp
                                         .gatsbyImageData
@@ -64,14 +63,11 @@ const CaseStudyTemplate = ({ data: { caseStudy, relatedStudies } }) => {
                     </div>
                     <h2 className="case-study-title">
                         {caseStudy && caseStudy.Description}
-                    </h2 >
+                    </h2>
                 </header>
-
-
 
                 {caseStudy.body && (
                     <section className="blog-post-content">
-
                         <ProcessedPost
                             body={caseStudy.body.data.childHtmlRehype.html}
                         />
@@ -79,140 +75,124 @@ const CaseStudyTemplate = ({ data: { caseStudy, relatedStudies } }) => {
                 )}
             </article>
             <div className="case-study-related-wrapper">
-                <h2 className="case-study-related-header">More of Our Exemplary Work</h2>
-                {relatedStudies.nodes.slice(0,3).map((study) => <CaseStudyPostCard {...study} />)}
+                <h2 className="case-study-related-header">
+                    More of Our Exemplary Work
+                </h2>
+                {relatedStudies.nodes.slice(0, 3).map(study => (
+                    <CaseStudyPostCard {...study} />
+                ))}
             </div>
-
         </Layout>
     )
 }
 
-// export const Head = ({
-//     data: {
-//         post,
-//         site: {
-//             siteMetadata: { siteUrl },
-//         },
-//     },
-// }) => {
-//     const mappedAuthors = post.authors.map(author => ({
-//         name: author.name,
-//         url: author.link,
-//         image: author.picture && {
-//             "@type": "ImageObject",
-//             url: `${siteUrl}/${author.picture.localFile.childImageSharp.fixed.src}`,
-//         },
-//     }))
-
-//     const postTags = post.tags
-//         .filter(tag => tag.type === "tag")
-//         .map(t => t.name)
-//     return (
-//         <>
-//             <Seo
-//                 title={post.title}
-//                 description={post.description ?? ""}
-//                 url={`${siteUrl}/${post.slug}`}
-//                 image={
-//                     post.hero &&
-//                     `${siteUrl}${post.hero.localFile.childImageSharp.meta_img.src}`
-//                 }
-//             />
-//             <script type="application/ld+json">
-//                 {JSON.stringify({
-//                     "@context": "https://schema.org",
-//                     "@type": "BlogPosting",
-//                     mainEntityOfPage: {
-//                         "@type": "WebPage",
-//                         "@id": `${siteUrl}/${post.slug}`,
-//                     },
-//                     headline: post.title,
-//                     description: post.description ?? "",
-//                     image:
-//                         post.hero &&
-//                         `${siteUrl}${post.hero.localFile.childImageSharp.meta_img.src}`,
-//                     author:
-//                         post.authors.length > 1
-//                             ? mappedAuthors
-//                             : mappedAuthors[0],
-//                     keywords: postTags,
-//                     publisher: {
-//                         "@type": "Organization",
-//                         name: "Estuary",
-//                         logo: {
-//                             "@type": "ImageObject",
-//                             url: `${siteUrl}${logoUrl}`,
-//                         },
-//                     },
-//                     datePublished: post.machineReadablePublishDate,
-//                 })}
-//             </script>
-//         </>
-//     )
-// }
+export const Head = ({
+    data: {
+        caseStudy,
+        site: {
+            siteMetadata: { siteUrl },
+        },
+    },
+}) => {
+    return (
+        <>
+            <Seo
+                title={caseStudy.Title}
+                description={caseStudy.Description ?? ""}
+                url={`${siteUrl}/customers/${caseStudy.Slug}`}
+                image={
+                    caseStudy.Logo &&
+                    `${siteUrl}${caseStudy.Logo.localFile.childImageSharp.meta_img.src}`
+                }
+            />
+            <script type="application/ld+json">
+                {JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "Article",
+                    mainEntityOfPage: {
+                        "@type": "WebPage",
+                        "@id": `${siteUrl}/customers/${caseStudy.Slug}`,
+                    },
+                    headline: caseStudy.Title,
+                    description: caseStudy.Description ?? "",
+                    image:
+                        caseStudy.Logo &&
+                        `${siteUrl}${caseStudy.Logo.localFile.childImageSharp.meta_img.src}`,
+                    publisher: {
+                        "@type": "Organization",
+                        name: "Estuary",
+                        logo: {
+                            "@type": "ImageObject",
+                            url: `${siteUrl}${logoUrl}`,
+                        },
+                    },
+                    datePublished: caseStudy.machineReadablePublishDate,
+                })}
+            </script>
+        </>
+    )
+}
 
 export default CaseStudyTemplate
 
 export const pageQuery = graphql`
-    query CaseStudyQueryById(
-        $id: String!
-    ) {
+    query CaseStudyQueryById($id: String!) {
         caseStudy: strapiCaseStudy(id: { eq: $id }) {
             body: Body {
-        data {
-          Body
-          childHtmlRehype {
-            html
-          }
-        }
-      }
-      Description
-      Slug
-      Logo {
-        localFile {
-          childImageSharp {
-            gatsbyImageData(
-              layout: FULL_WIDTH
-              placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
-            )
-            meta_img: fixed(width: 500) {
-              src
+                data {
+                    Body
+                    childHtmlRehype {
+                        html
+                    }
+                }
             }
-          }
+            Description
+            Slug
+            Logo {
+                localFile {
+                    childImageSharp {
+                        gatsbyImageData(
+                            layout: FULL_WIDTH
+                            placeholder: BLURRED
+                            formats: [AUTO, WEBP, AVIF]
+                        )
+                        meta_img: fixed(width: 500) {
+                            src
+                        }
+                    }
+                }
+            }
+            Title
+            machineReadablePublishDate: publishedAt(formatString: "YYYY-MM-DD")
         }
-      }
-      Title
- }
- relatedStudies: allStrapiCaseStudy(filter: {id: {ne: $id}}) {
-
+        relatedStudies: allStrapiCaseStudy(filter: { id: { ne: $id } }) {
             nodes {
-            body: Body {
-        data {
-          Body
-          childHtmlRehype {
-            html
-          }
-        }
-      }
-      Description
-      Slug
-      Logo {
-        localFile {
-          childImageSharp {
-            gatsbyImageData(
-              layout: FULL_WIDTH
-              placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
-            )
-            meta_img: fixed(width: 500) {
-              src
+                body: Body {
+                    data {
+                        Body
+                        childHtmlRehype {
+                            html
+                        }
+                    }
+                }
+                Description
+                Slug
+                Logo {
+                    localFile {
+                        childImageSharp {
+                            gatsbyImageData(
+                                layout: FULL_WIDTH
+                                placeholder: BLURRED
+                                formats: [AUTO, WEBP, AVIF]
+                            )
+                            meta_img: fixed(width: 500) {
+                                src
+                            }
+                        }
+                    }
+                }
+                Title
             }
-          }
         }
-      }
-      Title
-            }
-        }
- }
+    }
 `

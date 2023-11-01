@@ -12,7 +12,7 @@ import { OutboundLink } from "gatsby-plugin-google-gtag"
 import { isDesktop } from "react-device-detect"
 
 const useNavItems = (): NavItem[] => {
-    const queryResults = useStaticQuery(graphql` 
+    const queryResults = useStaticQuery(graphql`
         query GetNavData {
             allStrapiProductComparisonPage {
                 nodes {
@@ -26,97 +26,104 @@ const useNavItems = (): NavItem[] => {
                     Title
                 }
             }
-        }`)
+        }
+    `)
+
     return [
-    {
-        title: "Home",
-        path: "/",
-    },
-    {
-        title: "Product",
-        children: [
-            isDesktop && {
-                title: "Why Flow",
-                path: "/why"
-            },
-            {
-                title: "About Flow",
-                path: "/product",
-            },
-            {
-                title: "Integrations",
-                path: "/integrations",
-                children: [
-                    {
-                        title: "Sources",
-                        path: "/sources",
-                    },
-                    {
-                        title: "Destinations",
-                        path: "/destinations",
-                    },
-                ],
-            },
-            {
-                title: "Solutions",
-                path: "/solutions",
-            },
-        ].filter(Boolean),
-    },
-    {
-        title: "Pricing",
-        path: "/pricing",
-    },
-    {
-        title: "Resources",
-        children: [
-            {
-                title: "Docs",
-                path: "https://docs.estuary.dev",
-            },
-            {
-                title: "Blog",
-                path: "/blog",
-            },
-            {
-                title: "Case Study",
-                children: queryResults.allStrapiCaseStudy.nodes.map(caseStudy => ({
-                    title: caseStudy.Title,
-                    path: `/${caseStudy.Slug}`
-                }))
-            },
-            {
-                title: "Comparisons",
-                children: queryResults.allStrapiProductComparisonPage.nodes.map(comparison => ({
-                    title: comparison.their_name,
-                    path: `/${comparison.Slug}`
-                }))
-            },
-            {
-                title: "Podcasts",
-                path: "/podcasts",
-            },
-            {
-                title: "Contact",
-                path: "/about#contact-us",
-            },
-        ],
-    },
-    {
-        title: "Company",
-        children: [
-            {
-                title: "About Estuary",
-                path: "/about",
-            },
-            {
-                title: "Careers",
-                path: "/about#careers",
-            },
-        ],
-    },
-]
-};
+        {
+            title: "Home",
+            path: "/",
+        },
+        {
+            title: "Product",
+            children: [
+                isDesktop && {
+                    title: "Why Flow",
+                    path: "/why",
+                },
+                {
+                    title: "About Flow",
+                    path: "/product",
+                },
+                {
+                    title: "Integrations",
+                    path: "/integrations",
+                    children: [
+                        {
+                            title: "Sources",
+                            path: "/sources",
+                        },
+                        {
+                            title: "Destinations",
+                            path: "/destinations",
+                        },
+                    ],
+                },
+                {
+                    title: "Solutions",
+                    path: "/solutions",
+                },
+            ].filter(Boolean),
+        },
+        {
+            title: "Pricing",
+            path: "/pricing",
+        },
+        {
+            title: "Resources",
+            children: [
+                {
+                    title: "Docs",
+                    path: "https://docs.estuary.dev",
+                },
+                {
+                    title: "Blog",
+                    path: "/blog",
+                },
+                {
+                    title: "Case Study",
+                    children: queryResults.allStrapiCaseStudy.nodes.map(
+                        caseStudy => ({
+                            title: caseStudy.Title,
+                            path: `/customers/${caseStudy.Slug}`,
+                        })
+                    ),
+                },
+                {
+                    title: "Comparisons",
+                    children:
+                        queryResults.allStrapiProductComparisonPage.nodes.map(
+                            comparison => ({
+                                title: comparison.their_name,
+                                path: `/${comparison.Slug}`,
+                            })
+                        ),
+                },
+                {
+                    title: "Podcasts",
+                    path: "/podcasts",
+                },
+                {
+                    title: "Contact",
+                    path: "/about#contact-us",
+                },
+            ],
+        },
+        {
+            title: "Company",
+            children: [
+                {
+                    title: "About Estuary",
+                    path: "/about",
+                },
+                {
+                    title: "Careers",
+                    path: "/about#careers",
+                },
+            ],
+        },
+    ]
+}
 
 const MenuBarsImage = () => (
     <svg
@@ -135,7 +142,7 @@ const MenuBarsImage = () => (
 
 const Header = (props: { theme: "light" | "dark" }) => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-    const navItems = useNavItems();
+    const navItems = useNavItems()
 
     const theme = props.theme
 
@@ -186,7 +193,7 @@ const Header = (props: { theme: "light" | "dark" }) => {
                         <Link
                             className="global-header-link"
                             to="https://dashboard.estuary.dev"
-                            style={{marginRight:"1rem"}}
+                            style={{ marginRight: "1rem" }}
                         >
                             Log in
                         </Link>
@@ -220,7 +227,10 @@ const Header = (props: { theme: "light" | "dark" }) => {
                     component="nav"
                 >
                     {navItems.map(item => (
-                        <NavMenuList key={`${item.path}-${item.title}`} item={item} />
+                        <NavMenuList
+                            key={`${item.path}-${item.title}`}
+                            item={item}
+                        />
                     ))}
                 </List>
             ) : null}

@@ -95,7 +95,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
     
     allCaseStudies.forEach(node => {
         createPage({
-            path: node.Slug,
+            path: `/customers/${node.Slug}`,
             component: caseStudyTemplate,
             context: {
                 id: node.id,

@@ -35,7 +35,7 @@ export interface CaseStudyPostCardProps {
 }
 
 export const CaseStudyPostCard = (props: CaseStudyPostCardProps) => (
-    <Link to={`/${props.Slug}`} className="case-study-post-card">
+    <Link to={`/customers/${props.Slug}`} className="case-study-post-card">
         {props.Logo ? (
             <GatsbyImage
                 alt={props.Description}
