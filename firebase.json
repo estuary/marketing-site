@@ -15,7 +15,52 @@
                 "source": "/how-to-create-data-pipeline-automation/", 
                 "destination": "/data-pipeline-automation",
                 "type": 301
-            }   
+            },
+            {
+                "source": "/Google-Analytics-4-to-Redshift/", 
+                "destination": "/google-analytics-4-to-redshift/",
+                "type": 301
+            },
+            {
+                "source": "/MariaDB-to-Redshift/", 
+                "destination": "/mariadb-to-redshift/",
+                "type": 301
+            },
+            {
+                "source": "/Linkedin-ads-to-redshift/", 
+                "destination": "/linkedin-ads-to-redshift/",
+                "type": 301
+            },
+            {
+                "source": "/MariaDb-to-Snowflake/", 
+                "destination": "/mariadb-to-snowflake/",
+                "type": 301
+            },
+            {
+                "source": "/Redis-Data-Types/", 
+                "destination": "/redis-data-types/",
+                "type": 301
+            },
+            {
+                "source": "/Postgres-Schema/", 
+                "destination": "/postgres-schema/",
+                "type": 301
+            },
+            {
+                "source": "/Jira-to-Bigquery/", 
+                "destination": "/jira-to-bigquery/",
+                "type": 301
+            },
+            {
+                "source": "/Jira-to-postgres/", 
+                "destination": "/jira-to-postgres/",
+                "type": 301
+            },
+            {
+                "source": "/JSON-to-BigQuery/", 
+                "destination": "/json-to-bigquery/",
+                "type": 301
+            }            
         ],
         "public": "public",
         "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
