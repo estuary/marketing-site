@@ -202,7 +202,7 @@ const PricingPage = () => {
 
     const [selectedPlan, setSelectedPlan] = useState("free");
     const [selectedGbs, setSelectedGbs] = useState(1);
-    const [selectedConnectors, setSelectedConnectors] = useState(1);
+    const [selectedConnectors, setSelectedConnectors] = useState(2);
 
     const prices = React.useMemo(() => calculatePrice(scale(selectedGbs), selectedConnectors), [selectedGbs, selectedConnectors])
 
@@ -775,7 +775,7 @@ const PricingPage = () => {
                                                 upsert event. You are only billed on the bytes
                                                 of moving that particular new event. For example, a single
                                                 database row being backfilled or updated will be billed based on the total size of
-                                                the corresponding JSON document.
+                                                the corresponding JSON document. One connector can operate on many tables inside a DB.
                                             </Typography>)} >
                                             <QuestionMarkIcon id="change-data" className="question-mark" />
                                         </ContextToolTip>
@@ -857,7 +857,7 @@ const PricingPage = () => {
                                             {currencyFormatter.format(prices.estuary)} / Month
                                         </p>
                                         <p className="content-top-hint">
-                                            -$ from closest competitor
+                                            -$ Based on Cloud Plan Pricing
                                         </p>
                                     </div>
                                     <div className="content-bottom">
