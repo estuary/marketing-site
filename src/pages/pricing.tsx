@@ -890,7 +890,7 @@ const PricingPage = () => {
 
                                 {frequentlyQuestions.map((item, index) => (
                                     <>
-                                        <Accordion>
+                                    <Accordion expanded={index === 0 ? true : null}>
                                             <AccordionSummary
                                                 expandIcon={<ExpandMoreIcon sx={{color: "#27272A", fontSize: "2rem"}} />}
                                                 aria-controls="panel1a-content"
