@@ -45,7 +45,7 @@ const PrivacyPolicy = () => {
                 <p>For Google Analytics, please visit: <OutboundLink href="https://www.google.com/analytics">https://www.google.com/analytics</OutboundLink></p>
                 <p>For Hotjar, please visit: <OutboundLink href="https://www.hotjar.com/legal/policies/privacy/">https://www.hotjar.com/legal/policies/privacy/</OutboundLink></p>
                 <p>For Mailchimp please visit: <OutboundLink href="https://mailchimp.com/legal/privacy/">https://mailchimp.com/legal/privacy/</OutboundLink></p>
-                <p>For Hubspot please visit: <OutboundLink href="https://legal.hubspot.com/privacy-policy">https://legal.hubspot.com/privacy-policy</OutboundLink></p>
+                <p>For HubSpot please visit: <OutboundLink href="https://legal.hubspot.com/privacy-policy">https://legal.hubspot.com/privacy-policy</OutboundLink></p>
 
                 <p className="privacy-bold">Third-Party OAuth Providers</p>
                 <p>The use and transfer of information received from Google APIs to any other app will adhere to <OutboundLink href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</OutboundLink>, including the Limited Use requirements.</p>
