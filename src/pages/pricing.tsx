@@ -506,7 +506,7 @@ const PricingPage = () => {
 }
 
 export const Head = ({ data: { post } }) => {
-    return <Seo title={"Pricing"} description={"Managed streaming data pipelines, streaming SQL & turnkey connectivity to clouds, databases, and apps"} />
+    return <Seo title={"Pricing"} description={"Reduce your data costs and latency with managed streaming CDC and ETL pipelines."} />
 }
 
 export default PricingPage
