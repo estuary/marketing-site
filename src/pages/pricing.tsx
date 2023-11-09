@@ -2,10 +2,10 @@ import * as React from "react"
 import { useState } from "react"
 import Layout from "../components/layout"
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
-import { Slider, SvgIconProps, Typography, createSvgIcon, styled, useMediaQuery, useTheme } from "@mui/material"
+import { Slider, SvgIconProps, Typography, createSvgIcon, styled, useMediaQuery, useTheme, Stack } from "@mui/material"
 
-import BlueCheckmark from "../svgs/blue-checkmark.svg"
-import BlueBullet from "../svgs/blue-bullet.svg"
+import BlackCheckmark from "../svgs/checkmark-black.svg"
+import WhiteCheckmark from "../svgs/light-checkmark.svg"
 import QuestionMarkSvg from "../svgs/question-mark.svg"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
 import Seo from "../components/seo"
@@ -14,11 +14,16 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import { ContextToolTip } from "../components/ContextTooltip"
-
+import PricingOpenSource from "../svgs/pricing-page-open-source.svg"
+import PurpleRectangle from "../svgs/purple_rectangle.svg"
+import WhiteRectangle from "../svgs/white_rectangle.svg"
+import PricingCloud from "../svgs/cloud-pricing.svg"
+import PricingEnterprise from "../svgs/pricing-page-enterprise.svg"
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { Check } from "@mui/icons-material"
 
 const QuestionIcon = createSvgIcon(QuestionMarkSvg({}), "Question Mark");
 const QuestionMarkIcon = React.forwardRef((props: SvgIconProps, ref: React.Ref<SVGSVGElement>) => <QuestionIcon ref={ref} viewBox="0 0 32 32" {...props} />)
@@ -206,6 +211,26 @@ const PricingPage = () => {
 
     const prices = React.useMemo(() => calculatePrice(scale(selectedGbs), selectedConnectors), [selectedGbs, selectedConnectors])
 
+    const theme = useTheme()
+    const isMedium = useMediaQuery(theme.breakpoints.between(811, 1100))
+
+
+    const ChecklistItem = ({ children, white = false }) => (
+        <div className="pricing-page-checklist-item">
+            {white ? (
+                <>
+                    <WhiteCheckmark className="pricing-page-tile-checkmark-image" />
+                    <p className="pricing-page-tile-checklist-item-text text-white">{children}</p>
+                </>
+            ) : (
+                <>
+                    <BlackCheckmark className="pricing-page-tile-checkmark-image" />
+                    <p className="pricing-page-tile-checklist-item-text">{children}</p>
+                </>
+            )}
+        </div>
+    )
+
     return (
         <Layout headerTheme="light">
             <div className="pricing-page">
@@ -234,10 +259,10 @@ const PricingPage = () => {
                                 </OutboundLink>
                                 <OutboundLink
                                     target="_blank"
-                                    href="/why"
+                                    href="/about/#contact-us"
                                     className="section-one-demo-button"
                                 >
-                                    Interactive Demo
+                                    Contact Us
                                 </OutboundLink>
                             </div>
                         </div>
@@ -266,495 +291,114 @@ const PricingPage = () => {
                         <div className="heading">
                             <h2>Plans</h2>
                         </div>
-
-                        <div className="content">
-                            <div className="content-left">
-                                <div className="plans-section">
-                                    <div
-                                        className={
-                                            selectedPlan === "free"
-                                                ? "card selected-border"
-                                                : "card"
-                                        }
-                                        onClick={() => setSelectedPlan("free")}
-                                    >
-                                        <div className="card-body">
-                                            <h3>$0.00/GB</h3>
-                                            <p>
-                                                Free production use of 2
-                                                connectors and up to 10GB/mo of
-                                                data
-                                            </p>
-                                            <div className="radio">
-                                                <div
-                                                    className={
-                                                        selectedPlan === "free"
-                                                            ? "radio-circle"
-                                                            : "selected-radio-circle"
-                                                    }
-                                                ></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        className={
-                                            selectedPlan === "cloud"
-                                                ? "card selected-border"
-                                                : "card"
-                                        }
-                                        onClick={() => setSelectedPlan("cloud")}
-                                    >
-                                        <div className="card-body">
-                                            <h3>$0.50/GB</h3>
-                                            <p>
-                                                $0.50/GB of the data moved +
-                                                ~$100 per connector
-                                                ($0.14/hour/connector).
-                                            </p>
-                                            <div className="radio">
-                                                <div
-                                                    className={
-                                                        selectedPlan === "cloud"
-                                                            ? "radio-circle"
-                                                            : "selected-radio-circle"
-                                                    }
-                                                ></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        className={
-                                            selectedPlan === "custom"
-                                                ? "card selected-border"
-                                                : "card"
-                                        }
-                                        onClick={() =>
-                                            setSelectedPlan("custom")
-                                        }
-                                    >
-                                        <div className="card-body">
-                                            <h3>Custom</h3>
-                                            <p>
-                                                Custom pricing for large
-                                                enterprise deployments
-                                            </p>
-                                            <div className="radio">
-                                                <div
-                                                    className={
-                                                        selectedPlan ===
-                                                            "custom"
-                                                            ? "radio-circle"
-                                                            : "selected-radio-circle"
-                                                    }
-                                                ></div>
-                                            </div>
-                                        </div>
-                                    </div>
+                        <div className="pricing-page-tiles-wrapper">
+                            <div className="pricing-page-tile">
+                                <PricingOpenSource className="pricing-page-tile-icon" />
+                                <PurpleRectangle className="pricing-page-rectangle" />
+                                <p className="pricing-page-tile-name">Free</p>
+                                <p className="pricing-page-price">
+                                    <span className="pricing-page-price">
+                                        $0/GB
+                                    </span>
+                                </p>
+                                <div className="pricing-page-checklist-wrapper">
+                                    <ChecklistItem>
+                                        Up to 10GB / mo for any 2 connectors
+                                    </ChecklistItem>
+                                    <ChecklistItem>
+                                        Millisecond Latency
+                                    </ChecklistItem>
+                                    <ChecklistItem>
+                                        UI & CLI for building & monitoring pipelines
+                                    </ChecklistItem>
+                                    <ChecklistItem>
+                                        Limited Data Retention in Estuary Cloud
+                                    </ChecklistItem>
+                                    <ChecklistItem>
+                                        Incremental Syncing for lower CDC cost
+                                    </ChecklistItem>
+                                    <ChecklistItem>
+                                        Streaming Infrastructure
+                                    </ChecklistItem>
                                 </div>
-                                <div className="buttons-section">
-                                    <OutboundLink
-                                        target="_blank"
-                                        href="https://dashboard.estuary.dev/register"
-                                        className="build-button"
-                                    >
-                                        Build a Pipeline
-                                    </OutboundLink>
-                                    <OutboundLink
-                                        target="_blank"
-                                        href="/why"
-                                        className="contact-button"
-                                    >
-                                        Contact
-                                    </OutboundLink>
-                                </div>
+                                <Link
+                                    className="pricing-page-tile-button"
+                                    to="https://github.com/estuary/flow"
+                                >
+                                    Get started
+                                </Link>
                             </div>
-                            <div className="content-right">
-                                {selectedPlan === "free" && (
-                                    <div className="card">
-                                        <div>
-                                            <h5>Free Plan includes:</h5>
-                                        </div>
-                                        <div className="container-list">
-                                            <div className="list">
-                                                <div
-                                                    style={{
-                                                        minWidth: 30,
-                                                        minHeight: 20,
-                                                    }}
-                                                >
-                                                    <StaticImage
-                                                        placeholder="none"
-                                                        alt="salesforce logo"
-                                                        src="../svgs/ui-ux-testing.svg"
-                                                        layout="constrained"
-                                                        className="icon-image"
-                                                    />
-                                                </div>
-                                                <p>
-                                                    UI & CLI for building,
-                                                    monitoring, testing
-                                                    pipelines
-                                                </p>
-                                            </div>
-                                            <div className="list">
-                                                <div
-                                                    style={{
-                                                        minWidth: 30,
-                                                        minHeight: 20,
-                                                    }}
-                                                >
-                                                    <StaticImage
-                                                        placeholder="none"
-                                                        alt="salesforce logo"
-                                                        src="../svgs/latency.svg"
-                                                        layout="constrained"
-                                                        className="icon-image"
-                                                    />
-                                                </div>
-                                                <p>Millisecond latency</p>
-                                            </div>
-                                            <div className="list">
-                                                <div
-                                                    style={{
-                                                        minWidth: 30,
-                                                        minHeight: 20,
-                                                    }}
-                                                >
-                                                    <StaticImage
-                                                        placeholder="none"
-                                                        alt="salesforce logo"
-                                                        src="../svgs/cdc-cost.svg"
-                                                        layout="constrained"
-                                                        className="icon-image"
-                                                    />
-                                                </div>
-                                                <p>
-                                                    Incremental syncing for
-                                                    lower CDC cost
-                                                </p>
-                                            </div>
-                                            <div className="list">
-                                                <div
-                                                    style={{
-                                                        minWidth: 30,
-                                                        minHeight: 20,
-                                                    }}
-                                                >
-                                                    <StaticImage
-                                                        placeholder="none"
-                                                        alt="salesforce logo"
-                                                        src="../svgs/access-connectors.svg"
-                                                        layout="constrained"
-                                                        className="icon-image"
-                                                    />
-                                                </div>
-                                                <p>Access to all connectors</p>
-                                            </div>
-                                            <div className="list">
-                                                <div
-                                                    style={{
-                                                        minWidth: 30,
-                                                        minHeight: 20,
-                                                    }}
-                                                >
-                                                    <StaticImage
-                                                        placeholder="none"
-                                                        alt="salesforce logo"
-                                                        src="../svgs/programmatic.svg"
-                                                        layout="constrained"
-                                                        className="icon-image"
-                                                    />
-                                                </div>
-                                                <p>
-                                                    Programmatic building and
-                                                    editing of pipelines
-                                                </p>
-                                            </div>
-                                            <div className="list">
-                                                <div
-                                                    style={{
-                                                        minWidth: 30,
-                                                        minHeight: 20,
-                                                    }}
-                                                >
-                                                    <StaticImage
-                                                        placeholder="none"
-                                                        alt="salesforce logo"
-                                                        src="../svgs/streaming-infrastructure.svg"
-                                                        layout="constrained"
-                                                        className="icon-image"
-                                                    />
-                                                </div>
-                                                <p>Streaming infrastructure</p>
-                                            </div>
-                                            <div className="list">
-                                                <div
-                                                    style={{
-                                                        minWidth: 30,
-                                                        minHeight: 20,
-                                                    }}
-                                                >
-                                                    <StaticImage
-                                                        placeholder="none"
-                                                        alt="salesforce logo"
-                                                        src="../svgs/floppy.svg"
-                                                        layout="constrained"
-                                                        className="icon-image"
-                                                    />
-                                                </div>
-                                                <p>
-                                                    Limited Data Retention in
-                                                    Estuary Cloud
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                )}
-                                {selectedPlan === "cloud" && (
-                                    <div className="card">
-                                        <div>
-                                            <h5>Cloud Plan includes:</h5>
-                                        </div>
-                                        <div className="container-list">
-                                            <div className="list">
-                                                <div
-                                                    style={{
-                                                        minWidth: 30,
-                                                        minHeight: 20,
-                                                    }}
-                                                >
-                                                    <StaticImage
-                                                        placeholder="none"
-                                                        alt="salesforce logo"
-                                                        src="../svgs/programmatic.svg"
-                                                        layout="constrained"
-                                                        className="icon-image"
-                                                    />
-                                                </div>
-                                                <p>
-                                                    Everything from Free Plan...
-                                                </p>
-                                            </div>
-                                            <div className="list">
-                                                <div
-                                                    style={{
-                                                        minWidth: 30,
-                                                        minHeight: 20,
-                                                    }}
-                                                >
-                                                    <StaticImage
-                                                        placeholder="none"
-                                                        alt="salesforce logo"
-                                                        src="../svgs/floppy.svg"
-                                                        layout="constrained"
-                                                        className="icon-image"
-                                                    />
-                                                </div>
-                                                <p>Data Stored in your cloud</p>
-                                            </div>
-                                            <div className="list">
-                                                <div
-                                                    style={{
-                                                        minWidth: 30,
-                                                        minHeight: 20,
-                                                    }}
-                                                >
-                                                    <StaticImage
-                                                        placeholder="none"
-                                                        alt="salesforce logo"
-                                                        src="../svgs/pie.svg"
-                                                        layout="constrained"
-                                                        className="icon-image"
-                                                    />
-                                                </div>
-                                                <p>99.9% SLA</p>
-                                            </div>
-                                            <div className="list">
-                                                <div
-                                                    style={{
-                                                        minWidth: 30,
-                                                        minHeight: 20,
-                                                    }}
-                                                >
-                                                    <StaticImage
-                                                        placeholder="none"
-                                                        alt="salesforce logo"
-                                                        src="../svgs/list.svg"
-                                                        layout="constrained"
-                                                        className="icon-image"
-                                                    />
-                                                </div>
-                                                <p>
-                                                    Unlimited connectors and
-                                                    collections
-                                                </p>
-                                            </div>
-                                            <div className="list">
-                                                <div
-                                                    style={{
-                                                        minWidth: 30,
-                                                        minHeight: 20,
-                                                    }}
-                                                >
-                                                    <StaticImage
-                                                        placeholder="none"
-                                                        alt="salesforce logo"
-                                                        src="../svgs/slack.svg"
-                                                        layout="constrained"
-                                                        className="icon-image"
-                                                    />
-                                                </div>
-                                                <p>
-                                                    9x5 Customer Support - Slack
-                                                    & Email
-                                                </p>
-                                            </div>
-                                            <div className="list">
-                                                <div
-                                                    style={{
-                                                        minWidth: 30,
-                                                        minHeight: 20,
-                                                    }}
-                                                >
-                                                    <StaticImage
-                                                        placeholder="none"
-                                                        alt="salesforce logo"
-                                                        src="../svgs/calendar.svg"
-                                                        layout="constrained"
-                                                        className="icon-image"
-                                                    />
-                                                </div>
-                                                <p>30-day Trial</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                )}
-                                {selectedPlan === "custom" && (
-                                    <div className="card">
-                                        <div>
-                                            <h5>Enterprise Plan includes:</h5>
-                                        </div>
-                                        <div className="container-list">
-                                            <div className="list">
-                                                <div
-                                                    style={{
-                                                        minWidth: 30,
-                                                        minHeight: 20,
-                                                    }}
-                                                >
-                                                    <StaticImage
-                                                        placeholder="none"
-                                                        alt="salesforce logo"
-                                                        src="../svgs/pie.svg"
-                                                        layout="constrained"
-                                                        className="icon-image"
-                                                    />
-                                                </div>
-                                                <p>
-                                                    Everything from Free Plan +
-                                                    Cloud...
-                                                </p>
-                                            </div>
-                                            <div className="list">
-                                                <div
-                                                    style={{
-                                                        minWidth: 30,
-                                                        minHeight: 20,
-                                                    }}
-                                                >
-                                                    <StaticImage
-                                                        placeholder="none"
-                                                        alt="salesforce logo"
-                                                        src="../svgs/access-connectors.svg"
-                                                        layout="constrained"
-                                                        className="icon-image"
-                                                    />
-                                                </div>
-                                                <p>SOC2 & HIPAA Certificates</p>
-                                            </div>
-                                            <div className="list">
-                                                <div
-                                                    style={{
-                                                        minWidth: 30,
-                                                        minHeight: 20,
-                                                    }}
-                                                >
-                                                    <StaticImage
-                                                        placeholder="none"
-                                                        alt="salesforce logo"
-                                                        src="../svgs/server.svg"
-                                                        layout="constrained"
-                                                        className="icon-image"
-                                                    />
-                                                </div>
-                                                <p>Provisioned Servers</p>
-                                            </div>
-                                            <div className="list">
-                                                <div
-                                                    style={{
-                                                        minWidth: 30,
-                                                        minHeight: 20,
-                                                    }}
-                                                >
-                                                    <StaticImage
-                                                        placeholder="none"
-                                                        alt="salesforce logo"
-                                                        src="../svgs/list.svg"
-                                                        layout="constrained"
-                                                        className="icon-image"
-                                                    />
-                                                </div>
-                                                <p>Customer Success Manager</p>
-                                            </div>
-                                            <div className="list">
-                                                <div
-                                                    style={{
-                                                        minWidth: 30,
-                                                        minHeight: 20,
-                                                    }}
-                                                >
-                                                    <StaticImage
-                                                        placeholder="none"
-                                                        alt="salesforce logo"
-                                                        src="../svgs/slack.svg"
-                                                        layout="constrained"
-                                                        className="icon-image"
-                                                    />
-                                                </div>
-                                                <p>24x7 Support Available</p>
-                                            </div>
-                                            <div className="list">
-                                                <div
-                                                    style={{
-                                                        minWidth: 30,
-                                                        minHeight: 20,
-                                                    }}
-                                                >
-                                                    <StaticImage
-                                                        placeholder="none"
-                                                        alt="salesforce logo"
-                                                        src="../svgs/download.svg"
-                                                        layout="constrained"
-                                                        className="icon-image"
-                                                    />
-                                                </div>
-                                                <p>
-                                                    <span
-                                                        style={{
-                                                            fontWeight: 700,
-                                                        }}
-                                                    >
-                                                        Coming Soon:
-                                                    </span>{" "}
-                                                    Advance SSO, Custom VPC
-                                                    deployment
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                )}
+                            <div className="pricing-page-tile-purple">
+                                <p className="pricing-page-corner-text">30-Day <br/> Free Trial</p>
+                                <PricingCloud className="pricing-page-tile-icon" />
+                                <WhiteRectangle className="pricing-page-rectangle"/>
+                                <p className="pricing-page-tile-name text-white">Cloud</p>
+                                <div className="pricing-page-checklist-wrapper">
+                                    <p className="pricing-page-price text-white">
+                                        $0.50/GB
+                                    </p>
+                                    <ChecklistItem white>
+                                        $.50/GB change data moved +$.14/hour/connector
+                                    </ChecklistItem>
+                                    <ChecklistItem white>All features of Free plan, plus... </ChecklistItem>
+                                    <ChecklistItem white>
+                                        Data stored in your cloud
+                                    </ChecklistItem>
+                                    <ChecklistItem white>99.9% uptime SLA</ChecklistItem>
+
+
+                                    <ChecklistItem white>
+                                        Unlimited Connectors
+                                    </ChecklistItem>
+                                    <ChecklistItem white>
+                                        9x5 Customer Support via Slack/Email
+                                    </ChecklistItem>
+                                </div>
+                                <OutboundLink
+                                    target="_blank"
+                                    href="https://dashboard.estuary.dev/register"
+                                    className="pricing-page-tile-button-white"
+                                >
+                                    Try it free
+                                </OutboundLink>
+                            </div>
+                            <div className="pricing-page-tile">
+                                <PricingEnterprise className="pricing-page-tile-icon" />
+                                <PurpleRectangle className="pricing-page-rectangle" />
+                                <p className="pricing-page-tile-name">Enterprise</p>
+                                <p className="pricing-page-price">
+                                    <span className="pricing-page-price">
+                                        Custom Pricing
+                                    </span>
+                                </p>
+                                <div className="pricing-page-checklist-wrapper-custom">
+                                    <ChecklistItem>
+                                        All features of Free + Cloud, plus...
+                                    </ChecklistItem>
+                                    <ChecklistItem>
+                                        SOC2 & HIPPA Certificates
+                                    </ChecklistItem>
+                                    <ChecklistItem>
+                                        Customer Success Manager
+                                    </ChecklistItem>
+                                    <ChecklistItem>
+                                        24x7 support available
+                                    </ChecklistItem>
+                                    <ChecklistItem>
+                                        Provisioned servers
+                                    </ChecklistItem>
+
+                                </div>
+                                <Link
+                                    className="pricing-page-tile-button"
+                                    to="/about#contact-us"
+                                >
+                                    Contact us
+                                </Link>
                             </div>
                         </div>
+
+
                     </div>
 
                     {/* Cost Calculator */}
@@ -890,9 +534,9 @@ const PricingPage = () => {
 
                                 {frequentlyQuestions.map((item, index) => (
                                     <>
-                                    <Accordion expanded={index === 0 ? true : null}>
+                                        <Accordion expanded={index === 0 ? true : null}>
                                             <AccordionSummary
-                                                expandIcon={<ExpandMoreIcon sx={{color: "#27272A", fontSize: "2rem"}} />}
+                                                expandIcon={<ExpandMoreIcon sx={{ color: "#27272A", fontSize: "2rem" }} />}
                                                 aria-controls="panel1a-content"
                                                 id="panel1a-header"
                                                 className="faq-question"
@@ -900,8 +544,8 @@ const PricingPage = () => {
                                                 <Typography >{item.title}</Typography>
                                             </AccordionSummary>
                                             <AccordionDetails>
-                                                <Typography sx={{lineHeight: "2.5rem", color: "#3F3F46"}}>
-                                                  {item.description}
+                                                <Typography sx={{ lineHeight: "2.5rem", color: "#3F3F46" }}>
+                                                    {item.description}
                                                 </Typography>
                                             </AccordionDetails>
                                         </Accordion>
@@ -987,7 +631,7 @@ const PricingPage = () => {
                                     href="/why"
                                     className="demo-button"
                                 >
-                                    Interactive Demo
+                                    Contact Us
                                 </OutboundLink>
                             </div>
                             <div>

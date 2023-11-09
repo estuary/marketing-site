@@ -1773,17 +1773,44 @@ table th {
 .pricing-page-tile {
     display: flex;
     flex-direction: column;
-    width: 380px;
-    background-color: #f7f9fc;
+    margin: auto;
+    width: 400px;
+    height: 670px;
+    background-color: #ffffff;
     padding: 24px;
     position: relative;
+    box-shadow: 0px 4px 10px rgba(20, 20, 43, 0.14);
+    border-radius: 7px;
+}
+
+.pricing-page-tile-purple {
+    display: flex;
+    flex-direction: column;
+    width: 444px;
+    height: 772px;
+    background-color: #5072EB;
+    padding: 24px;
+    position: relative;
+    box-shadow: 0px 4px 10px rgba(20, 20, 43, 0.14);
+    border-radius: 7px;
+}
+
+.pricing-page-tile-purple:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-top: 130px solid white;
+    border-left: 130px solid #5072EB;
+    width: 0;
+    z-index: 2;
 }
 
 .pricing-page-checklist-wrapper {
     display: flex;
     flex-direction: column;
     flex: 1 1 auto;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .pricing-page-checklist-wrapper-custom {
@@ -1824,23 +1851,48 @@ table th {
 .pricing-page-tile-checklist-item-text {
     font-size: 1rem;
     margin: 0px;
+    font-weight: 600;
+}
+
+.text-white {
+    color: #ffffff !important
 }
 
 .pricing-page-tile-name {
-    font-size: var(--fontSize-3);
-    color: #04192b;
-    margin: 16px 0 8px 0;
+    font-size: 2.375rem;
+    color: #5072EB;
+    margin: -5px auto -13px auto;
+    font-weight: 600;
+    z-index: 9999;
 }
 
-.pricing-page-tile-icon {}
+.pricing-page-corner-text {
+    color: #3B43FE;
+    transform: rotate(45deg);
+    display: flex;
+    text-align: center;
+    justify-content: flex-end;
+    z-index: 9999;
+    margin-top: -6px;
+    position: absolute;
+    right: 0;
+}
+
+.pricing-page-tile-icon {
+    margin: 35px auto 0 auto;
+}
+
+.pricing-page-rectangle {
+    margin: 10px auto 0px auto;
+}
 
 .pricing-page-pricing-slider {
     margin: 8px 0 22px 0;
 }
 
 .pricing-page-price {
-    font-size: var(--fontSize-1);
-    margin: 8px 0;
+    font-size: 1.75rem;
+    margin: 0;
     text-align: center;
 }
 
@@ -1855,7 +1907,7 @@ table th {
 
 .pricing-page-tile-price-subtext {
     font-size: 0.9rem;
-    margin: 0.25rem 0 0 0;
+    margin: 0.25rem auto 0 auto;
     min-height: 4rem;
 }
 
@@ -1867,6 +1919,18 @@ table th {
     font-size: var(--fontSize-1);
     text-decoration: none;
     color: #ffffff;
+    font-weight: 600;
+}
+
+.pricing-page-tile-button-white {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: var(--fontSize-1);
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
 }
 
 .pricing-page-quote-box {
