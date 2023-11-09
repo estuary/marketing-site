@@ -60,7 +60,12 @@
                 "source": "/JSON-to-BigQuery/", 
                 "destination": "/json-to-bigquery/",
                 "type": 301
-            }            
+            }, 
+            {
+                "source": "/elt-processes-cdc/", 
+                "destination": "/streaming-etl-processes-cdc/",
+                "type": 301
+            }      
         ],
         "public": "public",
         "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
