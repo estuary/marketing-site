@@ -7,6 +7,8 @@ import { Slider, SvgIconProps, Typography, createSvgIcon, styled, useMediaQuery,
 import BlackCheckmark from "../svgs/checkmark-black.svg"
 import WhiteCheckmark from "../svgs/light-checkmark.svg"
 import QuestionMarkSvg from "../svgs/question-mark.svg"
+import QuestionMarkSvgWhite from "../svgs/question-mark-white.svg"
+import PlusSign from "../svgs/plus-sign.svg"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
 import Seo from "../components/seo"
 import { Link, graphql, useStaticQuery } from "gatsby"
@@ -27,6 +29,8 @@ import { Check } from "@mui/icons-material"
 
 const QuestionIcon = createSvgIcon(QuestionMarkSvg({}), "Question Mark");
 const QuestionMarkIcon = React.forwardRef((props: SvgIconProps, ref: React.Ref<SVGSVGElement>) => <QuestionIcon ref={ref} viewBox="0 0 32 32" {...props} />)
+const QuestionMarkIconWhite = React.forwardRef((props: SvgIconProps, ref: React.Ref<SVGSVGElement>) => <QuestionMarkSvgWhite ref={ref} viewBox="0 0 32 32" {...props} />)
+
 
 const SliderComponent = styled(Slider)({
     color: "#7D65F4",
@@ -50,7 +54,7 @@ const SliderComponent = styled(Slider)({
         color: '#D9D9D9',
         opacity: 1,
         height: 28,
-        width: '104%'
+        width: '100%'
     },
 })
 
@@ -78,7 +82,7 @@ const gbPoints = [
     250,
     500,
     1000,
-    2000
+    5000
 ]
 
 const scale = idx => {
@@ -105,8 +109,6 @@ const marks = gbPoints.map((_, index) => ({
     value: index + 1,
     label: gByteLabel(scale(index + 1))
 }));
-
-console.log(marks)
 
 
 export const calculatePrice = (gb: number, connectors: number) => ({
@@ -329,9 +331,9 @@ const PricingPage = () => {
                                 </Link>
                             </div>
                             <div className="pricing-page-tile-purple">
-                                <p className="pricing-page-corner-text">30-Day <br/> Free Trial</p>
+                                <p className="pricing-page-corner-text">30-Day <br /> Free Trial</p>
                                 <PricingCloud className="pricing-page-tile-icon" />
-                                <WhiteRectangle className="pricing-page-rectangle"/>
+                                <WhiteRectangle className="pricing-page-rectangle" />
                                 <p className="pricing-page-tile-name text-white">Cloud</p>
                                 <div className="pricing-page-checklist-wrapper">
                                     <p className="pricing-page-price text-white">
@@ -405,14 +407,15 @@ const PricingPage = () => {
 
                     <div className="cost-calculator">
                         <div className="heading">
-                            <h2>Cost Calculator</h2>
+                            <h2>Price Comparison</h2>
                         </div>
                         <div className="cost-calculator-container">
                             <div className="cost-calculator-left">
-                                <div className="content-top">
+                                <div className="cost-calculator-subcontainer">
                                     <div className="cost-calculator-title">
-                                        <p className="cost-calculator-left-title">GB of Change Data</p>
-                                        <ContextToolTip
+                                        <p className="cost-calculator-left-title">Calculator</p>
+                                        <p className="cost-calculator-subtitle">GB of Change Data</p>
+                                        {/* <ContextToolTip
                                             placement="top-start"
                                             title={(<Typography className="context-tooltip-text">
                                                 ‘Change Data’ is defined as any incremental
@@ -422,7 +425,7 @@ const PricingPage = () => {
                                                 the corresponding JSON document. One connector can operate on many tables inside a DB.
                                             </Typography>)} >
                                             <QuestionMarkIcon id="change-data" className="question-mark" />
-                                        </ContextToolTip>
+                                        </ContextToolTip> */}
                                     </div>
                                     <SliderComponent
                                         value={selectedGbs}
@@ -438,85 +441,99 @@ const PricingPage = () => {
                                 </div>
                                 <div className="content-bottom">
                                     <div className="cost-calculator-title">
-                                        <p className="cost-calculator-left-title">Number of connectors</p>
-                                        <ContextToolTip
+                                        <p className="cost-calculator-subtitle">Number of Connectors</p>
+                                        {/* <ContextToolTip
                                             placement="top-start"
                                             title={(<Typography className="context-tooltip-text">
                                                 A connector is defined as any unique database connection. For example, 3 connectors to Postgres and 1 to Salesforce would be 4 active connectors that are billed at $.14/hour (about $100/month)
                                             </Typography>)} >
                                             <QuestionMarkIcon id="num-connectors" className="question-mark" />
-                                        </ContextToolTip>
+                                        </ContextToolTip> */}
                                     </div>
                                     <div className="count-input">
-                                        <div className="btn-left" onClick={() => setSelectedConnectors(c => Math.max(0, c - 1))}>
+                                        <div className="btn-left" onClick={() => setSelectedConnectors(c => Math.max(0, c + 1))}>
+                                            <PlusSign />
+                                        </div>
+                                        <input className="cost-calculator-connector-input" type="number" value={selectedConnectors} onChange={evt => setSelectedConnectors(+evt.target.value)} />
+                                        <div className="btn-right" onClick={() => setSelectedConnectors(c => Math.max(0, c - 1))}>
                                             <svg
                                                 width="15"
-                                                height="5"
-                                                viewBox="0 0 15 5"
+                                                height="2"
+                                                viewBox="0 0 15 2"
                                                 fill="none"
                                                 xmlns="http://www.w3.org/2000/svg"
                                             >
                                                 <rect
                                                     width="15"
-                                                    height="5"
+                                                    height="2"
                                                     rx="1"
-                                                    fill="#3F3F46"
-                                                />
-                                            </svg>
-                                        </div>
-                                        <input type="number" value={selectedConnectors} onChange={evt => setSelectedConnectors(+evt.target.value)} />
-                                        <div className="btn-right" onClick={() => setSelectedConnectors(c => Math.max(0, c + 1))}>
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="17"
-                                                height="16"
-                                                viewBox="0 0 17 16"
-                                                fill="none"
-                                            >
-                                                <path
-                                                    d="M7.74037 0C7.28294 0 6.97999 0.31889 6.97999 0.800397V6.4H1.66037C1.20294 6.4 0.899994 6.71889 0.899994 7.2004V8.8004C0.899994 9.28111 1.20294 9.6 1.66037 9.6H6.97999V15.2004C6.97999 15.6811 7.28294 16 7.74037 16H9.26037C9.71705 16 10.02 15.6811 10.02 15.2004V9.6H15.3404C15.797 9.6 16.1 9.28111 16.1 8.8004V7.2004C16.1 6.71889 15.797 6.4 15.3404 6.4H10.02V0.800397C10.02 0.31889 9.71705 0 9.26037 0H7.74037Z"
-                                                    fill="#3F3F46"
+                                                    fill="#ffffff"
                                                 />
                                             </svg>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div className="cost-calculator-results-wrapper">
+                                <p className="results-title zero-margin-bottom">
+                                    Results
+                                </p>
+                                <div className="results-text-wrapper">
+                                    <p className="results-title zero-margin-bottom">{currencyFormatter.format(prices.estuary)} / Month</p>
+                                    <ContextToolTip
+                                        placement="top-start"
+                                        title={(<Typography className="context-tooltip-text">
+                                            ‘Change Data’ is defined as any incremental
+                                            upsert event. You are only billed on the bytes
+                                            of moving that particular new event. For example, a single
+                                            database row being backfilled or updated will be billed based on the total size of
+                                            the corresponding JSON document. One connector can operate on many tables inside a DB.
+                                        </Typography>)} >
+                                        <QuestionMarkIconWhite id="change-data" className="question-mark" />
+                                    </ContextToolTip>
+                                </div>
+                                <p className="results-subtext zero-margin-bottom">
+                                    {gByteLabel(scale(selectedGbs))} of change data
+                                </p>
+                                <p className="results-subtext">
+                                    {selectedConnectors} connectors
+                                </p>
+
+                            </div>
                             <div className="cost-calculator-right">
-                                <div className="card">
-                                    <div className="content-top">
+                                <div className="comparisons-wrapper">
                                         <div className="cost-calculator-right-wrapper">
-                                            <p className="content-top-heading">
-                                                Our Plan
+                                            <p className="cost-calculator-left-title zero-margin-bottom">
+                                                Comparisons
                                             </p>
                                         </div>
-
-                                        <p className="content-top-description">
-                                            {gByteLabel(scale(selectedGbs))} of change data
-                                        </p>
-                                        <p className="content-top-description">
-                                            {selectedConnectors} connectors
-                                        </p>
-                                        <p className="content-top-price-tag">
-                                            {currencyFormatter.format(prices.estuary)} / Month
-                                        </p>
-                                        <p className="content-top-hint">
-                                            -$ Based on Cloud Plan Pricing
-                                        </p>
-                                    </div>
                                     <div className="content-bottom">
                                         <div className="cost-calculator-right-wrapper">
-                                            <p className="content-bottom-heading">
-                                                The 'Others'
-                                            </p>
+                                            <div className="comparisons-competition">
+                                                <p className="comparisons-subtext zero-margin-bottom">
+                                                    The Competition
+                                                </p>
+                                                <ContextToolTip
+                                                    placement="top-start"
+                                                    title={(<Typography className="context-tooltip-text">
+                                                        ‘Change Data’ is defined as any incremental
+                                                        upsert event. You are only billed on the bytes
+                                                        of moving that particular new event. For example, a single
+                                                        database row being backfilled or updated will be billed based on the total size of
+                                                        the corresponding JSON document. One connector can operate on many tables inside a DB.
+                                                    </Typography>)} >
+                                                    <QuestionMarkIcon id="change-data" className="question-mark-dark" />
+                                                </ContextToolTip>
+                                            </div>
+
                                         </div>
-                                        <div className="content-bottom-description">
-                                            <p>Fivetran</p>
-                                            <p>{currencyFormatter.format(prices.fivetran)} / Mo</p>
+                                        <div className="comparisons-competitor">
+                                            <p className="zero-margin-bottom">Fivetran</p>
+                                            <p className="zero-margin-bottom">{currencyFormatter.format(prices.fivetran)} / Mo</p>
                                         </div>
-                                        <div className="content-bottom-description">
-                                            <p>Confluent</p>
-                                            <p>{currencyFormatter.format(prices.confluent)} / Mo</p>
+                                        <div className="comparisons-competitor">
+                                            <p className="zero-margin-bottom">Confluent</p>
+                                            <p className="zero-margin-bottom">{currencyFormatter.format(prices.confluent)} / Mo</p>
                                         </div>
                                     </div>
                                 </div>
