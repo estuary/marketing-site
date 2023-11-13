@@ -326,9 +326,9 @@ const PricingPage = () => {
                         <div className="heading">
                             <h2>Plans</h2>
                         </div>
-                        {isSmall ? (
+                        {/* {isSmall ? (
                             <PlanTabs />
-                        ) : (
+                        ) : ( */}
                             <div className="pricing-page-tiles-wrapper">
                                 <div className="pricing-page-tile">
                                     <PricingOpenSource className="pricing-page-tile-icon" />
@@ -435,7 +435,7 @@ const PricingPage = () => {
                                     </Link>
                                 </div>
                             </div>
-                        )}
+                        {/* )} */}
 
 
 
