@@ -33,11 +33,16 @@ const QuestionMarkIconWhite = React.forwardRef((props: SvgIconProps, ref: React.
 
 
 const SliderComponent = styled(Slider)({
-    color: "#7D65F4",
+    color: "#5272EB",
+    width: "90%",
+    margin: "auto",
+    borderRadius: "3px",
+    marginLeft: "12px",
+    marginTop: "50px",
     "& .MuiSlider-thumb": {
         height: 36,
         width: 36,
-        backgroundColor: "#7D65F4",
+        backgroundColor: "#5272EB",
         border: "6px solid white",
         boxShadow: "0px 2px 7px rgba(0, 0, 0, 0.25)",
         "&:focus, &:hover, &.Mui-active, &.Mui-focusVisible": {
@@ -54,8 +59,18 @@ const SliderComponent = styled(Slider)({
         color: '#D9D9D9',
         opacity: 1,
         height: 28,
-        width: '100%'
+        width: '100.5%'
     },
+    '& .MuiSlider-mark': {
+        color: '#D9D9D9',
+        backgroundColor: '#D9D9D9 !important',
+        height: '15px',
+        width: '3px',
+        top: '-20%'
+    },
+    '& .MuiSlider-markLabel': {
+        top: "-32px"
+    }
 })
 
 function gByteLabel(gb: number, maxPrec = 10) {
@@ -413,7 +428,7 @@ const PricingPage = () => {
                             <div className="cost-calculator-left">
                                 <div className="cost-calculator-subcontainer">
                                     <div className="cost-calculator-title">
-                                        <p className="cost-calculator-left-title">Calculator</p>
+                                        <p className="cost-calculator-left-title zero-margin-bottom">Calculator</p>
                                         <p className="cost-calculator-subtitle">GB of Change Data</p>
                                         {/* <ContextToolTip
                                             placement="top-start"
@@ -429,7 +444,7 @@ const PricingPage = () => {
                                     </div>
                                     <SliderComponent
                                         value={selectedGbs}
-                                        min={1}
+                                        min={0}
                                         max={gbPoints.length}
                                         step={0.0001}
                                         valueLabelFormat={val => gByteLabel(scale(val))}
