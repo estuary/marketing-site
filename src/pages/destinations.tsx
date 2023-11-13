@@ -18,7 +18,7 @@ const Sources = () => {
 }
 
 export const Head = () => {
-    return <Seo title={"Destinations"} description={"Estuary helps your team get the most out of the ever-expanding list of valuable databases, warehouses, and other tools so you can focus on insights instead of pipelines."} />
+    return <Seo title={"Destinations"} description={"Stream your data anywhere with efficient, low latency pipelines to all your destinations."} />
 }
 
 export default Sources
