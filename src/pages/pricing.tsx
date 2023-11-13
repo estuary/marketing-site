@@ -8,6 +8,7 @@ import BlackCheckmark from "../svgs/checkmark-black.svg"
 import WhiteCheckmark from "../svgs/light-checkmark.svg"
 import QuestionMarkSvg from "../svgs/question-mark.svg"
 import QuestionMarkSvgWhite from "../svgs/question-mark-white.svg"
+import PricingComparisonOne from "../svgs/pricing-comparison-1.svg"
 import PlusSign from "../svgs/plus-sign.svg"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
 import Seo from "../components/seo"
@@ -352,10 +353,10 @@ const PricingPage = () => {
                                 <p className="pricing-page-tile-name text-white">Cloud</p>
                                 <div className="pricing-page-checklist-wrapper">
                                     <p className="pricing-page-price text-white">
-                                        $0.50/GB
+                                        $1/GB
                                     </p>
                                     <ChecklistItem white>
-                                        $.50/GB change data moved +$.14/hour/connector
+                                        $1/GB change data moved +$.14/hour/connector
                                     </ChecklistItem>
                                     <ChecklistItem white>All features of Free plan, plus... </ChecklistItem>
                                     <ChecklistItem white>
@@ -517,11 +518,11 @@ const PricingPage = () => {
                             </div>
                             <div className="cost-calculator-right">
                                 <div className="comparisons-wrapper">
-                                        <div className="cost-calculator-right-wrapper">
-                                            <p className="cost-calculator-left-title zero-margin-bottom">
-                                                Comparisons
-                                            </p>
-                                        </div>
+                                    <div className="cost-calculator-right-wrapper">
+                                        <p className="cost-calculator-left-title zero-margin-bottom">
+                                            Comparisons
+                                        </p>
+                                    </div>
                                     <div className="content-bottom">
                                         <div className="cost-calculator-right-wrapper">
                                             <div className="comparisons-competition">
@@ -552,6 +553,48 @@ const PricingPage = () => {
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="pricing-comparison-wrapper">
+                        <h2 className="pricing-comparison-header">Pricing Examples</h2>
+                        <div className="pricing-comparison-row">
+                            <div>
+                                {/* <PricingComparisonOne/> */}
+                                <StaticImage
+                                    placeholder="none"
+                                    alt="pricing logo"
+                                    src="../images/dude_desk_plant.png"
+                                    layout="fixed"
+                                    className="icon-image pricing-landing-image"
+                                />
+                            </div>
+                            <div>
+                                {/* <PricingComparisonOne/> */}
+                                <StaticImage
+                                    placeholder="none"
+                                    alt="pricing logo"
+                                    src="../images/dude_desk_plant.png"
+                                    layout="fixed"
+                                    className="icon-image pricing-landing-image"
+                                />
+                            </div>
+                            <div>
+                                <div className="pricing-comparison-text">
+                                    <p className="pricing-comparison-card-header">Streaming ETL</p>
+                                    <p className="pricing-comparison-card-subheader">Only pay once for source and target data</p>
+                                    <p className="pricing-comparison-card-body">Capture data from any source once. Estuary stores it all in your cloud storage. You’re only billed once for each source, target, and the data you move at $1/GB and $0.14/connector/hour.</p>
+                                </div>
+                            </div>
+                            <div>
+                                <div className="pricing-comparison-text">
+                                    <p className="pricing-comparison-card-header">Add New Targets</p>
+                                    <p className="pricing-comparison-card-subheader">Only pay once for new target data</p>
+                                    <p className="pricing-comparison-card-body">Add a new target, or add more data to an existing target, at any time. You only pay once for the additional targets and data sent to them at $1/GB and $0.14/connector/hour.</p>
+                                </div>
+                                {/* <PricingComparisonOne/> */}
+
                             </div>
                         </div>
                     </div>
