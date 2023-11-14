@@ -141,7 +141,6 @@ const SectionOne = () => {
             </div>
             <div className="custom-slides slide-container">
             <Marquee>
-
                     {logos.allStrapiVanityLogo.nodes?.map((logo) =>
                         logo.logo.localFile.internal.mediaType === "image/svg+xml" ? (
                             <div className="custom-slider" key={logo.id} >
@@ -152,20 +151,18 @@ const SectionOne = () => {
                                 />
                             </div>
                         ) : (
-                            <div className="custom-slider">
-                            <GatsbyImage
-                                key={logo.id}
-                                alt={`logo`}
-                                loading="eager"
-                                image={
-                                    logo.logo.localFile.childImageSharp.gatsbyImageData
-                                }
-                            />
+                            <div className="custom-slider" key={logo.id}>
+                                <GatsbyImage
+                                    alt={`logo`}
+                                    loading="eager"
+                                    image={
+                                        logo.logo.localFile.childImageSharp.gatsbyImageData
+                                    }
+                                />
                             </div>
                         )
                     )}
                 </Marquee>
-
             </div>
         </div>
     )
