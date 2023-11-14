@@ -12,7 +12,7 @@ import Seo from "../components/seo"
 const IndexPage = () => {
     return (
         //@ts-ignore
-        <Layout headerTheme="dark">
+        <Layout headerTheme="dark" showTour>
             <SectionOne />
             <SectionTwo />
             <SectionThree />
