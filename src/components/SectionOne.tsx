@@ -1,5 +1,4 @@
 import * as React from "react"
-import { Link } from "gatsby"
 import { isDesktop, isMobile } from "react-device-detect"
 import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
@@ -109,12 +108,12 @@ const SectionOne = () => {
         <div className="section-one">
             <div className="section-one-wrapper">
                 <div className="section-one-left">
-                    <h1>Your data,</h1>
-                    <h1>where you <span style={{ whiteSpace: "nowrap" }}>want it,</span></h1>
-                    <h1>in <span style={{ wordBreak: "break-word", hyphens: "auto" }}>milliseconds</span></h1>
+                    <h1>Real-time ETL & DCD</h1>
+                    <h1>for apps, analytics, and AI.</h1>
+                    <h1>Up in <span style={{ wordBreak: "break-word", hyphens: "auto" }}>minutes.</span></h1>
                     <div className="section-one-subtext-wrapper">
                         <p className="section-one-subtext">
-                            Managed CDC and Real-time ETL pipelines with streaming SQL transforms.
+                            Real-time ETL & CDC, with native streaming and batch SQL and Typescript, at a fraction of the cost
                         </p>
                     </div>
                     <div style={{ display: "flex", flexShrink: 1 }}>
@@ -129,9 +128,11 @@ const SectionOne = () => {
                             <OutboundLink
                                 target="_blank"
                                 href="/why"
-                                className="section-one-tour-button"
+                                className="section-one-book-demo"
                                 style={{ marginLeft: 16 }}
-                            >Product Tour</OutboundLink>
+                            >
+                                Book Demo
+                            </OutboundLink>
                         )}
                     </div>
                 </div>
