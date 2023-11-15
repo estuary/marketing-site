@@ -7,7 +7,7 @@ import { useMediaQuery, useTheme } from "@mui/material"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
 import Marquee from "react-fast-marquee";
 
-
+import HubspotModal from "./HubspotModal"
 
 const animFallback = (
     <div className="section-one-right-image">
@@ -102,6 +102,7 @@ const SectionOne = () => {
 
     const theme = useTheme();
     const isSmall = useMediaQuery(theme.breakpoints.down("sm"))
+    const [open, setOpen] = React.useState(false)
 
 
     return (
@@ -115,25 +116,21 @@ const SectionOne = () => {
                         <p className="section-one-subtext">
                             Real-time ETL & CDC, with native streaming and batch SQL and Typescript, at a fraction of the cost
                         </p>
-                    </div>
-                    <div style={{ display: "flex", flexShrink: 1 }}>
-                        <OutboundLink
-                            target="_blank"
-                            href="https://dashboard.estuary.dev/register"
-                            className="section-one-try-it-button"
-                        >
-                            Build a pipeline
-                        </OutboundLink>
-                        {isDesktop && !isSmall && (
+                        <div className="section-one-container-cta">
                             <OutboundLink
                                 target="_blank"
-                                href="/why"
-                                className="section-one-book-demo"
-                                style={{ marginLeft: 16 }}
+                                href="https://dashboard.estuary.dev/register"
+                                className="section-one-button"
+                            >
+                                Build a pipeline
+                            </OutboundLink>
+                            <button
+                                className="section-one-button-secondary"
+                                onClick={() => setOpen(true)}
                             >
                                 Book Demo
-                            </OutboundLink>
-                        )}
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div className="section-one-right">
@@ -165,6 +162,7 @@ const SectionOne = () => {
                     )}
                 </Marquee>
             </div>
+            <HubspotModal open={open} onClose={() => setOpen(false)} portalId="8635875" formId="698e6716-f38b-4bd5-9105-df9ba220e29b" />
         </div>
     )
 }

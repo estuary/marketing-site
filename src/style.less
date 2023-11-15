@@ -456,13 +456,19 @@ input {
     display: none;
 }
 
+.hubspot-modal-container h2 {
+    display: flex;
+    justify-content: end;
+}
+
 /* SECTION ONE */
 
 .take-a-tour {
     background-color: #757575;
-    height: 41px;
+    height: 35px;
 
     & a {
+        font-size: 14px;
         text-decoration-line: underline;
         color: #fff;
         display: flex;
@@ -470,6 +476,14 @@ input {
         height: 100%;
         justify-content: center;
         align-items: center;
+    }
+
+    @media (min-width: 900px) {
+        height: 41px;
+
+        & a {
+            font-size: 22px;
+        }
     }
 }
 
@@ -513,45 +527,34 @@ input {
     color: #b7c6dd;
 }
 
-.section-one-try-it-button {
+.section-one-container-cta {
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+
+    @media (min-width: 600px) {
+        flex-direction: row;
+    }
+}
+
+.section-one-button, .section-one-button-secondary {
+    border: 2px solid #5072eb;
     background-color: #5072eb;
     color: #ffffff;
     text-decoration: none;
     border-radius: 4px;
-    padding: 10px 10px;
-    @media (min-width: 811px) {
-        flex-grow: 1;
-    }
-    min-width: 100px;
-    height: 60px;
-    text-align: center;
-    line-height: 40px;
-    margin-top: 8px;
-    font-family: "Inter", sans-serif;
-    font-style: normal;
     font-weight: 400;
     font-size: 18px;
+    flex-grow: 1;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
 
-.section-one-book-demo {
-    border: 2px solid #5072eb;
-    color: #ffffff;
-    text-decoration: none;
-    border-radius: 4px;
-    padding: 10px 10px;
-    flex-grow: 1;
-    min-width: 100px;
-    height: 60px;
-    text-align: center;
-    line-height: 40px;
-    margin-top: 8px;
-    font-family: "Inter", sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    @media (max-width: 810px) {
-        display: none;
-    }
+.section-one-button-secondary {
+    background-color: transparent;
 }
 
 .section-one-right {
