@@ -372,7 +372,7 @@ const cfg: GatsbyConfig = {
             resolve: "gatsby-plugin-react-svg",
             options: {
                 rule: {
-                    include: /src\/svgs/, // See below to configure properly
+                    include: /svgs/, // See below to configure properly
                 },
             },
         },
@@ -384,6 +384,7 @@ const cfg: GatsbyConfig = {
                 //   refetchInterval: 60, // Refetch data every 60 seconds
             },
         },
+        `gatsby-plugin-material-ui`,
         `gatsby-transformer-sharp`,
         `gatsby-plugin-sharp`,
         // {
