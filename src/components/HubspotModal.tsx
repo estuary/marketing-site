@@ -1,9 +1,11 @@
 import * as React from "react"
 
 import HubspotForm from "react-hubspot-form"
-import { Dialog, DialogContent, DialogTitle } from '@mui/material';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
+import Dialog from '@mui/material/Dialog'
+import DialogContent from '@mui/material/DialogContent'
+import DialogTitle from '@mui/material/DialogTitle'
+import IconButton from '@mui/material/IconButton'
+import CloseIcon from '@mui/icons-material/Close'
 
 const HubspotModal = ({ open, onClose, portalId, formId }) => {
     return (

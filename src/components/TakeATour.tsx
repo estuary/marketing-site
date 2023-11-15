@@ -1,7 +1,15 @@
 import * as React from "react"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
 
-const TakeATour = () => {
+import IconButton from '@mui/material/IconButton'
+import CloseIcon from '@mui/icons-material/Close'
+
+const TakeATour = ({ onClose }) => {
+    const onClick = () => {
+        localStorage.setItem('@estuary/closeTour', "1")
+        onClose?.()
+    }
+
     return (
         <div className="take-a-tour">
             <OutboundLink
@@ -10,6 +18,9 @@ const TakeATour = () => {
             >
                 Take a Product Tour
             </OutboundLink>
+            <IconButton onClick={onClick}>
+                <CloseIcon color="inherit" fontSize="small" />
+            </IconButton>
         </div>
     )
 }
