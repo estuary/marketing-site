@@ -109,7 +109,7 @@ const SectionOne = () => {
         <div className="section-one">
             <div className="section-one-wrapper">
                 <div className="section-one-left">
-                    <h1>Real-time ETL & DCD</h1>
+                    <h1>Real-time ETL & CDC</h1>
                     <h1>for apps, analytics, and AI.</h1>
                     <h1>Up in <span style={{ wordBreak: "break-word", hyphens: "auto" }}>minutes.</span></h1>
                     <div className="section-one-subtext-wrapper">
