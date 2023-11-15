@@ -384,7 +384,6 @@ const cfg: GatsbyConfig = {
                 //   refetchInterval: 60, // Refetch data every 60 seconds
             },
         },
-        `gatsby-plugin-material-ui`,
         `gatsby-transformer-sharp`,
         `gatsby-plugin-sharp`,
         // {
