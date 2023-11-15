@@ -114,7 +114,7 @@ const SectionOne = () => {
                     <h1>Up in <span style={{ wordBreak: "break-word", hyphens: "auto" }}>minutes.</span></h1>
                     <div className="section-one-subtext-wrapper">
                         <p className="section-one-subtext">
-                            Real-time ETL & CDC, with native streaming and batch SQL and Typescript, at a fraction of the cost
+                            Streaming CDC with SQL and Typescript transforms, all at a fraction of the cost of the alternatives
                         </p>
                         <div className="section-one-container-cta">
                             <OutboundLink
