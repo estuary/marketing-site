@@ -3167,14 +3167,40 @@ table th {
 
 /* MEDIA QUERIES */
 
+
+@media (max-width: 1350px) {
+    .pricing-comparison-row>div {
+        height: auto !important;
+    }
+
+    .pricing-comparison-row {
+        flex-direction: column !important;
+        flex-wrap: nowrap !important;
+    }
+}
+
 @media (max-width: 1250px) {
     .connector-source-dest-image-wrapper {
         margin-top: 10%;
         margin-right: -5rem;
     }
+
+    .pricing-comparison-card-header {
+        font-size: 1.75rem !important;
+    }
+
+    .pricing-comparison-card-subheader {
+        font-size: 1.25rem;
+    }
+
+    .pricing-comparison-card-body {
+        font-size: 0.875rem;
+    }
 }
 
+
 @media (max-width: 1000px) {
+  
     .header-social-icon {
         display: none;
     }
@@ -3188,6 +3214,17 @@ table th {
 }
 
 @media (max-width: 810px) {
+
+    .pricing-comparison-row {
+        flex-direction: column !important;
+    }
+
+    .pricing-comparison-row>div {
+        flex: 1;
+        // max-width: 350px;
+    }
+
+
     .connector-source-dest-image-wrapper {
         display: none;
     }
@@ -7794,6 +7831,7 @@ table th {
             .cost-calculator-container {
                 flex-direction: column;
                 margin: auto;
+                min-width: 350px;
 
                 .cost-calculator-left {
                     width: 100%;
@@ -7838,16 +7876,16 @@ table th {
     }
 
     @media(max-width: 595px) {
+        .faq-text {
+            font-size: 0.875rem;
+        }
         padding-top: 0px;
 
         .pricing-landing-image {
             max-height: 400px;
         }
 
-        .pricing-comparison-row>div {
-            width: 60%;
-        }
-
+      
         .plan-container {
             .content {
                 flex-direction: column-reverse;
@@ -7904,6 +7942,13 @@ table th {
     }
 
     @media(max-width: 420px) {
+     
+        
+
+        .related-index-body {
+            display: flex !important;
+            flex-direction: column !important;
+        }
 
         .pricing-page-background-image-wrapper {
             .pricing-page-top {

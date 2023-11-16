@@ -235,8 +235,7 @@ const PricingPage = () => {
     const prices = React.useMemo(() => calculatePrice(scale(selectedGbs), selectedConnectors), [selectedGbs, selectedConnectors])
 
     const theme = useTheme()
-    const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
-    const isMedium = useMediaQuery(theme.breakpoints.between(811, 1100))
+    const isSmall = useMediaQuery(theme.breakpoints.down(1350));
 
     const handlePlanTabChange = (event, newTab) => {
         setPlanTab(newTab);
@@ -584,43 +583,86 @@ const PricingPage = () => {
 
                     <div className="pricing-comparison-wrapper">
                         <h2 className="pricing-comparison-header">Pricing Examples</h2>
-                        <div className="pricing-comparison-row">
-                            <div>
-                                <StaticImage
-                                    placeholder="none"
-                                    alt="pricing logo"
-                                    src="../svgs/pricing__example_1.png"
-                                    layout="fixed"
-                                    className="pricing-example-image" />
-                            </div>
-                            <div>
-                                {/* <PricingExampleOne /> */}
-                                {/* <PricingExampleTwo className="pricing-example-image" /> */}
+                        {isSmall ? (
+                            <div className="pricing-comparison-row">
+                                <div>
+                                    <StaticImage
+                                        placeholder="none"
+                                        alt="pricing logo"
+                                        src="../svgs/pricing__example_1.png"
+                                        layout="constrained"
+                                        className="pricing-example-image" />
+                                </div>
 
-                                <StaticImage
-                                    placeholder="none"
-                                    alt="pricing logo"
-                                    src="../svgs/pricing_example__2.png"
-                                    layout="fixed"
-                                    className="pricing-example-image" />
-                            </div>
-                            <div>
-                                <div className="pricing-comparison-text">
-                                    <p className="pricing-comparison-card-header">Streaming ETL</p>
-                                    <p className="pricing-comparison-card-subheader">Only pay once for source and target data</p>
-                                    <p className="pricing-comparison-card-body">Capture data from any source once. Estuary stores it all in your cloud storage. You’re only billed once for each source, target, and the data you move at $1/GB and $0.14/connector/hour.</p>
+                                <div>
+                                    <div className="pricing-comparison-text">
+                                        <p className="pricing-comparison-card-header">Streaming ETL</p>
+                                        <p className="pricing-comparison-card-subheader">Only pay once for source and target data</p>
+                                        <p className="pricing-comparison-card-body">Capture data from any source once. Estuary stores it all in your cloud storage. You’re only billed once for each source, target, and the data you move at $1/GB and $0.14/connector/hour.</p>
+                                    </div>
+                                </div>
+
+
+                                <div>
+                                    <StaticImage
+                                        placeholder="none"
+                                        alt="pricing logo"
+                                        src="../svgs/pricing__example_1.png"
+                                        layout="constrained"
+                                        className="pricing-example-image" />
+                                </div>
+                                <div>
+                                    <div className="pricing-comparison-text">
+                                        <p className="pricing-comparison-card-header">Add New Targets</p>
+                                        <p className="pricing-comparison-card-subheader">Only pay once for new target data</p>
+                                        <p className="pricing-comparison-card-body">Add a new target, or add more data to an existing target, at any time. You only pay once for the additional targets and data sent to them at $1/GB and $0.14/connector/hour.</p>
+                                    </div>
+                                    {/* <PricingComparisonOne/> */}
+
                                 </div>
                             </div>
-                            <div>
-                                <div className="pricing-comparison-text">
-                                    <p className="pricing-comparison-card-header">Add New Targets</p>
-                                    <p className="pricing-comparison-card-subheader">Only pay once for new target data</p>
-                                    <p className="pricing-comparison-card-body">Add a new target, or add more data to an existing target, at any time. You only pay once for the additional targets and data sent to them at $1/GB and $0.14/connector/hour.</p>
+                        ) : (
+                            <div className="pricing-comparison-row">
+                                <div>
+                                    <StaticImage
+                                        placeholder="none"
+                                        alt="pricing logo"
+                                        src="../svgs/pricing__example_1.png"
+                                        layout="fixed"
+                                        className="pricing-example-image" />
                                 </div>
-                                {/* <PricingComparisonOne/> */}
+                                <div>
+                                    {/* <PricingExampleOne /> */}
+                                    {/* <PricingExampleTwo className="pricing-example-image" /> */}
 
+                                    <StaticImage
+                                        placeholder="none"
+                                        alt="pricing logo"
+                                        src="../svgs/pricing_example__2.png"
+                                        layout="fixed"
+                                        className="pricing-example-image" />
+                                </div>
+                                <div>
+                                    <div className="pricing-comparison-text">
+                                        <p className="pricing-comparison-card-header">Streaming ETL</p>
+                                        <p className="pricing-comparison-card-subheader">Only pay once for source and target data</p>
+                                        <p className="pricing-comparison-card-body">Capture data from any source once. Estuary stores it all in your cloud storage. You’re only billed once for each source, target, and the data you move at $1/GB and $0.14/connector/hour.</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div className="pricing-comparison-text">
+                                        <p className="pricing-comparison-card-header">Add New Targets</p>
+                                        <p className="pricing-comparison-card-subheader">Only pay once for new target data</p>
+                                        <p className="pricing-comparison-card-body">Add a new target, or add more data to an existing target, at any time. You only pay once for the additional targets and data sent to them at $1/GB and $0.14/connector/hour.</p>
+                                    </div>
+                                    {/* <PricingComparisonOne/> */}
+
+                                </div>
                             </div>
-                        </div>
+
+                        )
+                        }
+
                     </div>
 
                     {/* Frequently question */}
@@ -640,10 +682,10 @@ const PricingPage = () => {
                                                 id="panel1a-header"
                                                 className="faq-question"
                                             >
-                                                <Typography >{item.title}</Typography>
+                                                <Typography className="faq-text">{item.title}</Typography>
                                             </AccordionSummary>
                                             <AccordionDetails>
-                                                <Typography sx={{ lineHeight: "2.5rem", color: "#3F3F46" }}>
+                                                <Typography className="faq-text" sx={{ lineHeight: "2.5rem", color: "#3F3F46" }}>
                                                     {item.description}
                                                 </Typography>
                                             </AccordionDetails>
