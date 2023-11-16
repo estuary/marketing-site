@@ -25,6 +25,8 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import PricingExampleTwo from "../svgs/pricing_example_graphic_1.svg"
+import PricingExampleOne from "../svgs/illustration1.svg"
 import { Check } from "@mui/icons-material"
 import PlanTabs from "../components/PlanTabs"
 
@@ -99,7 +101,7 @@ const gbPoints = [
     250,
     500,
     1000,
-    5000
+    2000
 ]
 
 const scale = idx => {
@@ -140,7 +142,7 @@ const frequentlyQuestions = [
         title: "How is my my bill calculated?",
         description: `There are two components to your monthly bill. Primarily, your bill is  calculated based on the amount of
         data that is Sourced, Transformed, and Delivered by Flow to your destinations. The activity of each of these
-        ‘tasks’ are summed on a monthly basis.Secondarily, there is a charge of $0.14/hour per active connector.
+        ‘tasks’ are summed on a monthly basis. Secondarily, there is a charge of $0.14/hour per active connector.
         For a given connector running all month, this typically equates to about ~$100/month/connector. in a
         standard 720 hour month.   There is no storage fee as Estuary does not store your data, it will be hosted
         in your own cloud storage. In the free tier, you are given 10GB of data to move at no charge and up t
@@ -154,7 +156,7 @@ const frequentlyQuestions = [
         title: "How does Pay-as-you-Go pricing work?",
         description: `For customers that are just starting out, or don’t want to commit to a specific volume of data or time
         you can use Estuary and pay for actual consumption on a monthly basis. Your bill will be computed
-        at the end of each month based on the amount of data transfer and number of active connector hours.
+        at the end of each month based on the amount of data transfer and number of active connectors.
         Billing is done through Stripe, and you’ll be able to add a credit card.`,
     },
     {
@@ -273,14 +275,14 @@ const PricingPage = () => {
                     <div className="pricing-page-top">
                         <div className="pricing-page-top-left">
                             <h1 className="product-flow-section-one-h1">
-                                Simply priced, pay as you go
+                                Simply priced, <br /> pay as you go
                             </h1>
                             <p className="pricing-page-subheader-text">
                                 Get instant back-fills without instant
                                 bad-bills. We price predictably, on{" "}
                                 <strong>GB of change data</strong> moved per
                                 month and{" "}
-                                <strong>active connector hours.</strong> Put
+                                <strong>active connectors.</strong> Put
                                 away the TI-83 trying to calculate ‘monthly
                                 active rows’.
                             </p>
@@ -329,112 +331,112 @@ const PricingPage = () => {
                         {/* {isSmall ? (
                             <PlanTabs />
                         ) : ( */}
-                            <div className="pricing-page-tiles-wrapper">
-                                <div className="pricing-page-tile">
-                                    <PricingOpenSource className="pricing-page-tile-icon" />
-                                    <PurpleRectangle className="pricing-page-rectangle" />
-                                    <p className="pricing-page-tile-name">Free</p>
-                                    <p className="pricing-page-price">
-                                        <span className="pricing-page-price">
-                                            $0/GB
-                                        </span>
-                                    </p>
-                                    <div className="pricing-page-checklist-wrapper">
-                                        <ChecklistItem>
-                                            Up to 10GB / mo for any 2 connectors
-                                        </ChecklistItem>
-                                        <ChecklistItem>
-                                            Millisecond Latency
-                                        </ChecklistItem>
-                                        <ChecklistItem>
-                                            UI & CLI for building & monitoring pipelines
-                                        </ChecklistItem>
-                                        <ChecklistItem>
-                                            Limited Data Retention in Estuary Cloud
-                                        </ChecklistItem>
-                                        <ChecklistItem>
-                                            Incremental Syncing for lower CDC cost
-                                        </ChecklistItem>
-                                        <ChecklistItem>
-                                            Streaming Infrastructure
-                                        </ChecklistItem>
-                                    </div>
-                                    <Link
-                                        className="pricing-page-tile-button"
-                                        to="https://github.com/estuary/flow"
-                                    >
-                                        Get started
-                                    </Link>
+                        <div className="pricing-page-tiles-wrapper">
+                            <div className="pricing-page-tile">
+                                <PricingOpenSource className="pricing-page-tile-icon" />
+                                <PurpleRectangle className="pricing-page-rectangle" />
+                                <p className="pricing-page-tile-name">Free</p>
+                                <p className="pricing-page-price">
+                                    <span className="pricing-page-price">
+                                        $0/GB
+                                    </span>
+                                </p>
+                                <div className="pricing-page-checklist-wrapper">
+                                    <ChecklistItem>
+                                        Up to 10GB / mo for any 2 connectors
+                                    </ChecklistItem>
+                                    <ChecklistItem>
+                                        Millisecond Latency
+                                    </ChecklistItem>
+                                    <ChecklistItem>
+                                        UI & CLI for building & monitoring pipelines
+                                    </ChecklistItem>
+                                    <ChecklistItem>
+                                        Limited Data Retention in Estuary Cloud
+                                    </ChecklistItem>
+                                    <ChecklistItem>
+                                        Incremental Syncing for lower CDC cost
+                                    </ChecklistItem>
+                                    <ChecklistItem>
+                                        Streaming Infrastructure
+                                    </ChecklistItem>
                                 </div>
-                                <div className="pricing-page-tile-purple">
-                                    <p className="pricing-page-corner-text">30-Day <br /> Free Trial</p>
-                                    <PricingCloud className="pricing-page-tile-icon" />
-                                    <WhiteRectangle className="pricing-page-rectangle" />
-                                    <p className="pricing-page-tile-name text-white">Cloud</p>
-                                    <div className="pricing-page-checklist-wrapper">
-                                        <p className="pricing-page-price text-white">
-                                            $1/GB
-                                        </p>
-                                        <ChecklistItem white>
-                                            $1/GB change data moved +$.14/hour/connector
-                                        </ChecklistItem>
-                                        <ChecklistItem white>All features of Free plan, plus... </ChecklistItem>
-                                        <ChecklistItem white>
-                                            Data stored in your cloud
-                                        </ChecklistItem>
-                                        <ChecklistItem white>99.9% uptime SLA</ChecklistItem>
-
-
-                                        <ChecklistItem white>
-                                            Unlimited Connectors
-                                        </ChecklistItem>
-                                        <ChecklistItem white>
-                                            9x5 Customer Support via Slack/Email
-                                        </ChecklistItem>
-                                    </div>
-                                    <OutboundLink
-                                        target="_blank"
-                                        href="https://dashboard.estuary.dev/register"
-                                        className="pricing-page-tile-button-white"
-                                    >
-                                        Try it free
-                                    </OutboundLink>
-                                </div>
-                                <div className="pricing-page-tile">
-                                    <PricingEnterprise className="pricing-page-tile-icon" />
-                                    <PurpleRectangle className="pricing-page-rectangle" />
-                                    <p className="pricing-page-tile-name">Enterprise</p>
-                                    <p className="pricing-page-price">
-                                        <span className="pricing-page-price">
-                                            Custom Pricing
-                                        </span>
-                                    </p>
-                                    <div className="pricing-page-checklist-wrapper-custom">
-                                        <ChecklistItem>
-                                            All features of Free + Cloud, plus...
-                                        </ChecklistItem>
-                                        <ChecklistItem>
-                                            SOC2 & HIPPA Certificates
-                                        </ChecklistItem>
-                                        <ChecklistItem>
-                                            Customer Success Manager
-                                        </ChecklistItem>
-                                        <ChecklistItem>
-                                            24x7 support available
-                                        </ChecklistItem>
-                                        <ChecklistItem>
-                                            Provisioned servers
-                                        </ChecklistItem>
-
-                                    </div>
-                                    <Link
-                                        className="pricing-page-tile-button"
-                                        to="/about#contact-us"
-                                    >
-                                        Contact us
-                                    </Link>
-                                </div>
+                                <Link
+                                    className="pricing-page-tile-button"
+                                    to="https://github.com/estuary/flow"
+                                >
+                                    Get started
+                                </Link>
                             </div>
+                            <div className="pricing-page-tile-purple">
+                                <p className="pricing-page-corner-text">30-Day <br /> Free Trial</p>
+                                <PricingCloud className="pricing-page-tile-icon" />
+                                <WhiteRectangle className="pricing-page-rectangle" />
+                                <p className="pricing-page-tile-name text-white">Cloud</p>
+                                <div className="pricing-page-checklist-wrapper">
+                                    <p className="pricing-page-price text-white">
+                                        $1/GB
+                                    </p>
+                                    <ChecklistItem white>
+                                        $1/GB change data moved +$.14/hour/connector
+                                    </ChecklistItem>
+                                    <ChecklistItem white>All features of Free plan, plus... </ChecklistItem>
+                                    <ChecklistItem white>
+                                        Data stored in your cloud
+                                    </ChecklistItem>
+                                    <ChecklistItem white>99.9% uptime SLA</ChecklistItem>
+
+
+                                    <ChecklistItem white>
+                                        Unlimited Connectors
+                                    </ChecklistItem>
+                                    <ChecklistItem white>
+                                        9x5 Customer Support via Slack/Email
+                                    </ChecklistItem>
+                                </div>
+                                <OutboundLink
+                                    target="_blank"
+                                    href="https://dashboard.estuary.dev/register"
+                                    className="pricing-page-tile-button-white"
+                                >
+                                    Try it free
+                                </OutboundLink>
+                            </div>
+                            <div className="pricing-page-tile">
+                                <PricingEnterprise className="pricing-page-tile-icon" />
+                                <PurpleRectangle className="pricing-page-rectangle" />
+                                <p className="pricing-page-tile-name">Enterprise</p>
+                                <p className="pricing-page-price">
+                                    <span className="pricing-page-price">
+                                        Custom Pricing
+                                    </span>
+                                </p>
+                                <div className="pricing-page-checklist-wrapper-custom">
+                                    <ChecklistItem>
+                                        All features of Free + Cloud, plus...
+                                    </ChecklistItem>
+                                    <ChecklistItem>
+                                        SOC2 & HIPPA Certificates
+                                    </ChecklistItem>
+                                    <ChecklistItem>
+                                        Customer Success Manager
+                                    </ChecklistItem>
+                                    <ChecklistItem>
+                                        24x7 support available
+                                    </ChecklistItem>
+                                    <ChecklistItem>
+                                        Provisioned servers
+                                    </ChecklistItem>
+
+                                </div>
+                                <Link
+                                    className="pricing-page-tile-button"
+                                    to="/about#contact-us"
+                                >
+                                    Contact us
+                                </Link>
+                            </div>
+                        </div>
                         {/* )} */}
 
 
@@ -452,7 +454,7 @@ const PricingPage = () => {
                                 <div className="cost-calculator-subcontainer">
                                     <div className="cost-calculator-title">
                                         <p className="cost-calculator-left-title zero-margin-bottom">Calculator</p>
-                                        <p className="cost-calculator-subtitle">GB of Change Data</p>
+                                        <p className="cost-calculator-subtitle">{gByteLabel(scale(selectedGbs))} of Data Moved</p>
                                         {/* <ContextToolTip
                                             placement="top-start"
                                             title={(<Typography className="context-tooltip-text">
@@ -467,7 +469,7 @@ const PricingPage = () => {
                                     </div>
                                     <SliderComponent
                                         value={selectedGbs}
-                                        min={0}
+                                        min={1}
                                         max={gbPoints.length}
                                         step={0.0001}
                                         valueLabelFormat={val => gByteLabel(scale(val))}
@@ -489,11 +491,7 @@ const PricingPage = () => {
                                         </ContextToolTip> */}
                                     </div>
                                     <div className="count-input">
-                                        <div className="btn-left" onClick={() => setSelectedConnectors(c => Math.max(0, c + 1))}>
-                                            <PlusSign />
-                                        </div>
-                                        <input className="cost-calculator-connector-input" type="number" value={selectedConnectors} onChange={evt => setSelectedConnectors(+evt.target.value)} />
-                                        <div className="btn-right" onClick={() => setSelectedConnectors(c => Math.max(0, c - 1))}>
+                                        <div className="btn-left" onClick={() => setSelectedConnectors(c => Math.max(0, c - 1))}>
                                             <svg
                                                 width="15"
                                                 height="2"
@@ -509,6 +507,11 @@ const PricingPage = () => {
                                                 />
                                             </svg>
                                         </div>
+                                        <input className="cost-calculator-connector-input" type="number" value={selectedConnectors} onChange={evt => setSelectedConnectors(+evt.target.value)} />
+                                        <div className="btn-right" onClick={() => setSelectedConnectors(c => Math.max(0, c + 1))}>
+                                            <PlusSign />
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -531,7 +534,7 @@ const PricingPage = () => {
                                     </ContextToolTip>
                                 </div>
                                 <p className="results-subtext zero-margin-bottom">
-                                    {gByteLabel(scale(selectedGbs))} of change data
+                                    {gByteLabel(scale(selectedGbs))} of data moved
                                 </p>
                                 <p className="results-subtext">
                                     {selectedConnectors} connectors
@@ -583,24 +586,23 @@ const PricingPage = () => {
                         <h2 className="pricing-comparison-header">Pricing Examples</h2>
                         <div className="pricing-comparison-row">
                             <div>
-                                {/* <PricingComparisonOne/> */}
                                 <StaticImage
                                     placeholder="none"
                                     alt="pricing logo"
-                                    src="../images/dude_desk_plant.png"
+                                    src="../svgs/pricing__example_1.png"
                                     layout="fixed"
-                                    className="icon-image pricing-landing-image"
-                                />
+                                    className="pricing-example-image" />
                             </div>
                             <div>
-                                {/* <PricingComparisonOne/> */}
+                                {/* <PricingExampleOne /> */}
+                                {/* <PricingExampleTwo className="pricing-example-image" /> */}
+
                                 <StaticImage
                                     placeholder="none"
                                     alt="pricing logo"
-                                    src="../images/dude_desk_plant.png"
+                                    src="../svgs/pricing_example__2.png"
                                     layout="fixed"
-                                    className="icon-image pricing-landing-image"
-                                />
+                                    className="pricing-example-image" />
                             </div>
                             <div>
                                 <div className="pricing-comparison-text">
@@ -631,7 +633,7 @@ const PricingPage = () => {
 
                                 {frequentlyQuestions.map((item, index) => (
                                     <>
-                                        <Accordion expanded={index === 0 ? true : null}>
+                                        <Accordion defaultExpanded={true}>
                                             <AccordionSummary
                                                 expandIcon={<ExpandMoreIcon sx={{ color: "#27272A", fontSize: "2rem" }} />}
                                                 aria-controls="panel1a-content"
@@ -651,6 +653,7 @@ const PricingPage = () => {
                                 ))}
                             </div>
                         </div>
+
                     </div>
 
                     <div className="related-post">

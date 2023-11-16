@@ -1880,10 +1880,12 @@ table th {
 
 .pricing-page-tile-icon {
     margin: 35px auto 0 auto;
+    z-index: 9999;
 }
 
 .pricing-page-rectangle {
     margin: 10px auto 0px auto;
+    z-index: 9999;
 }
 
 .pricing-page-pricing-slider {
@@ -3804,9 +3806,19 @@ table th {
         bottom: unset;
     }
 
-    .pricing-page-tile {
+    .pricing-page-tile,
+    .pricing-page-tile-purple {
         width: 100%;
         margin-bottom: 2rem;
+    }
+
+    .cost-calculator-subcontainer {
+        width: 300px !important;
+    }
+
+    .plan-container {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
     }
 
     .pricing-page-checklist-wrapper-custom {
@@ -7263,6 +7275,11 @@ table th {
             display: flex;
         }
 
+        .pricing-example-image {
+            width: 100%;
+            margin: auto;
+        }
+
         .cost-calculator-subcontainer {
             width: 415px;
         }
@@ -7559,6 +7576,13 @@ table th {
         }
     }
 
+    .pricing-example-image {
+        width: 100%;
+        height: 100%;
+        margin: auto;
+    }
+
+
     .pricing-comparison-wrapper {
         display: flex;
         flex-direction: column;
@@ -7584,6 +7608,7 @@ table th {
         justify-content: center;
         box-shadow: 0px 4px 10px rgba(20, 20, 43, 0.14);
         margin: 20px;
+        height: 330px;
     }
 
     .pricing-comparison-text {
@@ -7768,6 +7793,7 @@ table th {
         .cost-calculator {
             .cost-calculator-container {
                 flex-direction: column;
+                margin: auto;
 
                 .cost-calculator-left {
                     width: 100%;
@@ -7783,6 +7809,10 @@ table th {
                             margin-top: 16px;
                         }
                     }
+                }
+
+                .cost-calculator-results-wrapper {
+                    width: 100%;
                 }
 
                 .cost-calculator-right {
@@ -7812,6 +7842,10 @@ table th {
 
         .pricing-landing-image {
             max-height: 400px;
+        }
+
+        .pricing-comparison-row>div {
+            width: 60%;
         }
 
         .plan-container {
