@@ -38,10 +38,10 @@ const QuestionMarkIconWhite = React.forwardRef((props: SvgIconProps, ref: React.
 
 const SliderComponent = styled(Slider)({
     color: "#5272EB",
-    width: "90%",
+    width: "87%",
     margin: "auto",
     borderRadius: "3px",
-    marginLeft: "12px",
+    marginLeft: "25px",
     marginTop: "50px",
     "& .MuiSlider-thumb": {
         height: 36,
