@@ -131,7 +131,7 @@ const marks = gbPoints.map((_, index) => ({
 
 
 export const calculatePrice = (gb: number, connectors: number) => ({
-    estuary: 1.0 * gb + 100 * connectors,
+    estuary: 2.0 * gb + 100 * connectors,
     fivetran: (1590 + 45.7 * gb + -0.0517 * gb ** 2 + 2.79 * 10 ** -5 * gb ** 3 + -5.37 * 10 ** -9 * gb ** 4),
     confluent: connectors * 150 + (1.73 * gb + 1100)
 })
