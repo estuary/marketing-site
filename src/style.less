@@ -307,7 +307,7 @@ input {
     }
 
     & .global-header-link {
-        color: #9aa8be;
+        color: #fff;
     }
 }
 
@@ -379,6 +379,7 @@ input {
 .global-header-link-wrapper {
     display: flex;
     flex-grow: 1;
+    gap: 35px;
     justify-content: flex-start;
 }
 
@@ -386,7 +387,7 @@ input {
     text-decoration: none;
     font-family: "Inter", sans-serif;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 16px;
     white-space: nowrap;
     cursor: pointer;
@@ -455,7 +456,36 @@ input {
     display: none;
 }
 
+.hubspot-modal-container h2 {
+    display: flex;
+    justify-content: end;
+}
+
 /* SECTION ONE */
+
+.take-a-tour {
+    background-color: #5072EB;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+
+    & a {
+        font-size: 12px;
+        text-decoration-line: underline;
+        color: #fff;
+    }
+
+    & button {
+        color: #fff;
+        position: absolute;
+        right: 5px;
+    }
+}
 
 .section-one {
     padding-left: ~"calc(min(9%, 146px))";
@@ -490,56 +520,43 @@ input {
 
 .section-one-subtext-wrapper {
     margin-top: 40px;
-    max-width: 500px;
+    max-width: 470px;
 }
 
 .section-one-subtext {
     color: #b7c6dd;
+    line-height: 22px;
 }
 
-.section-one-try-it-button {
+.section-one-container-cta {
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+    margin-top: 60px;
+
+    @media (min-width: 600px) {
+        flex-direction: row;
+    }
+}
+
+.section-one-button, .section-one-button-secondary {
+    border: 2px solid #5072eb;
     background-color: #5072eb;
     color: #ffffff;
     text-decoration: none;
     border-radius: 4px;
-    padding: 10px 10px;
-
-    @media (min-width: 811px) {
-        flex-grow: 1;
-    }
-
-    min-width: 100px;
-    height: 60px;
-    text-align: center;
-    line-height: 40px;
-    margin-top: 8px;
-    font-family: "Inter",
-    sans-serif;
-    font-style: normal;
     font-weight: 400;
     font-size: 18px;
+    flex-grow: 1;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
 
-.section-one-tour-button {
-    border: 2px solid #5072eb;
-    color: #ffffff;
-    text-decoration: none;
-    border-radius: 4px;
-    padding: 10px 10px;
-    flex-grow: 1;
-    min-width: 100px;
-    height: 60px;
-    text-align: center;
-    line-height: 40px;
-    margin-top: 8px;
-    font-family: "Inter", sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-
-    @media (max-width: 810px) {
-        display: none;
-    }
+.section-one-button-secondary {
+    background-color: transparent;
 }
 
 .section-one-right {

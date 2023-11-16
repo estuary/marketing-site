@@ -1,5 +1,4 @@
 import * as React from "react"
-import { Link } from "gatsby"
 import { isDesktop, isMobile } from "react-device-detect"
 import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
@@ -8,7 +7,7 @@ import { useMediaQuery, useTheme } from "@mui/material"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
 import Marquee from "react-fast-marquee";
 
-
+import HubspotModal from "./HubspotModal"
 
 const animFallback = (
     <div className="section-one-right-image">
@@ -103,36 +102,35 @@ const SectionOne = () => {
 
     const theme = useTheme();
     const isSmall = useMediaQuery(theme.breakpoints.down("sm"))
+    const [open, setOpen] = React.useState(false)
 
 
     return (
         <div className="section-one">
             <div className="section-one-wrapper">
                 <div className="section-one-left">
-                    <h1>Your data,</h1>
-                    <h1>where you <span style={{ whiteSpace: "nowrap" }}>want it,</span></h1>
-                    <h1>in <span style={{ wordBreak: "break-word", hyphens: "auto" }}>milliseconds</span></h1>
+                    <h1>Real-time ETL & CDC</h1>
+                    <h1>for apps, analytics, and AI.</h1>
+                    <h1>Up in <span style={{ wordBreak: "break-word", hyphens: "auto" }}>minutes.</span></h1>
                     <div className="section-one-subtext-wrapper">
                         <p className="section-one-subtext">
-                            Managed CDC and Real-time ETL pipelines with streaming SQL transforms.
+                            Streaming CDC with SQL and Typescript transforms, all at a fraction of the cost of the alternatives
                         </p>
-                    </div>
-                    <div style={{ display: "flex", flexShrink: 1 }}>
-                        <OutboundLink
-                            target="_blank"
-                            href="https://dashboard.estuary.dev/register"
-                            className="section-one-try-it-button"
-                        >
-                            Build a pipeline
-                        </OutboundLink>
-                        {isDesktop && !isSmall && (
+                        <div className="section-one-container-cta">
                             <OutboundLink
                                 target="_blank"
-                                href="/why"
-                                className="section-one-tour-button"
-                                style={{ marginLeft: 16 }}
-                            >Product Tour</OutboundLink>
-                        )}
+                                href="https://dashboard.estuary.dev/register"
+                                className="section-one-button"
+                            >
+                                Build a pipeline
+                            </OutboundLink>
+                            <button
+                                className="section-one-button-secondary"
+                                onClick={() => setOpen(true)}
+                            >
+                                Book Demo
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div className="section-one-right">
@@ -141,7 +139,6 @@ const SectionOne = () => {
             </div>
             <div className="custom-slides slide-container">
             <Marquee>
-
                     {logos.allStrapiVanityLogo.nodes?.map((logo) =>
                         logo.logo.localFile.internal.mediaType === "image/svg+xml" ? (
                             <div className="custom-slider" key={logo.id} >
@@ -152,21 +149,20 @@ const SectionOne = () => {
                                 />
                             </div>
                         ) : (
-                            <div className="custom-slider">
-                            <GatsbyImage
-                                key={logo.id}
-                                alt={`logo`}
-                                loading="eager"
-                                image={
-                                    logo.logo.localFile.childImageSharp.gatsbyImageData
-                                }
-                            />
+                            <div className="custom-slider" key={logo.id}>
+                                <GatsbyImage
+                                    alt={`logo`}
+                                    loading="eager"
+                                    image={
+                                        logo.logo.localFile.childImageSharp.gatsbyImageData
+                                    }
+                                />
                             </div>
                         )
                     )}
                 </Marquee>
-
             </div>
+            <HubspotModal open={open} onClose={() => setOpen(false)} portalId="8635875" formId="698e6716-f38b-4bd5-9105-df9ba220e29b" />
         </div>
     )
 }

@@ -23,10 +23,6 @@ const useNavItems = (): NavItem[] => {
         }`)
     return [
     {
-        title: "Home",
-        path: "/",
-    },
-    {
         title: "Product",
         children: [
             isDesktop && {
@@ -60,6 +56,10 @@ const useNavItems = (): NavItem[] => {
     {
         title: "Pricing",
         path: "/pricing",
+    },
+    {
+        title: "Connectors",
+        path: "https://estuary.dev/sources/",
     },
     {
         title: "Resources",
@@ -143,13 +143,12 @@ const Header = (props: { theme: "light" | "dark" }) => {
                     />
                     <h1 className={"global-header-title"}>Estuary</h1>
                 </Link>
-                <div style={{ flex: "1 2 45px" }} />
+                <div style={{ flex: "1 2 140px" }} />
                 <div className="global-header-wrapper">
                     <div className="global-header-link-wrapper">
                         {navItems.map(item => (
                             <React.Fragment key={`${item.path}-${item.title}`}>
                                 <NavMenuTopLevel item={item} />
-                                <div style={{ flex: "0 1 1rem" }} />
                             </React.Fragment>
                         ))}
                     </div>

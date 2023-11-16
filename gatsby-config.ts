@@ -372,7 +372,7 @@ const cfg: GatsbyConfig = {
             resolve: "gatsby-plugin-react-svg",
             options: {
                 rule: {
-                    include: /src\/svgs/, // See below to configure properly
+                    include: /svgs/, // See below to configure properly
                 },
             },
         },
