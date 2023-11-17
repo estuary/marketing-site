@@ -32,8 +32,9 @@ import PlanTabs from "../components/PlanTabs"
 
 
 const QuestionIcon = createSvgIcon(QuestionMarkSvg({}), "Question Mark");
+const QuestionIconWhite = createSvgIcon(QuestionMarkSvgWhite({}), "Question Mark");
 const QuestionMarkIcon = React.forwardRef((props: SvgIconProps, ref: React.Ref<SVGSVGElement>) => <QuestionIcon ref={ref} viewBox="0 0 32 32" {...props} />)
-const QuestionMarkIconWhite = React.forwardRef((props: SvgIconProps, ref: React.Ref<SVGSVGElement>) => <QuestionMarkSvgWhite ref={ref} viewBox="0 0 32 32" {...props} />)
+const QuestionMarkIconWhite = React.forwardRef((props: SvgIconProps, ref: React.Ref<SVGSVGElement>) => <QuestionIconWhite ref={ref} viewBox="0 0 32 32" {...props} />)
 
 
 const SliderComponent = styled(Slider)({
@@ -70,7 +71,10 @@ const SliderComponent = styled(Slider)({
         backgroundColor: '#D9D9D9 !important',
         height: '15px',
         width: '3px',
-        top: '-20%'
+        top: '-20%',
+        "@media(max-width: 1250px)": {
+            top: "6%"
+        }
     },
     '& .MuiSlider-markLabel': {
         top: "-32px"
@@ -97,7 +101,7 @@ export const currencyFormatter = Intl.NumberFormat("en-US", {
 })
 
 const gbPoints = [
-    1,
+    2,
     250,
     500,
     1000,
@@ -454,17 +458,7 @@ const PricingPage = () => {
                                     <div className="cost-calculator-title">
                                         <p className="cost-calculator-left-title zero-margin-bottom">Calculator</p>
                                         <p className="cost-calculator-subtitle">{gByteLabel(scale(selectedGbs))} of Data Moved</p>
-                                        {/* <ContextToolTip
-                                            placement="top-start"
-                                            title={(<Typography className="context-tooltip-text">
-                                                ‘Change Data’ is defined as any incremental
-                                                upsert event. You are only billed on the bytes
-                                                of moving that particular new event. For example, a single
-                                                database row being backfilled or updated will be billed based on the total size of
-                                                the corresponding JSON document. One connector can operate on many tables inside a DB.
-                                            </Typography>)} >
-                                            <QuestionMarkIcon id="change-data" className="question-mark" />
-                                        </ContextToolTip> */}
+                                    
                                     </div>
                                     <SliderComponent
                                         value={selectedGbs}
@@ -523,7 +517,7 @@ const PricingPage = () => {
                                     <ContextToolTip
                                         placement="top-start"
                                         title={(<Typography className="context-tooltip-text">
-                                            ‘Change Data’ is defined as any incremental
+                                            ‘Data moved' is defined as any incremental
                                             upsert event. You are only billed on the bytes
                                             of moving that particular new event. For example, a single
                                             database row being backfilled or updated will be billed based on the total size of
