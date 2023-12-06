@@ -69,8 +69,6 @@ const cfg: GatsbyConfig = {
     flags: {
         PARALLEL_SOURCING: true,
         PARTIAL_HYDRATION: true,
-        PRESERVE_FILE_DOWNLOAD_CACHE: true,
-        DETECT_NODE_MUTATIONS: true,
     },
     // graphqlTypegen: true,
     plugins: [
