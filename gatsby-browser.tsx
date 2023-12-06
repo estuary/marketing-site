@@ -12,7 +12,7 @@ import { isMobile } from "react-device-detect"
 // Highlighting for code blocks
 // import "prismjs/themes/prism.css"
 
-import { Script, ScriptStrategy } from "gatsby"
+import { Script } from "gatsby"
 import { useState } from "react"
 
 const ZD_KEY = "3271265c-16a8-4e0d-b1ab-72ed8fbe7e5a"

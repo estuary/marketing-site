@@ -3,6 +3,7 @@ import { createRemoteFileNode } from "gatsby-source-filesystem"
 import { normalizeConnector } from "./src/utils"
 import pg from "pg"
 import { SUPABASE_CONNECTION_STRING } from "./config"
+import LoadablePlugin from "@loadable/webpack-plugin"
 
 /**
  * Implement Gatsby's Node APIs in this file.
@@ -20,6 +21,12 @@ const comparisonTemplate = path.resolve(`./src/templates/product-comparison.tsx`
 
 const connector = path.resolve(`./src/templates/connector.tsx`)
 const connection = path.resolve(`./src/templates/connection.tsx`)
+
+exports.onCreateWebpackConfig = ({ stage, getConfig, rules, loaders, plugins, actions }) => {
+    actions.setWebpackConfig({
+        plugins: [new LoadablePlugin()]
+    })
+}
 
 export const createPages: GatsbyNode["createPages"] = async ({
     graphql,

@@ -1,13 +1,16 @@
 import * as React from "react"
+import loadable from "@loadable/component"
+
 import Layout from "../components/layout"
 import SectionOne from "../components/SectionOne"
 import { useStaticQuery, graphql } from "gatsby"
-import SectionTwo from "../components/SectionTwo"
-import SectionThree from "../components/SectionThree"
-import SectionFour from "../components/SectionFour"
-import SectionFive from "../components/SectionFive"
-import SectionSix from "../components/SectionSix"
 import Seo from "../components/seo"
+
+const SectionTwo = loadable(() => import('../components/SectionTwo'))
+const SectionThree = loadable(() => import('../components/SectionThree'))
+const SectionFour = loadable(() => import('../components/SectionFour'))
+const SectionFive = loadable(() => import('../components/SectionFive'))
+const SectionSix = loadable(() => import('../components/SectionSix'))
 
 const IndexPage = () => {
     return (

@@ -91,6 +91,22 @@ const cfg: GatsbyConfig = {
             },
         },
         {
+            resolve: 'gatsby-plugin-web-vitals',
+            options: {
+              trackingId: 'G-P1PZPE4HHZ',
+              metrics: ['LCP', 'FCP'],
+              eventCategory: 'Performance',
+              includeInDevelopment: true,
+              debug: true,
+            }
+        },
+        {
+            resolve: `gatsby-plugin-loadable-components-ssr`,
+            options: {
+              useHydrate: true,
+            },
+        },
+        {
             resolve: "gatsby-plugin-preconnect",
             options: {
                 domains: [
