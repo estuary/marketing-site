@@ -1,20 +1,18 @@
 import React, { useState } from "react"
-import { Link } from "gatsby"
-import { OutboundLink } from "gatsby-plugin-google-gtag"
 
-import LinkProduct from "./Product"
-import LinkResources from "./Resources"
+import useHeaderNavbar from "./useHeaderNavbar"
+
+import LinkItem from "./Link"
 
 const HeaderNavbar = () => {
   const [current, setCurrent] = useState('')
+  const { navbarData } = useHeaderNavbar()
 
   return (
     <div className="global-header-links">
-      <LinkProduct active={current === 'product'} setActive={setCurrent} />
-      <Link className="global-header-link" to="/pricing">Pricing</Link>
-      <Link className="global-header-link" to="/integrations">Connectors</Link>
-      <LinkResources active={current === 'resources'} setActive={setCurrent} />
-      <OutboundLink className="global-header-link" href="https://docs.estuary.dev">Docs</OutboundLink>
+      {navbarData.navbar_links.map((itemLink) => 
+        <LinkItem key={itemLink.Name} active={current === itemLink.Name} setActive={setCurrent} item={itemLink} />
+      )}
     </div>
   )
 }

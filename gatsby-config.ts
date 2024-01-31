@@ -44,6 +44,25 @@ const strapiConfig = {
                 }
             }
         },
+        "navbar",
+        "navbar-link",
+        {
+            singularName: "navbar-link-section",
+            queryParams: {
+                populate: {
+                    Items: {
+                        populate: {
+                            Icon: {
+                                populate: '*'
+                            },
+                        }
+                    },
+                    Image: {
+                        populate: '*',
+                    }
+                }
+            },
+        }
     ],
     singleTypes: [],
     // remoteFileHeaders: {

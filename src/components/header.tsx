@@ -1,119 +1,13 @@
 import * as React from "react"
-import { Link, graphql, useStaticQuery } from "gatsby"
+import { Link } from "gatsby"
 import { useState, useRef, useEffect } from "react"
 import ColoredLogo from "../svgs/colored-logo.svg"
 import SlackIcon from "../svgs/slack-outline.svg"
 import GithubIcon from "../svgs/github-outline.svg"
 import clsx from "clsx"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
-import { isDesktop } from "react-device-detect"
 
 import HeaderNavbar from "./HeaderNavbar"
-
-const useNavItems = () => {
-    const queryResults = useStaticQuery(graphql`
-        query GetNavData {
-            allStrapiProductComparisonPage {
-                nodes {
-                    Slug
-                    their_name
-                }
-            }
-            allStrapiCaseStudy {
-                nodes {
-                    Slug
-                    Title
-                }
-            }
-        }
-    `)
-
-    return [
-    {
-        title: "Product",
-        children: [
-            isDesktop && {
-                title: "Product Tour",
-                path: "/why"
-            },
-            {
-                title: "About Flow",
-                path: "/product",
-            },
-            {
-                title: "Integrations",
-                path: "/integrations",
-                children: [
-                    {
-                        title: "Sources",
-                        path: "/sources",
-                    },
-                    {
-                        title: "Destinations",
-                        path: "/destinations",
-                    },
-                ],
-            },
-            {
-                title: "Solutions",
-                path: "/solutions",
-            },
-        ].filter(Boolean),
-    },
-    {
-        title: "Pricing",
-        path: "/pricing",
-    },
-    {
-        title: "Connectors",
-        path: "https://estuary.dev/integrations/",
-    },
-    {
-        title: "Resources",
-        children: [
-            {
-                title: "Docs",
-                path: "https://docs.estuary.dev",
-            },
-            {
-                title: "Blog",
-                path: "/blog/data-engineering",
-            },
-            {
-                title: "Case Study",
-                children: queryResults.allStrapiCaseStudy.nodes.map(
-                    caseStudy => ({
-                        title: caseStudy.Title,
-                        path: `/customers/${caseStudy.Slug}`,
-                    })
-                ),
-            },
-            {
-                title: "Comparisons",
-                children:
-                    queryResults.allStrapiProductComparisonPage.nodes.map(
-                        comparison => ({
-                            title: comparison.their_name,
-                            path: `/${comparison.Slug}`,
-                        })
-                    ),
-            },
-            {
-                title: "Podcasts",
-                path: "/podcasts",
-            },
-            {
-                title: "Contact",
-                path: "/about#contact-us",
-            },
-        ],
-    },
-    {
-        title: "Docs",
-        path: "/docs",
-    },
-]
-};
 
 const MenuBarsImage = () => (
     <svg
@@ -132,7 +26,6 @@ const MenuBarsImage = () => (
 
 const Header = (props: { fixedHeader?: boolean }) => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-    const navItems = useNavItems();
     const wrapperRef = useRef(null);
 
     const { fixedHeader } = props
