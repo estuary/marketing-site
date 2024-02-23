@@ -90,7 +90,11 @@
                 "source": "/airbyte-vs-fivetran-vs-estuary",
                 "destination": "airbyte-vs-fivetran",
                 "type": 301
-            }   
+            },
+                "source": "/data-lake-architecture%20",
+                "destination": "/data-lake-architecture"
+                "Type": 301
+            }
         ],
         "public": "public",
         "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
