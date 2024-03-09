@@ -7,6 +7,7 @@
     "@draftbox-co/gatsby-rehype-inline-images": "^1.0.2",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+    "@fontsource-variable/montserrat": "^5.0.18",
     "@fontsource/merriweather": "^5.0.12",
     "@fontsource/montserrat": "^5.0.12",
     "@loadable/component": "^5.15.3",
