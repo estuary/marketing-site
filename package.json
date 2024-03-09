@@ -19,7 +19,7 @@
     "@types/react-dom": "^18.0.11",
     "babel-plugin-styled-components": "^2.1.4",
     "clsx": "^1.2.1",
-    "dayjs": "^1.11.7",
+    "dayjs": "^1.11.10",
     "dotenv": "^16.0.3",
     "gatsby": "^5.13.3",
     "gatsby-background-image": "^1.6.0",
@@ -79,7 +79,7 @@
     "unist-util-visit": "^4.1.2"
   },
   "devDependencies": {
-    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.30",
+    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.32",
     "prettier": "^2.8.4"
   },
   "resolutions": {
