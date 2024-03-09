@@ -1,6 +1,6 @@
 // custom typefaces
 import * as React from "react"
-import "@fontsource/montserrat/variable.css"
+import "@fontsource-variable/montserrat"
 import "@fontsource/merriweather"
 // normalize CSS across browsers
 import "./src/normalize.css"
@@ -18,11 +18,15 @@ import { useState } from "react"
 const ZD_KEY = "3271265c-16a8-4e0d-b1ab-72ed8fbe7e5a"
 
 export const wrapPageElement = ({ element }) => {
-    const [dimensions,setDimensions] = useState({width:0,height:0})
+    const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
     React.useEffect(() => {
-        const subscriber = ()=>setDimensions({width: window.innerWidth, height: window.innerHeight})
-        window.addEventListener('load',subscriber)
-        return () => window.removeEventListener('load', subscriber)
+        const subscriber = () =>
+            setDimensions({
+                width: window.innerWidth,
+                height: window.innerHeight,
+            })
+        window.addEventListener("load", subscriber)
+        return () => window.removeEventListener("load", subscriber)
     }, [])
     if (
         process.env.NODE_ENV === "development" ||
@@ -65,25 +69,25 @@ export const onClientEntry = () => {
 // Copied from https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-plugin-google-gtag/src/gatsby-browser.js
 export const onRouteUpdate = ({ location }) => {
     if (process.env.NODE_ENV !== `production` || typeof gtag !== `function`) {
-      return null
+        return null
     }
-  
+
     // wrap inside a timeout to make sure react-helmet is done with its changes (https://github.com/gatsbyjs/gatsby/issues/11592)
     const sendPageView = () => {
-      const pagePath = location
-        ? location.pathname + location.search + location.hash
-        : undefined
-      window.gtag(`event`, `page_view`, { page_path: pagePath })
+        const pagePath = location
+            ? location.pathname + location.search + location.hash
+            : undefined
+        window.gtag(`event`, `page_view`, { page_path: pagePath })
     }
-  
+
     if (`requestAnimationFrame` in window) {
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => setTimeout(sendPageView, 0))
-      })
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => setTimeout(sendPageView, 0))
+        })
     } else {
-      // Delay by 32ms to simulate 2 requestOnAnimationFrame calls
-      setTimeout(sendPageView, 32)
+        // Delay by 32ms to simulate 2 requestOnAnimationFrame calls
+        setTimeout(sendPageView, 32)
     }
-  
+
     return null
-  }
+}
