@@ -56,7 +56,7 @@
     "lottie-react": "^2.4.0",
     "lunr": "^2.3.9",
     "material-ui-popup-state": "^5.0.10",
-    "patch-package": "^6.5.1",
+    "patch-package": "^8.0.0",
     "prismjs": "^1.29.0",
     "react": "^18.2.0",
     "react-device-detect": "^2.2.3",
