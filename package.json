@@ -18,7 +18,7 @@
     "@types/lunr": "^2.3.4",
     "@types/react-dom": "^18.0.11",
     "babel-plugin-styled-components": "^2.1.4",
-    "clsx": "^1.2.1",
+    "clsx": "^2.1.0",
     "dayjs": "^1.11.10",
     "dotenv": "^16.0.3",
     "gatsby": "^5.13.3",
