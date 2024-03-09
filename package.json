@@ -81,7 +81,7 @@
   },
   "devDependencies": {
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.32",
-    "prettier": "^2.8.4"
+    "prettier": "^3.2.5"
   },
   "resolutions": {
     "sharp": "0.31.3",
