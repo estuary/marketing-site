@@ -2,21 +2,22 @@ name: Deploy to Firebase Preview
 
 on:
     pull_request:
-        paths:
-            - .env
-            - .firebaserc
-            - .lighthouserc.js
-            - config.ts
-            - gatsby*
-            - package.json
-            - tsconfig.json
-            - types.d.tsconfig
-            - yarn.lock
-            - content/**
-            - patches/**
-            - plugins/**
-            - src/**
-            - static/**
+        # We should look into not always running a preview for every PR
+        # paths:
+        #     - .env
+        #     - .firebaserc
+        #     - .lighthouserc.js
+        #     - config.ts
+        #     - gatsby*
+        #     - package.json
+        #     - tsconfig.json
+        #     - types.d.tsconfig
+        #     - yarn.lock
+        #     - content/**
+        #     - patches/**
+        #     - plugins/**
+        #     - src/**
+        #     - static/**
 
 concurrency:
     group: preview-${{ github.ref }}
