@@ -2,20 +2,27 @@ name: Deploy to Firebase Preview
 
 on:
     pull_request:
-        # we should look into limiting when we run this
-        # paths:
-        #     - content/**
-        #     - patches/**
-        #     - plugins/**
-        #     - src/**
-        #     - static/**
+        paths:
+            - .env
+            - .firebaserc
+            - .lighthouserc.js
+            - config.ts
+            - gatsby*
+            - package.json
+            - tsconfig.json
+            - types.d.tsconfig
+            - yarn.lock
+            - content/**
+            - patches/**
+            - plugins/**
+            - src/**
+            - static/**
 
 concurrency:
     group: preview-${{ github.ref }}
 
 jobs:
     build_and_preview:
-        if: ${{ github.event.label.name == 'PR:Preview' }}
         runs-on: ubuntu-2004-large
         steps:
             - name: Checkout
