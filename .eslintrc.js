@@ -28,5 +28,6 @@ module.exports = {
         'react/display-name': 'off',
         'react/prop-types': 'off',
         'react/react-in-jsx-scope': 'off',
+        'react-hooks/exhaustive-deps': 'error',
     },
 };
