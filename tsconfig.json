@@ -2,8 +2,8 @@
     "compilerOptions": {
         "target": "esnext",
         "lib": ["dom", "dom.iterable", "esnext"],
-        "jsx": "preserve",
-        "allowJs": true,
+        "jsx": "react",
+        "allowJs": false,
         "module": "esnext",
         "moduleResolution": "node",
         "resolveJsonModule": true,
@@ -13,10 +13,7 @@
         "skipLibCheck": true,
         "strict": false,
         "noEmit": true,
-        "checkJs": false,
-        "paths": {
-            "@/*": ["./src/*"]
-        }
+        "checkJs": false
     },
     "include": ["**/*.ts", "**/*.tsx", "./plugins/**/*", "types.d.ts"],
     "exclude": ["node_modules", "public", ".cache"]
