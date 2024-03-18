@@ -7,6 +7,7 @@ module.exports = {
     root: true,
     rules: {
         '@typescript-eslint/no-unused-vars': 'error',
+        '@typescript-eslint/no-explicit-any': 'warn',
         'prefer-const': [
             'error',
             {
