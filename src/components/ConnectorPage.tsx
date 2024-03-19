@@ -77,7 +77,7 @@ export const ConnectorPage = ({ source_connector, dest_connector, connector_type
                   ? `extract data from ${source_mapped.title}`
                   : connector_type === 'materialization'
                     ? `write data to ${dest_mapped.title}`
-                    : `move data from ${source_mapped.title} to ${dest_mapped.title}`}
+                    : `move data from ${source_mapped.title} to ${dest_mapped.title}`}{' '}
                 in real-time, allowing you to enable a copy of your data wherever you want.
               </span>
             </div>
