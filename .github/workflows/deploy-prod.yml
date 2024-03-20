@@ -45,14 +45,42 @@ jobs:
             GATSBY_DB_HOST: ${{ secrets.GATSBY_DB_HOST }}
             GATSBY_DB_PORT: ${{ secrets.GATSBY_DB_PORT }}
             GATSBY_DB_NAME: ${{ secrets.GATSBY_DB_NAME }}
-      - name: run Lighthouse CI
+      - name: Installing Lighthouse CI
         run: |
-          # Need to set these manually LHCI doesn't support multiple builds
-          export LHCI_BUILD_CONTEXT__COMMIT_MESSAGE=$(git log --format=%s -n 1 HEAD) 
-          export LHCI_BUILD_CONTEXT__AUTHOR=$(git log --format="$aN <%aE>" -n 1 HEAD)
-          export LHCI_BUILD_CONTEXT__COMMIT_TIME=$(git log -n1 --pretty="%cI" HEAD)
           npm install -g @lhci/cli@0.13.x
-          lhci autorun
+          # Need to set these manually LHCI doesn't support multiple builds
+          echo "LHCI_BUILD_CONTEXT__COMMIT_MESSAGE=$(git log --format=%s -n 1 HEAD)" >> $GITHUB_ENV
+          echo "LHCI_BUILD_CONTEXT__AUTHOR=$(git log --format='$aN <%aE>' -n 1 HEAD)" >> $GITHUB_ENV
+          echo "LHCI_BUILD_CONTEXT__COMMIT_TIME=$(git log -n1 --pretty='%cI' HEAD)" >> $GITHUB_ENV
+      # @see https://github.com/GoogleChrome/lighthouse-ci/issues/138#issuecomment-561698511
+      - name: Run Lighthouse CI
+        id: lighthouse
+        uses: actions/github-script@v6
+        with: 
+          script: |
+            const lighthouseConfig = require('./.lighthouserc.js');
+        
+            // Healthcheck
+            await exec.exec('lhci', ['healthcheck', '--fatal']);
+
+            // Desktop
+            for await (const url of lighthouseConfig.ci.collect.url) {
+                await exec.exec('lhci', ['collect', '--additive', '--url', url, '--psiStrategy', 'desktop', '--settings.preset', 'desktop']);
+            };
+
+            await exec.exec('lhci', ['assert']);
+            await exec.exec('lhci', ['upload', '--githubStatusContextSuffix', '/desktop']);
+
+            // Cleanup
+            await exec.exec('rm', ['-fr', '.lighthouseci']);
+
+            // Mobile
+            for await (const url of lighthouseConfig.ci.collect.url) {
+                await exec.exec('lhci', ['collect', '--additive', '--url', url, '--psiStrategy', 'mobile']);
+            };
+
+            await exec.exec('lhci', ['assert']);
+            await exec.exec('lhci', ['upload', '--githubStatusContextSuffix', '/mobile']);
         env:
           LHCI_BUILD_CONTEXT__CURRENT_HASH: ${{ github.sha }}-${{ github.run_id }}
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
