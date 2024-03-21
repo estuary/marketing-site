@@ -1,0 +1,147 @@
+.section-comparison {
+    padding: 30px 16px;
+    max-width: 600px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .title {
+        margin: 0;
+        padding-bottom: 20px;
+        font-size: 26px;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .card {
+        box-shadow: 3px 3px 20px 2px rgba(0, 0, 0, 0.10);
+        text-align: center;
+
+        .image-container {
+            padding: 20px 5px;
+            box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.10);
+        }
+
+        .card-title {
+            margin: 0;
+            padding-top: 40px;
+            font-size: 26px;
+            font-weight: 500;
+        }
+
+        .card-description {
+            margin: 0;
+            padding: 10px 20px 40px 20px;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 18px;
+        }
+    }
+
+    .estuary-comparison {
+        padding: 25px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        text-align: center;
+
+        .stripe {
+            width: 50px;
+            height: 8px;
+            background-color: #5374EA;
+            border-radius: 3px;
+        }
+
+        p {
+            margin: 0;
+            font-weight: 700;
+            font-size: 40px;
+            line-height: normal;
+        }
+    }
+
+    .button {
+        margin-top: 30px;
+    }
+
+
+    @media (min-width: 1024px) {
+        max-width: 100%;
+        padding-left: ~"calc(min(9%, 146px))";
+        padding-right: ~"calc(min(9%, 146px))";
+        gap: 30px;
+
+        .title {
+            font-size: 38px;
+            padding: 0;
+        }
+
+        .estuary-comparison {
+            display: none;
+        }
+
+        .cards {
+            display: flex;
+            gap: 20px;
+        }
+
+        .card {
+            width: 450px;
+
+            .image-container {
+                height: 350px;
+                padding: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .card-title {
+                font-size: 32px;
+            }
+        }
+    }
+
+    @media (min-width: 1280px) {
+        gap: 60px;
+
+        .title {
+            font-size: 50px;
+        }
+
+        .cards {
+            gap: 40px;
+        }
+
+        .card {
+            width: 568px;
+
+            .image-container {
+                height: 390px;
+            }
+
+            .card-title {
+                padding-top: 84px;
+                font-size: 40px;
+            }
+
+            .card-description {
+                font-size: 18px;
+                line-height: 27px;
+                padding: 25px 30px 50px 30px;
+            }
+        }
+
+        .button {
+            margin-top: 0;
+        }
+    }
+}

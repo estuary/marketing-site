@@ -1,0 +1,144 @@
+.section-stream-pipeline {
+    margin: 20px 0;
+    padding: 30px;
+    background-color: #071929;
+    color: #B7B7B7;
+    text-align: center;
+
+    .container {
+        max-width: 500px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .title {
+        margin: 0;
+        font-size: 26px;
+        font-weight: 600;
+        line-height: normal;
+
+        .break-line {
+            display: block;
+        }
+    }
+
+    .buttons {
+        margin-top: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .buttons-desktop {
+        display: none;
+    }
+
+    .topics {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .topic {
+            display: flex;
+            gap: 7px;
+            align-items: center;
+
+            .icon {
+                width: 10px;
+                height: 10px;
+            }
+
+            .text {
+                margin: 0;
+                font-size: 12px;
+                font-weight: 500;
+            }
+        }
+    }
+
+
+    @media (min-width: 1024px) {
+        padding: 60px;
+        text-align: left;
+
+        .container {
+            max-width: 900px;
+            padding: 0;
+            flex-direction: row;
+        }
+
+        .content {
+            flex: 1;
+        }
+
+        .title {
+            font-size: 28px;
+        }
+
+        .buttons {
+            flex-direction: row;
+            margin-top: 25px;
+            gap: 40px;
+        }
+
+        .buttons-mobile {
+            display: none;
+        }
+
+        .buttons-desktop {
+            display: flex;
+        }
+
+        .topics {
+            gap: 23px;
+
+            .topic {
+                gap: 18px;
+
+                .icon {
+                    width: 18px;
+                    height: 18px;
+                }
+
+                .text {
+                    font-size: 18px;
+                }
+            }
+        }
+
+    }
+
+    @media (min-width: 1280px) {
+        margin-left: 40px;
+        margin-right: 40px;
+        border-radius: 19px;
+        padding: 90px;
+
+        .container {
+            max-width: 1350px;
+        }
+
+        .title {
+            font-size: 36px;
+        }
+
+        .topics {
+            .topic {
+                gap: 27px;
+
+                .icon {
+                    width: 24px;
+                    height: 24px;
+                }
+
+                .text {
+                    font-size: 28px;
+                }
+            }
+        }
+    }
+}

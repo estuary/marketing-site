@@ -1,0 +1,82 @@
+.section-connect {
+    padding: 0 16px;
+
+    .container {
+        max-width: 500px;
+        margin: 20px auto;
+        padding: 26px 20px;
+        border-radius: 7px;
+        box-shadow: 2px 3px 7px 0px rgba(0, 0, 0, 0.25);
+        background-color: #071929;
+        color: #FCFCFC;
+    }
+
+    .pre-title {
+        margin: 0;
+        margin-bottom: 10px;
+        font-size: 18px;
+        font-weight: 600;
+        color: #6875D9;
+        font-variant: all-small-caps;
+        line-height: normal;
+    }
+
+    .title-container {
+        width: 150px;
+    }
+
+    .description {
+        margin: 0;
+        margin-top: 5px;
+        margin-bottom: 15px;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+    }
+
+
+    @media (min-width: 1024px) {
+        padding-left: ~"calc(min(15%, 146px))";
+        padding-right: ~"calc(min(15%, 146px))";
+
+        .container {
+            max-width: 1350px;
+            padding: 30px 80px;
+            border-radius: 15px;
+        }
+
+        .pre-title {
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        .title-container {
+            width: 300px;
+        }
+
+        .description {
+            margin: 25px 0;
+            font-size: 24px;
+            line-height: 37px;
+        }
+    }
+
+    @media (min-width: 1280px) {
+        .container {
+            margin: 60px auto;
+            padding: 20px 100px;
+            padding-bottom: 40px;
+
+        }
+
+        .title-container {
+            width: 380px;
+        }
+
+        .description {
+            margin: 25px 0;
+            font-size: 27px;
+            line-height: 37px;
+        }
+    }
+}
