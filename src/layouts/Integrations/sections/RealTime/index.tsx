@@ -11,7 +11,7 @@ const RealTime = () => {
           <Title>
             Deliver <span>real-time</span> and <span>batch</span> data from DBs, SaaS, APIs, and more
           </Title>
-          <Button target="_blank" href="https://try.estuary.dev/webinar-estuary101-ondemand">
+          <Button target="_blank" href="https://dashboard.estuary.dev/register">
             Build Free Pipeline
           </Button>
         </Content>

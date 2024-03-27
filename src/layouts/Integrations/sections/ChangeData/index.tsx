@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Cards from './components/Cards';
-import Select from './components/Select';
+import ConnectorsLink from '../../../../components/ConnectorsLink';
 
 import {
   Container,
@@ -38,7 +38,7 @@ const ChangeData = () => {
           </Topic>
           <Topic>Or connect critical SaaS apps to BigQuery with real-time data pipelines.</Topic>
         </Topics>
-        <Select />
+        <ConnectorsLink />
         <Observation>
           Don’t see a connector?<a> Request it and we’ll make it in a week </a>
         </Observation>

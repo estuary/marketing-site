@@ -1,9 +1,9 @@
 import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 
+import TakeATourButtons from '../../../../components/TakeATourButtons';
+
 import {
-  ActionLink,
-  Button,
   Container,
   ContainerButton,
   ContainerContent,
@@ -55,12 +55,7 @@ const TakeATour = () => {
           <Title>TAKE A TOUR</Title>
           <Description>Learn more about how estuary can help with real-time replication.</Description>
           <ContainerButton>
-            <ActionLink target="_blank" to="/why">
-              Self-Guided Tour [1 min]
-            </ActionLink>
-            <Button target="_blank" href="https://try.estuary.dev/webinar-estuary101-ondemand">
-              Product Overview [30 min]
-            </Button>
+            <TakeATourButtons />
           </ContainerButton>
         </ContainerContent>
       </Container>

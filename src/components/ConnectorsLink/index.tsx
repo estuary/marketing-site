@@ -1,17 +1,11 @@
 import { InputLabel, Select } from '@mui/material';
 import React, { useMemo, useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { normalizeConnector } from '../../../../../../utils';
+import { normalizeConnector } from '../../utils';
 
 import { Button, Form, Image, Menu, Wrapper } from './style';
 
-export const ConnectorsLink = ({
-  defaultSource,
-  defaultDestination,
-}: {
-  defaultSource?: string;
-  defaultDestination?: string;
-}) => {
+export const ConnectorsLink = ({ defaultSource }: { defaultSource?: string; defaultDestination?: string }) => {
   const {
     postgres: {
       allConnectors: { nodes: connectors },
@@ -42,6 +36,7 @@ export const ConnectorsLink = ({
       }
     }
   `);
+
   const [captureConnectors, materializationConnectors] = useMemo(() => {
     const mapped: ReturnType<typeof normalizeConnector>[] = connectors
       .filter((connector) => connector?.connectorTagsByConnectorIdList?.length > 0)
@@ -54,7 +49,9 @@ export const ConnectorsLink = ({
   }, [connectors]);
 
   const [sourceId, setSourceId] = useState<string>(defaultSource);
-  const [destinationId, setDestinationId] = useState<string>(defaultDestination);
+  const [destinationId, setDestinationId] = useState<string>(
+    materializationConnectors.find((connector) => connector.slug === '/destination/bigquery')?.id,
+  );
 
   const destinationHref = useMemo(() => {
     if (sourceId && destinationId) {
@@ -65,6 +62,7 @@ export const ConnectorsLink = ({
       return '#';
     }
   }, [captureConnectors, materializationConnectors, sourceId, destinationId]);
+
   return (
     <Wrapper>
       <Form fullWidth>
