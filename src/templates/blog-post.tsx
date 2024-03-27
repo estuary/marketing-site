@@ -56,20 +56,45 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
         };
     }, []);
 
-    const tocBody = (
-        <>
-            <RenderToc items={post.body.data.childHtmlRehype.tableOfContents} />
-            <div className="popular-articles">
-                <PopularArticles />
-            </div>
-
-            <div className="sidebar-cta">
-                <h3>Start streaming your data for free</h3>
-                <OutboundLink href="https://dashboard.estuary.dev/register" className="pipeline-link">
-                    Build a Pipeline
+    const sharingButtonsSection = (
+        <div className="sharing-buttons-list-wrapper">
+            <span>Share this article</span>
+            <ul>
+                <OutboundLink className="sharing-button" onClick={copyLinkToClipboard}>
+                    <LinkIcon />
                 </OutboundLink>
-            </div>
+                <OutboundLink className="sharing-button" href="https://estuary-dev.slack.com" target="_blank">
+                    <SlackIcon />
+                </OutboundLink>
+                <OutboundLink className="sharing-button" href="https://twitter.com/EstuaryDev" target="_blank">
+                    <TwitterXIcon />
+                </OutboundLink>
+                {/* TODO: add Estuary's facebook URL */}
+                <OutboundLink className="sharing-button" target="_blank">
+                    <FacebookIcon />
+                </OutboundLink>
+                {/* TODO: add the correct Estuary's email */}
+                <OutboundLink className="sharing-button" href="mailto:david@estuary.dev">
+                    <EmailIcon />
+                </OutboundLink>
+            </ul>
+        </div>
+    )
+
+    const tocBodyLeft = (
+        <>
+            {windowWidth > 767 && sharingButtonsSection}
+            <RenderToc items={post.body.data.childHtmlRehype.tableOfContents} />
         </>
+    );
+
+    const tocBodyRight = (
+        <div className="sidebar-cta">
+            <h3>Start streaming your data for free</h3>
+            <OutboundLink href="https://dashboard.estuary.dev/register" className="pipeline-link">
+                Build a Pipeline
+            </OutboundLink>
+        </div>
     );
 
     return (
@@ -116,40 +141,27 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
                             loading="eager"
                         />
                     ) : null}
-                    <div className="sharing-buttons-list-wrapper">
-                        <span>Share this article</span>
-                        <ul>
-                            <OutboundLink className="sharing-button" onClick={copyLinkToClipboard}>
-                                <LinkIcon />
-                            </OutboundLink>
-                            <OutboundLink className="sharing-button" href="https://estuary-dev.slack.com" target="_blank">
-                                <SlackIcon />
-                            </OutboundLink>
-                            <OutboundLink className="sharing-button" href="https://twitter.com/EstuaryDev" target="_blank">
-                                <TwitterXIcon />
-                            </OutboundLink>
-                            {/* TODO: add Estuary's facebook URL */}
-                            <OutboundLink className="sharing-button" target="_blank">
-                                <FacebookIcon />
-                            </OutboundLink>
-                            {/* TODO: add the correct Estuary's email */}
-                            <OutboundLink className="sharing-button" href="mailto:david@estuary.dev">
-                                <EmailIcon />
-                            </OutboundLink>
-                        </ul>
-                    </div>
+                    {windowWidth <= 767 && sharingButtonsSection}
                 </section>
                 {post.body && (
                     <section className="blog-post-content">
                         {windowWidth > 767 ? (
-                            <StickyBox offsetBottom={16} offsetTop={16} className="post-sidebar">
-                                {tocBody}
+                            <StickyBox offsetTop={120} className="post-sidebar">
+                                {tocBodyLeft}
                             </StickyBox>
                         ) : (
-                            tocBody
+                            tocBodyLeft
                         )}
 
                         <ProcessedPost body={post.body.data.childHtmlRehype.html} />
+
+                        {windowWidth > 767 ? (
+                            <StickyBox offsetTop={120} className="post-sidebar">
+                                {tocBodyRight}
+                            </StickyBox>
+                        ) : (
+                            tocBodyRight
+                        )}
                     </section>
                 )}
                 {windowWidth <= 767 && (
