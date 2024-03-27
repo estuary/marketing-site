@@ -6337,9 +6337,10 @@ table th {
         padding: 60px 90px;
         gap: 48px;
 
-        @media (max-width: 767px) {
-            padding-top: 32px;
+        @media (max-width: 1150px) {
             flex-direction: column;
+            padding: 20px;
+            padding-top: 40px;
         }
 
         h2 {
@@ -6358,23 +6359,6 @@ table th {
                 @media (max-width: 767px) {
                     font-size: 1.75rem;
                     line-height: 36px;
-                }
-            }
-        }
-
-        h3 {
-            color: #47506d;
-            font-family: "Inter", sans-serif;
-            font-weight: 500;
-
-            span {
-                color: #47506d !important;
-                font-family: "Inter", sans-serif !important;
-                font-weight: 500 !important;
-
-                @media (max-width: 767px) {
-                    font-size: 22px !important;
-                    line-height: 28px !important;
                 }
             }
         }
@@ -6422,12 +6406,11 @@ table th {
         max-width: 256px;
         width: 100%;
 
-        @media (max-width: 991px) {
-            max-width: 322px;
+        @media (max-width: 1150px) {
+            max-width: 100%;
         }
 
         @media (max-width: 767px) {
-            max-width: 100%;
             padding-right: 0;
             position: relative !important;
         }
@@ -6686,15 +6669,14 @@ table th {
         }
     }
 
-    .sidebar-cta {
-        padding: 61px 41px;
-        margin-top: 28px;
-        border-radius: 6px;
-        background: #04192b url("./images/pattern-sidebar-cta.svg") no-repeat
-            bottom left / contain;
+    .sidebar-right {
+        padding: 16px;
+        border-radius: 24px;
+        border: 1px solid #5072EB33;
+        background: #F9FAFC;
         text-align: center;
 
-        @media (max-width: 767px) {
+        @media (max-width: 1150px) {
             display: none;
         }
 
@@ -6704,30 +6686,59 @@ table th {
             }
         }
 
-        h3 {
-            color: #fff;
+        .banner {
+            border-radius: 6px;
+            background: #04192b url("./images/pattern-sidebar-cta.svg") no-repeat bottom left / contain;
             text-align: center;
-            font-size: 24px;
+            border-radius: 16px;
+            padding-top: 16px;
+        }
+        
+        .banner span {
+            text-transform: uppercase;
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 36px;
+        }
+        
+        .banner span span {
+            color: #5072EB;
+        }
+        
+        .banner::after {
+            content: '';
+            display: block;
+            width: 224px;
+            height: 128px;
+            background: url("./images/build-pipeline.svg") no-repeat bottom / contain;
+        }
+
+        h3 {
+            color: #04192b;
+            text-align: center;
+            font-size: 1.25rem;
             font-style: normal;
             font-weight: 500;
-            line-height: 36px;
-            margin-bottom: 16px;
-            margin-top: 0;
+            line-height: 24.2px;
+            margin: 20px 0;
+            padding: 0 8px;
+
+            span {
+                color: #5072eb;
+            }
         }
 
         a {
+            width: 100%;
             background: #5072eb;
-            border-radius: 6px;
-            color: #fff;
+            border-radius: 4px;
+            color: #ffffff;
             font-family: "Inter", sans-serif;
-            font-size: 18px;
-            font-weight: 700;
+            font-size: 1rem;
+            font-weight: 400;
             line-height: 20px;
-            margin-bottom: 20px;
-            margin-left: auto;
-            margin-right: auto;
-            max-width: 195px;
-            padding: 14px 30px;
+            padding: 16px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
