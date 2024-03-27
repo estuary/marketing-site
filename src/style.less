@@ -60,8 +60,13 @@
     --color-heading: #1a202c;
     --color-heading-black: black;
     --color-accent: #d1dce5;
+    --color-sharing-button: #47506d;
     --background-color-primary: #04192b;
+    --background-color-sharing-button: #ffffff;
+    --border-color-sharing-button: #D7DCE5;
 }
+
+@blog-post-background-image: '../src/images/blog-post-background-image.svg';
 
 /* HTML elements */
 
@@ -1420,10 +1425,16 @@ input {
 }
 
 .bio-avatar {
-    margin-left: var(--spacing-4);
-    margin-bottom: var(--spacing-0);
-    max-width: 50px;
+    max-width: 36px;
     border-radius: 100%;
+}
+
+.author-name {
+    color: #47506d;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 19.2px;
+    margin-left: 8px;
 }
 
 .blogs-index-tab-bar {
@@ -1518,17 +1529,6 @@ input {
 }
 
 .blog-post {
-    padding: 5rem;
-    padding-top: 2rem;
-    max-width: 60rem;
-
-    @media (min-width: 1500px) {
-        max-width: ~"calc(min(65vw, 85rem))";
-    }
-
-    margin-left: auto;
-    margin-right: auto;
-
     // The auto-detection isn't great so until we start tagging languages let's just hide this
     .language-tag {
         display: none;
@@ -1643,12 +1643,6 @@ table th {
 
 .blog-post-header-vector {
     margin-left: auto;
-}
-
-.blog-post header h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-    padding-right: 2rem; // To account for the estuary logo
 }
 
 .blog-post-date {
@@ -1922,9 +1916,11 @@ table th {
 }
 
 .blogs-post-card-tags {
-    margin-top: 4px;
-    display: flex;
-    justify-content: center;
+    background-color: #E9EDFA;
+    color: #5072EB;
+    border-radius: 36px;
+    padding: 4px 16px 4px 16px;
+    font-weight: 500;
 }
 
 .blogs-post-card-details {
@@ -3220,10 +3216,6 @@ table th {
         display: none;
     }
 
-    .blog-post {
-        padding: 2rem;
-    }
-
     .blogs-index-header {
         margin-top: 1rem;
         margin-bottom: 2rem;
@@ -3240,11 +3232,6 @@ table th {
 
     .blog-post section {
         margin: 0;
-    }
-
-    .blog-post header h1 {
-        margin: 1rem 0.5rem;
-        font-size: 30pt;
     }
 
     .blog-post-header-vectors {
@@ -4630,10 +4617,6 @@ table th {
         .hero-image-wrap {
             text-align: center;
             margin-top: 3rem;
-
-            @media (max-width: 767px) {
-                display: none;
-            }
         }
     }
 
@@ -6182,28 +6165,10 @@ table th {
 /*Why Estuary end*/
 /*Blog post template updates*/
 .blog-post {
-    max-width: 1220px;
-    width: 100%;
-    padding: 2rem 0 5rem;
-
-    @media (max-width: 1284px) {
-        padding: 2rem 32px 5rem;
-    }
-
-    @media (max-width: 991px) {
-        padding: 2rem 16px 5rem;
-    }
-
-    @media (max-width: 767px) {
-        padding: 16px 16px 5rem;
-    }
-
-    .tags-wrap {
-        margin: 0 0 24px 0;
-
-        @media (max-width: 767px) {
-            margin: 0 0 16px 0;
-        }
+    .tags-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 10px;
     }
 
     .blog-tag {
@@ -6224,68 +6189,136 @@ table th {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        gap: 60px;
+        padding: 100px 90px;
+        background-color: #F9FAFC;
+        background-image: url(@blog-post-background-image);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: fit-content;
 
-        @media (max-width: 767px) {
+        @media (max-width: 1150px) {
             flex-direction: column;
+            gap: 32px;
+            padding: 40px 20px;
         }
 
         .header-info {
-            max-width: 790px;
+            max-width: 1024px;
+        }
+
+        .post-info {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap-reverse;
+            column-gap: 24px;
+            row-gap: 8px;
+        }
+
+        .date-and-read-wrapper {
+            display: flex;
+            gap: 24px;
+            align-items: center;
         }
 
         .hero-image {
-            max-width: 380px;
+            max-width: 547px;
+            min-width: 450px;
             width: 100%;
+            border-radius: 24px;
 
-            @media (max-width: 767px) {
-                margin-top: 16px;
-                max-width: 100%;
+            @media (min-width: 1200px) {
+                max-width: 720px;
+            }
+
+            @media (max-width: 1150px) {
+                min-width: 100%;
             }
         }
 
         .blog-post-date {
             color: #47506d;
-            font-size: 16px;
+            font-size: 1rem;
             font-style: normal;
             font-weight: 400;
             line-height: 22px;
         }
 
+        .icon-info-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .icon {
+            color: #47506d;
+        }
+
         h1 {
-            margin-top: 16px;
-            margin-bottom: 16px;
-            color: #04192b;
-            font-size: 40px;
+            margin-top: 36px;
+            margin-bottom: 36px;
+            color: #47506d;
+            font-size: 3.75rem;
             font-style: normal;
-            font-weight: 500;
-            line-height: 60px;
+            font-weight: 600;
+            line-height: 72px;
+            text-transform: uppercase;
 
             @media (max-width: 991px) {
-                font-size: 36px;
+                margin: 20px 0 28px;
+                font-size: 2.25rem;
                 line-height: 42px;
             }
+        }
 
+        h2 {
+            color: #47506d;
+            font-size: 1.25rem;
+            font-weight: 400;
+            line-height: 30px;
+            margin-top: 36px;
+            margin-bottom: 16px;
+    
             @media (max-width: 767px) {
-                font-size: 48px;
-                line-height: 60px;
-                margin: 16px 0 16px;
-                padding: 0;
+                font-size: 1rem;
+                line-height: 30px;
+                margin-top: 28px;
             }
         }
-    }
 
-    .post-description {
-        color: #47506d;
-        font-size: 18px;
-        font-style: italic;
-        font-weight: 400;
-        line-height: 30px;
-        margin-top: 48px;
+        .sharing-buttons-list-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-right: auto;
 
-        @media (max-width: 767px) {
-            font-size: 14px;
-            line-height: 22px;
-            margin-top: 32px;
+            @media (min-width: 767px) {
+                display: none;
+            }
+
+            span {
+                font-size: 1.25rem;
+                font-weight: 600;
+                line-height: 30px;
+            }
+
+            ul {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                margin: 0;
+            }
+        }
+
+        .sharing-button {
+            background-color: var(--background-color-sharing-button);
+            color: var(--color-sharing-button);
+            padding: 12px;
+            border: 1px solid var(--border-color-sharing-button);
+            border-radius: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     }
 
@@ -6293,9 +6326,7 @@ table th {
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
-        padding-top: 48px;
-        margin-top: 24px;
-        border-top: 1px solid #eef0f3;
+        padding: 60px 90px;
 
         @media (max-width: 767px) {
             padding-top: 32px;
