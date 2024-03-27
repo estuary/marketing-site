@@ -75,7 +75,7 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
     return (
         <Layout headerTheme="light">
             <article className="blog-post" itemScope itemType="http://schema.org/Article">
-                <header>
+                <section className="blog-post-header">
                     <div className="header-info">
                         <div className="post-info">
                             <div className="tags-wrapper">
@@ -138,7 +138,7 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
                             </OutboundLink>
                         </ul>
                     </div>
-                </header>
+                </section>
                 {post.body && (
                     <section className="blog-post-content">
                         {windowWidth > 767 ? (
