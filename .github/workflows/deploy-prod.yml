@@ -3,7 +3,7 @@ name: Deploy to Firebase Hosting
 on:
   workflow_dispatch:
   repository_dispatch:
-    types: [strapi_updated,database_updated]
+    types: [strapi_updated, database_updated]
   push:
     branches:
       - master
@@ -19,10 +19,10 @@ jobs:
           MESSAGE: ${{ toJson(github.event.client_payload) }}
         run: echo PAYLOAD $MESSAGE
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 20
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v4
         with:
           node-version: '18.x'
       - name: Caching
@@ -37,14 +37,14 @@ jobs:
       - run: yarn install
       - run: yarn run build --log-pages
         env:
-            CI: true
-            STRAPI_API_URL: ${{ secrets.STRAPI_API_URL }}
-            STRAPI_TOKEN: ${{ secrets.STRAPI_TOKEN }}
-            GATSBY_DB_USER: ${{ secrets.GATSBY_DB_USER }}
-            GATSBY_DB_PASS: ${{ secrets.GATSBY_DB_PASS }}
-            GATSBY_DB_HOST: ${{ secrets.GATSBY_DB_HOST }}
-            GATSBY_DB_PORT: ${{ secrets.GATSBY_DB_PORT }}
-            GATSBY_DB_NAME: ${{ secrets.GATSBY_DB_NAME }}
+          CI: true
+          STRAPI_API_URL: ${{ secrets.STRAPI_API_URL }}
+          STRAPI_TOKEN: ${{ secrets.STRAPI_TOKEN }}
+          GATSBY_DB_USER: ${{ secrets.GATSBY_DB_USER }}
+          GATSBY_DB_PASS: ${{ secrets.GATSBY_DB_PASS }}
+          GATSBY_DB_HOST: ${{ secrets.GATSBY_DB_HOST }}
+          GATSBY_DB_PORT: ${{ secrets.GATSBY_DB_PORT }}
+          GATSBY_DB_NAME: ${{ secrets.GATSBY_DB_NAME }}
       - name: run Lighthouse CI
         run: |
           # Need to set these manually LHCI doesn't support multiple builds
@@ -61,8 +61,8 @@ jobs:
           LHCI_BASIC_AUTH_PASSWORD: ${{ secrets.LHCI_BASIC_AUTH_PASSWORD }}
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          repoToken: "${{ secrets.GITHUB_TOKEN }}"
-          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
           expires: 30d
           projectId: estuary-marketing
           channelId: live

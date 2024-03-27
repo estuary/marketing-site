@@ -1,5 +1,5 @@
 diff --git a/node_modules/react-hubspot-form/dist/index.js b/node_modules/react-hubspot-form/dist/index.js
-index 7f1ffa5..49c174b 100644
+index 7f1ffa5..563d5af 100644
 --- a/node_modules/react-hubspot-form/dist/index.js
 +++ b/node_modules/react-hubspot-form/dist/index.js
 @@ -61,7 +61,7 @@ var HubspotForm = function (_React$Component) {
@@ -11,3 +11,11 @@ index 7f1ffa5..49c174b 100644
  						_this2.props.onSubmit(formData);
  					}
  				});
+@@ -82,6 +82,7 @@ var HubspotForm = function (_React$Component) {
+ 				_this3.createForm();
+ 				_this3.findFormElement();
+ 			};
++			script['data-osano'] ="ESSENTIAL";
+ 			script.src = '//js.hsforms.net/forms/v2.js';
+ 			document.head.appendChild(script);
+ 		}
