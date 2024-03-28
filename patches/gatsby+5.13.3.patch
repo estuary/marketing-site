@@ -1,0 +1,49 @@
+diff --git a/node_modules/gatsby/cache-dir/develop-static-entry.js b/node_modules/gatsby/cache-dir/develop-static-entry.js
+index 77a1cd9..5153cc2 100644
+--- a/node_modules/gatsby/cache-dir/develop-static-entry.js
++++ b/node_modules/gatsby/cache-dir/develop-static-entry.js
+@@ -102,7 +102,7 @@ export default ({ pagePath }) => {
+     ...bodyProps,
+     body: ``,
+     headComponents: headComponents.concat([
+-      <script key={`io`} src="/socket.io/socket.io.js" />,
++      <script key={`io`} src="/socket.io/socket.io.js" data-osano='ESSENTIAL'/>,
+       <link key="styles" rel="stylesheet" href="/commons.css" />,
+     ]),
+     htmlAttributes,
+@@ -111,10 +111,10 @@ export default ({ pagePath }) => {
+     postBodyComponents: postBodyComponents.concat(
+       [
+         !BROWSER_ESM_ONLY && (
+-          <script key={`polyfill`} src="/polyfill.js" noModule={true} />
++          <script key={`polyfill`} src="/polyfill.js" noModule={true} data-osano='ESSENTIAL'/>
+         ),
+-        <script key={`framework`} src="/framework.js" />,
+-        <script key={`commons`} src="/commons.js" />,
++        <script key={`framework`} src="/framework.js" data-osano='ESSENTIAL'/>,
++        <script key={`commons`} src="/commons.js" data-osano='ESSENTIAL'/>,
+       ].filter(Boolean)
+     ),
+   })
+diff --git a/node_modules/gatsby/cache-dir/static-entry.js b/node_modules/gatsby/cache-dir/static-entry.js
+index 4c0959d..98767c0 100644
+--- a/node_modules/gatsby/cache-dir/static-entry.js
++++ b/node_modules/gatsby/cache-dir/static-entry.js
+@@ -470,7 +470,7 @@ export default async function staticPage({
+         chunkMapping[`polyfill`].forEach(script => {
+           const scriptPath = `${__PATH_PREFIX__}${script}`
+           bodyScripts.push(
+-            <script key={scriptPath} src={scriptPath} noModule={true} />
++            <script key={scriptPath} src={scriptPath} noModule={true} data-osano='ESSENTIAL'/>
+           )
+         })
+       }
+@@ -484,7 +484,7 @@ export default async function staticPage({
+             const scriptPath = `${__PATH_PREFIX__}/${JSON.stringify(
+               s.name
+             ).slice(1, -1)}`
+-            return <script key={scriptPath} src={scriptPath} async />
++            return <script key={scriptPath} src={scriptPath} async data-osano='ESSENTIAL'/>
+           })
+       )
+ 
