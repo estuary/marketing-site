@@ -8,11 +8,13 @@ import reltime from 'dayjs/plugin/relativeTime';
 
 import AccessTime from '@mui/icons-material/AccessTime';
 import CalendarTodayOutlined from '@mui/icons-material/CalendarTodayOutlined';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { Divider } from '@mui/material';
+import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
 import { useEffect, useState } from 'react';
 import { PopularArticles } from '../components/BlogPopularArticles';
 import { ProcessedPost } from '../components/BlogPostProcessor';
 import { RenderToc } from '../components/BlogPostToc';
+import NextStepsLink from '../components/NextStepsLink';
 import Bio from '../components/bio';
 import Layout from '../components/layout';
 import EmailIcon from '../svgs/email-outline.svg';
@@ -68,7 +70,7 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
                     <TwitterXIcon />
                 </OutboundLink>
                 {/* TODO: add Estuary's facebook URL */}
-                <OutboundLink className="sharing-button" target="_blank">
+                <OutboundLink className="sharing-button" href="" target="_blank">
                     <FacebookIcon />
                 </OutboundLink>
                 {/* TODO: add the correct Estuary's email */}
@@ -180,6 +182,62 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
                         )}
                     </section>
                 )}
+                <section className="next-steps-and-about-author-section">
+                    <div className="next-steps">
+                        <h3>
+                            Next steps
+                        </h3>
+                        {/* TODO: Add the actual next steps and their href */}
+                        <NextStepsLink href="">
+                            Read about Lorem ipsum dolor sit amet, consectetur
+                        </NextStepsLink>
+                        <NextStepsLink href="">
+                            Learn about Lorem ipsum dolor sit amet
+                        </NextStepsLink>
+                        <NextStepsLink href="">
+                            Lorem ipsum dolor sit amet
+                        </NextStepsLink>
+                    </div>
+                    {/* TODO: Add actual author info from Strapi */}
+                    <div className="about-author">
+                        <h3>
+                            About the author
+                        </h3>
+                        <div className="author-info">
+                            <div className="author-main-info-container">
+                                <div className="author-avatar-container">
+                                    <StaticImage
+                                        className="author-avatar"
+                                        src="../images/a-avatar.svg"
+                                        alt="Author's Avatar"
+                                        width={54}
+                                        height={54}
+                                    />
+                                </div>
+                                <div className="author-name-and-role">
+                                    <span className="author-name">David Yaffe</span>
+                                    <span className="author-role">CEO</span>
+                                </div>
+                            </div>
+                            <div className="social-icon-buttons-container">
+                                <Divider orientation="vertical" variant="middle" flexItem className='author-info-divider' />
+                                <OutboundLink href="https://estuary-dev.slack.com" target="_blank">
+                                    <SlackIcon />
+                                </OutboundLink>
+                                <OutboundLink href="https://twitter.com/EstuaryDev" target="_blank">
+                                    <TwitterXIcon />
+                                </OutboundLink>
+                                {/* TODO: add Estuary's facebook URL */}
+                                <OutboundLink href="" target="_blank">
+                                    <FacebookIcon />
+                                </OutboundLink>
+                            </div>
+                        </div>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed consectetur adipiscing elit sed consectetur adipiscing.
+                        </p>
+                    </div>
+                </section>
                 <section className="popular-articles">
                     <PopularArticles />
                 </section>

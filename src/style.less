@@ -6673,6 +6673,145 @@ table th {
         }
     }
 
+    .next-steps-and-about-author-section {
+        background-color: #f9fafc;
+        padding: 100px 90px;
+        display: flex;
+        gap: 80px;
+        justify-content: space-around;
+
+        @media (max-width: 767px) {
+            flex-wrap: wrap;
+            padding: 40px 20px;
+            gap: 60px;
+            justify-content: left;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            line-height: 30px;
+            color: #04192b;
+            margin-bottom: 16px;
+            margin-top: 0;
+        }
+
+        .next-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            @media (max-width: 767px) {
+                gap: 16px;
+            }
+
+            .next-steps-link-container {
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+                flex-wrap: nowrap;
+                column-gap: 12px;
+            }
+            
+            .next-steps-link-text {
+                font-size: 1rem;
+                font-weight: 600;
+                line-height: 24px;
+                color: #5072EB;
+            }
+        }
+
+        .about-author {
+            width: 60%;
+
+            @media (max-width: 767px) {
+                width: 100%;
+            }
+
+            .author-info {
+                display: flex;
+                align-items: center;
+                margin-top: 40px;
+                margin-bottom: 16px;
+                row-gap: 20px;
+
+                @media (max-width: 767px) {
+                    margin-top: 32px;
+                    margin-bottom: 24px;
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+
+                .author-main-info-container {
+                    display: flex;
+                    align-items: center;
+                    margin-right: 30px;
+                }
+
+                .author-avatar-container {
+                    display: inline-block;
+                    padding: 4px;
+                    border: 2px solid #5072EB;
+                    border-radius: 100%;
+                    margin-right: 20px;
+                    
+                    .author-avatar {
+                        width: 100%;
+                        height: auto;
+                        min-width: 54px;
+                        min-height: 54px;
+                    }
+                }
+
+                .author-name-and-role {
+                    display: flex;
+                    flex-direction: column;
+                    color: #47506D;
+
+                    .author-name {
+                        font-size: 1.125rem;
+                        font-weight: 600;
+                        line-height: 27px;
+                        margin: 0;
+                    }
+
+                    .author-role {
+                        font-size: 1rem;
+                        font-weight: 400;
+                        line-height: 32.4px;
+                    }
+                }
+
+                .author-info-divider {
+                    height: 57px;
+                    width: 1px;
+                    border-color: #d7dce5;
+
+                    @media (max-width: 767px) {
+                        height: 24px;
+                    }
+                }
+
+                .social-icon-buttons-container {
+                    display: flex;
+                    align-items: center;
+                    gap: 30px;
+
+                    a {
+                        height: 24px;
+                    }
+                }
+            }
+
+            p {
+                font-size: 1rem;
+                line-height: 30px;
+                color: #47506D;
+                margin-bottom: 0;
+            }
+        }
+    }
+
     .popular-articles {
         margin-top: 24px;
         border-top: 1px solid #eef0f3;
