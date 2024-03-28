@@ -158,7 +158,16 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
                             </div>
                         )}
 
-                        <ProcessedPost body={post.body.data.childHtmlRehype.html} />
+                        <div>
+                            <ProcessedPost body={post.body.data.childHtmlRehype.html} />
+
+                            <div className="build-pipeline-banner">
+                                <h3>Start streaming your data <span>for free</span></h3>
+                                <OutboundLink href="https://dashboard.estuary.dev/register" className="pipeline-link">
+                                    Build a Pipeline
+                                </OutboundLink>
+                            </div>
+                        </div>
 
                         {windowWidth > 1150 ? (
                             <StickyBox offsetTop={120} className="post-sidebar">
@@ -171,17 +180,9 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
                         )}
                     </section>
                 )}
-                {windowWidth <= 767 && (
-                    <div className="popular-articles mobile-only">
-                        <PopularArticles />
-                    </div>
-                )}
-                <div className="sidebar-cta mobile-only">
-                    <h3>Start streaming your data for free</h3>
-                    <OutboundLink href="https://dashboard.estuary.dev/register" className="pipeline-link">
-                        Build a Pipeline
-                    </OutboundLink>
-                </div>
+                <section className="popular-articles">
+                    <PopularArticles />
+                </section>
             </article>
         </Layout>
     );
