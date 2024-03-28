@@ -66,8 +66,6 @@
     --border-color-sharing-button: #D7DCE5;
 }
 
-@blog-post-background-image: '../src/images/blog-post-background-image.svg';
-
 /* HTML elements */
 
 *,
@@ -6191,7 +6189,7 @@ table th {
         gap: 60px;
         padding: 100px 90px;
         background-color: #F9FAFC;
-        background-image: url(@blog-post-background-image);
+        background-image: url("./images/blog-post-background-image.svg");
         background-repeat: no-repeat;
         background-size: cover;
         height: fit-content;
@@ -6505,7 +6503,10 @@ table th {
     }
 
     .build-pipeline-banner {
-        background: #04192b url("./images/build-pipeline-banner-vector.svg") no-repeat bottom left / contain;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1150px;
+        background: #04192b url("./images/build-pipeline-banner-vector.svg") no-repeat bottom right / contain;
         border-radius: 16px;
         margin-top: 48px;
         padding: 48px;
@@ -6545,6 +6546,7 @@ table th {
         }
         
         a {
+            max-width: 300px;
             background: #5072eb;
             border-radius: 4px;
             color: #ffffff;
@@ -6961,6 +6963,143 @@ table th {
             }
         }
     }
+
+    .big-build-pipeline-banner-section {
+        margin: 100px 90px;
+
+        @media (max-width: 767px) {
+            margin: 40px 20px;
+        }
+    }
+
+    .build-pipeline-and-pricing-buttons {
+        display: flex;
+        gap: 24px;
+        align-items: center;
+        margin-top: 36px;
+
+        @media (max-width: 767px) {
+            flex-wrap: wrap;
+            margin-top: 0;
+            justify-content: center;
+            width: 100%;
+        }
+
+        a {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .pipeline-link {
+            background: #5072eb;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 20px;
+            padding: 18px 24px;
+            text-align: center;
+            text-decoration: none;
+
+            @media (min-width: 767px) {
+                max-width: 164px;
+            }
+        }
+
+        .pricing-link {
+            border: 2px solid #5072eb;
+            border-radius: 4px;
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 20px;
+            padding: 16px 24px;
+            text-align: center;
+            text-decoration: none;
+
+            @media (min-width: 767px) {
+                max-width: 198px;
+            }
+        }
+    }
+
+    .big-build-pipeline-banner-container {
+        padding: 48px 90px;
+        max-width: 1356px;
+        border-radius: 24px;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        background: #04192b url("./images/big-banner-build-pipeline-background-image.svg") no-repeat top right / contain;
+        background-position: top right -150px;
+
+        @media (max-width: 1150px) {
+            padding: 32px;
+        }
+
+        @media (max-width: 767px) {
+            padding: 32px;
+            flex-direction: column;
+            background-size: cover;
+            align-items: start;
+            background-position: top right -1200px;
+        }
+
+        .left-column-container {
+            display: flex;
+            flex-direction: column;
+
+            h5 {
+                font-size: 3rem;
+                font-weight: 600;
+                line-height: 57.6px;
+                color: #ffffff;
+                margin: 0;
+
+                @media (max-width: 1150px) {
+                    font-size: 2rem;
+                    font-weight: 700;
+                    line-height: 30px;
+                }
+
+                @media (max-width: 767px) {
+                    font-size: 1.5rem;
+                }
+            }
+        }
+
+        .right-column-container {
+            display: flex;
+            flex-direction: column;
+            gap: 36px;
+
+            @media (max-width: 767px) {
+                margin-top: 24px;
+                margin-bottom: 40px;
+            }
+
+            div {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+
+                span {
+                    color: #ffffff;
+                    font-size: 1.5rem;
+                    font-weight: 500;
+                    line-height: 30px;
+
+                    @media (max-width: 1150px) {
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+    }
+
 
     .sidebar-right {
         padding: 16px;

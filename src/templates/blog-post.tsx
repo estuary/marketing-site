@@ -8,6 +8,7 @@ import reltime from 'dayjs/plugin/relativeTime';
 
 import AccessTime from '@mui/icons-material/AccessTime';
 import CalendarTodayOutlined from '@mui/icons-material/CalendarTodayOutlined';
+import DoneIcon from '@mui/icons-material/Done';
 import { Divider } from '@mui/material';
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
 import { useEffect, useState } from 'react';
@@ -98,6 +99,17 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
             <h3>Start streaming your data <span>for free</span></h3>
             <OutboundLink href="https://dashboard.estuary.dev/register" className="pipeline-link">
                 Build pipeline
+            </OutboundLink>
+        </div>
+    );
+
+    const buildPipelineAndPricingButtons = (
+        <div className="build-pipeline-and-pricing-buttons">
+            <OutboundLink href="https://dashboard.estuary.dev/register" className="pipeline-link">
+                Build a pipeline
+            </OutboundLink>
+            <OutboundLink href="https://estuary.dev/pricing" className="pricing-link">
+                More on our Pricing
             </OutboundLink>
         </div>
     );
@@ -240,6 +252,41 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
                 </section>
                 <section className="popular-articles">
                     <PopularArticles />
+                </section>
+                <section className="big-build-pipeline-banner-section">
+                    <div className="big-build-pipeline-banner-container">
+                        <div className="left-column-container">
+                            <h5>Streaming Pipelines.</h5>
+                            <h5>Simple to deploy.</h5>
+                            <h5>Simply priced.</h5>
+                            {windowWidth > 767 && (
+                                buildPipelineAndPricingButtons
+                            )}
+                        </div>
+                        <div className="right-column-container">
+                            <div>
+                                <DoneIcon htmlColor="#5072eb" fontSize="large" />
+                                <span>
+                                    $1/GB of data moved + $.14/connector/hour;
+                                </span>
+                            </div>
+                            <div>
+                                <DoneIcon htmlColor="#5072eb" fontSize="large" />
+                                <span>
+                                    50% less than competing ETL/ELT solutions;
+                                </span>
+                            </div>
+                            <div>
+                                <DoneIcon htmlColor="#5072eb" fontSize="large" />
+                                <span>
+                                    {"<"}100ms latency on streaming sinks/sources.
+                                </span>
+                            </div>
+                        </div>
+                        {windowWidth <= 767 && (
+                            buildPipelineAndPricingButtons
+                        )}
+                    </div>
                 </section>
             </article>
         </Layout>
