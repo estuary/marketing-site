@@ -6843,6 +6843,10 @@ table th {
             align-items: center;
             justify-content: center;
 
+            @media (max-width: 767px) {
+                gap: 48px;
+            }
+
             a {
                 max-width: 436px;
                 display: flex;
@@ -6929,6 +6933,10 @@ table th {
                     align-items: center;
                     gap: 16px;
                     margin-top: 30px;
+
+                    @media (max-width: 767px) {
+                        display: none;
+                    }
                 }
                 
                 @keyframes bounce {
