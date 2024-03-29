@@ -48,18 +48,3 @@ exports.onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
     />,
   ]);
 };
-
-exports.onPreRenderHTML = ({ getPostBodyComponents }) => {
-  const postBodyComponents = getPostBodyComponents();
-  // const newBodyComponents = [];
-
-  console.log('postBodyComponents', postBodyComponents);
-  if (postBodyComponents && postBodyComponents.length > 0) {
-    postBodyComponents.forEach((postBodyComponent) => {
-      console.log('postBodyComponent', postBodyComponent);
-      // inject data-osano='ESSENTIAL'
-    });
-  }
-
-  // replacePostBodyComponents(newBodyComponents);
-};
