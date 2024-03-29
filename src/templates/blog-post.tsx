@@ -13,7 +13,7 @@ import { Divider } from '@mui/material';
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
 import { useEffect, useState } from 'react';
 import { PopularArticles } from '../components/BlogPopularArticles';
-import BlogPostPopupModal from "../components/BlogPostPopupModal";
+import BlogPostPopupModal from '../components/BlogPostPopupModal';
 import { ProcessedPost } from '../components/BlogPostProcessor';
 import { RenderToc } from '../components/BlogPostToc';
 import NextStepsLink from '../components/NextStepsLink';
@@ -81,7 +81,7 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
                 </OutboundLink>
             </ul>
         </div>
-    )
+    );
 
     const tocBodyLeft = (
         <>
@@ -97,7 +97,9 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
                     Build <span>Pipeline</span>
                 </span>
             </div>
-            <h3>Start streaming your data <span>for free</span></h3>
+            <h3>
+                Start streaming your data <span>for free</span>
+            </h3>
             <OutboundLink href="https://dashboard.estuary.dev/register" className="pipeline-link">
                 Build pipeline
             </OutboundLink>
@@ -123,7 +125,9 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
                         <div className="post-info">
                             <div className="tags-wrapper">
                                 {postTags.map((tag) => (
-                                    <span className="blogs-post-card-tags">{tag.name}</span>
+                                    <span key={tag.name} className="blogs-post-card-tags">
+                                        {tag.name}
+                                    </span>
                                 ))}
                             </div>
                             <div className="date-and-read-wrapper">
@@ -168,16 +172,16 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
                                 {tocBodyLeft}
                             </StickyBox>
                         ) : (
-                            <div className="post-sidebar">
-                                {tocBodyLeft}
-                            </div>
+                            <div className="post-sidebar">{tocBodyLeft}</div>
                         )}
 
                         <div>
                             <ProcessedPost body={post.body.data.childHtmlRehype.html} />
 
                             <div className="build-pipeline-banner">
-                                <h3>Start streaming your data <span>for free</span></h3>
+                                <h3>
+                                    Start streaming your data <span>for free</span>
+                                </h3>
                                 <OutboundLink href="https://dashboard.estuary.dev/register" className="pipeline-link">
                                     Build a Pipeline
                                 </OutboundLink>
@@ -189,33 +193,21 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
                                 {tocBodyRight}
                             </StickyBox>
                         ) : (
-                            <div className="post-sidebar">
-                                {tocBodyRight}
-                            </div>
+                            <div className="post-sidebar">{tocBodyRight}</div>
                         )}
                     </section>
                 )}
                 <section className="next-steps-and-about-author-section">
                     <div className="next-steps">
-                        <h3>
-                            Next steps
-                        </h3>
+                        <h3>Next steps</h3>
                         {/* TODO: Add the actual next steps and their href */}
-                        <NextStepsLink href="">
-                            Read about Lorem ipsum dolor sit amet, consectetur
-                        </NextStepsLink>
-                        <NextStepsLink href="">
-                            Learn about Lorem ipsum dolor sit amet
-                        </NextStepsLink>
-                        <NextStepsLink href="">
-                            Lorem ipsum dolor sit amet
-                        </NextStepsLink>
+                        <NextStepsLink href="">Read about Lorem ipsum dolor sit amet, consectetur</NextStepsLink>
+                        <NextStepsLink href="">Learn about Lorem ipsum dolor sit amet</NextStepsLink>
+                        <NextStepsLink href="">Lorem ipsum dolor sit amet</NextStepsLink>
                     </div>
                     {/* TODO: Add actual author info from Strapi */}
                     <div className="about-author">
-                        <h3>
-                            About the author
-                        </h3>
+                        <h3>About the author</h3>
                         <div className="author-info">
                             <div className="author-main-info-container">
                                 <div className="author-avatar-container">
@@ -233,7 +225,7 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
                                 </div>
                             </div>
                             <div className="social-icon-buttons-container">
-                                <Divider orientation="vertical" variant="middle" flexItem className='author-info-divider' />
+                                <Divider orientation="vertical" variant="middle" flexItem className="author-info-divider" />
                                 <OutboundLink href="https://estuary-dev.slack.com" target="_blank">
                                     <SlackIcon />
                                 </OutboundLink>
@@ -247,7 +239,9 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
                             </div>
                         </div>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed consectetur adipiscing elit sed consectetur adipiscing.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed consectetur adipiscing elit. Lorem ipsum
+                            dolor sit amet, consectetur adipiscing elit, sed consectetur adipiscing elit.Lorem ipsum dolor sit amet,
+                            consectetur adipiscing elit, sed consectetur adipiscing elit sed consectetur adipiscing.
                         </p>
                     </div>
                 </section>
@@ -260,45 +254,34 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
                             <h5>Streaming Pipelines.</h5>
                             <h5>Simple to deploy.</h5>
                             <h5>Simply priced.</h5>
-                            {windowWidth > 767 && (
-                                buildPipelineAndPricingButtons
-                            )}
+                            {windowWidth > 767 && buildPipelineAndPricingButtons}
                         </div>
                         <div className="right-column-container">
                             <div>
                                 <DoneIcon htmlColor="#5072eb" fontSize="large" />
-                                <span>
-                                    $1/GB of data moved + $.14/connector/hour;
-                                </span>
+                                <span>$1/GB of data moved + $.14/connector/hour;</span>
                             </div>
                             <div>
                                 <DoneIcon htmlColor="#5072eb" fontSize="large" />
-                                <span>
-                                    50% less than competing ETL/ELT solutions;
-                                </span>
+                                <span>50% less than competing ETL/ELT solutions;</span>
                             </div>
                             <div>
                                 <DoneIcon htmlColor="#5072eb" fontSize="large" />
-                                <span>
-                                    {"<"}100ms latency on streaming sinks/sources.
-                                </span>
+                                <span>{'<'}100ms latency on streaming sinks/sources.</span>
                             </div>
                         </div>
-                        {windowWidth <= 767 && (
-                            buildPipelineAndPricingButtons
-                        )}
+                        {windowWidth <= 767 && buildPipelineAndPricingButtons}
                     </div>
                 </section>
             </article>
             <BlogPostPopupModal
-                buttonLabel={"Contact Us"}
-                buttonClass={"section-one-demo-button"}
+                buttonLabel={'Contact Us'}
+                buttonClass={'section-one-demo-button'}
                 buttonId="pricing-hero-hubspot"
             />
         </Layout>
     );
 };
-
 
 export default BlogPostTemplate;
 
