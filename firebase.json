@@ -97,13 +97,43 @@
                 "type": 301
             },
             {
-                "source": "/data-lake-architecture /",
+                "source": "/data-lake-architecture/",
                 "destination": "/data-lake-architecture",
                 "type": 301
             },
             {
                 "source": "/data ingestion-vs-data-integration/",
                 "destination": "/data-ingestion-vs-data-integration",
+                "type": 301
+            },
+            {
+                "source": "/real-time-and-batch-data-processing-an-introduction/",
+                "destination": "/real-time-data-processing",
+                "type": 301
+            },
+            {
+                "source": "/blogs/",
+                "destination": "/blog",
+                "type": 301
+            },
+            {
+                "source": "/etl-vs-elt-breaking-down-the-split-paradigm/",
+                "destination": "/etl-vs-elt",
+                "type": 301
+            },
+            {
+                "source": "/data-pipeline-basics-for-modern-organizations/",
+                "destination": "/what-is-a-data-pipeline",
+                "type": 301
+            },
+            {
+                "source": "/etl-processes-cdc/",
+                "destination": "streaming-etl-processes-cdc",
+                "type": 301
+            },
+            {
+                "source": "/products",
+                "destination": "/product",
                 "type": 301
             }
         ],
