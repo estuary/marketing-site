@@ -1,3 +1,5 @@
+import { GTAG_ID, GTAG_PATH } from './shared';
+
 const React = require('react');
 const { Partytown } = require('@builder.io/partytown/react');
 
@@ -10,9 +12,6 @@ const { Partytown } = require('@builder.io/partytown/react');
 /**
  * @type {import('gatsby').GatsbySSR['onRenderBody']}
  */
-
-const GA_ORIGIN = 'https://www.googletagmanager.com';
-const GA_MEASUREMENT_ID = 'G-P1PZPE4HHZ';
 
 exports.onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
   setHtmlAttributes({ lang: `en` });
@@ -28,7 +27,7 @@ exports.onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
         // ["hbspt.forms.create", { preserveBehavior: true }],
       ]}
     />,
-    <script key="google-analytics" type="text/partytown" src={`${GA_ORIGIN}/gtag/js?id=${GA_MEASUREMENT_ID}`} />,
+    <script key="google-analytics" type="text/partytown" src={GTAG_PATH} />,
     <script
       key="google-analytics-config"
       type="text/partytown"
@@ -36,7 +35,7 @@ exports.onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
         __html: `window.dataLayer = window.dataLayer || [];
         window.gtag = function() { window.dataLayer.push(arguments);}
         window.gtag('js', new Date()); 
-        window.gtag('config', '${GA_MEASUREMENT_ID}', { send_page_view: false })`,
+        window.gtag('config', '${GTAG_ID}', { send_page_view: false })`,
       }}
     />,
     // <script key="osano-1" src="https://cmp.osano.com/16CPXbTOi1sXx4D3/1e6b223c-ed10-4c4b-a442-48fea69f76af/osano.js"></script>,
