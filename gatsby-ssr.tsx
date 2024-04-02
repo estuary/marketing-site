@@ -1,7 +1,6 @@
-import { GTAG_ID, GTAG_PATH } from './shared';
-
 const React = require('react');
 const { Partytown } = require('@builder.io/partytown/react');
+const { GTAG_ID, GTAG_PATH } = require('./shared');
 
 /**
  * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
