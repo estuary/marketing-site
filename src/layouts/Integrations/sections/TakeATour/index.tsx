@@ -1,5 +1,5 @@
-import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
+import React from 'react';
 
 import TakeATourButtons from '../../../../components/TakeATourButtons';
 
@@ -14,6 +14,8 @@ import {
   Title,
   Wrapper,
 } from './styles';
+
+import { ContainerIcon } from '../../../styles';
 
 const TakeATour = () => {
   return (
@@ -30,27 +32,33 @@ const TakeATour = () => {
         </ContainerLeft>
         <ContainerContent>
           <ContainerIcons>
-            <StaticImage
-              alt="Connection-1"
-              src="../../../../images/lp-product/connector-1.png"
-              width={80}
-              height={80}
-              quality={100}
-            />
-            <StaticImage
-              alt="connector-2"
-              src="../../../../images/lp-product/connector-2.png"
-              width={80}
-              height={80}
-              quality={100}
-            />
-            <StaticImage
-              alt="connector-3"
-              src="../../../../images/lp-product/connector-3.png"
-              width={80}
-              height={80}
-              quality={100}
-            />
+            <ContainerIcon>
+              <StaticImage
+                alt="Microsoft Logo"
+                src="../../../../images/microsoft-logo.png"
+                width={46}
+                height={46}
+                quality={100}
+              />
+            </ContainerIcon>
+            <ContainerIcon>
+              <StaticImage
+                alt="AWS Logo"
+                src="../../../../images/aws-logo.png"
+                width={46}
+                height={46}
+                quality={100}
+              />
+            </ContainerIcon>
+            <ContainerIcon>
+              <StaticImage
+                alt="Google Cloud Logo"
+                src="../../../../images/google-cloud-logo.png"
+                width={46}
+                height={46}
+                quality={100}
+              />
+            </ContainerIcon>
           </ContainerIcons>
           <Title>TAKE A TOUR</Title>
           <Description>Learn more about how estuary can help with real-time replication.</Description>
