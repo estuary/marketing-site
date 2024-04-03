@@ -1,4 +1,4 @@
-import { graphql, Link } from 'gatsby';
+import { Link, graphql } from 'gatsby';
 import React, { useEffect, useState } from 'react';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
@@ -57,19 +57,14 @@ export const ConnectorPage = ({ source_connector, dest_connector, connector_type
               alignItems: 'center',
             }}
           >
-            <h1 className="connector-source-dest-title">Move your data</h1>
-            {source_mapped ? (
-              <h1 className="connector-source-dest-title">
-                from <span>{source_mapped.title}</span>
-              </h1>
-            ) : null}
-            {dest_mapped ? (
-              <h1 className="connector-source-dest-title">
-                to <span>{dest_mapped.title}</span>
-              </h1>
-            ) : null}
-            <h1 className="connector-source-dest-title">with millisecond</h1>
-            <h1 className="connector-source-dest-title">latency</h1>
+            <h1 className="connector-source-dest-title">
+              <span>Move your data</span>
+              {source_mapped ? <span>from {source_mapped.title}</span> : null}
+              {dest_mapped ? <span>to {dest_mapped.title}</span> : null}
+              <span>with millisecond</span>
+              latency
+            </h1>
+
             <div className="connector-title-subtext">
               <span>
                 Estuary builds free, open-source connectors to{' '}
