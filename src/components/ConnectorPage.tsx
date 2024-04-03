@@ -1,31 +1,27 @@
-import { graphql, Link } from 'gatsby';
-import React, { useEffect, useState } from 'react';
-import Layout from '../components/layout';
-import Seo from '../components/seo';
-import { normalizeConnector } from '../utils';
-import FlowLogo from '../svgs/flow-logo.svg';
-import { ConnectorsLink } from '../components/ConnectorsLink';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { useMediaQuery, useTheme } from '@mui/material';
+import { Link } from 'gatsby';
+import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
+import React from 'react';
+import { isMobile as isRealMobile } from 'react-device-detect';
 import ReactPlayer from 'react-player/lazy';
-import ColoredLogo from '../svgs/colored-logo.svg';
-import DbIcon from '../svgs/db2.svg';
-import { OutboundLink } from '../components/OutboundLink';
-import SectionTwoDataCaptureImg1 from '../svgs/product-flow-section-two-data-capture-image1.svg';
-import FlowLongtailSaas from '../svgs/product-flow-longtail-saas.svg';
-import { StaticImage } from 'gatsby-plugin-image';
-import SliderHorizontal from '../components/SliderHorizontal';
-import FlowExactlyOnce from '../svgs/product-flow-exactly-once.svg';
-import CareerAvatar from '../svgs/about-careers-avatar-icon.svg';
-import DataModernization from '../svgs/icon-data-modernization.svg';
-import StreamingELT from '../svgs/icon-streaming-elt.svg';
-import DataReplication from '../svgs/icon-data-replication.svg';
-import OperationalAnalytics from '../svgs/icon-operational-analytics.svg';
-import BackgroundImageWrapper from '../components/BackgroundImageWrapper';
+import { Connectors } from '../components/Connectors';
 import ConnectorsImageDesktop from '../components/ConnectorsImageDesktop';
 import ConnectorsImageMobile from '../components/ConnectorsImageMobile';
-import { isMobile as isRealMobile } from 'react-device-detect';
-import { Connectors } from '../components/Connectors';
-import { useMediaQuery, useTheme } from '@mui/material';
+import { ConnectorsLink } from '../components/ConnectorsLink';
+import { OutboundLink } from '../components/OutboundLink';
+import SliderHorizontal from '../components/SliderHorizontal';
+import useWindowExistence from '../hooks/useWindowExistence';
+import CareerAvatar from '../svgs/about-careers-avatar-icon.svg';
+import ColoredLogo from '../svgs/colored-logo.svg';
+import DbIcon from '../svgs/db2.svg';
+import FlowLogo from '../svgs/flow-logo.svg';
+import DataModernization from '../svgs/icon-data-modernization.svg';
+import DataReplication from '../svgs/icon-data-replication.svg';
+import OperationalAnalytics from '../svgs/icon-operational-analytics.svg';
+import StreamingELT from '../svgs/icon-streaming-elt.svg';
+import FlowLongtailSaas from '../svgs/product-flow-longtail-saas.svg';
+import SectionTwoDataCaptureImg1 from '../svgs/product-flow-section-two-data-capture-image1.svg';
+import { normalizeConnector } from '../utils';
 
 export interface ConnectorPageProps {
   source_connector: any;
@@ -40,12 +36,7 @@ export const ConnectorPage = ({ source_connector, dest_connector, connector_type
   const theme = useTheme();
   const isMobile = isRealMobile || useMediaQuery(theme.breakpoints.down('sm'));
 
-  const [hasWindow, setHasWindow] = useState(false);
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setHasWindow(true);
-    }
-  }, []);
+  const hasWindow = useWindowExistence();
 
   return (
     <>

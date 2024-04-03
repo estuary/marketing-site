@@ -1,5 +1,5 @@
+import ReactPlayer from 'react-player';
 import styled from 'styled-components';
-
 import VectorImage from '../../../../images/lp-big-query/take-a-tour/background.png';
 
 export const Wrapper = styled.div`
@@ -11,7 +11,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 40px;
+  gap: 60px;
 
   @media (min-width: 1024px) {
     flex-direction: row;
@@ -33,13 +33,25 @@ export const ContainerLeft = styled.div`
   background-image: url(${VectorImage});
   background-position: center center;
   background-repeat: no-repeat;
-
-  @media (min-width: 1024px) {
-    height: 480px;
-  }
+  max-width: 100%;
+  height: auto;
+  width: 100%;
+  padding: 80px 0;
 `;
 
-export const ContainerImage = styled.div``;
+export const EstuaryProductVideo = styled(ReactPlayer)`
+  max-height: 325px;
+  max-width: 547px;
+`
+
+export const VideoPreviewContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  max-width: 547px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 export const ContainerContent = styled.div`
   display: flex;
@@ -52,11 +64,15 @@ export const ContainerIcons = styled.div`
   display: flex;
   justify-content: center;
   gap: 40px;
+  margin-bottom: 16px;
 
   @media (min-width: 1280px) {
+    gap: 60px;
+  }
+
+  @media (min-width: 1024px) {
     display: flex;
     justify-content: left;
-    gap: 60px;
   }
 `;
 

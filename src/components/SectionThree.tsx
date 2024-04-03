@@ -1,17 +1,12 @@
-import * as React from "react"
-import loadable from "@loadable/component"
 import { StaticImage } from "gatsby-plugin-image"
-import { useEffect, useState } from "react"
+import * as React from "react"
 import ReactPlayer from "react-player/lazy"
 import { OutboundLink } from "../components/OutboundLink"
+import useWindowExistence from "../hooks/useWindowExistence"
 
 const SectionThree = () => {
-    const [hasWindow, setHasWindow] = useState(false)
-    useEffect(() => {
-        if (typeof window !== "undefined") {
-            setHasWindow(true)
-        }
-    }, [])
+    const hasWindow = useWindowExistence();
+
     return (
         <div className="section-three">
             <div className="section-three-header-wrapper">

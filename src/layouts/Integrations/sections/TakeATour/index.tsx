@@ -8,27 +8,41 @@ import {
   ContainerButton,
   ContainerContent,
   ContainerIcons,
-  ContainerImage,
   ContainerLeft,
   Description,
+  EstuaryProductVideo,
   Title,
-  Wrapper,
+  VideoPreviewContainer,
+  Wrapper
 } from './styles';
 
+import useWindowExistence from '../../../../hooks/useWindowExistence';
 import { ContainerIcon } from '../../../styles';
 
 const TakeATour = () => {
+  const hasWindow = useWindowExistence()
+
   return (
     <Wrapper>
       <Container>
         <ContainerLeft>
-          <ContainerImage>
-            <StaticImage
-              alt="Laptop"
-              src="../../../../images/lp-big-query/take-a-tour/video.png"
-              layout="constrained"
+          {hasWindow && (
+            <EstuaryProductVideo
+              light={
+                <VideoPreviewContainer>
+                  <StaticImage
+                    quality={100}
+                    placeholder="none"
+                    alt="estuary flow product video"
+                    src="../../../../images/homepage-product-video.svg"
+                    layout="constrained"
+                    className="estuary-product-video-thumbnail"
+                  />
+                </VideoPreviewContainer>
+              }
+              url="https://www.youtube.com/embed/hlCh81ZbBik"
             />
-          </ContainerImage>
+          )}
         </ContainerLeft>
         <ContainerContent>
           <ContainerIcons>
