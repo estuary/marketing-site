@@ -7,7 +7,7 @@
 import { GatsbyConfig } from 'gatsby';
 import { normalizeConnector } from './src/utils';
 import path from 'path';
-import { GTAG_PATH } from './shared';
+import { GA_PATH, GTAG_PATH } from './shared';
 
 import { SUPABASE_CONNECTION_STRING } from './config';
 
@@ -105,7 +105,6 @@ const cfg: GatsbyConfig = {
   flags: {
     PARALLEL_SOURCING: true,
   },
-  partytownProxiedURLs: [GTAG_PATH],
   // graphqlTypegen: true,
   plugins: [
     {

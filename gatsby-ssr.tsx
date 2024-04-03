@@ -1,4 +1,5 @@
 const React = require('react');
+// const { Script } = require('gatsby');
 const { Partytown } = require('@builder.io/partytown/react');
 const { GA_MEASUREMENT_ID, GTAG_PATH } = require('./shared');
 
@@ -15,11 +16,9 @@ const { GA_MEASUREMENT_ID, GTAG_PATH } = require('./shared');
 exports.onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
   setHtmlAttributes({ lang: `en` });
   setHeadComponents([
-    <Partytown key="partytown" forward={['dataLayer', 'gtag']} />,
-    <script key="google-analytics" type="text/partytown" src={GTAG_PATH} />,
+    <script key="google-analytics" src={GTAG_PATH} />,
     <script
       key="google-analytics-config"
-      type="text/partytown"
       dangerouslySetInnerHTML={{
         __html: `window.dataLayer = window.dataLayer || [];
         window.gtag = function gtag(){ window.dataLayer.push(arguments);}
