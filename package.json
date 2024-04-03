@@ -3,7 +3,6 @@
   "private": true,
   "version": "0.1.0",
   "dependencies": {
-    "@builder.io/partytown": "^0.10.1",
     "@draftbox-co/gatsby-rehype-inline-images": "^1.0.2",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",

@@ -1,6 +1,6 @@
 const React = require('react');
-const { Partytown } = require('@builder.io/partytown/react');
 const { GTAG_ID, GTAG_PATH } = require('./shared');
+const { Script } = require('gatsby');
 
 /**
  * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
@@ -15,21 +15,11 @@ const { GTAG_ID, GTAG_PATH } = require('./shared');
 exports.onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
   setHtmlAttributes({ lang: `en` });
   setHeadComponents([
-    <Partytown
-      key="partytown"
-      forward={[
-        'gtag',
-        'dataLayer.push',
-        '_hsq.push',
-        // TODO (partytown) - eventually we should see if we can
-        //  get the forms working through partytown
-        // ["hbspt.forms.create", { preserveBehavior: true }],
-      ]}
-    />,
-    <script key="google-analytics" type="text/partytown" src={GTAG_PATH} />,
-    <script
+    <Script key="google-analytics" strategy="off-main-thread" src={GTAG_PATH} />,
+    <Script
       key="google-analytics-config"
-      type="text/partytown"
+      strategy="off-main-thread"
+      forward={[`gtag`, 'dataLayer.push']}
       dangerouslySetInnerHTML={{
         __html: `window.dataLayer = window.dataLayer || [];
         window.gtag = function() { window.dataLayer.push(arguments);}
