@@ -1,6 +1,6 @@
 import { InputLabel, Select } from '@mui/material';
-import React, { useMemo, useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
+import React, { useMemo, useState } from 'react';
 import { normalizeConnector } from '../../utils';
 
 import { Button, Form, Image, Menu, Wrapper } from './style';
@@ -55,9 +55,8 @@ export const ConnectorsLink = ({ defaultSource }: { defaultSource?: string; defa
 
   const destinationHref = useMemo(() => {
     if (sourceId && destinationId) {
-      return `/integrations/${captureConnectors.find((c) => c.id === sourceId)?.slugified_name}-to-${
-        materializationConnectors.find((c) => c.id === destinationId)?.slugified_name
-      }`;
+      return `/integrations/${captureConnectors.find((c) => c.id === sourceId)?.slugified_name}-to-${materializationConnectors.find((c) => c.id === destinationId)?.slugified_name
+        }`;
     } else {
       return '#';
     }
@@ -83,6 +82,7 @@ export const ConnectorsLink = ({ defaultSource }: { defaultSource?: string; defa
           value={destinationId}
           onChange={(evt) => setDestinationId(evt.target.value)}
           variant="outlined"
+          autoFocus
         >
           {materializationConnectors.map((c) => (
             <Menu key={c.id} value={c.id}>
