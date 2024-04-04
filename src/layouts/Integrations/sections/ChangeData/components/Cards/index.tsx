@@ -1,5 +1,5 @@
-import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
+import React from 'react';
 
 import Card from '../Card';
 
@@ -35,7 +35,7 @@ const TheAutomationCards = ({ $reverseDesktop = false }) => {
       <ContainerCards $reverseDesktop={$reverseDesktop}>
         <Card
           title="HIGH THROUGHPUT"
-          description="Distributed event-driven architecture enable boundless scaling with exactly-once semantics"
+          description="Distributed event-driven architecture enable boundless scaling with exactly-once semantics."
           $reverseDesktop
         >
           <StaticImage

@@ -32,6 +32,10 @@ export const ContainerContent = styled.div`
   @media (min-width: 1280px) {
     gap: 40px;
   }
+
+  @media (max-width: 1280px) {
+    flex: 0.7;
+  }
 `;
 
 export const Title = styled.h3`

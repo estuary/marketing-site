@@ -43,6 +43,10 @@ export const Title = styled.p`
     font-size: 14px;
     line-height: 18px;
   }
+
+  @media (min-width: 1024px) {
+    padding-right: 24px;
+  }
 `;
 
 export const Description = styled.p`
@@ -55,5 +59,9 @@ export const Description = styled.p`
   @media (min-width: 1280px) {
     font-size: 12px;
     line-height: 26px;
+  }
+
+  @media (min-width: 1024px) {
+    padding-right: 12px;
   }
 `;
