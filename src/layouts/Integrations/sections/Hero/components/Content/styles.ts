@@ -34,7 +34,7 @@ export const Pretitle = styled.p`
   }
 `;
 
-export const Title = styled.p`
+export const Title = styled.h1`
   font-weight: 600;
   font-size: 36px;
   line-height: 43px;
@@ -57,7 +57,7 @@ export const LineBreak = styled.span`
   }
 `;
 
-export const Description = styled.p`
+export const Description = styled.h2`
   font-weight: 400;
   font-size: 16px;
   line-height: 30px;
@@ -108,6 +108,9 @@ export const Topic = styled.li`
   font-weight: 500;
   margin: 0;
   color: #47506d;
+  display: flex;
+  align-items: center;
+  gap: 13px;
 
   @media (min-width: 1500px) {
     font-size: 16px;
@@ -117,19 +120,5 @@ export const Topic = styled.li`
   span {
     color: #5072eb;
     font-weight: 700;
-  }
-
-  &::before {
-    position: relative;
-    left: 0;
-    content: '✓';
-    color: #47506d;
-    font-size: 20px;
-    font-weight: 700;
-    padding-right: 12px;
-
-    @media (min-width: 1500px) {
-      font-size: 20px;
-    }
   }
 `;

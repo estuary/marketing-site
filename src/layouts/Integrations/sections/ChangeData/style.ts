@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.section`
   padding: 40px 20px;
   display: flex;
   flex-direction: column-reverse;
@@ -34,7 +34,7 @@ export const ContainerContent = styled.div`
   }
 `;
 
-export const Title = styled.p`
+export const Title = styled.h3`
   font-weight: 600;
   font-size: 36px;
   line-height: 43px;
@@ -99,29 +99,18 @@ export const Topics = styled.ul`
 `;
 
 export const Topic = styled.li`
-  padding-left: 40px;
   font-size: 16px;
   font-weight: 400;
   line-height: 30px;
   margin: 0;
   color: #47506d;
+  display: flex;
+  align-items: start;
+  gap: 20px;
 
   @media (min-width: 1280px) {
     font-size: 16px;
     line-height: 30px;
-  }
-
-  &::before {
-    position: absolute;
-    left: 0;
-    content: '✓';
-    color: #5072eb;
-    font-size: 20px;
-    font-weight: 700;
-
-    @media (min-width: 1280px) {
-      font-size: 24px;
-    }
   }
 `;
 
