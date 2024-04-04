@@ -1,12 +1,12 @@
 import styled from "styled-components"
 
-import { OutboundLink } from "../../../../components/OutboundLink"
 import { Link } from "gatsby"
+import { OutboundLink } from "../../../../components/OutboundLink"
 
-import VectorImage from "../../../../images/lp-product/Vector.png"
+import vectorBackgroundImage from "../../../../images/lp-product/Vector.png"
 
 export const Wrapper = styled.div`
-    background-image: url(${VectorImage});
+    background-image: url(${vectorBackgroundImage});
     background-size: cover;
     background-position: top;
     background-repeat: no-repeat;

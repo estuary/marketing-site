@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { OutboundLink } from '../../../../components/OutboundLink';
 
-import VectorImage from '../../../../images/lp-product/Vector.png';
+import vectorBackgroundImage from '../../../../images/lp-big-query/real-time/Vector.png';
 
 export const Wrapper = styled.div`
   padding: 40px 20px;
@@ -18,9 +18,9 @@ export const Container = styled.div`
   flex-direction: column-reverse;
   margin: 0 auto;
   border-radius: 24px;
-  background-image: url(${VectorImage});
+  background-image: url(${vectorBackgroundImage});
   background-size: cover;
-  background-position: top right;
+  background-position: top right -150px;
   background-repeat: no-repeat;
   background-color: #04192b;
 
@@ -34,6 +34,14 @@ export const Container = styled.div`
     max-width: 1580px;
     padding: 48px 90px;
     margin: 0 auto;
+  }
+
+  @media (max-width: 1024px) {
+    background-position: top right -1000px;
+  }
+
+  @media (max-width: 425px) {
+    background-position: top right -1400px;
   }
 `;
 
