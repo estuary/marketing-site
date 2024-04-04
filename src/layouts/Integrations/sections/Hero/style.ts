@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   @media (min-width: 1024px) {
     background-image: url(${Vector});
     background-size: cover;
-    background-position: top right;
+    background-position: top -32px right;
     background-repeat: no-repeat;
   }
 `;
