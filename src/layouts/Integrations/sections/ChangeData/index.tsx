@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Cards from './components/Cards';
 import ConnectorsLink from '../../../../components/ConnectorsLink';
+import Cards from './components/Cards';
 
 import {
   Container,
@@ -40,7 +40,7 @@ const ChangeData = () => {
         </Topics>
         <ConnectorsLink />
         <Observation>
-          Don’t see a connector?<a> Request it and we’ll make it in a week </a>
+          Don’t see a connector? <a>Request it and we’ll make it in a week </a>
         </Observation>
       </ContainerContent>
     </Container>

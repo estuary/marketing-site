@@ -70,6 +70,7 @@ export const Observation = styled.p`
   font-size: 16px;
   color: #47506d;
   line-height: 30px;
+  text-underline-offset: 5px;
   margin: 0;
 
   a {
