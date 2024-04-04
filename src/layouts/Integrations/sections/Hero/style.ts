@@ -17,7 +17,7 @@ export const Container = styled.div`
   padding: 40px 20px;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 60px;
 
   @media (min-width: 1024px) {
     flex-direction: row;
