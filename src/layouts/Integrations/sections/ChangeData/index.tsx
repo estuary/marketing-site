@@ -15,6 +15,8 @@ import {
   Topics,
 } from './style';
 
+import DoneIcon from '@mui/icons-material/Done';
+
 const ChangeData = () => {
   return (
     <Container>
@@ -33,10 +35,18 @@ const ChangeData = () => {
         </Description>
         <Topics>
           <Topic>
-            Ensure your BigQuery insights always reflect the latest data by connecting your databases to BigQuery with
-            change data capture.
+            <DoneIcon htmlColor="#5072EB" fontSize="medium" />
+            <span>
+              Ensure your BigQuery insights always reflect the latest data by connecting your databases to BigQuery with
+              change data capture.
+            </span>
           </Topic>
-          <Topic>Or connect critical SaaS apps to BigQuery with real-time data pipelines.</Topic>
+          <Topic>
+            <DoneIcon htmlColor="#5072EB" fontSize="medium" />
+            <span>
+              Or connect critical SaaS apps to BigQuery with real-time data pipelines.
+            </span>
+          </Topic>
         </Topics>
         <ConnectorsLink />
         <Observation>

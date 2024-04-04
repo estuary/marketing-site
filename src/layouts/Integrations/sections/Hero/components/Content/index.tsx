@@ -3,7 +3,7 @@ import React from 'react';
 
 import { Button, Container, ContainerPreTitle, Description, LineBreak, Pretitle, Title, Topic, Topics } from './styles';
 
-import CheckIcon from "../../../../../../svgs/check.svg";
+import DoneIcon from '@mui/icons-material/Done';
 
 const Content = () => {
   return (
@@ -30,15 +30,15 @@ const Content = () => {
       </Description>
       <Topics>
         <Topic>
-          <CheckIcon color="#47506d" />
+          <DoneIcon htmlColor="#47506d" fontSize="small" />
           <span>&#60;100ms</span> Data pipelines
         </Topic>
         <Topic>
-          <CheckIcon color="#47506d" />
+          <DoneIcon htmlColor="#47506d" fontSize="small" />
           <span>300+</span> Connectors
         </Topic>
         <Topic>
-          <CheckIcon color="#47506d" />
+          <DoneIcon htmlColor="#47506d" fontSize="small" />
           <span>2-5x</span> less than batch ELT
         </Topic>
       </Topics>
