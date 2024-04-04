@@ -7,7 +7,7 @@
 import { GatsbyConfig } from 'gatsby';
 import { normalizeConnector } from './src/utils';
 import path from 'path';
-import { GA_PATH, GTAG_PATH } from './shared';
+import { GA_MEASUREMENT_ID } from './shared';
 
 import { SUPABASE_CONNECTION_STRING } from './config';
 
@@ -107,6 +107,24 @@ const cfg: GatsbyConfig = {
   },
   // graphqlTypegen: true,
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [GA_MEASUREMENT_ID],
+        // This object gets passed directly to the gtag config command
+        // This config will be shared across all trackingIds
+        gtagConfig: {
+          anonymize_ip: true,
+          ignore_referrer: true,
+          cookie_expires: 0,
+        },
+        // This object is used for configuration specific to this plugin
+        pluginConfig: {
+          head: true,
+          respectDNT: true,
+        },
+      },
+    },
     {
       resolve: 'gatsby-plugin-preconnect',
       options: {
