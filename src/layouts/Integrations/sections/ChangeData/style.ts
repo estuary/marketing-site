@@ -83,8 +83,11 @@ export const Observation = styled.p`
     text-decoration: underline;
   }
 
-  @media (min-width: 1280px) {
-    display: block;
+  @media (min-width: 425px) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 8px;
     font-size: 16px;
   }
 `;

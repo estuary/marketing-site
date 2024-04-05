@@ -50,7 +50,15 @@ const ChangeData = () => {
         </Topics>
         <ConnectorsLink />
         <Observation>
-          Don’t see a connector? <a>Request it and we’ll make it in a week </a>
+          <span>
+            Don’t see a connector?
+          </span>
+          <a
+            href="https://github.com/estuary/connectors/issues/new?assignees=&labels=new+connector&t[…]5Bcapture+from+%7C+materialize+to%5D+%5Byour+favorite+system%5D"
+            target="_blank"
+          >
+            Request and our team will get back to you in 24 hours
+          </a>
         </Observation>
       </ContainerContent>
     </Container>
