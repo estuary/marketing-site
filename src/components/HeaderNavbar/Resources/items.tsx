@@ -1,4 +1,4 @@
-import { webinarsUrl } from "../../../constants/urls";
+import { webinarsUrl } from "../../../../shared";
 
 export const read = [
   {

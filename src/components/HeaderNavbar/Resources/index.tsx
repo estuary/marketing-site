@@ -9,7 +9,7 @@ import NavbarImage from "../../../svgs/navbar-image-2.svg"
 
 import { caseStudies, listen, read, tour } from "./items"
 
-import { webinarsUrl } from "../../../constants/urls"
+import { webinarsUrl } from "../../../../shared"
 import CardItem from "../CardItem"
 const Card = React.lazy(() => import("../Card"))
 

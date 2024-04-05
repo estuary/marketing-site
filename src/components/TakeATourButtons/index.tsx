@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { webinarsUrl } from '../../constants/urls';
+import { webinarsUrl } from '../../../shared';
 import { ActionLink, Button } from './style';
 
 const TakeATourButtons = () => {
