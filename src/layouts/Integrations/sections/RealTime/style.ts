@@ -4,7 +4,7 @@ import { OutboundLink } from '../../../../components/OutboundLink';
 
 import vectorBackgroundImage from '../../../../images/lp-big-query/real-time/Vector.png';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.section`
   padding: 40px 20px;
 
   @media (min-width: 1280px) {
@@ -68,7 +68,7 @@ export const Content = styled.div`
   flex: 1;
 `;
 
-export const Title = styled.p`
+export const Title = styled.h2`
   font-weight: 600;
   font-size: 36px;
   line-height: 43px;

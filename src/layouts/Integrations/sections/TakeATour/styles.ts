@@ -2,7 +2,7 @@ import ReactPlayer from 'react-player';
 import styled from 'styled-components';
 import VectorImage from '../../../../images/lp-big-query/take-a-tour/background.png';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.section`
   background-color: #f9fafc;
 `;
 
@@ -76,7 +76,7 @@ export const ContainerIcons = styled.div`
   }
 `;
 
-export const Title = styled.p`
+export const Title = styled.h2`
   font-weight: 600;
   font-size: 36px;
   line-height: 43px;

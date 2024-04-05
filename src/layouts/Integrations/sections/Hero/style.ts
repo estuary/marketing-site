@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import Vector from '../../../../images/lp-big-query/hero/Vector.png';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.section`
   background-color: #f9fafc;
 
   @media (min-width: 1024px) {

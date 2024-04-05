@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.section`
   padding: 40px 20px;
   display: flex;
   flex-direction: column;
@@ -35,7 +35,7 @@ export const ContainerContent = styled.div`
   }
 `;
 
-export const Title = styled.p`
+export const Title = styled.h2`
   font-weight: 600;
   font-size: 36px;
   line-height: 43px;
@@ -60,7 +60,7 @@ export const Title = styled.p`
   }
 `;
 
-export const Description = styled.p`
+export const Description = styled.h3`
   font-weight: 400;
   font-size: 20px;
   line-height: 30px;

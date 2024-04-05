@@ -38,7 +38,7 @@ export const ContainerContent = styled.div`
   }
 `;
 
-export const Title = styled.h3`
+export const Title = styled.h2`
   font-weight: 600;
   font-size: 36px;
   line-height: 43px;

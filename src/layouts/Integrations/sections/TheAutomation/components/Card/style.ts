@@ -37,7 +37,7 @@ export const ContainerContent = styled.div`
   gap: 12px;
 `;
 
-export const Title = styled.p`
+export const Title = styled.h4`
   font-weight: 700;
   font-size: 16px;
   color: #5072eb;

@@ -1,7 +1,7 @@
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.section`
   padding: 100px 20px 100px 20px;
   display: flex;
   flex-direction: column;
@@ -22,9 +22,9 @@ export const LineBreak = styled.span`
   }
 `;
 
-export const Title = styled.p`
+export const Title = styled.h2`
   font-weight: 600;
-  font-size: 36px;
+  font-size: 2.25rem;
   line-height: 43px;
   margin: 0;
   color: #47506d;
@@ -41,7 +41,7 @@ export const Title = styled.p`
   }
 `;
 
-export const Description = styled.p`
+export const Description = styled.h3`
   font-weight: 600;
   font-size: 20px;
   line-height: 24px;
