@@ -1,28 +1,27 @@
-import React from 'react';
+import React from 'react'
+import { Connectors } from "../components/Connectors"
+import Layout from "../components/layout"
+import Seo from '../components/seo'
 
-import Header from '../layouts/Integrations/components/Head';
-import Wrapper from '../layouts/Integrations/components/Wrapper';
-
-import ChangeData from '../layouts/Integrations/sections/ChangeData';
-import Hero from '../layouts/Integrations/sections/Hero';
-import Pipelines from '../layouts/Integrations/sections/Pipelines';
-import RealTime from '../layouts/Integrations/sections/RealTime';
-import TakeATour from '../layouts/Integrations/sections/TakeATour';
-import TheAutomation from '../layouts/Integrations/sections/TheAutomation';
+const description = "Capture from clouds, databases, and SaaS apps using real-time ETL, create real-time transformations and materialized views, for a consistent, exact copy of your data powering both analytics and operations."
 
 const Integrations = () => {
   return (
-    <Wrapper>
-      <Hero />
-      <ChangeData />
-      <Pipelines />
-      <RealTime />
-      <TakeATour />
-      <TheAutomation />
-    </Wrapper>
-  );
-};
+    <Layout headerTheme="light">
+      <Connectors
+        title="Integrations"
+        description={description}
+        showAllConnectors={true}
+      />
+    </Layout>
+  )
+}
 
-export const Head = Header;
+export const Head = () => {
+  return <Seo
+    title="Integrations"
+    description={description}
+  />
+}
 
-export default Integrations;
+export default Integrations

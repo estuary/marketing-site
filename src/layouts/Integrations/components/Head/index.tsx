@@ -4,12 +4,10 @@ import Seo from '../../../../components/seo';
 
 const BigQueryHead = () => {
   return (
-    <>
-      <Seo
-        title="Flow"
-        description="Flow is the first real-time Data Operations platform. Set up pipelines with both historical and real-time data in minutes."
-      />
-    </>
+    <Seo
+      title="BigQuery"
+      description="Continously ingest and deliver both streaming and batch change data from 100s of sources using Estuary’s custom no-code connectors."
+    />
   );
 };
 
