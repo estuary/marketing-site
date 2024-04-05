@@ -1,6 +1,7 @@
 import { StaticImage } from "gatsby-plugin-image"
 import React from "react"
 
+import { webinarsUrl } from "../../../../constants/urls"
 import { ContainerIcon } from "../../../styles"
 import { ActionLink, Button, Container, ContainerButton, ContainerContent, ContainerIcons, ContainerImage, Description, Title, Wrapper } from "./styles"
 
@@ -51,7 +52,7 @@ const TakeATour = () => {
                         <ActionLink target="_blank" to="/why">
                             Self-Guided Tour [1 min]
                         </ActionLink>
-                        <Button target="_blank" href="https://try.estuary.dev/webinar-estuary101-ondemand">
+                        <Button target="_blank" href={webinarsUrl}>
                             Product Overview [30 min]
                         </Button>
                     </ContainerButton>

@@ -1,3 +1,5 @@
+import { webinarsUrl } from "../../../constants/urls";
+
 export const read = [
   {
     name: "Blog",
@@ -24,7 +26,7 @@ export const listen = [
   },
   {
     name: "Webinars",
-    to: "https://try.estuary.dev/webinar-estuary101-ondemand",
+    to: { webinarsUrl },
   },
 ]
 
@@ -35,7 +37,7 @@ export const tour = [
   },
   {
     name: "Real-time 101 [30 min]",
-    to: "https://try.estuary.dev/webinar-estuary101-ondemand",
+    to: { webinarsUrl },
   },
 ]
 

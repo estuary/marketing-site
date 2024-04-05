@@ -1,0 +1,1 @@
+export const webinarsUrl = "https://try.estuary.dev/webinar-estuary101-ondemand"

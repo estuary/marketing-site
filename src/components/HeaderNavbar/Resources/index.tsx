@@ -1,14 +1,15 @@
-import React, { useState, useRef, useEffect } from "react"
 import clsx from "clsx"
 import { Link } from "gatsby"
-import { OutboundLink } from "../../../components/OutboundLink"
+import React, { useEffect, useRef } from "react"
 import { isDesktop } from "react-device-detect"
+import { OutboundLink } from "../../../components/OutboundLink"
 
 import Chevron from "@mui/icons-material/ChevronRight"
 import NavbarImage from "../../../svgs/navbar-image-2.svg"
 
-import { read, listen, tour, caseStudies } from "./items"
+import { caseStudies, listen, read, tour } from "./items"
 
+import { webinarsUrl } from "../../../constants/urls"
 import CardItem from "../CardItem"
 const Card = React.lazy(() => import("../Card"))
 
@@ -86,7 +87,7 @@ const HeaderNavbarResources = ({ active, setActive }) => {
                         <NavbarImage />
                         <OutboundLink
                             target="_blank"
-                            href="https://try.estuary.dev/webinar-estuary101-ondemand"
+                            href={webinarsUrl}
                             className="cta-button"
                         >
                             Watch Estuary 101

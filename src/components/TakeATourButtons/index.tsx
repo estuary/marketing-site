@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { webinarsUrl } from '../../constants/urls';
 import { ActionLink, Button } from './style';
 
 const TakeATourButtons = () => {
@@ -8,7 +9,7 @@ const TakeATourButtons = () => {
       <ActionLink target="_blank" to="/why">
         Self-Guided Tour [1 min]
       </ActionLink>
-      <Button target="_blank" href="https://try.estuary.dev/webinar-estuary101-ondemand">
+      <Button target="_blank" href={webinarsUrl}>
         Product Overview [30 min]
       </Button>
     </>
