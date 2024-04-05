@@ -1,6 +1,7 @@
 import { StaticImage } from "gatsby-plugin-image"
 import * as React from "react"
 import ReactPlayer from "react-player/lazy"
+import { estuaryProductFlowVideoUrl } from "../../shared"
 import { OutboundLink } from "../components/OutboundLink"
 import useWindowExistence from "../hooks/useWindowExistence"
 
@@ -25,7 +26,7 @@ const SectionThree = () => {
                                 layout="constrained"
                             />
                         }
-                        url="https://www.youtube.com/embed/hlCh81ZbBik"
+                        url={estuaryProductFlowVideoUrl}
                     />
                 )}
             </div>

@@ -4,6 +4,7 @@ import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { isMobile as isRealMobile } from 'react-device-detect';
 import ReactPlayer from 'react-player/lazy';
+import { estuaryProductFlowVideoUrl } from '../../shared';
 import { Connectors } from '../components/Connectors';
 import ConnectorsImageDesktop from '../components/ConnectorsImageDesktop';
 import ConnectorsImageMobile from '../components/ConnectorsImageMobile';
@@ -213,7 +214,7 @@ export const ConnectorPage = ({ source_connector, dest_connector, connector_type
                     layout="constrained"
                   />
                 }
-                url="https://www.youtube.com/embed/hlCh81ZbBik"
+                url={estuaryProductFlowVideoUrl}
               />
             )}
           </div>

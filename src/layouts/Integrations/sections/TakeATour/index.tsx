@@ -16,6 +16,7 @@ import {
   Wrapper
 } from './styles';
 
+import { estuaryProductFlowVideoUrl } from '../../../../../shared';
 import useWindowExistence from '../../../../hooks/useWindowExistence';
 import { ContainerIcon } from '../../../styles';
 
@@ -40,7 +41,7 @@ const TakeATour = () => {
                   />
                 </VideoPreviewContainer>
               }
-              url="https://www.youtube.com/embed/hlCh81ZbBik"
+              url={estuaryProductFlowVideoUrl}
             />
           )}
         </ContainerLeft>
