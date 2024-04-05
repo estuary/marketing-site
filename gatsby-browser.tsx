@@ -13,35 +13,36 @@ import { isMobile } from 'react-device-detect';
 // import "prismjs/themes/prism.css"
 
 import { Script, ScriptStrategy } from 'gatsby';
-import { useState } from 'react';
 
 const ZD_KEY = '3271265c-16a8-4e0d-b1ab-72ed8fbe7e5a';
 
 export const wrapPageElement = ({ element }) => {
-  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  const [dimensions, setDimensions] = React.useState({ width: 0, height: 0 });
+
   React.useEffect(() => {
     const subscriber = () => setDimensions({ width: window.innerWidth, height: window.innerHeight });
     window.addEventListener('load', subscriber);
     return () => window.removeEventListener('load', subscriber);
   }, []);
+
   if (process.env.NODE_ENV === 'development' || isMobile || dimensions.width < 768) {
     return element;
-  } else {
-    return (
-      <>
-        {element}
-        <Script
-          id="ze-snippet"
-          key="gatsby-plugin-zendesk-chat"
-          strategy={'idle'}
-          async
-          defer
-          src={`https://static.zdassets.com/ekr/snippet.js?key=${ZD_KEY}`}
-        />
-        <Script id="hs-script-loader" async defer strategy={'idle'} src="//js.hs-scripts.com/8635875.js" />
-      </>
-    );
   }
+
+  return (
+    <>
+      {element}
+      <Script
+        id="ze-snippet"
+        key="gatsby-plugin-zendesk-chat"
+        strategy={'idle'}
+        async
+        defer
+        src={`https://static.zdassets.com/ekr/snippet.js?key=${ZD_KEY}`}
+      />
+      <Script id="hs-script-loader" async defer strategy={'idle'} src="//js.hs-scripts.com/8635875.js" />
+    </>
+  );
 };
 
 export const onClientEntry = () => {
