@@ -43,16 +43,12 @@ const ChangeData = () => {
           </Topic>
           <Topic>
             <DoneIcon htmlColor="#5072EB" fontSize="medium" />
-            <span>
-              Or connect critical SaaS apps to BigQuery with real-time data pipelines.
-            </span>
+            <span>Or connect critical SaaS apps to BigQuery with real-time data pipelines.</span>
           </Topic>
         </Topics>
         <ConnectorsLink />
         <Observation>
-          <span>
-            Don’t see a connector?
-          </span>
+          <span>Don’t see a connector?</span>
           <a
             href="https://github.com/estuary/connectors/issues/new?assignees=&labels=new+connector&t[…]5Bcapture+from+%7C+materialize+to%5D+%5Byour+favorite+system%5D"
             target="_blank"

@@ -1,14 +1,14 @@
 import React from 'react';
 
-import BigQueryHead from '../layouts/Integrations/components/Head';
-import Wrapper from '../layouts/Integrations/components/Wrapper';
+import BigQueryHead from '../layouts/BigQuery/components/Head';
+import Wrapper from '../layouts/BigQuery/components/Wrapper';
 
-import ChangeData from '../layouts/Integrations/sections/ChangeData';
-import Hero from '../layouts/Integrations/sections/Hero';
-import Pipelines from '../layouts/Integrations/sections/Pipelines';
-import RealTime from '../layouts/Integrations/sections/RealTime';
-import TakeATour from '../layouts/Integrations/sections/TakeATour';
-import TheAutomation from '../layouts/Integrations/sections/TheAutomation';
+import ChangeData from '../layouts/BigQuery/sections/ChangeData';
+import Hero from '../layouts/BigQuery/sections/Hero';
+import Pipelines from '../layouts/BigQuery/sections/Pipelines';
+import RealTime from '../layouts/BigQuery/sections/RealTime';
+import TakeATour from '../layouts/BigQuery/sections/TakeATour';
+import TheAutomation from '../layouts/BigQuery/sections/TheAutomation';
 
 const BigQuery = () => {
   return (
