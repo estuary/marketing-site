@@ -1,6 +1,6 @@
-import * as React from "react"
 import { StaticImage } from "gatsby-plugin-image"
-import FlowLogo from "../svgs/flow-logo.svg"
+import * as React from "react"
+import FlowLogo from "../../svgs/flow-logo.svg"
 
 const SectionTwo = () => {
     return (

@@ -1,12 +1,6 @@
 import * as React from "react"
+import { SectionFive, SectionFour, SectionOne, SectionSix, SectionThree, SectionTwo } from "../components/Homepage"
 import Layout from "../components/layout"
-import SectionOne from "../components/SectionOne"
-import { useStaticQuery, graphql } from "gatsby"
-import SectionTwo from "../components/SectionTwo"
-import SectionThree from "../components/SectionThree"
-import SectionFour from "../components/SectionFour"
-import SectionFive from "../components/SectionFive"
-import SectionSix from "../components/SectionSix"
 import Seo from "../components/seo"
 
 const IndexPage = () => {
@@ -24,7 +18,7 @@ const IndexPage = () => {
 }
 
 export const Head = ({ data: { post } }) => {
-    return <Seo 
+    return <Seo
         title={"Real-time ETL"}
         description={"Managed streaming data pipelines, streaming SQL & turnkey connectivity to clouds, databases, and apps"}
     />

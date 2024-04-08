@@ -1,15 +1,14 @@
-import { graphql, Link, useStaticQuery } from "gatsby"
-import React from "react"
-import { useMemo, useState } from "react"
-import { useLunr } from "react-lunr"
-import { normalizeConnector } from "../utils"
-import FlowLogo from "../svgs/flow-logo.svg"
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 import ChevronRight from "@mui/icons-material/ChevronRight"
 import SearchIcon from "@mui/icons-material/Search"
-import { ConnectorsLink } from "./ConnectorsLink"
-import BackgroundImageWrapper from "./BackgroundImageWrapper"
+import { graphql, Link, useStaticQuery } from "gatsby"
+import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
+import React, { useMemo, useState } from "react"
 import { isMobile } from "react-device-detect"
+import { useLunr } from "react-lunr"
+import FlowLogo from "../svgs/flow-logo.svg"
+import { normalizeConnector } from "../utils"
+import BackgroundImageWrapper from "./BackgroundImageWrapper"
+import { ConnectorsLink } from "./ConnectorsLink"
 
 export interface ConnectorsProps {
     connectorType?: "capture" | "materialization"
@@ -139,21 +138,21 @@ export const Connectors = ({
     const mappedConnectors = useMemo(
         () =>
             postgres.allConnectors.nodes
-                .filter(connector=>connector?.connectorTagsByConnectorIdList?.length > 0)
+                .filter(connector => connector?.connectorTagsByConnectorIdList?.length > 0)
                 .map(normalizeConnector)
                 .filter(connector =>
                     connectorType ? connector.type === connectorType : true
                 )
-                .sort((a,b) => {
+                .sort((a, b) => {
                     // Sort by recommended, alphabetically
                     // then show all captures, sorted alphabetically
                     // then show all destinations, sorted alphabetically
                     let alpha_sort = a.title.toUpperCase() < b.title.toUpperCase() ? -1 : 1;
-                    if(a.recommended && b.recommended) {
+                    if (a.recommended && b.recommended) {
                         return alpha_sort
-                    } else if(a.recommended) {
+                    } else if (a.recommended) {
                         return -1
-                    } else if(b.recommended){
+                    } else if (b.recommended) {
                         return 1
                     } else if (a.type === b.type) {
                         return alpha_sort
@@ -177,9 +176,9 @@ export const Connectors = ({
     const results = useLunr(
         query.length > 0
             ? query
-                  .split(" ")
-                  .map(term => `${term}* ${term}~1`)
-                  .join(" ")
+                .split(" ")
+                .map(term => `${term}* ${term}~1`)
+                .join(" ")
             : "",
         index,
         store

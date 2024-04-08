@@ -1,9 +1,8 @@
-import * as React from "react"
-import loadable from "@loadable/component"
 import { StaticImage } from "gatsby-plugin-image"
+import * as React from "react"
 import { useEffect, useState } from "react"
 import ReactPlayer from "react-player/lazy"
-import { OutboundLink } from "../components/OutboundLink"
+import { OutboundLink } from "../OutboundLink"
 
 const SectionThree = () => {
     const [hasWindow, setHasWindow] = useState(false)

@@ -1,12 +1,10 @@
-import * as React from "react"
-import { isDesktop, isMobile } from "react-device-detect"
-import { useStaticQuery, graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 import type { LottieRef } from "lottie-react"
-import { useMediaQuery, useTheme } from "@mui/material"
-import { OutboundLink } from "../components/OutboundLink"
+import * as React from "react"
 import Marquee from "react-fast-marquee"
-import OpenHubspotModal from "./HubSpot/OpenModal"
+import OpenHubspotModal from "../HubSpot/OpenModal"
+import { OutboundLink } from "../OutboundLink"
 
 const animFallback = (
     <div className="section-one-right-image">
@@ -21,7 +19,7 @@ const animFallback = (
 
 const AnimatedHero = () => {
     const HeroAnimation = React.useMemo(
-        () => import("../images/hero-animation.json"),
+        () => import("../../images/hero-animation.json"),
         []
     )
     const Lottie = React.useMemo(
@@ -150,7 +148,7 @@ const SectionOne = () => {
                 <Marquee>
                     {logos.allStrapiVanityLogo.nodes?.map(logo =>
                         logo.logo.localFile.internal.mediaType ===
-                        "image/svg+xml" ? (
+                            "image/svg+xml" ? (
                             <div className="custom-slider" key={logo.id}>
                                 <div
                                     dangerouslySetInnerHTML={{

@@ -1,8 +1,7 @@
-import * as React from "react"
-import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import Slider from "./Slider"
-import { OutboundLink } from "../components/OutboundLink"
+import * as React from "react"
+import { OutboundLink } from "../OutboundLink"
+import Slider from "../Slider"
 
 const SectionSix = () => {
     return (
