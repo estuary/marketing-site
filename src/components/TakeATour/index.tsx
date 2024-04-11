@@ -1,8 +1,6 @@
-import React, { useCallback, useEffect, useState } from 'react';
-
-import CloseIcon from '@mui/icons-material/Close';
-
 import { Button, Container, Link } from './styles';
+import React, { useCallback, useEffect, useState } from 'react';
+import CloseIcon from '@mui/icons-material/Close';
 
 const DEFAULTS = {
   href: '/why',
