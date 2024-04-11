@@ -1,12 +1,12 @@
-import * as React from "react"
-import { Link, graphql, useStaticQuery } from "gatsby"
-import { useState, useRef, useEffect } from "react"
-import ColoredLogo from "../svgs/colored-logo.svg"
-import SlackIcon from "../svgs/slack-outline.svg"
-import GithubIcon from "../svgs/github-outline.svg"
 import clsx from "clsx"
-import { OutboundLink } from "../components/OutboundLink"
+import { Link, graphql, useStaticQuery } from "gatsby"
+import * as React from "react"
+import { useEffect, useRef, useState } from "react"
 import { isDesktop } from "react-device-detect"
+import { OutboundLink } from "../components/OutboundLink"
+import ColoredLogo from "../svgs/colored-logo.svg"
+import GithubIcon from "../svgs/github-outline.svg"
+import SlackIcon from "../svgs/slack-outline.svg"
 
 import HeaderNavbar from "./HeaderNavbar"
 
@@ -29,90 +29,90 @@ const useNavItems = () => {
     `)
 
     return [
-    {
-        title: "Product",
-        children: [
-            isDesktop && {
-                title: "Product Tour",
-                path: "/why"
-            },
-            {
-                title: "About Flow",
-                path: "/product",
-            },
-            {
-                title: "Integrations",
-                path: "/integrations",
-                children: [
-                    {
-                        title: "Sources",
-                        path: "/sources",
-                    },
-                    {
-                        title: "Destinations",
-                        path: "/destinations",
-                    },
-                ],
-            },
-            {
-                title: "Solutions",
-                path: "/solutions",
-            },
-        ].filter(Boolean),
-    },
-    {
-        title: "Pricing",
-        path: "/pricing",
-    },
-    {
-        title: "Connectors",
-        path: "https://estuary.dev/integrations/",
-    },
-    {
-        title: "Resources",
-        children: [
-            {
-                title: "Docs",
-                path: "https://docs.estuary.dev",
-            },
-            {
-                title: "Blog",
-                path: "/blog/data-engineering",
-            },
-            {
-                title: "Case Study",
-                children: queryResults.allStrapiCaseStudy.nodes.map(
-                    caseStudy => ({
-                        title: caseStudy.Title,
-                        path: `/customers/${caseStudy.Slug}`,
-                    })
-                ),
-            },
-            {
-                title: "Comparisons",
-                children:
-                    queryResults.allStrapiProductComparisonPage.nodes.map(
-                        comparison => ({
-                            title: comparison.their_name,
-                            path: `/${comparison.Slug}`,
+        {
+            title: "Product",
+            children: [
+                isDesktop && {
+                    title: "Product Tour",
+                    path: "/why"
+                },
+                {
+                    title: "About Flow",
+                    path: "/product",
+                },
+                {
+                    title: "Integrations",
+                    path: "/integrations",
+                    children: [
+                        {
+                            title: "Sources",
+                            path: "/sources",
+                        },
+                        {
+                            title: "Destinations",
+                            path: "/destinations",
+                        },
+                    ],
+                },
+                {
+                    title: "Solutions",
+                    path: "/solutions",
+                },
+            ].filter(Boolean),
+        },
+        {
+            title: "Pricing",
+            path: "/pricing",
+        },
+        {
+            title: "Connectors",
+            path: "https://estuary.dev/integrations/",
+        },
+        {
+            title: "Resources",
+            children: [
+                {
+                    title: "Docs",
+                    path: "https://docs.estuary.dev",
+                },
+                {
+                    title: "Blog",
+                    path: "/blog/data-engineering",
+                },
+                {
+                    title: "Case Study",
+                    children: queryResults.allStrapiCaseStudy.nodes.map(
+                        caseStudy => ({
+                            title: caseStudy.Title,
+                            path: `/customers/${caseStudy.Slug}`,
                         })
                     ),
-            },
-            {
-                title: "Podcasts",
-                path: "/podcasts",
-            },
-            {
-                title: "Contact",
-                path: "/about#contact-us",
-            },
-        ],
-    },
-    {
-        title: "Docs",
-        path: "/docs",
-    },
-]
+                },
+                {
+                    title: "Comparisons",
+                    children:
+                        queryResults.allStrapiProductComparisonPage.nodes.map(
+                            comparison => ({
+                                title: comparison.their_name,
+                                path: `/${comparison.Slug}`,
+                            })
+                        ),
+                },
+                {
+                    title: "Podcasts",
+                    path: "/podcasts",
+                },
+                {
+                    title: "Contact",
+                    path: "/about#contact-us",
+                },
+            ],
+        },
+        {
+            title: "Docs",
+            path: "/docs",
+        },
+    ]
 };
 
 const MenuBarsImage = () => (
@@ -138,16 +138,16 @@ const Header = (props: { fixedHeader?: boolean }) => {
 
     useEffect(() => {
         function handleClickOutside(event) {
-          if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-            setMobileMenuOpen(false)
-          }
+            if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+                setMobileMenuOpen(false)
+            }
         }
-    
+
         document.addEventListener("mousedown", handleClickOutside);
         return () => {
-          document.removeEventListener("mousedown", handleClickOutside);
+            document.removeEventListener("mousedown", handleClickOutside);
         };
-      }, [wrapperRef]);
+    }, [wrapperRef]);
 
     return (
         <>
@@ -156,7 +156,6 @@ const Header = (props: { fixedHeader?: boolean }) => {
                 className={clsx("global-header global-header-dark", fixedHeader && "global-header-fixed")}
                 ref={wrapperRef}
             >
-                <div className="global-header-padder" />
                 <Link className="global-header-logo-link" to="/">
                     <ColoredLogo
                         className="global-header-logo"
@@ -189,7 +188,7 @@ const Header = (props: { fixedHeader?: boolean }) => {
                         <OutboundLink
                             className="global-header-link"
                             href="https://dashboard.estuary.dev"
-                            style={{marginRight:"1rem"}}
+                            style={{ marginRight: "1rem" }}
                         >
                             Log in
                         </OutboundLink>
@@ -211,7 +210,6 @@ const Header = (props: { fixedHeader?: boolean }) => {
                         <MenuBarsImage />
                     </button>
                 </div>
-                <div className="global-header-padder" />
             </header>
         </>
     )

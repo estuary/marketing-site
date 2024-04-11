@@ -1,24 +1,25 @@
-import * as React from "react"
+import CloseIcon from "@mui/icons-material/Close"
 import {
     Dialog,
     DialogContent,
     DialogTitle,
-    IconButton,
-    LinearProgress,
+    IconButton
 } from "@mui/material"
-import CloseIcon from "@mui/icons-material/Close"
-import HubspotForm from "react-hubspot-form"
+import * as React from "react"
 import HubSpotFormWrapper from "./FormWrapper"
+
+interface OpenHubspotModalProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+    buttonLabel: string
+    buttonClass?: string
+    buttonId: string
+}
 
 function OpenHubspotModal({
     buttonLabel,
     buttonClass,
     buttonId,
-}: {
-    buttonLabel: string
-    buttonClass: string
-    buttonId: string
-}) {
+    ...rest
+}: OpenHubspotModalProps) {
     const [openDialog, setOpenDialog] = React.useState(false)
 
     return (
@@ -29,6 +30,7 @@ function OpenHubspotModal({
                 onClick={() => {
                     setOpenDialog(true)
                 }}
+                {...rest}
             >
                 {buttonLabel}
             </button>
