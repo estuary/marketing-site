@@ -4,30 +4,32 @@ import CloseIcon from '@mui/icons-material/Close';
 
 import { Button, Container, Link } from './styles';
 
-const STORAGE_NAME = '@estuary/closeTour';
-
-// If there is an upcoming webinar: `webinar_{date}`
-// If there is no webinar: `demo`
-const LATEST_VERSION = 'demo';
-
-// defaults
-// href: '/why',
-// message: 'Take a Product Tour',
-const SETTINGS = {
+const DEFAULTS = {
   href: '/why',
   message: 'Take a Product Tour',
+  version: '',
 };
+
+const SETTINGS = {
+  ...DEFAULTS,
+  // When there is a webinar uncomment below and provide the necessary details
+  // href: 'fake/path/name',
+  // message: 'This is a fake future Webinar',
+  // version: `/webinar_YYYY/MM/DD`,
+};
+
+const STORAGE_KEY = `@estuary/closeTour${SETTINGS.version}`;
 
 const TakeATour = () => {
   const [closeTour, setCloseTour] = useState(true);
 
   const onClick = useCallback(() => {
-    localStorage.setItem(`${STORAGE_NAME}_${LATEST_VERSION}`, '1');
+    localStorage.setItem(STORAGE_KEY, '1');
     setCloseTour(true);
   }, []);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') setCloseTour(!!localStorage.getItem(STORAGE_NAME));
+    if (typeof window !== 'undefined') setCloseTour(!!localStorage.getItem(STORAGE_KEY));
   }, []);
 
   if (closeTour) return null;
