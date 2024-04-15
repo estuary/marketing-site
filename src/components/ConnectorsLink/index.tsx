@@ -77,7 +77,6 @@ export const ConnectorsLink = ({ defaultSourceId, defaultDestinationId, connecto
           value={sourceId}
           onChange={(evt) => setSourceId(evt.target.value)}
           variant="outlined"
-          autoFocus={connectorType === 'capture'}
         >
           {captureConnectors.map((c) => (
             <Menu key={c.id} value={c.id}>
@@ -94,7 +93,6 @@ export const ConnectorsLink = ({ defaultSourceId, defaultDestinationId, connecto
           value={destinationId}
           onChange={(evt) => setDestinationId(evt.target.value)}
           variant="outlined"
-          autoFocus={connectorType === 'materialization'}
         >
           {materializationConnectors.map((c) => (
             <Menu key={c.id} value={c.id}>
