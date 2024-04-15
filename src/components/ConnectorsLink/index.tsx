@@ -3,9 +3,16 @@ import { graphql, useStaticQuery } from 'gatsby';
 import React, { useMemo, useState } from 'react';
 import { normalizeConnector } from '../../utils';
 
+import { ConnectorType } from '../../../shared';
 import { Button, Form, Image, Menu, Wrapper } from './style';
 
-export const ConnectorsLink = ({ defaultSource }: { defaultSource?: string; defaultDestination?: string }) => {
+type ConnectorsLinkProps = {
+  defaultSourceId?: string;
+  defaultDestinationId?: string;
+  connectorType?: ConnectorType;
+}
+
+export const ConnectorsLink = ({ defaultSourceId, defaultDestinationId, connectorType }: ConnectorsLinkProps) => {
   const {
     postgres: {
       allConnectors: { nodes: connectors },
@@ -48,12 +55,10 @@ export const ConnectorsLink = ({ defaultSource }: { defaultSource?: string; defa
     ];
   }, [connectors]);
 
-  const [sourceId, setSourceId] = useState<string>(defaultSource);
-  const [destinationId, setDestinationId] = useState<string>(
-    materializationConnectors.find((connector) => connector.slug === '/destination/bigquery')?.id,
-  );
+  const [sourceId, setSourceId] = useState<string>(connectorType === 'capture' ? defaultSourceId : '');
+  const [destinationId, setDestinationId] = useState<string>(connectorType === 'materialization' ? defaultDestinationId : '');
 
-  const destinationHref = useMemo(() => {
+  const detailsHref = useMemo(() => {
     if (sourceId && destinationId) {
       return `/integrations/${captureConnectors.find((c) => c.id === sourceId)?.slugified_name}-to-${materializationConnectors.find((c) => c.id === destinationId)?.slugified_name
         }`;
@@ -66,7 +71,14 @@ export const ConnectorsLink = ({ defaultSource }: { defaultSource?: string; defa
     <Wrapper>
       <Form fullWidth>
         <InputLabel>Sources</InputLabel>
-        <Select label="Sources" value={sourceId} onChange={(evt) => setSourceId(evt.target.value)} variant="outlined">
+        <Select
+          label={sourceId && "Sources"}
+          defaultValue={!sourceId && "Sources"}
+          value={sourceId}
+          onChange={(evt) => setSourceId(evt.target.value)}
+          variant="outlined"
+          autoFocus={connectorType === 'capture'}
+        >
           {captureConnectors.map((c) => (
             <Menu key={c.id} value={c.id}>
               <Image image={c.logo?.childImageSharp?.gatsbyImageData} alt={`${c.title} Logo`} loading="eager" />
@@ -82,7 +94,7 @@ export const ConnectorsLink = ({ defaultSource }: { defaultSource?: string; defa
           value={destinationId}
           onChange={(evt) => setDestinationId(evt.target.value)}
           variant="outlined"
-          autoFocus
+          autoFocus={connectorType === 'materialization'}
         >
           {materializationConnectors.map((c) => (
             <Menu key={c.id} value={c.id}>
@@ -92,7 +104,7 @@ export const ConnectorsLink = ({ defaultSource }: { defaultSource?: string; defa
           ))}
         </Select>
       </Form>
-      <Button to={destinationHref}>Details</Button>
+      <Button to={detailsHref}>Details</Button>
     </Wrapper>
   );
 };

@@ -2,8 +2,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import React from "react"
 
 import { webinarsUrl } from "../../../../../shared"
-import { ContainerIcon } from "../../../styles"
-import { ActionLink, Button, Container, ContainerButton, ContainerContent, ContainerIcons, ContainerImage, Description, Title, Wrapper } from "./styles"
+import { ActionLink, Button, Container, ContainerButton, ContainerContent, ContainerIcon, ContainerIcons, ContainerImage, Description, Title, Wrapper } from "./styles"
 
 const TakeATour = () => {
     return (

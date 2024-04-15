@@ -74,6 +74,13 @@ export const Title = styled.p`
     }
 `
 
+export const ContainerIcon = styled.div`
+  padding: 16px;
+  border: 1px solid #5072EB80;
+  border-radius: 8px;
+  background-color: #ffffff;
+`;
+
 export const Description = styled.p`
     font-weight: 400;
     font-size: 16px;

@@ -4,7 +4,7 @@ import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { isMobile as isRealMobile } from 'react-device-detect';
 import ReactPlayer from 'react-player/lazy';
-import { estuaryProductFlowVideoUrl } from '../../shared';
+import { ConnectorType, estuaryProductFlowVideoUrl } from '../../shared';
 import { Connectors } from '../components/Connectors';
 import ConnectorsImageDesktop from '../components/ConnectorsImageDesktop';
 import ConnectorsImageMobile from '../components/ConnectorsImageMobile';
@@ -27,7 +27,7 @@ import { normalizeConnector } from '../utils';
 export interface ConnectorPageProps {
   source_connector: any;
   dest_connector: any;
-  connector_type?: 'capture' | 'materialization';
+  connector_type?: ConnectorType;
 }
 
 export const ConnectorPage = ({ source_connector, dest_connector, connector_type }: ConnectorPageProps) => {
@@ -186,7 +186,7 @@ export const ConnectorPage = ({ source_connector, dest_connector, connector_type
         </div>
       </div>
       <div className="connector-link-bottom connector-section-wrapper" style={{ margin: 0, marginBottom: '6rem' }}>
-        <ConnectorsLink defaultSource={source_mapped?.id} defaultDestination={dest_mapped?.id} />
+        <ConnectorsLink defaultSourceId={source_mapped?.id} defaultDestinationId={dest_mapped?.id} />
       </div>
       <div className="connector-section-wrapper connector-section-background vertical-mobile">
         <div className="connector-section-content connector-center connector-section-mobile">
