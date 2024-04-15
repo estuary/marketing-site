@@ -101,24 +101,37 @@ export const Topics = styled.ul`
   @media (min-width: 1500px) {
     gap: 24px;
   }
+
+  & > li:last-child {
+    white-space: nowrap;
+  }
 `;
 
 export const Topic = styled.li`
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 500;
   margin: 0;
   color: #47506d;
   display: flex;
   align-items: center;
   gap: 13px;
+  line-height: 30px;
 
   @media (min-width: 1500px) {
     font-size: 16px;
-    line-height: 30px;
   }
 
   span {
     color: #5072eb;
     font-weight: 700;
+  }
+
+  @media (max-width: 1440px) {
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 1rem;
+    line-height: 19.2px;
   }
 `;

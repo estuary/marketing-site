@@ -102,7 +102,7 @@ const TextBaseStyling = styled.span`
     font-size: 0.875rem;
   }
 
-  @media (max-width: 1023px) {
+  @media (max-width: 1024px) {
     max-width: 100px;
     font-size: 0.75rem;
     line-height: 16px;
@@ -136,12 +136,8 @@ export const FlowStepOne = styled(TextBaseStyling)`
 `
 
 export const FlowStepTwo = styled(TextBaseStyling)`
-  bottom: -18%;
+  top: 105%;
   left: 39%;
-
-  @media (max-width: 1280px) {
-    bottom: -19%;
-  }
 
   @media (max-width: 1180px) {
     left: 36%;
