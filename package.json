@@ -3,7 +3,6 @@
   "private": true,
   "version": "0.1.0",
   "dependencies": {
-    "@builder.io/partytown": "^0.10.1",
     "@draftbox-co/gatsby-rehype-inline-images": "^1.0.2",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
@@ -27,6 +26,7 @@
     "gatsby-image": "^3.11.0",
     "gatsby-omni-font-loader": "^2.0.2",
     "gatsby-plugin-feed": "^5.13.1",
+    "gatsby-plugin-google-gtag": "^5.13.1",
     "gatsby-plugin-image": "^3.13.1",
     "gatsby-plugin-less": "^7.13.1",
     "gatsby-plugin-loadable-components-ssr": "^4.3.2",
