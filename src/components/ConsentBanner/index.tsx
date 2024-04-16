@@ -1,14 +1,18 @@
-// Based on the component from https://github.com/orestbida/cookieconsent/discussions/523#discussioncomment-8645730
+// Based on the components from
+//  https://github.com/orestbida/cookieconsent/discussions/523#discussioncomment-8645730
+//  https://blog.cloud66.com/google-tag-manager-consent-mode-v2-in-react
 
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
 import 'vanilla-cookieconsent/dist/cookieconsent.css';
 import * as CookieConsent from 'vanilla-cookieconsent';
-import { Script } from 'gatsby';
+import Cookies from 'universal-cookie';
+// import { Script } from 'gatsby';
 
 declare const window: Window & { dataLayer: Record<string, unknown>[] };
 
 const GTAG_ID = 'G-P1PZPE4HHZ';
+const COOKIE_NAME = 'estuary.consent.settings'; //if this change tag manager needs updated
 
 const updateCookieConsent = () => {
   CookieConsent.showPreferences();
@@ -68,7 +72,16 @@ const listenForConsent = (state: any) => {
 };
 
 const CookieConsentComponent = () => {
-  const [loadScript, setLoadScript] = useState(false);
+  const [decisionMade, setDecisionMade] = useState(true);
+  const cookies = useMemo(() => new Cookies(), []);
+
+  useEffect(() => {
+    if (cookies.get(COOKIE_NAME) !== undefined) {
+      setDecisionMade(true);
+    } else {
+      setDecisionMade(false);
+    }
+  }, [cookies, setDecisionMade, sendConsent]);
 
   useEffect(() => {
     /**
@@ -158,7 +171,7 @@ const CookieConsentComponent = () => {
   return (
     <>
       {loadScript && (
-        <Script async strategy="lazyOnload" src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`} />
+        <script async strategy="lazyOnload" src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`} />
       )}
     </>
   );
