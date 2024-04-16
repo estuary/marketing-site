@@ -6279,55 +6279,11 @@ table th {
         }
     }
 
-    .sharing-buttons-list-wrapper {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-        margin-right: auto;
-        width: 256px;
-
-        span {
-            font-size: 1.25rem;
-            font-weight: 600 !important;
-            line-height: 30px;
-        }
-
-        ul {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 14px;
-            margin: 0;
-
-            @media (max-width: 767px) {
-                gap: 20px;
-            }
-
-            .sharing-button {
-                max-width: 40px;
-                max-height: 40px;
-                background-color: var(--background-color-sharing-button) !important;
-                color: var(--color-sharing-button);
-                padding: 10px;
-                border: 1px solid var(--border-color-sharing-button);
-                border-radius: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-
-                @media (max-width: 767px) {
-                    max-width: 48px;
-                    max-height: 48px;
-                }
-            }
-        }
-    }
-
     .blog-post-content {
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
-        padding: 60px 90px;
+        padding: 42px 90px 60px 90px;
         gap: 48px;
 
         @media (max-width: 1150px) {
@@ -6398,6 +6354,10 @@ table th {
         gap: 60px;
         max-width: 256px;
         width: 100%;
+
+        @media (max-width: 1350px) {
+            max-width: 200px;
+        }
 
         @media (max-width: 1150px) {
             max-width: 100%;
@@ -6612,6 +6572,7 @@ table th {
     .table-of-contents {
         background: #ffffff;
         counter-reset: toc-counter;
+        margin-top: 18px;
 
         h3 {
             margin: 0 0 8px;
@@ -7109,6 +7070,7 @@ table th {
         border: 1px solid #5072EB33;
         background: #F9FAFC;
         text-align: center;
+        margin-top: 18px;
 
         @media (max-width: 1150px) {
             display: none;
@@ -7145,6 +7107,11 @@ table th {
             width: 224px;
             height: 128px;
             background: url("./images/build-pipeline.svg") no-repeat bottom / contain;
+
+            @media (max-width: 1350px) {
+                width: 166px;
+                height: 100px;
+            }
         }
 
         h3 {

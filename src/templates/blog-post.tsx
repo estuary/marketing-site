@@ -21,9 +21,7 @@ import Bio from '../components/bio';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
 import logoUrl from '../images/combination-mark__multi-blue.png';
-import EmailIcon from '../svgs/email-outline.svg';
 import FacebookIcon from '../svgs/facebook-outline.svg';
-import LinkIcon from '../svgs/link-icon.svg';
 import SlackIcon from '../svgs/slack-outline-2.svg';
 import TwitterXIcon from '../svgs/twitter-x-outline.svg';
 
@@ -60,36 +58,8 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
         };
     }, []);
 
-    const sharingButtonsSection = (
-        <div className="sharing-buttons-list-wrapper">
-            <span>Share this article</span>
-            <ul>
-                <OutboundLink className="sharing-button" onClick={copyLinkToClipboard}>
-                    <LinkIcon />
-                </OutboundLink>
-                <OutboundLink className="sharing-button" href="https://estuary-dev.slack.com" target="_blank">
-                    <SlackIcon />
-                </OutboundLink>
-                <OutboundLink className="sharing-button" href="https://twitter.com/EstuaryDev" target="_blank">
-                    <TwitterXIcon />
-                </OutboundLink>
-                {/* TODO: add Estuary's facebook URL */}
-                <OutboundLink className="sharing-button" href="" target="_blank">
-                    <FacebookIcon />
-                </OutboundLink>
-                {/* TODO: add the correct Estuary's email */}
-                <OutboundLink className="sharing-button" href="mailto:david@estuary.dev">
-                    <EmailIcon />
-                </OutboundLink>
-            </ul>
-        </div>
-    );
-
     const tocBodyLeft = (
-        <>
-            {windowWidth > 1150 && sharingButtonsSection}
-            <RenderToc items={post.body.data.childHtmlRehype.tableOfContents} />
-        </>
+        <RenderToc items={post.body.data.childHtmlRehype.tableOfContents} />
     );
 
     const tocBodyRight = (
@@ -165,7 +135,6 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
                             loading="eager"
                         />
                     ) : null}
-                    {windowWidth <= 1150 && sharingButtonsSection}
                 </section>
                 {post.body && (
                     <section className="blog-post-content">
