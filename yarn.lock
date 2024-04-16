@@ -1198,6 +1198,13 @@
   dependencies:
     regenerator-runtime "^0.14.0"
 
+"@babel/runtime@^7.23.1":
+  version "7.24.4"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.24.4.tgz#de795accd698007a66ba44add6cc86542aff1edd"
+  integrity sha512-dkxf7+hn8mFBwKjs9bvBlArzLVxVbS8usaPUDd5p2a9JCL9tB8OaOVN1isD4+Xyk4ns89/xeOmbQvgdK7IIVdA==
+  dependencies:
+    regenerator-runtime "^0.14.0"
+
 "@babel/template@^7.18.10", "@babel/template@^7.20.7":
   version "7.20.7"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.20.7.tgz#a15090c2839a83b02aa996c0b4994005841fd5a8"
@@ -7156,6 +7163,15 @@ gatsby-plugin-feed@^5.13.1:
     lodash.merge "^4.6.2"
     rss "^1.2.2"
 
+gatsby-plugin-google-gtag-cookieconsent@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-gtag-cookieconsent/-/gatsby-plugin-google-gtag-cookieconsent-0.0.4.tgz#4c668ac09d1833e553b6be1c9e049c5001579e4e"
+  integrity sha512-KS/oeqZIwBfF9lET0BNwYHkBWSZQak7igdj05YewtIW7c92+wSmQWCEvf/lfUFPhZEn0IC5JaiN4I5VzXChv3g==
+  dependencies:
+    "@babel/runtime" "^7.23.1"
+    minimatch "^9.0.3"
+    vanilla-cookieconsent "^3.0.0-rc.16"
+
 gatsby-plugin-google-gtag@^5.13.1:
   version "5.13.1"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-google-gtag/-/gatsby-plugin-google-gtag-5.13.1.tgz#81b294f2ab12dad5ba5e9946e4b78cd315676bbc"
@@ -10258,6 +10274,13 @@ minimatch@^3.0.4, minimatch@^3.0.5, minimatch@^3.1.1, minimatch@^3.1.2:
   integrity sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==
   dependencies:
     brace-expansion "^1.1.7"
+
+minimatch@^9.0.3:
+  version "9.0.4"
+  resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-9.0.4.tgz#8e49c731d1749cbec05050ee5145147b32496a51"
+  integrity sha512-KqWh+VchfxcMNRAJjj2tnsSJdNbHsVgnkBhTNrW7AjVo6OvLtxw8zfT9oLw1JSohlFzJ8jCoTgaoXvJ+kHt6fw==
+  dependencies:
+    brace-expansion "^2.0.1"
 
 minimist-options@4.1.0:
   version "4.1.0"
@@ -14316,6 +14339,11 @@ value-or-promise@1.0.12, value-or-promise@^1.0.12:
   version "1.0.12"
   resolved "https://registry.yarnpkg.com/value-or-promise/-/value-or-promise-1.0.12.tgz#0e5abfeec70148c78460a849f6b003ea7986f15c"
   integrity sha512-Z6Uz+TYwEqE7ZN50gwn+1LCVo9ZVrpxRPOhOLnncYkY1ZzOYtrX8Fwf/rFktZ8R5mJms6EZf5TqNOMeZmnPq9Q==
+
+vanilla-cookieconsent@^3.0.0-rc.16:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/vanilla-cookieconsent/-/vanilla-cookieconsent-3.0.1.tgz#059d1b2c712476ae4172d4ec7fa9d553a16be12d"
+  integrity sha512-gqc4x7O9t1I4xWr7x6/jtQWPr4PZK26SmeA0iyTv1WyoECfAGnu5JEOExmMEP+5Fz66AT9OiCBO3GII4wDQHLw==
 
 vary@^1, vary@~1.1.2:
   version "1.1.2"

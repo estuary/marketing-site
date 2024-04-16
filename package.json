@@ -27,6 +27,7 @@
     "gatsby-omni-font-loader": "^2.0.2",
     "gatsby-plugin-feed": "^5.13.1",
     "gatsby-plugin-google-gtag": "^5.13.1",
+    "gatsby-plugin-google-gtag-cookieconsent": "^0.0.4",
     "gatsby-plugin-image": "^3.13.1",
     "gatsby-plugin-less": "^7.13.1",
     "gatsby-plugin-loadable-components-ssr": "^4.3.2",
@@ -80,6 +81,7 @@
     "unist-util-visit": "^4.1.2"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-methods": "^7.18.6",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "eslint": "^8.57.0",
