@@ -17,7 +17,13 @@ function BlogPostPopupModal({
   buttonClass: string
   buttonId: string
 }) {
-  const [openDialog, setOpenDialog] = React.useState(true);
+  const [openDialog, setOpenDialog] = React.useState(false);
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      setOpenDialog(true);
+    }, 180000)
+  }, []);
 
   return (
     <Dialog open={openDialog} fullWidth style={{ zIndex: 10000 }} PaperProps={{ className: "blog-post-popup-modal" }}>
