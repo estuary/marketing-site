@@ -19,9 +19,11 @@ function logConsent() {
   console.log('cookie', cookie);
   console.log('gtagConsentSettings', gtagConsentSettings);
 
-  window.gtag('consent', 'update', gtagConsentSettings);
-
   window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('consent', 'update', gtagConsentSettings);
   window.dataLayer.push({
     event: 'Cookie preferences',
     cookies: CookieConsent.getUserPreferences().acceptedCategories.join(' '),
