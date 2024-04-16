@@ -7,12 +7,15 @@ import './src/normalize.css';
 // custom CSS styles
 import './src/style.less';
 import './src/highlighting-atom-one-dark.css';
+import 'vanilla-cookieconsent/dist/cookieconsent.css';
 import { isMobile } from 'react-device-detect';
+import * as CookieConsent from 'vanilla-cookieconsent';
 
 // Highlighting for code blocks
 // import "prismjs/themes/prism.css"
 
 import { Script, ScriptStrategy } from 'gatsby';
+import cookieConsent from './configs/cookie-consent';
 
 const ZD_KEY = '3271265c-16a8-4e0d-b1ab-72ed8fbe7e5a';
 
@@ -38,9 +41,19 @@ export const wrapPageElement = ({ element }) => {
         strategy={'idle'}
         async
         defer
+        data-category="analytics"
+        data-service="Zen Desk"
         src={`https://static.zdassets.com/ekr/snippet.js?key=${ZD_KEY}`}
       />
-      <Script id="hs-script-loader" async defer strategy={'idle'} src="//js.hs-scripts.com/8635875.js" />
+      <Script
+        id="hs-script-loader"
+        async
+        defer
+        strategy={'idle'}
+        data-category="analytics"
+        data-service="HubSpot"
+        src="//js.hs-scripts.com/8635875.js"
+      />
     </>
   );
 };
@@ -51,4 +64,8 @@ export const onClientEntry = () => {
     import(`intersection-observer`);
     console.log(`# IntersectionObserver is polyfilled!`);
   }
+};
+
+export const onInitialClientRender = () => {
+  CookieConsent.run(cookieConsent);
 };

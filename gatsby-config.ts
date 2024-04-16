@@ -11,6 +11,8 @@ import { GA_MEASUREMENT_ID } from './shared';
 
 import { SUPABASE_CONNECTION_STRING } from './config';
 
+import googleGtagPluginConfig from './configs/google-gtag';
+
 // Disable multiple prepared statements because pgbouncer doesn't like 'em very much
 process.env['POSTGRAPHILE_PREPARED_STATEMENT_CACHE_SIZE'] = '1';
 
@@ -109,21 +111,7 @@ const cfg: GatsbyConfig = {
   plugins: [
     {
       resolve: `gatsby-plugin-google-gtag`,
-      options: {
-        trackingIds: ['G-P1PZPE4HHZ'],
-        // This object gets passed directly to the gtag config command
-        // This config will be shared across all trackingIds
-        gtagConfig: {
-          anonymize_ip: true,
-          ignore_referrer: true,
-          cookie_expires: 0,
-        },
-        // This object is used for configuration specific to this plugin
-        pluginConfig: {
-          head: true,
-          respectDNT: true,
-        },
-      },
+      options: googleGtagPluginConfig,
     },
     {
       resolve: 'gatsby-plugin-preconnect',
