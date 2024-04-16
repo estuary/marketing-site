@@ -8,6 +8,8 @@ import { Script } from 'gatsby';
 
 declare const window: Window & { dataLayer: Record<string, unknown>[] };
 
+const GTAG_ID = 'G-P1PZPE4HHZ';
+
 const updateCookieConsent = () => {
   CookieConsent.showPreferences();
 };
@@ -39,7 +41,7 @@ const listenForConsent = (state: any) => {
   state.setLoadScript(true);
 
   gtag('js', new Date());
-  gtag('config', 'G-P1PZPE4HHZ');
+  gtag('config', GTAG_ID);
 
   const updateGtagConsent = () => {
     gtag('consent', 'update', {
@@ -156,7 +158,7 @@ const CookieConsentComponent = () => {
   return (
     <>
       {loadScript && (
-        <Script async strategy="lazyOnload" src={`https://www.googletagmanager.com/gtag/js?id=G-P1PZPE4HHZ`} />
+        <Script async strategy="lazyOnload" src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`} />
       )}
     </>
   );
