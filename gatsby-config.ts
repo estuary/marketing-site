@@ -11,8 +11,6 @@ import { GA_MEASUREMENT_ID } from './shared';
 
 import { SUPABASE_CONNECTION_STRING } from './config';
 
-import googleGtagPluginConfig from './configs/google-gtag';
-
 // Disable multiple prepared statements because pgbouncer doesn't like 'em very much
 process.env['POSTGRAPHILE_PREPARED_STATEMENT_CACHE_SIZE'] = '1';
 
@@ -110,13 +108,9 @@ const cfg: GatsbyConfig = {
   // graphqlTypegen: true,
   plugins: [
     {
-      resolve: `gatsby-plugin-google-gtag`,
-      options: googleGtagPluginConfig,
-    },
-    {
       resolve: 'gatsby-plugin-preconnect',
       options: {
-        domains: ['https://hs-banner.com', 'https://hs-scripts.com'],
+        domains: ['https://hs-banner.com', 'https://hs-scripts.com', 'https://www.googletagmanager.com'],
       },
     },
     {
