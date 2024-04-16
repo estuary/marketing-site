@@ -1,6 +1,7 @@
-import { GatsbyImage, StaticImage, getImage } from 'gatsby-plugin-image';
+import { getImage } from 'gatsby-plugin-image';
 import * as React from 'react';
 import { OutboundLink } from '../components/OutboundLink';
+import Avatar from './Avatar';
 
 export interface BioAuthor {
     name: string;
@@ -19,38 +20,15 @@ export interface BioProps {
 }
 
 const Bio = ({ authors }: BioProps) => {
-    {
-        /* TODO: Replace defaultAuthor with authors. Also add authors in Strapi. */
-    }
-    const defaultAuthors = [
-        {
-            name: 'By David Yaffe, CEO',
-            link: '/avoid-mds-real-time-tax/',
-        } as BioAuthor,
-    ];
-
-    const rendered = (defaultAuthors ?? []).map(({ picture, name, link }) => {
+    const rendered = (authors).map(({ picture, name, link }) => {
         const image = picture && getImage(picture.localFile.childImageSharp.gatsbyImageData);
 
         const rendered_name = name && (
-            <>
-                <strong className="author-name">{name}</strong>
-            </>
+            <strong className="author-name">{name}</strong>
         );
 
-        {
-            /* TODO: Remove static image (only for testing) */
-        }
-        const rendered_img = image ? (
-            <GatsbyImage
-                className="bio-avatar"
-                image={image}
-                alt="Profile picture"
-                style={{ marginLeft: 8 }}
-                loading="eager"
-            />
-        ) : (
-            <StaticImage className="bio-avatar" src="../images/a-avatar.svg" alt="Author's Avatar" />
+        const rendered_img = image && (
+            <Avatar image={image} alt="Author's avatar" name={name} />
         );
 
         let combined = (
