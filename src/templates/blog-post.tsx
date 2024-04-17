@@ -8,7 +8,7 @@ import reltime from 'dayjs/plugin/relativeTime';
 
 import CalendarTodayOutlined from '@mui/icons-material/CalendarTodayOutlined';
 import DoneIcon from '@mui/icons-material/Done';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import { useEffect, useState } from 'react';
 import { PopularArticles } from '../components/BlogPopularArticles';
 import { ProcessedPost } from '../components/BlogPostProcessor';
@@ -21,11 +21,11 @@ import logoUrl from '../images/combination-mark__multi-blue.png';
 dayjs.extend(reltime);
 
 const BlogPostTemplate = ({ data: { post }, pageContext }) => {
-    const postTags = post.tags.filter((tag) => tag.type === 'tag');
+    const postTags = post?.tags?.filter((tag) => tag.type === 'tag');
 
-    const authorImage = post.authors[0].picture && getImage(post.authors[0].picture.localFile.childImageSharp.gatsbyImageData)
+    /* const authorImage = post?.authors[0]?.picture && getImage(post.authors[0].picture.localFile.childImageSharp.gatsbyImageData)
 
-    const authorSocialLink = post?.authors[0]?.link
+    const authorSocialLink = post?.authors[0]?.link */
 
     const [windowWidth, setWindowWidth] = useState(typeof window === 'undefined' ? 1500 : window.innerWidth);
 
