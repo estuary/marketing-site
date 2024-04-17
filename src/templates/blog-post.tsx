@@ -8,10 +8,8 @@ import reltime from 'dayjs/plugin/relativeTime';
 
 import CalendarTodayOutlined from '@mui/icons-material/CalendarTodayOutlined';
 import DoneIcon from '@mui/icons-material/Done';
-import { Divider } from '@mui/material';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { useEffect, useState } from 'react';
-import Avatar from '../components/Avatar';
 import { PopularArticles } from '../components/BlogPopularArticles';
 import { ProcessedPost } from '../components/BlogPostProcessor';
 import { RenderToc } from '../components/BlogPostToc';
@@ -19,8 +17,6 @@ import Bio from '../components/bio';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
 import logoUrl from '../images/combination-mark__multi-blue.png';
-import LinkedinIcon from '../svgs/linkedin-outline.svg';
-import TwitterXIcon from '../svgs/twitter-x-outline.svg';
 
 dayjs.extend(reltime);
 
@@ -156,14 +152,13 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
                         )}
                     </section>
                 )}
-                <section className="next-steps-and-about-author-section">
-                    {/* <div className="next-steps">
+                {/* <section className="next-steps-and-about-author-section">
+                    <div className="next-steps">
                         <h3>Next steps</h3>
                         <NextStepsLink href="">Read about Lorem ipsum dolor sit amet, consectetur</NextStepsLink>
                         <NextStepsLink href="">Learn about Lorem ipsum dolor sit amet</NextStepsLink>
                         <NextStepsLink href="">Lorem ipsum dolor sit amet</NextStepsLink>
-                    </div> */}
-                    {/* TODO: Add actual author info from Strapi */}
+                    </div>
                     <div className="about-author">
                         <h3>About the author</h3>
                         <div className="author-info">
@@ -177,8 +172,7 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
                                 </div>
                                 <div className="author-name-and-role">
                                     <span className="author-name">{post.authors[0].name}</span>
-                                    {/* TODO: Add author's role */}
-                                    {/* <span className="author-role">CEO</span> */}
+                                    <span className="author-role">CEO</span>
                                 </div>
                             </div>
                             {authorSocialLink &&
@@ -198,7 +192,7 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
                             }
                         </div>
                     </div>
-                </section>
+                </section> */}
                 <section className="popular-articles">
                     <PopularArticles />
                 </section>
