@@ -22,7 +22,7 @@ function BlogPostPopupModal({
   React.useEffect(() => {
     setTimeout(() => {
       setOpenDialog(true);
-    }, 180000)
+    }, 60000)
   }, []);
 
   return (
