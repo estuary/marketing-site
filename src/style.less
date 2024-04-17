@@ -6256,10 +6256,10 @@ table th {
             line-height: 72px;
             text-transform: uppercase;
 
-            @media (max-width: 991px) {
-                margin: 20px 0 28px;
+            @media (max-width: 1440px) {
                 font-size: 2.25rem;
                 line-height: 42px;
+                margin: 20px 0 28px;
             }
         }
 
@@ -6270,10 +6270,9 @@ table th {
             line-height: 30px;
             margin-top: 36px;
             margin-bottom: 16px;
-    
-            @media (max-width: 767px) {
+
+            @media (max-width: 1440px) {
                 font-size: 1rem;
-                line-height: 30px;
                 margin-top: 28px;
             }
         }
@@ -6287,9 +6286,9 @@ table th {
         gap: 48px;
 
         @media (max-width: 1150px) {
-            flex-direction: column;
+            flex-direction: column-reverse;
             padding: 20px;
-            padding-top: 40px;
+            gap: 14px;
         }
 
         h2 {
@@ -6348,16 +6347,20 @@ table th {
         }
     }
 
+    .main-content {
+        width: calc(100% - 256px - 48px);
+
+        @media (max-width: 1150px) {
+            width: 100%;
+        }
+    }
+
     .post-sidebar {
         display: flex;
         flex-direction: column;
         gap: 60px;
         max-width: 256px;
         width: 100%;
-
-        @media (max-width: 1350px) {
-            max-width: 200px;
-        }
 
         @media (max-width: 1150px) {
             max-width: 100%;
@@ -7107,11 +7110,6 @@ table th {
             width: 224px;
             height: 128px;
             background: url("./images/build-pipeline.svg") no-repeat bottom / contain;
-
-            @media (max-width: 1350px) {
-                width: 166px;
-                height: 100px;
-            }
         }
 
         h3 {

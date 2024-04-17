@@ -58,23 +58,22 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
         };
     }, []);
 
-    const tocBodyLeft = (
-        <RenderToc items={post.body.data.childHtmlRehype.tableOfContents} />
-    );
-
     const tocBodyRight = (
-        <div className="sidebar-right">
-            <div className="banner">
-                <span>
-                    Build <span>Pipeline</span>
-                </span>
+        <div>
+            <RenderToc items={post.body.data.childHtmlRehype.tableOfContents} />
+            <div className="sidebar-right">
+                <div className="banner">
+                    <span>
+                        Build <span>Pipeline</span>
+                    </span>
+                </div>
+                <h3>
+                    Start streaming your data <span>for free</span>
+                </h3>
+                <OutboundLink href="https://dashboard.estuary.dev/register" className="pipeline-link">
+                    Build pipeline
+                </OutboundLink>
             </div>
-            <h3>
-                Start streaming your data <span>for free</span>
-            </h3>
-            <OutboundLink href="https://dashboard.estuary.dev/register" className="pipeline-link">
-                Build pipeline
-            </OutboundLink>
         </div>
     );
 
@@ -138,15 +137,7 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
                 </section>
                 {post.body && (
                     <section className="blog-post-content">
-                        {windowWidth > 1150 ? (
-                            <StickyBox offsetTop={120} className="post-sidebar">
-                                {tocBodyLeft}
-                            </StickyBox>
-                        ) : (
-                            <div className="post-sidebar">{tocBodyLeft}</div>
-                        )}
-
-                        <div>
+                        <div className="main-content">
                             <ProcessedPost body={post.body.data.childHtmlRehype.html} />
 
                             <div className="build-pipeline-banner">
@@ -250,7 +241,7 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
                 buttonClass={'section-one-demo-button'}
                 buttonId="pricing-hero-hubspot"
             />
-        </Layout>
+        </Layout >
     );
 };
 
