@@ -27,7 +27,7 @@ const Bio = ({ authors }: BioProps) => {
             <strong className="author-name">{name}</strong>
         );
 
-        const rendered_img = image && (
+        const rendered_img = (
             <Avatar image={image} alt="Author's avatar" name={name} />
         );
 

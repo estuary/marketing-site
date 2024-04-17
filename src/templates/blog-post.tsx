@@ -6,29 +6,30 @@ import { OutboundLink } from '../components/OutboundLink';
 import dayjs from 'dayjs';
 import reltime from 'dayjs/plugin/relativeTime';
 
-import AccessTime from '@mui/icons-material/AccessTime';
 import CalendarTodayOutlined from '@mui/icons-material/CalendarTodayOutlined';
 import DoneIcon from '@mui/icons-material/Done';
 import { Divider } from '@mui/material';
-import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { useEffect, useState } from 'react';
+import Avatar from '../components/Avatar';
 import { PopularArticles } from '../components/BlogPopularArticles';
-import BlogPostPopupModal from '../components/BlogPostPopupModal';
 import { ProcessedPost } from '../components/BlogPostProcessor';
 import { RenderToc } from '../components/BlogPostToc';
-import NextStepsLink from '../components/NextStepsLink';
 import Bio from '../components/bio';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
 import logoUrl from '../images/combination-mark__multi-blue.png';
-import FacebookIcon from '../svgs/facebook-outline.svg';
-import SlackIcon from '../svgs/slack-outline-2.svg';
+import LinkedinIcon from '../svgs/linkedin-outline.svg';
 import TwitterXIcon from '../svgs/twitter-x-outline.svg';
 
 dayjs.extend(reltime);
 
 const BlogPostTemplate = ({ data: { post }, pageContext }) => {
     const postTags = post.tags.filter((tag) => tag.type === 'tag');
+
+    const authorImage = post.authors[0].picture && getImage(post.authors[0].picture.localFile.childImageSharp.gatsbyImageData)
+
+    const authorSocialLink = post?.authors[0]?.link
 
     const [windowWidth, setWindowWidth] = useState(typeof window === 'undefined' ? 1500 : window.innerWidth);
 
@@ -107,23 +108,19 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
                                     <span className="blog-post-date">{post.publishedAt}</span>
                                 </div>
 
-                                <div className="icon-info-wrapper">
+                                {/* TODO: Add post reading time */}
+                                {/* <div className="icon-info-wrapper">
                                     <AccessTime className="icon" />
                                     <span className="blog-post-date">
-                                        {/* TODO: Add post reading time from Strapi */}
                                         10 min
                                     </span>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                         <h1>{post.title}</h1>
                         <h2>
-                            {/* TODO: Add post description to Strapi */}
                             {post.description}
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed. Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit, sed.
                         </h2>
-                        {/* TODO: Add post author to Strapi */}
                         <Bio authors={post.authors} />
                     </div>
                     {post.hero ? (
@@ -160,51 +157,46 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
                     </section>
                 )}
                 <section className="next-steps-and-about-author-section">
-                    <div className="next-steps">
+                    {/* <div className="next-steps">
                         <h3>Next steps</h3>
-                        {/* TODO: Add the actual next steps and their href */}
                         <NextStepsLink href="">Read about Lorem ipsum dolor sit amet, consectetur</NextStepsLink>
                         <NextStepsLink href="">Learn about Lorem ipsum dolor sit amet</NextStepsLink>
                         <NextStepsLink href="">Lorem ipsum dolor sit amet</NextStepsLink>
-                    </div>
+                    </div> */}
                     {/* TODO: Add actual author info from Strapi */}
                     <div className="about-author">
                         <h3>About the author</h3>
                         <div className="author-info">
                             <div className="author-main-info-container">
                                 <div className="author-avatar-container">
-                                    <StaticImage
-                                        className="author-avatar"
-                                        src="../images/a-avatar.svg"
+                                    <Avatar
+                                        image={authorImage}
                                         alt="Author's Avatar"
-                                        width={54}
-                                        height={54}
+                                        name={post.authors[0].name}
                                     />
                                 </div>
                                 <div className="author-name-and-role">
-                                    <span className="author-name">David Yaffe</span>
-                                    <span className="author-role">CEO</span>
+                                    <span className="author-name">{post.authors[0].name}</span>
+                                    {/* TODO: Add author's role */}
+                                    {/* <span className="author-role">CEO</span> */}
                                 </div>
                             </div>
-                            <div className="social-icon-buttons-container">
-                                <Divider orientation="vertical" variant="middle" flexItem className="author-info-divider" />
-                                <OutboundLink href="https://estuary-dev.slack.com" target="_blank">
-                                    <SlackIcon />
-                                </OutboundLink>
-                                <OutboundLink href="https://twitter.com/EstuaryDev" target="_blank">
-                                    <TwitterXIcon />
-                                </OutboundLink>
-                                {/* TODO: add Estuary's facebook URL */}
-                                <OutboundLink href="" target="_blank">
-                                    <FacebookIcon />
-                                </OutboundLink>
-                            </div>
+                            {authorSocialLink &&
+                                <div className="social-icon-buttons-container">
+                                    <Divider orientation="vertical" variant="middle" flexItem className="author-info-divider" />
+                                    {authorSocialLink?.includes("linkedin.com") &&
+                                        <OutboundLink href={authorSocialLink} target="_blank">
+                                            <LinkedinIcon color="#47506D" />
+                                        </OutboundLink>
+                                    }
+                                    {authorSocialLink?.includes("twitter.com") &&
+                                        <OutboundLink href={authorSocialLink} target="_blank">
+                                            <TwitterXIcon />
+                                        </OutboundLink>
+                                    }
+                                </div>
+                            }
                         </div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed consectetur adipiscing elit. Lorem ipsum
-                            dolor sit amet, consectetur adipiscing elit, sed consectetur adipiscing elit.Lorem ipsum dolor sit amet,
-                            consectetur adipiscing elit, sed consectetur adipiscing elit sed consectetur adipiscing.
-                        </p>
                     </div>
                 </section>
                 <section className="popular-articles">
@@ -236,11 +228,12 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
                     </div>
                 </section>
             </article>
-            <BlogPostPopupModal
+            {/* TODO: add this pop-up */}
+            {/* <BlogPostPopupModal
                 buttonLabel={'Contact Us'}
                 buttonClass={'section-one-demo-button'}
                 buttonId="pricing-hero-hubspot"
-            />
+            /> */}
         </Layout >
     );
 };

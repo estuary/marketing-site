@@ -6,7 +6,6 @@ export const Container = styled.div<{ $hasImage: boolean }>`
   overflow: hidden;
 
   background-color: #02a99e;
-  color: #ffffff;
   width: 36px;
   height: 36px;
   border-radius: 100%;
@@ -19,9 +18,10 @@ export const Container = styled.div<{ $hasImage: boolean }>`
     && css`
         padding: 12px;
         padding-top: 14px;
-
+        
         span {
           font-size: 1rem;
+          color: #ffffff !important;
         }
       `
   }

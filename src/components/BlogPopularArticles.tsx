@@ -1,7 +1,8 @@
 import { Link, graphql, useStaticQuery } from "gatsby"
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import * as React from "react"
 import ArrowRight2 from "../svgs/arrow-right-2.svg"
+import Avatar from "./Avatar"
 
 export const PopularArticles = () => {
     const { popularArticles } = useStaticQuery(graphql`
@@ -59,13 +60,15 @@ export const PopularArticles = () => {
             <ul>
                 {popularArticles?.nodes &&
                     popularArticles?.nodes?.map((article: any, index: number) => {
+                        const articleImage = article?.hero?.localFile?.childImageSharp?.gatsbyImageData;
                         const articleTags = article.tags.filter((tag) => tag.type === "tag");
+                        const authorImage = article.authors[0].picture && getImage(article.authors[0].picture.localFile.childImageSharp.gatsbyImageData);
 
                         return (
                             <li key={index}>
                                 <Link to={`/${article?.slug}`}>
                                     <GatsbyImage
-                                        image={article?.hero?.localFile?.childImageSharp?.gatsbyImageData}
+                                        image={articleImage}
                                         alt="debezium alternatives"
                                         className="popular-articles-image"
                                     />
@@ -83,12 +86,10 @@ export const PopularArticles = () => {
                                     </div>
                                     <h4>{article?.title}</h4>
                                     <div className="article-card-authors">
-                                        <StaticImage
-                                            className="article-card-author-avatar"
-                                            src="../images/a-avatar.svg"
+                                        <Avatar
+                                            image={authorImage}
                                             alt="Author's Avatar"
-                                            width={36}
-                                            height={36}
+                                            name={article?.authors[0]?.name}
                                         />
                                         <span>{article?.authors[0]?.name}</span>
                                     </div>

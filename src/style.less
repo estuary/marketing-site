@@ -6344,6 +6344,7 @@ table th {
         .dynamic-html {
             width: 100%;
             overflow: hidden;
+            padding-left: 48px;
         }
     }
 
@@ -6683,16 +6684,14 @@ table th {
         }
 
         .about-author {
-            width: 60%;
-
-            @media (max-width: 767px) {
-                width: 100%;
-            }
-
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            
             .author-info {
                 display: flex;
                 align-items: center;
-                margin-top: 40px;
                 margin-bottom: 16px;
                 row-gap: 20px;
 
@@ -6706,7 +6705,6 @@ table th {
                 .author-main-info-container {
                     display: flex;
                     align-items: center;
-                    margin-right: 30px;
                 }
 
                 .author-avatar-container {
@@ -6747,6 +6745,7 @@ table th {
                     height: 57px;
                     width: 1px;
                     border-color: #d7dce5;
+                    margin-left: 30px;
 
                     @media (max-width: 767px) {
                         height: 24px;
@@ -6826,11 +6825,6 @@ table th {
                     font-weight: 600;
                     line-height: 30px;
                     margin: 16px 0;
-                }
-
-                .article-card-author-avatar {
-                    max-width: 36px;
-                    max-height: 36px;
                 }
 
                 .popular-articles-image {
