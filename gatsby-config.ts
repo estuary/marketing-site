@@ -108,9 +108,27 @@ const cfg: GatsbyConfig = {
   // graphqlTypegen: true,
   plugins: [
     {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: ['G-P1PZPE4HHZ'],
+        // This object gets passed directly to the gtag config command
+        // This config will be shared across all trackingIds
+        gtagConfig: {
+          anonymize_ip: true,
+          ignore_referrer: true,
+          cookie_expires: 0,
+        },
+        // This object is used for configuration specific to this plugin
+        pluginConfig: {
+          head: true,
+          respectDNT: true,
+        },
+      },
+    },
+    {
       resolve: 'gatsby-plugin-preconnect',
       options: {
-        domains: ['https://hs-banner.com', 'https://hs-scripts.com', 'https://www.googletagmanager.com'],
+        domains: ['https://hs-banner.com', 'https://hs-scripts.com',
       },
     },
     {
