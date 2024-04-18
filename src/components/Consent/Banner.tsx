@@ -7,89 +7,17 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import 'vanilla-cookieconsent/dist/cookieconsent.css';
 import * as CookieConsent from 'vanilla-cookieconsent';
 import Cookies from 'universal-cookie';
-// import { Script } from 'gatsby';
+import { COOKIE_NAME } from './shared';
 
-declare const window: Window & { dataLayer: Record<string, unknown>[] };
-
-const GTAG_ID = 'G-P1PZPE4HHZ';
-const COOKIE_NAME = 'estuary.consent.settings'; //if this change tag manager needs updated
-
-const updateCookieConsent = () => {
-  CookieConsent.showPreferences();
-};
-
-const resetCookieConsent = () => {
-  CookieConsent.reset(true);
-};
-
-const listenForConsent = (state: any) => {
-  console.log('listenForConsent', state);
-
-  if (window._ccRun) return;
-
-  window.dataLayer = window.dataLayer || [];
-  function gtag() {
-    window.dataLayer.push(arguments);
-  }
-
-  gtag('consent', 'default', {
-    ad_storage: 'denied',
-    ad_user_data: 'denied',
-    ad_personalization: 'denied',
-    analytics_storage: 'denied',
-    functionality_storage: 'denied',
-    personalization_storage: 'denied',
-    security_storage: 'granted',
-  });
-
-  state.setLoadScript(true);
-
-  gtag('js', new Date());
-  gtag('config', GTAG_ID);
-
-  const updateGtagConsent = () => {
-    gtag('consent', 'update', {
-      ad_storage: CookieConsent.acceptedCategory('advertisement') ? 'granted' : 'denied',
-      ad_user_data: CookieConsent.acceptedCategory('advertisement') ? 'granted' : 'denied',
-      ad_personalization: CookieConsent.acceptedCategory('advertisement') ? 'granted' : 'denied',
-      analytics_storage: CookieConsent.acceptedCategory('analytics') ? 'granted' : 'denied',
-      functionality_storage: CookieConsent.acceptedCategory('functional') ? 'granted' : 'denied',
-      personalization_storage: CookieConsent.acceptedCategory('functional') ? 'granted' : 'denied',
-      security_storage: 'granted', //necessary
-    });
-    dataLayer.push({
-      event: 'cookie_consent_update',
-    });
-  };
-
-  window.addEventListener('cc:onConsent', () => {
-    updateGtagConsent();
-  });
-
-  window.addEventListener('cc:onChange', () => {
-    updateGtagConsent();
-  });
-};
-
-const CookieConsentComponent = () => {
-  const [decisionMade, setDecisionMade] = useState(true);
-  const cookies = useMemo(() => new Cookies(), []);
-
+const CookieConsentBanner = () => {
   useEffect(() => {
-    if (cookies.get(COOKIE_NAME) !== undefined) {
-      setDecisionMade(true);
-    } else {
-      setDecisionMade(false);
-    }
-  }, [cookies, setDecisionMade, sendConsent]);
-
-  useEffect(() => {
-    /**
-     * All config. options available here:
-     * https://cookieconsent.orestbida.com/reference/configuration-reference.html
-     */
-    listenForConsent({ setLoadScript });
     CookieConsent.run({
+      autoShow: true,
+      cookie: {
+        name: COOKIE_NAME,
+        domain: '.estuary.dev',
+        path: '/',
+      },
       guiOptions: {
         consentModal: {
           layout: 'cloud inline',
@@ -168,13 +96,7 @@ const CookieConsentComponent = () => {
     });
   }, []);
 
-  return (
-    <>
-      {loadScript && (
-        <script async strategy="lazyOnload" src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`} />
-      )}
-    </>
-  );
+  return null;
 };
 
-export { updateCookieConsent, resetCookieConsent, CookieConsentComponent };
+export default CookieConsentBanner;
