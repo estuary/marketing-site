@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo, useCallback } from 'react';
+import React, { useEffect, useRef, useState, useMemo, useCallback } from 'react';
 import CookieConsentBanner from './Banner';
 import Cookies from 'universal-cookie';
 import PropTypes from 'prop-types';
@@ -15,6 +15,7 @@ const BUTTON_SIZE = {
 };
 
 const ConsentForm = () => {
+  const hasListeners = useRef(false);
   const [decisionMade, setDecisionMade] = useState(true); // start with true to avoid flashing
   const cookies = useMemo(() => new Cookies(), []);
 
@@ -28,12 +29,7 @@ const ConsentForm = () => {
   }, []);
 
   useEffect(() => {
-    console.log('cookie effect - decision');
-    if (cookies.get(COOKIE_NAME) !== undefined) {
-      setDecisionMade(true);
-    } else {
-      setDecisionMade(false);
-    }
+    setDecisionMade(cookies.get(COOKIE_NAME) !== undefined);
   }, [cookies, setDecisionMade, sendConsent]);
 
   const handleDecision = () => {
@@ -51,7 +47,9 @@ const ConsentForm = () => {
   };
 
   useEffect(() => {
-    console.log('listener effect');
+    if (hasListeners.current) {
+      return;
+    }
 
     window.addEventListener('cc:onFirstConsent', () => {
       handleDecision();
@@ -59,9 +57,9 @@ const ConsentForm = () => {
     window.addEventListener('cc:onChange', () => {
       handleDecision();
     });
-  }, []);
 
-  console.log('decisionMade', decisionMade);
+    hasListeners.current = true;
+  }, []);
 
   return (
     <>
