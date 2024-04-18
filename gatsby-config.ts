@@ -128,7 +128,7 @@ const cfg: GatsbyConfig = {
     {
       resolve: 'gatsby-plugin-preconnect',
       options: {
-        domains: ['https://hs-banner.com', 'https://hs-scripts.com',
+        domains: ['https://hs-banner.com', 'https://hs-scripts.com'],
       },
     },
     {
