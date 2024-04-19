@@ -5,9 +5,8 @@
  */
 
 import { GatsbyConfig } from 'gatsby';
-import { normalizeConnector } from './src/utils';
 import path from 'path';
-import { GA_MEASUREMENT_ID } from './shared';
+import { normalizeConnector } from './src/utils';
 
 import { SUPABASE_CONNECTION_STRING } from './config';
 
@@ -110,7 +109,7 @@ const cfg: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingIds: ['G-P1PZPE4HHZ'],
+        trackingIds: ['G-P1PZPE4HHZ', 'GTM-WK8SB2L'],
         // This object gets passed directly to the gtag config command
         // This config will be shared across all trackingIds
         gtagConfig: {
