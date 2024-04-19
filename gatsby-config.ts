@@ -127,6 +127,19 @@ const cfg: GatsbyConfig = {
       },
     },
     {
+      resolve: `gatsby-plugin-gdpr-cookies`,
+      options: {
+        googleAnalytics: {
+          trackingId: 'G-P1PZPE4HHZ',
+          cookieName: 'estuary.consent.settings',
+        },
+        googleTagManager: {
+          trackingId: 'GTM-WK8SB2L',
+          cookieName: 'estuary.consent.settings',
+        },
+      },
+    },
+    {
       resolve: 'gatsby-plugin-preconnect',
       options: {
         domains: ['https://hs-banner.com', 'https://hs-scripts.com'],
