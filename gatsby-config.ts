@@ -9,7 +9,6 @@ import path from 'path';
 import { normalizeConnector } from './src/utils';
 
 import { SUPABASE_CONNECTION_STRING } from './config';
-import { COOKIE_NAME } from './src/components/Consent/shared';
 
 // Disable multiple prepared statements because pgbouncer doesn't like 'em very much
 process.env['POSTGRAPHILE_PREPARED_STATEMENT_CACHE_SIZE'] = '1';
@@ -110,32 +109,18 @@ const cfg: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingIds: ['G-P1PZPE4HHZ'],
+        trackingIds: ['G-P1PZPE4HHZ', 'GTM-WK8SB2L'],
         // This object gets passed directly to the gtag config command
         // This config will be shared across all trackingIds
         gtagConfig: {
           anonymize_ip: true,
           ignore_referrer: true,
           cookie_expires: 0,
-          cookie_name: COOKIE_NAME,
         },
         // This object is used for configuration specific to this plugin
         pluginConfig: {
           head: true,
           respectDNT: true,
-        },
-      },
-    },
-    {
-      resolve: `gatsby-plugin-gdpr-cookies`,
-      options: {
-        googleAnalytics: {
-          trackingId: 'G-P1PZPE4HHZ',
-          cookieName: 'estuary.consent.settings',
-        },
-        googleTagManager: {
-          trackingId: 'GTM-WK8SB2L',
-          cookieName: 'estuary.consent.settings',
         },
       },
     },
