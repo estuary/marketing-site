@@ -1,67 +1,69 @@
-import { graphql } from "gatsby"
-import React from "react"
-import { ConnectorType } from "../../../shared"
-import Layout from '../../components/layout'
-import Seo from '../../components/seo'
-import { normalizeConnector } from "../../utils"
-import ChangeData from './ChangeData'
-import Hero from './Hero'
-import Pipelines from './Pipelines'
-import RealTime from './RealTime'
-import TakeATour from './TakeATour'
-import TheAutomation from './TheAutomation'
+import { graphql } from 'gatsby';
+import React from 'react';
+import { ConnectorType } from '../../../shared';
+import Layout from '../../components/layout';
+import Seo from '../../components/seo';
+import { normalizeConnector } from '../../utils';
+import ChangeData from './ChangeData';
+import Hero from './Hero';
+import Pipelines from './Pipelines';
+import RealTime from './RealTime';
+import TakeATour from './TakeATour';
+import TheAutomation from './TheAutomation';
 
 export interface ConnectorProps {
-    data: {
-        postgres: {
-            connector: any
-        }
-    }
-    pageContext: {
-        id: string
-        type: ConnectorType
-    }
-    //future work if someone wants to parametrize the source and destination images
-    connectorImageSource: {
-        source: any
-    }
-    connectorImageDestination: {
-        destination: any
-    }
+  data: {
+    postgres: {
+      connector: any;
+    };
+  };
+  pageContext: {
+    id: string;
+    type: ConnectorType;
+  };
+  //future work if someone wants to parametrize the source and destination images
+  connectorImageSource: {
+    source: any;
+  };
+  connectorImageDestination: {
+    destination: any;
+  };
 }
 
 const Connector = ({
-    data: {
-        postgres: { connector },
-    },
+  data: {
+    postgres: { connector },
+  },
 }: ConnectorProps) => {
-    const mappedConnector = normalizeConnector(connector);
+  const mappedConnector = normalizeConnector(connector);
 
-    return (
-        <Layout headerTheme="light">
-            <article itemScope itemType="http://schema.org/Article">
-                <Hero
-                    connector={{
-                        title: mappedConnector?.title,
-                        logo: mappedConnector?.logo?.childImageSharp?.gatsbyImageData,
-                        type: mappedConnector?.type
-                    }}
-                />
-                <ChangeData connector={{
-                    id: mappedConnector?.id,
-                    title: mappedConnector?.title,
-                    type: mappedConnector?.type
-                }} />
-                <Pipelines />
-                <RealTime />
-                <TakeATour />
-                <TheAutomation />
-            </article>
-        </Layout>
-    )
-}
+  return (
+    <Layout headerTheme="light">
+      <article itemScope itemType="http://schema.org/Article">
+        <Hero
+          connector={{
+            title: mappedConnector?.title,
+            logo: mappedConnector?.logo?.childImageSharp?.gatsbyImageData,
+            type: mappedConnector?.type,
+          }}
+        />
+        <ChangeData
+          connector={{
+            id: mappedConnector?.id,
+            title: mappedConnector?.title,
+            type: mappedConnector?.type,
+          }}
+        />
+        <Pipelines />
+        <RealTime />
+        <TakeATour />
+        {/*<TheAutomation />*/}
+      </article>
+    </Layout>
+  );
+};
 
-export default Connector
+export default Connector;
 
 /**
  * Head export to define metadata for the page
@@ -69,44 +71,35 @@ export default Connector
  * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
  */
 export const Head = ({
-    data: {
-        postgres: { connector },
-    },
+  data: {
+    postgres: { connector },
+  },
 }) => {
-    const title = connector.title?.["en-US"]
-    return (
-        <Seo
-            title={title}
-            description={connector.shortDescription?.["en-US"]}
-        />
-    )
-}
+  const title = connector.title?.['en-US'];
+  return <Seo title={title} description={connector.shortDescription?.['en-US']} />;
+};
 
 export const pageQuery = graphql`
-    query ConnectorData($id: PostGraphile_Flowid!) {
-        postgres {
-            connector: connectorById(id: $id) {
-                id
-                externalUrl
-                imageName
-                shortDescription
-                longDescription
-                title
-                logoUrl
-                logo {
-                    childImageSharp {
-                        gatsbyImageData(
-                            layout: CONSTRAINED
-                            placeholder: NONE
-                            quality: 100
-                        )
-                    }
-                }
-                recommended
-                connectorTagsByConnectorIdList {
-                    protocol
-                }
-            }
+  query ConnectorData($id: PostGraphile_Flowid!) {
+    postgres {
+      connector: connectorById(id: $id) {
+        id
+        externalUrl
+        imageName
+        shortDescription
+        longDescription
+        title
+        logoUrl
+        logo {
+          childImageSharp {
+            gatsbyImageData(layout: CONSTRAINED, placeholder: NONE, quality: 100)
+          }
         }
+        recommended
+        connectorTagsByConnectorIdList {
+          protocol
+        }
+      }
     }
-`
+  }
+`;

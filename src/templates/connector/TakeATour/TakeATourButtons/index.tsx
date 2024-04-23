@@ -10,7 +10,7 @@ const TakeATourButtons = () => {
         Self-Guided Tour [1 min]
       </ActionLink>
       <Button target="_blank" href={webinarsUrl}>
-        Product Overview [30 min]
+        Product Demo [30 min]
       </Button>
     </>
   );

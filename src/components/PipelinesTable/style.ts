@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import CheckmarkDefault from '../../../../../svgs/checkmark.svg';
-import CloseDefault from '../../../../../svgs/close.svg';
+import CheckmarkDefault from '../../svgs/checkmark.svg';
+import CloseDefault from '../../svgs/close.svg';
 
 export const Container = styled.div`
   display: flex;

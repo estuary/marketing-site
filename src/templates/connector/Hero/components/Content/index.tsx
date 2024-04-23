@@ -11,7 +11,7 @@ type ContentProps = {
     title: string;
     type: ConnectorType;
   };
-}
+};
 
 const Content = ({ connector }: ContentProps) => {
   return (
@@ -29,7 +29,7 @@ const Content = ({ connector }: ContentProps) => {
         <Pretitle>Real-time ETL & CDC</Pretitle>
       </ContainerPreTitle>
       <Title>
-        {connector?.type === "capture" ? (
+        {connector?.type === 'capture' ? (
           <>
             <span>MOVE</span> YOUR DATA FROM {connector?.title.toUpperCase()} WITH YOUR <span>FREE</span> ACCOUNT
           </>
@@ -50,7 +50,7 @@ const Content = ({ connector }: ContentProps) => {
         </Topic>
         <Topic>
           <DoneIcon htmlColor="#47506d" fontSize="small" />
-          <span>300+</span> Connectors
+          <span>150+</span> Connectors
         </Topic>
         <Topic>
           <DoneIcon htmlColor="#47506d" fontSize="small" />

@@ -1,7 +1,6 @@
 import React from 'react';
 
-import PipelinesTable from './components/Table';
-
+import PipelinesTable from '../../../components/PipelinesTable';
 import { Button, Container, Description, LineBreak, Title } from './style';
 
 const Pipelines = () => {
@@ -15,7 +14,7 @@ const Pipelines = () => {
       <Description>Feature Comparison</Description>
       <PipelinesTable />
       <Button target="_blank" to="/vs-fivetran">
-        View Product
+        Detailed Comparison
       </Button>
     </Container>
   );
