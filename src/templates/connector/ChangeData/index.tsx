@@ -39,9 +39,10 @@ const ChangeData = ({ connector: { id, title, type } }: ChangeDataProps) => {
           HIGH THROUGHPUT
         </Title>
         <Description>
-          Point a connector and replicate changes {type === 'capture' ? 'from' : 'to'} {title} in &#60;100ms with
-          high-availability, high-throughput Change Data Capture. Or choose from 100s of batch and real-time connectors
-          to move and transform data using ELT and ETL.
+          Point a connector and replicate changes {type === 'capture' ? 'from' : 'to'} {title} in &#60;100ms. Leverage
+          high-availability, high-throughput Change Data Capture.
+          <LineBreak />
+          Or choose from 100s of batch and real-time connectors to move and transform data using ELT and ETL.
         </Description>
         <Topics>
           <Topic>
