@@ -2,7 +2,7 @@ import { LottieRef } from "lottie-react"
 import * as React from "react"
 import styled from "styled-components"
 import AnimFallback from "./AnimFallback"
-import { AnimationBaseStyling } from "./style"
+import { AnimationBaseStyling } from "./styles"
 
 const FlowAnimation = styled(React.lazy(() => import("lottie-react")))`
   ${AnimationBaseStyling}

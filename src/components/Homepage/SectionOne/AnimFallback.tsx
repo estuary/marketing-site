@@ -1,6 +1,6 @@
 import { StaticImage } from "gatsby-plugin-image";
 import * as React from "react";
-import { FlowAnimationPlaceholderContainer } from "./style";
+import { FlowAnimationPlaceholderContainer } from "./styles";
 
 const AnimFallback = () => (
   <FlowAnimationPlaceholderContainer>

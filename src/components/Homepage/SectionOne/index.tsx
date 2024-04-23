@@ -16,7 +16,7 @@ import {
     SecondaryButton,
     VanityLogo,
     VanityLogosMarquee,
-} from "./style"
+} from "./styles"
 
 const SectionOne = () => {
     const logos = useStaticQuery(graphql`
