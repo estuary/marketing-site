@@ -50,7 +50,7 @@ const Content = ({ connector }: ContentProps) => {
         </Topic>
         <Topic>
           <DoneIcon htmlColor="#47506d" fontSize="small" />
-          <span>150+</span> Connectors
+          <span>100+</span> Connectors
         </Topic>
         <Topic>
           <DoneIcon htmlColor="#47506d" fontSize="small" />

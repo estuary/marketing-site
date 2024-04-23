@@ -14,7 +14,7 @@ const ProductHeroCards = () => {
       </Card>
       <Card>
         <Title>
-          <span>150+</span> CONNECTORS
+          <span>100+</span> CONNECTORS
         </Title>
         <Divider />
         <Description>
