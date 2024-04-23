@@ -1,12 +1,10 @@
-import React, { useEffect, useRef, useState, useMemo, useCallback } from 'react';
-import CookieConsentBanner from './Banner';
-import Cookies from 'universal-cookie';
-import PropTypes from 'prop-types';
-import * as CookieConsent from 'vanilla-cookieconsent';
-import { COOKIE_NAME } from './shared';
-import { IconButton } from '@mui/material';
 import CookieOutlinedIcon from '@mui/icons-material/CookieOutlined';
-
+import { IconButton } from '@mui/material';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import Cookies from 'universal-cookie';
+import * as CookieConsent from 'vanilla-cookieconsent';
+import CookieConsentBanner from './Banner';
+import { COOKIE_NAME } from './shared';
 declare const window: Window & { dataLayer: Record<string, unknown>[] };
 
 const BUTTON_SIZE = {
@@ -32,8 +30,7 @@ const ConsentForm = () => {
     setDecisionMade(cookies.get(COOKIE_NAME) !== undefined);
   }, [cookies, setDecisionMade, sendConsent]);
 
-  const handleDecision = () => {
-    console.log('sendConsent');
+  const handleSendConsent = () => {
     sendConsent({
       ad_storage: CookieConsent.acceptedCategory('advertisement') ? 'granted' : 'denied',
       ad_user_data: CookieConsent.acceptedCategory('advertisement') ? 'granted' : 'denied',
@@ -43,6 +40,11 @@ const ConsentForm = () => {
       personalization_storage: CookieConsent.acceptedCategory('functional') ? 'granted' : 'denied',
       security_storage: 'granted', //necessary
     });
+  }
+
+  const handleDecision = () => {
+    console.log('sendConsent');
+    handleSendConsent();
     setDecisionMade(true);
   };
 
@@ -50,6 +52,8 @@ const ConsentForm = () => {
     if (hasListeners.current) {
       return;
     }
+
+    handleSendConsent();
 
     window.addEventListener('cc:onFirstConsent', () => {
       handleDecision();
