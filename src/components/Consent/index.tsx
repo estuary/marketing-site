@@ -5,6 +5,7 @@ import Cookies from 'universal-cookie';
 import * as CookieConsent from 'vanilla-cookieconsent';
 import CookieConsentBanner from './Banner';
 import { COOKIE_NAME } from './shared';
+
 declare const window: Window & { dataLayer: Record<string, unknown>[] };
 
 const BUTTON_SIZE = {
@@ -30,7 +31,8 @@ const ConsentForm = () => {
     setDecisionMade(cookies.get(COOKIE_NAME) !== undefined);
   }, [cookies, setDecisionMade, sendConsent]);
 
-  const handleSendConsent = () => {
+  const handleDecision = () => {
+    console.log('sendConsent');
     sendConsent({
       ad_storage: CookieConsent.acceptedCategory('advertisement') ? 'granted' : 'denied',
       ad_user_data: CookieConsent.acceptedCategory('advertisement') ? 'granted' : 'denied',
@@ -40,11 +42,6 @@ const ConsentForm = () => {
       personalization_storage: CookieConsent.acceptedCategory('functional') ? 'granted' : 'denied',
       security_storage: 'granted', //necessary
     });
-  }
-
-  const handleDecision = () => {
-    console.log('sendConsent');
-    handleSendConsent();
     setDecisionMade(true);
   };
 
@@ -52,8 +49,6 @@ const ConsentForm = () => {
     if (hasListeners.current) {
       return;
     }
-
-    handleSendConsent();
 
     window.addEventListener('cc:onFirstConsent', () => {
       handleDecision();
