@@ -5,6 +5,13 @@ export const COOKIE_NAME = 'estuary.consent.settings';
 // If there are changes to what we load we need to increment this up to get consent again.
 export const CONSENT_REVISION = 1;
 
+export enum CONSENT_CATEGORIES {
+  analytics = 'analytics',
+  functional = 'functional',
+  advertisement = 'advertisement',
+  personalization = 'personalization',
+}
+
 export const COOKIE_CONSENT_SETTINGS: CookieConsentConfig = {
   autoShow: true,
   revision: CONSENT_REVISION,
@@ -24,9 +31,10 @@ export const COOKIE_CONSENT_SETTINGS: CookieConsentConfig = {
       enabled: true,
       readOnly: true,
     },
-    functional: {},
-    analytics: {},
-    advertisement: {},
+    [CONSENT_CATEGORIES.analytics]: {},
+    [CONSENT_CATEGORIES.advertisement]: {},
+    [CONSENT_CATEGORIES.functional]: {},
+    [CONSENT_CATEGORIES.personalization]: {},
   },
   language: {
     default: 'en',
@@ -62,20 +70,25 @@ export const COOKIE_CONSENT_SETTINGS: CookieConsentConfig = {
               title: 'Functional',
               description:
                 'Functional cookies help perform certain functionalities like sharing the content of the website on social media platforms, collecting feedback, and other third-party features.',
-              linkedCategory: 'functional',
+              linkedCategory: CONSENT_CATEGORIES.functional,
             },
             {
               title: 'Analytics',
               description:
                 'Analytical cookies are used to understand how visitors interact with the website. These cookies help provide information on metrics such as the number of visitors, bounce rate, traffic source, etc.',
-              linkedCategory: 'analytics',
+              linkedCategory: CONSENT_CATEGORIES.analytics,
             },
             {
               title: 'Advertisement',
               description:
                 'Advertisement cookies are used to provide visitors with customized advertisements based on the pages you visited previously and to analyze the effectiveness of the ad campaigns.',
-              linkedCategory: 'advertisement',
+              linkedCategory: CONSENT_CATEGORIES.advertisement,
             },
+            // {
+            //   title: 'Personalization',
+            //   description: 'CONTENT REQUIRED BEFORE ENABLING',
+            //   linkedCategory: CONSENT_CATEGORIES.personalization,
+            // },
             {
               title: 'More information',
               description: 'For any queries in relation to our policy on cookies and your choices, please contact us.',

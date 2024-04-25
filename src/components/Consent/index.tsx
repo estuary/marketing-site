@@ -3,7 +3,7 @@ import { IconButton } from '@mui/material';
 import React, { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import Cookies from 'universal-cookie';
 import * as CookieConsent from 'vanilla-cookieconsent';
-import { COOKIE_CONSENT_SETTINGS, COOKIE_NAME } from './shared';
+import { CONSENT_CATEGORIES, COOKIE_CONSENT_SETTINGS, COOKIE_NAME } from './shared';
 
 function gtag() {
   // @ts-expect-error just using the code Google recommends
@@ -41,9 +41,14 @@ const ConsentForm = () => {
     }
 
     // Snag the settings from cookie consent
-    const advertisementSettings = CookieConsent.acceptedCategory('advertisement') ? 'granted' : 'denied';
-    const analyticsSettings = CookieConsent.acceptedCategory('analytics') ? 'granted' : 'denied';
-    const functionalSettings = CookieConsent.acceptedCategory('functional') ? 'granted' : 'denied';
+    const advertisementSettings = CookieConsent.acceptedCategory(CONSENT_CATEGORIES.advertisement)
+      ? 'granted'
+      : 'denied';
+    const analyticsSettings = CookieConsent.acceptedCategory(CONSENT_CATEGORIES.analytics) ? 'granted' : 'denied';
+    const functionalSettings = CookieConsent.acceptedCategory(CONSENT_CATEGORIES.functional) ? 'granted' : 'denied';
+    const personalizationSettings = CookieConsent.acceptedCategory(CONSENT_CATEGORIES.personalization)
+      ? 'granted'
+      : 'denied';
 
     // Tell Google about it
     // @ts-expect-error just using the code Google recommends
@@ -53,7 +58,7 @@ const ConsentForm = () => {
       ad_personalization: advertisementSettings,
       analytics_storage: analyticsSettings,
       functionality_storage: functionalSettings,
-      personalization_storage: functionalSettings,
+      personalization_storage: personalizationSettings,
       security_storage: 'granted',
     });
 
