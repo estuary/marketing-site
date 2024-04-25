@@ -44,7 +44,7 @@ const ConsentForm = () => {
     const advertisementSettings = CookieConsent.acceptedCategory(CONSENT_CATEGORIES.advertisement)
       ? 'granted'
       : 'denied';
-    const analyticsSettings = CookieConsent.acceptedCategory(CONSENT_CATEGORIES.analytics) ? 'granted' : 'denied';
+    const analyticsSettings = CookieConsent.acceptedCategory(CONSENT_CATEGORIES.marketing) ? 'granted' : 'denied';
     const functionalSettings = CookieConsent.acceptedCategory(CONSENT_CATEGORIES.functional) ? 'granted' : 'denied';
     const personalizationSettings = CookieConsent.acceptedCategory(CONSENT_CATEGORIES.personalization)
       ? 'granted'

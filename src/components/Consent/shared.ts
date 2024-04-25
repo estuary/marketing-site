@@ -13,8 +13,8 @@ export const COOKIE_NAME = 'estuary.consent.settings';
 
 export enum CONSENT_CATEGORIES {
   advertisement = 'advertisement',
-  analytics = 'analytics',
   functional = 'functional',
+  marketing = 'marketing',
   necessary = 'necessary',
   personalization = 'personalization',
 }
@@ -38,7 +38,7 @@ export const COOKIE_CONSENT_SETTINGS: CookieConsentConfig = {
       enabled: true,
       readOnly: true,
     },
-    [CONSENT_CATEGORIES.analytics]: {
+    [CONSENT_CATEGORIES.marketing]: {
       services: {
         ga4: {
           label: 'Google Analytics 4',
@@ -87,10 +87,10 @@ export const COOKIE_CONSENT_SETTINGS: CookieConsentConfig = {
               linkedCategory: 'necessary',
             },
             {
-              title: 'Analytics',
+              title: 'Marketing',
               description:
-                'Analytical cookies are used to understand how visitors interact with the website. These cookies help provide information on metrics such as the number of visitors, bounce rate, traffic source, etc.',
-              linkedCategory: CONSENT_CATEGORIES.analytics,
+                'Marketing cookies are used to understand how visitors interact with the website. These cookies help provide information on metrics such as the number of visitors, bounce rate, traffic source, etc.',
+              linkedCategory: CONSENT_CATEGORIES.marketing,
             },
             {
               title: 'Advertisement',
