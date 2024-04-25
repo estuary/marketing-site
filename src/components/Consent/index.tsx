@@ -3,16 +3,15 @@ import { IconButton } from '@mui/material';
 import React, { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import Cookies from 'universal-cookie';
 import * as CookieConsent from 'vanilla-cookieconsent';
-import CookieConsentBanner from './Banner';
-import { COOKIE_NAME } from './shared';
+import { COOKIE_CONSENT_SETTINGS, COOKIE_NAME } from './shared';
 
 declare const window: Window & { dataLayer: Record<string, unknown>[] };
 
-function gtag() {
+const gtag: Gtag.Gtag = () => {
   window.dataLayer = window.dataLayer || [];
   // @ts-expect-error we want to use arguments as that is how they are implemented
   window.dataLayer.push(arguments);
-}
+};
 
 const BUTTON_SIZE = {
   height: 50,
@@ -20,18 +19,27 @@ const BUTTON_SIZE = {
 };
 
 const ConsentForm = () => {
-  const hasListeners = useRef(false);
-  const [decisionMade, setDecisionMade] = useState(true); // start with true to avoid flashing
-
+  // This is kind of janky but if a user clears their cookie after accepting and clicks
+  //  around CookieConsent still kept their consent in memory.
   const cookies = useMemo(() => new Cookies(), []);
   const cookieValue = cookies.get(COOKIE_NAME);
 
-  useEffect(() => {
-    setDecisionMade(cookieValue !== undefined);
-  }, []);
+  // Start with true so there is not a weird flash during load
+  const [decisionMade, setDecisionMade] = useState(true);
 
-  const handleDecision = () => {
-    const consentSettings = {
+  // Store if we have got consent so we do not spam events
+  const consentProvided = useRef(false);
+
+  // Store if we setup listeners so we do not bind multiples
+  const hasListeners = useRef(false);
+
+  // Set the local variables and call gtag to inform Google about consent
+  const handleDecision = useCallback(() => {
+    if (consentProvided.current) {
+      return;
+    }
+
+    gtag('consent', 'update', {
       ad_storage: CookieConsent.acceptedCategory('advertisement') ? 'granted' : 'denied',
       ad_user_data: CookieConsent.acceptedCategory('advertisement') ? 'granted' : 'denied',
       ad_personalization: CookieConsent.acceptedCategory('advertisement') ? 'granted' : 'denied',
@@ -39,20 +47,29 @@ const ConsentForm = () => {
       functionality_storage: CookieConsent.acceptedCategory('functional') ? 'granted' : 'denied',
       personalization_storage: CookieConsent.acceptedCategory('functional') ? 'granted' : 'denied',
       security_storage: 'granted',
-    };
-
-    // @ts-expect-error gtag just passes along any arguments
-    gtag('consent', 'update', consentSettings);
+    });
+    consentProvided.current = true;
     setDecisionMade(true);
-  };
+  }, [setDecisionMade]);
 
-  useLayoutEffect(() => {
-    console.log('checking', CookieConsent.validConsent());
-    if (cookieValue) {
-      console.log('cookieValue', cookieValue);
+  useEffect(() => {
+    // If we have a cookie and it is valid we should be fine
+    if (cookieValue && CookieConsent.validConsent()) {
+      console.log('has consent');
       handleDecision();
+      return;
     }
-  }, []);
+
+    consentProvided.current = false;
+    setDecisionMade(false);
+
+    // This handles both initial loading/showing of the banner and when
+    //  a user deletes cookies in the middle of navigating the site.
+    // The `reset` call is only really needed when navigating after a cookie
+    //  was deleted but it does not hurt getting called on init.
+    CookieConsent.reset(true);
+    CookieConsent.run(COOKIE_CONSENT_SETTINGS);
+  }, [cookieValue]);
 
   useEffect(() => {
     if (hasListeners.current) {
@@ -63,6 +80,7 @@ const ConsentForm = () => {
       handleDecision();
     });
     window.addEventListener('cc:onChange', () => {
+      consentProvided.current = false;
       handleDecision();
     });
 
@@ -88,7 +106,6 @@ const ConsentForm = () => {
           <CookieOutlinedIcon sx={BUTTON_SIZE} />
         </IconButton>
       ) : null}
-      <CookieConsentBanner />
     </>
   );
 };
