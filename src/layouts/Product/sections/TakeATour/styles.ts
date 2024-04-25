@@ -1,12 +1,12 @@
 import styled from "styled-components"
 
-import { OutboundLink } from "../../../../components/OutboundLink"
 import { Link } from "gatsby"
+import { OutboundLink } from "../../../../components/OutboundLink"
 
-import VectorImage from "../../../../images/lp-product/Vector.png"
+import vectorBackgroundImage from "../../../../images/lp-product/Vector.png"
 
 export const Wrapper = styled.div`
-    background-image: url(${VectorImage});
+    background-image: url(${vectorBackgroundImage});
     background-size: cover;
     background-position: top;
     background-repeat: no-repeat;
@@ -73,6 +73,13 @@ export const Title = styled.p`
         line-height: 72px;
     }
 `
+
+export const ContainerIcon = styled.div`
+  padding: 16px;
+  border: 1px solid #5072EB80;
+  border-radius: 8px;
+  background-color: #ffffff;
+`;
 
 export const Description = styled.p`
     font-weight: 400;
