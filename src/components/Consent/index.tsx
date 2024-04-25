@@ -18,6 +18,8 @@ const ConsentForm = () => {
   const [decisionMade, setDecisionMade] = useState(true); // start with true to avoid flashing
   const cookies = useMemo(() => new Cookies(), []);
 
+  const cookieValue = cookies.get(COOKIE_NAME);
+
   function gtag() {
     window.dataLayer = window.dataLayer || [];
     // @ts-expect-error we want to use arguments as that is how they are implemented
@@ -30,20 +32,22 @@ const ConsentForm = () => {
   }, []);
 
   useLayoutEffect(() => {
-    // @ts-expect-error gtag just passes along any arguments
-    gtag('consent', 'default', {
-      ad_storage: 'denied',
-      ad_user_data: 'denied',
-      ad_personalization: 'denied',
-      analytics_storage: 'denied',
-      functionality_storage: 'denied',
-      personalization_storage: 'denied',
-      security_storage: 'granted',
-    });
+    if (cookieValue == null) {
+      // @ts-expect-error gtag just passes along any arguments
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+        functionality_storage: 'denied',
+        personalization_storage: 'denied',
+        security_storage: 'granted',
+      });
+    }
   }, []);
 
   useEffect(() => {
-    setDecisionMade(cookies.get(COOKIE_NAME) !== undefined);
+    setDecisionMade(cookieValue !== undefined);
   }, [cookies, setDecisionMade, sendConsent]);
 
   const handleDecision = () => {
