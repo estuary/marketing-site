@@ -1,5 +1,6 @@
 import * as React from 'react';
 import ConsentForm from './src/components/Consent';
+import { GA_MEASUREMENT_ID, GA_ORIGIN } from './src/components/Consent/shared';
 
 /**
  * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
@@ -13,9 +14,6 @@ import ConsentForm from './src/components/Consent';
 
 // Copied from https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-plugin-google-gtag/src/gatsby-ssr.js
 export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
-  const origin = `https://www.googletagmanager.com`;
-  const GA_MEASUREMENT_ID = 'G-P1PZPE4HHZ';
-
   const googleTagsLoaderHTML = `
     // Load gtag.js script.
     var gtagScript = document.createElement('script');
@@ -59,8 +57,8 @@ export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
 
   setHeadComponents([
     // Handle setting the preconnect manually so we can also run a dns prefetch
-    <link rel="preconnect" key="preconnect-google-gtag" href={origin} />,
-    <link rel="dns-prefetch" key="dns-prefetch-google-gtag" href={origin} />,
+    <link rel="preconnect" key="preconnect-google-gtag" href={GA_ORIGIN} />,
+    <link rel="dns-prefetch" key="dns-prefetch-google-gtag" href={GA_ORIGIN} />,
     <script
       key="google-analytics-config"
       dangerouslySetInnerHTML={{

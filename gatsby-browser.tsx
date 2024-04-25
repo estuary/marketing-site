@@ -14,6 +14,7 @@ import { isMobile } from 'react-device-detect';
 
 import { Script, ScriptStrategy } from 'gatsby';
 import ConsentForm from './src/components/Consent';
+import { CONSENT_CATEGORIES, COOKIE_CONSENT_SETTINGS } from './src/components/Consent/shared';
 
 const ZD_KEY = '3271265c-16a8-4e0d-b1ab-72ed8fbe7e5a';
 
@@ -45,7 +46,7 @@ export const wrapPageElement = ({ element }) => {
         strategy={'idle'}
         async
         defer
-        data-category="functional"
+        data-category={CONSENT_CATEGORIES.functional}
         data-service="Zen Desk"
         src={`https://static.zdassets.com/ekr/snippet.js?key=${ZD_KEY}`}
       />
@@ -54,7 +55,7 @@ export const wrapPageElement = ({ element }) => {
         async
         defer
         strategy={'idle'}
-        data-category="functional"
+        data-category={CONSENT_CATEGORIES.functional}
         data-service="HubSpot"
         src="//js.hs-scripts.com/8635875.js"
       />

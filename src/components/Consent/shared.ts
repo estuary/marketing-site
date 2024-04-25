@@ -1,5 +1,8 @@
 import { CookieConsentConfig } from 'vanilla-cookieconsent';
 
+export const GA_MEASUREMENT_ID = 'G-P1PZPE4HHZ';
+export const GA_ORIGIN = `https://www.googletagmanager.com`;
+
 export const COOKIE_NAME = 'estuary.consent.settings';
 
 // If there are changes to what we load we need to increment this up to get consent again.
@@ -31,11 +34,51 @@ export const COOKIE_CONSENT_SETTINGS: CookieConsentConfig = {
       enabled: true,
       readOnly: true,
     },
-    [CONSENT_CATEGORIES.analytics]: {},
+    [CONSENT_CATEGORIES.analytics]: {
+      services: {
+        ga4: {
+          label: 'Google Analytics 4',
+          onReject: () => {
+            window[`ga-disable-${GA_MEASUREMENT_ID}`] = true;
+          },
+          cookies: [
+            {
+              name: /^(_ga|_gid)/,
+            },
+          ],
+        },
+      },
+    },
     [CONSENT_CATEGORIES.advertisement]: {},
-    [CONSENT_CATEGORIES.functional]: {},
+    [CONSENT_CATEGORIES.functional]: {
+      services: {
+        hs: {
+          label: 'HubSpot',
+          // onReject: () => {
+          //   window[`ga-disable-${GA_MEASUREMENT_ID}`] = true;
+          // },
+          cookies: [
+            // {
+            //   name: /^(_ga|_gid)/,
+            // },
+          ],
+        },
+        ze: {
+          label: 'Zen Desk',
+          // onReject: () => {
+          //   window[`ga-disable-${GA_MEASUREMENT_ID}`] = true;
+          // },
+          cookies: [
+            // {
+            //   name: /^(_ga|_gid)/,
+            // },
+          ],
+        },
+      },
+    },
     [CONSENT_CATEGORIES.personalization]: {},
   },
+
   language: {
     default: 'en',
     translations: {
