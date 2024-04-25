@@ -40,10 +40,12 @@ export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
           // Default consent settings and tell it to wait a little bit for an wait
           //  for an update that will be coming from the banner module
           gtag('consent', 'default', {
+              'ad_storage': 'denied',
               'ad_user_data': 'denied',
               'ad_personalization': 'denied',
-              'ad_storage': 'denied',
               'analytics_storage': 'denied',
+              'functionality_storage': 'denied',
+              'personalization_storage': 'denied',
               'wait_for_update': 500,
           });
 
