@@ -20,7 +20,7 @@ export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
     // Load gtag.js script.
     var gtagScript = document.createElement('script');
     gtagScript.async = true;
-    gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=Google tag ID';
+    gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}';
 
     var firstScript = document.getElementsByTagName('script')[0];
     firstScript.parentNode.insertBefore(gtagScript,firstScript);
@@ -57,13 +57,10 @@ export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
 
   setHtmlAttributes({ lang: `en` });
 
-  // Handle setting the preconnect manually so we can also run a dns prefetch
   setHeadComponents([
+    // Handle setting the preconnect manually so we can also run a dns prefetch
     <link rel="preconnect" key="preconnect-google-gtag" href={origin} />,
     <link rel="dns-prefetch" key="dns-prefetch-google-gtag" href={origin} />,
-  ]);
-
-  setHeadComponents([
     <script
       key="google-analytics-config"
       dangerouslySetInnerHTML={{

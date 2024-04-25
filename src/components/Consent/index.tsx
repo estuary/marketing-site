@@ -46,6 +46,7 @@ const ConsentForm = () => {
     const functionalSettings = CookieConsent.acceptedCategory('functional') ? 'granted' : 'denied';
 
     // Tell Google about it
+    // @ts-expect-error just using the code Google recommends
     gtag('consent', 'update', {
       ad_storage: advertisementSettings,
       ad_user_data: advertisementSettings,
