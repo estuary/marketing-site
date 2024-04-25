@@ -50,6 +50,9 @@ export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
           // Start up gtag
           gtag('js', new Date());
           gtag('config', '${GA_MEASUREMENT_ID}');
+
+          // Load the script
+          ${googleTagsLoaderHTML}
       }
   `;
 
@@ -63,12 +66,6 @@ export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
       key="google-analytics-config"
       dangerouslySetInnerHTML={{
         __html: googleAnalyticsHTML,
-      }}
-    />,
-    <script
-      key="google-tags-loader"
-      dangerouslySetInnerHTML={{
-        __html: googleTagsLoaderHTML,
       }}
     />,
   ]);
