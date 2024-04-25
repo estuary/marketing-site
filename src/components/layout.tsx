@@ -3,7 +3,6 @@ import clsx from 'clsx';
 
 import Header from './header';
 import Footer from './footer';
-import ConsentForm from './Consent';
 
 const TakeATour = React.lazy(() => import('./TakeATour'));
 
@@ -26,7 +25,6 @@ const Layout = ({
       <Header fixedHeader={fixedHeader} />
       <main className={clsx(fixedHeader && 'global-main-fixed-header')}>{children}</main>
       <Footer />
-      <ConsentForm />
     </div>
   );
 };
