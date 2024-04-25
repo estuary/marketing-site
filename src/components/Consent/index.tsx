@@ -1,6 +1,6 @@
 import CookieOutlinedIcon from '@mui/icons-material/CookieOutlined';
 import { IconButton } from '@mui/material';
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import Cookies from 'universal-cookie';
 import * as CookieConsent from 'vanilla-cookieconsent';
 import CookieConsentBanner from './Banner';
@@ -25,6 +25,18 @@ const ConsentForm = () => {
 
   const sendConsent = useCallback((consent) => {
     gtag('consent', 'default', consent);
+  }, []);
+
+  useLayoutEffect(() => {
+    sendConsent({
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+      functionality_storage: 'denied',
+      personalization_storage: 'denied',
+      security_storage: 'granted',
+    });
   }, []);
 
   useEffect(() => {
