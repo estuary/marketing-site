@@ -1,3 +1,5 @@
+import ConsentForm from './src/components/Consent';
+
 const React = require('react');
 
 /**
@@ -77,4 +79,13 @@ exports.onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
       }}
     />,
   ]);
+};
+
+export const wrapPageElement = ({ element }) => {
+  return (
+    <>
+      {element}
+      <ConsentForm />
+    </>
+  );
 };

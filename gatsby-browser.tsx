@@ -13,6 +13,7 @@ import { isMobile } from 'react-device-detect';
 // import "prismjs/themes/prism.css"
 
 import { Script, ScriptStrategy } from 'gatsby';
+import ConsentForm from './src/components/Consent';
 
 const ZD_KEY = '3271265c-16a8-4e0d-b1ab-72ed8fbe7e5a';
 
@@ -26,12 +27,18 @@ export const wrapPageElement = ({ element }) => {
   }, []);
 
   if (process.env.NODE_ENV === 'development' || isMobile || dimensions.width < 768) {
-    return element;
+    return (
+      <>
+        {element}
+        <ConsentForm />
+      </>
+    );
   }
 
   return (
     <>
       {element}
+      <ConsentForm />
       <Script
         id="ze-snippet"
         key="gatsby-plugin-zendesk-chat"
