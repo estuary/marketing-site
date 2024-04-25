@@ -52,7 +52,7 @@ export const COOKIE_CONSENT_SETTINGS: CookieConsentConfig = {
     [CONSENT_CATEGORIES.advertisement]: {},
     [CONSENT_CATEGORIES.functional]: {
       services: {
-        hs: {
+        hubspot: {
           label: 'HubSpot',
           // onReject: () => {
           //   window[`ga-disable-${GA_MEASUREMENT_ID}`] = true;
@@ -63,7 +63,7 @@ export const COOKIE_CONSENT_SETTINGS: CookieConsentConfig = {
             // },
           ],
         },
-        ze: {
+        zendesk: {
           label: 'Zen Desk',
           // onReject: () => {
           //   window[`ga-disable-${GA_MEASUREMENT_ID}`] = true;

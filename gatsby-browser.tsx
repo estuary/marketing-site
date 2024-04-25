@@ -47,7 +47,7 @@ export const wrapPageElement = ({ element }) => {
         async
         defer
         data-category={CONSENT_CATEGORIES.functional}
-        data-service="Zen Desk"
+        data-service="zendesk"
         src={`https://static.zdassets.com/ekr/snippet.js?key=${ZD_KEY}`}
       />
       <Script
@@ -56,7 +56,7 @@ export const wrapPageElement = ({ element }) => {
         defer
         strategy={'idle'}
         data-category={CONSENT_CATEGORIES.functional}
-        data-service="HubSpot"
+        data-service="hubspot"
         src="//js.hs-scripts.com/8635875.js"
       />
     </>
