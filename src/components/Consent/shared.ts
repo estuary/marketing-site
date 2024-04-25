@@ -66,6 +66,10 @@ export const COOKIE_CONSENT_SETTINGS: CookieConsentConfig = {
           acceptAllBtn: 'Accept all',
           acceptNecessaryBtn: 'Reject all',
           showPreferencesBtn: 'Manage Individual preferences',
+          footer: `
+                <a href="/privacy-policy/" target="_blank">Privacy Policy</a>
+                <a href="/terms/" target="_blank">Terms of Service</a>
+            `,
         },
         preferencesModal: {
           title: 'Manage cookie preferences',
