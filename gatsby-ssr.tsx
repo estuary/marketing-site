@@ -1,6 +1,5 @@
-import ConsentForm from './src/components/Consent';
-
 const React = require('react');
+const ConsentForm = require('./src/components/Consent');
 
 /**
  * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
