@@ -5,13 +5,13 @@ import Cookies from 'universal-cookie';
 import * as CookieConsent from 'vanilla-cookieconsent';
 import { COOKIE_CONSENT_SETTINGS, COOKIE_NAME } from './shared';
 
-declare const window: Window & { dataLayer: Record<string, unknown>[] };
-
-const gtag: Gtag.Gtag = () => {
+function gtag() {
+  // @ts-expect-error just using the code Google recommends
   window.dataLayer = window.dataLayer || [];
-  // @ts-expect-error we want to use arguments as that is how they are implemented
-  window.dataLayer.push(arguments);
-};
+
+  // @ts-expect-error just using the code Google recommends
+  dataLayer.push(arguments);
+}
 
 const BUTTON_SIZE = {
   height: 50,
@@ -86,6 +86,7 @@ const ConsentForm = () => {
     }
 
     window.addEventListener('cc:onFirstConsent', () => {
+      consentDecisionProvided.current = false;
       handleDecision();
     });
     window.addEventListener('cc:onChange', () => {
