@@ -17,7 +17,6 @@ export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
   const GA_MEASUREMENT_ID = 'G-P1PZPE4HHZ';
 
   const googleTagsLoaderHTML = `
-  console.log('LOADING')
     // Load gtag.js script.
     var gtagScript = document.createElement('script');
     gtagScript.async = true;
