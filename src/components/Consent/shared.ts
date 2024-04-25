@@ -1,17 +1,21 @@
-import { CookieConsentConfig } from 'vanilla-cookieconsent';
+import CookieConsent, { CookieConsentConfig } from 'vanilla-cookieconsent';
 
+// Google Tag
 export const GA_MEASUREMENT_ID = 'G-P1PZPE4HHZ';
 export const GA_ORIGIN = `https://www.googletagmanager.com`;
 
-export const COOKIE_NAME = 'estuary.consent.settings';
+// Zen Desk
+const ZD_KEY = '3271265c-16a8-4e0d-b1ab-72ed8fbe7e5a';
 
 // If there are changes to what we load we need to increment this up to get consent again.
 export const CONSENT_REVISION = 1;
+export const COOKIE_NAME = 'estuary.consent.settings';
 
 export enum CONSENT_CATEGORIES {
+  advertisement = 'advertisement',
   analytics = 'analytics',
   functional = 'functional',
-  advertisement = 'advertisement',
+  necessary = 'necessary',
   personalization = 'personalization',
 }
 
@@ -30,7 +34,7 @@ export const COOKIE_CONSENT_SETTINGS: CookieConsentConfig = {
     },
   },
   categories: {
-    necessary: {
+    [CONSENT_CATEGORIES.necessary]: {
       enabled: true,
       readOnly: true,
     },
@@ -38,8 +42,11 @@ export const COOKIE_CONSENT_SETTINGS: CookieConsentConfig = {
       services: {
         ga4: {
           label: 'Google Analytics 4',
+          onAccept: () => {
+            console.log('GA here i come');
+          },
           onReject: () => {
-            window[`ga-disable-${GA_MEASUREMENT_ID}`] = true;
+            console.log('ga gone');
           },
           cookies: [
             {
@@ -54,25 +61,30 @@ export const COOKIE_CONSENT_SETTINGS: CookieConsentConfig = {
       services: {
         hubspot: {
           label: 'HubSpot',
-          // onReject: () => {
-          //   window[`ga-disable-${GA_MEASUREMENT_ID}`] = true;
+          // onAccept: () => {
+          //   CookieConsent.loadScript(`//js.hs-scripts.com/8635875.js`, {
+          //     async: 'async',
+          //     defer: 'defer',
+          //     id: 'hs-script-loader',
+          //   });
           // },
           cookies: [
-            // {
-            //   name: /^(_ga|_gid)/,
-            // },
+            {
+              name: /^(__hs)/,
+            },
           ],
         },
         zendesk: {
           label: 'Zen Desk',
-          // onReject: () => {
-          //   window[`ga-disable-${GA_MEASUREMENT_ID}`] = true;
+          // onAccept: () => {
+          //   CookieConsent.loadScript(`https://static.zdassets.com/ekr/snippet.js?key=${ZD_KEY}`, {
+          //     async: 'async',
+          //     defer: 'defer',
+          //     strategy: 'idle',
+          //     id: 'ze-snippet',
+          //   });
           // },
-          cookies: [
-            // {
-            //   name: /^(_ga|_gid)/,
-            // },
-          ],
+          cookies: [],
         },
       },
     },
@@ -97,7 +109,8 @@ export const COOKIE_CONSENT_SETTINGS: CookieConsentConfig = {
           acceptNecessaryBtn: 'Reject all',
           savePreferencesBtn: 'Save preferences',
           closeIconLabel: 'Close modal',
-          serviceCounterLabel: 'Service|Services',
+          // Removing this hides allowing users from hand picking services
+          // serviceCounterLabel: 'Service|Services',
           sections: [
             {
               title: 'Your Privacy Choices',
@@ -108,12 +121,6 @@ export const COOKIE_CONSENT_SETTINGS: CookieConsentConfig = {
               description:
                 'Necessary cookies are required to enable the basic features of this site, such as providing secure log-in or adjusting your consent preferences. These cookies do not store any personally identifiable data.',
               linkedCategory: 'necessary',
-            },
-            {
-              title: 'Functional',
-              description:
-                'Functional cookies help perform certain functionalities like sharing the content of the website on social media platforms, collecting feedback, and other third-party features.',
-              linkedCategory: CONSENT_CATEGORIES.functional,
             },
             {
               title: 'Analytics',
@@ -127,6 +134,12 @@ export const COOKIE_CONSENT_SETTINGS: CookieConsentConfig = {
                 'Advertisement cookies are used to provide visitors with customized advertisements based on the pages you visited previously and to analyze the effectiveness of the ad campaigns.',
               linkedCategory: CONSENT_CATEGORIES.advertisement,
             },
+            // {
+            //   title: 'Functional',
+            //   description:
+            //     'Functional cookies help perform certain functionalities like sharing the content of the website on social media platforms, collecting feedback, and other third-party features.',
+            //   linkedCategory: CONSENT_CATEGORIES.functional,
+            // },
             // {
             //   title: 'Personalization',
             //   description: 'CONTENT REQUIRED BEFORE ENABLING',
