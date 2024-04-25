@@ -70,7 +70,6 @@ const ConsentForm = () => {
   useEffect(() => {
     // If we have a cookie and it is valid we should be fine
     if (cookieValue && CookieConsent.validConsent()) {
-      console.log('has consent');
       handleDecision();
       return;
     }
