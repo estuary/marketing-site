@@ -1,11 +1,11 @@
-import * as React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import SlackIcon from "../svgs/slack-outline.svg"
+import * as React from "react"
+import { OutboundLink } from "../components/OutboundLink"
 import GithubIcon from "../svgs/github-outline.svg"
 import LinkedinIcon from "../svgs/linkedin-outline.svg"
+import SlackIcon from "../svgs/slack-outline.svg"
 import TwitterIcon from "../svgs/twitter-outline.svg"
-import { OutboundLink } from "../components/OutboundLink"
 
 const Footer = () => {
     return (
@@ -142,14 +142,14 @@ const Footer = () => {
                             href="https://www.linkedin.com/company/65266256/"
                             aria-label="Linkedin Company Link"
                         >
-                           <LinkedinIcon className="social-icon"/>
+                            <LinkedinIcon className="social-icon" color="#B7C6DD" />
                         </OutboundLink>
                         <OutboundLink
                             target="_blank"
                             href="https://twitter.com/EstuaryDev"
                             aria-label="Twitter Company Link"
                         >
-                            <TwitterIcon className="social-icon"/>
+                            <TwitterIcon className="social-icon" />
                         </OutboundLink>
                     </div>
                 </div>
