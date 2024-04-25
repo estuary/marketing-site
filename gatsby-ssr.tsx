@@ -1,5 +1,6 @@
 import * as React from 'react';
 import ConsentForm from './src/components/Consent';
+
 /**
  * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
  *
@@ -11,7 +12,7 @@ import ConsentForm from './src/components/Consent';
  */
 
 // Copied from https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-plugin-google-gtag/src/gatsby-ssr.js
-exports.onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
+export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
   const origin = `https://www.googletagmanager.com`;
   const GA_MEASUREMENT_ID = 'G-P1PZPE4HHZ';
 
