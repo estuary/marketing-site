@@ -42,12 +42,6 @@ export const COOKIE_CONSENT_SETTINGS: CookieConsentConfig = {
       services: {
         ga4: {
           label: 'Google Analytics 4',
-          onAccept: () => {
-            console.log('GA here i come');
-          },
-          onReject: () => {
-            console.log('ga gone');
-          },
           cookies: [
             {
               name: /^(_ga|_gid)/,
@@ -57,37 +51,7 @@ export const COOKIE_CONSENT_SETTINGS: CookieConsentConfig = {
       },
     },
     [CONSENT_CATEGORIES.advertisement]: {},
-    [CONSENT_CATEGORIES.functional]: {
-      services: {
-        hubspot: {
-          label: 'HubSpot',
-          // onAccept: () => {
-          //   CookieConsent.loadScript(`//js.hs-scripts.com/8635875.js`, {
-          //     async: 'async',
-          //     defer: 'defer',
-          //     id: 'hs-script-loader',
-          //   });
-          // },
-          cookies: [
-            {
-              name: /^(__hs)/,
-            },
-          ],
-        },
-        zendesk: {
-          label: 'Zen Desk',
-          // onAccept: () => {
-          //   CookieConsent.loadScript(`https://static.zdassets.com/ekr/snippet.js?key=${ZD_KEY}`, {
-          //     async: 'async',
-          //     defer: 'defer',
-          //     strategy: 'idle',
-          //     id: 'ze-snippet',
-          //   });
-          // },
-          cookies: [],
-        },
-      },
-    },
+    [CONSENT_CATEGORIES.functional]: {},
     [CONSENT_CATEGORIES.personalization]: {},
   },
 
