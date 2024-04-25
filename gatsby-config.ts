@@ -103,27 +103,10 @@ const cfg: GatsbyConfig = {
   },
   flags: {
     PARALLEL_SOURCING: true,
+    DEV_SSR: true,
   },
   // graphqlTypegen: true,
   plugins: [
-    {
-      resolve: `gatsby-plugin-google-gtag`,
-      options: {
-        trackingIds: ['GTM-WK8SB2L'],
-        // This object gets passed directly to the gtag config command
-        // This config will be shared across all trackingIds
-        gtagConfig: {
-          anonymize_ip: true,
-          ignore_referrer: true,
-          cookie_expires: 0,
-        },
-        // This object is used for configuration specific to this plugin
-        pluginConfig: {
-          head: true,
-          respectDNT: true,
-        },
-      },
-    },
     {
       resolve: 'gatsby-plugin-preconnect',
       options: {

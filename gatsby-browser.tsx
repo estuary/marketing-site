@@ -62,3 +62,27 @@ export const onClientEntry = () => {
     console.log(`# IntersectionObserver is polyfilled!`);
   }
 };
+
+// Copied from https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-plugin-google-gtag/src/gatsby-browser.js
+export const onRouteUpdate = ({ location }) => {
+  if (process.env.NODE_ENV !== `production` || typeof gtag !== `function`) {
+    return null;
+  }
+
+  // wrap inside a timeout to make sure react-helmet is done with its changes (https://github.com/gatsbyjs/gatsby/issues/11592)
+  const sendPageView = () => {
+    const pagePath = location ? location.pathname + location.search + location.hash : undefined;
+    window.gtag(`event`, `page_view`, { page_path: pagePath });
+  };
+
+  if (`requestAnimationFrame` in window) {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => setTimeout(sendPageView, 0));
+    });
+  } else {
+    // Delay by 32ms to simulate 2 requestOnAnimationFrame calls
+    setTimeout(sendPageView, 32);
+  }
+
+  return null;
+};

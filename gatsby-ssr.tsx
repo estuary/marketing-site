@@ -10,6 +10,53 @@ const React = require('react');
  * @type {import('gatsby').GatsbySSR['onRenderBody']}
  */
 
-exports.onRenderBody = ({ setHtmlAttributes }) => {
+// Copied from https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-plugin-google-gtag/src/gatsby-ssr.js
+exports.onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
+  const origin = `https://www.googletagmanager.com`;
+  const GA_MEASUREMENT_ID = 'G-P1PZPE4HHZ';
+
+  const googleAnalyticsHTML = `
+      // anonymize_ip
+      function gaOptout(){document.cookie=disableStr+'=true; expires=Thu, 31 Dec 2099 23:59:59 UTC;path=/',window[disableStr]=!0}var gaProperty='${GA_MEASUREMENT_ID}',disableStr='ga-disable-'+gaProperty;document.cookie.indexOf(disableStr+'=true')>-1&&(window[disableStr]=!0);
+      
+      // respect dnt
+      if (!(navigator.doNotTrack == "1" || window.doNotTrack == "1")) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+              dataLayer.push(arguments);
+          }
+
+          // Default consent settings and tell it to wait a little bit for an wait
+          //  for an update that will be coming from the banner module
+          gtag('consent', 'default', {
+              'ad_user_data': 'denied',
+              'ad_personalization': 'denied',
+              'ad_storage': 'denied',
+              'analytics_storage': 'denied',
+              'wait_for_update': 500,
+          });
+
+          // Start up gtag
+          gtag('js', new Date());
+          gtag('config', '${GA_MEASUREMENT_ID}');
+      }
+  `;
+
   setHtmlAttributes({ lang: `en` });
+
+  // Handle setting the preconnect manually so we can also run a dns prefetch
+  setHeadComponents([
+    <link rel="preconnect" key="preconnect-google-gtag" href={origin} />,
+    <link rel="dns-prefetch" key="dns-prefetch-google-gtag" href={origin} />,
+  ]);
+
+  setHeadComponents([
+    <script key="google-analytics" async src={`/gtag.js?id=${GA_MEASUREMENT_ID}`} />,
+    <script
+      key="google-analytics-config"
+      dangerouslySetInnerHTML={{
+        __html: googleAnalyticsHTML,
+      }}
+    />,
+  ]);
 };
