@@ -1,6 +1,6 @@
 import * as React from 'react';
-import ConsentForm from './src/components/Consent';
 import { GA_MEASUREMENT_ID, GA_ORIGIN } from './src/components/Consent/shared';
+import ConsentForm from './src/components/Consent';
 
 /**
  * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
@@ -67,8 +67,6 @@ export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
     />,
     <script
       key="google-tags-loader"
-      type="text/plain"
-      data-category="analytics"
       dangerouslySetInnerHTML={{
         __html: googleTagsLoaderHTML,
       }}
