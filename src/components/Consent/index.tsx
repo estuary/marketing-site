@@ -28,27 +28,36 @@ const ConsentForm = () => {
   const [decisionMade, setDecisionMade] = useState(true);
 
   // Store if we have got consent so we do not spam events
-  const consentProvided = useRef(false);
+  const consentDecisionProvided = useRef(false);
 
   // Store if we setup listeners so we do not bind multiples
   const hasListeners = useRef(false);
 
   // Set the local variables and call gtag to inform Google about consent
   const handleDecision = useCallback(() => {
-    if (consentProvided.current) {
+    // We have already told Google so we can skip
+    if (consentDecisionProvided.current) {
       return;
     }
 
+    // Snag the settings from cookie consent
+    const advertisementSettings = CookieConsent.acceptedCategory('advertisement') ? 'granted' : 'denied';
+    const analyticsSettings = CookieConsent.acceptedCategory('analytics') ? 'granted' : 'denied';
+    const functionalSettings = CookieConsent.acceptedCategory('functional') ? 'granted' : 'denied';
+
+    // Tell Google about it
     gtag('consent', 'update', {
-      ad_storage: CookieConsent.acceptedCategory('advertisement') ? 'granted' : 'denied',
-      ad_user_data: CookieConsent.acceptedCategory('advertisement') ? 'granted' : 'denied',
-      ad_personalization: CookieConsent.acceptedCategory('advertisement') ? 'granted' : 'denied',
-      analytics_storage: CookieConsent.acceptedCategory('analytics') ? 'granted' : 'denied',
-      functionality_storage: CookieConsent.acceptedCategory('functional') ? 'granted' : 'denied',
-      personalization_storage: CookieConsent.acceptedCategory('functional') ? 'granted' : 'denied',
+      ad_storage: advertisementSettings,
+      ad_user_data: advertisementSettings,
+      ad_personalization: advertisementSettings,
+      analytics_storage: analyticsSettings,
+      functionality_storage: functionalSettings,
+      personalization_storage: functionalSettings,
       security_storage: 'granted',
     });
-    consentProvided.current = true;
+
+    // Update local state
+    consentDecisionProvided.current = true;
     setDecisionMade(true);
   }, [setDecisionMade]);
 
@@ -60,7 +69,7 @@ const ConsentForm = () => {
       return;
     }
 
-    consentProvided.current = false;
+    consentDecisionProvided.current = false;
     setDecisionMade(false);
 
     // This handles both initial loading/showing of the banner and when
@@ -80,7 +89,7 @@ const ConsentForm = () => {
       handleDecision();
     });
     window.addEventListener('cc:onChange', () => {
-      consentProvided.current = false;
+      consentDecisionProvided.current = false;
       handleDecision();
     });
 
