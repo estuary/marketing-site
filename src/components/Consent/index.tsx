@@ -31,8 +31,7 @@ const ConsentForm = () => {
   }, []);
 
   const handleDecision = () => {
-    // @ts-expect-error gtag just passes along any arguments
-    gtag('consent', 'update', {
+    const consentSettings = {
       ad_storage: CookieConsent.acceptedCategory('advertisement') ? 'granted' : 'denied',
       ad_user_data: CookieConsent.acceptedCategory('advertisement') ? 'granted' : 'denied',
       ad_personalization: CookieConsent.acceptedCategory('advertisement') ? 'granted' : 'denied',
@@ -40,11 +39,15 @@ const ConsentForm = () => {
       functionality_storage: CookieConsent.acceptedCategory('functional') ? 'granted' : 'denied',
       personalization_storage: CookieConsent.acceptedCategory('functional') ? 'granted' : 'denied',
       security_storage: 'granted',
-    });
+    };
+
+    // @ts-expect-error gtag just passes along any arguments
+    gtag('consent', 'update', consentSettings);
     setDecisionMade(true);
   };
 
   useLayoutEffect(() => {
+    console.log('checking', CookieConsent.validConsent());
     if (cookieValue) {
       console.log('cookieValue', cookieValue);
       handleDecision();

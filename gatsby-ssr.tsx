@@ -15,6 +15,17 @@ exports.onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
   const origin = `https://www.googletagmanager.com`;
   const GA_MEASUREMENT_ID = 'G-P1PZPE4HHZ';
 
+  const googleTagsLoaderHTML = `
+  console.log('LOADING')
+    // Load gtag.js script.
+    var gtagScript = document.createElement('script');
+    gtagScript.async = true;
+    gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=Google tag ID';
+
+    var firstScript = document.getElementsByTagName('script')[0];
+    firstScript.parentNode.insertBefore(gtagScript,firstScript);
+  `;
+
   const googleAnalyticsHTML = `
       // anonymize_ip
       function gaOptout(){document.cookie=disableStr+'=true; expires=Thu, 31 Dec 2099 23:59:59 UTC;path=/',window[disableStr]=!0}var gaProperty='${GA_MEASUREMENT_ID}',disableStr='ga-disable-'+gaProperty;document.cookie.indexOf(disableStr+'=true')>-1&&(window[disableStr]=!0);
@@ -51,11 +62,18 @@ exports.onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
   ]);
 
   setHeadComponents([
-    <script key="google-analytics" async src={`/gtag.js?id=${GA_MEASUREMENT_ID}`} />,
     <script
       key="google-analytics-config"
       dangerouslySetInnerHTML={{
         __html: googleAnalyticsHTML,
+      }}
+    />,
+    <script
+      key="google-tags-loader"
+      type="text/plain"
+      data-category="analytics"
+      dangerouslySetInnerHTML={{
+        __html: googleTagsLoaderHTML,
       }}
     />,
   ]);
