@@ -18,17 +18,20 @@ const ConsentForm = () => {
   const [decisionMade, setDecisionMade] = useState(true); // start with true to avoid flashing
   const cookies = useMemo(() => new Cookies(), []);
 
-  function gtag(...args) {
+  function gtag() {
     window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push(args);
+    // @ts-expect-error we want to use arguments as that is how they are implemented
+    window.dataLayer.push(arguments);
   }
 
   const sendConsent = useCallback((consent) => {
-    gtag('consent', 'default', consent);
+    // @ts-expect-error gtag just passes along any arguments
+    gtag('consent', 'update', consent);
   }, []);
 
   useLayoutEffect(() => {
-    sendConsent({
+    // @ts-expect-error gtag just passes along any arguments
+    gtag('consent', 'default', {
       ad_storage: 'denied',
       ad_user_data: 'denied',
       ad_personalization: 'denied',

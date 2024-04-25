@@ -15,8 +15,6 @@ const CookieConsentBanner = () => {
       autoShow: true,
       cookie: {
         name: COOKIE_NAME,
-        domain: '.estuary.dev',
-        path: '/',
       },
       guiOptions: {
         consentModal: {
