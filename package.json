@@ -27,7 +27,6 @@
     "gatsby-image": "^3.11.0",
     "gatsby-omni-font-loader": "^2.0.2",
     "gatsby-plugin-feed": "^5.13.1",
-    "gatsby-plugin-google-gtag": "^5.13.1",
     "gatsby-plugin-image": "^3.13.1",
     "gatsby-plugin-less": "^7.13.1",
     "gatsby-plugin-loadable-components-ssr": "^4.3.2",
@@ -78,7 +77,9 @@
     "rehype-toc": "^3.0.2",
     "styled-components": "^6.1.8",
     "unified": "^9.2.2",
-    "unist-util-visit": "^4.1.2"
+    "unist-util-visit": "^4.1.2",
+    "universal-cookie": "^7.1.4",
+    "vanilla-cookieconsent": "^3.0.1"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^7.2.0",
