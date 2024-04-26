@@ -14,16 +14,6 @@ import ConsentForm from './src/components/Consent';
 
 // Copied from https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-plugin-google-gtag/src/gatsby-ssr.js
 export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
-  const googleTagsLoaderHTML = `
-    // Load gtag.js script.
-    var gtagScript = document.createElement('script');
-    gtagScript.async = true;
-    gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}';
-
-    var firstScript = document.getElementsByTagName('script')[0];
-    firstScript.parentNode.insertBefore(gtagScript,firstScript);
-  `;
-
   const googleAnalyticsHTML = `
       // anonymize_ip
       function gaOptout(){document.cookie=disableStr+'=true; expires=Thu, 31 Dec 2099 23:59:59 UTC;path=/',window[disableStr]=!0}var gaProperty='${GA_MEASUREMENT_ID}',disableStr='ga-disable-'+gaProperty;document.cookie.indexOf(disableStr+'=true')>-1&&(window[disableStr]=!0);
@@ -51,9 +41,6 @@ export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
           // Start up gtag
           gtag('js', new Date());
           gtag('config', '${GA_MEASUREMENT_ID}');
-
-          // Load the script
-          ${googleTagsLoaderHTML}
       }
   `;
 
@@ -63,6 +50,7 @@ export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
     // Handle setting the preconnect manually so we can also run a dns prefetch
     <link rel="preconnect" key="preconnect-google-gtag" href={GA_ORIGIN} />,
     <link rel="dns-prefetch" key="dns-prefetch-google-gtag" href={GA_ORIGIN} />,
+    <script key="google-analytics" src={`/gtag.js?id=${GA_MEASUREMENT_ID}`} />,
     <script
       key="google-analytics-config"
       dangerouslySetInnerHTML={{

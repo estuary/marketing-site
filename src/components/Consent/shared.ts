@@ -24,6 +24,8 @@ export const COOKIE_CONSENT_SETTINGS: CookieConsentConfig = {
   revision: CONSENT_REVISION,
   cookie: {
     name: COOKIE_NAME,
+    domain: 'estuary.dev', // This means the cookies won't get set on preview mode
+    path: '/',
   },
   guiOptions: {
     consentModal: {
