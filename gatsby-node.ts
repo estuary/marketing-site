@@ -19,7 +19,8 @@ const blog = path.resolve(`./src/templates/blog.tsx`);
 const comparisonTemplate = path.resolve(`./src/templates/product-comparison.tsx`);
 const caseStudyTemplate = path.resolve(`./src/layouts/CaseStudy/index.tsx`);
 
-const connector = path.resolve(`./src/templates/connector.tsx`);
+
+const connector = path.resolve(`./src/templates/connector/index.tsx`);
 const connection = path.resolve(`./src/templates/connection.tsx`);
 
 export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions, reporter }) => {

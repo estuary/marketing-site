@@ -1,14 +1,15 @@
-import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
+import React from "react"
 
-import { Wrapper, Container, ContainerIcons, ContainerContent, ContainerImage, Title, Description, ContainerButton, Button, ActionLink } from "./styles"
+import { webinarsUrl } from "../../../../../shared"
+import { ActionLink, Button, Container, ContainerButton, ContainerContent, ContainerIcon, ContainerIcons, ContainerImage, Description, Title, Wrapper } from "./styles"
 
 const TakeATour = () => {
     return (
         <Wrapper>
             <Container>
                 <ContainerImage>
-                    <StaticImage                    
+                    <StaticImage
                         alt="Laptop"
                         src="../../../../images/lp-product/laptop.png"
                         layout="constrained"
@@ -16,27 +17,33 @@ const TakeATour = () => {
                 </ContainerImage>
                 <ContainerContent>
                     <ContainerIcons>
-                        <StaticImage
-                            alt="Connection-1"
-                            src="../../../../images/lp-product/connector-1.png"
-                            width={80}
-                            height={81}
-                            quality={100}
-                        />
-                        <StaticImage                        
-                            alt="connector-2"
-                            src="../../../../images/lp-product/connector-2.png"
-                            width={80}
-                            height={81}
-                            quality={100}
-                        />
-                        <StaticImage                        
-                            alt="connector-3"
-                            src="../../../../images/lp-product/connector-3.png"
-                            width={80}
-                            height={81}
-                            quality={100}
-                        />
+                        <ContainerIcon>
+                            <StaticImage
+                                alt="Microsoft Logo"
+                                src="../../../../images/microsoft-logo.png"
+                                width={46}
+                                height={46}
+                                quality={100}
+                            />
+                        </ContainerIcon>
+                        <ContainerIcon>
+                            <StaticImage
+                                alt="AWS Logo"
+                                src="../../../../images/aws-logo.png"
+                                width={46}
+                                height={46}
+                                quality={100}
+                            />
+                        </ContainerIcon>
+                        <ContainerIcon>
+                            <StaticImage
+                                alt="Google Cloud Logo"
+                                src="../../../../images/google-cloud-logo.png"
+                                width={46}
+                                height={46}
+                                quality={100}
+                            />
+                        </ContainerIcon>
                     </ContainerIcons>
                     <Title>TAKE A TOUR</Title>
                     <Description>Learn more about how estuary can help with real-time replication.</Description>
@@ -44,7 +51,7 @@ const TakeATour = () => {
                         <ActionLink target="_blank" to="/why">
                             Self-Guided Tour [1 min]
                         </ActionLink>
-                        <Button target="_blank" href="https://try.estuary.dev/webinar-estuary101-ondemand">
+                        <Button target="_blank" href={webinarsUrl}>
                             Product Overview [30 min]
                         </Button>
                     </ContainerButton>
