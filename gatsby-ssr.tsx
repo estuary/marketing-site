@@ -44,6 +44,7 @@ export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
               'analytics_storage': 'denied',
               'functionality_storage': 'denied',
               'personalization_storage': 'denied',
+              'security_storage': 'denied',
               'wait_for_update': 500,
           });
 
