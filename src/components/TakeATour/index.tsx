@@ -37,7 +37,7 @@ const TakeATour = () => {
       <Link target="_blank" href={SETTINGS.href}>
         {SETTINGS.message}
       </Link>
-      <Button onClick={onClick} aria-label={`Close ${SETTINGS.message} Link`}>
+      <Button onClick={onClick}>
         <CloseIcon color="inherit" fontSize="small" />
       </Button>
     </Container>
