@@ -4,6 +4,7 @@ import {
 } from "@mui/material"
 import { StaticImage } from "gatsby-plugin-image"
 import * as React from "react"
+import { webinarsUrl } from "../../../shared"
 import { CloseButtonWrapper, Container, LeftColumn, Popup, RightColumn, Subtitle, Title, WatchLaterButton, WatchNowLink } from "./styles"
 
 function BlogPostPopupModal({
@@ -20,7 +21,7 @@ function BlogPostPopupModal({
   React.useEffect(() => {
     setTimeout(() => {
       setOpenDialog(true);
-    }, 1000) // Should be 60000
+    }, 60000)
   }, []);
 
   return (
@@ -41,7 +42,7 @@ function BlogPostPopupModal({
           <Subtitle>
             Learn to stand up real-time CDC in minutes
           </Subtitle>
-          <WatchNowLink>
+          <WatchNowLink href={webinarsUrl} target="_blank">
             Watch now
           </WatchNowLink>
           <WatchLaterButton>
