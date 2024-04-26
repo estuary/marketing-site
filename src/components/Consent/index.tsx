@@ -30,9 +30,6 @@ const ConsentForm = () => {
   // Store if we have got consent so we do not spam events
   const consentDecisionProvided = useRef(false);
 
-  // Store if we setup listeners so we do not bind multiples
-  const hasListeners = useRef(false);
-
   // Set the local variables and call gtag to inform Google about consent
   const handleDecision = useCallback(() => {
     // We have already told Google so we can skip
@@ -86,20 +83,13 @@ const ConsentForm = () => {
   }, [cookieValue]);
 
   useEffect(() => {
-    if (hasListeners.current) {
-      return;
-    }
-
-    window.addEventListener('cc:onFirstConsent', () => {
+    const handleConsentEvent = () => {
       consentDecisionProvided.current = false;
       handleDecision();
-    });
-    window.addEventListener('cc:onChange', () => {
-      consentDecisionProvided.current = false;
-      handleDecision();
-    });
+    };
 
-    hasListeners.current = true;
+    window.addEventListener('cc:onFirstConsent', handleConsentEvent);
+    window.addEventListener('cc:onChange', handleConsentEvent);
   }, []);
 
   return (
