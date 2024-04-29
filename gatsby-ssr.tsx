@@ -17,28 +17,25 @@ exports.onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
       // anonymize_ip
       function gaOptout(){document.cookie=disableStr+'=true; expires=Thu, 31 Dec 2099 23:59:59 UTC;path=/',window[disableStr]=!0}var gaProperty='${GA_MEASUREMENT_ID}',disableStr='ga-disable-'+gaProperty;document.cookie.indexOf(disableStr+'=true')>-1&&(window[disableStr]=!0);
       
-      // respect dnt
-      if (!(navigator.doNotTrack == "1" || window.doNotTrack == "1")) {
-          window.dataLayer = window.dataLayer || [];
-          function gtag() {
-              dataLayer.push(arguments);
-          }
-          // Default consent settings and tell it to wait a little bit for an wait
-          //  for an update that will be coming from the banner module
-          gtag('consent', 'default', {
-              'ad_storage': 'denied',
-              'ad_user_data': 'denied',
-              'ad_personalization': 'denied',
-              'analytics_storage': 'denied',
-              'functionality_storage': 'denied',
-              'personalization_storage': 'denied',
-              'security_storage': 'denied',
-              'wait_for_update': 500,
-          });
-          // Start up gtag
-          gtag('js', new Date());
-          gtag('config', '${GA_MEASUREMENT_ID}');
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+          dataLayer.push(arguments);
       }
+      // Default consent settings and tell it to wait a little bit for an wait
+      //  for an update that will be coming from the banner module
+      gtag('consent', 'default', {
+          'ad_storage': 'denied',
+          'ad_user_data': 'denied',
+          'ad_personalization': 'denied',
+          'analytics_storage': 'denied',
+          'functionality_storage': 'denied',
+          'personalization_storage': 'denied',
+          'security_storage': 'denied',
+          'wait_for_update': 500,
+      });
+      // Start up gtag
+      gtag('js', new Date());
+      gtag('config', '${GA_MEASUREMENT_ID}');
   `;
 
   setHtmlAttributes({ lang: `en` });
