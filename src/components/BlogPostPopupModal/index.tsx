@@ -11,9 +11,20 @@ function BlogPostPopupModal() {
   const [openDialog, setOpenDialog] = React.useState(false);
 
   React.useEffect(() => {
-    setTimeout(() => {
-      setOpenDialog(true);
-    }, 60000)
+    let hasOpened = false;
+
+    const handleExitIntent = (e) => {
+      if (!hasOpened && e.clientY <= 0) {
+        setOpenDialog(true);
+        hasOpened = true;
+      }
+    };
+
+    window.addEventListener('mouseout', handleExitIntent);
+
+    return () => {
+      window.removeEventListener('mouseout', handleExitIntent);
+    };
   }, []);
 
   function handlePopupClose() {
