@@ -1,45 +1,42 @@
+import CloseIcon from "@mui/icons-material/Close";
 import { Dialog } from "@mui/material";
 import styled from "styled-components";
 import VectorImage from "../../images/blog-post-popup-background-image.png";
 
-export const Popup = styled(Dialog)`
+export const Container = styled(Dialog)`
   & .MuiPaper-root {
     box-shadow: none !important;
     border-radius: 16px !important;
     max-width: 1280px !important;
     width: 70% !important;
-    background-color: transparent !important;
+    display: grid;
+    grid-template-columns: 0.6fr 0.4fr;
+    padding: 0 !important;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
 
     @media (max-width: 1024px) {
       width: 90% !important;
     }
-  }
-`
 
-export const Container = styled.div`
-  display: grid;
-  grid-template-columns: 0.6fr 0.4fr;
-  border-radius: 16px;
-  gap: 19px;
-  width: 100%;
-  padding: 0 !important;
-  font-family: "Inter", sans-serif;
-  background-color: #5072eb;
-  background-image: url(${VectorImage});
-  background-repeat: no-repeat;
-  background-position: top right;
-  background-size: cover;
-  color: #ffffff;
-
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr auto;
+    @media (max-width: 780px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr auto;
+    }
   }
 `
 
 export const LeftColumn = styled.div`
-  margin: auto;
-  padding-bottom: 10%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 24px;
+  background-color: #5072eb;
+  background-image: url(${VectorImage});
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
 
   @media (max-width: 1024px) {
     padding-bottom: 32px;
@@ -51,29 +48,41 @@ export const RightColumn = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 132px 57px 132px 0;
+  padding: 132px 37px;
+  background-color: #ffffff;
 
-  @media (max-width: 768px) {
-    padding: 57px;
-    padding-top: 0;
-    height: fit-content;
-  }
-
-  @media (max-width: 768px) {
+  @media (max-width: 780px) {
     padding: 24px;
   }
 `
 
 export const Title = styled.span`
   font-size: 2rem;
-  line-height: 38.4px;
   font-weight: 700;
   text-transform: uppercase;
+  margin: 50px 96px 0 96px;
+  margin-bottom: -54px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
   text-align: center;
+
+  & > span:nth-child(2) {
+    font-size: 1.25rem;
+  }
 
   @media (max-width: 1280px) {
     font-size: 1.5rem;
-    line-height: 28px;
+
+    & > span:nth-child(2) {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    margin: 64px 72px 0 72px;
+    margin-bottom: -32px;
   }
 `
 
@@ -82,7 +91,8 @@ export const Subtitle = styled.span`
   font-weight: 400;
   line-height: 19.2px;
   text-align: center;
-  margin: 24px 0 35px 0;
+  margin: 32px 0;
+  color: #47506d;
 
   @media (max-width: 1280px) {
     font-size: 0.875rem;
@@ -90,8 +100,8 @@ export const Subtitle = styled.span`
 `
 
 export const WatchNowLink = styled.a`
-  color: #5072eb;
-  background-color: #fff;
+  color: #ffffff;
+  background-color: #5072eb;
   padding: 16px 24px;
   width: 100%;
   border-radius: 4px;
@@ -100,23 +110,32 @@ export const WatchNowLink = styled.a`
   cursor: pointer;
 `
 
-export const WatchLaterButton = styled.button`
-  color: #fff;
+export const NoThanksButton = styled.button`
+  color: #47506d;
   background-color: transparent;
   padding: 16px 24px;
   width: 100%;
-  border: 2px solid #fff;
+  border: 2px solid #5072eb;
   border-radius: 4px;
   cursor: pointer;
 `
 
 export const CloseButtonWrapper = styled.div`
   position: absolute;
-  right: 27px;
-  top: 27px;
+  right: 24px;
+  top: 24px;
+  fill: red;
 
-  @media (max-width: 768px) {
+  @media (max-width: 780px) {
     right: 12px;
     top: 12px;
+  }
+`
+
+export const XIcon = styled(CloseIcon)`
+  color: #04192b;
+
+  @media (max-width: 780px) {
+    color: #ffffff;
   }
 `

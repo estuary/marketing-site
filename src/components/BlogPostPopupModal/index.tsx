@@ -1,21 +1,13 @@
-import CloseIcon from "@mui/icons-material/Close"
 import {
   IconButton
 } from "@mui/material"
 import { StaticImage } from "gatsby-plugin-image"
 import * as React from "react"
 import { webinarsUrl } from "../../../shared"
-import { CloseButtonWrapper, Container, LeftColumn, Popup, RightColumn, Subtitle, Title, WatchLaterButton, WatchNowLink } from "./styles"
+import EstuaryLogo from "../../svgs/colored-logo.svg"
+import { CloseButtonWrapper, Container, LeftColumn, NoThanksButton, RightColumn, Subtitle, Title, WatchNowLink, XIcon } from "./styles"
 
-function BlogPostPopupModal({
-  buttonLabel,
-  buttonClass,
-  buttonId,
-}: {
-  buttonLabel: string
-  buttonClass: string
-  buttonId: string
-}) {
+function BlogPostPopupModal() {
   const [openDialog, setOpenDialog] = React.useState(false);
 
   React.useEffect(() => {
@@ -24,33 +16,41 @@ function BlogPostPopupModal({
     }, 60000)
   }, []);
 
+  function handlePopupClose() {
+    setOpenDialog(false);
+  }
+
   return (
-    <Popup open={openDialog} fullWidth>
-      <Container>
-        <CloseButtonWrapper>
-          <IconButton onClick={() => setOpenDialog(false)}>
-            <CloseIcon htmlColor="#ffffff" fontSize="large" />
-          </IconButton>
-        </CloseButtonWrapper>
-        <LeftColumn>
-          <StaticImage src="../../images/blog-post-popup-image.png" alt="Blog post popup image" placeholder="none" loading="eager" />
-        </LeftColumn>
-        <RightColumn>
-          <Title>
-            Webinar: Change Data Capture 101
-          </Title>
-          <Subtitle>
-            Learn to stand up real-time CDC in minutes
-          </Subtitle>
-          <WatchNowLink href={webinarsUrl} target="_blank">
-            Watch now
-          </WatchNowLink>
-          <WatchLaterButton>
-            Watch later
-          </WatchLaterButton>
-        </RightColumn>
-      </Container>
-    </Popup>
+    <Container open={openDialog} fullWidth>
+      <CloseButtonWrapper>
+        <IconButton onClick={handlePopupClose}>
+          <XIcon fontSize="large" />
+        </IconButton>
+      </CloseButtonWrapper>
+      <LeftColumn>
+        <Title>
+          <span>
+            Webinar:
+          </span>
+          <span>
+            Change Data Capture 101
+          </span>
+        </Title>
+        <StaticImage src="../../images/blog-post-popup-image.png" alt="Blog post popup image" placeholder="none" loading="eager" />
+      </LeftColumn>
+      <RightColumn>
+        <EstuaryLogo width={38} />
+        <Subtitle>
+          Learn how to stand up no-code real-time CDC pipelines in minutes with Estuary
+        </Subtitle>
+        <WatchNowLink href={webinarsUrl} target="_blank">
+          Watch now
+        </WatchNowLink>
+        <NoThanksButton onClick={handlePopupClose}>
+          No, thanks
+        </NoThanksButton>
+      </RightColumn>
+    </Container>
   )
 }
 

@@ -223,11 +223,7 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
                     </div>
                 </section>
             </article>
-            <BlogPostPopupModal
-                buttonLabel={'Contact Us'}
-                buttonClass={'section-one-demo-button'}
-                buttonId="pricing-hero-hubspot"
-            />
+            <BlogPostPopupModal />
         </Layout >
     );
 };
