@@ -1,6 +1,5 @@
+import * as React from 'react';
 import { GA_MEASUREMENT_ID } from './shared';
-
-const React = require('react');
 
 /**
  * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
@@ -12,7 +11,7 @@ const React = require('react');
  * @type {import('gatsby').GatsbySSR['onRenderBody']}
  */
 
-exports.onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
+export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
   const googleAnalyticsHTML = `
       // anonymize_ip
       function gaOptout(){document.cookie=disableStr+'=true; expires=Thu, 31 Dec 2099 23:59:59 UTC;path=/',window[disableStr]=!0}var gaProperty='${GA_MEASUREMENT_ID}',disableStr='ga-disable-'+gaProperty;document.cookie.indexOf(disableStr+'=true')>-1&&(window[disableStr]=!0);
