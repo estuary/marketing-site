@@ -11,6 +11,7 @@ import DoneIcon from '@mui/icons-material/Done';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { useEffect, useState } from 'react';
 import { PopularArticles } from '../components/BlogPopularArticles';
+import BlogPostPopupModal from '../components/BlogPostPopupModal';
 import { ProcessedPost } from '../components/BlogPostProcessor';
 import { RenderToc } from '../components/BlogPostToc';
 import Bio from '../components/bio';
@@ -222,12 +223,7 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
                     </div>
                 </section>
             </article>
-            {/* TODO: add this pop-up */}
-            {/* <BlogPostPopupModal
-                buttonLabel={'Contact Us'}
-                buttonClass={'section-one-demo-button'}
-                buttonId="pricing-hero-hubspot"
-            /> */}
+            <BlogPostPopupModal />
         </Layout >
     );
 };
