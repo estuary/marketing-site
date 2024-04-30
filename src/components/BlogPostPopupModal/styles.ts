@@ -54,7 +54,7 @@ export const RightColumn = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 132px 37px;
+  padding: 0 37px;
   background-color: #ffffff;
 
   @media (max-width: 780px) {
@@ -62,33 +62,32 @@ export const RightColumn = styled.div`
   }
 `
 
-export const Title = styled.span`
+export const TitleWrapper = styled.span`
   font-size: 2rem;
   font-weight: 700;
   text-transform: uppercase;
-  margin: 50px 96px 0 96px;
-  margin-bottom: -54px;
+  margin: 50px 96px -54px 96px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
   text-align: center;
 
-  & > span:nth-child(2) {
-    font-size: 1.25rem;
-  }
-
   @media (max-width: 1280px) {
     font-size: 1.5rem;
-
-    & > span:nth-child(2) {
-      font-size: 1rem;
-    }
   }
 
   @media (max-width: 480px) {
     margin: 64px 48px 0 48px;
     margin-bottom: -32px;
+  }
+`
+
+export const WebinarTitle = styled.span`
+  font-size: 1.25rem;
+
+  @media (max-width: 1280px) {
+    font-size: 1rem;
   }
 `
 

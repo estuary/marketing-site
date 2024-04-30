@@ -5,7 +5,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import * as React from "react"
 import { webinarsUrl } from "../../../shared"
 import EstuaryLogo from "../../svgs/colored-logo.svg"
-import { CloseButtonWrapper, Container, LeftColumn, NoThanksButton, RightColumn, Subtitle, Title, WatchNowLink, XIcon } from "./styles"
+import { CloseButtonWrapper, Container, LeftColumn, NoThanksButton, RightColumn, Subtitle, TitleWrapper, WatchNowLink, WebinarTitle, XIcon } from "./styles"
 
 function BlogPostPopupModal() {
   const [openDialog, setOpenDialog] = React.useState(false);
@@ -39,14 +39,14 @@ function BlogPostPopupModal() {
         </IconButton>
       </CloseButtonWrapper>
       <LeftColumn>
-        <Title>
+        <TitleWrapper>
           <span>
             Webinar:
           </span>
-          <span>
+          <WebinarTitle>
             Change Data Capture 101
-          </span>
-        </Title>
+          </WebinarTitle>
+        </TitleWrapper>
         <StaticImage src="../../images/blog-post-popup-image.png" alt="Change data capture webinar" placeholder="none" loading="eager" />
       </LeftColumn>
       <RightColumn>
