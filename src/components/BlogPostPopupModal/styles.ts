@@ -5,23 +5,25 @@ import VectorImage from "../../images/blog-post-popup-background-image.png";
 
 export const Container = styled(Dialog)`
   & .MuiPaper-root {
-    box-shadow: none !important;
-    border-radius: 16px !important;
-    max-width: 1280px !important;
-    width: 70% !important;
+    box-shadow: none;
+    border-radius: 16px;
+    max-width: 1280px;
+    width: 70%;
     display: grid;
     grid-template-columns: 0.6fr 0.4fr;
-    padding: 0 !important;
+    padding: 0;
     font-family: "Inter", sans-serif;
     color: #ffffff;
 
     @media (max-width: 1024px) {
-      width: 90% !important;
+      width: 90%;
     }
 
     @media (max-width: 780px) {
       grid-template-columns: 1fr;
       grid-template-rows: 1fr auto;
+      margin-top: 124px;
+      max-height: calc(100% - 160px);
     }
   }
 `
@@ -40,6 +42,10 @@ export const LeftColumn = styled.div`
 
   @media (max-width: 1024px) {
     padding-bottom: 32px;
+  }
+
+  @media (max-width: 425px) {
+    padding-bottom: 0;
   }
 `
 
@@ -81,7 +87,7 @@ export const Title = styled.span`
   }
 
   @media (max-width: 480px) {
-    margin: 64px 72px 0 72px;
+    margin: 64px 48px 0 48px;
     margin-bottom: -32px;
   }
 `
@@ -96,6 +102,10 @@ export const Subtitle = styled.span`
 
   @media (max-width: 1280px) {
     font-size: 0.875rem;
+  }
+
+  @media (max-width: 425px) {
+    margin: 16px 0;
   }
 `
 
