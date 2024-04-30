@@ -47,7 +47,7 @@ function BlogPostPopupModal() {
             Change Data Capture 101
           </span>
         </Title>
-        <StaticImage src="../../images/blog-post-popup-image.png" alt="Blog post popup image" placeholder="none" loading="eager" />
+        <StaticImage src="../../images/blog-post-popup-image.png" alt="Change data capture webinar" placeholder="none" loading="eager" />
       </LeftColumn>
       <RightColumn>
         <EstuaryLogo width={38} />
