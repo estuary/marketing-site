@@ -10,13 +10,13 @@ import { CloseButtonWrapper, Container, LeftColumn, NoThanksButton, RightColumn,
 function BlogPostPopupModal() {
   const [openDialog, setOpenDialog] = React.useState(false);
 
-  React.useEffect(() => {
-    let hasOpened = false;
+  const hasOpened = React.useRef(false);
 
+  React.useEffect(() => {
     const handleExitIntent = (e) => {
-      if (!hasOpened && e.clientY <= 0) {
+      if (!hasOpened.current && e.clientY <= 0) {
         setOpenDialog(true);
-        hasOpened = true;
+        hasOpened.current = true;
       }
     };
 
