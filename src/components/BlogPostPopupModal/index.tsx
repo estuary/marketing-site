@@ -12,20 +12,20 @@ function BlogPostPopupModal() {
 
   const hasOpened = React.useRef(false);
 
-  React.useEffect(() => {
-    const handleExitIntent = (e) => {
-      if (!hasOpened.current && e.clientY <= 0) {
-        setOpenDialog(true);
-        hasOpened.current = true;
-      }
-    };
+  const handleExitIntent = React.useCallback((e: MouseEvent) => {
+    if (!hasOpened.current && e.clientY <= 0) {
+      setOpenDialog(true);
+      hasOpened.current = true;
+    }
+  }, []);
 
+  React.useEffect(() => {
     window.addEventListener('mouseout', handleExitIntent);
 
     return () => {
       window.removeEventListener('mouseout', handleExitIntent);
     };
-  }, []);
+  }, [handleExitIntent]);
 
   function handlePopupClose() {
     setOpenDialog(false);
