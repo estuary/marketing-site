@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { GA_MEASUREMENT_ID } from './shared';
+import { GA_MEASUREMENT_ID, GA_ORIGIN } from './shared';
 
 /**
  * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
@@ -39,18 +39,20 @@ export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
 
   setHtmlAttributes({ lang: `en` });
   setHeadComponents([
+    <link rel="preconnect" key="preconnect-google-gtag" href={GA_ORIGIN} />,
+    <link rel="dns-prefetch" key="dns-prefetch-google-gtag" href={GA_ORIGIN} />,
+    <script
+      key="google-analytics-config"
+      dangerouslySetInnerHTML={{
+        __html: googleAnalyticsHTML,
+      }}
+    />,
     <link rel="preconnect" href="//consent.cookiefirst.com" />,
     <link rel="dns-prefetch" href="//edge.cookiefirst.com" />,
     <link rel="dns-prefetch" href="//api.cookiefirst.com" />,
     <script
       id="CookieFirst"
       src="https://consent.cookiefirst.com/sites/estuary.dev-bb4406bb-2dfd-4133-8a4c-7b737e5b0bac/consent.js"
-    />,
-    <script
-      key="google-analytics-config"
-      dangerouslySetInnerHTML={{
-        __html: googleAnalyticsHTML,
-      }}
     />,
   ]);
 };
