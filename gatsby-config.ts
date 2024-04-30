@@ -104,6 +104,7 @@ const cfg: GatsbyConfig = {
   },
   flags: {
     PARALLEL_SOURCING: true,
+    DEV_SSR: true,
   },
   // graphqlTypegen: true,
   plugins: [
