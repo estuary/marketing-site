@@ -16,6 +16,7 @@ export const Container = styled(Dialog)`
     color: #ffffff;
     margin-top: 124px;
     max-height: calc(100% - 160px);
+    min-height: 100px;
 
     @media (max-width: 1024px) {
       width: 90%;
