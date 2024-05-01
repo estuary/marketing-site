@@ -79,9 +79,9 @@ export const PopularArticles = () => {
                                             <span className="article-card-published-at">
                                                 {article?.updatedAt}
                                             </span>
-                                            <div className="dot" />
+                                            {/* <div className="dot" /> */}
                                             {/* TODO: Add post reading time from Strapi */}
-                                            <span>10 min</span>
+                                            {/* <span>10 min</span> */}
                                         </div>
                                     </div>
                                     <h4>{article?.title}</h4>

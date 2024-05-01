@@ -14,6 +14,9 @@ export const Container = styled(Dialog)`
     padding: 0;
     font-family: "Inter", sans-serif;
     color: #ffffff;
+    margin-top: 124px;
+    max-height: calc(100% - 160px);
+    min-height: 100px;
 
     @media (max-width: 1024px) {
       width: 90%;
@@ -22,8 +25,6 @@ export const Container = styled(Dialog)`
     @media (max-width: 780px) {
       grid-template-columns: 1fr;
       grid-template-rows: 1fr auto;
-      margin-top: 124px;
-      max-height: calc(100% - 160px);
     }
   }
 `
