@@ -7,9 +7,9 @@
 import { GatsbyConfig } from 'gatsby';
 import { normalizeConnector } from './src/utils';
 import path from 'path';
-import { GA_MEASUREMENT_ID } from './shared';
 
 import { SUPABASE_CONNECTION_STRING } from './config';
+import { GA_MEASUREMENT_ID } from './shared';
 
 // Disable multiple prepared statements because pgbouncer doesn't like 'em very much
 process.env['POSTGRAPHILE_PREPARED_STATEMENT_CACHE_SIZE'] = '1';
@@ -104,27 +104,10 @@ const cfg: GatsbyConfig = {
   },
   flags: {
     PARALLEL_SOURCING: true,
+    DEV_SSR: true,
   },
   // graphqlTypegen: true,
   plugins: [
-    {
-      resolve: `gatsby-plugin-google-gtag`,
-      options: {
-        trackingIds: ['G-P1PZPE4HHZ'],
-        // This object gets passed directly to the gtag config command
-        // This config will be shared across all trackingIds
-        gtagConfig: {
-          anonymize_ip: true,
-          ignore_referrer: true,
-          cookie_expires: 0,
-        },
-        // This object is used for configuration specific to this plugin
-        pluginConfig: {
-          head: true,
-          respectDNT: true,
-        },
-      },
-    },
     {
       resolve: 'gatsby-plugin-preconnect',
       options: {
