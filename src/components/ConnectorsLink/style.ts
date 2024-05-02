@@ -1,6 +1,6 @@
 import { FormControl, MenuItem } from '@mui/material';
-import { GatsbyImage } from 'gatsby-plugin-image';
 import { Link } from 'gatsby';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
@@ -11,11 +11,19 @@ export const Wrapper = styled.div`
   @media (min-width: 1080px) {
     flex-direction: row;
   }
+
+  @media (max-width: 734px) {
+    width: 100%;
+  }
 `;
 
 export const Form = styled(FormControl)`
   width: 262px;
   height: 52px;
+
+  @media (max-width: 734px) {
+    width: 100%;
+  }
 `;
 
 export const Menu = styled(MenuItem)`

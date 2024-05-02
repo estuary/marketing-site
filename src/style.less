@@ -1466,16 +1466,21 @@ input {
 .blogs-index-search {
     flex: 1 0 auto;
 
-    @media (min-width: 811px) {
-        max-width: 350px;
-    }
-
     display: flex;
     position: relative;
     border: 1px solid #d7dce5;
     border-radius: 4px;
     overflow: hidden;
     min-height: 53px;
+    height: fit-content;
+
+    @media (min-width: 811px) {
+        max-width: 350px;
+    }
+
+    @media (max-width: 425px) {
+        width: 100%;
+    }
 
     & .blogs-index-input-adornment {
         position: absolute;
@@ -1728,6 +1733,10 @@ table th {
 
 .product-flow-section-one-image {
     width: 100px;
+
+    @media (max-width: 700px) {
+        display: none;
+    }
 }
 
 .product-flow-section-two-background-image-wrapper {

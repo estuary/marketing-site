@@ -76,6 +76,7 @@ export const ConnectorsLink = ({ defaultSourceId, defaultDestinationId, connecto
           value={sourceId}
           onChange={(evt) => setSourceId(evt.target.value)}
           variant="outlined"
+          sx={{ width: { xs: '100%', lg: 262 } }}
         >
           {captureConnectors.map((c) => (
             <Menu key={c.id} value={c.id}>
@@ -92,6 +93,7 @@ export const ConnectorsLink = ({ defaultSourceId, defaultDestinationId, connecto
           value={destinationId}
           onChange={(evt) => setDestinationId(evt.target.value)}
           variant="outlined"
+          sx={{ width: { xs: '100%', lg: 262 } }}
         >
           {materializationConnectors.map((c) => (
             <Menu key={c.id} value={c.id}>
