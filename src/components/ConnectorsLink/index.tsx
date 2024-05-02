@@ -72,8 +72,7 @@ export const ConnectorsLink = ({ defaultSourceId, defaultDestinationId, connecto
       <Form fullWidth>
         <InputLabel>Sources</InputLabel>
         <Select
-          label={sourceId && "Sources"}
-          defaultValue={!sourceId && "Sources"}
+          label="Sources"
           value={sourceId}
           onChange={(evt) => setSourceId(evt.target.value)}
           variant="outlined"

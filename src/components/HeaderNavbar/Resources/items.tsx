@@ -26,7 +26,7 @@ export const listen = [
   },
   {
     name: "Webinars",
-    to: { webinarsUrl },
+    to: webinarsUrl,
   },
 ]
 
@@ -37,7 +37,7 @@ export const tour = [
   },
   {
     name: "Real-time 101 [30 min]",
-    to: { webinarsUrl },
+    to: webinarsUrl,
   },
 ]
 
