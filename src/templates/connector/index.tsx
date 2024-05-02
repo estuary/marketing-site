@@ -57,7 +57,7 @@ const Connector = ({
         <Pipelines />
         <RealTime />
         <TakeATour />
-        {/*<TheAutomation />*/}
+        <TheAutomation />
       </article>
     </Layout>
   );
