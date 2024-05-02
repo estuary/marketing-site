@@ -1,10 +1,10 @@
-import { InputLabel, Select } from '@mui/material';
+import { InputLabel } from '@mui/material';
 import { graphql, useStaticQuery } from 'gatsby';
 import React, { useMemo, useState } from 'react';
 import { normalizeConnector } from '../../utils';
 
 import { ConnectorType } from '../../../shared';
-import { Button, Form, Image, Menu, Wrapper } from './style';
+import { Button, ConnectorSelect, Form, Image, Menu, Wrapper } from './style';
 
 type ConnectorsLinkProps = {
   defaultSourceId?: string;
@@ -71,12 +71,11 @@ export const ConnectorsLink = ({ defaultSourceId, defaultDestinationId, connecto
     <Wrapper>
       <Form fullWidth>
         <InputLabel>Sources</InputLabel>
-        <Select
+        <ConnectorSelect
           label="Sources"
           value={sourceId}
-          onChange={(evt) => setSourceId(evt.target.value)}
+          onChange={(evt: any) => setSourceId(evt.target.value)}
           variant="outlined"
-          sx={{ width: { xs: '100%', lg: 262 } }}
         >
           {captureConnectors.map((c) => (
             <Menu key={c.id} value={c.id}>
@@ -84,16 +83,15 @@ export const ConnectorsLink = ({ defaultSourceId, defaultDestinationId, connecto
               {c.title}
             </Menu>
           ))}
-        </Select>
+        </ConnectorSelect>
       </Form>
       <Form fullWidth>
         <InputLabel>Destinations</InputLabel>
-        <Select
+        <ConnectorSelect
           label="Destinations"
           value={destinationId}
-          onChange={(evt) => setDestinationId(evt.target.value)}
+          onChange={(evt: any) => setDestinationId(evt.target.value)}
           variant="outlined"
-          sx={{ width: { xs: '100%', lg: 262 } }}
         >
           {materializationConnectors.map((c) => (
             <Menu key={c.id} value={c.id}>
@@ -101,7 +99,7 @@ export const ConnectorsLink = ({ defaultSourceId, defaultDestinationId, connecto
               {c.title}
             </Menu>
           ))}
-        </Select>
+        </ConnectorSelect>
       </Form>
       <Button to={detailsHref}>Details</Button>
     </Wrapper>

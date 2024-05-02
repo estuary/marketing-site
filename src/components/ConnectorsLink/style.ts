@@ -1,4 +1,4 @@
-import { FormControl, MenuItem } from '@mui/material';
+import { FormControl, MenuItem, Select } from '@mui/material';
 import { Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
@@ -25,6 +25,14 @@ export const Form = styled(FormControl)`
     width: 100%;
   }
 `;
+
+export const ConnectorSelect = styled(Select)`
+  width: 262px;
+
+  @media (max-width: 734px) {
+    width: 100%;
+  }
+`
 
 export const Menu = styled(MenuItem)`
   align-items: start;
