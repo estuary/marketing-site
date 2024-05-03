@@ -77,24 +77,26 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
 
     return (
         <Layout headerTheme="light">
-            <Breadcrumbs
-                breadcrumbs={[
-                    {
-                        id: "1",
-                        title: "Home",
-                        href: "/"
-                    },
-                    {
-                        id: "2",
-                        title: "Blog",
-                        href: "/blog"
-                    },
-                    {
-                        id: "3",
-                        title: post.title,
-                    }
-                ]}
-            />
+            <div className="blog-post-breadcrumbs-wrapper">
+                <Breadcrumbs
+                    breadcrumbs={[
+                        {
+                            id: "1",
+                            title: "Home",
+                            href: "/"
+                        },
+                        {
+                            id: "2",
+                            title: "Blog",
+                            href: "/blog"
+                        },
+                        {
+                            id: "3",
+                            title: post.title,
+                        }
+                    ]}
+                />
+            </div>
             <article className="blog-post" itemScope itemType="http://schema.org/Article">
                 <section className="blog-post-header">
                     <div className="header-info">

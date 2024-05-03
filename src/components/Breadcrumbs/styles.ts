@@ -1,17 +1,7 @@
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 
-export const Container = styled.nav`
-  padding: 40px 90px;
-
-  @media (max-width: 1024px) {
-    padding: 20px;
-  }
-
-  @media (max-width: 768px) {
-    display: none;
-  }
-`
+export const Container = styled.nav``
 
 export const Links = styled.ol`
   font-family: "Inter", sans-serif;

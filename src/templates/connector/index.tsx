@@ -1,6 +1,7 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 import { ConnectorType } from '../../../shared';
+import Breadcrumbs from '../../components/Breadcrumbs';
 import Layout from '../../components/layout';
 import Seo from '../../components/seo';
 import { normalizeConnector } from '../../utils';
@@ -9,7 +10,7 @@ import Hero from './Hero';
 import Pipelines from './Pipelines';
 import RealTime from './RealTime';
 import TakeATour from './TakeATour';
-import TheAutomation from './TheAutomation';
+import { BreadcrumbsWrapper } from './styles';
 
 export interface ConnectorProps {
   data: {
@@ -39,6 +40,31 @@ const Connector = ({
 
   return (
     <Layout headerTheme="light">
+      <BreadcrumbsWrapper>
+        <Breadcrumbs
+          breadcrumbs={[
+            {
+              id: "1",
+              title: "Home",
+              href: "/"
+            },
+            {
+              id: "2",
+              title: "Product",
+              href: "/product"
+            },
+            {
+              id: "3",
+              title: "Connectors",
+              href: "/integrations"
+            },
+            {
+              id: "4",
+              title: mappedConnector.title,
+            }
+          ]}
+        />
+      </BreadcrumbsWrapper>
       <article itemScope itemType="http://schema.org/Article">
         <Hero
           connector={{
