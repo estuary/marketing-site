@@ -74,7 +74,7 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
             </OutboundLink>
         </div>
     );
-    console.log(window.history)
+
     return (
         <Layout headerTheme="light">
             <Breadcrumbs
