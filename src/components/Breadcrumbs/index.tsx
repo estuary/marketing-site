@@ -1,29 +1,29 @@
-import * as React from 'react';
-import { Container, Crumb, CurrentPageTitle, Divider, Links, PreviousLink } from './styles';
+import * as React from 'react'
+import { Container, Crumb, CurrentPageTitle, Divider, Links, PreviousLink } from './styles'
 
-interface BreadcrumbsProps {
-  breadcrumbs: {
-    id: string
-    title: string
-    href?: string
-  }[]
+interface Breadcrumb {
+  id: string
+  title: string
+  href?: string
 }
 
-const Breadcrumbs = ({ breadcrumbs }: BreadcrumbsProps) => {
+interface BreadcrumbsProps {
+  breadcrumbs: Breadcrumb[]
+}
+
+const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ breadcrumbs = [] }) => {
   return (
     <Container aria-label="breadcrumb">
       <Links>
-        {breadcrumbs?.map((breadcrumb) => (
-          <Crumb key={breadcrumb.id}>
-            {breadcrumb?.href ? (
+        {breadcrumbs.map(({ id, title, href }) => (
+          <Crumb key={id}>
+            {href ? (
               <>
-                <PreviousLink to={breadcrumb.href}>
-                  {breadcrumb.title}
-                </PreviousLink>
+                <PreviousLink to={href}>{title}</PreviousLink>
                 <Divider> / </Divider>
               </>
             ) : (
-              <CurrentPageTitle>{breadcrumb.title}</CurrentPageTitle>
+              <CurrentPageTitle>{title}</CurrentPageTitle>
             )}
           </Crumb>
         ))}
