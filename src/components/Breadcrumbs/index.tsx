@@ -2,7 +2,6 @@ import * as React from 'react'
 import { Container, Crumb, CurrentPageTitle, Divider, Links, PreviousLink } from './styles'
 
 interface Breadcrumb {
-  id: string
   title: string
   href?: string
 }
@@ -15,8 +14,8 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ breadcrumbs = [] }) => {
   return (
     <Container aria-label="breadcrumb">
       <Links>
-        {breadcrumbs.map(({ id, title, href }) => (
-          <Crumb key={id}>
+        {breadcrumbs.map(({ title, href }) => (
+          <Crumb key={href || title}>
             {href ? (
               <>
                 <PreviousLink to={href}>{title}</PreviousLink>

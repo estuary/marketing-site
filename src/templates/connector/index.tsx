@@ -44,22 +44,18 @@ const Connector = ({
         <Breadcrumbs
           breadcrumbs={[
             {
-              id: "1",
               title: "Home",
               href: "/"
             },
             {
-              id: "2",
               title: "Product",
               href: "/product"
             },
             {
-              id: "3",
               title: "Connectors",
               href: "/integrations"
             },
             {
-              id: "4",
               title: mappedConnector.title,
             }
           ]}
