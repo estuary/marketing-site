@@ -1,12 +1,12 @@
-import * as React from "react"
-import { Link, graphql, useStaticQuery } from "gatsby"
-import { useState, useRef, useEffect } from "react"
-import ColoredLogo from "../svgs/colored-logo.svg"
-import SlackIcon from "../svgs/slack-outline.svg"
-import GithubIcon from "../svgs/github-outline.svg"
 import clsx from "clsx"
-import { OutboundLink } from "../components/OutboundLink"
+import { Link, graphql, useStaticQuery } from "gatsby"
+import * as React from "react"
+import { useEffect, useRef, useState } from "react"
 import { isDesktop } from "react-device-detect"
+import { OutboundLink } from "../components/OutboundLink"
+import ColoredLogo from "../svgs/colored-logo.svg"
+import GithubIcon from "../svgs/github-outline.svg"
+import SlackIcon from "../svgs/slack-outline.svg"
 
 import HeaderNavbar from "./HeaderNavbar"
 
@@ -29,90 +29,90 @@ const useNavItems = () => {
     `)
 
     return [
-    {
-        title: "Product",
-        children: [
-            isDesktop && {
-                title: "Product Tour",
-                path: "/why"
-            },
-            {
-                title: "About Flow",
-                path: "/product",
-            },
-            {
-                title: "Integrations",
-                path: "/integrations",
-                children: [
-                    {
-                        title: "Sources",
-                        path: "/sources",
-                    },
-                    {
-                        title: "Destinations",
-                        path: "/destinations",
-                    },
-                ],
-            },
-            {
-                title: "Solutions",
-                path: "/solutions",
-            },
-        ].filter(Boolean),
-    },
-    {
-        title: "Pricing",
-        path: "/pricing",
-    },
-    {
-        title: "Connectors",
-        path: "https://estuary.dev/integrations/",
-    },
-    {
-        title: "Resources",
-        children: [
-            {
-                title: "Docs",
-                path: "https://docs.estuary.dev",
-            },
-            {
-                title: "Blog",
-                path: "/blog/data-engineering",
-            },
-            {
-                title: "Case Study",
-                children: queryResults.allStrapiCaseStudy.nodes.map(
-                    caseStudy => ({
-                        title: caseStudy.Title,
-                        path: `/customers/${caseStudy.Slug}`,
-                    })
-                ),
-            },
-            {
-                title: "Comparisons",
-                children:
-                    queryResults.allStrapiProductComparisonPage.nodes.map(
-                        comparison => ({
-                            title: comparison.their_name,
-                            path: `/${comparison.Slug}`,
+        {
+            title: "Product",
+            children: [
+                isDesktop && {
+                    title: "Product Tour",
+                    path: "/why"
+                },
+                {
+                    title: "About Flow",
+                    path: "/product",
+                },
+                {
+                    title: "Integrations",
+                    path: "/integrations",
+                    children: [
+                        {
+                            title: "Sources",
+                            path: "/sources",
+                        },
+                        {
+                            title: "Destinations",
+                            path: "/destinations",
+                        },
+                    ],
+                },
+                {
+                    title: "Solutions",
+                    path: "/solutions",
+                },
+            ].filter(Boolean),
+        },
+        {
+            title: "Pricing",
+            path: "/pricing",
+        },
+        {
+            title: "Connectors",
+            path: "https://estuary.dev/integrations/",
+        },
+        {
+            title: "Resources",
+            children: [
+                {
+                    title: "Docs",
+                    path: "https://docs.estuary.dev",
+                },
+                {
+                    title: "Blog",
+                    path: "/blog/data-engineering",
+                },
+                {
+                    title: "Case Study",
+                    children: queryResults.allStrapiCaseStudy.nodes.map(
+                        caseStudy => ({
+                            title: caseStudy.Title,
+                            path: `/customers/${caseStudy.Slug}`,
                         })
                     ),
-            },
-            {
-                title: "Podcasts",
-                path: "/podcasts",
-            },
-            {
-                title: "Contact",
-                path: "/about#contact-us",
-            },
-        ],
-    },
-    {
-        title: "Docs",
-        path: "/docs",
-    },
-]
+                },
+                {
+                    title: "Comparisons",
+                    children:
+                        queryResults.allStrapiProductComparisonPage.nodes.map(
+                            comparison => ({
+                                title: comparison.their_name,
+                                path: `/${comparison.Slug}`,
+                            })
+                        ),
+                },
+                {
+                    title: "Podcasts",
+                    path: "/podcasts",
+                },
+                {
+                    title: "Contact",
+                    path: "/about#contact-us",
+                },
+            ],
+        },
+        {
+            title: "Docs",
+            path: "/docs",
+        },
+    ]
 };
 
 const MenuBarsImage = () => (
@@ -138,80 +138,80 @@ const Header = (props: { fixedHeader?: boolean }) => {
 
     useEffect(() => {
         function handleClickOutside(event) {
-          if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-            setMobileMenuOpen(false)
-          }
+            if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+                setMobileMenuOpen(false)
+            }
         }
-    
+
         document.addEventListener("mousedown", handleClickOutside);
         return () => {
-          document.removeEventListener("mousedown", handleClickOutside);
+            document.removeEventListener("mousedown", handleClickOutside);
         };
-      }, [wrapperRef]);
+    }, [wrapperRef]);
 
     return (
         <>
             {/* @ts-ignore */}
             <header
-                className={clsx("global-header global-header-dark", fixedHeader && "global-header-fixed")}
+                className={clsx("header", fixedHeader && "global-header-fixed")}
                 ref={wrapperRef}
             >
-                <div className="global-header-padder" />
-                <Link className="global-header-logo-link" to="/">
-                    <ColoredLogo
-                        className="global-header-logo"
-                        style={{ width: 27, height: 35 }}
-                    />
-                    <h1 className={"global-header-title"}>Estuary</h1>
-                </Link>
-                <div style={{ flex: "1 2 140px" }} />
-                <div className="global-header-wrapper">
-                    <div className={clsx('global-header-link-wrapper', mobileMenuOpen && 'is-open')}>
-                        <HeaderNavbar />
+                <div className="global-header global-header-dark global-max-width">
+                    <Link className="global-header-logo-link" to="/">
+                        <ColoredLogo
+                            className="global-header-logo"
+                            style={{ width: 27, height: 35 }}
+                        />
+                        <h1 className={"global-header-title"}>Estuary</h1>
+                    </Link>
+                    <div style={{ flex: "1 2 140px" }} />
+                    <div className="global-header-wrapper">
+                        <div className={clsx('global-header-link-wrapper', mobileMenuOpen && 'is-open')}>
+                            <HeaderNavbar />
+                        </div>
+                        <div className="global-header-login-try">
+                            <OutboundLink
+                                target="_blank"
+                                href="https://estuary-dev.slack.com/join/shared_invite/zt-86nal6yr-VPbv~YfZE9Q~6Zl~gmZdFQ#/shared-invite/email"
+                                className="header-social-icon"
+                                aria-label="Slack Invite Link"
+                            >
+                                <SlackIcon className="social-icon" />
+                            </OutboundLink>
+                            <OutboundLink
+                                target="_blank"
+                                href="https://github.com/estuary/flow"
+                                className="header-social-icon"
+                                aria-label="Github Repo Link"
+                            >
+                                <GithubIcon className="social-icon" />
+                            </OutboundLink>
+                            <OutboundLink
+                                className="global-header-link"
+                                href="https://dashboard.estuary.dev"
+                                style={{ marginRight: "1rem" }}
+                            >
+                                Log in
+                            </OutboundLink>
+                            <OutboundLink
+                                target="_blank"
+                                href="https://dashboard.estuary.dev/register"
+                                className="global-header-try-it-button"
+                            >
+                                Try it free
+                            </OutboundLink>
+                        </div>
                     </div>
-                    <div className="global-header-login-try">
-                        <OutboundLink
-                            target="_blank"
-                            href="https://estuary-dev.slack.com/join/shared_invite/zt-86nal6yr-VPbv~YfZE9Q~6Zl~gmZdFQ#/shared-invite/email"
-                            className="header-social-icon"
-                            aria-label="Slack Invite Link"
+                    <div className="global-header-mobile-menu-wrapper">
+                        <button
+                            onClick={() => setMobileMenuOpen(open => !open)}
+                            className="global-header-mobile-menu-button"
+                            title="Menu"
                         >
-                            <SlackIcon className="social-icon" />
-                        </OutboundLink>
-                        <OutboundLink
-                            target="_blank"
-                            href="https://github.com/estuary/flow"
-                            className="header-social-icon"
-                            aria-label="Github Repo Link"
-                        >
-                            <GithubIcon className="social-icon" />
-                        </OutboundLink>
-                        <OutboundLink
-                            className="global-header-link"
-                            href="https://dashboard.estuary.dev"
-                            style={{marginRight:"1rem"}}
-                        >
-                            Log in
-                        </OutboundLink>
-                        <OutboundLink
-                            target="_blank"
-                            href="https://dashboard.estuary.dev/register"
-                            className="global-header-try-it-button"
-                        >
-                            Try it free
-                        </OutboundLink>
+                            <MenuBarsImage />
+                        </button>
                     </div>
                 </div>
-                <div className="global-header-mobile-menu-wrapper">
-                    <button
-                        onClick={() => setMobileMenuOpen(open => !open)}
-                        className="global-header-mobile-menu-button"
-                        title="Menu"
-                    >
-                        <MenuBarsImage />
-                    </button>
-                </div>
-                <div className="global-header-padder" />
             </header>
         </>
     )

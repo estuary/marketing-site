@@ -10,17 +10,14 @@ import TwitterIcon from "../svgs/twitter-outline.svg"
 const Footer = () => {
     return (
         <footer className="global-footer">
-            <div className="global-footer-wrapper">
-                <div className="global-footer-left">
+            <div className="global-footer-wrapper global-max-width">
+                <div>
                     <Link className="global-footer-logo-link" to="/">
                         <StaticImage
                             src="../images/estuary-icon.png"
                             alt="estuary logo"
                             width={27}
                             height={35}
-                            style={{
-                                margin: "3px 7px 34px 0px",
-                            }}
                             layout="fixed"
                             placeholder="none"
                         />
@@ -104,7 +101,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div className="global-footer-bottom">
+            <div className="global-footer-bottom global-max-width">
                 <div className="global-footer-divider"></div>
                 <div className="global-footer-bottom-wrapper">
                     <div className="global-footer-bottom-copyright">

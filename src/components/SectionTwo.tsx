@@ -1,11 +1,11 @@
-import * as React from "react"
 import { StaticImage } from "gatsby-plugin-image"
+import * as React from "react"
 import FlowLogo from "../svgs/flow-logo.svg"
 
 const SectionTwo = () => {
     return (
         <div className="section-two">
-            <div className="section-two-header-wrapper">
+            <div className="section-two-header-wrapper global-max-width">
                 <div className="section-two-header-subwrapper">
                     <h2 className="section-two-header">
                         Move and{" "}
@@ -30,7 +30,7 @@ const SectionTwo = () => {
                     <FlowLogo className="product-flow-section-one-image" />
                 </div>
             </div>
-            <div className="section-two-first-graphic-wrapper">
+            <div className="section-two-first-graphic-wrapper global-max-width">
                 <StaticImage
                     placeholder="none"
                     alt="dataflow graphic"
@@ -42,7 +42,7 @@ const SectionTwo = () => {
                     className="section-two-first-graphic"
                 />
             </div>
-            <div className="section-two-tiles-wrapper">
+            <div className="section-two-tiles-wrapper global-max-width">
                 <div className="section-two-tile-wrapper">
                     <div className="section-two-tile">
                         <h3 className="section-two-tile-title">

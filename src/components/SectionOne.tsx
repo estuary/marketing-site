@@ -1,11 +1,9 @@
-import * as React from "react"
-import { isDesktop, isMobile } from "react-device-detect"
-import { useStaticQuery, graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 import type { LottieRef } from "lottie-react"
-import { useMediaQuery, useTheme } from "@mui/material"
-import { OutboundLink } from "../components/OutboundLink"
+import * as React from "react"
 import Marquee from "react-fast-marquee"
+import { OutboundLink } from "../components/OutboundLink"
 import OpenHubspotModal from "./HubSpot/OpenModal"
 
 const animFallback = (
@@ -107,71 +105,73 @@ const SectionOne = () => {
 
     return (
         <div className="section-one">
-            <div className="section-one-wrapper">
-                <div className="section-one-left">
-                    <h1>Real-time ETL & CDC</h1>
-                    <h1>for apps, analytics, and AI.</h1>
-                    <h1>
-                        Up in{" "}
-                        <span
-                            style={{ wordBreak: "break-word", hyphens: "auto" }}
-                        >
-                            minutes.
-                        </span>
-                    </h1>
-                    <div className="section-one-subtext-wrapper">
-                        <p className="section-one-subtext">
-                            Streaming CDC with SQL and Typescript transforms,
-                            all at a fraction of the cost of the alternatives
-                        </p>
-                        <div className="section-one-container-cta">
-                            <OutboundLink
-                                target="_blank"
-                                href="https://dashboard.estuary.dev/register"
-                                className="section-one-button"
+            <div className="section-one-wrapper global-max-width">
+                <div className="section-one-main">
+                    <div className="section-one-left">
+                        <h1>Real-time ETL & CDC</h1>
+                        <h1>for apps, analytics, and AI.</h1>
+                        <h1>
+                            Up in{" "}
+                            <span
+                                style={{ wordBreak: "break-word", hyphens: "auto" }}
                             >
-                                Build a pipeline
-                            </OutboundLink>
-                            <OpenHubspotModal
-                                buttonLabel={"Book Demo"}
-                                buttonClass={"section-one-button-secondary"}
-                                buttonId="section-one-hubspot"
-                            />
+                                minutes.
+                            </span>
+                        </h1>
+                        <div className="section-one-subtext-wrapper">
+                            <p className="section-one-subtext">
+                                Streaming CDC with SQL and Typescript transforms,
+                                all at a fraction of the cost of the alternatives
+                            </p>
+                            <div className="section-one-container-cta">
+                                <OutboundLink
+                                    target="_blank"
+                                    href="https://dashboard.estuary.dev/register"
+                                    className="section-one-button"
+                                >
+                                    Build a pipeline
+                                </OutboundLink>
+                                <OpenHubspotModal
+                                    buttonLabel={"Book Demo"}
+                                    buttonClass={"section-one-button-secondary"}
+                                    buttonId="section-one-hubspot"
+                                />
+                            </div>
                         </div>
                     </div>
+                    <div className="section-one-right">
+                        <React.Suspense fallback={animFallback}>
+                            <AnimatedHero />
+                        </React.Suspense>
+                    </div>
                 </div>
-                <div className="section-one-right">
-                    <React.Suspense fallback={animFallback}>
-                        <AnimatedHero />
-                    </React.Suspense>
+                <div className="custom-slides slide-container">
+                    <Marquee>
+                        {logos.allStrapiVanityLogo.nodes?.map(logo =>
+                            logo.logo.localFile.internal.mediaType ===
+                                "image/svg+xml" ? (
+                                <div className="custom-slider" key={logo.id}>
+                                    <div
+                                        dangerouslySetInnerHTML={{
+                                            __html: logo.logo.localFile.svg.content,
+                                        }}
+                                    />
+                                </div>
+                            ) : (
+                                <div className="custom-slider" key={logo.id}>
+                                    <GatsbyImage
+                                        alt={`logo`}
+                                        loading="eager"
+                                        image={
+                                            logo.logo.localFile.childImageSharp
+                                                .gatsbyImageData
+                                        }
+                                    />
+                                </div>
+                            )
+                        )}
+                    </Marquee>
                 </div>
-            </div>
-            <div className="custom-slides slide-container">
-                <Marquee>
-                    {logos.allStrapiVanityLogo.nodes?.map(logo =>
-                        logo.logo.localFile.internal.mediaType ===
-                        "image/svg+xml" ? (
-                            <div className="custom-slider" key={logo.id}>
-                                <div
-                                    dangerouslySetInnerHTML={{
-                                        __html: logo.logo.localFile.svg.content,
-                                    }}
-                                />
-                            </div>
-                        ) : (
-                            <div className="custom-slider" key={logo.id}>
-                                <GatsbyImage
-                                    alt={`logo`}
-                                    loading="eager"
-                                    image={
-                                        logo.logo.localFile.childImageSharp
-                                            .gatsbyImageData
-                                    }
-                                />
-                            </div>
-                        )
-                    )}
-                </Marquee>
             </div>
         </div>
     )
