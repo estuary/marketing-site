@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Container, CurrentPageTitle, Divider, Links, PreviousLink } from './styles';
+import { Container, Crumb, CurrentPageTitle, Divider, Links, PreviousLink } from './styles';
 
 interface BreadcrumbsProps {
   breadcrumbs: {
@@ -14,7 +14,7 @@ const Breadcrumbs = ({ breadcrumbs }: BreadcrumbsProps) => {
     <Container aria-label="breadcrumb">
       <Links>
         {breadcrumbs?.map((breadcrumb) => (
-          <li key={breadcrumb.id}>
+          <Crumb key={breadcrumb.id}>
             {breadcrumb?.href ? (
               <>
                 <PreviousLink to={breadcrumb.href}>
@@ -25,7 +25,7 @@ const Breadcrumbs = ({ breadcrumbs }: BreadcrumbsProps) => {
             ) : (
               <CurrentPageTitle>{breadcrumb.title}</CurrentPageTitle>
             )}
-          </li>
+          </Crumb>
         ))}
       </Links>
     </Container>
