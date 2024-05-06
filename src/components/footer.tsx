@@ -10,7 +10,7 @@ import TwitterIcon from "../svgs/twitter-outline.svg"
 const Footer = () => {
     return (
         <footer className="global-footer">
-            <div className="global-footer-wrapper global-max-width">
+            <div className="global-footer-wrapper">
                 <div>
                     <Link className="global-footer-logo-link" to="/">
                         <StaticImage
@@ -37,7 +37,7 @@ const Footer = () => {
                         </p>
                     </div>
                     <div className="global-footer-subscribe">
-                        <form id="newsletter-signup">
+                        <form id="newsletter-signup" className="email-form">
                             <input
                                 className="global-footer-input-email"
                                 placeholder="Email"
@@ -101,7 +101,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div className="global-footer-bottom global-max-width">
+            <div className="global-footer-bottom">
                 <div className="global-footer-divider"></div>
                 <div className="global-footer-bottom-wrapper">
                     <div className="global-footer-bottom-copyright">

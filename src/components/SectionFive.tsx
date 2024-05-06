@@ -30,7 +30,7 @@ const SectionFive = () => {
     `)
     return (
         <div className="section-five">
-            <div className="global-max-width">
+            <div className="section-five-wrapper">
                 <div className="section-five-header-wrapper">
                     <p className="section-five-header-small">Testimonials</p>
                     <h2 className="section-five-header">What our customers say</h2>

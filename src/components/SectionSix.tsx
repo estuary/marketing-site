@@ -6,7 +6,7 @@ import Slider from "./Slider"
 const SectionSix = () => {
     return (
         <div className="section-six">
-            <div className="section-six-wrapper global-max-width">
+            <div className="section-six-wrapper">
                 <div className="section-six-slider-wrapper">
                     <p className="section-four-header-small">Built for who</p>
                     <Slider />

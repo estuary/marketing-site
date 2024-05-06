@@ -8,11 +8,11 @@ export const Wrapper = styled.div`
   flex-direction: column;
   gap: 16px;
 
-  @media (min-width: 1080px) {
+  @media (min-width: 768px) {
     flex-direction: row;
   }
 
-  @media (max-width: 734px) {
+  @media (max-width: 1222px) {
     width: 100%;
   }
 `;
@@ -21,7 +21,7 @@ export const Form = styled(FormControl)`
   width: 262px;
   height: 52px;
 
-  @media (max-width: 734px) {
+  @media (max-width: 1222px) {
     width: 100%;
   }
 `;
@@ -29,7 +29,7 @@ export const Form = styled(FormControl)`
 export const ConnectorSelect = styled(Select)`
   width: 262px;
 
-  @media (max-width: 734px) {
+  @media (max-width: 1222px) {
     width: 100%;
   }
 `
@@ -53,7 +53,7 @@ export const Button = styled<any>(Link)`
   background-color: #5072eb;
   color: #fff;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     padding: 16px 24px;
     max-width: 100px;
     font-size: 16px;

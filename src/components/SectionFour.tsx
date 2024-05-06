@@ -13,7 +13,7 @@ import StreamingELT from "../svgs/icon-streaming-elt.svg"
 const SectionFour = () => {
     return (
         <div className="section-four">
-            <div className="section-four-wrapper global-max-width">
+            <div className="section-four-wrapper">
                 <p className="section-four-header-small">Features</p>
                 <div className="section-four-header-wrapper">
                     <h2 className="section-two-bottom-title">
@@ -70,8 +70,6 @@ const SectionFour = () => {
                                 your entire company can use.
                             </p>
                         </div>
-                    </div>
-                    <div className="section-four-tile-wrapper">
                         <div className="section-four-tile">
                             <div className="icon-wrapper">
                                 <OperationalAnalytics className="icon-image" />

@@ -105,7 +105,7 @@ const SectionOne = () => {
 
     return (
         <div className="section-one">
-            <div className="section-one-wrapper global-max-width">
+            <div className="section-one-wrapper">
                 <div className="section-one-main">
                     <div className="section-one-left">
                         <h1>Real-time ETL & CDC</h1>

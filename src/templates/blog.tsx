@@ -1,19 +1,17 @@
+import { Link, graphql } from "gatsby"
 import * as React from "react"
-import { Link, graphql, PageProps, useStaticQuery } from "gatsby"
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
-import { StaticImage } from "gatsby-plugin-image"
-import clsx from "clsx"
-import { BlogPostCard } from "../components/BlogPostCard"
 import SearchIcon from "@mui/icons-material/Search"
-import { useLunr } from "react-lunr"
-import FlowLogo from "../svgs/flow-logo.svg"
-import { useMemo } from "react"
+import { Divider } from "@mui/material"
+import clsx from "clsx"
 import type { Index } from "lunr"
 import lunr from "lunr"
-import { Divider } from "@mui/material"
+import { useMemo } from "react"
 import BackgroundImageWrapper from "../components/BackgroundImageWrapper"
+import { BlogPostCard } from "../components/BlogPostCard"
+import Layout from "../components/layout"
+import Seo from "../components/seo"
+import FlowLogo from "../svgs/flow-logo.svg"
 
 interface BlogIndexProps {
     data: {
@@ -120,7 +118,6 @@ const BlogIndex = ({
                             </Link>
                         ))}
                     </div>
-                    <div className="blogs-spacer" />
                     <div className="blogs-index-search">
                         <SearchIcon className="blogs-index-input-adornment" />
                         <input
@@ -140,14 +137,16 @@ const BlogIndex = ({
             {(prevPage || nextPage) && (
                 <>
                     <Divider />
-                    <div className="blogs-nav-wrapper">
-                        {prevPage ? (
-                            <Link to={prevPage}>← Prev Page</Link>
-                        ) : null}
-                        <div style={{ flexGrow: 1 }} />
-                        {nextPage ? (
-                            <Link to={nextPage}>Next Page →</Link>
-                        ) : null}
+                    <div className="blogs-nav">
+                        <div className="blogs-nav-wrapper">
+                            {prevPage ? (
+                                <Link to={prevPage}>← Prev Page</Link>
+                            ) : null}
+                            <div style={{ flexGrow: 1 }} />
+                            {nextPage ? (
+                                <Link to={nextPage}>Next Page →</Link>
+                            ) : null}
+                        </div>
                     </div>
                 </>
             )}
