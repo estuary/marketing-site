@@ -15,7 +15,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ breadcrumbs = [] }) => {
     <Container aria-label="breadcrumb">
       <Links>
         {breadcrumbs.map(({ title, href }) => (
-          <Crumb key={href || title}>
+          <Crumb key={`breadCrumb_${href || title}`}>
             {href ? (
               <>
                 <PreviousLink to={href}>{title}</PreviousLink>
