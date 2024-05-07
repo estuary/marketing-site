@@ -1,19 +1,16 @@
-import styled, { css } from "styled-components"
-import { OutboundLink } from "../../../../components/OutboundLink"
 import { Link } from "gatsby"
+import styled from "styled-components"
+import { OutboundLink } from "../../../../components/OutboundLink"
+import { globalMaxWidth, globalSidePadding, sectionTopBottomPadding } from "../../../../globalStyles"
 
-export const Container = styled.div`
-    padding: 40px 20px;
-
-    @media (min-width: 1280px) {
-        padding: 20px 90px;
-        padding-bottom: 60px;
-        max-width: 1920px;
-        margin: 0 auto;
-    }
+export const Container = styled.section`
+    ${globalSidePadding}
+    ${sectionTopBottomPadding}
 `
 
 export const ContainerHeader = styled.div`
+    ${globalMaxWidth}
+
     display: flex;
     flex-direction: column;
 

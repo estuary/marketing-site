@@ -3,9 +3,13 @@ import styled from "styled-components"
 import { Link } from "gatsby"
 import { OutboundLink } from "../../../../components/OutboundLink"
 
+import { globalMaxWidth, globalSidePadding, sectionTopBottomPadding } from "../../../../globalStyles"
 import vectorBackgroundImage from "../../../../images/lp-product/Vector.png"
 
-export const Wrapper = styled.div`
+export const Container = styled.section`
+    ${sectionTopBottomPadding}
+    ${globalSidePadding}
+
     background-image: url(${vectorBackgroundImage});
     background-size: cover;
     background-position: top;
@@ -13,20 +17,15 @@ export const Wrapper = styled.div`
     background-color: #F9FAFC;
 `
 
-export const Container = styled.div`
-    padding: 40px 20px;
+export const Wrapper = styled.div`
+    ${globalMaxWidth}
+    
     display: flex;
     flex-direction: column;
 
     @media (min-width: 1024px) {
         flex-direction: row-reverse;
         align-items: center;
-    }
-
-    @media (min-width: 1280px) {
-        padding: 100px 90px;
-        max-width: 1920px;
-        margin: 0 auto;
     }
 `
 

@@ -1,9 +1,13 @@
 import styled from "styled-components"
 
 import { Link } from "gatsby"
+import { globalMaxWidth, globalSidePadding, sectionTopBottomPadding } from "../../../../globalStyles"
 import VectorImage from "../../../../images/lp-product/vector-ourconnectors.png"
 
-export const Wrapper = styled.div`
+export const Container = styled.section`
+    ${sectionTopBottomPadding}
+    ${globalSidePadding}
+
     background-image: url(${VectorImage});
     background-size: cover;
     background-position: top;
@@ -11,8 +15,9 @@ export const Wrapper = styled.div`
     background-color: #F9FAFC;
 `
 
-export const Container = styled.div`
-    padding: 40px 20px;
+export const Wrapper = styled.div`
+    ${globalMaxWidth}
+
     display: flex;
     flex-direction: column;
     gap: 40px;
@@ -20,12 +25,6 @@ export const Container = styled.div`
     @media (min-width: 1024px) {
         flex-direction: row;
         align-items: center;
-    }
-
-    @media (min-width: 1280px) {
-        padding: 100px 90px;
-        max-width: 1920px;
-        margin: 0 auto;
     }
 `
 

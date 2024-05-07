@@ -1,12 +1,14 @@
 import styled from "styled-components"
 
+import { globalMaxWidth } from "../../../../../../globalStyles"
 import BackgroundImage from "../../../../../../images/lp-product/TheAutomation/the-automation-bg.png"
 
 export const Container = styled.div`
+    ${globalMaxWidth}
+    
     display: flex;
     flex-direction: column;
     gap: 250px;
-    max-width: 450px;
     flex: 1;
     background-image: url(${BackgroundImage});
     background-repeat: no-repeat;
@@ -14,7 +16,6 @@ export const Container = styled.div`
     background-position: center center;
 
     @media (min-width: 1024px) {
-        max-width: 100%;
         flex-direction: row;
         background-size: 700px 700px;
         gap: 100px;
