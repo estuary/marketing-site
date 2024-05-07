@@ -4150,20 +4150,19 @@ table th {
     background: #fff;
 
     .podcast-hero {
+        .section-top-bottom-padding();
+        .global-side-padding();
+
         background: url(./images/lp-podcast/img-bg.png) no-repeat center / cover;
-        padding: 90px 0 240px;
 
         @media (max-width: 991px) {
             background: url(./images/lp-podcast/img-bg.png) no-repeat center
                 right / cover;
         }
 
-        @media (max-width: 767px) {
-            padding: 10px 0 16px;
-        }
-
         .hero-container {
-            max-width: 1220px;
+            .global-max-width();
+
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -4232,20 +4231,13 @@ table th {
         }
     }
 
+    .episodes {
+        .section-top-bottom-padding();
+        .global-side-padding();
+    }
+
     .episodes-wrap {
-        max-width: 1220px;
-        margin: -200px auto 0;
-        padding-bottom: 100px;
-
-        @media (max-width: 1260px) {
-            max-width: calc(100% - 40px);
-        }
-
-        @media (max-width: 767px) {
-            max-width: calc(100% - 32px);
-            margin-top: 16px;
-            padding-bottom: 32px;
-        }
+        .global-max-width();
 
         .episodes-heading {
             font-family: "Inter", sans-serif;
@@ -4366,27 +4358,18 @@ table th {
     }
 
     .subscribe {
-        background: #f9fafc;
-        padding: 100px 0 135px;
+        .section-top-bottom-padding();
+        .global-side-padding();
 
-        @media (max-width: 767px) {
-            padding: 32px 0;
-        }
+        background: #f9fafc;
 
         .subscribe-wrap {
-            max-width: 1220px;
-            margin: 0 auto;
+            .global-max-width();
+
             display: flex;
+            gap: 60px;
             justify-content: space-between;
             align-items: center;
-
-            @media (max-width: 1260px) {
-                max-width: calc(100% - 40px);
-            }
-
-            @media (max-width: 767px) {
-                max-width: calc(100% - 32px);
-            }
         }
 
         .subscribe-left {
@@ -4433,6 +4416,8 @@ table th {
             line-height: 140%;
             color: #47506d;
             margin-bottom: 40px;
+            gap: 20px;
+            flex-wrap: wrap;
 
             @media (max-width: 767px) {
                 flex-direction: column;
@@ -4544,30 +4529,22 @@ table th {
 
 /*Signup component*/
 .signup {
-    padding: 100px 0;
-
-    @media (max-width: 767px) {
-        padding: 32px 0;
-    }
-
+    .section-top-bottom-padding();
+    .global-side-padding();
+    
     .signup-bg {
+        .section-top-bottom-padding();
+        .global-side-padding();
+        .global-max-width();
+        
         background: #04192b url(./images/lp-podcast/signup-bg.png) no-repeat
             center / cover;
-        max-width: 1220px;
         width: 100%;
         height: auto;
-        padding: 100px 0;
-        margin: 0 auto;
-
-        @media (max-width: 1260px) {
-            max-width: calc(100% - 40px);
-        }
 
         @media (max-width: 767px) {
             background: #04192b url(./images/lp-podcast/signup-bg.png) no-repeat
                 center / contain;
-            padding: 32px 24px;
-            max-width: calc(100% - 32px);
         }
     }
 
