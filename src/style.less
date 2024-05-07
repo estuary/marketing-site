@@ -1805,16 +1805,17 @@ table th {
 }
 
 .product-flow-section-one {
+    .global-max-width();
+    
     display: flex;
     justify-content: space-between;
-    margin-top: 50px;
-    margin-bottom: 200px;
     width: 100%;
-    padding-left: ~"calc(min(9%, 146px))";
-    padding-right: ~"calc(min(9%, 146px))";
 }
 
 .product-flow-section-one-background-image-wrapper {
+    .section-top-bottom-padding();
+    .global-side-padding();
+
     display: flex;
     width: 100%;
     background-image: url("./images/product-flow-section-one-background.svg");
@@ -2603,11 +2604,13 @@ table th {
 .about-section-one-h1 {
     width: 600px;
     color: #04192b;
+    margin-top: 0;
 }
 
 .about-section-one-text {
     font-size: 1.25rem;
     color: #47506d;
+    margin-bottom: 0;
 }
 
 .about-section-one-text a {
@@ -2621,22 +2624,33 @@ table th {
 }
 
 .about-section-two {
-    padding: 100px 0 100px 0;
+    .section-top-bottom-padding();
+    .global-side-padding();
+
     background-color: #04192b;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     background-image: url("./images/overlay-vector-right.svg");
     background-position: bottom right;
     background-repeat: no-repeat;
     background-size: 30%;
 }
 
+.about-section-two-wrapper {
+    .global-max-width();
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .about-flow-logo {
     margin-top: -10em;
     margin-left: -45em;
     position: absolute;
+
+    @media (max-width: 1024px) {
+        margin-left: -38em;
+    }
 }
 
 .about-section-header {
@@ -2695,12 +2709,16 @@ table th {
 }
 
 .about-section-three {
+    .section-top-bottom-padding();
+    .global-side-padding();
+
     display: flex;
     background-color: #f9fafc;
     flex-direction: column;
-    padding-left: ~"calc(min(9%, 146px))";
-    padding-right: ~"calc(min(9%, 146px))";
-    padding-top: 100px;
+}
+
+.about-section-three-wrapper {
+    .global-max-width();
 }
 
 .about-section-header-top {
@@ -2740,12 +2758,18 @@ table th {
 }
 
 .about-section-four-current-openings {
+    .section-top-bottom-padding();
+    .global-side-padding();
+
     background-color: #ffffff;
-    margin-top: 100px;
+}
+
+.about-section-four-current-openings-wrapper {
+    .global-max-width();
+    
+    background-color: #ffffff;
     display: flex;
     flex-direction: column;
-    padding-left: ~"calc(min(9%, 146px))";
-    padding-right: ~"calc(min(9%, 146px))";
 }
 
 .about-current-openings-list {
@@ -2753,10 +2777,10 @@ table th {
     flex-direction: column;
     background-color: #f9fafc;
     max-width: 300px;
-    margin-right: 80px;
+    margin-right: 60px;
     height: fit-content;
     position: sticky;
-    top: 30px;
+    top: 120px;
     margin-bottom: 30px;
 }
 
@@ -2780,7 +2804,7 @@ table th {
     border-radius: 4px;
     padding: 20px 36.5px 20px 36.5px;
     margin-top: 24px;
-    width: 252px;
+    width: 240px;
     height: 60px;
     text-align: center;
     font-family: "Inter", sans-serif;
@@ -2846,17 +2870,19 @@ table th {
 
 .current-openings-divider {
     width: 100%;
-    margin: 40px auto;
+    margin: 40px auto 0 auto;
     border: 1px solid #d7dce5;
 }
 
 .about-section-five {
+    .section-top-bottom-padding();
+    .global-side-padding();
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #f9fafc;
-    padding: 100px 0;
     background-image: url("./images/product-flow-vector-left.svg");
     background-repeat: no-repeat;
     background-position-y: 480px;
@@ -2865,12 +2891,12 @@ table th {
 
     & > div:last-child {
         width: 100%;
-        padding: 3rem;
         max-width: 50rem;
     }
 
     .about-section-five-header {
         color: #04192b;
+        margin-top: 0;
     }
 
     .about-section-five-text {
@@ -3661,10 +3687,6 @@ table th {
         max-width: 300px;
     }
 
-    .product-flow-section-one {
-        margin-bottom: 0px;
-    }
-
     .product-flow-section-two-topic-header {
         font-size: 1.75rem;
     }
@@ -3740,10 +3762,6 @@ table th {
 
     .about-careers-text-wrapper {
         padding: 0 16px;
-    }
-
-    .about-section-margin-bottom {
-        margin-bottom: 48px;
     }
 
     .about-section-one-text {
@@ -5120,8 +5138,10 @@ table th {
 
 /*About section updates*/
 .about-history {
+    .section-top-bottom-padding();
+    .global-side-padding();
+    
     background: #f9fafc;
-    padding: 122px 0 190px;
     background-image: url("./images/product-flow-vector-left.svg");
     background-repeat: no-repeat;
     background-position-y: 480px;
@@ -5134,7 +5154,8 @@ table th {
     }
 
     .history-wrap {
-        max-width: 1220px;
+        .global-max-width();
+        
         margin-left: auto;
         margin-right: auto;
         display: flex;
@@ -5206,7 +5227,13 @@ table th {
 }
 
 .about-media {
-    padding: 125px 0 63px;
+    .section-top-bottom-padding();
+    .global-side-padding();
+}
+
+.about-media-wrapper {
+    .global-max-width();
+
     position: relative;
 
     @media (max-width: 811px) {
@@ -5215,8 +5242,8 @@ table th {
 
     .media-logo {
         position: absolute;
-        top: 125px;
-        right: calc(50% - 610px);
+        top: 0;
+        right: calc(50% - 640px);
 
         @media (max-width: 1512px) {
             right: ~"calc(min(9%, 146px))";
@@ -5229,7 +5256,6 @@ table th {
     }
 
     .product-flow-section-two-header-small {
-        max-width: 1220px;
         margin-left: auto;
         margin-right: auto;
 
@@ -5241,7 +5267,6 @@ table th {
     }
 
     h2 {
-        max-width: 1220px;
         margin-left: auto;
         margin-right: auto;
 
@@ -5253,7 +5278,6 @@ table th {
     }
 
     .media-wrap {
-        max-width: 1220px;
         width: 100%;
         margin: 50px auto 0;
         display: grid;
@@ -5324,20 +5348,18 @@ table th {
 }
 
 .meet-the-team {
-    padding: 63px 0;
-
-    @media (max-width: 811px) {
-        padding: 32px 0;
-    }
+    .section-top-bottom-padding();
+    .global-side-padding();
 
     p,
     h2 {
-        max-width: 100%;
+        .global-max-width();
         text-align: center;
     }
 
     .team-wrap {
-        max-width: 1220px;
+        .global-max-width();
+        
         margin: 35px auto 0;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -5347,13 +5369,15 @@ table th {
 
         @media (max-width: 1512px) {
             max-width: 100%;
-            padding-left: ~"calc(min(9%, 146px))";
-            padding-right: ~"calc(min(9%, 146px))";
         }
 
-        @media (max-width: 811px) {
+        @media (max-width: 1024px) {
             grid-template-columns: repeat(2, 1fr);
             grid-row-gap: 40px;
+        }
+
+        @media (max-width: 480px) {
+            grid-template-columns: repeat(1, 1fr);
         }
 
         .team-item {
@@ -5412,6 +5436,8 @@ table th {
 }
 
 .investors {
+    .global-max-width();
+    
     padding: 37px 0 123px;
 
     @media (max-width: 811px) {
