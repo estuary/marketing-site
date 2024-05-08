@@ -23,6 +23,7 @@ export const ContainerImage = styled.div`
   background-color: #ffffff;
   border-radius: 100%;
   border: 1px solid #d7dce5;
+  min-width: 56px;
 `;
 
 export const ContainerContent = styled.div`

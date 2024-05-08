@@ -2,21 +2,20 @@ import styled from 'styled-components';
 
 import { OutboundLink } from '../../../components/OutboundLink';
 
+import { globalMaxWidth, globalSidePadding, sectionTopBottomPadding } from '../../../globalStyles';
 import vectorBackgroundImage from '../../../images/lp-connector/real-time/Vector.png';
 
 export const Wrapper = styled.section`
-  padding: 40px 20px;
-
-  @media (min-width: 1280px) {
-    padding: 90px 100px;
-  }
+  ${globalSidePadding}
+  ${sectionTopBottomPadding}
 `;
 
 export const Container = styled.div`
+  ${globalMaxWidth}
+
   padding: 40px 20px;
   display: flex;
   flex-direction: column-reverse;
-  margin: 0 auto;
   border-radius: 24px;
   background-image: url(${vectorBackgroundImage});
   background-size: cover;
@@ -30,14 +29,13 @@ export const Container = styled.div`
     min-height: 400px;
   }
 
-  @media (min-width: 1280px) {
-    max-width: 1580px;
-    padding: 48px 90px;
-    margin: 0 auto;
-  }
-
   @media (max-width: 1024px) {
     background-position: top right -1000px;
+  }
+
+  @media (min-width: 1280px) {
+    padding: 48px 90px;
+    margin: 0 auto;
   }
 
   @media (max-width: 425px) {

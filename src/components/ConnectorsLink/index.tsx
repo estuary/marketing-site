@@ -10,9 +10,10 @@ type ConnectorsLinkProps = {
   defaultSourceId?: string;
   defaultDestinationId?: string;
   connectorType?: ConnectorType;
+  direction?: 'row' | 'column';
 }
 
-export const ConnectorsLink = ({ defaultSourceId, defaultDestinationId, connectorType }: ConnectorsLinkProps) => {
+export const ConnectorsLink = ({ defaultSourceId, defaultDestinationId, connectorType, direction }: ConnectorsLinkProps) => {
   const {
     postgres: {
       allConnectors: { nodes: connectors },
@@ -68,7 +69,7 @@ export const ConnectorsLink = ({ defaultSourceId, defaultDestinationId, connecto
   }, [captureConnectors, materializationConnectors, sourceId, destinationId]);
 
   return (
-    <Wrapper>
+    <Wrapper direction={direction}>
       <Form fullWidth>
         <InputLabel>Sources</InputLabel>
         <ConnectorSelect

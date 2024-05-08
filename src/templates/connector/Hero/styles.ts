@@ -1,9 +1,13 @@
 import styled, { CSSProperties } from 'styled-components';
 
 import { ConnectorType } from '../../../../shared';
+import { globalMaxWidth, globalSidePadding, sectionTopBottomPadding } from '../../../globalStyles';
 import Vector from '../../../images/lp-connector/hero/Vector.png';
 
 export const Wrapper = styled.section`
+  ${globalSidePadding}
+  ${sectionTopBottomPadding}
+
   background-color: #f9fafc;
 
   @media (min-width: 1024px) {
@@ -15,20 +19,15 @@ export const Wrapper = styled.section`
 `;
 
 export const Container = styled.div`
-  padding: 40px 20px;
+  ${globalMaxWidth}
+
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  gap: 40px;
 
   @media (min-width: 1024px) {
     flex-direction: row;
     align-items: center;
-  }
-
-  @media (min-width: 1280px) {
-    padding: 100px 90px;
-    max-width: 1580px;
-    margin: 0 auto;
   }
 `;
 
@@ -89,7 +88,7 @@ const TextBaseStyling = styled.span`
     color: #5072EB;
 
     @media (max-width: 1280px) {
-      font-size: 0.875rem;
+      font-size: 0.75rem;
     }
   
     @media (max-width: 1023px) {
@@ -99,7 +98,7 @@ const TextBaseStyling = styled.span`
 
   @media (max-width: 1280px) {
     max-width: 140px;
-    font-size: 0.875rem;
+    font-size: 0.75rem;
   }
 
   @media (max-width: 1024px) {
@@ -111,10 +110,10 @@ const TextBaseStyling = styled.span`
 
 export const FlowStepOne = styled(TextBaseStyling)`
   top: 100%;
-  left: 5%;
+  left: 3%;
 
   @media (max-width: 1180px) {
-    left: 2%;
+    left: 0;
   }
 
   @media (max-width: 1023px) {
@@ -137,10 +136,10 @@ export const FlowStepOne = styled(TextBaseStyling)`
 
 export const FlowStepTwo = styled(TextBaseStyling)`
   top: 105%;
-  left: 39%;
+  left: 37%;
 
   @media (max-width: 1180px) {
-    left: 36%;
+    left: 34%;
   }
 
   @media (max-width: 1023px) {
@@ -163,10 +162,10 @@ export const FlowStepTwo = styled(TextBaseStyling)`
 
 export const FlowStepThree = styled(TextBaseStyling)`
   top: 97%;
-  left: 72%;
+  left: 70%;
 
   @media (max-width: 1180px) {
-    left: 70%;
+    left: 68%;
   }
 
   @media (max-width: 1023px) {

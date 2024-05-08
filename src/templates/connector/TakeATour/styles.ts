@@ -1,13 +1,17 @@
 import ReactPlayer from 'react-player';
 import styled from 'styled-components';
+import { globalMaxWidth, globalSidePadding, sectionTopBottomPadding } from '../../../globalStyles';
 import VectorImage from '../../../images/lp-connector/take-a-tour/background.png';
 
 export const Wrapper = styled.section`
+  ${globalSidePadding}
+  ${sectionTopBottomPadding}
   background-color: #f9fafc;
 `;
 
 export const Container = styled.div`
-  padding: 40px 20px;
+  ${globalMaxWidth}
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,12 +20,6 @@ export const Container = styled.div`
   @media (min-width: 1024px) {
     flex-direction: row;
     align-items: center;
-  }
-
-  @media (min-width: 1280px) {
-    padding: 100px 90px;
-    max-width: 1920px;
-    margin: 0 auto;
   }
 `;
 
