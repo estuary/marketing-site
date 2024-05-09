@@ -6,3 +6,17 @@ export const ContainerIcon = styled.div`
   border-radius: 8px;
   background-color: #ffffff;
 `;
+
+export const BreadcrumbsWrapper = styled.div`
+  max-width: 1580px;
+  margin: auto;
+  padding: 40px 90px;
+
+  @media (max-width: 1280px) {
+    padding: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    display: none;
+  }
+`
