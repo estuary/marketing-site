@@ -1,8 +1,15 @@
-import * as React from "react"
+import * as React from "react";
 
-import Layout from "../../components/layout"
-import Seo from "../../components/seo"
-import { Container } from "./styles"
+import Layout from "../components/layout";
+import Seo from "../components/seo";
+import { Container } from "./styles";
+
+import styled from 'styled-components';
+import { globalMaxWidth } from '../globalStyles';
+
+const Container = styled.div`
+  ${globalMaxWidth}
+`;
 
 const NotFoundPage = ({ data, location }) => {
   return (
