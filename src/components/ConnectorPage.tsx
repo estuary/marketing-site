@@ -45,7 +45,6 @@ export const ConnectorPage = ({ source_connector, dest_connector, connector_type
         <div className="connector-index-header">
           <div
             style={{
-              flex: '1 1 2rem',
               alignItems: 'center',
             }}
           >
