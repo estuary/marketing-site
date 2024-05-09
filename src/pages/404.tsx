@@ -2,7 +2,6 @@ import * as React from "react";
 
 import Layout from "../components/layout";
 import Seo from "../components/seo";
-import { Container } from "./styles";
 
 import styled from 'styled-components';
 import { globalMaxWidth } from '../globalStyles';
