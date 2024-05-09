@@ -1,11 +1,10 @@
 import styled from "styled-components"
 
 import { OutboundLink } from "../../../../components/OutboundLink"
-import { globalMaxWidth, globalSidePadding, sectionTopBottomPadding } from "../../../../globalStyles"
+import { globalMaxWidth, sectionTopBottomPadding } from "../../../../globalStyles"
 
 export const Container = styled.section`
     ${sectionTopBottomPadding}
-    ${globalSidePadding}
 `
 
 export const Wrapper = styled.div`

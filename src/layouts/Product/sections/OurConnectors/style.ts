@@ -1,12 +1,11 @@
 import styled from "styled-components"
 
 import { Link } from "gatsby"
-import { globalMaxWidth, globalSidePadding, sectionTopBottomPadding } from "../../../../globalStyles"
+import { globalMaxWidth, sectionTopBottomPadding } from "../../../../globalStyles"
 import VectorImage from "../../../../images/lp-product/vector-ourconnectors.png"
 
 export const Container = styled.section`
     ${sectionTopBottomPadding}
-    ${globalSidePadding}
 
     background-image: url(${VectorImage});
     background-size: cover;

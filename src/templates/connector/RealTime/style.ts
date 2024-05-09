@@ -2,17 +2,15 @@ import styled from 'styled-components';
 
 import { OutboundLink } from '../../../components/OutboundLink';
 
-import { globalMaxWidth, globalSidePadding, sectionTopBottomPadding } from '../../../globalStyles';
+import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
 import vectorBackgroundImage from '../../../images/lp-connector/real-time/Vector.png';
 
 export const Wrapper = styled.section`
-  ${globalSidePadding}
   ${sectionTopBottomPadding}
+  ${globalMaxWidth}
 `;
 
 export const Container = styled.div`
-  ${globalMaxWidth}
-
   padding: 40px 20px;
   display: flex;
   flex-direction: column-reverse;
@@ -35,7 +33,6 @@ export const Container = styled.div`
 
   @media (min-width: 1280px) {
     padding: 48px 90px;
-    margin: 0 auto;
   }
 
   @media (max-width: 425px) {

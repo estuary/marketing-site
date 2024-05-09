@@ -1,9 +1,8 @@
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import { globalMaxWidth, globalSidePadding, sectionTopBottomPadding } from '../../../globalStyles';
+import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
 
 export const Wrapper = styled.section`
-  ${globalSidePadding}
   ${sectionTopBottomPadding}
 `;
 

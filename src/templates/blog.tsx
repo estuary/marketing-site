@@ -138,15 +138,13 @@ const BlogIndex = ({
                 <>
                     <Divider />
                     <div className="blogs-nav">
-                        <div className="blogs-nav-wrapper">
-                            {prevPage ? (
-                                <Link to={prevPage}>← Prev Page</Link>
-                            ) : null}
-                            <div style={{ flexGrow: 1 }} />
-                            {nextPage ? (
-                                <Link to={nextPage}>Next Page →</Link>
-                            ) : null}
-                        </div>
+                        {prevPage ? (
+                            <Link to={prevPage}>← Prev Page</Link>
+                        ) : null}
+                        <div style={{ flexGrow: 1 }} />
+                        {nextPage ? (
+                            <Link to={nextPage}>Next Page →</Link>
+                        ) : null}
                     </div>
                 </>
             )}

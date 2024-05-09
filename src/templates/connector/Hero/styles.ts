@@ -1,11 +1,10 @@
 import styled, { CSSProperties } from 'styled-components';
 
 import { ConnectorType } from '../../../../shared';
-import { globalMaxWidth, globalSidePadding, sectionTopBottomPadding } from '../../../globalStyles';
+import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
 import Vector from '../../../images/lp-connector/hero/Vector.png';
 
 export const Wrapper = styled.section`
-  ${globalSidePadding}
   ${sectionTopBottomPadding}
 
   background-color: #f9fafc;

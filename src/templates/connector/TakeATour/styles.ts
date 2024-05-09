@@ -1,10 +1,9 @@
 import ReactPlayer from 'react-player';
 import styled from 'styled-components';
-import { globalMaxWidth, globalSidePadding, sectionTopBottomPadding } from '../../../globalStyles';
+import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
 import VectorImage from '../../../images/lp-connector/take-a-tour/background.png';
 
 export const Wrapper = styled.section`
-  ${globalSidePadding}
   ${sectionTopBottomPadding}
   background-color: #f9fafc;
 `;
