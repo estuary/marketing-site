@@ -5,8 +5,6 @@ import { useEffect, useRef, useState } from "react"
 import { isDesktop } from "react-device-detect"
 import { OutboundLink } from "../components/OutboundLink"
 import ColoredLogo from "../svgs/colored-logo.svg"
-import GithubIcon from "../svgs/github-outline.svg"
-import SlackIcon from "../svgs/slack-outline.svg"
 
 import HeaderNavbar from "./HeaderNavbar"
 
@@ -153,62 +151,47 @@ const Header = (props: { fixedHeader?: boolean }) => {
         <>
             {/* @ts-ignore */}
             <header
-                className={clsx("global-header global-header-dark", fixedHeader && "global-header-fixed")}
+                className={clsx("header", fixedHeader && "global-header-fixed")}
                 ref={wrapperRef}
             >
-                <Link className="global-header-logo-link" to="/">
-                    <ColoredLogo
-                        className="global-header-logo"
-                        style={{ width: 27, height: 35 }}
-                    />
-                    <h1 className={"global-header-title"}>Estuary</h1>
-                </Link>
-                <div style={{ flex: "1 2 140px" }} />
-                <div className="global-header-wrapper">
-                    <div className={clsx('global-header-link-wrapper', mobileMenuOpen && 'is-open')}>
-                        <HeaderNavbar />
+                <div className="global-header global-header-dark">
+                    <Link className="global-header-logo-link" to="/">
+                        <ColoredLogo
+                            className="global-header-logo"
+                            style={{ width: 27, height: 35 }}
+                        />
+                        <h1 className={"global-header-title"}>Estuary</h1>
+                    </Link>
+                    <div className="global-header-wrapper">
+                        <div className={clsx('global-header-link-wrapper', mobileMenuOpen && 'is-open')}>
+                            <HeaderNavbar />
+                        </div>
+                        <div className="global-header-login-try">
+                            <OutboundLink
+                                className="global-header-link"
+                                href="https://dashboard.estuary.dev"
+                                style={{ marginRight: "1rem" }}
+                            >
+                                Log in
+                            </OutboundLink>
+                            <OutboundLink
+                                target="_blank"
+                                href="https://dashboard.estuary.dev/register"
+                                className="global-header-try-it-button"
+                            >
+                                Try it free
+                            </OutboundLink>
+                        </div>
                     </div>
-                    <div className="global-header-login-try">
-                        <OutboundLink
-                            target="_blank"
-                            href="https://estuary-dev.slack.com/join/shared_invite/zt-86nal6yr-VPbv~YfZE9Q~6Zl~gmZdFQ#/shared-invite/email"
-                            className="header-social-icon"
-                            aria-label="Slack Invite Link"
+                    <div className="global-header-mobile-menu-wrapper">
+                        <button
+                            onClick={() => setMobileMenuOpen(open => !open)}
+                            className="global-header-mobile-menu-button"
+                            title="Menu"
                         >
-                            <SlackIcon className="social-icon" />
-                        </OutboundLink>
-                        <OutboundLink
-                            target="_blank"
-                            href="https://github.com/estuary/flow"
-                            className="header-social-icon"
-                            aria-label="Github Repo Link"
-                        >
-                            <GithubIcon className="social-icon" />
-                        </OutboundLink>
-                        <OutboundLink
-                            className="global-header-link"
-                            href="https://dashboard.estuary.dev"
-                            style={{ marginRight: "1rem" }}
-                        >
-                            Log in
-                        </OutboundLink>
-                        <OutboundLink
-                            target="_blank"
-                            href="https://dashboard.estuary.dev/register"
-                            className="global-header-try-it-button"
-                        >
-                            Try it free
-                        </OutboundLink>
+                            <MenuBarsImage />
+                        </button>
                     </div>
-                </div>
-                <div className="global-header-mobile-menu-wrapper">
-                    <button
-                        onClick={() => setMobileMenuOpen(open => !open)}
-                        className="global-header-mobile-menu-button"
-                        title="Menu"
-                    >
-                        <MenuBarsImage />
-                    </button>
                 </div>
             </header>
         </>

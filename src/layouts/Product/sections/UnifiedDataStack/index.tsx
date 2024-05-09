@@ -1,12 +1,12 @@
-import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
+import React from "react"
 
-import { Wrapper, Container, ContainerContent, ContainerImage, Title, Description, ContainerTopics, Topic, Button } from "./styles"
+import { Button, Container, ContainerContent, ContainerImage, ContainerTopics, Description, Title, Topic, Wrapper } from "./styles"
 
 const UnifiedDataStack = () => {
     return (
-        <Wrapper>
-            <Container>
+        <Container>
+            <Wrapper>
                 <ContainerImage>
                     <StaticImage
                         placeholder="none"
@@ -28,8 +28,8 @@ const UnifiedDataStack = () => {
                         Learn more
                     </Button>
                 </ContainerContent>
-            </Container>
-        </Wrapper>
+            </Wrapper>
+        </Container>
     )
 }
 

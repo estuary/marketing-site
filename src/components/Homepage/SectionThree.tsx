@@ -1,16 +1,13 @@
 import { StaticImage } from "gatsby-plugin-image"
 import * as React from "react"
-import { useEffect, useState } from "react"
 import ReactPlayer from "react-player/lazy"
+import { estuaryProductFlowVideoUrl } from "../../../shared"
+import useWindowExistence from "../../hooks/useWindowExistence"
 import { OutboundLink } from "../OutboundLink"
 
 const SectionThree = () => {
-    const [hasWindow, setHasWindow] = useState(false)
-    useEffect(() => {
-        if (typeof window !== "undefined") {
-            setHasWindow(true)
-        }
-    }, [])
+    const hasWindow = useWindowExistence();
+
     return (
         <div className="section-three">
             <div className="section-three-header-wrapper">
@@ -29,7 +26,7 @@ const SectionThree = () => {
                                 layout="constrained"
                             />
                         }
-                        url="https://www.youtube.com/embed/hlCh81ZbBik"
+                        url={estuaryProductFlowVideoUrl}
                     />
                 )}
             </div>

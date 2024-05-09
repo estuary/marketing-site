@@ -3,15 +3,15 @@ import SearchIcon from "@mui/icons-material/Search"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 import React, { useMemo, useState } from "react"
-import { isMobile } from "react-device-detect"
 import { useLunr } from "react-lunr"
+import { ConnectorType } from "../../shared"
 import FlowLogo from "../svgs/flow-logo.svg"
 import { normalizeConnector } from "../utils"
 import BackgroundImageWrapper from "./BackgroundImageWrapper"
 import { ConnectorsLink } from "./ConnectorsLink"
 
 export interface ConnectorsProps {
-    connectorType?: "capture" | "materialization"
+    connectorType?: ConnectorType
     title?: string
     description?: string
     bottomTitle?: string
@@ -199,11 +199,7 @@ export const Connectors = ({
                             style={{ display: "block" }}
                             className="blog-post-header-vectors"
                         >
-                            {isMobile ? (
-                                <span className="dont-show"></span>
-                            ) : (
-                                <FlowLogo className="product-flow-section-one-image" />
-                            )}
+                            <FlowLogo className="product-flow-section-one-image" />
                         </div>
                     </div>
                 )}

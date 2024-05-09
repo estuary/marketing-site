@@ -1,25 +1,23 @@
 import styled from "styled-components"
 
 import { OutboundLink } from "../../../../components/OutboundLink"
+import { globalMaxWidth, sectionTopBottomPadding } from "../../../../globalStyles"
 
-export const Wrapper = styled.div`
+export const Container = styled.section`
+    ${sectionTopBottomPadding}
+
     background-color: #F9FAFC;
 `
 
-export const Container = styled.div`
-    padding: 40px 20px;
+export const Wrapper = styled.div`
+    ${globalMaxWidth}
+
     display: flex;
     flex-direction: column;
 
     @media (min-width: 1024px) {
         flex-direction: row;
         align-items: center;
-    }
-
-    @media (min-width: 1280px) {
-        padding: 60px 90px;
-        max-width: 1920px;
-        margin: 0 auto;
     }
 `
 

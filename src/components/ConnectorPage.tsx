@@ -1,15 +1,17 @@
 import { useMediaQuery, useTheme } from '@mui/material';
 import { Link } from 'gatsby';
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { isMobile as isRealMobile } from 'react-device-detect';
 import ReactPlayer from 'react-player/lazy';
+import { ConnectorType, estuaryProductFlowVideoUrl } from '../../shared';
 import { Connectors } from '../components/Connectors';
 import ConnectorsImageDesktop from '../components/ConnectorsImageDesktop';
 import ConnectorsImageMobile from '../components/ConnectorsImageMobile';
 import { ConnectorsLink } from '../components/ConnectorsLink';
 import { OutboundLink } from '../components/OutboundLink';
 import SliderHorizontal from '../components/SliderHorizontal';
+import useWindowExistence from '../hooks/useWindowExistence';
 import CareerAvatar from '../svgs/about-careers-avatar-icon.svg';
 import ColoredLogo from '../svgs/colored-logo.svg';
 import DbIcon from '../svgs/db2.svg';
@@ -25,7 +27,7 @@ import { normalizeConnector } from '../utils';
 export interface ConnectorPageProps {
   source_connector: any;
   dest_connector: any;
-  connector_type?: 'capture' | 'materialization';
+  connector_type?: ConnectorType;
 }
 
 export const ConnectorPage = ({ source_connector, dest_connector, connector_type }: ConnectorPageProps) => {
@@ -35,12 +37,7 @@ export const ConnectorPage = ({ source_connector, dest_connector, connector_type
   const theme = useTheme();
   const isMobile = isRealMobile || useMediaQuery(theme.breakpoints.down('sm'));
 
-  const [hasWindow, setHasWindow] = useState(false);
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setHasWindow(true);
-    }
-  }, []);
+  const hasWindow = useWindowExistence();
 
   return (
     <>
@@ -189,7 +186,7 @@ export const ConnectorPage = ({ source_connector, dest_connector, connector_type
         </div>
       </div>
       <div className="connector-link-bottom connector-section-wrapper" style={{ margin: 0, marginBottom: '6rem' }}>
-        <ConnectorsLink defaultSource={source_mapped?.id} defaultDestination={dest_mapped?.id} />
+        <ConnectorsLink defaultSourceId={source_mapped?.id} defaultDestinationId={dest_mapped?.id} />
       </div>
       <div className="connector-section-wrapper connector-section-background vertical-mobile">
         <div className="connector-section-content connector-center connector-section-mobile">
@@ -217,7 +214,7 @@ export const ConnectorPage = ({ source_connector, dest_connector, connector_type
                     layout="constrained"
                   />
                 }
-                url="https://www.youtube.com/embed/hlCh81ZbBik"
+                url={estuaryProductFlowVideoUrl}
               />
             )}
           </div>

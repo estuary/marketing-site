@@ -1,26 +1,23 @@
-import * as React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import SlackIcon from "../svgs/slack-outline.svg"
+import * as React from "react"
+import { OutboundLink } from "../components/OutboundLink"
 import GithubIcon from "../svgs/github-outline.svg"
 import LinkedinIcon from "../svgs/linkedin-outline.svg"
+import SlackIcon from "../svgs/slack-outline.svg"
 import TwitterIcon from "../svgs/twitter-outline.svg"
-import { OutboundLink } from "../components/OutboundLink"
 
 const Footer = () => {
     return (
         <footer className="global-footer">
             <div className="global-footer-wrapper">
-                <div className="global-footer-left">
+                <div>
                     <Link className="global-footer-logo-link" to="/">
                         <StaticImage
                             src="../images/estuary-icon.png"
                             alt="estuary logo"
                             width={27}
                             height={35}
-                            style={{
-                                margin: "3px 7px 34px 0px",
-                            }}
                             layout="fixed"
                             placeholder="none"
                         />
@@ -40,7 +37,7 @@ const Footer = () => {
                         </p>
                     </div>
                     <div className="global-footer-subscribe">
-                        <form id="newsletter-signup">
+                        <form id="newsletter-signup" className="email-form">
                             <input
                                 className="global-footer-input-email"
                                 placeholder="Email"
@@ -142,14 +139,14 @@ const Footer = () => {
                             href="https://www.linkedin.com/company/65266256/"
                             aria-label="Linkedin Company Link"
                         >
-                           <LinkedinIcon className="social-icon"/>
+                            <LinkedinIcon className="social-icon" color="#B7C6DD" />
                         </OutboundLink>
                         <OutboundLink
                             target="_blank"
                             href="https://twitter.com/EstuaryDev"
                             aria-label="Twitter Company Link"
                         >
-                            <TwitterIcon className="social-icon"/>
+                            <TwitterIcon className="social-icon" />
                         </OutboundLink>
                     </div>
                 </div>

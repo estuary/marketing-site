@@ -1,5 +1,5 @@
-const React = require("react")
-const { Partytown } = require("@builder.io/partytown/react")
+import * as React from 'react';
+import { GA_MEASUREMENT_ID, GA_ORIGIN } from './shared';
 
 /**
  * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
@@ -11,36 +11,46 @@ const { Partytown } = require("@builder.io/partytown/react")
  * @type {import('gatsby').GatsbySSR['onRenderBody']}
  */
 
-const GA_MEASUREMENT_ID = "G-P1PZPE4HHZ"
+export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
+  const googleAnalyticsHTML = `
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+          dataLayer.push(arguments);
+      }
+      // Default consent settings and tell it to wait a little bit for an wait
+      //  for an update that will be coming from the banner module
+      gtag('consent', 'default', {
+          'ad_storage': 'denied',
+          'ad_user_data': 'denied',
+          'ad_personalization': 'denied',
+          'analytics_storage': 'denied',
+          'functionality_storage': 'denied',
+          'personalization_storage': 'denied',
+          'security_storage': 'denied',
+          'wait_for_update': 500,
+      });
+      // Start up gtag
+      gtag('js', new Date());
+      gtag('config', '${GA_MEASUREMENT_ID}');
+  `;
 
-exports.onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
-    setHtmlAttributes({ lang: `en` })
-    setHeadComponents([
-        <Partytown
-            key="partytown"
-            forward={[
-                "gtag",
-                "_hsq.push",
-                // TODO (partytown) - eventually we should see if we can
-                //  get the forms working through partytown
-                // ["hbspt.forms.create", { preserveBehavior: true }],
-            ]}
-        />,
-        <script
-            key="google-analytics"
-            type="text/partytown"
-            src={`/gtag.js?id=${GA_MEASUREMENT_ID}`}
-        />,
-        <script
-            key="google-analytics-config"
-            type="text/partytown"
-            dangerouslySetInnerHTML={{
-                __html: `window.dataLayer = window.dataLayer || [];
-        window.gtag = function gtag(){ window.dataLayer.push(arguments);}
-        gtag('js', new Date()); 
-        gtag('config', '${GA_MEASUREMENT_ID}', { send_page_view: false })`,
-            }}
-        />,
-        // <script key="osano-1" src="https://cmp.osano.com/16CPXbTOi1sXx4D3/1e6b223c-ed10-4c4b-a442-48fea69f76af/osano.js"></script>,
-    ])
-}
+  setHtmlAttributes({ lang: `en` });
+  setHeadComponents([
+    <link rel="preconnect" key="preconnect-google-gtag" href={GA_ORIGIN} />,
+    <link rel="dns-prefetch" key="dns-prefetch-google-gtag" href={GA_ORIGIN} />,
+    <script
+      key="google-analytics-config"
+      dangerouslySetInnerHTML={{
+        __html: googleAnalyticsHTML,
+      }}
+    />,
+    <script key="google-analytics-loader" src={`${GA_ORIGIN}/gtag/js?id=${GA_MEASUREMENT_ID}`} />,
+    <link rel="preconnect" href="//consent.cookiefirst.com" />,
+    <link rel="dns-prefetch" href="//edge.cookiefirst.com" />,
+    <link rel="dns-prefetch" href="//api.cookiefirst.com" />,
+    <script
+      id="CookieFirst"
+      src="https://consent.cookiefirst.com/sites/estuary.dev-bb4406bb-2dfd-4133-8a4c-7b737e5b0bac/consent.js"
+    />,
+  ]);
+};

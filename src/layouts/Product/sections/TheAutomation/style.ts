@@ -1,7 +1,9 @@
 import styled from "styled-components"
+import { globalMaxWidth, sectionTopBottomPadding } from "../../../../globalStyles"
 
-export const Container = styled.div`
-    padding: 40px 20px;
+export const Container = styled.section`
+    ${sectionTopBottomPadding}
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,15 +13,11 @@ export const Container = styled.div`
         gap: 36px;
         align-items: normal;
     }
-
-    @media (min-width: 1280px) {
-        padding: 100px 90px;
-        max-width: 1920px;
-        margin: 0 auto;
-    }
 `
 
 export const ContainerContent = styled.div`
+    ${globalMaxWidth}
+
     align-items: center;
     text-align: center;
     display: flex;

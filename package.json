@@ -3,7 +3,6 @@
   "private": true,
   "version": "0.1.0",
   "dependencies": {
-    "@builder.io/partytown": "^0.10.1",
     "@draftbox-co/gatsby-rehype-inline-images": "^1.0.2",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
@@ -18,6 +17,7 @@
     "@types/loadable__component": "^5.13.4",
     "@types/lunr": "^2.3.4",
     "@types/react-dom": "^18.0.11",
+    "@types/styled-components": "^5.1.34",
     "babel-plugin-styled-components": "^2.1.4",
     "clsx": "^1.2.1",
     "dayjs": "^1.11.7",
