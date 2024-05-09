@@ -20,7 +20,7 @@ const Content = ({ connector }: ContentProps) => {
         <StaticImage
           placeholder="none"
           alt="icon"
-          src="../../../../../../images/lp-connector/hero/icon.png"
+          src="../../../../../images/lp-connector/hero/icon.png"
           layout="constrained"
           width={40}
           height={40}
