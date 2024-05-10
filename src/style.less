@@ -50,7 +50,7 @@
     --fontSize-3: 1.44rem;
     --fontSize-4: 1.728rem;
     --fontSize-5: 3.5rem;
-    --fontSize-6: 4.5rem;
+    --fontSize-6: 4.438rem;
     --fontSize-7: 2.986rem;
     --fontSize-8: 2.25rem;
     --color-primary: #005b99;
@@ -309,11 +309,6 @@ input {
     flex-direction: row;
     width: 100%;
     top: 0;
-    padding: 0 4.5%;
-
-    @media (max-width: 810px) {
-        padding: 0 5.35%;
-    }
 
     .global-header-links {
         display: flex;
@@ -514,10 +509,6 @@ input {
     display: flex;
     align-items: center;
     text-decoration: none;
-
-    @media (max-width: 425px) {
-        align-items: start;
-    }
 }
 
 .global-header-logo {
@@ -533,15 +524,6 @@ input {
         width: 27px !important;
         height: 35px !important;
     }
-
-    @media (max-width: 768px) {
-        width: 20px !important;
-        height: 28px !important;
-    }
-
-    @media (max-width: 425px) {
-        margin-top: 24px;
-    }
 }
 
 .global-header-title {
@@ -551,7 +533,7 @@ input {
     font-family: "Inter", sans-serif;
     font-style: normal;
     font-weight: 600;
-    margin: 20px 0;
+    margin: 31px 0;
 
     @media (min-width: 1024px) {
         font-size: 18px;
@@ -559,10 +541,6 @@ input {
 
     @media (min-width: 1280px) {
         font-size: 33px;
-    }
-
-    @media (max-width: 768px) {
-        font-size: var(--fontSize-3);
     }
 }
 
@@ -3313,6 +3291,7 @@ table th {
         }
     }
 
+    .global-header-padder,
     .global-header-login-try {
         display: none;
     }
@@ -3403,7 +3382,7 @@ table th {
     }
 
     .global-header-mobile-menu-button {
-        width: 48px;
+        width: 40px;
         height: 40px;
         border-radius: 4px;
         background-color: #5072eb;
@@ -3413,10 +3392,6 @@ table th {
         padding-right: 6px;
         padding-left: 6px;
         padding-bottom: 4px;
-
-        @media (max-width: 425px) {
-            margin: 12px 0 12px 16px;
-        }
     }
 }
 
@@ -3726,8 +3701,10 @@ table th {
     }
 
     .product-flow-section-one-subtext,
+    .section-one-subtext,
+    .section-two-subtext,
     .section-two-tile-text {
-        font-size: 1rem;
+        font-size: var(--fontSize-0);
     }
 
     .product-flow-section-one-h1 {

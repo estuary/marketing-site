@@ -12,10 +12,10 @@ import {
     HomepageHeadingButtons,
     HomepageTitle,
     MainContent,
+    MarqueeWrapper,
     PrimaryButton,
     SecondaryButton,
-    VanityLogo,
-    VanityLogosMarquee,
+    VanityLogo
 } from "./styles"
 
 const SectionOne = () => {
@@ -87,7 +87,7 @@ const SectionOne = () => {
                     </React.Suspense>
                 </FlowAnimationContainer>
             </MainContent>
-            <VanityLogosMarquee>
+            <MarqueeWrapper>
                 <Marquee>
                     {logos.allStrapiVanityLogo.nodes?.map(logo =>
                         logo.logo.localFile.internal.mediaType ===
@@ -113,7 +113,7 @@ const SectionOne = () => {
                         )
                     )}
                 </Marquee>
-            </VanityLogosMarquee>
+            </MarqueeWrapper>
         </Container>
     )
 }

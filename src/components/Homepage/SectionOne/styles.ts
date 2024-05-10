@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
 import OpenHubspotModal from '../../HubSpot/OpenModal';
 import { OutboundLink } from '../../OutboundLink';
 
@@ -65,6 +66,8 @@ export const AnimationBaseStyling = `
 `
 
 export const Container = styled.section`
+  ${sectionTopBottomPadding}
+
   padding-top: 100px;
   display: flex;
   flex-direction: column;
@@ -82,33 +85,37 @@ export const Container = styled.section`
 `;
 
 export const MainContent = styled.div`
+  ${globalMaxWidth}
+
   display: flex;
   width: 100%;
   justify-content: space-between;
   gap: 40px;
-  padding: 0 4.5%;
+
+  @media (max-width: 1536px) {
+      margin-right: 0;
+      padding-right: 0;
+  }
 
   @media (max-width: 1024px) {
+      ${globalMaxWidth}
       flex-direction: column-reverse;
   }
-
-  @media (max-width: 810px) {
-      padding: 0 5.35%;
-  }
 `
-export const VanityLogosMarquee = styled.div`
-  padding: 0 4.5% 0;
+export const MarqueeWrapper = styled.div`
+  ${globalMaxWidth}
+
   height: 74px;
+  width: 100%;
   margin-top: 80px;
-  margin-bottom: 100px;
   display: flex;
 
-  @media (max-width: 810px) {
+  @media (max-width: 425px) {
       padding: 0;
-      margin-top: 48px; 
+      margin-top: 48px;
       margin-bottom: 40px;
   }
-  
+
   .slick-slider {
       @media (min-width: 801px) {
           padding-right: 100px;
@@ -120,7 +127,7 @@ export const VanityLogosMarquee = styled.div`
   .slick-slide {
       margin: 0px 10px;
       overflow: visible !important;
-      width: 190px !important;
+      max-width: 190px !important;
   }
   .slick-track {
       overflow: visible !important;

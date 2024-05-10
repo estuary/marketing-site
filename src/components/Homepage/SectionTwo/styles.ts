@@ -1,21 +1,16 @@
 import styled from 'styled-components';
+import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
 import ExtractIcon from "../../../svgs/extract.svg";
 import RealTimeDelivery from "../../../svgs/real-time-delivery.svg";
 import StoreAndTransformIcon from "../../../svgs/store-and-transform.svg";
 
 export const Container = styled.section`
+  ${globalMaxWidth}
+  ${sectionTopBottomPadding}
+
   display: flex;
   flex-direction: column;
   gap: 40px;
-  padding-left: calc(min(9%, 146px));
-  padding-right: calc(min(9%, 146px));
-  margin: 100px 0;
-
-  @media (max-width: 810px) {
-    margin: auto;
-    width: 100%;
-    padding: 40px 20px;
-  }
 `;
 
 export const Header = styled.div`
@@ -113,15 +108,10 @@ export const Steps = styled.div`
 const lineBaseStyling = `
   content: "";
   position: absolute;
-  right: -12px;
-  height: 64px;
+  right: -14px;
+  height: 78px;
   width: 4px;
   border-right: 4px dotted #D7DCE5;
-
-  @media (max-width: 1830px) {
-    right: -14px;
-    height: 78px;
-  }
 
   @media (max-width: 1495px) {
     right: -20px;
@@ -177,17 +167,13 @@ export const Step = styled.div`
   display: flex;
   gap: 16px;
   width: 33%;
-  height: 132px;
+  height: 160px;
   border: 4px dotted #D7DCE5;
   border-radius: 16px;
   padding: 16px;
   padding-right: 2px;
   position: relative;
   border-right: none;
-
-  @media (max-width: 1830px) {
-    height: 160px;
-  }
 
   @media (max-width: 1495px) {
     height: 190px;
