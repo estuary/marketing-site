@@ -1,6 +1,9 @@
 import styled, { css } from "styled-components"
+import { globalMaxWidth } from "../../../../../../globalStyles"
 
 export const Container = styled.div`
+    ${globalMaxWidth}
+
     display: flex;
     flex-direction: column;
     margin-top: 40px;

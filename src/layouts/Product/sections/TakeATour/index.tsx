@@ -6,8 +6,8 @@ import { ActionLink, Button, Container, ContainerButton, ContainerContent, Conta
 
 const TakeATour = () => {
     return (
-        <Wrapper>
-            <Container>
+        <Container>
+            <Wrapper>
                 <ContainerImage>
                     <StaticImage
                         alt="Laptop"
@@ -56,8 +56,8 @@ const TakeATour = () => {
                         </Button>
                     </ContainerButton>
                 </ContainerContent>
-            </Container>
-        </Wrapper>
+            </Wrapper>
+        </Container>
     )
 }
 

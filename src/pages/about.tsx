@@ -1,20 +1,19 @@
-import * as React from "react"
-import Layout from "../components/layout"
 import { graphql, Link, useStaticQuery } from "gatsby"
-import FlowLogo from "../svgs/flow-logo.svg"
-import CareerAvatar from "../svgs/about-careers-avatar-icon.svg"
-import EstuaryLogoSmall from "../svgs/estuary-logo-small.svg"
-import BuildingsIcon from "../svgs/about-careers-building.svg"
-import BenefitsIcon from "../svgs/about-careers-benefits-icon.svg"
-import CultureIcon from "../svgs/about-careers-culture-icon.svg"
-import CommunityIcon from "../svgs/about-careers-community-icon.svg"
-import LinkIcon from "../svgs/link-icon.svg"
-import HubspotForm from "react-hubspot-form"
-import { ProcessedPost } from "../components/BlogPostProcessor"
-import Seo from "../components/seo"
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
-import { OutboundLink } from "../components/OutboundLink"
+import * as React from "react"
+import { ProcessedPost } from "../components/BlogPostProcessor"
 import HubSpotFormWrapper from "../components/HubSpot/FormWrapper"
+import Layout from "../components/layout"
+import { OutboundLink } from "../components/OutboundLink"
+import Seo from "../components/seo"
+import CareerAvatar from "../svgs/about-careers-avatar-icon.svg"
+import BenefitsIcon from "../svgs/about-careers-benefits-icon.svg"
+import BuildingsIcon from "../svgs/about-careers-building.svg"
+import CommunityIcon from "../svgs/about-careers-community-icon.svg"
+import CultureIcon from "../svgs/about-careers-culture-icon.svg"
+import EstuaryLogoSmall from "../svgs/estuary-logo-small.svg"
+import FlowLogo from "../svgs/flow-logo.svg"
+import LinkIcon from "../svgs/link-icon.svg"
 
 // const jobs = [
 //     {
@@ -169,7 +168,7 @@ const AboutPage = () => {
                             </span>{" "}
                             or development.
                         </p>
-                        <p className="about-section-one-text about-section-margin-bottom">
+                        <p className="about-section-one-text">
                             Estuary{" "}
                             <span className="about-text-bold">
                                 develops in the open
@@ -237,88 +236,90 @@ const AboutPage = () => {
                 </div>
             </section>
             <section className="about-media">
-                <p className="product-flow-section-two-header-small">
-                    what’s happening
-                </p>
-                <h2 className="about-section-header-top">In the Media</h2>
-                <FlowLogo className="media-logo" />
-                <div className="media-wrap">
-                    <div className="media-item">
-                        <StaticImage
-                            placeholder="none"
-                            alt="Engineering podcast"
-                            loading="lazy"
-                            src="../images/engineering-podcast.png"
-                            layout="constrained"
-                            width={342}
-                            height={179}
-                            quality={100}
-                        />
-                        <div className="item-heading">
-                            <OutboundLink
-                                target="_blank"
-                                href="https://podcasts.apple.com/us/podcast/data-engineering-podcast/id1193040557"
-                                aria-label="media item link"
-                            >
-                                Data Engineering Podcast
-                            </OutboundLink>
+                <div className="about-media-wrapper">
+                    <p className="product-flow-section-two-header-small">
+                        what’s happening
+                    </p>
+                    <h2 className="about-section-header-top">In the Media</h2>
+                    <FlowLogo className="media-logo" />
+                    <div className="media-wrap">
+                        <div className="media-item">
+                            <StaticImage
+                                placeholder="none"
+                                alt="Engineering podcast"
+                                loading="lazy"
+                                src="../images/engineering-podcast.png"
+                                layout="constrained"
+                                width={342}
+                                height={179}
+                                quality={100}
+                            />
+                            <div className="item-heading">
+                                <OutboundLink
+                                    target="_blank"
+                                    href="https://podcasts.apple.com/us/podcast/data-engineering-podcast/id1193040557"
+                                    aria-label="media item link"
+                                >
+                                    Data Engineering Podcast
+                                </OutboundLink>
+                            </div>
+                            <div className="item-description">
+                                Johnny, Dave, and Tobias discuss why we built
+                                Gazette, the growth of streaming, and the rise of
+                                the real-time data lake.
+                            </div>
                         </div>
-                        <div className="item-description">
-                            Johnny, Dave, and Tobias discuss why we built
-                            Gazette, the growth of streaming, and the rise of
-                            the real-time data lake.
+                        <div className="media-item">
+                            <StaticImage
+                                placeholder="none"
+                                alt="FirstMark invests in Estuary"
+                                loading="lazy"
+                                src="../images/firstmark-estuary.png"
+                                layout="constrained"
+                                width={342}
+                                height={179}
+                                quality={100}
+                            />
+                            <div className="item-heading">
+                                <OutboundLink
+                                    target="_blank"
+                                    href="https://venturebeat.com/business/how-estuary-helps-enterprises-harness-historical-and-real-time-data-pipelines/"
+                                    aria-label="media item link"
+                                >
+                                    FirstMark invests in Estuary
+                                </OutboundLink>
+                            </div>
+                            <div className="item-description">
+                                Matt Turck of FirstMark announces their $7 million
+                                Series A investment in Estuary to simplify streaming
+                                + batch unification.
+                            </div>
                         </div>
-                    </div>
-                    <div className="media-item">
-                        <StaticImage
-                            placeholder="none"
-                            alt="FirstMark invests in Estuary"
-                            loading="lazy"
-                            src="../images/firstmark-estuary.png"
-                            layout="constrained"
-                            width={342}
-                            height={179}
-                            quality={100}
-                        />
-                        <div className="item-heading">
-                            <OutboundLink
-                                target="_blank"
-                                href="https://venturebeat.com/business/how-estuary-helps-enterprises-harness-historical-and-real-time-data-pipelines/"
-                                aria-label="media item link"
-                            >
-                                FirstMark invests in Estuary
-                            </OutboundLink>
-                        </div>
-                        <div className="item-description">
-                            Matt Turck of FirstMark announces their $7 million
-                            Series A investment in Estuary to simplify streaming
-                            + batch unification.
-                        </div>
-                    </div>
-                    <div className="media-item">
-                        <StaticImage
-                            placeholder="none"
-                            alt="Data landscape"
-                            loading="lazy"
-                            src="../images/data-landscape.png"
-                            layout="constrained"
-                            width={342}
-                            height={179}
-                            quality={100}
-                        />
-                        <div className="item-heading">
-                            <OutboundLink
-                                target="_blank"
-                                href="https://www.linkedin.com/feed/update/urn:li:activity:6980910741046382592/"
-                                aria-label="media item link"
-                            >
-                                Real-Time Data Landscape
-                            </OutboundLink>
-                        </div>
-                        <div className="item-description">
-                            LinkedIn post from our Founder Dave Yaffe where he
-                            (and 50+ others) chart out the evolving ecosystem of
-                            real-time data integration players
+                        <div className="media-item">
+                            <StaticImage
+                                placeholder="none"
+                                alt="Data landscape"
+                                loading="lazy"
+                                src="../images/data-landscape.png"
+                                layout="constrained"
+                                width={342}
+                                height={179}
+                                quality={100}
+                            />
+                            <div className="item-heading">
+                                <OutboundLink
+                                    target="_blank"
+                                    href="https://www.linkedin.com/feed/update/urn:li:activity:6980910741046382592/"
+                                    aria-label="media item link"
+                                >
+                                    Real-Time Data Landscape
+                                </OutboundLink>
+                            </div>
+                            <div className="item-description">
+                                LinkedIn post from our Founder Dave Yaffe where he
+                                (and 50+ others) chart out the evolving ecosystem of
+                                real-time data integration players
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -373,164 +374,170 @@ const AboutPage = () => {
                 </div>
             </section>
             <div className="about-section-two">
-                <p className="product-flow-section-two-header-small">
-                    Come work with us
-                </p>
-                <h2 className="about-section-header">Careers</h2>
-                <FlowLogo className="about-flow-logo product-flow-section-one-image" />
-                <div className="about-careers-text-wrapper">
-                    <div className="icon-wrapper-medium">
-                        <CareerAvatar className="product-flow-section-two-gif" />
-                    </div>
+                <div className="about-section-two-wrapper">
+                    <p className="product-flow-section-two-header-small">
+                        Come work with us
+                    </p>
+                    <h2 className="about-section-header">Careers</h2>
+                    <FlowLogo className="about-flow-logo product-flow-section-one-image" />
+                    <div className="about-careers-text-wrapper">
+                        <div className="icon-wrapper-medium">
+                            <CareerAvatar className="product-flow-section-two-gif" />
+                        </div>
 
-                    <p className="about-careers-text">
-                        <span className="about-text-bold-regular">
-                            About you
-                        </span>
-                        : You’re passionate about the complexities and potential
-                        of our data-driven world, self-motivated, curious, and
-                        adaptable.
-                    </p>
-                </div>
-                <div className="about-careers-text-wrapper">
-                    <div className="icon-wrapper-medium">
-                        <EstuaryLogoSmall className="product-flow-section-two-gif" />
+                        <p className="about-careers-text">
+                            <span className="about-text-bold-regular">
+                                About you
+                            </span>
+                            : You’re passionate about the complexities and potential
+                            of our data-driven world, self-motivated, curious, and
+                            adaptable.
+                        </p>
                     </div>
-                    <p className="about-careers-text">
-                        <span className="about-text-bold-regular">
-                            About us
-                        </span>
-                        : We’re a rapidly growing, highly technical team built
-                        by successful repeat founders that’s working to take the
-                        friction out of data engineering.
-                    </p>
+                    <div className="about-careers-text-wrapper">
+                        <div className="icon-wrapper-medium">
+                            <EstuaryLogoSmall className="product-flow-section-two-gif" />
+                        </div>
+                        <p className="about-careers-text">
+                            <span className="about-text-bold-regular">
+                                About us
+                            </span>
+                            : We’re a rapidly growing, highly technical team built
+                            by successful repeat founders that’s working to take the
+                            friction out of data engineering.
+                        </p>
+                    </div>
+                    <Link className="about-current-openings-button" to="#careers">
+                        Current openings
+                    </Link>
                 </div>
-                <Link className="about-current-openings-button" to="#careers">
-                    Current openings
-                </Link>
             </div>
             <div className="about-section-three">
-                <p className="product-flow-section-two-header-small">
-                    What's it like
-                </p>
-                <div className="about-section-three-top">
-                    <h2 className="about-section-header-top">
-                        Working at Estuary
-                    </h2>
-                    <FlowLogo className="product-flow-section-one-image" />
+                <div className="about-section-three-wrapper">
+                    <p className="product-flow-section-two-header-small">
+                        What's it like
+                    </p>
+                    <div className="about-section-three-top">
+                        <h2 className="about-section-header-top">
+                            Working at Estuary
+                        </h2>
+                        <FlowLogo className="product-flow-section-one-image" />
+                    </div>
+                    <div className="about-section-three-card-wrapper">
+                        <div className="about-section-three-card">
+                            <div className="icon-wrapper-medium-gray">
+                                <BuildingsIcon />
+                            </div>
+                            <p className="about-card-title">Location</p>
+                            <p className="about-card-text">
+                                We offer offices in both our New York City and
+                                Columbus, Ohio locations, as well as the ability to
+                                work remotely.
+                            </p>
+                        </div>
+                        <div className="about-section-three-card">
+                            <div className="icon-wrapper-medium-gray">
+                                <BenefitsIcon />
+                            </div>
+                            <p className="about-card-title">Benefits</p>
+                            <p className="about-card-text">
+                                We provide 100% employee coverage on healthcare,
+                                401k, competitive equity, and unlimited time
+                                vacation leave.
+                            </p>
+                        </div>
+                        <div className="about-section-three-card">
+                            <div className="icon-wrapper-medium-gray">
+                                <CultureIcon />
+                            </div>
+                            <p className="about-card-title">Culture</p>
+                            <p className="about-card-text">
+                                Like the product we build, our culture is
+                                forward-thinking and open. Our team operates on a
+                                foundation of trust, is resourceful, collaborative,
+                                but also independent.
+                            </p>
+                        </div>
+                        <div className="about-section-three-card">
+                            <div className="icon-wrapper-medium-gray">
+                                <CommunityIcon />
+                            </div>
+                            <p className="about-card-title">Community</p>
+                            <p className="about-card-text">
+                                We offer perks including team happy hours, weekly
+                                lunches, and quarterly off-sites. With our rapid
+                                growth, now’s an exciting time to come aboard.
+                            </p>
+                        </div>
+                    </div>
+                    <p className="about-referral-text">
+                        Know somebody who would be a good fit? We offer a $2,500
+                        referral bonus.
+                    </p>
                 </div>
-                <div className="about-section-three-card-wrapper">
-                    <div className="about-section-three-card">
-                        <div className="icon-wrapper-medium-gray">
-                            <BuildingsIcon />
-                        </div>
-                        <p className="about-card-title">Location</p>
-                        <p className="about-card-text">
-                            We offer offices in both our New York City and
-                            Columbus, Ohio locations, as well as the ability to
-                            work remotely.
-                        </p>
-                    </div>
-                    <div className="about-section-three-card">
-                        <div className="icon-wrapper-medium-gray">
-                            <BenefitsIcon />
-                        </div>
-                        <p className="about-card-title">Benefits</p>
-                        <p className="about-card-text">
-                            We provide 100% employee coverage on healthcare,
-                            401k, competitive equity, and unlimited time
-                            vacation leave.
-                        </p>
-                    </div>
-                    <div className="about-section-three-card">
-                        <div className="icon-wrapper-medium-gray">
-                            <CultureIcon />
-                        </div>
-                        <p className="about-card-title">Culture</p>
-                        <p className="about-card-text">
-                            Like the product we build, our culture is
-                            forward-thinking and open. Our team operates on a
-                            foundation of trust, is resourceful, collaborative,
-                            but also independent.
-                        </p>
-                    </div>
-                    <div className="about-section-three-card">
-                        <div className="icon-wrapper-medium-gray">
-                            <CommunityIcon />
-                        </div>
-                        <p className="about-card-title">Community</p>
-                        <p className="about-card-text">
-                            We offer perks including team happy hours, weekly
-                            lunches, and quarterly off-sites. With our rapid
-                            growth, now’s an exciting time to come aboard.
-                        </p>
-                    </div>
-                </div>
-                <p className="about-referral-text">
-                    Know somebody who would be a good fit? We offer a $2,500
-                    referral bonus.
-                </p>
             </div>
             <div className="about-section-four-current-openings" id="careers">
-                <p className="product-flow-section-two-header-small">
-                    Apply today
-                </p>
-                <h2 className="about-section-header-top">Current Openings</h2>
-                <div className="about-section-current-openings-wrapper">
-                    <div className="about-current-openings-list">
-                        {jobs.length > 0
-                            ? jobs.map(job => (
-                                  <Link
-                                      to={`#${job.slug}`}
-                                      className="about-current-opening-title"
-                                  >
-                                      {job.title}
-                                  </Link>
-                              ))
-                            : null}
-                        <Link
-                            className="about-get-in-touch-button"
-                            to="mailto:careers@estuary.dev"
-                        >
-                            Get in touch to apply
-                        </Link>
-                    </div>
-                    <div className="about-current-openings-description-wrapper">
-                        {jobs.length > 0
-                            ? jobs.map(job => (
-                                  <div id={job.slug}>
-                                      <div className="about-current-openings-title-wrapper">
-                                          <p className="about-opening-title">
-                                              {job.title}
-                                          </p>
-                                          <Link
-                                              to={`#${job.slug}`}
-                                              className="about-link"
-                                          >
-                                              <LinkIcon />
-                                          </Link>
-                                      </div>
-                                      <div className="about-current-openings-location-wrapper">
-                                          <p className="about-opening-text">
-                                              Location: <b>{job.location}</b>
-                                          </p>
-                                      </div>
-                                      <ProcessedPost
-                                          body={
-                                              job.description.data
-                                                  .childHtmlRehype.html
-                                          }
-                                      />
-                                      <Link
-                                          className="about-get-in-touch-button-mobile"
-                                          to="mailto:careers@estuary.dev"
-                                      >
-                                          Get in touch to apply
-                                      </Link>
-                                      <div className="current-openings-divider"></div>
-                                  </div>
-                              ))
-                            : null}
+                <div className="about-section-four-current-openings-wrapper">
+                    <p className="product-flow-section-two-header-small">
+                        Apply today
+                    </p>
+                    <h2 className="about-section-header-top">Current Openings</h2>
+                    <div className="about-section-current-openings-wrapper">
+                        <div className="about-current-openings-list">
+                            {jobs.length > 0
+                                ? jobs.map(job => (
+                                    <Link
+                                        to={`#${job.slug}`}
+                                        className="about-current-opening-title"
+                                    >
+                                        {job.title}
+                                    </Link>
+                                ))
+                                : null}
+                            <Link
+                                className="about-get-in-touch-button"
+                                to="mailto:careers@estuary.dev"
+                            >
+                                Get in touch to apply
+                            </Link>
+                        </div>
+                        <div className="about-current-openings-description-wrapper">
+                            {jobs.length > 0
+                                ? jobs.map(job => (
+                                    <div id={job.slug}>
+                                        <div className="about-current-openings-title-wrapper">
+                                            <p className="about-opening-title">
+                                                {job.title}
+                                            </p>
+                                            <Link
+                                                to={`#${job.slug}`}
+                                                className="about-link"
+                                            >
+                                                <LinkIcon />
+                                            </Link>
+                                        </div>
+                                        <div className="about-current-openings-location-wrapper">
+                                            <p className="about-opening-text">
+                                                Location: <b>{job.location}</b>
+                                            </p>
+                                        </div>
+                                        <ProcessedPost
+                                            body={
+                                                job.description.data
+                                                    .childHtmlRehype.html
+                                            }
+                                        />
+                                        <Link
+                                            className="about-get-in-touch-button-mobile"
+                                            to="mailto:careers@estuary.dev"
+                                        >
+                                            Get in touch to apply
+                                        </Link>
+                                        <div className="current-openings-divider"></div>
+                                    </div>
+                                ))
+                                : null}
+                        </div>
                     </div>
                 </div>
             </div>

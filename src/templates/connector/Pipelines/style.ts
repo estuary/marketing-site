@@ -1,8 +1,14 @@
 import { Link } from 'gatsby';
 import styled from 'styled-components';
+import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
 
-export const Container = styled.section`
-  padding: 100px 20px 100px 20px;
+export const Wrapper = styled.section`
+  ${sectionTopBottomPadding}
+`;
+
+export const Container = styled.div`
+  ${globalMaxWidth}
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,9 +16,6 @@ export const Container = styled.section`
 
   @media (min-width: 1280px) {
     gap: 36px;
-    padding: 100px 90px;
-    max-width: 1920px;
-    margin: 0 auto;
   }
 `;
 

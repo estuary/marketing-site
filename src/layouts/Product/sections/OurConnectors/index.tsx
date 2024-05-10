@@ -1,12 +1,12 @@
-import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
+import React from "react"
 
-import { Wrapper, Container, ContainerContent, ContainerImage, Title, PrimaryTextColor, SecondaryTextColor, ContainerTopics, Topic, Button } from "./style"
+import { Button, Container, ContainerContent, ContainerImage, ContainerTopics, PrimaryTextColor, SecondaryTextColor, Title, Topic, Wrapper } from "./style"
 
 const OurConnectors = () => {
     return (
-        <Wrapper>
-            <Container>
+        <Container>
+            <Wrapper>
                 <ContainerImage>
                     <StaticImage
                         className="mobile-image"
@@ -39,8 +39,8 @@ const OurConnectors = () => {
                         View connectors
                     </Button>
                 </ContainerContent>
-            </Container>
-        </Wrapper>
+            </Wrapper>
+        </Container>
     )
 }
 

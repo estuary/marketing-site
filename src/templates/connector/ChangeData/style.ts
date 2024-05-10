@@ -1,7 +1,13 @@
 import styled from 'styled-components';
+import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
 
-export const Container = styled.section`
-  padding: 40px 20px;
+export const Wrapper = styled.section`
+  ${sectionTopBottomPadding}
+`
+
+export const Container = styled.div`
+  ${globalMaxWidth}
+
   display: flex;
   flex-direction: column-reverse;
   gap: 40px;
@@ -12,9 +18,6 @@ export const Container = styled.section`
   }
 
   @media (min-width: 1280px) {
-    padding: 100px 90px;
-    max-width: 1536px;
-    margin: 0 auto;
     gap: 60px;
   }
 `;

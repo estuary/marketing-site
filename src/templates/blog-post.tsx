@@ -96,67 +96,71 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
             </div>
             <article className="blog-post" itemScope itemType="http://schema.org/Article">
                 <section className="blog-post-header">
-                    <div className="header-info">
-                        <div className="post-info">
-                            <div className="tags-wrapper">
-                                {postTags.map((tag) => (
-                                    <span key={tag.name} className="blogs-post-card-tags">
-                                        {tag.name}
-                                    </span>
-                                ))}
-                            </div>
-                            <div className="date-and-read-wrapper">
-                                <div className="icon-info-wrapper">
-                                    <CalendarTodayOutlined className="icon" />
-                                    <span className="blog-post-date">{post.publishedAt}</span>
+                    <div className="blog-post-header-wrapper">
+                        <div className="header-info">
+                            <div className="post-info">
+                                <div className="tags-wrapper">
+                                    {postTags.map((tag) => (
+                                        <span key={tag.name} className="blogs-post-card-tags">
+                                            {tag.name}
+                                        </span>
+                                    ))}
                                 </div>
+                                <div className="date-and-read-wrapper">
+                                    <div className="icon-info-wrapper">
+                                        <CalendarTodayOutlined className="icon" />
+                                        <span className="blog-post-date">{post.publishedAt}</span>
+                                    </div>
 
-                                {/* TODO: Add post reading time */}
-                                {/* <div className="icon-info-wrapper">
+                                    {/* TODO: Add post reading time */}
+                                    {/* <div className="icon-info-wrapper">
                                     <AccessTime className="icon" />
                                     <span className="blog-post-date">
                                         10 min
                                     </span>
                                 </div> */}
+                                </div>
                             </div>
+                            <h1>{post.title}</h1>
+                            <h2>
+                                {post.description}
+                            </h2>
+                            <Bio authors={post.authors} />
                         </div>
-                        <h1>{post.title}</h1>
-                        <h2>
-                            {post.description}
-                        </h2>
-                        <Bio authors={post.authors} />
+                        {post.hero ? (
+                            <GatsbyImage
+                                alt={post.title}
+                                className="hero-image"
+                                image={post.hero.localFile.childImageSharp.gatsbyImageData}
+                                loading="eager"
+                            />
+                        ) : null}
                     </div>
-                    {post.hero ? (
-                        <GatsbyImage
-                            alt={post.title}
-                            className="hero-image"
-                            image={post.hero.localFile.childImageSharp.gatsbyImageData}
-                            loading="eager"
-                        />
-                    ) : null}
                 </section>
                 {post.body && (
                     <section className="blog-post-content">
-                        <div className="main-content">
-                            <ProcessedPost body={post.body.data.childHtmlRehype.html} />
+                        <div className="blog-post-content-wrapper">
+                            <div className="main-content">
+                                <ProcessedPost body={post.body.data.childHtmlRehype.html} />
 
-                            <div className="build-pipeline-banner">
-                                <h3>
-                                    Start streaming your data <span>for free</span>
-                                </h3>
-                                <OutboundLink href="https://dashboard.estuary.dev/register" className="pipeline-link">
-                                    Build a Pipeline
-                                </OutboundLink>
+                                <div className="build-pipeline-banner">
+                                    <h3>
+                                        Start streaming your data <span>for free</span>
+                                    </h3>
+                                    <OutboundLink href="https://dashboard.estuary.dev/register" className="pipeline-link">
+                                        Build a Pipeline
+                                    </OutboundLink>
+                                </div>
                             </div>
-                        </div>
 
-                        {windowWidth > 1150 ? (
-                            <StickyBox offsetTop={120} className="post-sidebar">
-                                {tocBodyRight}
-                            </StickyBox>
-                        ) : (
-                            <div className="post-sidebar">{tocBodyRight}</div>
-                        )}
+                            {windowWidth > 1150 ? (
+                                <StickyBox offsetTop={120} className="post-sidebar">
+                                    {tocBodyRight}
+                                </StickyBox>
+                            ) : (
+                                <div className="post-sidebar">{tocBodyRight}</div>
+                            )}
+                        </div>
                     </section>
                 )}
                 {/* <section className="next-steps-and-about-author-section">
@@ -201,7 +205,9 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
                     </div>
                 </section> */}
                 <section className="popular-articles">
-                    <PopularArticles />
+                    <div className="popular-articles-wrapper">
+                        <PopularArticles />
+                    </div>
                 </section>
                 <section className="big-build-pipeline-banner-section">
                     <div className="big-build-pipeline-banner-container">

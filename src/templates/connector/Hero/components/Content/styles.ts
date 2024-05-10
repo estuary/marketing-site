@@ -6,7 +6,10 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
-  flex: 1;
+
+  @media (min-width: 1024px) {
+    width: 50%;
+  }
 `;
 
 export const ContainerPreTitle = styled.ul`
@@ -94,7 +97,7 @@ export const Topics = styled.ul`
   flex-direction: column;
   gap: 16px;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1300px) {
     flex-direction: row;
   }
 
@@ -130,7 +133,7 @@ export const Topic = styled.li`
     font-size: 0.875rem;
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1300px) {
     font-size: 1rem;
     line-height: 19.2px;
   }

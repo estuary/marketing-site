@@ -41,7 +41,7 @@ export const Title = styled.p`
     font-weight: 700;
     font-size: 16px;
     color: #5072EB;
-    margin: 0;
+    margin: 0 16px 0 0;
 
     @media (min-width: 1280px) {
         font-size: 20px;

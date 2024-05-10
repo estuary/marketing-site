@@ -45,7 +45,6 @@ export const ConnectorPage = ({ source_connector, dest_connector, connector_type
         <div className="connector-index-header">
           <div
             style={{
-              flex: '1 1 2rem',
               alignItems: 'center',
             }}
           >
@@ -156,13 +155,7 @@ export const ConnectorPage = ({ source_connector, dest_connector, connector_type
             </div>
           </div>
         </div>
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            flex: 1,
-          }}
-        >
+        <div className="connector-features-desc-wrapper">
           {source_mapped ? (
             <div className="connector-features-desc-subwrapper connector-desc">
               <h4>{source_mapped.title}</h4>
@@ -185,38 +178,40 @@ export const ConnectorPage = ({ source_connector, dest_connector, connector_type
           ) : null}
         </div>
       </div>
-      <div className="connector-link-bottom connector-section-wrapper" style={{ margin: 0, marginBottom: '6rem' }}>
+      <div className="connector-link-bottom connector-section-wrapper">
         <ConnectorsLink defaultSourceId={source_mapped?.id} defaultDestinationId={dest_mapped?.id} />
       </div>
-      <div className="connector-section-wrapper connector-section-background vertical-mobile">
-        <div className="connector-section-content connector-center connector-section-mobile">
-          <h2 className="connector-h2-tight-margin hide-mobile">
-            Real-time data
-            <br />
-            without coding
-          </h2>
-          <p className="connector-h2-subtext">
-            Estuary’s code-free streaming data operations platform enables real-time data with history and the
-            integrations you need.
-          </p>
-        </div>
-        <div className="connector-section-content connector-center">
-          <div className="connector-video-wrapper">
-            {hasWindow && (
-              <ReactPlayer
-                light={
-                  <StaticImage
-                    quality={80}
-                    placeholder="none"
-                    alt="estuary flow product video"
-                    src="../images/homepage-product-video.svg"
-                    className="section-three-product-video-thumbnail"
-                    layout="constrained"
-                  />
-                }
-                url={estuaryProductFlowVideoUrl}
-              />
-            )}
+      <div className="connector-section-background">
+        <div className="connector-section-content-wrapper">
+          <div className="connector-section-content connector-center connector-section-mobile">
+            <h2 className="connector-h2-tight-margin hide-mobile">
+              Real-time data
+              <br />
+              without coding
+            </h2>
+            <p className="connector-h2-subtext">
+              Estuary’s code-free streaming data operations platform enables real-time data with history and the
+              integrations you need.
+            </p>
+          </div>
+          <div className="connector-section-content connector-center">
+            <div className="connector-video-wrapper">
+              {hasWindow && (
+                <ReactPlayer
+                  light={
+                    <StaticImage
+                      quality={80}
+                      placeholder="none"
+                      alt="estuary flow product video"
+                      src="../images/homepage-product-video.svg"
+                      className="section-three-product-video-thumbnail"
+                      layout="constrained"
+                    />
+                  }
+                  url={estuaryProductFlowVideoUrl}
+                />
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -234,14 +229,14 @@ export const ConnectorPage = ({ source_connector, dest_connector, connector_type
                 quality={90}
                 alt="row of logos"
                 src="../images/logos_row1.png"
-                layout="fixed"
+                layout="constrained"
                 className="connector-logo-row"
               />
               <StaticImage
                 quality={90}
                 alt="data logo"
                 src="../images/logos_row2.png"
-                layout="fixed"
+                layout="constrained"
                 className="connector-logo-row"
               />
             </>
@@ -312,60 +307,52 @@ export const ConnectorPage = ({ source_connector, dest_connector, connector_type
           </div>
         </div>
       </div>
-      <div className="connector-section-wrapper-vertical background-gray margin-top-lg">
-        <h2 className="center-text h2-mobile">Real-time use cases</h2>
-        <p className="connector-header-subtext">Bye bye batch hello streaming type of sentiment</p>
-        <StaticImage
-          quality={100}
-          alt="data-flow-banner-image"
-          src="../images/real-time-use-cases.png"
-          className="connector-image-large-center"
-        />
-        <div className="automated-schema-wrapper">
-          <p className="connector-header-small hide-mobile">Automated Schema Migration</p>
-          <p className="automated-schema-text">table_accounts</p>
-          {isMobile ? (
-            <StaticImage
-              quality={100}
-              alt="table-column-options-image"
-              src="../images/table_accounts_vertical.png"
-              className="table-accounts-vertical"
-            />
-          ) : (
-            <StaticImage
-              quality={100}
-              alt="table-column-options-image"
-              src="../images/table_accounts.png"
-              layout="constrained"
-              className="table-accounts"
-              style={{
-                marginLeft: 'auto',
-                marginRight: 'auto',
-              }}
-            />
-          )}
+      <div className="background-gray">
+        <div className="connector-section-wrapper-vertical margin-top-lg">
+          <h2 className="center-text h2-mobile">Real-time use cases</h2>
+          <p className="connector-header-subtext">Bye bye batch hello streaming type of sentiment</p>
+          <StaticImage
+            quality={100}
+            alt="data-flow-banner-image"
+            src="../images/real-time-use-cases.png"
+            className="connector-image-large-center"
+          />
+          <div className="automated-schema-wrapper">
+            <p className="connector-header-small hide-mobile">Automated Schema Migration</p>
+            <p className="automated-schema-text">table_accounts</p>
+            {isMobile ? (
+              <StaticImage
+                quality={100}
+                alt="table-column-options-image"
+                src="../images/table_accounts_vertical.png"
+                className="table-accounts-vertical"
+              />
+            ) : (
+              <StaticImage
+                quality={100}
+                alt="table-column-options-image"
+                src="../images/table_accounts.png"
+                layout="constrained"
+                className="table-accounts"
+                style={{
+                  marginLeft: 'auto',
+                  marginRight: 'auto',
+                }}
+              />
+            )}
+          </div>
         </div>
       </div>
       <div className="connector-section-wrapper-vertical margin-top-lg">
         <h2 className="center-text connector-h2-tight-margin">Total visibility into</h2>
         <h2 className="center-text connector-h2-tight-margin">your data pipelines</h2>
-        {isMobile ? (
-          <StaticImage
-            quality={100}
-            alt="flow-screenshot"
-            src="../images/flow-screenshot.png"
-            className="data-pipelines-image"
-          />
-        ) : (
-          <StaticImage
-            quality={100}
-            alt="flow-screenshot"
-            src="../images/flow-screenshot.png"
-            layout="fixed"
-            style={{ margin: '40px auto' }}
-            className="data-pipelines-image"
-          />
-        )}
+        <StaticImage
+          quality={100}
+          alt="flow-screenshot"
+          src="../images/flow-screenshot.png"
+          layout="constrained"
+          className="data-pipelines-image"
+        />
       </div>
       <div className="connector-section-wrapper-vertical margin-top-lg" style={{ marginBottom: '6rem' }}>
         <p className="small-uppercase-header header-margin-sm margin-auto">powerful data transformations</p>

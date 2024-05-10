@@ -3,17 +3,21 @@ import { Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+interface WrapperProps {
+  direction?: 'row' | 'column';
+}
 
-  @media (min-width: 1080px) {
-    flex-direction: row;
+export const Wrapper = styled.div<WrapperProps>`
+  display: flex;
+  gap: 16px;
+  flex-direction: ${(props) => props.direction || 'row'};
+
+  @media (max-width: 1485px) {
+    width: 100%;
   }
 
-  @media (max-width: 734px) {
-    width: 100%;
+  @media (max-width: 768px) {
+    flex-direction: column;
   }
 `;
 
@@ -21,7 +25,7 @@ export const Form = styled(FormControl)`
   width: 262px;
   height: 52px;
 
-  @media (max-width: 734px) {
+  @media (max-width: 1485px) {
     width: 100%;
   }
 `;
@@ -29,7 +33,7 @@ export const Form = styled(FormControl)`
 export const ConnectorSelect = styled(Select)`
   width: 262px;
 
-  @media (max-width: 734px) {
+  @media (max-width: 1485px) {
     width: 100%;
   }
 `
@@ -53,7 +57,7 @@ export const Button = styled<any>(Link)`
   background-color: #5072eb;
   color: #fff;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1485px) {
     padding: 16px 24px;
     max-width: 100px;
     font-size: 16px;

@@ -11,16 +11,13 @@ const Footer = () => {
     return (
         <footer className="global-footer">
             <div className="global-footer-wrapper">
-                <div className="global-footer-left">
+                <div>
                     <Link className="global-footer-logo-link" to="/">
                         <StaticImage
                             src="../images/estuary-icon.png"
                             alt="estuary logo"
                             width={27}
                             height={35}
-                            style={{
-                                margin: "3px 7px 34px 0px",
-                            }}
                             layout="fixed"
                             placeholder="none"
                         />
@@ -40,7 +37,7 @@ const Footer = () => {
                         </p>
                     </div>
                     <div className="global-footer-subscribe">
-                        <form id="newsletter-signup">
+                        <form id="newsletter-signup" className="email-form">
                             <input
                                 className="global-footer-input-email"
                                 placeholder="Email"
