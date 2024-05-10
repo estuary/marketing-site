@@ -221,7 +221,7 @@ export const Step7 = ({ activePage }) => {
   );
 };
 
-export const Head = () => <Seo title="Estuary Walkthrough" />;
+export const Head = () => <Seo title="Walkthrough" />;
 
 const WhyEstuary = () => {
   const [activePage, setActivePage] = React.useState(0);
