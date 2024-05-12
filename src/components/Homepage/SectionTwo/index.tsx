@@ -1,12 +1,11 @@
 import { useMediaQuery, useTheme } from '@mui/material';
 import { StaticImage } from "gatsby-plugin-image";
 import * as React from "react";
-import { isMobile as isRealMobile } from 'react-device-detect';
 import { ColoredText, Container, FlowImageWrapper, Header, Step, StepDescription, StepIcon, StepOneIcon, StepThreeIcon, StepTitle, StepTwoIcon, Steps, Subtitle, Title } from "./styles";
 
 const SectionTwo = () => {
     const theme = useTheme();
-    const isMobile = isRealMobile || useMediaQuery(theme.breakpoints.down('sm'));
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     return (
         <Container>
@@ -19,17 +18,21 @@ const SectionTwo = () => {
                     <ColoredText>
                         transform{" "}
                     </ColoredText>
-                    your data across{" "}
+                    data with the only CDC platform built for{" "}
                     <ColoredText>
-                        apps, analytics, and AI{" "}
+                        ops
                     </ColoredText>
-                    with the only{" "}
+                    ,{" "}
                     <ColoredText>
-                        unified data pipeline
+                        analytics
+                    </ColoredText>
+                    , and{" "}
+                    <ColoredText>
+                        AI
                     </ColoredText>
                 </Title>
                 <Subtitle>
-                    Capture from Clouds, Databases and SaaS apps, create real-time transformations and materialized views, for a consistent, exact copy of your data powering both analytics and operations.
+                    Capture, transform, and materialize in real-time for an exact view of your data and every change that powers analytics and operations.
                 </Subtitle>
             </Header>
             <Steps>
@@ -39,10 +42,10 @@ const SectionTwo = () => {
                     </StepIcon>
                     <div>
                         <StepTitle>
-                            <span>01</span>Extract at &#62;50mb/s
+                            <span>01</span>Capture
                         </StepTitle>
                         <StepDescription>
-                            Access 300+ performance connectors. Choose from Estuary CDC, bring your own, or import AirByte/Stich.
+                            Use 100s of no-code connectors for streaming CDC, real-time, or batch
                         </StepDescription>
                     </div>
                 </Step>
@@ -53,10 +56,10 @@ const SectionTwo = () => {
                     </StepIcon>
                     <div>
                         <StepTitle>
-                            <span>02</span>Store and Transform
+                            <span>02</span>Stream-store-replay
                         </StepTitle>
                         <StepDescription>
-                            Deliver data exactly-once, exactly how it’s needed with SQL or Typescript using own cloud data lake.
+                            Stream and store in your own storage, then replay any time
                         </StepDescription>
                     </div>
                 </Step>
@@ -67,10 +70,10 @@ const SectionTwo = () => {
                     </StepIcon>
                     <div>
                         <StepTitle>
-                            <span>03</span>Real-time Delivery
+                            <span>03</span>Materialize
                         </StepTitle>
                         <StepDescription>
-                            Real-time or batch refreshes of your data, cleaned, verified, de-duped, and ready for decisioning.
+                            Load data at different speeds into many destinations for analytics, ops, and AI
                         </StepDescription>
                     </div>
                 </Step>

@@ -29,13 +29,13 @@ export const Title = styled.h2`
   line-height: 48px;
   text-align: center;
   text-transform: uppercase;
-  margin: 0;
+  margin: 0 48px;
 
   @media (max-width: 810px) {
     font-size: 1.75rem;
     font-weight: 700;
     line-height: 33.6px;
-    text-align: left;
+    margin: 0;
   }
 `
 
@@ -53,8 +53,6 @@ export const Subtitle = styled.p`
 
   @media (max-width: 810px) {
     font-size: 1rem;
-    text-align: left;
-    margin-right: auto;
   }
 `
 
@@ -109,53 +107,48 @@ const lineBaseStyling = `
   content: "";
   position: absolute;
   right: -14px;
-  height: 78px;
+  height: 62px;
   width: 4px;
   border-right: 4px dotted #D7DCE5;
 
-  @media (max-width: 1495px) {
-    right: -20px;
-    height: 92px;
+  @media (max-width: 1565px) {
+    right: -18px;
+    height: 78px;
   }
 
-  @media (max-width: 1460px) {
-    right: -20px;
-    height: 104px;
-  }
-
-  @media (max-width: 1276px) {
-    right: -26px;
-    height: 118px;
+  @media (max-width: 1313px) {
+    right: -18px;
+    height: 90px;
   }
 
   @media (max-width: 1188px) {
-    right: -10px;
-    height: 60px;
+    right: -8px;
+    height: 46px;
   }
 
-  @media (max-width: 810px) {
+  @media (max-width: 829px) {
     right: -12px;
     height: 62px;
   }
 
-  @media (max-width: 538px) {
-    right: -16px;
-    height: 77px;
+  @media (max-width: 503px) {
+    right: -20px;
+    height: 78px;
   }
 
-  @media (max-width: 446px) {
-    right: -20px;
+  @media (max-width: 438px) {
+    right: -22px;
     height: 88px;
   }
 
-  @media (max-width: 399px) {
-    right: -22px;
-    height: 98px;
+  @media (max-width: 425px) {
+    right: -20px;
+    height: 78px;
   }
 
-  @media (max-width: 382px) {
-    right: -25px;
-    height: 119px;
+  @media (max-width: 390px) {
+    right: -22px;
+    height: 88px;
   }
 
   @media (max-width: 358px) {
@@ -167,7 +160,7 @@ export const Step = styled.div`
   display: flex;
   gap: 16px;
   width: 33%;
-  height: 160px;
+  height: 130px;
   border: 4px dotted #D7DCE5;
   border-radius: 16px;
   padding: 16px;
@@ -175,41 +168,37 @@ export const Step = styled.div`
   position: relative;
   border-right: none;
 
-  @media (max-width: 1495px) {
-    height: 190px;
+  @media (max-width: 1565px) {
+    height: 160px;
   }
 
-  @media (max-width: 1460px) {
-    height: 210px;
-  }
-
-  @media (max-width: 1276px) {
-    height: 240px;
+  @media (max-width: 1313px) {
+    height: 185px;
   }
 
   @media (max-width: 1188px) {
     width: 100%;
-    height: 128px;
+    height: 100px;
   }
 
-  @media (max-width: 810px) {
+  @media (max-width: 829px) {
     height: 130px;
   }
 
-  @media (max-width: 538px) {
+  @media (max-width: 503px) {
     height: 160px;
   }
 
-  @media (max-width: 446px) {
+  @media (max-width: 438px) {
     height: 180px;
   }
 
-  @media (max-width: 399px) {
-    height: 200px;
+  @media (max-width: 425px) {
+    height: 160px;
   }
 
-  @media (max-width: 382px) {
-    height: 240px;
+  @media (max-width: 390px) {
+    height: 180px;
   }
 
   @media (max-width: 358px) {
