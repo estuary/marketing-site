@@ -1,16 +1,13 @@
 import { StaticImage } from "gatsby-plugin-image"
 import * as React from "react"
-import useWindowExistence from "../../../hooks/useWindowExistence"
 import { Button, Card, CardDescription, CardTitle, Cards, Container, Title, Wrapper } from "./styles"
 
 const SectionThree = () => {
-    const hasWindow = useWindowExistence();
-
     return (
         <Container>
             <Wrapper>
                 <Title>
-                    CASE STUDIES
+                    Case Studies
                 </Title>
                 <Cards>
                     <Card>
@@ -26,7 +23,7 @@ const SectionThree = () => {
                         <CardDescription>
                             Connect&GO lowers MySQL to Snowflake latency up to 180x, improves productivity 4x with Estuary.
                         </CardDescription>
-                        <Button>
+                        <Button to="/customers/casestudy/trueplatform" target="_blank" rel="noopener noreferrer">
                             Read
                         </Button>
                     </Card>
@@ -43,7 +40,7 @@ const SectionThree = () => {
                         <CardDescription>
                             True Platform reduced its data pipeline spend by &gt;2x and discovered seamless, scalable data movement
                         </CardDescription>
-                        <Button>
+                        <Button to="/customers/casestudy/soli_&_company" target="_blank" rel="noopener noreferrer">
                             Read
                         </Button>
                     </Card>
@@ -60,7 +57,7 @@ const SectionThree = () => {
                         <CardDescription>
                             Soli & Company trusts Estuary’s approachable pricing and quick setup to deliver change data capture solutions
                         </CardDescription>
-                        <Button>
+                        <Button to="/customers/connectngo" target="_blank" rel="noopener noreferrer">
                             Read
                         </Button>
                     </Card>

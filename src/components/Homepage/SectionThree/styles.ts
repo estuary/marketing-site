@@ -1,3 +1,4 @@
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
 import overlayVectorLeft from "../../../images/overlay-vector-left.png";
@@ -26,6 +27,7 @@ export const Title = styled.h2`
   line-height: 72px;
   color: #5072EB;
   margin: 0 0 60px 0;
+  text-transform: uppercase;
 `
 
 export const Cards = styled.div`
@@ -83,7 +85,7 @@ export const CardDescription = styled.p`
   }
 `
 
-export const Button = styled.button`
+export const Button = styled(Link)`
   border: 2px solid #5072EB;
   border-radius: 4px;
   padding: 16px 24px;
@@ -92,4 +94,5 @@ export const Button = styled.button`
   color: #ffffff;
   font-weight: 500;
   font-size: 1rem;
+  text-align: center;
 `
