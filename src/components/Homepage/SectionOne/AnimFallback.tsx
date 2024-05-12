@@ -7,7 +7,7 @@ const AnimFallback = () => (
     <StaticImage
       placeholder="none"
       alt="estuary logo"
-      src="../images/hero-anim-placeholder.png"
+      src="../../../images/hero-anim-placeholder.png"
       layout="constrained"
     />
   </FlowAnimationPlaceholderContainer>

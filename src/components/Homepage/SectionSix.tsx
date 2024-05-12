@@ -19,7 +19,7 @@ const SectionSix = () => {
                         <StaticImage
                             placeholder="none"
                             alt="estuary logo"
-                            src="../images/estuary-vertical-logo.svg"
+                            src="../../images/estuary-vertical-logo.svg"
                             layout="constrained"
                             className="product-flow-section-one-image"
                         />
@@ -28,7 +28,7 @@ const SectionSix = () => {
                         <StaticImage
                             placeholder="none"
                             alt="code screenshot"
-                            src="../images/code-screenshot.svg"
+                            src="../../images/code-screenshot.svg"
                             className="section-six-code-screenshot"
                             layout="constrained"
                         />

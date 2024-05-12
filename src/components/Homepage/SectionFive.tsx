@@ -1,65 +1,46 @@
-import { graphql, useStaticQuery } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
+import { StaticImage } from "gatsby-plugin-image"
 import * as React from "react"
+import ReactPlayer from "react-player/lazy"
+import { estuaryProductFlowVideoUrl } from "../../../shared"
+import useWindowExistence from "../../hooks/useWindowExistence"
+import { OutboundLink } from "../OutboundLink"
 
-const SectionFive = () => {
-    const testimonials = useStaticQuery(graphql`
-        {
-            allStrapiTestimonial(sort: {SortOrder: DESC}, filter: {Enabled: {eq: true}}) {
-                nodes {
-                    name: Name
-                    body: Text
-                    enabled: Enabled
-                    logo: Logo {
-                        localFile {
-                            svg {
-                                content # SVG content optimized with SVGO
-                            }
-                            name
-                            internal {
-                                mediaType
-                            }
-                            childImageSharp {
-                                gatsbyImageData(layout: FIXED, width: 30, placeholder: BLURRED)
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    `)
+const SectionThree = () => {
+    const hasWindow = useWindowExistence();
+
     return (
-        <div className="section-five">
-            <div className="section-five-wrapper">
-                <div className="section-five-header-wrapper">
-                    <p className="section-five-header-small">Testimonials</p>
-                    <h2 className="section-five-header">What our customers say</h2>
-                </div>
-                <div className="section-five-tile-wrapper">
-                    {testimonials.allStrapiTestimonial.nodes.map(node => (
-                        <div key={node.name} className="section-five-tile">
-                            <p className="section-five-tile-text">{node.body}</p>
-                            <div className="section-five-logo-wrapper">
-                                {node.logo.localFile.internal.mediaType === "image/svg+xml" ? <div style={{ width: 24 }} dangerouslySetInnerHTML={{ __html: node.logo.localFile.svg.content }} /> :
-                                    <GatsbyImage
-                                        alt={`${node.name} logo`}
-                                        image={
-                                            node.logo.localFile.childImageSharp
-                                                .gatsbyImageData
-                                        }
-                                        loading="eager"
-
-                                    />}
-                                <p className="section-five-tile-logo-text">
-                                    {node.name}
-                                </p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+        <div className="section-three">
+            <div className="section-three-header-wrapper">
+                <p className="section-three-header-small">VIDEO</p>
+                <h2 className="section-three-header">Watch the product demo</h2>
+            </div>
+            <div className="section-three-product-video-wrapper">
+                {hasWindow && (
+                    <ReactPlayer
+                        light={
+                            <StaticImage
+                                placeholder="none"
+                                alt="estuary flow product video"
+                                src="../images/homepage-product-video.svg"
+                                className="section-three-product-video-thumbnail"
+                                layout="constrained"
+                            />
+                        }
+                        url={estuaryProductFlowVideoUrl}
+                    />
+                )}
+            </div>
+            <div className="section-three-try-it-button-wrapper">
+                <OutboundLink
+                    target="_blank"
+                    href="https://dashboard.estuary.dev/register"
+                    className="section-three-try-it-button"
+                >
+                    Try it free
+                </OutboundLink>
             </div>
         </div>
     )
 }
 
-export default SectionFive
+export default SectionThree
