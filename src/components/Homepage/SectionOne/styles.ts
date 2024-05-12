@@ -107,7 +107,6 @@ export const MarqueeWrapper = styled.div`
 
   height: 74px;
   width: 100%;
-  margin-top: 80px;
   display: flex;
 
   @media (max-width: 425px) {
@@ -168,38 +167,31 @@ export const HomepageHeader = styled.div`
 export const HomepageTitle = styled.h1`
   color: #ffffff;
   margin: 0;
+  text-transform: uppercase;
 
   @media (max-width: 768px) {
     font-size: var(--fontSize-8);
-    text-transform: uppercase;
+  }
+
+  & span:nth-child(2n) {
+    color: #4472C4;
   }
 
   & span {
-      line-height: 43.2px;
-
-      @media (min-width: 768px) {
-          line-height: 86.4px;
-      }
-  }
-
-  & br {
-      @media (max-width: 1360px) {
-          display: none;
-      }
-
-      @media (max-width: 1024px) {
-          display: inline;
-      }
+      line-height: 72px;
+      font-weight: 600;
+      font-size: 4.5rem;
 
       @media (max-width: 768px) {
-          display: none;
+          line-height: 43.2px;
+          font-size: 2.25rem;
       }
   }
 `
 
 export const HomepageDescription = styled.p`
-  margin: 24px 0;
-  max-width: 519px;
+  margin-top: 24px;
+  margin-bottom: 0;
 
   color: #b7c6dd;
   line-height: 30px;
@@ -253,8 +245,7 @@ export const FlowAnimationContainer = styled.div`
   display: flex;
   flex: 1 1 auto;
   justify-content: flex-end;
-  max-width: 35vw;
-  min-width: 35rem;
+  min-width: 26rem;
 
   @media (max-width: 1024px) {
       min-width: 20rem;
@@ -288,4 +279,79 @@ export const VanityLogo = styled.div`
 
 export const FlowAnimationPlaceholderContainer = styled.div`
   ${AnimationBaseStyling}
+`
+
+export const MetricCardsList = styled.ul`
+  ${globalMaxWidth}
+  ${sectionTopBottomPadding}
+
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 100%;
+  display: flex;
+  gap: 24px;
+
+  @media (max-width: 1116px) {
+    flex-direction: column;
+  }
+`
+
+export const MetricCard = styled.li`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  padding: 24px;
+  border: 1px solid #5072EB4D;
+  border-radius: 24px;
+  background-color: #0E2443;
+  margin-bottom: 0;
+
+  @media (max-width: 1116px) {
+    flex-direction: row;
+    justify-content: left;
+  }
+
+  @media (max-width: 345px) {
+    flex-direction: column;
+    justify-content: center;
+  }
+`
+
+export const MetricIconWrapper = styled.div`
+  border: 2px solid #2A4589;
+  border-radius: 100%;
+  padding: 12px;
+  height: 80px;
+  max-width: 80px;
+`
+
+export const MetricsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+
+  @media (max-width: 1116px) {
+    align-items: flex-start;
+  }
+
+  @media (max-width: 345px) {
+    align-items: center;
+  }
+`
+
+export const MetricValue = styled.span`
+  color: #625EFF;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 43.2px;
+`
+
+export const MetricLabel = styled.span`
+  color: #FFFFFF;
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 30px;
 `

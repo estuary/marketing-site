@@ -2,6 +2,9 @@ import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import * as React from "react"
 import Marquee from "react-fast-marquee"
+import ActiveUsersIcon from "../../../svgs/metric-active-users.svg"
+import LatencyIcon from "../../../svgs/metric-latency.svg"
+import SingleDataflowIcon from "../../../svgs/metric-single-dataflow.svg"
 import AnimFallback from "./AnimFallback"
 import AnimatedHero from "./AnimatedHero"
 import {
@@ -13,6 +16,12 @@ import {
     HomepageTitle,
     MainContent,
     MarqueeWrapper,
+    MetricCard,
+    MetricCardsList,
+    MetricIconWrapper,
+    MetricLabel,
+    MetricValue,
+    MetricsWrapper,
     PrimaryButton,
     SecondaryButton,
     VanityLogo
@@ -57,16 +66,26 @@ const SectionOne = () => {
                 <HomepageHeader>
                     <HomepageTitle>
                         <span>
-                            Real-time ETL & CDC,
+                            Meet
                         </span>
                         {" "}
-                        <br />
                         <span>
-                            up in minutes.
+                            the fastest
+                        </span>
+                        <span>
+                            ,
+                        </span>
+                        {" "}
+                        <span>
+                            most reliable
+                        </span>
+                        {" "}
+                        <span>
+                            CDC
                         </span>
                     </HomepageTitle>
                     <HomepageDescription>
-                        Stream, replicate, and transform data in &#60;100ms using no-code connectors custom built for high-throughput and low-latency CDC & ETL.
+                        The only platform built from the ground up to deliver the most real-time and reliable CDC, streaming, and batch data.
                     </HomepageDescription>
                     <HomepageHeadingButtons>
                         <PrimaryButton
@@ -87,6 +106,35 @@ const SectionOne = () => {
                     </React.Suspense>
                 </FlowAnimationContainer>
             </MainContent>
+            <MetricCardsList>
+                <MetricCard>
+                    <MetricIconWrapper>
+                        <ActiveUsersIcon />
+                    </MetricIconWrapper>
+                    <MetricsWrapper>
+                        <MetricValue>3000+</MetricValue>
+                        <MetricLabel>Active users</MetricLabel>
+                    </MetricsWrapper>
+                </MetricCard>
+                <MetricCard>
+                    <MetricIconWrapper>
+                        <LatencyIcon />
+                    </MetricIconWrapper>
+                    <MetricsWrapper>
+                        <MetricValue>&#60;100ms</MetricValue>
+                        <MetricLabel>Latency</MetricLabel>
+                    </MetricsWrapper>
+                </MetricCard>
+                <MetricCard>
+                    <MetricIconWrapper>
+                        <SingleDataflowIcon />
+                    </MetricIconWrapper>
+                    <MetricsWrapper>
+                        <MetricValue>7+gb/sec</MetricValue>
+                        <MetricLabel>Single dataflow</MetricLabel>
+                    </MetricsWrapper>
+                </MetricCard>
+            </MetricCardsList>
             <MarqueeWrapper>
                 <Marquee>
                     {logos.allStrapiVanityLogo.nodes?.map(logo =>
