@@ -127,7 +127,7 @@ const SectionOne = () => {
                 </MetricCard>
                 <MetricCard>
                     <MetricIconWrapper>
-                        <SingleDataflowIcon />
+                        <SingleDataflowIcon color="#FFFFFF" />
                     </MetricIconWrapper>
                     <MetricsWrapper>
                         <MetricValue>7+gb/sec</MetricValue>

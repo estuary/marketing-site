@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
-import ExtractIcon from "../../../svgs/extract.svg";
+import CaptureIcon from "../../../svgs/capture.svg";
 import RealTimeDelivery from "../../../svgs/real-time-delivery.svg";
 import StoreAndTransformIcon from "../../../svgs/store-and-transform.svg";
 
@@ -260,9 +260,10 @@ export const StepIcon = styled.div`
 
 const IconBaseStyling = `
   display: block;
+  color: #47506D;
 `
 
-export const StepOneIcon = styled(ExtractIcon)`
+export const StepOneIcon = styled(CaptureIcon)`
   ${IconBaseStyling}
 `
 

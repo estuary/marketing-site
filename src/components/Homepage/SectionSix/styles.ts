@@ -1,6 +1,6 @@
-import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
+import { OutboundLink } from '../../OutboundLink';
 
 export const Container = styled.section`
   background-color: #FDFDFE;
@@ -12,10 +12,16 @@ export const Wrapper = styled.div`
     
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 60px;
 
   @media (max-width: 1024px) {
-    flex-direction: column-reverse; 
+    flex-direction: column; 
+    align-items: flex-start;
+  }
+
+  @media (max-width: 425px) {
+    gap: 40px;
   }
 `;
 
@@ -52,70 +58,46 @@ export const Description = styled.p`
   }
 `
 
-export const Button = styled(Link)`
-  border: 2px solid #5072EB;
-  border-radius: 4px;
-  padding: 16px 24px;
+export const Button = styled(OutboundLink)`
   background-color: #5072EB;
-  color: #ffffff;
-  font-weight: 500;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
   font-size: 1rem;
-  margin-top: 12px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #FFFFFF;
+  border-radius: 4px;
   width: fit-content;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 425px) {
+    font-size: 0.875rem;
     width: 100%;
   }
 `
 
-export const AdvantagesList = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 26px;
-`
-
-export const AdvantageWrapper = styled.div`
-  display: flex;
-  gap: 20px;
-  align-items: center;
-`
-
-export const Advantage = styled.p`
-  font-size: 1.25rem;
-  font-weight: 400;
-  line-height: 30px;
-  color: #47506D;
-  margin: 0;
-
-  @media (max-width: 1024px) {
-    font-size: 1rem;
-  }
-`
-
-export const LeftColumn = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-`
-
-export const RightColumn = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 536px;
-
-  @media (max-width: 1024px) {
-    max-width: 100%;
-  }
-`
-
 export const IconWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 18px;
   border: 1px solid #D7DCE5;
   border-radius: 8px;
   width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #ffffff;
+`
+
+export const LeftColumn = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
+export const RightColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 `

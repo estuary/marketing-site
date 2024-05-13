@@ -325,6 +325,9 @@ export const MetricIconWrapper = styled.div`
   padding: 12px;
   height: 80px;
   max-width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center
 `
 
 export const MetricsWrapper = styled.div`
