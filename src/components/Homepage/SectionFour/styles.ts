@@ -40,7 +40,6 @@ export const Description = styled.p`
   font-size: 1.25rem;
   font-weight: 400;
   line-height: 30px;
-  color: #ffffff;
   margin: 0;
   color: #47506D;
 
