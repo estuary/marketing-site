@@ -39,7 +39,7 @@ const SectionFive = () => {
                             playIcon={
                                 <VideoTextAndButton>
                                     <span>
-                                        Watch our 63 second end-to-end demo!
+                                        Watch our 80 second end-to-end demo!
                                     </span>
                                     <Button>
                                         <PlayIcon />
