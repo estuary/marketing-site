@@ -33,7 +33,7 @@ const SectionSix = () => {
                         href="https://docs.estuary.dev/"
                         target="_blank"
                     >
-                        See the docs
+                        See the Docs
                     </Button>
                 </RightColumn>
             </Wrapper>

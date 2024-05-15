@@ -45,7 +45,7 @@ const SectionTwo = () => {
                             <span>01</span>Capture
                         </StepTitle>
                         <StepDescription>
-                            Use 100s of no-code connectors for streaming CDC, real-time, or batch
+                            Use 100s of no-code connectors for streaming CDC, real-time, or batch.
                         </StepDescription>
                     </div>
                 </Step>
@@ -59,7 +59,7 @@ const SectionTwo = () => {
                             <span>02</span>Stream-store-replay
                         </StepTitle>
                         <StepDescription>
-                            Stream and store in your own storage, then replay any time
+                            Stream and store in your own storage, then replay any time.
                         </StepDescription>
                     </div>
                 </Step>
@@ -73,7 +73,7 @@ const SectionTwo = () => {
                             <span>03</span>Materialize
                         </StepTitle>
                         <StepDescription>
-                            Load data at different speeds into many destinations for analytics, ops, and AI
+                            Load data at different speeds into many destinations for analytics, ops, and AI.
                         </StepDescription>
                     </div>
                 </Step>

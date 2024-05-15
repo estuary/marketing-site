@@ -27,7 +27,7 @@ const SectionEight = () => {
             to="/pricing"
             target="_blank"
           >
-            Calculate your savings
+            See Pricing
           </Button>
         </LeftColumn>
         <RightColumn>

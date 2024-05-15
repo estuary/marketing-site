@@ -58,7 +58,7 @@ const SectionFour = () => {
             <AdvantageWrapper>
               <Checkmark width={32} height={32} color="#5072EB" />
               <Advantage>
-                Most scalable pipelines, with true elastic scaling.
+                Most scalable pipelines, with true elastic scaling
               </Advantage>
             </AdvantageWrapper>
           </AdvantagesList>

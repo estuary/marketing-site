@@ -21,13 +21,13 @@ const SectionSix = () => {
                         href="https://dashboard.estuary.dev/register"
                         target="_blank"
                     >
-                        Try now
+                        Try Now
                     </Button>
                     <Button
                         href={webinarsUrl}
                         target="_blank"
                     >
-                        Watch demo
+                        Watch Demo
                     </Button>
                 </Buttons>
             </Wrapper>

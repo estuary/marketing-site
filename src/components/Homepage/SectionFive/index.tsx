@@ -44,7 +44,7 @@ const SectionFive = () => {
                                     <Button>
                                         <PlayIcon />
                                         <span>
-                                            Play video
+                                            Play Video
                                         </span>
                                     </Button>
                                 </VideoTextAndButton>

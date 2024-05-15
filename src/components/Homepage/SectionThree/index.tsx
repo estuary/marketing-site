@@ -38,7 +38,7 @@ const SectionThree = () => {
                             TRUE PLATFORM
                         </CardTitle>
                         <CardDescription>
-                            True Platform reduced its data pipeline spend by &gt;2x and discovered seamless, scalable data movement
+                            True Platform reduced its data pipeline spend by &gt;2x and discovered seamless, scalable data movement.
                         </CardDescription>
                         <Button to="/customers/casestudy/soli_&_company" target="_blank" rel="noopener noreferrer">
                             Read
@@ -55,7 +55,7 @@ const SectionThree = () => {
                             SOLI & COMPANY
                         </CardTitle>
                         <CardDescription>
-                            Soli & Company trusts Estuary’s approachable pricing and quick setup to deliver change data capture solutions
+                            Soli & Company trusts Estuary’s approachable pricing and quick setup to deliver change data capture solutions.
                         </CardDescription>
                         <Button to="/customers/connectngo" target="_blank" rel="noopener noreferrer">
                             Read
