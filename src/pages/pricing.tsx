@@ -5,18 +5,21 @@ import React from "react"
 import Header from "../layouts/Pricing/Head"
 import Wrapper from "../layouts/Pricing/Wrapper"
 
+import { PricingCalculator } from "../components/PricingCalculator"
+import CostCalculator from "../layouts/Pricing/Sections/CostCalculator"
+import FrequentlyQuestions from "../layouts/Pricing/Sections/FrequentlyQuestions"
 import Hero from "../layouts/Pricing/Sections/Hero"
 import Plans from "../layouts/Pricing/Sections/Plans"
-import CostCalculator from "../layouts/Pricing/Sections/CostCalculator"
 import PricingComparison from "../layouts/Pricing/Sections/PricingComparison"
-import FrequentlyQuestions from "../layouts/Pricing/Sections/FrequentlyQuestions"
 
 const PricingPage = () => {
     return (
         <Wrapper>
             <Hero />
             <Plans />
-            <CostCalculator />
+            <PricingCalculator.Provider>
+                <CostCalculator />
+            </PricingCalculator.Provider>
             <PricingComparison />
             <FrequentlyQuestions />
         </Wrapper >

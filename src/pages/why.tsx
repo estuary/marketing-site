@@ -1,10 +1,9 @@
-import * as React from "react"
-import ColoredLogo from "../svgs/colored-logo.svg"
-import { OutboundLink } from "../components/OutboundLink"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-
-import { currencyFormatter, calculatePrice } from "../layouts/Pricing/utils"
+import * as React from "react"
+import { OutboundLink } from "../components/OutboundLink"
+import ColoredLogo from "../svgs/colored-logo.svg"
+import { calculatePrice, currencyFormatter } from "../utils"
 
 export const Step0 = ({ activePage, setState }) => {
     return (
@@ -108,7 +107,7 @@ export const Step3 = ({ activePage, setState }) => {
                     height={597}
                     quality={100}
                 />
-                 <div
+                <div
                     className="zoom-in-out-circle"
                     onClick={() => setState(activePage + 1)}
                 ></div>
@@ -241,8 +240,8 @@ export const Step7 = ({ activePage }) => {
             <div className="step-content">
                 <div className="step-heading">Predictable Pricing</div>
                 <ul>
-                    <li><b>{currencyFormatter.format(calculatePrice(1,0).estuary)}</b>/GB</li>
-                    <li><b>{currencyFormatter.format(calculatePrice(0,1).estuary)}</b>/task month</li>
+                    <li><b>{currencyFormatter.format(calculatePrice(1, 0).estuary)}</b>/GB</li>
+                    <li><b>{currencyFormatter.format(calculatePrice(0, 1).estuary)}</b>/task month</li>
                     <li>Free for up to two tasks and 10 GB/month</li>
                 </ul>
                 <div className="step-ctas">
@@ -284,21 +283,19 @@ const WhyEstuary = () => {
                     </div>
                     <div className="sidebar-nav">
                         <div
-                            className={`nav-item ${
-                                activePage === 0 ? "active" : ""
-                            }`}
+                            className={`nav-item ${activePage === 0 ? "active" : ""
+                                }`}
                             onClick={() => setActivePage(0)}
                         >
                             Welcome
                         </div>
                         <div
-                            className={`nav-item ${
-                                activePage === 1 ||
-                                activePage === 2 ||
-                                activePage === 3
+                            className={`nav-item ${activePage === 1 ||
+                                    activePage === 2 ||
+                                    activePage === 3
                                     ? "active"
                                     : ""
-                            }`}
+                                }`}
                             onClick={() => setActivePage(1)}
                         >
                             Extract
@@ -324,9 +321,8 @@ const WhyEstuary = () => {
                             </li>
                         </ul>
                         <div
-                            className={`nav-item ${
-                                activePage === 4 || activePage === 5 ? "active" : ""
-                            }`}
+                            className={`nav-item ${activePage === 4 || activePage === 5 ? "active" : ""
+                                }`}
                             onClick={() => setActivePage(4)}
                         >
                             Manage
@@ -346,9 +342,8 @@ const WhyEstuary = () => {
                             </li>
                         </ul>
                         <div
-                            className={`nav-item ${
-                                activePage === 6 ? "active" : ""
-                            }`}
+                            className={`nav-item ${activePage === 6 ? "active" : ""
+                                }`}
                             onClick={() => setActivePage(6)}
                         >
                             Load
@@ -362,9 +357,8 @@ const WhyEstuary = () => {
                             </li>
                         </ul>
                         <div
-                            className={`nav-item ${
-                                activePage === 7 ? "active" : ""
-                            }`}
+                            className={`nav-item ${activePage === 7 ? "active" : ""
+                                }`}
                             onClick={() => setActivePage(7)}
                         >
                             Pricing
