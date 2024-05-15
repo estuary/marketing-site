@@ -14,6 +14,7 @@ import { PopularArticles } from '../components/BlogPopularArticles';
 import BlogPostPopupModal from '../components/BlogPostPopupModal';
 import { ProcessedPost } from '../components/BlogPostProcessor';
 import { RenderToc } from '../components/BlogPostToc';
+import Breadcrumbs from '../components/Breadcrumbs';
 import Bio from '../components/bio';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
@@ -32,18 +33,6 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
 
     const handleResize = () => {
         setWindowWidth(window.innerWidth);
-    };
-
-    const copyLinkToClipboard = () => {
-        const currentUrl = window.location.href;
-        navigator.clipboard
-            .writeText(currentUrl)
-            .then(() => {
-                alert('Link copied to clipboard!');
-            })
-            .catch((err) => {
-                console.error('Failed to copy link: ', err);
-            });
     };
 
     useEffect(() => {
@@ -88,6 +77,23 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
 
     return (
         <Layout headerTheme="light">
+            <div className="blog-post-breadcrumbs-wrapper">
+                <Breadcrumbs
+                    breadcrumbs={[
+                        {
+                            title: "Home",
+                            href: "/"
+                        },
+                        {
+                            title: "Blog",
+                            href: "/blog"
+                        },
+                        {
+                            title: post.title,
+                        }
+                    ]}
+                />
+            </div>
             <article className="blog-post" itemScope itemType="http://schema.org/Article">
                 <section className="blog-post-header">
                     <div className="blog-post-header-wrapper">
