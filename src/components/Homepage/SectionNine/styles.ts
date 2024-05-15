@@ -19,12 +19,15 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  & > .keen-slider {
+    height: fit-content !important;
+  }
 `;
 
 export const Slides = styled.div`
   display: flex;
-  align-items: center;
-  height: fit-content;
+  align-items: flex-start;
 `
 
 export const Slide = styled.div`
@@ -32,6 +35,7 @@ export const Slide = styled.div`
   align-items: center;
   flex-direction: column;
   gap: 24px;
+  margin: 0;
 `
 
 export const Title = styled.h2`
@@ -94,7 +98,11 @@ export const Dot = styled.button`
   }
 `
 
-export const Avatar = styled(GatsbyImage)`
+export const AvatarImg = styled(GatsbyImage)`
+  border-radius: 100%;
+`
+
+export const AvatarSvg = styled.img`
   border-radius: 100%;
 `
 

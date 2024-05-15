@@ -33,7 +33,7 @@ const SectionFive = () => {
                                     layout="constrained"
                                 />
                             }
-                            url={estuaryProductFlowVideoUrl} /* TODO: Check if it's the correct video url */
+                            url={estuaryProductFlowVideoUrl}
                             width="100%"
                             height="100%"
                             playIcon={
