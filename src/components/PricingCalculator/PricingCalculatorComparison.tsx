@@ -1,19 +1,19 @@
 import * as React from "react"
 import { currencyFormatter } from "../../utils"
 import { PricingCalculatorContext } from "./PricingCalculatorProvider"
-import { BrandName, BrandPrice, BrandWrapper, ComparisionWrapper } from "./styles"
+import { BrandName, BrandPrice, BrandWrapper, ComparisonWrapper } from "./styles"
 
 export const PricingCalculatorComparison = () => {
   const { prices } = React.useContext(PricingCalculatorContext)
 
   return (
-    <ComparisionWrapper>
+    <ComparisonWrapper>
       <BrandWrapper>
-        <BrandName style={{ color: "#5072EB" }}>
+        <BrandName>
           ESTUARY
         </BrandName>
-        <BrandPrice style={{ fontWeight: 700, color: "#47506D" }}>
-          {currencyFormatter.format(prices.estuary)}
+        <BrandPrice>
+          <span>{currencyFormatter.format(prices.estuary)}</span> / month
         </BrandPrice>
       </BrandWrapper>
       <BrandWrapper>
@@ -21,7 +21,7 @@ export const PricingCalculatorComparison = () => {
           Confluent
         </BrandName>
         <BrandPrice>
-          {currencyFormatter.format(prices.confluent)}
+          <span>{currencyFormatter.format(prices.confluent)}</span> / month
         </BrandPrice>
       </BrandWrapper>
       <BrandWrapper>
@@ -29,9 +29,9 @@ export const PricingCalculatorComparison = () => {
           Fivetran
         </BrandName>
         <BrandPrice>
-          {currencyFormatter.format(prices.fivetran)}
+          <span>{currencyFormatter.format(prices.fivetran)}</span> / month
         </BrandPrice>
       </BrandWrapper>
-    </ComparisionWrapper>
+    </ComparisonWrapper>
   )
 }

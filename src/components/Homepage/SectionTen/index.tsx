@@ -15,7 +15,7 @@ const SectionSix = () => {
                 <Buttons>
                     <HubspotButton
                         buttonLabel="Contact Us"
-                        buttonId="section-one-hubspot"
+                        buttonId="section-ten-hubspot"
                     />
                     <Button
                         href="https://dashboard.estuary.dev/register"

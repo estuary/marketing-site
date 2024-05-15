@@ -76,14 +76,15 @@ export const SliderWrapper = styled.div`
   }
 `
 
-export const ComparisionWrapper = styled.div`
+export const ComparisonWrapper = styled.div`
   font-family: "Inter", sans-serif;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 24px;
+  justify-content: center;
   width: 100%;
-  gap: 60px;
+  margin-top: 32px;
+  gap: 24px;
+  flex-wrap: wrap;
 
   @media (max-width: 525px) {
     gap: 32px;
@@ -101,21 +102,41 @@ export const BrandWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  width: 100%;
+  max-width: 180px;
+
+  &:first-child {
+    background-color: #5072EB12;
+    border: 1px solid #5072EB;
+    border-radius: 16px;
+    padding: 16px 32px;
+    color: #5072EB;
+
+    span {
+      color: #04192B;
+      
+      &:first-child {
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+    }
+
+    h4 {
+      color: #5072EB;
+    }
+  }
 
   @media (max-width: 525px) {
     gap: 4px;
   }
 `
 
-const BaseBrandStyling = `
+export const BrandName = styled.h4`
   color: #04192B;
-  font-size: 1rem;
   font-weight: 700;
   line-height: 22px;
-`
-
-export const BrandName = styled.span`
-  ${BaseBrandStyling}
+  font-size: 1rem;
+  margin: 0;
 
   @media (max-width: 425px) {
     font-size: 0.875rem;
@@ -123,12 +144,18 @@ export const BrandName = styled.span`
 `
 
 export const BrandPrice = styled.span`
-  ${BaseBrandStyling}
-
-  width: 80px;
+  color: #47506D;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 22px;
   display: inline-block;
   white-space: nowrap;
   text-align: center;
+
+  span {
+    font-weight: 700;
+    color: #04192B;
+  }
 
   @media (max-width: 425px) {
     font-size: 0.875rem;
@@ -138,7 +165,7 @@ export const BrandPrice = styled.span`
 export const ConnectorsCounterWrapper = styled.div`
   display: flex;
   gap: 16px;
-  margin-top: 32px;
+  margin-top: 16px;
 `
 
 export const CountInputWrapper = styled.div`

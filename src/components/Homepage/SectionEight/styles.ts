@@ -93,13 +93,21 @@ export const LeftColumn = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
-  width: 100%;
+  width: 50%;
+
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
 `
 
 export const RightColumn = styled.div`
-  width: 100%;
+  width: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
 `
