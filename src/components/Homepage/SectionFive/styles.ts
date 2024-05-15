@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
 import overlayVectorLeft from "../../../images/overlay-vector-left.png";
-import { OutboundLink } from '../../OutboundLink';
 
 export const Container = styled.section`
   background-color: #04192b;
@@ -54,14 +53,29 @@ export const Description = styled.p`
 `
 
 export const VideoWrapper = styled.div`
-  padding: 18px;
   background-color: #5072EB40;
   border: 1px solid #5072EB99;
   border-radius: 24px;
-  max-height: calc(523px + 18px + 18px);
-  height: 100%;
-  width: auto;
+  max-height: calc(560px + 18px + 18px);
+  height: 560px;
+  width: 80%;
+  padding: 18px;
   position: relative;
+
+  @media (max-width: 1024px) {
+    width: 100%;
+    height: 460px;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 360px;
+  }
+
+  @media (max-width: 425px) {
+    width: 100%;
+    height: 300px;
+  }
 `
 
 export const VideoTextAndButton = styled.div`
@@ -85,7 +99,8 @@ export const VideoTextAndButton = styled.div`
   }
 `
 
-export const Button = styled(OutboundLink)`
+export const Button = styled.button`
+  border: none;
   background-color: #5072EB;
   padding: 16px 24px;
   display: flex;
@@ -96,6 +111,7 @@ export const Button = styled(OutboundLink)`
   line-height: 20px;
   color: #FFFFFF;
   border-radius: 4px;
+  cursor: pointer;
 
   @media (max-width: 425px) {
     font-size: 0.875rem;

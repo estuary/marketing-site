@@ -32,7 +32,7 @@ const SectionNine = () => {
       }
     }
   `)
-  console.log(testimonials)
+
   const [currentSlide, setCurrentSlide] = React.useState(0)
   const [loaded, setLoaded] = React.useState(false)
   const [sliderRef, instanceRef] = useKeenSlider(
