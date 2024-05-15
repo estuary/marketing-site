@@ -1,5 +1,5 @@
 import * as React from "react"
-import { SectionEight, SectionFive, SectionFour, SectionOne, SectionSeven, SectionSix, SectionThree, SectionTwo } from "../components/Homepage"
+import { SectionEight, SectionFive, SectionFour, SectionNine, SectionOne, SectionSeven, SectionSix, SectionThree, SectionTwo } from "../components/Homepage"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
@@ -15,6 +15,7 @@ const IndexPage = () => {
             <SectionSix />
             <SectionSeven />
             <SectionEight />
+            <SectionNine />
         </Layout>
     )
 }
