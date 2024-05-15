@@ -7,8 +7,16 @@ import { ButtonMinus, ButtonPlus, ConnectorsCounterWrapper, CountInput, Form } f
 export const PricingCalculatorSelector = () => {
   const { selectedConnectors, setSelectedConnectors } = React.useContext(PricingCalculatorContext)
 
-  const handleMinusClick = () => setSelectedConnectors(c => Math.max(0, c - 1))
+  const handleMinusClick = () => {
+    setSelectedConnectors(c => Math.max(2, c - 1));
+  }
+
   const handlePlusClick = () => setSelectedConnectors(c => Math.max(0, c + 1))
+
+  const handleCountInputChange = (evt) => {
+    const value = parseInt(evt.target.value)
+    setSelectedConnectors(value >= 2 ? value : 2)
+  }
 
   return (
     <ConnectorsCounterWrapper>
@@ -33,10 +41,13 @@ export const PricingCalculatorSelector = () => {
         <CountInput
           id="pricing-calculator-selector-input"
           label="Number of connectors"
-          inputProps={{ style: { textAlign: "center" } }}
+          inputProps={{
+            style: { textAlign: "center" },
+            min: 2
+          }}
           type="number"
           value={selectedConnectors}
-          onChange={evt => setSelectedConnectors(+evt.target.value)}
+          onChange={handleCountInputChange}
           notched
         />
       </Form>
