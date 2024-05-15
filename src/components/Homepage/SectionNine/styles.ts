@@ -76,7 +76,11 @@ export const Slider = styled.div`
 
 export const Dots = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 10px 0;
+  flex-wrap: wrap;
+  gap: 20px;
 
   & .active {
     background: #5072EB;
@@ -89,7 +93,6 @@ export const Dot = styled.button`
   height: 12px;
   background: #ffffff;
   border-radius: 100%;
-  margin: 0 10px;
   cursor: pointer;
 
   @media (max-width: 425px) {

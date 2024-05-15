@@ -89,6 +89,11 @@ export const ComparisionWrapper = styled.div`
     gap: 32px;
     padding: 0;
   }
+
+  @media (max-width: 325px) {
+    gap: 16px;
+    padding: 0;
+  }
 `
 
 export const BrandWrapper = styled.div`
