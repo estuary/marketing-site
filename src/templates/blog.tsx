@@ -41,16 +41,7 @@ interface BlogIndexProps {
   };
 }
 
-const BlogIndex = ({
-  data,
-  pageContext: {
-    categoryTitle,
-    categorySlug,
-    tabCategories: realTabCategories,
-    blogPostIds,
-    pagination: { page, totalPages, nextPage, prevPage },
-  },
-}: BlogIndexProps) => {
+const BlogIndexContent = ({ categorySlug, data, realTabCategories }) => {
   const posts = data.allStrapiBlogPost.nodes;
 
   const index: Index = React.useMemo(
@@ -80,61 +71,88 @@ const BlogIndex = ({
   const tabCategories = [{ Slug: '', Name: 'All', Type: 'category' }, ...realTabCategories];
 
   return (
-    <Layout headerTheme="light">
-      <BackgroundImageWrapper>
-        <div className="blogs-index-header-wrapper">
-          <div className="blogs-index-header">
-            <div className="blog-post-header-vectors">
-              <FlowLogo className="blog-post-header-vector" />
-            </div>
-            <h2>Blog</h2>
-            <p>More about Estuary and related technologies, straight from the team.</p>
-            <p>
-              Our blog breaks down basic concepts and takes you into the minds of our engineers. We also dig into the
-              business principles that guide our company and allow us to build great solutions for yours.
-            </p>
+    <>
+      <div className="blogs-index-header-wrapper">
+        <div className="blogs-index-header">
+          <div className="blog-post-header-vectors">
+            <FlowLogo className="blog-post-header-vector" />
           </div>
+          <h2>Blog</h2>
+          <p>More about Estuary and related technologies, straight from the team.</p>
+          <p>
+            Our blog breaks down basic concepts and takes you into the minds of our engineers. We also dig into the
+            business principles that guide our company and allow us to build great solutions for yours.
+          </p>
         </div>
-        <div className="blogs-index-tab-bar">
-          <div className="blogs-index-tabs">
-            {tabCategories.map((category) => (
-              <Link
-                key={category.Slug}
-                to={`/blog/${category.Slug}`}
-                className={clsx('blogs-index-tab', {
-                  'blogs-index-tab-active': category.Slug === categorySlug,
-                })}
-              >
-                {category.Name}
-              </Link>
-            ))}
-          </div>
-          <div className="blogs-index-search">
-            <SearchIcon className="blogs-index-input-adornment" />
-            <input
-              placeholder="Search Blog Posts"
-              type="text"
-              value={query}
-              onChange={(evt) => setQuery(evt.target.value)}
-            />
-          </div>
-        </div>
-        <div className="blogs-index-body">
-          {(query.length > 0 ? results : posts).map((post) => (
-            <BlogPostCard key={post.Slug} {...post} />
+      </div>
+      <div className="blogs-index-tab-bar">
+        <div className="blogs-index-tabs">
+          {tabCategories.map((category) => (
+            <Link
+              key={category.Slug}
+              to={`/blog/${category.Slug}`}
+              className={clsx('blogs-index-tab', {
+                'blogs-index-tab-active': category.Slug === categorySlug,
+              })}
+            >
+              {category.Name}
+            </Link>
           ))}
         </div>
+        <div className="blogs-index-search">
+          <SearchIcon className="blogs-index-input-adornment" />
+          <input
+            placeholder="Search Blog Posts"
+            type="text"
+            value={query}
+            onChange={(evt) => setQuery(evt.target.value)}
+          />
+        </div>
+      </div>
+      <div className="blogs-index-body">
+        {(query.length > 0 ? results : posts).map((post) => (
+          <BlogPostCard key={post.Slug} {...post} />
+        ))}
+      </div>
+    </>
+  );
+};
+
+interface BlogIndexPaginationProps {
+  prevPage: string;
+  nextPage: string;
+}
+const BlogIndexPagination = ({ prevPage, nextPage }: BlogIndexPaginationProps) => {
+  return (
+    (prevPage || nextPage) && (
+      <>
+        <Divider />
+        <div className="blogs-nav">
+          {prevPage ? <Link to={prevPage}>← Prev Page</Link> : null}
+          <div style={{ flexGrow: 1 }} />
+          {nextPage ? <Link to={nextPage}>Next Page →</Link> : null}
+        </div>
+      </>
+    )
+  );
+};
+
+const BlogIndex = ({
+  data,
+  pageContext: {
+    categoryTitle,
+    categorySlug,
+    tabCategories: realTabCategories,
+    blogPostIds,
+    pagination: { page, totalPages, nextPage, prevPage },
+  },
+}: BlogIndexProps) => {
+  return (
+    <Layout headerTheme="light">
+      <BackgroundImageWrapper>
+        <BlogIndexContent categorySlug={categorySlug} data={data} realTabCategories={realTabCategories} />
       </BackgroundImageWrapper>
-      {(prevPage || nextPage) && (
-        <>
-          <Divider />
-          <div className="blogs-nav">
-            {prevPage ? <Link to={prevPage}>← Prev Page</Link> : null}
-            <div style={{ flexGrow: 1 }} />
-            {nextPage ? <Link to={nextPage}>Next Page →</Link> : null}
-          </div>
-        </>
-      )}
+      <BlogIndexPagination prevPage={prevPage} nextPage={nextPage} />
     </Layout>
   );
 };
