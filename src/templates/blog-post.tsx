@@ -18,6 +18,8 @@ import Bio from '../components/bio';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
 import logoUrl from '../images/combination-mark__multi-blue.png';
+import BlogHeaderBackground from '../components/BackgroundImages/BlogHeader';
+import BuildPipeLineBannerBackground from '../components/BackgroundImages/BuildPipelineWrapper';
 
 dayjs.extend(reltime);
 
@@ -48,7 +50,7 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
         />
       </div>
       <article className="blog-post" itemScope itemType="http://schema.org/Article">
-        <section className="blog-post-header">
+        <BlogHeaderBackground>
           <div className="blog-post-header-wrapper">
             <div className="header-info">
               <div className="post-info">
@@ -87,7 +89,8 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
               />
             ) : null}
           </div>
-        </section>
+        </BlogHeaderBackground>
+
         {post.body && (
           <section className="blog-post-content">
             <div className="blog-post-content-wrapper">
@@ -170,7 +173,7 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
           </div>
         </section>
         <section className="big-build-pipeline-banner-section">
-          <div className="big-build-pipeline-banner-container">
+          <BuildPipeLineBannerBackground>
             <div className="big-build-pipeline-banner-container_layout">
               <div className="left-column-container">
                 <h5>Streaming Pipelines.</h5>
@@ -200,7 +203,7 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
                 More on our Pricing
               </OutboundLink>
             </div>
-          </div>
+          </BuildPipeLineBannerBackground>
         </section>
       </article>
       <BlogPostPopupModal />
