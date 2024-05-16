@@ -6515,12 +6515,16 @@ table th {
   .post-sidebar {
     display: flex;
     flex-direction: column;
-    gap: 60px;
     max-width: 256px;
     width: 100%;
 
     @media (max-width: 1150px) {
       max-width: 100%;
+    }
+
+    @media (min-width: 1150px) {
+      position: sticky;
+      top: 120px;
     }
 
     @media (max-width: 767px) {
