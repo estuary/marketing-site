@@ -28,33 +28,6 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
 
     const authorSocialLink = post?.authors[0]?.link */
 
-  const [windowWidth, setWindowWidth] = useState(typeof window === 'undefined' ? 1500 : window.innerWidth);
-
-  const handleResize = () => {
-    setWindowWidth(window.innerWidth);
-  };
-
-  useEffect(() => {
-    // Event listener for window resize
-    window.addEventListener('resize', handleResize);
-
-    // Clean up the event listener when the component unmounts
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  const buildPipelineAndPricingButtons = (
-    <div className="build-pipeline-and-pricing-buttons">
-      <OutboundLink href="https://dashboard.estuary.dev/register" className="pipeline-link">
-        Build a pipeline
-      </OutboundLink>
-      <OutboundLink href="https://estuary.dev/pricing" className="pricing-link">
-        More on our Pricing
-      </OutboundLink>
-    </div>
-  );
-
   return (
     <Layout headerTheme="light">
       <div className="blog-post-breadcrumbs-wrapper">
@@ -198,27 +171,35 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
         </section>
         <section className="big-build-pipeline-banner-section">
           <div className="big-build-pipeline-banner-container">
-            <div className="left-column-container">
-              <h5>Streaming Pipelines.</h5>
-              <h5>Simple to deploy.</h5>
-              <h5>Simply priced.</h5>
-              {windowWidth > 767 && buildPipelineAndPricingButtons}
+            <div className="big-build-pipeline-banner-container_layout">
+              <div className="left-column-container">
+                <h5>Streaming Pipelines.</h5>
+                <h5>Simple to deploy.</h5>
+                <h5>Simply priced.</h5>
+              </div>
+              <div className="right-column-container">
+                <div>
+                  <DoneIcon htmlColor="#5072eb" fontSize="large" />
+                  <span>$1/GB of data moved + $.14/connector/hour;</span>
+                </div>
+                <div>
+                  <DoneIcon htmlColor="#5072eb" fontSize="large" />
+                  <span>50% less than competing ETL/ELT solutions;</span>
+                </div>
+                <div>
+                  <DoneIcon htmlColor="#5072eb" fontSize="large" />
+                  <span>{'<'}100ms latency on streaming sinks/sources.</span>
+                </div>
+              </div>
             </div>
-            <div className="right-column-container">
-              <div>
-                <DoneIcon htmlColor="#5072eb" fontSize="large" />
-                <span>$1/GB of data moved + $.14/connector/hour;</span>
-              </div>
-              <div>
-                <DoneIcon htmlColor="#5072eb" fontSize="large" />
-                <span>50% less than competing ETL/ELT solutions;</span>
-              </div>
-              <div>
-                <DoneIcon htmlColor="#5072eb" fontSize="large" />
-                <span>{'<'}100ms latency on streaming sinks/sources.</span>
-              </div>
+            <div className="build-pipeline-and-pricing-buttons">
+              <OutboundLink href="https://dashboard.estuary.dev/register" className="pipeline-link">
+                Build a pipeline
+              </OutboundLink>
+              <OutboundLink href="https://estuary.dev/pricing" className="pricing-link">
+                More on our Pricing
+              </OutboundLink>
             </div>
-            {windowWidth <= 767 && buildPipelineAndPricingButtons}
           </div>
         </section>
       </article>
