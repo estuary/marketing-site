@@ -44,7 +44,7 @@ export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
         __html: googleAnalyticsHTML,
       }}
     />,
-    <script key="google-analytics-loader" src={`${GA_ORIGIN}/gtag/js?id=${GA_MEASUREMENT_ID}`} />,
+    <script key="google-analytics-loader" async src={`${GA_ORIGIN}/gtag/js?id=${GA_MEASUREMENT_ID}`} />,
     <link rel="preconnect" href="//consent.cookiefirst.com" />,
     <link rel="dns-prefetch" href="//edge.cookiefirst.com" />,
     <link rel="dns-prefetch" href="//api.cookiefirst.com" />,
