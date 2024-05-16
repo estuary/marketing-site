@@ -45,7 +45,7 @@ export const Title = styled.h2`
   text-align: center;
   color: #47506D;
   
-  span {
+  & span:nth-child(odd) {
     color: #5072EB;
   }
 

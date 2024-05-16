@@ -10,7 +10,9 @@ const SectionSix = () => {
                     <span>
                         SEE HOW {" "}
                     </span>
-                    ESTUARY CAN WORK FOR YOU AND YOUR DATA
+                    <span>
+                        ESTUARY CAN WORK FOR YOU AND YOUR DATA
+                    </span>
                 </Title>
                 <Buttons>
                     <HubspotButton

@@ -15,7 +15,9 @@ const SectionEight = () => {
             <span>
               DO {" "}
             </span>
-            4X MORE {" "}
+            <span>
+              4X MORE {" "}
+            </span>
             <span>
               WITH 2-5X LESS
             </span>

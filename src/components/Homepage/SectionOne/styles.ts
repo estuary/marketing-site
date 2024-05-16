@@ -174,7 +174,7 @@ export const HomepageTitle = styled.h1`
   }
 
   & span:nth-child(2n) {
-    color: #4472C4;
+    color: #5072EB;
   }
 
   & span {

@@ -24,7 +24,9 @@ const SectionSix = () => {
                         <span>
                             AUTOMATE {" "}
                         </span>
-                        DATAOPS
+                        <span>
+                            DATAOPS
+                        </span>
                     </Title>
                     <Description>
                         Use schema inference, evolution, and automation along with a complete CLI and API to implement true agile DataOps that can handle constant change without breaking pipelines.

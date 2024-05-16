@@ -74,13 +74,13 @@ export const AdvantagesList = styled.div`
   gap: 26px;
 `
 
-export const AdvantageWrapper = styled.div`
+export const AdvantageContainer = styled.div`
   display: flex;
   gap: 20px;
   align-items: center;
 `
 
-export const Advantage = styled.p`
+export const AdvantageTitle = styled.p`
   font-size: 1.25rem;
   font-weight: 400;
   line-height: 30px;

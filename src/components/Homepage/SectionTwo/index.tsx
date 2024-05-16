@@ -1,7 +1,7 @@
 import { useMediaQuery, useTheme } from '@mui/material';
 import { StaticImage } from "gatsby-plugin-image";
 import * as React from "react";
-import { ColoredText, Container, FlowImageWrapper, Header, Step, StepDescription, StepIcon, StepOneIcon, StepThreeIcon, StepTitle, StepTwoIcon, Steps, Subtitle, Title } from "./styles";
+import { Container, FlowImageWrapper, Header, Step, StepDescription, StepIcon, StepOneIcon, StepThreeIcon, StepTitle, StepTwoIcon, Steps, Subtitle, Title } from "./styles";
 
 const SectionTwo = () => {
     const theme = useTheme();
@@ -11,25 +11,33 @@ const SectionTwo = () => {
         <Container>
             <Header>
                 <Title>
-                    <ColoredText>
-                        Move
-                    </ColoredText>{" "}
-                    and{" "}
-                    <ColoredText>
+                    <span>
+                        Move{" "}
+                    </span>
+                    <span>
+                        and{" "}
+                    </span>
+                    <span>
                         transform{" "}
-                    </ColoredText>
-                    data with the only CDC platform built for{" "}
-                    <ColoredText>
+                    </span>
+                    <span>
+                        data with the only CDC platform built for{" "}
+                    </span>
+                    <span>
                         ops
-                    </ColoredText>
-                    ,{" "}
-                    <ColoredText>
+                    </span>
+                    <span>
+                        ,{" "}
+                    </span>
+                    <span>
                         analytics
-                    </ColoredText>
-                    , and{" "}
-                    <ColoredText>
+                    </span>
+                    <span>
+                        , and{" "}
+                    </span>
+                    <span>
                         AI
-                    </ColoredText>
+                    </span>
                 </Title>
                 <Subtitle>
                     Capture, transform, and materialize in real-time for an exact view of your data and every change that powers analytics and operations.

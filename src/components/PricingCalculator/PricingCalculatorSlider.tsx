@@ -10,7 +10,7 @@ type PricingCalculatorProps = {
 export const PricingCalculatorSlider = ({ title }: PricingCalculatorProps) => {
   const { selectedGbs, setSelectedGbs } = React.useContext(PricingCalculatorContext)
 
-  const handleSliderChange = (_, val: number) => setSelectedGbs(val)
+  const handleSliderChange = (_: any, val: number) => setSelectedGbs(val)
 
   return (
     <>

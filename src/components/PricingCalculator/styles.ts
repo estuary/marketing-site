@@ -207,7 +207,7 @@ export const CountInput = styled(OutlinedInput)`
   height: 52px;
   text-align: center;
   border: 0;
-  font-size: 20px;
+  font-size: 1.25rem;
   font-style: normal;
   font-weight: 500;
   box-shadow: none;

@@ -29,7 +29,7 @@ const SectionFive = () => {
                                     placeholder="none"
                                     alt="estuary flow product end to end demo video"
                                     src="../../../images/end-to-end-demo-video-thumbnail.png"
-                                    className="section-five-product-video-thumbnail" /* It's using LESS because does not work with styled-components */
+                                    className="section-five-product-video-thumbnail"
                                     layout="constrained"
                                 />
                             }

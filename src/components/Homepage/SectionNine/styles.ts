@@ -117,6 +117,7 @@ export const Arrow = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 
   &:disabled {
     border-color: #5072EB80;

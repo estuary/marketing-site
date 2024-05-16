@@ -44,7 +44,7 @@ export const Cards = styled.div`
   }
 `
 
-export const Card = styled.div`
+export const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -76,6 +76,11 @@ export const CardDescription = styled.p`
   color: #ffffff;
   margin: 0;
   text-align: center;
+  max-width: 260px;
+
+  @media (min-width: 1630px) {
+    min-width: 355px;
+  }
 
   @media (max-width: 1280px) {
     font-size: 1rem;

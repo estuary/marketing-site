@@ -30,6 +30,7 @@ export const Title = styled.h2`
   text-align: center;
   text-transform: uppercase;
   margin: 0 48px;
+  color: #47506D;
 
   @media (max-width: 810px) {
     font-size: 1.75rem;
@@ -37,10 +38,10 @@ export const Title = styled.h2`
     line-height: 33.6px;
     margin: 0;
   }
-`
 
-export const ColoredText = styled.span`
-  color: #5072eb;
+  & span:nth-child(odd) {
+    color: #5072eb;
+  }
 `
 
 export const Subtitle = styled.p`
@@ -50,6 +51,7 @@ export const Subtitle = styled.p`
   text-align: center;
   max-width: 75%;
   margin: 24px 0 0 0;
+  color: #04192B;
 
   @media (max-width: 810px) {
     font-size: 1rem;

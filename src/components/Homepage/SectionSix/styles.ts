@@ -33,7 +33,7 @@ export const Title = styled.h2`
   margin: 0;
   text-transform: uppercase;
 
-  span {
+  & span:nth-child(odd) {
     color: #04192B;
   }
 

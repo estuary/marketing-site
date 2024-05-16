@@ -1,16 +1,18 @@
 import * as React from "react";
 import { calculatePrice, scale } from "../../utils";
 
-interface PricingCalculatorContextProviderProps {
+type PricingCalculatorContextProviderProps = {
   children: React.ReactNode
 }
 
-interface PricingCalculatorContextProps {
-  prices: {
-    estuary: number;
-    fivetran: number;
-    confluent: number;
-  };
+type Prices = {
+  estuary: number;
+  fivetran: number;
+  confluent: number;
+}
+
+type PricingCalculatorContextProps = {
+  prices: Prices;
   selectedGbs: number;
   setSelectedGbs: React.Dispatch<React.SetStateAction<number>>;
   selectedConnectors: number;
