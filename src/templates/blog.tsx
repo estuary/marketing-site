@@ -12,6 +12,7 @@ import { BlogPostCard } from '../components/BlogPostCard';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
 import FlowLogo from '../svgs/flow-logo.svg';
+import debounce from 'lodash.debounce';
 
 interface BlogIndexProps {
   data: {
@@ -72,19 +73,6 @@ const BlogIndexContent = ({ categorySlug, data, realTabCategories }) => {
 
   return (
     <>
-      <div className="blogs-index-header-wrapper">
-        <div className="blogs-index-header">
-          <div className="blog-post-header-vectors">
-            <FlowLogo className="blog-post-header-vector" />
-          </div>
-          <h2>Blog</h2>
-          <p>More about Estuary and related technologies, straight from the team.</p>
-          <p>
-            Our blog breaks down basic concepts and takes you into the minds of our engineers. We also dig into the
-            business principles that guide our company and allow us to build great solutions for yours.
-          </p>
-        </div>
-      </div>
       <div className="blogs-index-tab-bar">
         <div className="blogs-index-tabs">
           {tabCategories.map((category) => (
@@ -150,6 +138,19 @@ const BlogIndex = ({
   return (
     <Layout headerTheme="light">
       <BackgroundImageWrapper>
+        <div className="blogs-index-header-wrapper">
+          <div className="blogs-index-header">
+            <div className="blog-post-header-vectors">
+              <FlowLogo className="blog-post-header-vector" />
+            </div>
+            <h2>Blog</h2>
+            <p>More about Estuary and related technologies, straight from the team.</p>
+            <p>
+              Our blog breaks down basic concepts and takes you into the minds of our engineers. We also dig into the
+              business principles that guide our company and allow us to build great solutions for yours.
+            </p>
+          </div>
+        </div>
         <BlogIndexContent categorySlug={categorySlug} data={data} realTabCategories={realTabCategories} />
       </BackgroundImageWrapper>
       <BlogIndexPagination prevPage={prevPage} nextPage={nextPage} />
