@@ -97,14 +97,16 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
               <div className="main-content">
                 <ProcessedPost body={post.body.data.childHtmlRehype.html} />
 
-                <div className="build-pipeline-banner">
-                  <h3>
-                    Start streaming your data <span>for free</span>
-                  </h3>
-                  <OutboundLink href="https://dashboard.estuary.dev/register" className="pipeline-link">
-                    Build a Pipeline
-                  </OutboundLink>
-                </div>
+                <BuildPipeLineBannerBackground>
+                  <div className="build-pipeline-banner">
+                    <h3>
+                      Start streaming your data <span>for free</span>
+                    </h3>
+                    <OutboundLink href="https://dashboard.estuary.dev/register" className="pipeline-link">
+                      Build a Pipeline
+                    </OutboundLink>
+                  </div>
+                </BuildPipeLineBannerBackground>
               </div>
 
               <div className="post-sidebar">
