@@ -197,7 +197,7 @@ export const Form = styled(FormControl)`
     color: #5072EB;
     background-color: #ffffff;
     width: 100%;
-    text-align: right;
+    text-align: center;
   };
 `
 

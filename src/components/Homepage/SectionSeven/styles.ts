@@ -1,3 +1,4 @@
+import { Link as LinkGatsby } from "gatsby";
 import styled from 'styled-components';
 import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
 import overlayVectorRight from "../../../images/overlay-vector-right.png";
@@ -103,16 +104,39 @@ export const ConnectorsList = styled.ul`
 
 `
 
-export const ConnectorIconWrapper = styled.li`
+export const Connector = styled.li`
+  list-style: none;
+
+  min-width: 124px;
+  min-height: 124px;
+  background: linear-gradient(to bottom, #5072EB7A, #5072EB3D);
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 2px;
+
+  &:hover {
+    background: linear-gradient(to bottom, #6ED5D6, #7284FF);
+  }
+
+  &:active {
+    border-color: none;
+    background: linear-gradient(to bottom, #6ED5D680, #7284FF80);
+  }
+`
+
+export const Link = styled(LinkGatsby)`
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 28px;
-  border: 1px solid #5072EB7A;
-  border-radius: 24px;
+  border-radius: 22px;
   background-color: #0E2443;
   min-width: 120px;
   width: 120px;
   height: 120px;
   margin: auto;
+  
+  
 `
