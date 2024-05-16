@@ -2,7 +2,7 @@ import clsx from "clsx"
 import { Link } from "gatsby"
 import React, { useEffect, useRef } from "react"
 import { isDesktop } from "react-device-detect"
-import { OutboundLink } from "../../../components/OutboundLink"
+import { OutboundLink } from "../../OutboundLink"
 
 import Chevron from "@mui/icons-material/ChevronRight"
 import NavbarImage from "../../../svgs/navbar-image-2.svg"

@@ -1,6 +1,5 @@
-import { Link } from 'gatsby';
 import styled from 'styled-components';
-import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
+import { LinkFilled, globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
 
 export const Container = styled.section`
   background-color: #FDFDFE;
@@ -58,22 +57,11 @@ export const Description = styled.p`
   }
 `
 
-export const Button = styled(Link)`
-  background-color: #5072EB;
-  padding: 16px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 20px;
-  color: #FFFFFF;
-  border-radius: 4px;
+export const Button = styled(LinkFilled)`
   width: fit-content;
+  padding: 16px 24px;
 
   @media (max-width: 425px) {
-    font-size: 0.875rem;
     width: 100%;
   }
 `

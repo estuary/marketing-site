@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
+import { ButtonFilled, globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
 import overlayVectorLeft from "../../../images/overlay-vector-left.png";
 
 export const Container = styled.section`
@@ -99,19 +99,9 @@ export const VideoTextAndButton = styled.div`
   }
 `
 
-export const Button = styled.button`
-  border: none;
-  background-color: #5072EB;
+export const Button = styled(ButtonFilled)`
   padding: 16px 24px;
-  display: flex;
-  align-items: center;
   gap: 16px;
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 20px;
-  color: #FFFFFF;
-  border-radius: 4px;
-  cursor: pointer;
 
   @media (max-width: 425px) {
     font-size: 0.875rem;

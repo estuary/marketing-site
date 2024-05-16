@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
-import { OutboundLink } from '../../OutboundLink';
+import { LinkFilled, globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
 
 export const Container = styled.section`
   background-color: #FDFDFE;
@@ -58,22 +57,11 @@ export const Description = styled.p`
   }
 `
 
-export const Button = styled(OutboundLink)`
-  background-color: #5072EB;
+export const Button = styled(LinkFilled)`
   padding: 16px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 20px;
-  color: #FFFFFF;
-  border-radius: 4px;
   width: fit-content;
 
   @media (max-width: 425px) {
-    font-size: 0.875rem;
     width: 100%;
   }
 `

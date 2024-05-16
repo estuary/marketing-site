@@ -6,6 +6,7 @@ import {
     IconButton
 } from "@mui/material"
 import * as React from "react"
+import { ButtonOutlinedSecondary } from "../../globalStyles"
 import HubSpotFormWrapper from "./FormWrapper"
 
 interface OpenHubspotModalProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -24,7 +25,7 @@ function OpenHubspotModal({
 
     return (
         <>
-            <button
+            <ButtonOutlinedSecondary
                 id={buttonId}
                 className={buttonClass}
                 onClick={() => {
@@ -33,7 +34,7 @@ function OpenHubspotModal({
                 {...rest}
             >
                 {buttonLabel}
-            </button>
+            </ButtonOutlinedSecondary>
             <Dialog open={openDialog} fullWidth style={{ zIndex: 10000 }}>
                 <DialogTitle
                     style={{ display: "flex", justifyContent: "space-between" }}

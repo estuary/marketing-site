@@ -15,22 +15,24 @@ const SectionSix = () => {
                     </span>
                 </Title>
                 <Buttons>
-                    <HubspotButton
-                        buttonLabel="Contact Us"
-                        buttonId="section-ten-hubspot"
-                    />
                     <Button
+                        variant="filled"
                         href="https://dashboard.estuary.dev/register"
                         target="_blank"
                     >
                         Try Now
                     </Button>
                     <Button
+                        variant="outlinedPrimary"
                         href={webinarsUrl}
                         target="_blank"
                     >
                         Watch Demo
                     </Button>
+                    <HubspotButton
+                        buttonLabel="Contact Us"
+                        buttonId="section-ten-hubspot"
+                    />
                 </Buttons>
             </Wrapper>
         </Container>

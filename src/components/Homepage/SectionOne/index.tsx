@@ -91,6 +91,7 @@ const SectionOne = () => {
                         <PrimaryButton
                             target="_blank"
                             href="https://dashboard.estuary.dev/register"
+                            variant="filled"
                         >
                             Build a Pipeline
                         </PrimaryButton>

@@ -3,33 +3,6 @@ import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
 import OpenHubspotModal from '../../HubSpot/OpenModal';
 import { OutboundLink } from '../../OutboundLink';
 
-const ButtonBaseStyling = `
-  border: 2px solid #5072eb;
-  background-color: #5072eb;
-  color: #ffffff;
-  text-decoration: none;
-  border-radius: 4px;
-  padding: 16px 24px;
-  height: 52px;
-  text-align: center;
-  line-height: 40px;
-  margin-top: 8px;
-  font-family: "Inter", sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 1rem;
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-
-  @media (min-width: 811px) {
-    flex-grow: 1;
-    max-width: fit-content;
-  }
-`
-
 export const AnimationBaseStyling = `
   width: 100%;
 
@@ -220,8 +193,8 @@ export const HomepageHeadingButtons = styled.div`
 `
 
 export const PrimaryButton = styled(OutboundLink)`
-  ${ButtonBaseStyling}
-  
+  padding: 16px 24px;
+
   @media (max-width: 810px) {
     width: 50%;
     padding-left: 0;
@@ -230,9 +203,10 @@ export const PrimaryButton = styled(OutboundLink)`
 `
 
 export const SecondaryButton = styled(OpenHubspotModal)`
-  ${ButtonBaseStyling}
-  
   background-color: transparent;
+  color: #ffffff;
+  border: 2px solid #5072EB;
+  padding: 16px 24px;
   
   @media (max-width: 810px) {
       width: 50%;

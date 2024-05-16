@@ -1,3 +1,8 @@
+import { Link } from "gatsby"
+import styled from "styled-components"
+
+/* TODO: Transfer the global styles from style.less to this styled-components file */
+
 export const globalMaxWidth = `
   max-width: calc(1280px + 2 * min(10vw,160px));
   
@@ -23,4 +28,69 @@ export const sectionTopBottomPadding = `
   }
 `
 
-/* TODO: Transfer the global styles from style.less to this styled-components file */
+export const BaseButtonStyling = `
+  padding: 16px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 20px;
+  border-radius: 4px;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+
+  @media (max-width: 425px) {
+    font-size: 0.875rem;
+  }
+`
+
+export const BaseButtonFilledStyling = `
+  ${BaseButtonStyling}
+
+  background-color: #5072EB;
+  border: 2px solid #5072EB;
+  color: #FFFFFF;
+`
+
+export const BaseButtonPrimaryStyling = `
+  ${BaseButtonStyling}
+
+  background-color: #FDFDFE;
+  border: 2px solid #5072EB;
+  color: #5072EB;
+`
+
+export const BaseButtonSecondaryStyling = `
+  ${BaseButtonStyling}
+
+  background-color: #FDFDFE;
+  border: 2px solid #D0D9F9;
+  color: #5072EB;
+`
+
+export const LinkFilled = styled(Link)`
+  ${BaseButtonFilledStyling}
+`
+
+export const LinkOutlinedPrimary = styled(Link)`
+  ${BaseButtonPrimaryStyling}
+`
+
+export const LinkOutlinedSecondary = styled(Link)`
+  ${BaseButtonSecondaryStyling}
+`
+
+export const ButtonFilled = styled.button`
+  ${BaseButtonFilledStyling}
+`
+
+export const ButtonOutlinedPrimary = styled.button`
+  ${BaseButtonPrimaryStyling}
+`
+
+export const ButtonOutlinedSecondary = styled.button`
+  ${BaseButtonSecondaryStyling}
+`

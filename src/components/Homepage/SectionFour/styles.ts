@@ -1,6 +1,5 @@
-import { Link } from 'gatsby';
 import styled from 'styled-components';
-import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
+import { LinkFilled, globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
 
 export const Container = styled.section`
   background-color: #FDFDFE;
@@ -52,14 +51,8 @@ export const Description = styled.p`
   }
 `
 
-export const Button = styled(Link)`
-  border: 2px solid #5072EB;
-  border-radius: 4px;
+export const Link = styled(LinkFilled)`
   padding: 16px 24px;
-  background-color: #5072EB;
-  color: #ffffff;
-  font-weight: 500;
-  font-size: 1rem;
   margin-top: 12px;
   width: fit-content;
 

@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
 import overlayVectorRightWhite from "../../../images/overlay-vector-right-white.png";
-import OpenHubspotModal from '../../HubSpot/OpenModal';
-import { OutboundLink } from '../../OutboundLink';
+import OpenHubspotModal from "../../HubSpot/OpenModal";
+import { OutboundLink } from "../../OutboundLink";
 
 export const Container = styled.section`
   background-color: #FDFDFE;
@@ -55,26 +55,6 @@ export const Title = styled.h2`
   }
 `
 
-const BaseButtonStyling = `
-  background-color: #5072EB;
-  padding: 16px 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 20px;
-  color: #FFFFFF;
-  border-radius: 4px;
-  width: 100%;
-  border: none;
-
-  @media (max-width: 425px) {
-    font-size: 0.875rem;
-  }
-`
-
 export const Buttons = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -90,10 +70,16 @@ export const Buttons = styled.div`
   }
 `
 
+const BaseButtonStyling = `
+  min-width: 176px;
+  width: 100%;
+  padding: 16px 24px;
+`
+
 export const Button = styled(OutboundLink)`
-  ${BaseButtonStyling};
+  ${BaseButtonStyling}
 `
 
 export const HubspotButton = styled(OpenHubspotModal)`
-  ${BaseButtonStyling};
+  ${BaseButtonStyling}
 `

@@ -3,10 +3,10 @@ import { Link, graphql, useStaticQuery } from 'gatsby';
 import * as React from 'react';
 import { useEffect, useRef, useState } from 'react';
 import { isDesktop } from 'react-device-detect';
-import { OutboundLink } from '../components/OutboundLink';
 import ColoredLogo from '../svgs/colored-logo.svg';
 import GithubIcon from '../svgs/github-outline.svg';
 import SlackIcon from '../svgs/slack-outline.svg';
+import { OutboundLink } from './OutboundLink';
 
 import HeaderNavbar from './HeaderNavbar';
 

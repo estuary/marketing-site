@@ -1,7 +1,7 @@
 import { getImage } from 'gatsby-plugin-image';
 import * as React from 'react';
-import { OutboundLink } from '../components/OutboundLink';
 import Avatar from './Avatar';
+import { OutboundLink } from './OutboundLink';
 
 export interface BioAuthor {
     name: string;

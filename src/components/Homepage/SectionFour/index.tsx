@@ -2,7 +2,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import * as React from "react"
 import RealTimeCdc from "../../../svgs/real-time-cdc.svg"
 import Advantage from "./Advantage"
-import { AdvantagesList, Button, Container, Description, IconWrapper, LeftColumn, RightColumn, Title, Wrapper } from "./styles"
+import { AdvantagesList, Container, Description, IconWrapper, LeftColumn, Link, RightColumn, Title, Wrapper } from "./styles"
 
 const SectionFour = () => {
   return (
@@ -29,9 +29,9 @@ const SectionFour = () => {
             <Advantage title="Most versatile writes that maintain a current view or all change history" />
             <Advantage title="Most scalable pipelines, with true elastic scaling" />
           </AdvantagesList>
-          <Button to="/integrations" target="_blank" rel="noopener noreferrer">
+          <Link to="/integrations" target="_blank" rel="noopener noreferrer">
             View Connectors
-          </Button>
+          </Link>
         </LeftColumn>
         <RightColumn>
           <StaticImage

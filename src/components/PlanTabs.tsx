@@ -1,15 +1,15 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import PricingCloud from "../svgs/cloud-pricing.svg"
-import PricingOpenSource from "../svgs/pricing-open-source-black.svg"
-import BlackCheckmark from "../svgs/checkmark-black.svg"
-import WhiteCheckmark from "../svgs/light-checkmark.svg"
-import { Link } from "gatsby"
-import { OutboundLink } from "../components/OutboundLink"
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
+import Typography from '@mui/material/Typography';
+import { Link } from "gatsby";
+import PropTypes from 'prop-types';
+import * as React from 'react';
+import BlackCheckmark from "../svgs/checkmark-black.svg";
+import PricingCloud from "../svgs/cloud-pricing.svg";
+import WhiteCheckmark from "../svgs/light-checkmark.svg";
+import PricingOpenSource from "../svgs/pricing-open-source-black.svg";
+import { OutboundLink } from "./OutboundLink";
 
 
 function CustomTabPanel(props) {

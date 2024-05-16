@@ -1,6 +1,5 @@
-import { Link } from 'gatsby';
 import styled from 'styled-components';
-import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
+import { LinkOutlinedSecondary, globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
 import overlayVectorLeft from "../../../images/overlay-vector-left.png";
 
 export const Container = styled.section`
@@ -91,14 +90,10 @@ export const CardDescription = styled.p`
   }
 `
 
-export const Button = styled(Link)`
+export const Button = styled(LinkOutlinedSecondary)`
   border: 2px solid #5072EB;
-  border-radius: 4px;
   padding: 16px 24px;
   width: 100%;
   background-color: transparent;
   color: #ffffff;
-  font-weight: 500;
-  font-size: 1rem;
-  text-align: center;
 `

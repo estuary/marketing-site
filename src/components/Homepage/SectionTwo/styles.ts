@@ -108,7 +108,7 @@ export const Steps = styled.div`
 const lineBaseStyling = `
   content: "";
   position: absolute;
-  right: -14px;
+  right: -11px;
   height: 62px;
   width: 4px;
   border-right: 4px dotted #D7DCE5;

@@ -4,5 +4,7 @@ export const estuaryProductFlowVideoUrl = 'https://www.youtube.com/embed/hlCh81Z
 
 export type ConnectorType = 'capture' | 'materialization';
 
+export type ButtonStyleVariants = 'filled' | 'outlinedPrimary' | 'outlinedSecondary';
+
 export const GA_MEASUREMENT_ID = 'G-P1PZPE4HHZ';
 export const GA_ORIGIN = `https://www.googletagmanager.com`;
