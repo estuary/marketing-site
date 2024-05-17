@@ -64,7 +64,7 @@ const HeaderNavbarResources = ({ active, setActive }) => {
           <CardItem className="hide-on-mobile" title="TOUR" items={tour} />
           <CardItem className="hide-on-mobile" title="CASE STUDIES" items={caseStudies} />
           <CardItem className="hide-on-mobile" title="WEBINAR">
-            <StaticImage src={'../../../svgs/navbar-image-2.svg'} alt={'Estuary 101 Webinar'} />
+            <StaticImage src="../../../svgs/navbar-image-2.svg" alt="Estuary 101 Webinar" />
             <OutboundLink target="_blank" href={webinarsUrl} className="cta-button">
               Watch Estuary 101
             </OutboundLink>

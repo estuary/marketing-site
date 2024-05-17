@@ -65,7 +65,7 @@ const HeaderNavbarProduct = ({ active, setActive }) => {
           <CardItem title="PRODUCT" onlyContent items={products} />
           <CardItem title="COMPARE" items={compare} />
           <CardItem className="hide-on-mobile" title="CASE STUDY">
-            <StaticImage src={'../../../svgs/navbar-image-1.svg'} alt={'Connect&Go Success Story'} />
+            <StaticImage src="../../../svgs/navbar-image-1.svg" alt="Connect&Go Success Story" />
             <Link target="_blank" to="/customers/connectngo" className="cta-button">
               Read Customer Story
             </Link>
