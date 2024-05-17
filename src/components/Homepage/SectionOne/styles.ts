@@ -222,13 +222,12 @@ export const FlowAnimationContainer = styled.div`
   min-width: 26rem;
 
   @media (max-width: 1024px) {
-      min-width: 20rem;
-      max-width: 100%;
+    min-width: 20rem;
+    max-width: 100%;
   }
 
-  @media (max-width: 425px) {
-      min-width: 14rem;
-      max-width: 100%;
+  @media (max-width: 810px) {
+    display: none;
   }
 `
 
