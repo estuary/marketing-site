@@ -1,6 +1,6 @@
-import * as React from "react"
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
+import * as React from "react"
 import { useState } from "react"
 
 const SliderHorizontal = () => {
@@ -37,11 +37,12 @@ const SliderHorizontal = () => {
         )
     }
 
+    const notLoadedSlideStyle = { display: !loaded && "none" }
 
     return (
         <div className="slider-horiztonal-root">
             <div ref={sliderRef} className="keen-slider">
-                <div className="keen-slider__slide">
+                <div className="keen-slider__slide" style={notLoadedSlideStyle}>
                     <div className="slider-horizontal-text-wrapper">
                         <h2 className="header-horizontal">
                             Built for architects
@@ -51,7 +52,7 @@ const SliderHorizontal = () => {
                         </p>
                     </div>
                 </div>
-                <div className="keen-slider__slide">
+                <div className="keen-slider__slide" style={notLoadedSlideStyle}>
                     <div className="slider-horizontal-text-wrapper">
                         <h2 className="header-horizontal">
                             Built for engineers
@@ -61,7 +62,7 @@ const SliderHorizontal = () => {
                         </p>
                     </div>
                 </div>
-                <div className="keen-slider__slide">
+                <div className="keen-slider__slide" style={notLoadedSlideStyle}>
                     <div className="slider-horizontal-text-wrapper">
                         <h2 className="header-horizontal">
                             Built for analysts

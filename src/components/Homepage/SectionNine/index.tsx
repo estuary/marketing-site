@@ -64,7 +64,7 @@ const SectionNine = () => {
             const isImageSvg = !logo.localFile.childImageSharp && logo.localFile.extension === 'svg'
 
             return (
-              <Slide key={id} className="keen-slider__slide">
+              <Slide key={id} className="keen-slider__slide" style={{ display: !loaded && "none" }}>
                 {isImageSvg ? (
                   <AvatarSvg src={logo.localFile.publicURL} alt={name + " avatar"} width={110} height={110} />
                 ) : (
