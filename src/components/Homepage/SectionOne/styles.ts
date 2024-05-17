@@ -193,7 +193,7 @@ export const HomepageHeadingButtons = styled.div`
 `
 
 export const PrimaryButton = styled(OutboundLink)`
-  padding: 16px 24px;
+  padding: 16px 24px !important;
 
   @media (max-width: 810px) {
     width: 50%;

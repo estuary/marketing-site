@@ -179,6 +179,7 @@ const Header = (props: { fixedHeader?: boolean }) => {
                 target="_blank"
                 href="https://dashboard.estuary.dev/register"
                 className="global-header-try-it-button"
+                variant="filled"
               >
                 Try it free
               </OutboundLink>

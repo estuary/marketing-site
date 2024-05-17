@@ -29,7 +29,7 @@ export const sectionTopBottomPadding = `
 `
 
 export const BaseButtonStyling = `
-  padding: 16px 48px;
+  padding: 16px 24px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,12 +38,27 @@ export const BaseButtonStyling = `
   font-weight: 700;
   line-height: 20px;
   border-radius: 4px;
-  border: none;
   text-align: center;
   cursor: pointer;
 
   @media (max-width: 425px) {
     font-size: 0.875rem;
+  }
+
+  &:hover {
+    background-color: #625EFF;
+    border-color: #625EFF;
+    color: #FFFFFF;
+  }
+
+  &:active {
+    background-color: #5072EB;
+    border-color: #5072EB;
+  }
+
+  &:disabled {
+    background-color: #D7DCE5;
+    border-color: #D7DCE5;
   }
 `
 

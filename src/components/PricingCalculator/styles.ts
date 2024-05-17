@@ -1,5 +1,6 @@
 import { FormControl, OutlinedInput, Slider, styled as muiStyled } from "@mui/material"
 import styled from "styled-components"
+import { ButtonFilled } from "../../globalStyles"
 
 export const PricingSlider = muiStyled(Slider)({
   color: "#5272EB",
@@ -173,22 +174,16 @@ export const CountInputWrapper = styled.div`
 `
 
 const BaseButtonsStyling = `
-  min-width: 52px;
+  width: 52px;
   height: 52px;
-  background-color: #5072EB;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 4px;
-  border: none;
-  cursor: pointer;
+  padding: 0;
 `
 
-export const ButtonMinus = styled.button`
+export const ButtonMinus = styled(ButtonFilled)`
   ${BaseButtonsStyling}
 `
 
-export const ButtonPlus = styled.button`
+export const ButtonPlus = styled(ButtonFilled)`
   ${BaseButtonsStyling}
 `
 

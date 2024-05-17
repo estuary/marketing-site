@@ -2,6 +2,7 @@ import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import * as React from "react"
 import { OutboundLink } from "../components/OutboundLink"
+import { ButtonOutlinedSecondary } from "../globalStyles"
 import GithubIcon from "../svgs/github-outline.svg"
 import LinkedinIcon from "../svgs/linkedin-outline.svg"
 import SlackIcon from "../svgs/slack-outline.svg"
@@ -43,12 +44,12 @@ const Footer = () => {
                                 placeholder="Email"
                                 type="email"
                             ></input>
-                            <button
+                            <ButtonOutlinedSecondary
                                 type="submit"
                                 className="global-footer-input-button-submit"
                             >
                                 Submit
-                            </button>
+                            </ButtonOutlinedSecondary>
                         </form>
                     </div>
                 </div>
