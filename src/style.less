@@ -6321,11 +6321,6 @@ table th {
 
   .blog-post-header {
     .section-top-bottom-padding();
-
-    background-color: #f9fafc;
-    background-image: url('./images/blog-post-background-image.svg');
-    background-repeat: no-repeat;
-    background-size: cover;
   }
 
   .blog-post-header-wrapper {
@@ -6515,12 +6510,16 @@ table th {
   .post-sidebar {
     display: flex;
     flex-direction: column;
-    gap: 60px;
     max-width: 256px;
     width: 100%;
 
     @media (max-width: 1150px) {
       max-width: 100%;
+    }
+
+    @media (min-width: 1150px) {
+      position: sticky;
+      top: 120px;
     }
 
     @media (max-width: 767px) {
@@ -6621,7 +6620,6 @@ table th {
     margin-left: auto;
     margin-right: auto;
     max-width: 1350px;
-    background: #04192b url('./images/build-pipeline-banner-vector.svg') no-repeat bottom right / contain;
     border-radius: 16px;
     margin-top: 48px;
     padding: 48px;
@@ -7101,31 +7099,32 @@ table th {
     display: flex;
     gap: 24px;
     align-items: center;
-    margin-top: 36px;
     flex-wrap: wrap;
+    margin-top: 0;
+    justify-content: start;
+    width: 100%;
+    margin-top: 36px;
 
-    @media (max-width: 767px) {
-      flex-wrap: wrap;
-      margin-top: 0;
-      justify-content: center;
-      width: 100%;
+    @media (max-width: 757px) {
+      a {
+        width: 100%;
+        max-width: 100%;
+      }
     }
 
     a {
-      width: 100%;
-      max-width: 100%;
-    }
-
-    .pipeline-link {
-      background: #5072eb;
       border-radius: 4px;
       color: #fff;
       font-size: 1rem;
       font-weight: 500;
       line-height: 20px;
-      padding: 18px 24px;
       text-align: center;
       text-decoration: none;
+    }
+
+    .pipeline-link {
+      background: #5072eb;
+      padding: 18px 24px;
 
       @media (min-width: 1288px) {
         max-width: 164px;
@@ -7134,14 +7133,7 @@ table th {
 
     .pricing-link {
       border: 2px solid #5072eb;
-      border-radius: 4px;
-      color: #ffffff;
-      font-size: 1rem;
-      font-weight: 500;
-      line-height: 20px;
       padding: 16px 24px;
-      text-align: center;
-      text-decoration: none;
 
       @media (min-width: 1288px) {
         max-width: 198px;
@@ -7155,11 +7147,6 @@ table th {
     border-radius: 24px;
     margin-left: auto;
     margin-right: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    background: #04192b url('./images/big-banner-build-pipeline-background-image.svg') no-repeat top right / contain;
     background-position: top right -150px;
 
     @media (max-width: 1150px) {
@@ -7173,22 +7160,34 @@ table th {
       align-items: start;
       background-position: top right -1200px;
     }
+  }
+
+  .big-build-pipeline-banner-container_layout {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 24px;
+
+    @media (max-width: 767px) {
+      flex-direction: column;
+    }
 
     .left-column-container {
-      display: flex;
-      flex-direction: column;
-
       h5 {
         font-size: 3rem;
         font-weight: 600;
-        line-height: 57.6px;
+        line-height: 4rem;
         color: #ffffff;
         margin: 0;
 
+        @media (max-width: 1300px) {
+          font-size: 2.5rem;
+          font-weight: 700;
+          line-height: 3rem;
+        }
+
         @media (max-width: 1150px) {
           font-size: 2rem;
-          font-weight: 700;
-          line-height: 30px;
         }
 
         @media (max-width: 767px) {
