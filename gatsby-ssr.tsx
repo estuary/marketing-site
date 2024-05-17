@@ -50,6 +50,7 @@ export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
     <link rel="dns-prefetch" href="//api.cookiefirst.com" />,
     <script
       id="CookieFirst"
+      async
       src="https://consent.cookiefirst.com/sites/estuary.dev-bb4406bb-2dfd-4133-8a4c-7b737e5b0bac/consent.js"
     />,
   ]);
