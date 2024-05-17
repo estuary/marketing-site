@@ -21,7 +21,7 @@ export const PricingCalculatorSelector = () => {
 
   return (
     <ConnectorsCounterWrapper>
-      <ButtonMinus onClick={handleMinusClick}>
+      <ButtonMinus onClick={handleMinusClick} disabled={selectedConnectors === 2}>
         <MinusSign />
       </ButtonMinus>
       <Form variant="outlined">
