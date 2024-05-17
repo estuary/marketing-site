@@ -9,11 +9,9 @@ type Avatar = {
 };
 
 const Avatar = ({ image, alt, name }: Avatar) => {
-  const firstLetter = name.charAt(0).toUpperCase();
-
   return (
     <Container $hasImage={!!image}>
-      {image ? <GatsbyImage image={image} alt={alt} loading="lazy" /> : <span>{firstLetter}</span>}
+      {image ? <GatsbyImage image={image} alt={alt} loading="eager" /> : <span>{name.charAt(0).toUpperCase()}</span>}
     </Container>
   );
 };

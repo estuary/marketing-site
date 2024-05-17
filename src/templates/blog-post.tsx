@@ -18,8 +18,6 @@ import Bio from '../components/bio';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
 import logoUrl from '../images/combination-mark__multi-blue.png';
-import BlogHeaderBackground from '../components/BackgroundImages/BlogHeader';
-import BuildPipeLineBannerBackground from '../components/BackgroundImages/BuildPipelineWrapper';
 
 dayjs.extend(reltime);
 
@@ -50,7 +48,7 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
         />
       </div>
       <article className="blog-post" itemScope itemType="http://schema.org/Article">
-        <BlogHeaderBackground>
+        <div className="blog-post-header">
           <div className="blog-post-header-wrapper">
             <div className="header-info">
               <div className="post-info">
@@ -89,7 +87,7 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
               />
             ) : null}
           </div>
-        </BlogHeaderBackground>
+        </div>
 
         {post.body && (
           <section className="blog-post-content">
@@ -97,7 +95,7 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
               <div className="main-content">
                 <ProcessedPost body={post.body.data.childHtmlRehype.html} />
 
-                <BuildPipeLineBannerBackground>
+                <div className="big-build-pipeline-banner-container">
                   <div className="build-pipeline-banner">
                     <h3>
                       Start streaming your data <span>for free</span>
@@ -106,7 +104,7 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
                       Build a Pipeline
                     </OutboundLink>
                   </div>
-                </BuildPipeLineBannerBackground>
+                </div>
               </div>
 
               <div className="post-sidebar">
@@ -175,7 +173,7 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
           </div>
         </section>
         <section className="big-build-pipeline-banner-section">
-          <BuildPipeLineBannerBackground>
+          <div className="big-build-pipeline-banner-container">
             <div className="big-build-pipeline-banner-container_layout">
               <div className="left-column-container">
                 <h5>Streaming Pipelines.</h5>
@@ -205,7 +203,7 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
                 More on our Pricing
               </OutboundLink>
             </div>
-          </BuildPipeLineBannerBackground>
+          </div>
         </section>
       </article>
       <BlogPostPopupModal />

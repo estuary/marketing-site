@@ -2,6 +2,7 @@ import { getImage } from 'gatsby-plugin-image';
 import * as React from 'react';
 import { OutboundLink } from '../components/OutboundLink';
 import Avatar from './Avatar';
+import styled from 'styled-components';
 
 export interface BioAuthor {
   name: string;
@@ -19,6 +20,17 @@ export interface BioProps {
   authors: BioAuthor[];
 }
 
+const AvatarWrapper = styled('div')`
+  align-items: center;
+  display: flex;
+  white-space: nowrap;
+`;
+
+const StyledLink = styled(OutboundLink)`
+  align-items: center;
+  display: flex;
+`;
+
 const Bio = ({ authors }: BioProps) => {
   if (!authors || authors.length === 0) {
     return null;
@@ -29,27 +41,21 @@ const Bio = ({ authors }: BioProps) => {
       <div style={{ display: 'flex', alignItems: 'center', fontSize: 19, flexWrap: 'wrap', gap: 8 }}>
         {authors.map(({ picture, name, link }) => {
           const combined = (
-            <div
-              style={{
-                whiteSpace: 'nowrap',
-                display: 'flex',
-                alignItems: 'center',
-              }}
-            >
+            <AvatarWrapper>
               <Avatar
-                image={picture ? getImage(picture.localFile.childImageSharp.gatsbyImageData) : undefined}
                 alt="Image of author"
+                image={getImage(picture?.localFile.childImageSharp.gatsbyImageData)}
                 name={name}
               />
               {name ? <strong className="author-name">{name}</strong> : null}
-            </div>
+            </AvatarWrapper>
           );
 
           if (link) {
             return (
-              <OutboundLink href={link} style={{ display: 'flex', alignItems: 'center' }}>
+              <StyledLink href={link} key={name}>
                 {combined}
-              </OutboundLink>
+              </StyledLink>
             );
           }
 
