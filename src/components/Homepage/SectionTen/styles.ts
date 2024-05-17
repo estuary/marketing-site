@@ -53,6 +53,11 @@ export const Title = styled.h2`
     font-size: 2.25rem;
     line-height: 43.2px;
   }
+
+  @media (max-width: 425px) {
+    font-size: 1.5rem;
+    line-height: 36px;
+  }
 `
 
 export const Buttons = styled.div`
