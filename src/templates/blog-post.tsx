@@ -18,7 +18,6 @@ import Bio from '../components/bio';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
 import logoUrl from '../images/combination-mark__multi-blue.png';
-import BlogHeaderBackground from '../components/BackgroundImages/BlogHeader';
 import BuildPipeLineBannerBackground from '../components/BackgroundImages/BuildPipelineWrapper';
 
 dayjs.extend(reltime);
@@ -50,7 +49,7 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
         />
       </div>
       <article className="blog-post" itemScope itemType="http://schema.org/Article">
-        <BlogHeaderBackground>
+        <div className="blog-post-header">
           <div className="blog-post-header-wrapper">
             <div className="header-info">
               <div className="post-info">
@@ -85,11 +84,11 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
                 alt={post.title}
                 className="hero-image"
                 image={post.hero.localFile.childImageSharp.gatsbyImageData}
-                loading="lazy"
+                loading="eager"
               />
             ) : null}
           </div>
-        </BlogHeaderBackground>
+        </div>
 
         {post.body && (
           <section className="blog-post-content">
