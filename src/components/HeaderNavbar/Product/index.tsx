@@ -1,13 +1,14 @@
-import React, { useRef, useEffect } from "react"
 import clsx from "clsx"
-import { Link } from "gatsby"
+import React, { useEffect, useRef } from "react"
 import { isDesktop } from "react-device-detect"
 
 import Chevron from "@mui/icons-material/ChevronRight"
 import NavbarImage from "../../../svgs/navbar-image-1.svg"
 
-import { products, compare } from "./items"
+import { compare, products } from "./items"
 
+import { Link } from "gatsby"
+import { LinkFilled } from "../../../globalStyles"
 import CardItem from "../CardItem"
 
 const Card = React.lazy(() => import("../Card"))
@@ -70,13 +71,13 @@ const HeaderNavbarProduct = ({ active, setActive }) => {
                     <CardItem title="COMPARE" items={compare} />
                     <CardItem className="hide-on-mobile" title="CASE STUDY">
                         <NavbarImage />
-                        <Link
+                        <LinkFilled
                             target="_blank"
                             to="/customers/connectngo"
                             className="cta-button"
                         >
                             Read Customer Story
-                        </Link>
+                        </LinkFilled>
                     </CardItem>
                 </Card>
             </React.Suspense>

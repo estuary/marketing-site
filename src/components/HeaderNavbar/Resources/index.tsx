@@ -89,6 +89,7 @@ const HeaderNavbarResources = ({ active, setActive }) => {
                             target="_blank"
                             href={webinarsUrl}
                             className="cta-button"
+                            variant="filled"
                         >
                             Watch Estuary 101
                         </OutboundLink>
