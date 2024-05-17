@@ -85,7 +85,7 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
                 alt={post.title}
                 className="hero-image"
                 image={post.hero.localFile.childImageSharp.gatsbyImageData}
-                loading="eager"
+                loading="lazy"
               />
             ) : null}
           </div>
