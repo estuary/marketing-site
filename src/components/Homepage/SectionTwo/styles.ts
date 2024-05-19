@@ -1,3 +1,4 @@
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
 import CaptureIcon from "../../../svgs/capture.svg";
@@ -279,4 +280,236 @@ export const StepThreeIcon = styled(RealTimeDelivery)`
 
 export const FlowImageWrapper = styled.div`
   margin: auto;
+  position: relative;
+`
+
+export const LogoWrapper = styled(Link)`
+  position: absolute;
+  top: 6.95%;
+  right: 91.85%;
+  width: 4.4%;
+  height: 8.7%;
+  background-color: transparent;
+  cursor: pointer;
+
+  @media (max-width: 768px) {
+    width: 14%;
+    height: 3.5%;
+    top: 2.6%;
+    right: 74%;
+  }
+
+  &:hover {
+    border-radius: 8px;
+    border: 2px solid transparent;
+    background: linear-gradient(to bottom, #6ED5D6, #7284FF) border-box;
+    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+
+    @media (max-width: 1280px) {
+      border-radius: 4px;
+    }
+  }
+
+  &:active {
+    background: linear-gradient(to bottom, #6ED5D699, #7284FF99) border-box; /*3*/
+  }
+`
+
+export const OracleLogoWrapper = styled(LogoWrapper)``
+
+export const MySQLLogoWrapper = styled(LogoWrapper)`
+  right: 85.25%;
+
+  @media (max-width: 768px) {
+    right: 55.5%;
+  }
+`
+
+export const PostgresLogoWrapper = styled(LogoWrapper)`
+  right: 78.75%;
+
+  @media (max-width: 768px) {
+    right: 36.9%;
+  }
+`
+
+export const AmazonS3LogoWrapper = styled(LogoWrapper)`
+  top: 32.5%;
+  right: 91.85%;
+
+  @media (max-width: 768px) {
+    top: 13.8%;
+    right: 74%;
+  }
+`
+
+export const GoogleStorageLogoWrapper = styled(LogoWrapper)`
+  top: 32.5%;
+  right: 85.25%;
+
+  @media (max-width: 768px) {
+    top: 13.8%;
+    right: 55.5%;
+  }
+`
+
+export const AzureBlobStorageLogoWrapper = styled(LogoWrapper)`
+  top: 32.5%;
+  right: 78.75%;
+
+  @media (max-width: 768px) {
+    top: 13.8%;
+    right: 36.9%;
+  }
+`
+
+export const NetsuiteLogoWrapper = styled(LogoWrapper)`
+  top: 58.3%;
+  right: 91.85%;
+
+  @media (max-width: 768px) {
+    top: 24.9%;
+    right: 74%;
+  }
+`
+
+export const HubspotLogoWrapper = styled(LogoWrapper)`
+  top: 58.3%;
+  right: 85.25%;
+  
+  @media (max-width: 768px) {
+    top: 24.9%;
+    right: 55.5%;
+  }
+`
+
+export const SalesforceLogoWrapper = styled(LogoWrapper)`
+  top: 58.3%;
+  right: 78.75%;
+
+  @media (max-width: 768px) {
+    top: 24.9%;
+    right: 36.9%;
+  }
+`
+
+export const GooglePubSubLogoWrapper = styled(LogoWrapper)`
+  top: 84.37%;
+  right: 91.85%;
+
+  @media (max-width: 768px) {
+    top: 35.9%;
+    right: 74%;
+  }
+`
+
+export const AmazonKinesisLogoWrapper = styled(LogoWrapper)`
+  top: 84.37%;
+  right: 85.30%;
+
+  @media (max-width: 768px) {
+    top: 35.9%;
+    right: 55.5%;
+  }
+`
+
+export const ApacheKafkaLogoWrapper = styled(LogoWrapper)`
+  top: 84.37%;
+  right: 78.7%;
+
+  @media (max-width: 768px) {
+    top: 35.9%;
+    right: 36.85%;
+  }
+`
+
+export const SnowflakeLogoWrapper = styled(LogoWrapper)`
+  top: 19%;
+  right: 16.85%;
+
+  @media (max-width: 768px) {
+    top: 71.7%;
+    right: 48%;
+  }
+`
+
+export const GoogleBigQueryLogoWrapper = styled(LogoWrapper)`
+  top: 19%;
+  right: 10.25%;
+
+  @media (max-width: 768px) {
+    top: 71.7%;
+    right: 29.2%;
+  }
+`
+
+export const AmazonRedshiftLogoWrapper = styled(LogoWrapper)`
+  top: 19%;
+  right: 3.7%;
+
+  @media (max-width: 768px) {
+    top: 71.7%;
+    right: 10.5%;
+  }
+`
+
+export const ElasticLogoWrapper = styled(LogoWrapper)`
+  top: 45.5%;
+  right: 16.85%;
+
+  @media (max-width: 768px) {
+    top: 82.9%;
+    right: 48%;
+  }
+`
+
+export const TimescaleLogoWrapper = styled(LogoWrapper)`
+  top: 45.5%;
+  right: 10.25%;
+
+  @media (max-width: 768px) {
+    top: 82.9%;
+    right: 29.2%;
+  }
+`
+
+export const RocksetLogoWrapper = styled(LogoWrapper)`
+  top: 45.5%;
+  right: 3.7%;
+
+  @media (max-width: 768px) {
+    top: 82.9%;
+    right: 10.5%;
+  }
+`
+
+export const PineconeLogoWrapper = styled(LogoWrapper)`
+  top: 72%;
+  right: 16.85%;
+
+  @media (max-width: 768px) {
+    top: 94%;
+    right: 48%;
+  }
+`
+
+export const OpenAiLogoWrapper = styled(LogoWrapper)`
+  top: 72%;
+  right: 10.25%;
+
+  @media (max-width: 768px) {
+    top: 94%;
+    right: 29.2%;
+  }
+`
+
+export const DatabricksLogoWrapper = styled(LogoWrapper)`
+  top: 72%;
+  right: 3.7%;
+
+  @media (max-width: 768px) {
+    top: 94%;
+    right: 10.6%;
+  }
 `

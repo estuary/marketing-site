@@ -137,6 +137,4 @@ export const Link = styled(LinkGatsby)`
   width: 120px;
   height: 120px;
   margin: auto;
-  
-  
 `

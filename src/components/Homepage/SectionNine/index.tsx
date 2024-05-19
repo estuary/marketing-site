@@ -9,7 +9,7 @@ import { Arrow, AvatarImg, AvatarSvg, Container, Description, Dot, Dots, Slide, 
 const SectionNine = () => {
   const { allStrapiTestimonial: { nodes: testimonials } } = useStaticQuery(graphql`
     query GetTestimonials {
-      allStrapiTestimonial(sort: { fields: Name, order: DESC }) {
+      allStrapiTestimonial(sort: { Name: DESC }) {
         nodes {
           name: Name
           text: Text

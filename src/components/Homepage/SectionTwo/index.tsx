@@ -1,11 +1,11 @@
 import { useMediaQuery, useTheme } from '@mui/material';
 import { StaticImage } from "gatsby-plugin-image";
 import * as React from "react";
-import { Container, FlowImageWrapper, Header, Step, StepDescription, StepIcon, StepOneIcon, StepThreeIcon, StepTitle, StepTwoIcon, Steps, Subtitle, Title } from "./styles";
+import { AmazonKinesisLogoWrapper, AmazonRedshiftLogoWrapper, AmazonS3LogoWrapper, ApacheKafkaLogoWrapper, AzureBlobStorageLogoWrapper, Container, DatabricksLogoWrapper, ElasticLogoWrapper, FlowImageWrapper, GoogleBigQueryLogoWrapper, GooglePubSubLogoWrapper, GoogleStorageLogoWrapper, Header, HubspotLogoWrapper, MySQLLogoWrapper, NetsuiteLogoWrapper, OpenAiLogoWrapper, OracleLogoWrapper, PineconeLogoWrapper, PostgresLogoWrapper, RocksetLogoWrapper, SalesforceLogoWrapper, SnowflakeLogoWrapper, Step, StepDescription, StepIcon, StepOneIcon, StepThreeIcon, StepTitle, StepTwoIcon, Steps, Subtitle, TimescaleLogoWrapper, Title } from "./styles";
 
 const SectionTwo = () => {
     const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+    const isMobile = useMediaQuery(theme.breakpoints.down(768));
 
     return (
         <Container>
@@ -104,6 +104,27 @@ const SectionTwo = () => {
                         quality={100}
                     />
                 )}
+                <OracleLogoWrapper to="/source/oracle" />
+                <MySQLLogoWrapper to="/source/mysql" />
+                <PostgresLogoWrapper to="/source/postgres" />
+                <AmazonS3LogoWrapper to="/source/s" />
+                <GoogleStorageLogoWrapper to="/source/gcs" />
+                <AzureBlobStorageLogoWrapper to="/source/azure-blob-storage" />
+                <NetsuiteLogoWrapper to="/source/netsuite-v" />
+                <HubspotLogoWrapper to="/source/hubspot" />
+                <SalesforceLogoWrapper to="/source/salesforce" />
+                <GooglePubSubLogoWrapper to="/destination/google-pubsub" /> {/* This connector does not have source type */}
+                <AmazonKinesisLogoWrapper to="/source/kinesis" />
+                <ApacheKafkaLogoWrapper to="/source/kafka" />
+                <SnowflakeLogoWrapper to="/destination/snowflake" />
+                <GoogleBigQueryLogoWrapper to="/destination/bigquery" />
+                <AmazonRedshiftLogoWrapper to="/destination/redshift" />
+                <ElasticLogoWrapper to="/destination/elasticsearch" />
+                <TimescaleLogoWrapper to="/destination/timescaledb" />
+                <RocksetLogoWrapper to="/destination/rockset" />
+                <PineconeLogoWrapper to="/destination/pinecone" />
+                <OpenAiLogoWrapper to="/destination/pinecone" />
+                <DatabricksLogoWrapper to="/destination/databricks" />
             </FlowImageWrapper>
         </Container>
     )
