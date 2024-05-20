@@ -189,18 +189,16 @@ export const ButtonPlus = styled(ButtonFilled)`
 
 export const Form = styled(FormControl)`
   & > .MuiInputLabel-outlined {
-    color: #5072EB;
-    background-color: #ffffff;
+    color: #04192B;
     width: 100%;
     text-align: center;
+    left: 4.5%;
   };
 `
 
 export const CountInput = styled(OutlinedInput)`
   max-width: 185px;
-  width: 100%;
   height: 52px;
-  text-align: center;
   border: 0;
   font-size: 1.25rem;
   font-style: normal;
@@ -208,6 +206,12 @@ export const CountInput = styled(OutlinedInput)`
   box-shadow: none;
 
   & > .MuiOutlinedInput-notchedOutline {
+    border-color: #D7DCE5;
     text-align: center;
+    padding: 0 8%;
+
+    @media (min-width: 425px) {
+      padding: 0 24px;
+    }
   }
 `
