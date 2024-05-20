@@ -1,59 +1,53 @@
-import { LottieRef } from "lottie-react"
-import * as React from "react"
-import styled from "styled-components"
-import AnimFallback from "./AnimFallback"
-import { AnimationBaseStyling } from "./styles"
+import * as React from 'react';
+import styled from 'styled-components';
+import AnimFallback from './AnimFallback';
+import { AnimationBaseStyling } from './styles';
+import Lottie from 'react-lottie-player/dist/LottiePlayerLight';
+import LottiePlayerLight from 'react-lottie-player/dist/LottiePlayerLight';
 
-const FlowAnimation = styled(React.lazy(() => import("lottie-react")))`
+const FlowAnimation = styled('div')`
   ${AnimationBaseStyling}
 `;
 
 const AnimatedHero = () => {
-  const HeroAnimation = React.useMemo(
-    () => import("../../../images/hero-animation.json"),
-    []
-  )
+  const [animationData, setAnimationData] = React.useState<object>();
 
-  const [heroAnim, setHeroAnim] = React.useState<Awaited<
-    typeof HeroAnimation
-  > | null>(null)
+  React.useEffect(() => {
+    import('../../../images/hero-animation.json').then(setAnimationData);
+  }, []);
 
-  React.startTransition(() => {
-    HeroAnimation.then(anim => {
-      setHeroAnim(anim.default as any)
-    })
-  })
-
-  const [lottieReady, setLottieReady] = React.useState(false)
-  const lottieRef: LottieRef = React.useRef()
+  const [lottieReady, setLottieReady] = React.useState(false);
+  const lottieRef: any = React.useRef();
 
   const handleLottieLoaded = React.useCallback(() => {
-    setLottieReady(true)
+    setLottieReady(true);
     setTimeout(() => {
-      lottieRef.current.play()
-    }, 5000)
-  }, [lottieRef])
+      lottieRef.current.play();
+    }, 5000);
+  }, [lottieRef]);
+
+  if (!animationData) {
+    return <AnimFallback />;
+  }
 
   return (
-    <>
-      {!(lottieReady && heroAnim) && AnimFallback}
-      {heroAnim && (
-        <FlowAnimation
-          onDOMLoaded={handleLottieLoaded}
-          rendererSettings={{
-            viewBoxOnly: true,
-            preserveAspectRatio: "xMaxYMid meet",
-            progressiveLoad: true,
-            focusable: false,
-          }}
-          animationData={heroAnim}
-          style={(!lottieReady && { display: "none" }) || {}}
-          autoplay={false}
-          lottieRef={lottieRef}
-        />
-      )}
-    </>
-  )
-}
+    <FlowAnimation>
+      <LottiePlayerLight
+        animationData={animationData}
+        onLoad={handleLottieLoaded}
+        rendererSettings={{
+          viewBoxOnly: true,
+          preserveAspectRatio: 'xMaxYMid meet',
+          progressiveLoad: true,
+          focusable: false,
+        }}
+        className="section-one-right-image"
+        style={(!lottieReady && { display: 'none' }) || {}}
+        play={false}
+        ref={lottieRef}
+      />
+    </FlowAnimation>
+  );
+};
 
 export default AnimatedHero;
