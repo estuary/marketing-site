@@ -81,6 +81,7 @@ const Footer = () => {
           className="global-footer-button"
           onClick={() => {
             try {
+              // @ts-expect-error : This loads through CookieFirst. Once homepage changes are merged we add to the window type
               window.cookiefirst_show_settings();
             } catch (e) {
               alert('Failed to open Cookie Preferences. Please ensure CookieFirst loaded.');
