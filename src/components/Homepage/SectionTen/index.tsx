@@ -2,7 +2,7 @@ import * as React from "react"
 import { webinarsUrl } from "../../../../shared"
 import { Button, Buttons, Container, HubspotButton, Title, Wrapper } from "./styles"
 
-const SectionSix = () => {
+const SectionTen = () => {
     return (
         <Container>
             <Wrapper>
@@ -39,4 +39,4 @@ const SectionSix = () => {
     )
 }
 
-export default SectionSix
+export default SectionTen
