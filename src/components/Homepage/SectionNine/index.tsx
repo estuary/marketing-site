@@ -4,7 +4,7 @@ import { useKeenSlider } from "keen-slider/react"
 import * as React from "react"
 import ChevronLeftIcon from "../../../svgs/chevron-left.svg"
 import ChevronRightIcon from "../../../svgs/chevron-right.svg"
-import { Arrow, AvatarImg, AvatarSvg, Container, Description, Dot, Dots, Slide, Slider, Slides, Title, Wrapper } from "./styles"
+import { Arrow, AvatarImg, AvatarSvg, AvatarWrapper, Container, Description, Dot, Dots, Slide, Slider, Slides, Title, Wrapper } from "./styles"
 
 const SectionNine = () => {
   const { allStrapiTestimonial: { nodes: testimonials } } = useStaticQuery(graphql`
@@ -60,19 +60,21 @@ const SectionNine = () => {
     <Container>
       <Wrapper>
         <Slides ref={sliderRef} className="keen-slider">
-          {testimonials?.map(({ id, logo, name, text }) => {
+          {testimonials?.map(({ index, id, logo, name, text }) => {
             const isImageSvg = !logo.localFile.childImageSharp && logo.localFile.extension === 'svg'
 
             return (
               <Slide key={id} className="keen-slider__slide" style={{ display: !loaded && "none" }}>
-                {isImageSvg ? (
-                  <AvatarSvg src={logo.localFile.publicURL} alt={`${name} avatar`} width={110} height={110} />
-                ) : (
-                  <AvatarImg
-                    image={logo.localFile.childImageSharp?.gatsbyImageData}
-                    alt={`${name} avatar`}
-                  />
-                )}
+                <AvatarWrapper>
+                  {isImageSvg ? (
+                    <AvatarSvg src={logo.localFile.publicURL} alt={`${name} avatar`} width={110} height={110} />
+                  ) : (
+                    <AvatarImg
+                      image={logo.localFile.childImageSharp?.gatsbyImageData}
+                      alt={`${name} avatar`}
+                    />
+                  )}
+                </AvatarWrapper>
                 <Title>
                   {name}
                 </Title>

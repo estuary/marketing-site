@@ -28,6 +28,13 @@ export const Wrapper = styled.div`
 export const Slides = styled.div`
   display: flex;
   align-items: flex-start;
+
+  & > div:first-child {
+    img:first-of-type {
+      border-radius: 100%;
+      overflow: hidden;
+    }
+  }
 `
 
 export const Slide = styled.div`
@@ -97,12 +104,24 @@ export const Dot = styled.button`
   cursor: pointer;
 `
 
-export const AvatarImg = styled(GatsbyImage)`
+export const AvatarWrapper = styled.div`
+  width: 136px;
+  height: 136px;
+  background-color: #A3A7B5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 100%;
+  padding: 24px;
+  overflow: hidden;
+`
+
+export const AvatarImg = styled(GatsbyImage)`
+  min-width: 110px;
 `
 
 export const AvatarSvg = styled.img`
-  border-radius: 100%;
+  padding: 16px;
 `
 
 export const Arrow = styled.button`
