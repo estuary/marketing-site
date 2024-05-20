@@ -66,11 +66,11 @@ const SectionNine = () => {
             return (
               <Slide key={id} className="keen-slider__slide" style={{ display: !loaded && "none" }}>
                 {isImageSvg ? (
-                  <AvatarSvg src={logo.localFile.publicURL} alt={name + " avatar"} width={110} height={110} />
+                  <AvatarSvg src={logo.localFile.publicURL} alt={`${name} avatar`} width={110} height={110} />
                 ) : (
                   <AvatarImg
                     image={logo.localFile.childImageSharp?.gatsbyImageData}
-                    alt={name + " avatar"}
+                    alt={`${name} avatar`}
                   />
                 )}
                 <Title>
