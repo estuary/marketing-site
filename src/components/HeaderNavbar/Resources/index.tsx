@@ -3,51 +3,48 @@ import { Link } from "gatsby"
 import React, { useEffect, useRef } from "react"
 import { isDesktop } from "react-device-detect"
 import { OutboundLink } from "../../OutboundLink"
+import Chevron from '@mui/icons-material/ChevronRight';
+import { caseStudies, listen, read, tour } from './items';
+import { webinarsUrl } from '../../../../shared';
+import CardItem from '../CardItem';
+import { StaticImage } from 'gatsby-plugin-image';
 
-import Chevron from "@mui/icons-material/ChevronRight"
-import NavbarImage from "../../../svgs/navbar-image-2.svg"
-
-import { caseStudies, listen, read, tour } from "./items"
-
-import { webinarsUrl } from "../../../../shared"
-import CardItem from "../CardItem"
-const Card = React.lazy(() => import("../Card"))
+const Card = React.lazy(() => import('../Card'));
 
 const HeaderNavbarResources = ({ active, setActive }) => {
-    const wrapperRef = useRef(null)
+  const wrapperRef = useRef(null);
 
-    const onClick = ev => {
-        ev.preventDefault()
-        if (!isDesktop)
-            setActive(prev => (prev === "resources" ? "" : "resources"))
+  const onClick = (ev) => {
+    ev.preventDefault();
+    if (!isDesktop) setActive((prev) => (prev === 'resources' ? '' : 'resources'));
+  };
+
+  const onMouseEnter = (ev) => {
+    ev.preventDefault();
+    if (isDesktop) setActive('resources');
+  };
+
+  const onMouseLeave = (ev) => {
+    ev.preventDefault();
+    if (isDesktop) setActive('');
+  };
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (
+        wrapperRef.current &&
+        !wrapperRef.current.contains(event.target) &&
+        !event.target.className?.includes?.('active')
+      ) {
+        setActive('');
+      }
     }
 
-    const onMouseEnter = ev => {
-        ev.preventDefault()
-        if (isDesktop) setActive("resources")
-    }
-
-    const onMouseLeave = ev => {
-        ev.preventDefault()
-        if (isDesktop) setActive("")
-    }
-
-    useEffect(() => {
-        function handleClickOutside(event) {
-            if (
-                wrapperRef.current &&
-                !wrapperRef.current.contains(event.target) &&
-                !event.target.className?.includes?.("active")
-            ) {
-                setActive("")
-            }
-        }
-
-        if (active) document.addEventListener("mousedown", handleClickOutside)
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside)
-        }
-    }, [active])
+    if (active) document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [active]);
 
     return (
         <>
@@ -84,7 +81,7 @@ const HeaderNavbarResources = ({ active, setActive }) => {
                         items={caseStudies}
                     />
                     <CardItem className="hide-on-mobile" title="WEBINAR">
-                        <NavbarImage />
+                        <StaticImage src="../../../svgs/navbar-image-2.svg" alt="Estuary 101 Webinar" />
                         <OutboundLink
                             target="_blank"
                             href={webinarsUrl}
@@ -100,4 +97,4 @@ const HeaderNavbarResources = ({ active, setActive }) => {
     )
 }
 
-export default HeaderNavbarResources
+export default HeaderNavbarResources;

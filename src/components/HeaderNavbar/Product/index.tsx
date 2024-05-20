@@ -1,88 +1,81 @@
 import clsx from "clsx"
 import React, { useEffect, useRef } from "react"
 import { isDesktop } from "react-device-detect"
-
-import Chevron from "@mui/icons-material/ChevronRight"
-import NavbarImage from "../../../svgs/navbar-image-1.svg"
-
+import Chevron from '@mui/icons-material/ChevronRight';
 import { compare, products } from "./items"
-
 import { Link } from "gatsby"
 import { LinkFilled } from "../../../globalStyles"
 import CardItem from "../CardItem"
+import { StaticImage } from 'gatsby-plugin-image';
 
-const Card = React.lazy(() => import("../Card"))
+const Card = React.lazy(() => import('../Card'));
 
 const HeaderNavbarProduct = ({ active, setActive }) => {
-    const wrapperRef = useRef(null)
+  const wrapperRef = useRef(null);
 
-    const onClick = ev => {
-        ev.preventDefault()
-        if (!isDesktop) setActive(prev => (prev === "product" ? "" : "product"))
+  const onClick = (ev) => {
+    ev.preventDefault();
+    if (!isDesktop) setActive((prev) => (prev === 'product' ? '' : 'product'));
+  };
+
+  const onMouseEnter = (ev) => {
+    ev.preventDefault();
+    if (isDesktop) setActive('product');
+  };
+
+  const onMouseLeave = (ev) => {
+    ev.preventDefault();
+    if (isDesktop) setActive('');
+  };
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (
+        isDesktop &&
+        wrapperRef.current &&
+        !wrapperRef.current.contains(event.target) &&
+        !event.target.className?.includes?.('active')
+      ) {
+        setActive('');
+      }
     }
 
-    const onMouseEnter = ev => {
-        ev.preventDefault()
-        if (isDesktop) setActive("product")
-    }
+    if (active) document.addEventListener('mousedown', handleClickOutside);
 
-    const onMouseLeave = ev => {
-        ev.preventDefault()
-        if (isDesktop) setActive("")
-    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [active]);
 
-    useEffect(() => {
-        function handleClickOutside(event) {
-            if (
-                isDesktop &&
-                wrapperRef.current &&
-                !wrapperRef.current.contains(event.target) &&
-                !event.target.className?.includes?.("active")
-            ) {
-                setActive("")
-            }
-        }
-
-        if (active) document.addEventListener("mousedown", handleClickOutside)
-
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside)
-        }
-    }, [active])
-
-    return (
-        <>
-            <Link
-                className={clsx("global-header-link", active && "active")}
-                to="#"
-                onClick={onClick}
-                onMouseEnter={onMouseEnter}
+  return (
+    <>
+      <Link
+        className={clsx('global-header-link', active && 'active')}
+        to="#"
+        onClick={onClick}
+        onMouseEnter={onMouseEnter}
+      >
+        Product
+        <Chevron className="menu-chevron" fontSize="small" />
+      </Link>
+      <React.Suspense fallback={null}>
+        <Card customRef={wrapperRef} show={active} onMouseLeave={onMouseLeave}>
+          <CardItem title="PRODUCT" onlyContent items={products} />
+          <CardItem title="COMPARE" items={compare} />
+          <CardItem className="hide-on-mobile" title="CASE STUDY">
+            <StaticImage src="../../../svgs/navbar-image-1.svg" alt="Connect&Go Success Story" />
+            <LinkFilled
+              target="_blank"
+              to="/customers/connectngo"
+              className="cta-button"
             >
-                Product
-                <Chevron className="menu-chevron" fontSize="small" />
-            </Link>
-            <React.Suspense fallback={null}>
-                <Card
-                    customRef={wrapperRef}
-                    show={active}
-                    onMouseLeave={onMouseLeave}
-                >
-                    <CardItem title="PRODUCT" onlyContent items={products} />
-                    <CardItem title="COMPARE" items={compare} />
-                    <CardItem className="hide-on-mobile" title="CASE STUDY">
-                        <NavbarImage />
-                        <LinkFilled
-                            target="_blank"
-                            to="/customers/connectngo"
-                            className="cta-button"
-                        >
-                            Read Customer Story
-                        </LinkFilled>
-                    </CardItem>
-                </Card>
-            </React.Suspense>
-        </>
-    )
-}
+              Read Customer Story
+            </LinkFilled>
+          </CardItem>
+        </Card>
+      </React.Suspense>
+    </>
+  );
+};
 
-export default HeaderNavbarProduct
+export default HeaderNavbarProduct;
