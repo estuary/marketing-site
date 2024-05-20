@@ -1422,14 +1422,19 @@ input {
   }
 }
 
-.global-footer-input-button-submit {
-  border-radius: 4px;
-  height: 44px;
-  width: 90px;
+.global-footer-button {
   background: transparent;
-  color: #b7c6dd;
+  border-radius: 4px;
   border: 1px solid #b7c6dd;
   box-shadow: 0px 4px 10px rgba(20, 20, 43, 0.04);
+  color: #b7c6dd;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.global-footer-input-button-submit {
+  height: 44px;
+  width: 90px;
 }
 
 .global-footer-right {
@@ -1461,7 +1466,7 @@ input {
   .global-max-width();
 
   color: #b7c6dd;
-  margin-top: 100px;
+  margin-top: 75px;
   width: 100%;
 }
 
@@ -1483,7 +1488,7 @@ input {
 .global-footer-divider {
   border: 1px solid #b7c6dd;
   margin-bottom: 36px;
-  margin-top: 100px;
+  margin-top: 50px;
 
   @media (max-width: 810px) {
     margin-bottom: 16px;
@@ -3445,7 +3450,7 @@ table th {
   }
 
   .global-footer-bottom {
-    margin-top: 0;
+    margin-top: 25px;
   }
 
   .global-footer-input-email {
