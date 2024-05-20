@@ -137,7 +137,7 @@ const SectionOne = () => {
                 </MetricCard>
             </MetricCardsList>
             <MarqueeWrapper>
-                <Marquee>
+                <Marquee autoFill>
                     {logos.allStrapiVanityLogo.nodes?.map(logo =>
                         logo.logo.localFile.internal.mediaType ===
                             "image/svg+xml" ? (

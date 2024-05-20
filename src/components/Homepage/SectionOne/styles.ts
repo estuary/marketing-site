@@ -76,8 +76,6 @@ export const MainContent = styled.div`
   }
 `
 export const MarqueeWrapper = styled.div`
-  ${globalMaxWidth}
-
   height: 74px;
   width: 100%;
   display: flex;
@@ -125,6 +123,9 @@ export const MarqueeWrapper = styled.div`
       @media (max-width: 810px) {
           gap: 42px;
       }
+  }
+  .rfm-marquee:first-child {
+    margin-right: 100px;
   }
   .rfm-initial-child-container {
       padding-right: 60px;
