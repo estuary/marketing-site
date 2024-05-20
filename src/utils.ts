@@ -24,7 +24,8 @@ export const normalizeConnector = (connector: any) => {
   };
 };
 
-export const costPerGB = 1.0;
+export const costPerGB = '$1/GB';
+export const costPerGB_calc = 1.0;
 
 export const gbPoints = [2, 250, 500, 1000, 2000];
 
@@ -72,7 +73,7 @@ export const currencyFormatter = Intl.NumberFormat('en-US', {
 });
 
 export const calculatePrice = (gb: number, connectors: number) => ({
-  estuary: costPerGB * gb + 100 * connectors,
+  estuary: costPerGB_calc * gb + 100 * connectors,
   fivetran: 1590 + 45.7 * gb + -0.0517 * gb ** 2 + 2.79 * 10 ** -5 * gb ** 3 + -5.37 * 10 ** -9 * gb ** 4,
   confluent: connectors * 150 + (1.73 * gb + 1100),
 });
