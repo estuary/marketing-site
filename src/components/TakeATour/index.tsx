@@ -11,9 +11,9 @@ const DEFAULTS = {
 const SETTINGS = {
   ...DEFAULTS,
   // When there is a webinar uncomment below and provide the necessary details
-  href: 'https://content.estuary.dev/how-to-build-and-fix-cdc-pipelines-the-right-way',
-  message: 'How to Build and Fix CDC Pipelines the Right Way Webinar',
-  version: `/webinar_2024/05/13`,
+  // href: 'https://content.estuary.dev/how-to-build-and-fix-cdc-pipelines-the-right-way',
+  // message: 'How to Build and Fix CDC Pipelines the Right Way Webinar',
+  // version: `/webinar_2024/05/13`,
 };
 
 const STORAGE_KEY = `@estuary/closeTour${SETTINGS.version}`;
