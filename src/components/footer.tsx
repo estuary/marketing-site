@@ -7,6 +7,17 @@ import GithubIcon from "../svgs/github-outline.svg"
 import LinkedinIcon from "../svgs/linkedin-outline.svg"
 import SlackIcon from "../svgs/slack-outline.svg"
 import TwitterIcon from "../svgs/twitter-outline.svg"
+import { AppBar, Button, ButtonBase, Toolbar, Typography } from '@mui/material';
+import styled from 'styled-components';
+        
+const openCookiePreferences = () => {
+  try {
+    // @ts-expect-error : This loads through CookieFirst. Once homepage changes are merged we add to the window type
+    window.cookiefirst_show_settings();
+  } catch (e) {
+    alert('Failed to open Cookie Preferences. Please ensure CookieFirst loaded.');
+  }
+};
 
 const Footer = () => {
     return (
@@ -101,59 +112,49 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
+        <div className="global-footer-bottom">
+          <button className="global-footer-button" onClick={openCookiePreferences}>
+            Manage Cookie Preferences
+          </button>
+        <div className="global-footer-divider"></div>
+        <div className="global-footer-bottom-wrapper">
+          <div className="global-footer-bottom-copyright">
+            <p className="global-footer-bottom-copyright-text">
+              © {new Date().getFullYear()} All Rights Reserved -&nbsp;
+              {` `}
+            </p>
 
-            <div className="global-footer-bottom">
-                <div className="global-footer-divider"></div>
-                <div className="global-footer-bottom-wrapper">
-                    <div className="global-footer-bottom-copyright">
-                        <p className="global-footer-bottom-copyright-text">
-                            © {new Date().getFullYear()} All Rights Reserved
-                            -&nbsp;
-                            {` `}
-                        </p>
+            <OutboundLink className="global-footer-copyright-link" href="https://www.estuary.dev/">
+              estuary.dev
+            </OutboundLink>
+          </div>
 
-                        <OutboundLink
-                            className="global-footer-copyright-link"
-                            href="https://www.estuary.dev/"
-                        >
-                            estuary.dev
-                        </OutboundLink>
-                    </div>
+          <div className="global-footer-bottom-social">
+            <OutboundLink
+              target="_blank"
+              href="https://estuary-dev.slack.com/join/shared_invite/zt-86nal6yr-VPbv~YfZE9Q~6Zl~gmZdFQ#/shared-invite/email"
+              aria-label="Slack Invite Link"
+            >
+              <SlackIcon className="social-icon" />
+            </OutboundLink>
+            <OutboundLink target="_blank" href="https://github.com/estuary/flow" aria-label="Github Repo Link">
+              <GithubIcon className="social-icon" />
+            </OutboundLink>
+            <OutboundLink
+              target="_blank"
+              href="https://www.linkedin.com/company/65266256/"
+              aria-label="Linkedin Company Link"
+            >
+              <LinkedinIcon className="social-icon" color="#B7C6DD" />
+            </OutboundLink>
+            <OutboundLink target="_blank" href="https://twitter.com/EstuaryDev" aria-label="Twitter Company Link">
+              <TwitterIcon className="social-icon" />
+            </OutboundLink>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
 
-                    <div className="global-footer-bottom-social">
-                        <OutboundLink
-                            target="_blank"
-                            href="https://estuary-dev.slack.com/join/shared_invite/zt-86nal6yr-VPbv~YfZE9Q~6Zl~gmZdFQ#/shared-invite/email"
-                            aria-label="Slack Invite Link"
-                        >
-                            <SlackIcon className="social-icon" />
-                        </OutboundLink>
-                        <OutboundLink
-                            target="_blank"
-                            href="https://github.com/estuary/flow"
-                            aria-label="Github Repo Link"
-                        >
-                            <GithubIcon className="social-icon" />
-                        </OutboundLink>
-                        <OutboundLink
-                            target="_blank"
-                            href="https://www.linkedin.com/company/65266256/"
-                            aria-label="Linkedin Company Link"
-                        >
-                            <LinkedinIcon className="social-icon" color="#B7C6DD" />
-                        </OutboundLink>
-                        <OutboundLink
-                            target="_blank"
-                            href="https://twitter.com/EstuaryDev"
-                            aria-label="Twitter Company Link"
-                        >
-                            <TwitterIcon className="social-icon" />
-                        </OutboundLink>
-                    </div>
-                </div>
-            </div>
-        </footer>
-    )
-}
-
-export default Footer
+export default Footer;
