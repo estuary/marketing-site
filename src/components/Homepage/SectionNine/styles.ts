@@ -89,7 +89,7 @@ export const Dots = styled.div`
 
 export const Dot = styled.button`
   border: none;
-  width: 100%;
+  width: 12px;
   max-width: 12px;
   height: 12px;
   background: #ffffff;
