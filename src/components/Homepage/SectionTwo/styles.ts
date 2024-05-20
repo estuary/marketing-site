@@ -394,7 +394,7 @@ export const SalesforceLogoWrapper = styled(LogoWrapper)`
   }
 `
 
-export const GooglePubSubLogoWrapper = styled(LogoWrapper)`
+export const HttpWebhookLogoWrapper = styled(LogoWrapper)`
   top: 84.37%;
   right: 91.85%;
 

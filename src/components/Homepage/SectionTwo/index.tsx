@@ -1,7 +1,7 @@
 import { useMediaQuery, useTheme } from '@mui/material';
 import { StaticImage } from "gatsby-plugin-image";
 import * as React from "react";
-import { AmazonKinesisLogoWrapper, AmazonRedshiftLogoWrapper, AmazonS3LogoWrapper, ApacheKafkaLogoWrapper, AzureBlobStorageLogoWrapper, Container, DatabricksLogoWrapper, ElasticLogoWrapper, FlowImageWrapper, GoogleBigQueryLogoWrapper, GooglePubSubLogoWrapper, GoogleStorageLogoWrapper, Header, HubspotLogoWrapper, MySQLLogoWrapper, NetsuiteLogoWrapper, OpenAiLogoWrapper, OracleLogoWrapper, PineconeLogoWrapper, PostgresLogoWrapper, RocksetLogoWrapper, SalesforceLogoWrapper, SnowflakeLogoWrapper, Step, StepDescription, StepIcon, StepOneIcon, StepThreeIcon, StepTitle, StepTwoIcon, Steps, Subtitle, TimescaleLogoWrapper, Title } from "./styles";
+import { AmazonKinesisLogoWrapper, AmazonRedshiftLogoWrapper, AmazonS3LogoWrapper, ApacheKafkaLogoWrapper, AzureBlobStorageLogoWrapper, Container, DatabricksLogoWrapper, ElasticLogoWrapper, FlowImageWrapper, GoogleBigQueryLogoWrapper, GoogleStorageLogoWrapper, Header, HttpWebhookLogoWrapper, HubspotLogoWrapper, MySQLLogoWrapper, NetsuiteLogoWrapper, OpenAiLogoWrapper, OracleLogoWrapper, PineconeLogoWrapper, PostgresLogoWrapper, RocksetLogoWrapper, SalesforceLogoWrapper, SnowflakeLogoWrapper, Step, StepDescription, StepIcon, StepOneIcon, StepThreeIcon, StepTitle, StepTwoIcon, Steps, Subtitle, TimescaleLogoWrapper, Title } from "./styles";
 
 const SectionTwo = () => {
     const theme = useTheme();
@@ -113,7 +113,7 @@ const SectionTwo = () => {
                 <NetsuiteLogoWrapper to="/source/netsuite-v" />
                 <HubspotLogoWrapper to="/source/hubspot" />
                 <SalesforceLogoWrapper to="/source/salesforce" />
-                <GooglePubSubLogoWrapper to="/destination/google-pubsub" /> {/* This connector does not have source type */}
+                <HttpWebhookLogoWrapper to="/source/http-ingest" />
                 <AmazonKinesisLogoWrapper to="/source/kinesis" />
                 <ApacheKafkaLogoWrapper to="/source/kafka" />
                 <SnowflakeLogoWrapper to="/destination/snowflake" />
