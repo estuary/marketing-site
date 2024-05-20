@@ -9,6 +9,15 @@ import TwitterIcon from '../svgs/twitter-outline.svg';
 import { AppBar, Button, ButtonBase, Toolbar, Typography } from '@mui/material';
 import styled from 'styled-components';
 
+const openCookiePreferences = () => {
+  try {
+    // @ts-expect-error : This loads through CookieFirst. Once homepage changes are merged we add to the window type
+    window.cookiefirst_show_settings();
+  } catch (e) {
+    alert('Failed to open Cookie Preferences. Please ensure CookieFirst loaded.');
+  }
+};
+
 const Footer = () => {
   return (
     <footer className="global-footer">
@@ -77,17 +86,7 @@ const Footer = () => {
       </div>
 
       <div className="global-footer-bottom">
-        <button
-          className="global-footer-button"
-          onClick={() => {
-            try {
-              // @ts-expect-error : This loads through CookieFirst. Once homepage changes are merged we add to the window type
-              window.cookiefirst_show_settings();
-            } catch (e) {
-              alert('Failed to open Cookie Preferences. Please ensure CookieFirst loaded.');
-            }
-          }}
-        >
+        <button className="global-footer-button" onClick={openCookiePreferences}>
           Manage Cookie Preferences
         </button>
 
