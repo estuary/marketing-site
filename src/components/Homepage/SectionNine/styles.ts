@@ -89,16 +89,12 @@ export const Dots = styled.div`
 
 export const Dot = styled.button`
   border: none;
-  width: 12px;
+  width: 100%;
+  max-width: 12px;
   height: 12px;
   background: #ffffff;
   border-radius: 100%;
   cursor: pointer;
-
-  @media (max-width: 425px) {
-    width: 10px;
-    height: 10px;
-  }
 `
 
 export const AvatarImg = styled(GatsbyImage)`
