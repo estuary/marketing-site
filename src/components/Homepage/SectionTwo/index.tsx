@@ -133,7 +133,7 @@ const SectionTwo = () => {
         <SnowflakeLogoWrapper to="/destination/snowflake" aria-label="Snowflake destination" />
         <GoogleBigQueryLogoWrapper to="/destination/bigquery" aria-label="Google BigQuery destination" />
         <AmazonRedshiftLogoWrapper to="/destination/redshift" aria-label="Amazon Redshift destination" />
-        <ElasticLogoWrapper to="/destination/elasticsearch" aria-label="Elastic Search destination" />
+        <ElasticLogoWrapper to="/destination/elasticsearch" aria-label="Elastic destination" />
         <TimescaleLogoWrapper to="/destination/timescaledb" aria-label="Timescale destination" />
         <RocksetLogoWrapper to="/destination/rockset" aria-label="Rockset destination" />
         <PineconeLogoWrapper to="/destination/pinecone" aria-label="Pinecone destination" />
