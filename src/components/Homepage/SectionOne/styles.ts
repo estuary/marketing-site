@@ -17,6 +17,13 @@ export const AnimationBaseStyling = `
       display: none;
   }
 
+  @media (min-width: 1025px) {
+    & > :first-child {
+      width: 415px;
+      height: 381px;
+    }
+  }
+
   @media (max-width: 810px) {
     margin-left: 0px;
 
@@ -36,7 +43,7 @@ export const AnimationBaseStyling = `
         display: none;
     }
   }
-`
+`;
 
 export const Container = styled.section`
   ${sectionTopBottomPadding}
@@ -66,77 +73,77 @@ export const MainContent = styled.div`
   gap: 40px;
 
   @media (max-width: 1536px) {
-      margin-right: 0;
-      padding-right: 0;
+    margin-right: 0;
+    padding-right: 0;
   }
 
   @media (max-width: 1024px) {
-      ${globalMaxWidth}
-      flex-direction: column-reverse;
+    ${globalMaxWidth}
+    flex-direction: column-reverse;
   }
-`
+`;
 export const MarqueeWrapper = styled.div`
   height: 74px;
   width: 100%;
   display: flex;
 
   @media (max-width: 425px) {
-      padding: 0;
-      margin-top: 48px;
-      margin-bottom: 40px;
+    padding: 0;
+    margin-top: 48px;
+    margin-bottom: 40px;
   }
 
   .slick-slider {
-      @media (min-width: 801px) {
-          padding-right: 100px;
-      }
-      @media (max-width: 800px) {
-          padding-right: 20px;
-      }
+    @media (min-width: 801px) {
+      padding-right: 100px;
+    }
+    @media (max-width: 800px) {
+      padding-right: 20px;
+    }
   }
   .slick-slide {
-      margin: 0px 10px;
-      overflow: visible !important;
-      max-width: 190px !important;
+    margin: 0px 10px;
+    overflow: visible !important;
+    max-width: 190px !important;
   }
   .slick-track {
-      overflow: visible !important;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    overflow: visible !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .slick-list {
-      height: 80px;
+    height: 80px;
   }
   .gatsby-image-wrapper {
-      height: 60px !important;
-      display: flex !important;
-      align-items: center;
-      justify-content: space-between;
+    height: 60px !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
   }
   .rfm-marquee,
   .rfm-initial-child-container {
-      display: flex;
-      align-items: center;
-      gap: 120px;
+    display: flex;
+    align-items: center;
+    gap: 120px;
 
-      @media (max-width: 810px) {
-          gap: 42px;
-      }
+    @media (max-width: 810px) {
+      gap: 42px;
+    }
   }
   .rfm-marquee:first-child {
     margin-right: 100px;
   }
   .rfm-initial-child-container {
-      padding-right: 60px;
+    padding-right: 60px;
   }
-`
+`;
 
 export const HomepageHeader = styled.div`
   display: flex;
   flex-direction: column;
   margin: auto 0;
-`
+`;
 
 export const HomepageTitle = styled.h1`
   color: #ffffff;
@@ -148,20 +155,20 @@ export const HomepageTitle = styled.h1`
   }
 
   & span:nth-child(2n) {
-    color: #5072EB;
+    color: #5072eb;
   }
 
   & span {
-      line-height: 72px;
-      font-weight: 600;
-      font-size: 4.5rem;
+    line-height: 72px;
+    font-weight: 600;
+    font-size: 4.5rem;
 
-      @media (max-width: 768px) {
-          line-height: 43.2px;
-          font-size: 2.25rem;
-      }
+    @media (max-width: 768px) {
+      line-height: 43.2px;
+      font-size: 2.25rem;
+    }
   }
-`
+`;
 
 export const HomepageDescription = styled.p`
   margin-top: 24px;
@@ -171,27 +178,28 @@ export const HomepageDescription = styled.p`
   line-height: 30px;
 
   @media (min-width: 768px) {
-      font-size: var(--fontSize-2);
+    font-size: var(--fontSize-2);
   }
 
   @media (max-width: 768px) {
-      margin: 20px 0;
+    margin: 20px 0;
   }
-`
+`;
 
 export const HomepageHeadingButtons = styled.div`
   display: flex;
   gap: 24px;
   margin-top: 36px;
 
-  & button, a {
+  & button,
+  a {
     white-space: nowrap;
   }
 
   @media (max-width: 810px) {
-      margin: 0;
+    margin: 0;
   }
-`
+`;
 
 export const PrimaryButton = styled(OutboundLinkFilled)`
   padding: 16px 24px !important;
@@ -201,20 +209,20 @@ export const PrimaryButton = styled(OutboundLinkFilled)`
     padding-left: 0;
     padding-right: 0;
   }
-`
+`;
 
 export const SecondaryButton = styled(OpenHubspotModal)`
   background-color: transparent;
   color: #ffffff;
-  border: 2px solid #5072EB;
+  border: 2px solid #5072eb;
   padding: 16px 24px;
-  
+
   @media (max-width: 810px) {
-      width: 50%;
-      padding-left: 0;
-      padding-right: 0;
+    width: 50%;
+    padding-left: 0;
+    padding-right: 0;
   }
-`
+`;
 
 export const FlowAnimationContainer = styled.div`
   display: flex;
@@ -230,7 +238,7 @@ export const FlowAnimationContainer = styled.div`
   @media (max-width: 810px) {
     display: none;
   }
-`
+`;
 
 export const VanityLogo = styled.div`
   display: flex !important;
@@ -238,27 +246,27 @@ export const VanityLogo = styled.div`
   justify-content: space-between;
 
   div {
-      height: 60px;
+    height: 60px;
   }
-  
+
   img,
   svg {
-      width: 100%;
-      max-width: 140px;
-      height: 60px;
-      opacity: 1;
-      visibility: visible;
-      object-fit: contain !important;
+    width: 100%;
+    max-width: 140px;
+    height: 60px;
+    opacity: 1;
+    visibility: visible;
+    object-fit: contain !important;
   }
 
   .slick-slide {
-      width: 130px !important;
+    width: 130px !important;
   }
-`
+`;
 
 export const FlowAnimationPlaceholderContainer = styled.div`
   ${AnimationBaseStyling}
-`
+`;
 
 export const MetricCardsList = styled.ul`
   ${globalMaxWidth}
@@ -273,7 +281,7 @@ export const MetricCardsList = styled.ul`
   @media (max-width: 1116px) {
     flex-direction: column;
   }
-`
+`;
 
 export const MetricCard = styled.li`
   width: 100%;
@@ -282,9 +290,9 @@ export const MetricCard = styled.li`
   justify-content: center;
   gap: 32px;
   padding: 24px;
-  border: 1px solid #5072EB4D;
+  border: 1px solid #5072eb4d;
   border-radius: 24px;
-  background-color: #0E2443;
+  background-color: #0e2443;
   margin-bottom: 0;
 
   @media (max-width: 1116px) {
@@ -296,18 +304,18 @@ export const MetricCard = styled.li`
     flex-direction: column;
     justify-content: center;
   }
-`
+`;
 
 export const MetricIconWrapper = styled.div`
-  border: 2px solid #2A4589;
+  border: 2px solid #2a4589;
   border-radius: 100%;
   padding: 12px;
   height: 80px;
   max-width: 80px;
   display: flex;
   align-items: center;
-  justify-content: center
-`
+  justify-content: center;
+`;
 
 export const MetricsWrapper = styled.div`
   display: flex;
@@ -322,18 +330,18 @@ export const MetricsWrapper = styled.div`
   @media (max-width: 345px) {
     align-items: center;
   }
-`
+`;
 
 export const MetricValue = styled.span`
-  color: #625EFF;
+  color: #625eff;
   font-size: 2rem;
   font-weight: 700;
   line-height: 43.2px;
-`
+`;
 
 export const MetricLabel = styled.span`
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 1.25rem;
   font-weight: 400;
   line-height: 30px;
-`
+`;
