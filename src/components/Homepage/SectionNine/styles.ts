@@ -105,6 +105,9 @@ export const DotWrapper = styled.li`
   justify-content: center;
   list-style: none;
   height: 12px;
+  width: 12px;
+  max-width: 12px;
+  border-radius: 50%;
   margin: 0;
 `
 
@@ -114,7 +117,7 @@ export const Dot = styled.button`
   max-width: 12px;
   height: 12px;
   background: #ffffff;
-  border-radius: 100%;
+  border-radius: 50%;
   cursor: pointer;
 `
 
