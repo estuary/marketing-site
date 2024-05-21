@@ -12,7 +12,7 @@ const SectionThree = () => {
           <Card
             title="CONNECT&GO"
             description="Connect&GO lowers MySQL to Snowflake latency up to 180x, improves productivity 4x with Estuary."
-            href="/customers/casestudy/connectngo"
+            href="/customers/connectngo/"
             image={
               <StaticImage
                 placeholder="none"
@@ -25,7 +25,7 @@ const SectionThree = () => {
           <Card
             title="TRUE PLATFORM"
             description="True Platform reduced its data pipeline spend by &gt;2x and discovered seamless, scalable data movement."
-            href="/customers/casestudy/trueplatform"
+            href="/customers/casestudy/trueplatform/"
             image={
               <StaticImage
                 placeholder="none"
@@ -38,7 +38,7 @@ const SectionThree = () => {
           <Card
             title="SOLI & COMPANY"
             description="Soli & Company trusts Estuary’s approachable pricing and quick setup to deliver change data capture solutions."
-            href="/customers/soli_&_company"
+            href="/customers/casestudy/soli_&_company/"
             image={
               <StaticImage
                 placeholder="none"
