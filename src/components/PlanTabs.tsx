@@ -1,16 +1,16 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import PricingCloud from "../svgs/cloud-pricing.svg"
-import PricingOpenSource from "../svgs/pricing-open-source-black.svg"
-import BlackCheckmark from "../svgs/checkmark-black.svg"
-import WhiteCheckmark from "../svgs/light-checkmark.svg"
-import { Link } from "gatsby"
-import { OutboundLink } from "../components/OutboundLink"
-
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
+import Typography from '@mui/material/Typography';
+import { Link } from 'gatsby';
+import PropTypes from 'prop-types';
+import * as React from 'react';
+import BlackCheckmark from '../svgs/checkmark-black.svg';
+import PricingCloud from '../svgs/cloud-pricing.svg';
+import WhiteCheckmark from '../svgs/light-checkmark.svg';
+import PricingOpenSource from '../svgs/pricing-open-source-black.svg';
+import { OutboundLink } from './OutboundLink';
+import { costPerGB } from '../utils';
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -66,17 +66,13 @@ export default function BasicTabs() {
         </>
       )}
     </div>
-  )
+  );
 
   return (
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="pricing plan tabs">
-          <Tab
-            icon={<PricingOpenSource className="pricing-page-tile-icon" />}
-            label="Free"
-            {...a11yProps(0)}
-          />
+          <Tab icon={<PricingOpenSource className="pricing-page-tile-icon" />} label="Free" {...a11yProps(0)} />
           <Tab icon={<PricingCloud />} label="Cloud" {...a11yProps(1)} />
           <Tab icon={<PricingCloud />} label="Enterprise" {...a11yProps(2)} />
         </Tabs>
@@ -84,51 +80,27 @@ export default function BasicTabs() {
       <CustomTabPanel value={value} index={0}>
         <div className="pricing-page-tile">
           <div className="pricing-page-checklist-wrapper">
-            <ChecklistItem>
-              Up to 10GB / mo for any 2 connectors
-            </ChecklistItem>
-            <ChecklistItem>
-              Millisecond Latency
-            </ChecklistItem>
-            <ChecklistItem>
-              UI & CLI for building & monitoring pipelines
-            </ChecklistItem>
-            <ChecklistItem>
-              Limited Data Retention in Estuary Cloud
-            </ChecklistItem>
-            <ChecklistItem>
-              Incremental Syncing for lower CDC cost
-            </ChecklistItem>
-            <ChecklistItem>
-              Streaming Infrastructure
-            </ChecklistItem>
+            <ChecklistItem>Up to 10GB / mo for any 2 connectors</ChecklistItem>
+            <ChecklistItem>Millisecond Latency</ChecklistItem>
+            <ChecklistItem>UI & CLI for building & monitoring pipelines</ChecklistItem>
+            <ChecklistItem>Limited Data Retention in Estuary Cloud</ChecklistItem>
+            <ChecklistItem>Incremental Syncing for lower CDC cost</ChecklistItem>
+            <ChecklistItem>Streaming Infrastructure</ChecklistItem>
           </div>
-          <Link
-            className="pricing-page-tile-button"
-            to="https://github.com/estuary/flow"
-          >
+          <Link className="pricing-page-tile-button" to="https://github.com/estuary/flow">
             Get started
           </Link>
         </div>
       </CustomTabPanel>
-      <CustomTabPanel style={{ backgroundColor: "#5072EB" }} value={value} index={1}>
+      <CustomTabPanel style={{ backgroundColor: '#5072EB' }} value={value} index={1}>
         <div className="pricing-page-checklist-wrapper">
-          <ChecklistItem white>
-            $1/GB change data moved +$.14/hour/connector
-          </ChecklistItem>
+          <ChecklistItem white>{costPerGB} change data moved +$.14/hour/connector</ChecklistItem>
           <ChecklistItem white>All features of Free plan, plus... </ChecklistItem>
-          <ChecklistItem white>
-            Data stored in your cloud
-          </ChecklistItem>
+          <ChecklistItem white>Data stored in your cloud</ChecklistItem>
           <ChecklistItem white>99.9% uptime SLA</ChecklistItem>
 
-
-          <ChecklistItem white>
-            Unlimited Connectors
-          </ChecklistItem>
-          <ChecklistItem white>
-            9x5 Customer Support via Slack/Email
-          </ChecklistItem>
+          <ChecklistItem white>Unlimited Connectors</ChecklistItem>
+          <ChecklistItem white>9x5 Customer Support via Slack/Email</ChecklistItem>
         </div>
         <OutboundLink
           target="_blank"
@@ -140,27 +112,13 @@ export default function BasicTabs() {
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
         <div className="pricing-page-checklist-wrapper-custom">
-          <ChecklistItem>
-            All features of Free + Cloud, plus...
-          </ChecklistItem>
-          <ChecklistItem>
-            SOC2 & HIPAA Certificates
-          </ChecklistItem>
-          <ChecklistItem>
-            Customer Success Manager
-          </ChecklistItem>
-          <ChecklistItem>
-            24x7 support available
-          </ChecklistItem>
-          <ChecklistItem>
-            Provisioned servers
-          </ChecklistItem>
-
+          <ChecklistItem>All features of Free + Cloud, plus...</ChecklistItem>
+          <ChecklistItem>SOC2 & HIPAA Certificates</ChecklistItem>
+          <ChecklistItem>Customer Success Manager</ChecklistItem>
+          <ChecklistItem>24x7 support available</ChecklistItem>
+          <ChecklistItem>Provisioned servers</ChecklistItem>
         </div>
-        <Link
-          className="pricing-page-tile-button"
-          to="/about#contact-us"
-        >
+        <Link className="pricing-page-tile-button" to="/about#contact-us">
           Contact us
         </Link>
       </CustomTabPanel>

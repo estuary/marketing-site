@@ -1,7 +1,7 @@
-import React, { useState } from "react"
 import { StaticImage } from "gatsby-plugin-image"
-import { OutboundLink } from "../../../components/OutboundLink"
+import React from "react"
 import OpenHubspotModal from "../../../components/HubSpot/OpenModal"
+import { OutboundLink } from "../../../components/OutboundLink"
 
 const PricingHero = () => {
     return (

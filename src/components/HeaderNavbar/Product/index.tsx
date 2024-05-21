@@ -1,13 +1,11 @@
-import React, { useRef, useEffect } from 'react';
-import clsx from 'clsx';
-import { Link } from 'gatsby';
-import { isDesktop } from 'react-device-detect';
-
+import clsx from "clsx"
+import React, { useEffect, useRef } from "react"
+import { isDesktop } from "react-device-detect"
 import Chevron from '@mui/icons-material/ChevronRight';
-
-import { products, compare } from './items';
-
-import CardItem from '../CardItem';
+import { compare, products } from "./items"
+import { Link } from "gatsby"
+import { LinkFilled } from "../../../globalStyles"
+import CardItem from "../CardItem"
 import { StaticImage } from 'gatsby-plugin-image';
 
 const Card = React.lazy(() => import('../Card'));
@@ -66,9 +64,13 @@ const HeaderNavbarProduct = ({ active, setActive }) => {
           <CardItem title="COMPARE" items={compare} />
           <CardItem className="hide-on-mobile" title="CASE STUDY">
             <StaticImage src="../../../svgs/navbar-image-1.svg" alt="Connect&Go Success Story" />
-            <Link target="_blank" to="/customers/connectngo" className="cta-button">
+            <LinkFilled
+              target="_blank"
+              to="/customers/connectngo"
+              className="cta-button"
+            >
               Read Customer Story
-            </Link>
+            </LinkFilled>
           </CardItem>
         </Card>
       </React.Suspense>

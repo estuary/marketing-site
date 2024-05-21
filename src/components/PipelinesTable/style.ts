@@ -66,6 +66,7 @@ export const LineBody = styled.td`
 export const Checkmark = styled(CheckmarkDefault)`
   width: 28px;
   height: 28px;
+  color: #2DA771;
 `;
 
 export const Close = styled(CloseDefault)`

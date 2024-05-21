@@ -18,6 +18,7 @@ import Bio from '../components/bio';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
 import logoUrl from '../images/combination-mark__multi-blue.png';
+import { costPerGB } from '../utils';
 
 dayjs.extend(reltime);
 
@@ -183,7 +184,7 @@ const BlogPostTemplate = ({ data: { post }, pageContext }) => {
               <div className="right-column-container">
                 <div>
                   <DoneIcon htmlColor="#5072eb" fontSize="large" />
-                  <span>$1/GB of data moved + $.14/connector/hour;</span>
+                  <span>{costPerGB} of data moved + $.14/connector/hour;</span>
                 </div>
                 <div>
                   <DoneIcon htmlColor="#5072eb" fontSize="large" />

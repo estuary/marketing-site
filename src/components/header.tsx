@@ -3,10 +3,10 @@ import { Link, graphql, useStaticQuery } from 'gatsby';
 import * as React from 'react';
 import { useEffect, useRef, useState } from 'react';
 import { isDesktop } from 'react-device-detect';
-import { OutboundLink } from '../components/OutboundLink';
 import ColoredLogo from '../svgs/colored-logo.svg';
-import SlackIcon from '../svgs/slack-outline.svg';
 import GithubIcon from '../svgs/github-outline.svg';
+import SlackIcon from '../svgs/slack-outline.svg';
+import { OutboundLink, OutboundLinkFilled } from './OutboundLink';
 
 import HeaderNavbar from './HeaderNavbar';
 
@@ -175,13 +175,13 @@ const Header = (props: { fixedHeader?: boolean }) => {
               >
                 Log in
               </OutboundLink>
-              <OutboundLink
+              <OutboundLinkFilled
                 target="_blank"
                 href="https://dashboard.estuary.dev/register"
                 className="global-header-try-it-button"
               >
                 Try it free
-              </OutboundLink>
+              </OutboundLinkFilled>
             </div>
           </div>
           <div className="global-header-mobile-menu-wrapper">

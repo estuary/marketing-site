@@ -1,6 +1,6 @@
-import React, { useState } from "react"
 import { Link } from "gatsby"
-import { OutboundLink } from "../../components/OutboundLink"
+import React, { useState } from "react"
+import { OutboundLink } from "../OutboundLink"
 
 import LinkProduct from "./Product"
 import LinkResources from "./Resources"
