@@ -131,7 +131,7 @@ const SectionTwo = () => {
         <AmazonKinesisLogoWrapper to="/source/kinesis" aria-label="Amazon Kinesis source" />
         <ApacheKafkaLogoWrapper to="/source/kafka" aria-label="Apache Kafka source" />
         <SnowflakeLogoWrapper to="/destination/snowflake" aria-label="Snowflake destination" />
-        <GoogleBigQueryLogoWrapper to="/destination/bigquery" aria-label="Google Big Query destination" />
+        <GoogleBigQueryLogoWrapper to="/destination/bigquery" aria-label="Google BigQuery destination" />
         <AmazonRedshiftLogoWrapper to="/destination/redshift" aria-label="Amazon Redshift destination" />
         <ElasticLogoWrapper to="/destination/elasticsearch" aria-label="Elastic Search destination" />
         <TimescaleLogoWrapper to="/destination/timescaledb" aria-label="Timescale destination" />
