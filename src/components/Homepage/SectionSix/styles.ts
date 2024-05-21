@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { LinkFilled, globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
+import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
+import { OutboundLinkFilled } from '../../OutboundLink';
 
 export const Container = styled.section`
   background-color: #FDFDFE;
@@ -57,7 +58,7 @@ export const Description = styled.p`
   }
 `
 
-export const Button = styled(LinkFilled)`
+export const Button = styled(OutboundLinkFilled)`
   padding: 16px 24px;
   width: fit-content;
 

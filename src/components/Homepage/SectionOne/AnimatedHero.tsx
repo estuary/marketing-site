@@ -1,9 +1,8 @@
 import * as React from 'react';
+import LottiePlayerLight from 'react-lottie-player/dist/LottiePlayerLight';
 import styled from 'styled-components';
 import AnimFallback from './AnimFallback';
 import { AnimationBaseStyling } from './styles';
-import Lottie from 'react-lottie-player/dist/LottiePlayerLight';
-import LottiePlayerLight from 'react-lottie-player/dist/LottiePlayerLight';
 
 const FlowAnimation = styled('div')`
   ${AnimationBaseStyling}
@@ -22,7 +21,7 @@ const AnimatedHero = () => {
   const handleLottieLoaded = React.useCallback(() => {
     setShowAnimation(true);
     setTimeout(() => {
-      lottieRef.current.play();
+      lottieRef.current?.play();
     }, 5000);
   }, [lottieRef]);
 

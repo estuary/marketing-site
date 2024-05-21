@@ -32,7 +32,7 @@ const SectionSix = () => {
                         Use schema inference, evolution, and automation along with a complete CLI and API to implement true agile DataOps that can handle constant change without breaking pipelines.
                     </Description>
                     <Button
-                        to="https://docs.estuary.dev/"
+                        href="https://docs.estuary.dev/"
                         target="_blank"
                     >
                         See the Docs

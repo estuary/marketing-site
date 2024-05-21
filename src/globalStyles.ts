@@ -90,6 +90,10 @@ export const LinkFilled = styled(Link)`
   ${BaseButtonFilledStyling}
 `
 
+export const LinkOutlined = styled(Link)`
+  ${BaseButtonPrimaryStyling}
+`
+
 export const ButtonFilled = styled.button`
   ${BaseButtonFilledStyling}
 `

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { BaseButtonSecondaryStyling, globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
+import { LinkOutlined, globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
 import overlayVectorLeft from "../../../images/overlay-vector-left.png";
 
 export const Container = styled.section`
@@ -90,9 +90,7 @@ export const CardDescription = styled.p`
   }
 `
 
-export const Button = styled.button`
-  ${BaseButtonSecondaryStyling}
-
+export const Button = styled(LinkOutlined)`
   border: 2px solid #5072EB;
   padding: 16px 24px;
   width: 100%;
