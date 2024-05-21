@@ -4,7 +4,7 @@ import { useKeenSlider } from "keen-slider/react"
 import * as React from "react"
 import ChevronLeftIcon from "../../../svgs/chevron-left.svg"
 import ChevronRightIcon from "../../../svgs/chevron-right.svg"
-import { Arrow, AvatarImg, AvatarSvg, AvatarWrapper, Container, Description, Dot, Dots, Slide, Slider, Slides, Title, Wrapper } from "./styles"
+import { Arrow, AvatarImg, AvatarSvg, AvatarWrapper, Container, Description, Dot, DotWrapper, Dots, Slide, Slider, Slides, Title, Wrapper } from "./styles"
 
 const SectionNine = () => {
   const { allStrapiTestimonial: { nodes: testimonials } } = useStaticQuery(graphql`
@@ -99,11 +99,12 @@ const SectionNine = () => {
               ].map((idx) => {
                 const isDotActive = currentSlide === idx
                 return (
-                  <Dot
-                    key={idx}
-                    onClick={() => onDotClick(idx)}
-                    className={isDotActive ? "active" : ""}
-                  />
+                  <DotWrapper key={idx}>
+                    <Dot
+                      onClick={() => onDotClick(idx)}
+                      className={isDotActive ? "active" : ""}
+                    />
+                  </DotWrapper>
                 )
               })}
             </Dots>

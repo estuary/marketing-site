@@ -78,20 +78,34 @@ export const Description = styled.p`
 export const Slider = styled.div`
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 40px;
+
+  @media (max-width: 425px) {
+    gap: 20px;
+  }
 `
 
-export const Dots = styled.div`
+export const Dots = styled.ul`
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 10px 0;
   flex-wrap: wrap;
   gap: 20px;
+  margin: 0;
 
   & .active {
     background: #5072EB;
   }
+`
+
+export const DotWrapper = styled.li`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  height: 12px;
+  margin: 0;
 `
 
 export const Dot = styled.button`
