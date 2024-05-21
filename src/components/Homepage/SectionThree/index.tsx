@@ -16,7 +16,7 @@ const SectionThree = () => {
             image={
               <StaticImage
                 placeholder="none"
-                alt="connect & go logo"
+                alt="Connect & Go logo"
                 src="../../../images/c&g-logo.png"
                 layout="constrained"
               />
@@ -29,7 +29,7 @@ const SectionThree = () => {
             image={
               <StaticImage
                 placeholder="none"
-                alt="connect & go logo"
+                alt="True Platform logo"
                 src="../../../images/true-logo.png"
                 layout="constrained"
               />
@@ -42,7 +42,7 @@ const SectionThree = () => {
             image={
               <StaticImage
                 placeholder="none"
-                alt="connect & go logo"
+                alt="Soli & Company logo"
                 src="../../../images/soli&company-logo.png"
                 layout="constrained"
               />
