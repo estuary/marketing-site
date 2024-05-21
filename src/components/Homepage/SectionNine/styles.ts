@@ -1,3 +1,4 @@
+import CircleIcon from "@mui/icons-material/Circle";
 import { GatsbyImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
@@ -94,10 +95,6 @@ export const Dots = styled.ul`
   gap: 20px;
   margin: 0;
   width: 100%;
-
-  & .active {
-    background: #5072EB;
-  }
 `
 
 export const DotWrapper = styled.li`
@@ -106,20 +103,9 @@ export const DotWrapper = styled.li`
   justify-content: center;
   list-style: none;
   margin: 0;
-  max-width: 0.75rem;
-  min-width: 0.75rem;
-  height: 0.75rem;
 `
 
-export const Dot = styled.button`
-  display: inline-block;
-  border: none;
-  width: 0.75rem;
-  max-width: 0.75rem;
-  min-width: 0.75rem;
-  height: 0.75rem;
-  background: #ffffff;
-  border-radius: 50%;
+export const Dot = styled(CircleIcon)`
   cursor: pointer;
 `
 

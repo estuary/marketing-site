@@ -102,7 +102,7 @@ const SectionNine = () => {
                   <DotWrapper key={idx}>
                     <Dot
                       onClick={() => onDotClick(idx)}
-                      className={isDotActive ? "active" : ""}
+                      htmlColor={isDotActive ? "#5072EB" : "#FFFFFF"}
                     />
                   </DotWrapper>
                 )
