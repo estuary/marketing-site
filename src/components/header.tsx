@@ -6,7 +6,7 @@ import { isDesktop } from 'react-device-detect';
 import ColoredLogo from '../svgs/colored-logo.svg';
 import GithubIcon from '../svgs/github-outline.svg';
 import SlackIcon from '../svgs/slack-outline.svg';
-import { OutboundLink } from './OutboundLink';
+import { OutboundLink, OutboundLinkFilled } from './OutboundLink';
 
 import HeaderNavbar from './HeaderNavbar';
 
@@ -175,14 +175,13 @@ const Header = (props: { fixedHeader?: boolean }) => {
               >
                 Log in
               </OutboundLink>
-              <OutboundLink
+              <OutboundLinkFilled
                 target="_blank"
                 href="https://dashboard.estuary.dev/register"
                 className="global-header-try-it-button"
-                variant="filled"
               >
                 Try it free
-              </OutboundLink>
+              </OutboundLinkFilled>
             </div>
           </div>
           <div className="global-header-mobile-menu-wrapper">

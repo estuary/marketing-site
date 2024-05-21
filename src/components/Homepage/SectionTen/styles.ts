@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
 import overlayVectorRightWhite from "../../../images/overlay-vector-right-white.png";
 import OpenHubspotModal from "../../HubSpot/OpenModal";
-import { OutboundLink } from "../../OutboundLink";
+import { OutboundLinkFilled, OutboundLinkOutlined } from "../../OutboundLink";
 
 export const Container = styled.section`
   background-color: #FDFDFE;
@@ -81,7 +81,11 @@ const BaseButtonStyling = `
   padding: 16px 24px;
 `
 
-export const Button = styled(OutboundLink)`
+export const ButtonFilled = styled(OutboundLinkFilled)`
+  ${BaseButtonStyling}
+`
+
+export const ButtonOutlined = styled(OutboundLinkOutlined)`
   ${BaseButtonStyling}
 `
 

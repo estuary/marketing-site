@@ -1,13 +1,13 @@
+import Chevron from '@mui/icons-material/ChevronRight'
 import clsx from "clsx"
 import { Link } from "gatsby"
+import { StaticImage } from 'gatsby-plugin-image'
 import React, { useEffect, useRef } from "react"
 import { isDesktop } from "react-device-detect"
-import { OutboundLink } from "../../OutboundLink"
-import Chevron from '@mui/icons-material/ChevronRight';
-import { caseStudies, listen, read, tour } from './items';
-import { webinarsUrl } from '../../../../shared';
-import CardItem from '../CardItem';
-import { StaticImage } from 'gatsby-plugin-image';
+import { webinarsUrl } from '../../../../shared'
+import { OutboundLinkFilled } from "../../OutboundLink"
+import CardItem from '../CardItem'
+import { caseStudies, listen, read, tour } from './items'
 
 const Card = React.lazy(() => import('../Card'));
 
@@ -46,55 +46,54 @@ const HeaderNavbarResources = ({ active, setActive }) => {
     };
   }, [active]);
 
-    return (
-        <>
-            <Link
-                className={clsx("global-header-link", active && "active")}
-                to="#"
-                onClick={onClick}
-                onMouseEnter={onMouseEnter}
+  return (
+    <>
+      <Link
+        className={clsx("global-header-link", active && "active")}
+        to="#"
+        onClick={onClick}
+        onMouseEnter={onMouseEnter}
+      >
+        Resources
+        <Chevron className="menu-chevron" fontSize="small" />
+      </Link>
+      <React.Suspense fallback={null}>
+        <Card
+          customRef={wrapperRef}
+          show={active}
+          onMouseLeave={onMouseLeave}
+        >
+          <CardItem title="READ" onlyContent items={read} />
+          <CardItem
+            className="no-padding"
+            title="LISTEN"
+            onlyContent
+            items={listen}
+          />
+          <CardItem
+            className="hide-on-mobile"
+            title="TOUR"
+            items={tour}
+          />
+          <CardItem
+            className="hide-on-mobile"
+            title="CASE STUDIES"
+            items={caseStudies}
+          />
+          <CardItem className="hide-on-mobile" title="WEBINAR">
+            <StaticImage src="../../../svgs/navbar-image-2.svg" alt="Estuary 101 Webinar" />
+            <OutboundLinkFilled
+              target="_blank"
+              href={webinarsUrl}
+              className="cta-button"
             >
-                Resources
-                <Chevron className="menu-chevron" fontSize="small" />
-            </Link>
-            <React.Suspense fallback={null}>
-                <Card
-                    customRef={wrapperRef}
-                    show={active}
-                    onMouseLeave={onMouseLeave}
-                >
-                    <CardItem title="READ" onlyContent items={read} />
-                    <CardItem
-                        className="no-padding"
-                        title="LISTEN"
-                        onlyContent
-                        items={listen}
-                    />
-                    <CardItem
-                        className="hide-on-mobile"
-                        title="TOUR"
-                        items={tour}
-                    />
-                    <CardItem
-                        className="hide-on-mobile"
-                        title="CASE STUDIES"
-                        items={caseStudies}
-                    />
-                    <CardItem className="hide-on-mobile" title="WEBINAR">
-                        <StaticImage src="../../../svgs/navbar-image-2.svg" alt="Estuary 101 Webinar" />
-                        <OutboundLink
-                            target="_blank"
-                            href={webinarsUrl}
-                            className="cta-button"
-                            variant="filled"
-                        >
-                            Watch Estuary 101
-                        </OutboundLink>
-                    </CardItem>
-                </Card>
-            </React.Suspense>
-        </>
-    )
+              Watch Estuary 101
+            </OutboundLinkFilled>
+          </CardItem>
+        </Card>
+      </React.Suspense>
+    </>
+  )
 }
 
 export default HeaderNavbarResources;

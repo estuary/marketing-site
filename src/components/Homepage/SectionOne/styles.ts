@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
 import OpenHubspotModal from '../../HubSpot/OpenModal';
-import { OutboundLink } from '../../OutboundLink';
+import { OutboundLinkFilled } from '../../OutboundLink';
 
 export const AnimationBaseStyling = `
   width: 100%;
@@ -193,7 +193,7 @@ export const HomepageHeadingButtons = styled.div`
   }
 `
 
-export const PrimaryButton = styled(OutboundLink)`
+export const PrimaryButton = styled(OutboundLinkFilled)`
   padding: 16px 24px !important;
 
   @media (max-width: 810px) {
