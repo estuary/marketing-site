@@ -1,31 +1,22 @@
 // custom typefaces
-import * as React from 'react';
-import '@fontsource/montserrat/variable.css';
 import '@fontsource/merriweather';
+import '@fontsource/montserrat/variable.css';
+import * as React from 'react';
 // normalize CSS across browsers
 import './src/normalize.css';
 // custom CSS styles
-import './src/style.less';
 import './src/highlighting-atom-one-dark.css';
-import { isMobile } from 'react-device-detect';
+import './src/style.less';
 
 // Highlighting for code blocks
 // import "prismjs/themes/prism.css"
 
-import { Script, ScriptStrategy } from 'gatsby';
+import { Script } from 'gatsby';
 
 const ZD_KEY = '3271265c-16a8-4e0d-b1ab-72ed8fbe7e5a';
 
 export const wrapPageElement = ({ element }) => {
-  const [dimensions, setDimensions] = React.useState({ width: 0, height: 0 });
-
-  React.useEffect(() => {
-    const subscriber = () => setDimensions({ width: window.innerWidth, height: window.innerHeight });
-    window.addEventListener('load', subscriber);
-    return () => window.removeEventListener('load', subscriber);
-  }, []);
-
-  if (process.env.NODE_ENV === 'development' || isMobile || dimensions.width < 768) {
+  if (process.env.NODE_ENV === 'development' || window.innerWidth < 768 || window.innerHeight < 768) {
     return element;
   }
 
