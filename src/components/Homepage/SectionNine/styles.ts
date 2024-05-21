@@ -93,6 +93,7 @@ export const Dots = styled.ul`
   flex-wrap: wrap;
   gap: 20px;
   margin: 0;
+  width: 100%;
 
   & .active {
     background: #5072EB;
@@ -104,18 +105,18 @@ export const DotWrapper = styled.li`
   align-items: center;
   justify-content: center;
   list-style: none;
-  height: 12px;
-  width: 12px;
-  max-width: 12px;
+  height: 0.75rem;
+  width: 0.75rem;
+  max-width: 0.75rem;
   border-radius: 50%;
   margin: 0;
 `
 
 export const Dot = styled.button`
   border: none;
-  width: 12px;
-  max-width: 12px;
-  height: 12px;
+  width: 0.75rem;
+  max-width: 0.75rem;
+  height: 0.75rem;
   background: #ffffff;
   border-radius: 50%;
   cursor: pointer;
