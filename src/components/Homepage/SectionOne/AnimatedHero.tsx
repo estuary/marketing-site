@@ -12,7 +12,7 @@ const AnimatedHero = () => {
   const [animationData, setAnimationData] = React.useState<object>();
 
   React.useEffect(() => {
-    import('../../../images/hero-animation.json').then(setAnimationData);
+    import('../../../images/hero-animation.min.json').then(setAnimationData);
   }, []);
 
   const [showAnimation, setShowAnimation] = React.useState(false);
