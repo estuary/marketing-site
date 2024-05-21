@@ -16,13 +16,27 @@ const AnimatedHero = () => {
   }, []);
 
   const [showAnimation, setShowAnimation] = React.useState(false);
+  const [lottieLoaded, setLottieLoaded] = React.useState(false);
   const lottieRef: any = React.useRef();
 
+  React.useEffect(() => {
+    let playTimeout;
+    if (lottieLoaded) {
+      setShowAnimation(true);
+
+      playTimeout = setTimeout(() => {
+        lottieRef.current?.play();
+      }, 5000);
+    }
+    return () => {
+      if (playTimeout) {
+        clearTimeout(playTimeout);
+      }
+    };
+  }, [lottieLoaded]);
+
   const handleLottieLoaded = React.useCallback(() => {
-    setShowAnimation(true);
-    setTimeout(() => {
-      lottieRef.current?.play();
-    }, 5000);
+    setLottieLoaded(true);
   }, [lottieRef]);
 
   return (
