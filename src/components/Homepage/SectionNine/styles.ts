@@ -105,14 +105,11 @@ export const DotWrapper = styled.li`
   align-items: center;
   justify-content: center;
   list-style: none;
-  height: 0.75rem;
-  width: 0.75rem;
-  max-width: 0.75rem;
-  border-radius: 50%;
   margin: 0;
 `
 
 export const Dot = styled.button`
+  display: inline-block;
   border: none;
   width: 0.75rem;
   max-width: 0.75rem;
