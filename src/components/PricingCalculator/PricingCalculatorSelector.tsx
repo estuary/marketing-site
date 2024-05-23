@@ -42,8 +42,7 @@ export const PricingCalculatorSelector = () => {
             min: 2,
             max: maxConnectors
           }}
-          type="number"
-          value={selectedConnectors}
+          value={selectedConnectors > 20 ? '+20' : selectedConnectors.toString()}
           onChange={handleCountInputChange}
           notched
         />
