@@ -1,7 +1,11 @@
 {
     "compilerOptions": {
         "target": "esnext",
-        "lib": ["dom", "dom.iterable", "esnext"],
+        "lib": [
+            "dom",
+            "dom.iterable",
+            "esnext"
+        ],
         "jsx": "react",
         "allowJs": false,
         "module": "esnext",
@@ -10,11 +14,21 @@
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
         "isolatedModules": true,
+        "strictNullChecks": true,
         "skipLibCheck": true,
         "strict": false,
         "noEmit": true,
         "checkJs": false
     },
-    "include": ["**/*.ts", "**/*.tsx", "./plugins/**/*", "types.d.ts"],
-    "exclude": ["node_modules", "public", ".cache"]
+    "include": [
+        "**/*.ts",
+        "**/*.tsx",
+        "./plugins/**/*",
+        "types.d.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "public",
+        ".cache"
+    ]
 }

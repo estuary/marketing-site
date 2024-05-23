@@ -1,11 +1,11 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 
-import { globalMaxWidth } from "../../../../../../globalStyles"
-import BackgroundImage from "../../../../../../images/lp-product/TheAutomation/the-automation-bg.png"
+import { globalMaxWidth } from '../../../../../../globalStyles';
+import BackgroundImage from '../../../../../../images/lp-product/TheAutomation/the-automation-bg.png';
 
 export const Container = styled.div`
     ${globalMaxWidth}
-    
+
     display: flex;
     flex-direction: column;
     gap: 250px;
@@ -77,7 +77,7 @@ export const Container = styled.div`
             }
         }
     }
-`
+`;
 
 export const ContainerCards = styled.div`
     display: flex;
@@ -91,4 +91,4 @@ export const ContainerCards = styled.div`
         flex-direction: column;
         justify-content: space-around;
     }
-`
+`;

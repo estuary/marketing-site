@@ -1,12 +1,12 @@
-import { graphql, useStaticQuery } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
-import * as React from "react"
-import Marquee from "react-fast-marquee"
-import ActiveUsersIcon from "../../../svgs/metric-active-users.svg"
-import LatencyIcon from "../../../svgs/metric-latency.svg"
-import SingleDataflowIcon from "../../../svgs/metric-single-dataflow.svg"
-import AnimFallback from "./AnimFallback"
-import AnimatedHero from "./AnimatedHero"
+import { graphql, useStaticQuery } from 'gatsby';
+import { GatsbyImage } from 'gatsby-plugin-image';
+import * as React from 'react';
+import Marquee from 'react-fast-marquee';
+import ActiveUsersIcon from '../../../svgs/metric-active-users.svg';
+import LatencyIcon from '../../../svgs/metric-latency.svg';
+import SingleDataflowIcon from '../../../svgs/metric-single-dataflow.svg';
+import AnimFallback from './AnimFallback';
+import AnimatedHero from './AnimatedHero';
 import {
     Container,
     FlowAnimationContainer,
@@ -24,8 +24,8 @@ import {
     MetricsWrapper,
     PrimaryButton,
     SecondaryButton,
-    VanityLogo
-} from "./styles"
+    VanityLogo,
+} from './styles';
 
 const SectionOne = () => {
     const logos = useStaticQuery(graphql`
@@ -58,34 +58,21 @@ const SectionOne = () => {
                 }
             }
         }
-    `)
+    `);
 
     return (
         <Container>
             <MainContent>
                 <HomepageHeader>
                     <HomepageTitle>
-                        <span>
-                            Meet
-                        </span>
-                        {" "}
-                        <span>
-                            the fastest
-                        </span>
-                        <span>
-                            ,
-                        </span>
-                        {" "}
-                        <span>
-                            most reliable
-                        </span>
-                        {" "}
-                        <span>
-                            CDC
-                        </span>
+                        <span>Meet</span> <span>the fastest</span>
+                        <span>,</span> <span>most reliable</span>{' '}
+                        <span>CDC</span>
                     </HomepageTitle>
                     <HomepageDescription>
-                        The only platform built from the ground up to deliver the most real-time and reliable CDC, streaming, and batch data.
+                        The only platform built from the ground up to deliver
+                        the most real-time and reliable CDC, streaming, and
+                        batch data.
                     </HomepageDescription>
                     <HomepageHeadingButtons>
                         <PrimaryButton
@@ -137,9 +124,9 @@ const SectionOne = () => {
             </MetricCardsList>
             <MarqueeWrapper>
                 <Marquee autoFill>
-                    {logos.allStrapiVanityLogo.nodes?.map(logo =>
+                    {logos.allStrapiVanityLogo.nodes?.map((logo) =>
                         logo.logo.localFile.internal.mediaType ===
-                            "image/svg+xml" ? (
+                        'image/svg+xml' ? (
                             <VanityLogo key={logo.id}>
                                 <div
                                     dangerouslySetInnerHTML={{
@@ -150,7 +137,7 @@ const SectionOne = () => {
                         ) : (
                             <VanityLogo key={logo.id}>
                                 <GatsbyImage
-                                    alt={`logo`}
+                                    alt="logo"
                                     loading="eager"
                                     image={
                                         logo.logo.localFile.childImageSharp
@@ -163,7 +150,7 @@ const SectionOne = () => {
                 </Marquee>
             </MarqueeWrapper>
         </Container>
-    )
-}
+    );
+};
 
-export default SectionOne
+export default SectionOne;

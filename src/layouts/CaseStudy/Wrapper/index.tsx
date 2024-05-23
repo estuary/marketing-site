@@ -1,6 +1,6 @@
-import React from "react"
+import React from 'react';
 
-import Layout from "../../../components/layout"
+import Layout from '../../../components/layout';
 
 const CaseStudyWrapper = ({ children }) => {
     return (
@@ -13,7 +13,7 @@ const CaseStudyWrapper = ({ children }) => {
                 {children}
             </article>
         </Layout>
-    )
-}
+    );
+};
 
-export default CaseStudyWrapper
+export default CaseStudyWrapper;

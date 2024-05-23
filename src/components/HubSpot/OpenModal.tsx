@@ -1,18 +1,14 @@
-import CloseIcon from "@mui/icons-material/Close"
-import {
-    Dialog,
-    DialogContent,
-    DialogTitle,
-    IconButton
-} from "@mui/material"
-import * as React from "react"
-import { ButtonOutlinedSecondary } from "../../globalStyles"
-import HubSpotFormWrapper from "./FormWrapper"
+import CloseIcon from '@mui/icons-material/Close';
+import { Dialog, DialogContent, DialogTitle, IconButton } from '@mui/material';
+import * as React from 'react';
+import { ButtonOutlinedSecondary } from '../../globalStyles';
+import HubSpotFormWrapper from './FormWrapper';
 
-interface OpenHubspotModalProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-    buttonLabel: string
-    buttonClass?: string
-    buttonId: string
+interface OpenHubspotModalProps
+    extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+    buttonLabel: string;
+    buttonClass?: string;
+    buttonId: string;
 }
 
 function OpenHubspotModal({
@@ -21,7 +17,7 @@ function OpenHubspotModal({
     buttonId,
     ...rest
 }: OpenHubspotModalProps) {
-    const [openDialog, setOpenDialog] = React.useState(false)
+    const [openDialog, setOpenDialog] = React.useState(false);
 
     return (
         <>
@@ -29,7 +25,7 @@ function OpenHubspotModal({
                 id={buttonId}
                 className={buttonClass}
                 onClick={() => {
-                    setOpenDialog(true)
+                    setOpenDialog(true);
                 }}
                 {...rest}
             >
@@ -37,7 +33,7 @@ function OpenHubspotModal({
             </ButtonOutlinedSecondary>
             <Dialog open={openDialog} fullWidth style={{ zIndex: 10000 }}>
                 <DialogTitle
-                    style={{ display: "flex", justifyContent: "space-between" }}
+                    style={{ display: 'flex', justifyContent: 'space-between' }}
                 >
                     {buttonLabel}
                     <IconButton onClick={() => setOpenDialog(false)}>
@@ -49,7 +45,7 @@ function OpenHubspotModal({
                 </DialogContent>
             </Dialog>
         </>
-    )
+    );
 }
 
-export default OpenHubspotModal
+export default OpenHubspotModal;

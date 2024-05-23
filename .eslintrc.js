@@ -1,39 +1,72 @@
-/* eslint-env node */
-
 module.exports = {
-    extends: [
-        'eslint:recommended',
-        'plugin:@typescript-eslint/recommended',
-        'plugin:prettier/recommended',
-        'plugin:react-hooks/recommended',
-    ],
-    parser: '@typescript-eslint/parser',
-    plugins: ['@typescript-eslint', 'react-hooks'],
-    root: true,
+    globals: {
+        __PATH_PREFIX__: true,
+    },
+    extends: ['eslint-config-kentcdodds', 'eslint-config-kentcdodds/react'],
+    ignorePatterns: ['vite.config.ts', '__mocks__'],
+    parserOptions: {
+        project: './tsconfig.json',
+        tsconfigRootDir: __dirname,
+    },
+    plugins: ['formatjs', 'unused-imports', 'import'],
     rules: {
-        '@typescript-eslint/no-unused-vars': 'error',
-        '@typescript-eslint/no-explicit-any': 'warn',
-        'prefer-const': [
-            'error',
-            {
-                destructuring: 'any',
-                ignoreReadBeforeAssign: false,
-            },
-        ],
-        'sort-imports': [
-            'error',
-            {
-                ignoreCase: false,
-                ignoreDeclarationSort: false,
-                ignoreMemberSort: false,
-                memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
-                allowSeparatedGroups: true,
-            },
-        ],
-        'react/display-name': 'off',
-        'react/prop-types': 'off',
+        // Want to make sure imports and exports are always formatted correctly
+        'unused-imports/no-unused-imports': 'error',
+        'import/first': 'error',
+        'import/newline-after-import': 'error',
+        'import/no-duplicates': 'error',
+
+        // Only turning off right now to see more actual issues
+        '@typescript-eslint/no-explicit-any': 'off',
+        '@typescript-eslint/no-unsafe-argument': 'off',
+        '@typescript-eslint/no-unsafe-assignment': 'off',
+
+        // Helpful for dev but probably should turn these on eventually
+        '@typescript-eslint/no-unsafe-call': 'off',
+        '@typescript-eslint/no-unsafe-member-access': 'off',
+
+        // Helpful for dev... maybe make different settings for 'final code'?
+        'no-console': 'off',
+
+        // Design decision we made for how we like code
+        'react/destructuring-assignment': 'error',
+        'no-tabs': 'error',
+
+        // We're using a new React so I think this is safe
         'react/react-in-jsx-scope': 'off',
-        'react-hooks/rules-of-hooks': 'error',
+
+        // Just do not agree with this one
+        'no-negated-condition': 'off',
+
+        'formatjs/enforce-placeholders': 'error',
+        // 'formatjs/no-literal-string-in-jsx': 'error',
+
+        'react/iframe-missing-sandbox': 'error',
+        'react/jsx-no-leaked-render': 'error',
+        'no-constant-binary-expression': 'error',
+
+        // We should never have these unless commented and explained
         'react-hooks/exhaustive-deps': 'error',
+
+        // Original LoadingButton can cause issues with Google Translate
+        //  https://github.com/mui/material-ui/issues/27853
+        //  https://github.com/facebook/react/issues/11538
+        'no-restricted-imports': [
+            'error',
+            {
+                name: '@mui/lab',
+                importNames: ['LoadingButton'],
+                message: 'Please use SafeLoadingButton instead.',
+            },
+            {
+                name: '@emotion/react',
+                message: 'Do not access emotion directly. Load through MUI',
+            },
+        ],
+
+        // TODO: gatsby will release a minor version allowing gatsby-config.mts (ES modules with TS), so let's turn off the rule import/no-import-module-exports until we migrate the gatsby-config and gatsby-node to .mts
+        'import/no-import-module-exports': 'off',
+        'react/display-name': 'off',
+        'react/jsx-filename-extension': [1, { extensions: ['.jsx', '.tsx'] }]
     },
 };

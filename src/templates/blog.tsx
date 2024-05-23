@@ -1,89 +1,86 @@
-import { Link, graphql } from "gatsby"
-import * as React from "react"
+import { Link, graphql } from 'gatsby';
+import * as React from 'react';
 
-import SearchIcon from "@mui/icons-material/Search"
-import { Divider } from "@mui/material"
-import clsx from "clsx"
-import type { Index } from "lunr"
-import lunr from "lunr"
-import { useMemo } from "react"
-import BackgroundImageWrapper from "../components/BackgroundImageWrapper"
-import { BlogPostCard } from "../components/BlogPostCard"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
-import FlowLogo from "../svgs/flow-logo.svg"
+import SearchIcon from '@mui/icons-material/Search';
+import { Divider } from '@mui/material';
+import clsx from 'clsx';
+import lunr, { type Index } from 'lunr';
+import { useMemo } from 'react';
+import BackgroundImageWrapper from '../components/BackgroundImageWrapper';
+import { BlogPostCard } from '../components/BlogPostCard';
+import Layout from '../components/layout';
+import Seo from '../components/seo';
+import FlowLogo from '../svgs/flow-logo.svg';
 
 interface BlogIndexProps {
     data: {
         allStrapiBlogPost: {
-            nodes: any[]
-        }
+            nodes: any[];
+        };
         localSearchPosts: {
-            index: any
-            store: any
-        }
-    }
+            index: any;
+            store: any;
+        };
+    };
     pageContext: {
-        blogPostIds: String[]
+        blogPostIds: String[];
         tabCategories: Array<{
-            Type: String
-            Slug: string
-            Name: String
-        }>
-        categoryTitle: String
-        categorySlug: String
+            Type: String;
+            Slug: string;
+            Name: String;
+        }>;
+        categoryTitle: String;
+        categorySlug: String;
         pagination: {
-            page: number
-            totalPages: number
-            nextPage?: string
-            prevPage?: string
-        }
-    }
+            page: number;
+            totalPages: number;
+            nextPage?: string;
+            prevPage?: string;
+        };
+    };
 }
 
 const BlogIndex = ({
     data,
     pageContext: {
-        categoryTitle,
         categorySlug,
         tabCategories: realTabCategories,
-        blogPostIds,
-        pagination: { page, totalPages, nextPage, prevPage },
+        pagination: { nextPage, prevPage },
     },
 }: BlogIndexProps) => {
-    const posts = data.allStrapiBlogPost.nodes
+    const posts = data.allStrapiBlogPost.nodes;
 
     const index: Index = React.useMemo(
         () => lunr.Index.load(JSON.parse(data.localSearchPosts.index)),
         [data.localSearchPosts.index]
-    )
+    );
 
-    const [query, setQuery] = React.useState("")
+    const [query, setQuery] = React.useState('');
 
     const results = useMemo(() => {
-        const query_result = index.query(q => {
-            const terms = query.split(" ").filter(term => term.length > 0)
+        const query_result = index.query((q) => {
+            const terms = query.split(' ').filter((term) => term.length > 0);
             for (const term of terms) {
                 q.term(term, {
                     wildcard: lunr.Query.wildcard.TRAILING,
                     boost: 10,
-                })
+                });
                 q.term(term, {
                     editDistance: Math.min(Math.max(0, term.length - 1), 3),
-                })
+                });
             }
-            return q
-        })
-        return query_result.map(r => data.localSearchPosts.store[r.ref])
-    }, [query, index, data.localSearchPosts.store])
+            return q;
+        });
+        return query_result.map((r) => data.localSearchPosts.store[r.ref]);
+    }, [query, index, data.localSearchPosts.store]);
 
     const tabCategories = [
-        { Slug: "", Name: "All", Type: "category" },
+        { Slug: '', Name: 'All', Type: 'category' },
         ...realTabCategories,
-    ]
+    ];
 
     return (
-        <Layout headerTheme="light">
+        <Layout>
             <BackgroundImageWrapper>
                 <div className="blogs-index-header-wrapper">
                     <div className="blogs-index-header">
@@ -109,8 +106,8 @@ const BlogIndex = ({
                             <Link
                                 key={category.Slug}
                                 to={`/blog/${category.Slug}`}
-                                className={clsx("blogs-index-tab", {
-                                    "blogs-index-tab-active":
+                                className={clsx('blogs-index-tab', {
+                                    'blogs-index-tab-active':
                                         category.Slug === categorySlug,
                                 })}
                             >
@@ -124,7 +121,7 @@ const BlogIndex = ({
                             placeholder="Search Blog Posts"
                             type="text"
                             value={query}
-                            onChange={evt => setQuery(evt.target.value)}
+                            onChange={(evt) => setQuery(evt.target.value)}
                         />
                     </div>
                 </div>
@@ -134,7 +131,7 @@ const BlogIndex = ({
                     ))}
                 </div>
             </BackgroundImageWrapper>
-            {(prevPage || nextPage) && (
+            {prevPage ?? nextPage ? (
                 <>
                     <Divider />
                     <div className="blogs-nav">
@@ -147,28 +144,26 @@ const BlogIndex = ({
                         ) : null}
                     </div>
                 </>
-            )}
+            ) : null}
         </Layout>
-    )
-}
+    );
+};
 
-export default BlogIndex
+export default BlogIndex;
 
 /**
  * Head export to define metadata for the page
  *
  * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
  */
-export const Head = ({ data: { post } }) => {
+export const Head = () => {
     return (
         <Seo
-            title={"Blog"}
-            description={
-                "More about Estuary and related technologies, straight from the team. Our blog breaks down basic concepts and takes you into the minds of our engineers."
-            }
+            title="Blog"
+            description="More about Estuary and related technologies, straight from the team. Our blog breaks down basic concepts and takes you into the minds of our engineers."
         />
-    )
-}
+    );
+};
 
 export const pageQuery = graphql`
     # We need to pass in IDs because we do the filtering in gatsby-node.ts
@@ -225,4 +220,4 @@ export const pageQuery = graphql`
             }
         }
     }
-`
+`;

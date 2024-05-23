@@ -1,13 +1,12 @@
-import * as React from "react"
-import Layout from "../components/layout"
-import FlowLogo from "../svgs/flow-logo.svg"
-import { StaticImage } from "gatsby-plugin-image"
-import Seo from "../components/seo"
-import SolutionsBanner from "../svgs/solutions-banner.svg"
-import Image1 from "../svgs/solutions-1.svg"
-import Image2 from "../svgs/solutions-2.svg"
-import Image3 from "../svgs/solutions-3.svg"
-import Image4 from "../svgs/solutions-4.svg"
+import * as React from 'react';
+import Layout from '../components/layout';
+import Seo from '../components/seo';
+import FlowLogo from '../svgs/flow-logo.svg';
+import Image1 from '../svgs/solutions-1.svg';
+import Image2 from '../svgs/solutions-2.svg';
+import Image3 from '../svgs/solutions-3.svg';
+import Image4 from '../svgs/solutions-4.svg';
+import SolutionsBanner from '../svgs/solutions-banner.svg';
 
 const SolutionsPage = () => {
     return (
@@ -16,8 +15,8 @@ const SolutionsPage = () => {
                 <div className="product-flow-section-one">
                     <div className="product-flow-section-one-left">
                         <h1 className="product-flow-section-one-h1">
-                            Streaming ETL solutions are revolutionizing what's
-                            possible for data pipelines.
+                            Streaming ETL solutions are revolutionizing
+                            what&apos;s possible for data pipelines.
                         </h1>
                         <p className="product-flow-section-one-subtext">
                             For too long, enterprises have been forced to choose
@@ -51,11 +50,11 @@ const SolutionsPage = () => {
                     <p className="solutions-subtext">
                         Batch data pipelines introduce latency by definition.
                         Low-latency, high-volume data streaming pipelines give
-                        you powerful real-time insight about your business.{" "}
+                        you powerful real-time insight about your business.{' '}
                     </p>
 
                     <p className="solutions-subtext">
-                        Whether you're looking to improve anomaly or fraud
+                        Whether you&apos;re looking to improve anomaly or fraud
                         detection or to improve your predictive analytics,
                         building your analytics practice on the freshest data is
                         a no-brainer.
@@ -69,12 +68,12 @@ const SolutionsPage = () => {
                     <FlowLogo className="product-flow-section-one-image" />
                 </div>
                 <div className="solutions-section-image-wrapper">
-                    <Image1/>
+                    <Image1 />
                 </div>
             </div>
             <div className="solutions-section-wrapper mobile-flex-direction-reverse">
                 <div className="solutions-section-image-wrapper">
-                    <Image2/>
+                    <Image2 />
                 </div>
                 <div className="solutions-section-text-wrapper">
                     <h2 className="product-flow-section-two-topic-header">
@@ -87,18 +86,18 @@ const SolutionsPage = () => {
                     </p>
 
                     <p className="solutions-subtext">
-                        As customer touchpoints fragment, it's vital to quickly
-                        connect their data from multiple sources. By doing so,
-                        you can create a real-time view of your customers'
-                        journey and provide a personalized experience to every
-                        customer.{" "}
+                        As customer touchpoints fragment, it&apos;s vital to
+                        quickly connect their data from multiple sources. By
+                        doing so, you can create a real-time view of your
+                        customers&apos; journey and provide a personalized
+                        experience to every customer.{' '}
                     </p>
 
                     <p className="solutions-subtext">
-                        Customer 360 isn't just about improving your digital
-                        conversion rates. It can also help match real-time
-                        inventory, improve customer service, and manage stock
-                        better.
+                        Customer 360 isn&apos;t just about improving your
+                        digital conversion rates. It can also help match
+                        real-time inventory, improve customer service, and
+                        manage stock better.
                     </p>
                 </div>
             </div>
@@ -116,15 +115,15 @@ const SolutionsPage = () => {
                     <p className="solutions-subtext">
                         Change data capture has the potential to provide a
                         real-time foundation for database replication. But
-                        error-prone batch pipelines that aren't fit for purpose
-                        can keep you from taking advantage of it.
+                        error-prone batch pipelines that aren&apos;t fit for
+                        purpose can keep you from taking advantage of it.
                     </p>
 
                     <p className="solutions-subtext">
-                        Estuary's low-latency, high-scale CDC processes allow
-                        you to move data from legacy databases to analytics
-                        environments efficiently — with no data loss and zero
-                        downtime.
+                        Estuary&apos;s low-latency, high-scale CDC processes
+                        allow you to move data from legacy databases to
+                        analytics environments efficiently — with no data loss
+                        and zero downtime.
                     </p>
                 </div>
                 <div className="solutions-section-image-wrapper-right">
@@ -132,13 +131,13 @@ const SolutionsPage = () => {
                         <FlowLogo className="product-flow-section-one-image" />
                     </div>
                     <div className="solutions-section-image-wrapper">
-                        <Image3/>
+                        <Image3 />
                     </div>
                 </div>
             </div>
             <div className="solutions-section-wrapper solutions-margin-bottom mobile-flex-direction-reverse">
                 <div className="solutions-section-image-wrapper ">
-                    <Image4/>
+                    <Image4 />
                 </div>
                 <div className="solutions-section-text-wrapper">
                     <h2 className="product-flow-section-two-topic-header">
@@ -157,7 +156,7 @@ const SolutionsPage = () => {
                     </p>
 
                     <p className="solutions-subtext">
-                        Estuary's data pipelines integrate with all leading
+                        Estuary&apos;s data pipelines integrate with all leading
                         legacy databases, so you can get to work extracting your
                         data in minutes. And with intelligent transformation
                         options and integrations with leading cloud warehouses,
@@ -166,14 +165,16 @@ const SolutionsPage = () => {
                 </div>
             </div>
         </Layout>
-    )
-}
+    );
+};
 
 export const Head = () => {
-    return <Seo
-        title={"Solutions"}
-        description={"Estuary allows enterprises of any size to deploy true real-time pipelines that scale for high-volume use cases — without making difficult trade-offs or investing in complex infrastructure."}
-    />
-}
+    return (
+        <Seo
+            title="Solutions"
+            description="Estuary allows enterprises of any size to deploy true real-time pipelines that scale for high-volume use cases — without making difficult trade-offs or investing in complex infrastructure."
+        />
+    );
+};
 
-export default SolutionsPage
+export default SolutionsPage;

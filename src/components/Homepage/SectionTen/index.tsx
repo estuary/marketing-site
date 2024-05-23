@@ -1,18 +1,22 @@
-import * as React from "react"
-import { webinarsUrl } from "../../../../shared"
-import { ButtonFilled, ButtonOutlined, Buttons, Container, HubspotButton, Title, Wrapper } from "./styles"
+import * as React from 'react';
+import { webinarsUrl } from '../../../../shared';
+import {
+    ButtonFilled,
+    ButtonOutlined,
+    Buttons,
+    Container,
+    HubspotButton,
+    Title,
+    Wrapper,
+} from './styles';
 
 const SectionTen = () => {
     return (
         <Container>
             <Wrapper>
                 <Title>
-                    <span>
-                        SEE HOW {" "}
-                    </span>
-                    <span>
-                        ESTUARY CAN WORK FOR YOU AND YOUR DATA
-                    </span>
+                    <span>SEE HOW </span>
+                    <span>ESTUARY CAN WORK FOR YOU AND YOUR DATA</span>
                 </Title>
                 <Buttons>
                     <ButtonFilled
@@ -21,10 +25,7 @@ const SectionTen = () => {
                     >
                         Try Now
                     </ButtonFilled>
-                    <ButtonOutlined
-                        href={webinarsUrl}
-                        target="_blank"
-                    >
+                    <ButtonOutlined href={webinarsUrl} target="_blank">
                         Watch Demo
                     </ButtonOutlined>
                     <HubspotButton
@@ -34,7 +35,7 @@ const SectionTen = () => {
                 </Buttons>
             </Wrapper>
         </Container>
-    )
-}
+    );
+};
 
-export default SectionTen
+export default SectionTen;

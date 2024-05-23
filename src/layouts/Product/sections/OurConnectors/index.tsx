@@ -1,7 +1,18 @@
-import { StaticImage } from "gatsby-plugin-image"
-import React from "react"
+import { StaticImage } from 'gatsby-plugin-image';
+import React from 'react';
 
-import { Button, Container, ContainerContent, ContainerImage, ContainerTopics, PrimaryTextColor, SecondaryTextColor, Title, Topic, Wrapper } from "./style"
+import {
+    Button,
+    Container,
+    ContainerContent,
+    ContainerImage,
+    ContainerTopics,
+    PrimaryTextColor,
+    SecondaryTextColor,
+    Title,
+    Topic,
+    Wrapper,
+} from './style';
 
 const OurConnectors = () => {
     return (
@@ -28,12 +39,23 @@ const OurConnectors = () => {
                 </ContainerImage>
                 <ContainerContent>
                     <div>
-                        <Title>USE <PrimaryTextColor>OUR</PrimaryTextColor> <SecondaryTextColor>CONNECTORS,</SecondaryTextColor></Title>
-                        <Title>ADD <PrimaryTextColor>YOUR</PrimaryTextColor> <SecondaryTextColor>CONNECTORS.</SecondaryTextColor></Title>
+                        <Title>
+                            USE <PrimaryTextColor>OUR</PrimaryTextColor>{' '}
+                            <SecondaryTextColor>CONNECTORS,</SecondaryTextColor>
+                        </Title>
+                        <Title>
+                            ADD <PrimaryTextColor>YOUR</PrimaryTextColor>{' '}
+                            <SecondaryTextColor>CONNECTORS.</SecondaryTextColor>
+                        </Title>
                     </div>
                     <ContainerTopics>
-                        <Topic>Capture using log-based CDC or SaaS systems in real-time with custom-built Estuary connectors</Topic>
-                        <Topic>Bring your own connector through open protocol</Topic>
+                        <Topic>
+                            Capture using log-based CDC or SaaS systems in
+                            real-time with custom-built Estuary connectors
+                        </Topic>
+                        <Topic>
+                            Bring your own connector through open protocol
+                        </Topic>
                     </ContainerTopics>
                     <Button target="_blank" to="/integrations">
                         View connectors
@@ -41,7 +63,7 @@ const OurConnectors = () => {
                 </ContainerContent>
             </Wrapper>
         </Container>
-    )
-}
+    );
+};
 
-export default OurConnectors
+export default OurConnectors;

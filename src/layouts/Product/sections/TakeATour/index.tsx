@@ -1,8 +1,20 @@
-import { StaticImage } from "gatsby-plugin-image"
-import React from "react"
+import { StaticImage } from 'gatsby-plugin-image';
+import React from 'react';
 
-import { webinarsUrl } from "../../../../../shared"
-import { ActionLink, Button, Container, ContainerButton, ContainerContent, ContainerIcon, ContainerIcons, ContainerImage, Description, Title, Wrapper } from "./styles"
+import { webinarsUrl } from '../../../../../shared';
+import {
+    ActionLink,
+    Button,
+    Container,
+    ContainerButton,
+    ContainerContent,
+    ContainerIcon,
+    ContainerIcons,
+    ContainerImage,
+    Description,
+    Title,
+    Wrapper,
+} from './styles';
 
 const TakeATour = () => {
     return (
@@ -46,7 +58,10 @@ const TakeATour = () => {
                         </ContainerIcon>
                     </ContainerIcons>
                     <Title>TAKE A TOUR</Title>
-                    <Description>Learn more about how estuary can help with real-time replication.</Description>
+                    <Description>
+                        Learn more about how estuary can help with real-time
+                        replication.
+                    </Description>
                     <ContainerButton>
                         <ActionLink target="_blank" to="/why">
                             Self-Guided Tour [1 min]
@@ -58,7 +73,7 @@ const TakeATour = () => {
                 </ContainerContent>
             </Wrapper>
         </Container>
-    )
-}
+    );
+};
 
-export default TakeATour
+export default TakeATour;
