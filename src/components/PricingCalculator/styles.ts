@@ -83,14 +83,15 @@ export const SliderWrapper = styled.div`
 `;
 
 export const ComparisonWrapper = styled.div`
-    font-family: 'Inter', sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin-top: 32px;
-    gap: 24px;
-    flex-wrap: wrap;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  width: 100%;
+  margin-top: 32px;
+  gap: 24px;
+  flex-wrap: wrap;
+  min-height: 169px;
 
     @media (max-width: 525px) {
         gap: 32px;
@@ -104,12 +105,13 @@ export const ComparisonWrapper = styled.div`
 `;
 
 export const BrandWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-    max-width: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 180px;
+  margin: auto 0;
 
     &:first-child {
         background-color: #5072eb12;
@@ -169,10 +171,13 @@ export const BrandPrice = styled.span`
 `;
 
 export const ConnectorsCounterWrapper = styled.div`
-    display: flex;
-    gap: 16px;
-    margin-top: 16px;
-`;
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+`
 
 export const CountInputWrapper = styled.div`
     display: flex;
@@ -193,13 +198,16 @@ export const ButtonPlus = styled(ButtonFilled)`
 `;
 
 export const Form = styled(FormControl)`
-    & > .MuiInputLabel-outlined {
-        color: #04192b;
-        width: 100%;
-        text-align: center;
-        left: 4.5%;
-    }
-`;
+  max-width: 185px !important;
+  width: 100%;
+
+  & > .MuiInputLabel-outlined {
+    color: #04192B;
+    width: 100%;
+    text-align: center;
+    left: 4.5%;
+  };
+`
 
 export const CountInput = styled(OutlinedInput)`
     max-width: 185px;

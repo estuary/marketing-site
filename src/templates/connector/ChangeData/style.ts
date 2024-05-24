@@ -125,7 +125,11 @@ export const Topic = styled.li`
 `;
 
 export const LineBreak = styled.span`
+<<<<<<< HEAD
     @media (min-width: 1024px) {
         display: block;
     }
+=======
+  display: block;
+>>>>>>> ebfc0e66fe0966ed4bf3a0cb9c00ac23dbc465a4
 `;
