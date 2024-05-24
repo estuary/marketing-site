@@ -12,39 +12,29 @@ import './src/style.less';
 // import "prismjs/themes/prism.css"
 
 import { Script } from 'gatsby';
-import HelpChatPlaceholder from './src/components/HelpChatPlaceholder';
 
 const ZD_KEY = '3271265c-16a8-4e0d-b1ab-72ed8fbe7e5a';
 
-const WrapPageElementComponent = ({ children }) => {
-  const [shouldLoadHelpChat, setShouldLoadHelpChat] = React.useState(false);
-
-  const isMobileScreen =
-    typeof window !== 'undefined' &&
-    (window.innerWidth < 768 || window.innerHeight < 768);
-
-  const handleMouseEnter = React.useCallback(() => {
-    setShouldLoadHelpChat(true);
-  }, []);
-
-  if (isMobileScreen) {
-    return children;
+export const wrapPageElement = ({ element }) => {
+  if (
+    process.env.NODE_ENV === 'development' ||
+    window.innerWidth < 768 ||
+    window.innerHeight < 768
+  ) {
+    return element;
   }
 
   return (
     <>
-      {children}
-      {shouldLoadHelpChat && (
-        <Script
-          id="ze-snippet"
-          key="gatsby-plugin-zendesk-chat"
-          strategy={'idle'}
-          async
-          defer
-          src={`https://static.zdassets.com/ekr/snippet.js?key=${ZD_KEY}`}
-        />
-      )}
-      <HelpChatPlaceholder onMouseEnter={handleMouseEnter} />
+      {element}
+      <Script
+        id="ze-snippet"
+        key="gatsby-plugin-zendesk-chat"
+        strategy={'idle'}
+        async
+        defer
+        src={`https://static.zdassets.com/ekr/snippet.js?key=${ZD_KEY}`}
+      />
       <Script
         id="hs-script-loader"
         async
@@ -54,10 +44,6 @@ const WrapPageElementComponent = ({ children }) => {
       />
     </>
   );
-};
-
-export const wrapPageElement = ({ element }) => {
-  return <WrapPageElementComponent>{element}</WrapPageElementComponent>;
 };
 
 export const onClientEntry = () => {
