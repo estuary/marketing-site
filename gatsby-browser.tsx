@@ -12,21 +12,35 @@ import './src/style.less';
 // import "prismjs/themes/prism.css"
 
 import { Script } from 'gatsby';
+import { isMobile } from 'react-device-detect';
 
 const ZD_KEY = '3271265c-16a8-4e0d-b1ab-72ed8fbe7e5a';
 
-export const wrapPageElement = ({ element }) => {
+const WrapPageElementComponent = ({ children }) => {
+  const screenSize = {
+    width: window.innerWidth,
+    height: window.innerHeight,
+  };
+
+  const [dimensions, setDimensions] = React.useState(screenSize);
+
+  React.useEffect(() => {
+    const subscriber = () => setDimensions(screenSize);
+    window.addEventListener('load', subscriber);
+    return () => window.removeEventListener('load', subscriber);
+  }, []);
+
   if (
     process.env.NODE_ENV === 'development' ||
-    window.innerWidth < 768 ||
-    window.innerHeight < 768
+    isMobile ||
+    dimensions.width < 768
   ) {
-    return element;
+    return children;
   }
 
   return (
     <>
-      {element}
+      {children}
       <Script
         id="ze-snippet"
         key="gatsby-plugin-zendesk-chat"
@@ -45,6 +59,10 @@ export const wrapPageElement = ({ element }) => {
     </>
   );
 };
+
+export const wrapPageElement = ({ element }) => (
+  <WrapPageElementComponent>{element}</WrapPageElementComponent>
+);
 
 export const onClientEntry = () => {
   // IntersectionObserver polyfill for gatsby-background-image (Safari, IE)
