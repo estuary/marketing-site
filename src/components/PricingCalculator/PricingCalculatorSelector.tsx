@@ -10,6 +10,8 @@ const inputLabel = 'Number of connectors';
 export const PricingCalculatorSelector = () => {
   const { selectedConnectors, setSelectedConnectors } = React.useContext(PricingCalculatorContext);
 
+  const maxConnectors = 21;
+
   const handleMinusClick = () => {
     setSelectedConnectors((c) => Math.max(2, c - 1));
   };
@@ -18,7 +20,11 @@ export const PricingCalculatorSelector = () => {
 
   const handleCountInputChange = (evt: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const value = parseInt(evt.target.value);
-    setSelectedConnectors(value >= 2 ? value : 2);
+
+    if (!Number.isNaN(value)) {
+      const clampedValue = Math.max(2, Math.min(maxConnectors, value));
+      setSelectedConnectors(clampedValue);
+    }
   };
 
   return (
@@ -34,14 +40,14 @@ export const PricingCalculatorSelector = () => {
           inputProps={{
             style: { textAlign: 'center' },
             min: 2,
+            max: maxConnectors
           }}
-          type="number"
-          value={selectedConnectors}
+          value={selectedConnectors > 20 ? '+20' : selectedConnectors.toString()}
           onChange={handleCountInputChange}
           notched
         />
       </Form>
-      <ButtonPlus onClick={handlePlusClick} aria-label={`increase ${inputLabel}`}>
+      <ButtonPlus onClick={handlePlusClick} disabled={selectedConnectors === maxConnectors} aria-label={`increase ${inputLabel}`}>
         <PlusSign />
       </ButtonPlus>
     </ConnectorsCounterWrapper>

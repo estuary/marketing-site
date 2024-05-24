@@ -80,12 +80,13 @@ export const SliderWrapper = styled.div`
 export const ComparisonWrapper = styled.div`
   font-family: "Inter", sans-serif;
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: center;
   width: 100%;
   margin-top: 32px;
   gap: 24px;
   flex-wrap: wrap;
+  min-height: 169px;
 
   @media (max-width: 525px) {
     gap: 32px;
@@ -105,6 +106,7 @@ export const BrandWrapper = styled.div`
   gap: 10px;
   width: 100%;
   max-width: 180px;
+  margin: auto 0;
 
   &:first-child {
     background-color: #5072EB12;
@@ -167,6 +169,9 @@ export const ConnectorsCounterWrapper = styled.div`
   display: flex;
   gap: 16px;
   margin-top: 16px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 `
 
 export const CountInputWrapper = styled.div`
@@ -188,6 +193,9 @@ export const ButtonPlus = styled(ButtonFilled)`
 `
 
 export const Form = styled(FormControl)`
+  max-width: 185px !important;
+  width: 100%;
+
   & > .MuiInputLabel-outlined {
     color: #04192B;
     width: 100%;
