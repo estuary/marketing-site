@@ -75,7 +75,7 @@ export const onClientEntry = () => {
 
 // Copied from https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-plugin-google-gtag/src/gatsby-browser.js
 export const onRouteUpdate = ({ location }) => {
-    if (process.env.NODE_ENV !== `production` || typeof gtag !== `function`) {
+    if (process.env.NODE_ENV !== `production` || typeof window.gtag !== `function`) {
         return null;
     }
 
