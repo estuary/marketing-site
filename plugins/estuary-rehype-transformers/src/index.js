@@ -7,7 +7,7 @@ import rehypeSlug from 'rehype-slug';
 import rehypeToc from 'rehype-toc';
 import { unified } from 'unified';
 import * as visit from 'unist-util-visit';
-import ImgSharpInline from './ImgSharp';
+import ImgSharpInline from './ImgSharp.jsx';
 
 const LANG_RE = /hljs language\-(.*)/;
 
