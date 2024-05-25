@@ -9,7 +9,7 @@ import { unified } from 'unified';
 import * as visit from 'unist-util-visit';
 import ImgSharpInline from './ImgSharp.jsx';
 
-const LANG_RE = /hljs language\-(.*)/;
+const LANG_RE = /hljs language-(.*)/;
 
 const transform = async ({ htmlAst, htmlNode, getNode }, opts) => {
     const parentNode = await getNode(htmlNode.parent);
