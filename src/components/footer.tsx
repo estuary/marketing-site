@@ -12,6 +12,8 @@ const openCookiePreferences = () => {
         // @ts-expect-error : This loads through CookieFirst. Once homepage changes are merged we add to the window type
         window.cookiefirst_show_settings();
     } catch (e) {
+        // TODO: Treat this error another way replacing the alert()
+        // eslint-disable-next-line no-alert
         alert(
             'Failed to open Cookie Preferences. Please ensure CookieFirst loaded.'
         );

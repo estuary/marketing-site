@@ -1,4 +1,4 @@
-import { useMediaQuery, useTheme } from '@mui/material';
+import { useMediaQuery } from '@mui/material';
 import { Link } from 'gatsby';
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
@@ -8,7 +8,7 @@ import { ConnectorType, estuaryProductFlowVideoUrl } from '../../shared';
 import { Connectors } from '../components/Connectors';
 import ConnectorsImageDesktop from '../components/ConnectorsImageDesktop';
 import ConnectorsImageMobile from '../components/ConnectorsImageMobile';
-import { ConnectorsLink } from '../components/ConnectorsLink';
+import ConnectorsLink from '../components/ConnectorsLink';
 import { OutboundLink } from '../components/OutboundLink';
 import SliderHorizontal from '../components/SliderHorizontal';
 import useWindowExistence from '../hooks/useWindowExistence';
@@ -39,8 +39,7 @@ export const ConnectorPage = ({
         source_connector && normalizeConnector(source_connector);
     const dest_mapped = dest_connector && normalizeConnector(dest_connector);
 
-    const theme = useTheme();
-    const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+    const isSmallScreen = useMediaQuery('(max-width:600px)');
     const isMobile = isRealMobile || isSmallScreen
 
     const hasWindow = useWindowExistence();

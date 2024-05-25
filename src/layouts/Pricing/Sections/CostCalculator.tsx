@@ -1,8 +1,8 @@
 import { SvgIconProps, Typography, createSvgIcon } from '@mui/material';
 import React from 'react';
 
-import QuestionMarkSvgWhite from '../../../svgs/question-mark-white.svg';
-import QuestionMarkSvg from '../../../svgs/question-mark.svg';
+import questionMarkSvgWhite from '../../../svgs/question-mark-white.svg';
+import questionMarkSvg from '../../../svgs/question-mark.svg';
 
 import { ContextToolTip } from '../../../components/ContextTooltip';
 
@@ -10,9 +10,9 @@ import { PricingCalculator } from '../../../components/PricingCalculator';
 import { PricingCalculatorContext } from '../../../components/PricingCalculator/PricingCalculatorProvider';
 import { currencyFormatter, gByteLabel, scale } from '../../../utils';
 
-const QuestionIcon = createSvgIcon(QuestionMarkSvg({}), 'Question Mark');
+const QuestionIcon = createSvgIcon(questionMarkSvg({}), 'Question Mark');
 const QuestionIconWhite = createSvgIcon(
-    QuestionMarkSvgWhite({}),
+    questionMarkSvgWhite({}),
     'Question Mark'
 );
 const QuestionMarkIcon = React.forwardRef(

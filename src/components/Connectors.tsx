@@ -8,7 +8,7 @@ import { ConnectorType } from '../../shared';
 import FlowLogo from '../svgs/flow-logo.svg';
 import { normalizeConnector } from '../utils';
 import BackgroundImageWrapper from './BackgroundImageWrapper';
-import { ConnectorsLink } from './ConnectorsLink';
+import ConnectorsLink from './ConnectorsLink';
 
 export interface ConnectorsProps {
     connectorType?: ConnectorType;
@@ -23,12 +23,14 @@ export interface ConnectorsProps {
 const truncate = (val: string, max: number) => {
     if (val.length > max) {
         const words = val.split(' ');
-        const allowed = [];
+        const allowed: string[] = [];
         let len = 0;
         while (len < max) {
             const word = words.shift();
-            allowed.push(word);
-            len = len + word.length + 1;
+            if (word) {
+                allowed.push(word);
+                len = len + word.length + 1;
+            }
         }
         return `${allowed.join(' ')}...`;
     } else {
@@ -146,6 +148,7 @@ export const Connectors = ({
                 .filter((connector) =>
                     connectorType ? connector.type === connectorType : true
                 )
+                // eslint-disable-next-line array-callback-return
                 .sort((a, b) => {
                     // Sort by recommended, alphabetically
                     // then show all captures, sorted alphabetically
@@ -181,9 +184,9 @@ export const Connectors = ({
     const results = useLunr(
         query.length > 0
             ? query
-                  .split(' ')
-                  .map((term) => `${term}* ${term}~1`)
-                  .join(' ')
+                .split(' ')
+                .map((term) => `${term}* ${term}~1`)
+                .join(' ')
             : '',
         index,
         store
@@ -265,10 +268,10 @@ export const Connectors = ({
                                 <h2>{bottomTitle}</h2>
                                 <p>{bottomDescription}</p>
                                 <Link
-                                    to={`/${bottomTitle.toLowerCase()}`}
+                                    to={`/${bottomTitle?.toLowerCase()}`}
                                     className="connector-bottom-button"
                                 >
-                                    See all {bottomTitle.toLowerCase()}
+                                    See all {bottomTitle?.toLowerCase()}
                                 </Link>
                             </div>
                             <div
@@ -279,7 +282,7 @@ export const Connectors = ({
 
                                 <StaticImage
                                     src="../images/connectors-bottom.png"
-                                    alt={bottomTitle}
+                                    alt={bottomTitle ?? ''}
                                     width={500}
                                 />
                             </div>

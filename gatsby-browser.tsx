@@ -1,13 +1,13 @@
 // custom typefaces
-import * as React from 'react';
-import '@fontsource/montserrat/variable.css';
 import '@fontsource/merriweather';
+import '@fontsource/montserrat/variable.css';
+import * as React from 'react';
 // normalize CSS across browsers
 import './src/normalize.css';
 // custom CSS styles
-import './src/style.less';
-import './src/highlighting-atom-one-dark.css';
 import { isMobile } from 'react-device-detect';
+import './src/highlighting-atom-one-dark.css';
+import './src/style.less';
 
 // Highlighting for code blocks
 // import "prismjs/themes/prism.css"
@@ -16,30 +16,32 @@ import { Script } from 'gatsby';
 
 const ZD_KEY = '3271265c-16a8-4e0d-b1ab-72ed8fbe7e5a';
 
-export const wrapPageElement = ({ element }) => {
-    const [dimensions, setDimensions] = React.useState({ width: 0, height: 0 });
+export const WrapPageElementComponent = ({ children }) => {
+    const screenSize = React.useMemo(() => ({
+        width: window.innerWidth,
+        height: window.innerHeight,
+    }), [])
+
+    const [dimensions, setDimensions] = React.useState(screenSize);
 
     React.useEffect(() => {
         const subscriber = () =>
-            setDimensions({
-                width: window.innerWidth,
-                height: window.innerHeight,
-            });
+            setDimensions(screenSize);
         window.addEventListener('load', subscriber);
         return () => window.removeEventListener('load', subscriber);
-    }, []);
+    }, [screenSize]);
 
     if (
         process.env.NODE_ENV === 'development' ||
         isMobile ||
         dimensions.width < 768
     ) {
-        return element;
+        return children;
     }
 
     return (
         <>
-            {element}
+            {children}
             <Script
                 id="ze-snippet"
                 key="gatsby-plugin-zendesk-chat"
@@ -58,6 +60,10 @@ export const wrapPageElement = ({ element }) => {
         </>
     );
 };
+
+export const wrapPageElement = ({ element }) => (
+    <WrapPageElementComponent>{element}</WrapPageElementComponent>
+)
 
 export const onClientEntry = () => {
     // IntersectionObserver polyfill for gatsby-background-image (Safari, IE)

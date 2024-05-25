@@ -1,9 +1,9 @@
+import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import Typography from '@mui/material/Typography';
 import { Link } from 'gatsby';
-import PropTypes from 'prop-types';
 import * as React from 'react';
 import BlackCheckmark from '../svgs/checkmark-black.svg';
 import PricingCloud from '../svgs/cloud-pricing.svg';

@@ -1,9 +1,9 @@
-import clsx from 'clsx';
-import React, { useEffect, useRef } from 'react';
-import { isDesktop } from 'react-device-detect';
 import Chevron from '@mui/icons-material/ChevronRight';
+import clsx from 'clsx';
 import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
+import React, { useEffect, useRef } from 'react';
+import { isDesktop } from 'react-device-detect';
 import { LinkFilled } from '../../../globalStyles';
 import CardItem from '../CardItem';
 import { compare, products } from './items';
@@ -11,7 +11,7 @@ import { compare, products } from './items';
 const Card = React.lazy(() => import('../Card'));
 
 const HeaderNavbarProduct = ({ active, setActive }) => {
-    const wrapperRef = useRef(null);
+    const wrapperRef: React.RefObject<HTMLDivElement> = useRef(null);
 
     const onClick = (ev) => {
         ev.preventDefault();
@@ -34,8 +34,7 @@ const HeaderNavbarProduct = ({ active, setActive }) => {
         function handleClickOutside(event) {
             if (
                 isDesktop &&
-                wrapperRef.current &&
-                !wrapperRef.current.contains(event.target) &&
+                !wrapperRef.current?.contains(event.target) &&
                 !event.target.className?.includes?.('active')
             ) {
                 setActive('');
@@ -47,7 +46,7 @@ const HeaderNavbarProduct = ({ active, setActive }) => {
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, [active]);
+    }, [active, setActive]);
 
     return (
         <>

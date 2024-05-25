@@ -67,6 +67,9 @@ module.exports = {
         // TODO: gatsby will release a minor version allowing gatsby-config.mts (ES modules with TS), so let's turn off the rule import/no-import-module-exports until we migrate the gatsby-config and gatsby-node to .mts
         'import/no-import-module-exports': 'off',
         'react/display-name': 'off',
-        'react/jsx-filename-extension': [1, { extensions: ['.jsx', '.tsx'] }]
+        'react/jsx-filename-extension': [1, { extensions: ['.jsx', '.tsx'] }],
     },
+    'settings': {
+        'import/core-modules': ['prop-types', 'pg'],
+    }
 };

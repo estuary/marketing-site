@@ -41,7 +41,7 @@ export const CaseStudyPostCard = ({
     Title,
 }: CaseStudyPostCardProps) => (
     <Link to={`/customers/${Slug}`} className="case-study-post-card">
-        {Logo ? (
+        {Logo.localFile.childImageSharp.gatsbyImageData ? (
             <GatsbyImage
                 alt={Description}
                 image={Logo.localFile.childImageSharp.gatsbyImageData}

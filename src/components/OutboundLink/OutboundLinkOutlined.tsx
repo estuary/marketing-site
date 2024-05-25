@@ -4,8 +4,8 @@ import { AnchorOutlined } from './styles';
 import { handleOutboundLinkClick } from './utils';
 
 const OutboundLinkOutlined = React.forwardRef<
-    HTMLLinkElement,
-    React.HTMLProps<HTMLLinkElement>
+    HTMLAnchorElement,
+    React.HTMLProps<HTMLAnchorElement>
 >(({ children, ...props }, ref) => (
     <AnchorOutlined
         ref={ref}
@@ -24,3 +24,4 @@ OutboundLinkOutlined.propTypes = {
 };
 
 export { OutboundLinkOutlined };
+

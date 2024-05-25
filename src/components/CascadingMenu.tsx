@@ -15,9 +15,11 @@ import {
     usePopupState,
 } from 'material-ui-popup-state/hooks';
 import * as React from 'react';
-import { useState } from 'react';
 
-const CascadingContext = React.createContext({
+const CascadingContext = React.createContext<{
+    parentPopupState: any;
+    rootPopupState: any;
+}>({
     parentPopupState: null,
     rootPopupState: null,
 });
@@ -109,7 +111,7 @@ export interface NavItem {
 }
 
 export const NavMenuItem = ({ item }: { item: NavItem }) => {
-    if (item.children.length > 0) {
+    if (item.children?.length && item.children.length > 0) {
         let submenu = (
             <CascadingSubmenu
                 title={item.title}
@@ -154,11 +156,11 @@ export const NavMenuTopLevel = ({ item }: { item: NavItem }) => {
                 {...bindFocus(popupState)}
             >
                 {item.title}
-                {item.children.length > 0 ? (
+                {item.children && item.children.length > 0 ? (
                     <Chevron className="global-header-menu-chevron-down" />
                 ) : null}
             </Link>
-            {item.children.length > 0 ? (
+            {item.children && item.children.length > 0 ? (
                 <CascadingMenu
                     popupState={popupState}
                     anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
@@ -177,12 +179,12 @@ export const NavMenuTopLevel = ({ item }: { item: NavItem }) => {
 };
 
 export const NavMenuList = ({ item }: { item: NavItem }) => {
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = React.useState(false);
 
     const button = (
         <ListItemButton
             onClick={() => {
-                if (item.children.length > 0) {
+                if (item.children && item.children.length > 0) {
                     setOpen((prev) => !prev);
                 } else if (item.path) {
                     navigate(item.path).catch((error) => console.error(error));
@@ -191,12 +193,12 @@ export const NavMenuList = ({ item }: { item: NavItem }) => {
         >
             <ListItemText
                 primary={
-                    <Link to={item.path} className="global-header-link">
+                    <Link to={item.path ?? ''} className="global-header-link">
                         {item.title}
                     </Link>
                 }
             />
-            {item.children.length > 0 ? (
+            {item.children && item.children.length > 0 ? (
                 open ? (
                     <ExpandLess />
                 ) : (

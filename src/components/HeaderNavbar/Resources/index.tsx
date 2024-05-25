@@ -12,7 +12,7 @@ import { caseStudies, listen, read, tour } from './items';
 const Card = React.lazy(() => import('../Card'));
 
 const HeaderNavbarResources = ({ active, setActive }) => {
-    const wrapperRef = useRef(null);
+    const wrapperRef: React.RefObject<HTMLDivElement> = useRef(null);
 
     const onClick = (ev) => {
         ev.preventDefault();
@@ -46,7 +46,7 @@ const HeaderNavbarResources = ({ active, setActive }) => {
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, [active]);
+    }, [active, setActive]);
 
     return (
         <>

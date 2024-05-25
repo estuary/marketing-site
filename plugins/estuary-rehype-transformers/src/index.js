@@ -1,15 +1,15 @@
-import * as visit from 'unist-util-visit';
 import { createElement, Fragment } from 'react';
-import { renderToStaticMarkup, renderToString } from 'react-dom/server';
+import { renderToStaticMarkup } from 'react-dom/server';
 import rehypeHighlight from 'rehype-highlight';
-import rehypeSlug from 'rehype-slug';
-import rehypeToc from 'rehype-toc';
 import rehypeParse from 'rehype-parse';
 import rehypeReact from 'rehype-react';
-import ImgSharpInline from './ImgSharp';
+import rehypeSlug from 'rehype-slug';
+import rehypeToc from 'rehype-toc';
 import { unified } from 'unified';
+import * as visit from 'unist-util-visit';
+import ImgSharpInline from './ImgSharp';
 
-let LANG_RE = /hljs language\-(.*)/;
+const LANG_RE = /hljs language\-(.*)/;
 
 const transform = async ({ htmlAst, htmlNode, getNode }, opts) => {
     const parentNode = await getNode(htmlNode.parent);
@@ -46,9 +46,10 @@ const transform = async ({ htmlAst, htmlNode, getNode }, opts) => {
                 // Apply correct language tag classes to syntax blocks
                 if (
                     node.type === 'element' &&
-                    node.properties?.className !== undefined
+                    node.properties &&
+                    node.properties.className !== undefined
                 ) {
-                    let match = (
+                    const match = (
                         node.properties.className instanceof Array
                             ? node.properties.className
                             : [node.properties.className]
@@ -83,10 +84,10 @@ const transform = async ({ htmlAst, htmlNode, getNode }, opts) => {
             },
             customizeTOC(toc) {
                 if (
-                    toc.children?.length < 1 ||
-                    (toc?.children.length === 1 &&
+                    (!toc.children || toc.children.length < 1) ||
+                    (toc.children.length === 1 &&
                         //@ts-ignore
-                        toc.children[0]?.children?.length === 0)
+                        (toc.children[0].children ? toc.children[0].children.length === 0 : false))
                 ) {
                     return false;
                 }
@@ -115,9 +116,9 @@ const transform = async ({ htmlAst, htmlNode, getNode }, opts) => {
     const transformedAst = await processor.run(
         JSON.parse(JSON.stringify(htmlAst))
     );
-    let reactElement = await processor.stringify(transformedAst);
+    const reactElement = await processor.stringify(transformedAst);
 
-    let reactText = renderToStaticMarkup(reactElement);
+    const reactText = renderToStaticMarkup(reactElement);
 
     const newHtmlAst = unified()
         .data('settings', { fragment: true })

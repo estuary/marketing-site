@@ -1,7 +1,7 @@
+import pg from 'pg';
 import { GatsbyNode } from 'gatsby';
 import { createRemoteFileNode } from 'gatsby-source-filesystem';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import pg from 'pg';
 import { SUPABASE_CONNECTION_STRING } from './config';
 import { normalizeConnector } from './src/utils';
 
@@ -92,9 +92,9 @@ export const createPages: GatsbyNode['createPages'] = async ({
         }
     `);
 
-    const allCaseStudies = caseStudyPages.data.allStrapiCaseStudy.nodes;
+    const allCaseStudies = caseStudyPages.data?.allStrapiCaseStudy.nodes;
 
-    allCaseStudies.forEach((node) => {
+    allCaseStudies?.forEach((node) => {
         createPage({
             path: `customers/${node.Slug}`,
             component: caseStudyTemplate,
@@ -130,11 +130,11 @@ export const createPages: GatsbyNode['createPages'] = async ({
         return;
     }
 
-    const allPosts = result.data.allStrapiBlogPost.nodes;
+    const allPosts = result.data?.allStrapiBlogPost.nodes ?? [];
     const allComparisonPages =
-        comparisonPages.data.allStrapiProductComparisonPage.nodes;
+        comparisonPages.data?.allStrapiProductComparisonPage.nodes;
 
-    allComparisonPages.forEach((node) => {
+    allComparisonPages?.forEach((node) => {
         createPage({
             path: node.Slug,
             component: comparisonTemplate,
@@ -292,9 +292,9 @@ export const createPages: GatsbyNode['createPages'] = async ({
         }
     `);
 
-    const mapped_connectors = connectors.data.postgres.allConnectors.nodes
+    const mapped_connectors = connectors.data?.postgres.allConnectors.nodes
         .filter((conn) => conn?.connectorTagsByConnectorIdList?.length > 0)
-        .map(normalizeConnector);
+        .map(normalizeConnector) ?? [];
 
     for (const normalized_connector of mapped_connectors) {
         if (!normalized_connector.slug) {
@@ -397,9 +397,9 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
 };
 
 export const createResolvers: GatsbyNode['createResolvers'] = async ({
-    createResolvers,
+    createResolvers: createResolversParam,
 }) => {
-    createResolvers({
+    createResolversParam({
         PostGraphile_Connector: {
             logo: {
                 type: 'File',
