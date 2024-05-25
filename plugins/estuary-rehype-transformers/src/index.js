@@ -72,6 +72,7 @@ const transform = async ({ htmlAst, htmlNode, getNode }, opts) => {
                         });
                     }
                 }
+                return undefined;
             });
         });
 
