@@ -4,7 +4,7 @@ import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import { Link } from 'gatsby';
-import React, { MouseEvent, useEffect, useRef, useState } from 'react';
+import * as React from 'react';
 
 type TocItem = {
     id: string;
@@ -30,7 +30,7 @@ const RenderTocItem = ({
     }
 
     const handleLinkClick = (
-        event: MouseEvent<HTMLAnchorElement, MouseEvent>
+        event: React.MouseEvent<HTMLAnchorElement, globalThis.MouseEvent>
     ) => {
         if (!isSelected) {
             handleItemClick(item.id);
@@ -64,14 +64,14 @@ const RenderTocItem = ({
 };
 
 export const RenderToc = ({ items }: { items: TocItem[] }) => {
-    const [selectedItem, setSelectedItem] = useState<string | null>(null);
-    const intersectionObserver = useRef<IntersectionObserver | null>(null);
-    const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+    const [selectedItem, setSelectedItem] = React.useState<string | null>(null);
+    const intersectionObserver = React.useRef<IntersectionObserver | null>(null);
+    const timeoutRef = React.useRef<NodeJS.Timeout | null>(null);
 
-    useEffect(() => {
+    React.useEffect(() => {
         intersectionObserver.current = new IntersectionObserver(
             (entries) => {
-                let lastVisibleId = null;
+                let lastVisibleId;
                 entries.forEach((entry) => {
                     if (
                         entry.isIntersecting &&
@@ -90,7 +90,7 @@ export const RenderToc = ({ items }: { items: TocItem[] }) => {
         items.forEach((item) => {
             const element = document.getElementById(item.id);
             if (element) {
-                intersectionObserver.current.observe(element);
+                intersectionObserver.current?.observe(element);
             }
         });
 
@@ -102,7 +102,7 @@ export const RenderToc = ({ items }: { items: TocItem[] }) => {
     }, [items]);
 
     const handleItemClick = (id: string) => {
-        clearTimeout(timeoutRef.current);
+        clearTimeout(timeoutRef.current ?? undefined);
         setSelectedItem(id);
         timeoutRef.current = setTimeout(() => {
             timeoutRef.current = null;
