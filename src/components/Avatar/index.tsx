@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Container } from './styles';
 
 type Avatar = {
-    image: IGatsbyImageData;
+    image?: IGatsbyImageData;
     alt: string;
     name: string;
 };
