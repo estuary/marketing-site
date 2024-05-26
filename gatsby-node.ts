@@ -1,3 +1,4 @@
+/* eslint-disable no-await-in-loop */
 import pg from 'pg';
 import { GatsbyNode } from 'gatsby';
 import { createRemoteFileNode } from 'gatsby-source-filesystem';
@@ -372,9 +373,10 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
     for (const conn of connectors.rows) {
         const usUrl = conn.logo_url?.['en-US'];
         if (!usUrl) {
-            return null;
+            await pool.end();
+            return;
         }
-        /* eslint-disable no-await-in-loop */
+
         const fileNode = await createRemoteFileNode({
             url: usUrl,
             createNode,
@@ -382,7 +384,6 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
             getCache,
         });
 
-        /* eslint-disable no-await-in-loop */
         await createNode({
             connectorId: conn.id,
             logoUrl: usUrl,
@@ -394,6 +395,8 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
             },
         });
     }
+
+    await pool.end();
 };
 
 export const createResolvers: GatsbyNode['createResolvers'] = async ({
