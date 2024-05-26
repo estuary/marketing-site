@@ -1,10 +1,14 @@
-import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
+import React from 'react';
 
-import BackgroundImage from 'gatsby-background-image';
+import BackgroundImage, { IBackgroundImageProps } from 'gatsby-background-image';
+
+type BuildPipeLineBannerBackgroundProps = IBackgroundImageProps & {
+    children?: React.ReactNode;
+} & React.HTMLAttributes<HTMLDivElement>;
 
 const BuildPipeLineBannerBackground = (
-    props: React.BaseHTMLAttributes<HTMLDivElement>
+    { children, ...rest }: BuildPipeLineBannerBackgroundProps
 ) => {
     const data = useStaticQuery(graphql`
         query {
@@ -23,7 +27,6 @@ const BuildPipeLineBannerBackground = (
     `);
 
     return (
-        // @ts-expect-error
         <BackgroundImage
             Tag="section"
             fadeIn={false}
@@ -31,9 +34,9 @@ const BuildPipeLineBannerBackground = (
             className="big-build-pipeline-banner-container"
             fluid={data.background.childImageSharp.fluid}
             backgroundColor="#04192b"
-            {...{ ...props, children: undefined }}
+            {...rest}
         >
-            {props.children}
+            {children}
         </BackgroundImage>
     );
 };
