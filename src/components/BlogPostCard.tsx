@@ -22,7 +22,7 @@ export interface BlogPostCardProps {
         };
         link: string;
     }[];
-    hero: {
+    hero?: {
         localFile: {
             childImageSharp: {
                 gatsbyImageData: any;
