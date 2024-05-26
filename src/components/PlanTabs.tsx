@@ -45,32 +45,32 @@ function a11yProps(index) {
     };
 }
 
+const ChecklistItem = ({ children, white = false }) => (
+    <div className="pricing-page-checklist-item">
+        {white ? (
+            <>
+                <WhiteCheckmark className="pricing-page-tile-checkmark-image" />
+                <p className="pricing-page-tile-checklist-item-text text-white">
+                    {children}
+                </p>
+            </>
+        ) : (
+            <>
+                <BlackCheckmark className="pricing-page-tile-checkmark-image" />
+                <p className="pricing-page-tile-checklist-item-text">
+                    {children}
+                </p>
+            </>
+        )}
+    </div>
+);
+
 export default function BasicTabs() {
     const [value, setValue] = React.useState(0);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
-
-    const ChecklistItem = ({ children, white = false }) => (
-        <div className="pricing-page-checklist-item">
-            {white ? (
-                <>
-                    <WhiteCheckmark className="pricing-page-tile-checkmark-image" />
-                    <p className="pricing-page-tile-checklist-item-text text-white">
-                        {children}
-                    </p>
-                </>
-            ) : (
-                <>
-                    <BlackCheckmark className="pricing-page-tile-checkmark-image" />
-                    <p className="pricing-page-tile-checklist-item-text">
-                        {children}
-                    </p>
-                </>
-            )}
-        </div>
-    );
 
     return (
         <Box sx={{ width: '100%' }}>
