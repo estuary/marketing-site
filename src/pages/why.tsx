@@ -1,11 +1,10 @@
-import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
 import { OutboundLink } from '../components/OutboundLink';
-import ColoredLogo from '../svgs/colored-logo.svg';
 import { calculatePrice, currencyFormatter } from '../utils';
 
 import Seo from '../components/seo';
+import Navigation from '../components/WhyNavigation';
 
 export const Step0 = ({ activePage, setState }) => {
     return (
@@ -288,185 +287,46 @@ export const Head = () => <Seo title="Automate Data Streaming" />;
 const WhyEstuary = () => {
     const [activePage, setActivePage] = React.useState(0);
 
+    const renderStep = () => {
+        switch (activePage) {
+            case 0:
+                return <Step0 activePage={activePage} setState={setActivePage} />;
+            case 1:
+                return <Step1 activePage={activePage} setState={setActivePage} />;
+            case 2:
+                return <Step2 activePage={activePage} setState={setActivePage} />;
+            case 3:
+                return <Step3 activePage={activePage} setState={setActivePage} />;
+            case 4:
+                return <Step4 activePage={activePage} setState={setActivePage} />;
+            case 5:
+                return <Step5 activePage={activePage} setState={setActivePage} />;
+            case 6:
+                return <Step6 activePage={activePage} setState={setActivePage} />;
+            case 7:
+                return <Step7 activePage={activePage} />;
+            default:
+                return null;
+        }
+    };
+
     return (
         <main className="why-estuary">
-            <div className="sidebar-wrap">
-                <div>
-                    <div className="sidebar-logo">
-                        <Link className="global-header-logo-link" to="/">
-                            <ColoredLogo
-                                className="global-header-logo"
-                                style={{ width: 27, height: 35 }}
-                            />
-                            <h1 className="global-header-title">Estuary</h1>
-                        </Link>
-                    </div>
-                    <div className="sidebar-nav">
-                        <div
-                            className={`nav-item ${activePage === 0 ? 'active' : ''}`}
-                            onClick={() => setActivePage(0)}
-                        >
-                            Welcome
-                        </div>
-                        <div
-                            className={`nav-item ${activePage === 1 || activePage === 2 || activePage === 3 ? 'active' : ''}`}
-                            onClick={() => setActivePage(1)}
-                        >
-                            Extract
-                        </div>
-                        <ul className="item-steps">
-                            <li
-                                className={`${activePage === 1 ? 'active' : ''}`}
-                                onClick={() => setActivePage(1)}
-                            >
-                                Create Capture
-                            </li>
-                            <li
-                                className={`${activePage === 2 ? 'active' : ''}`}
-                                onClick={() => setActivePage(2)}
-                            >
-                                Discover Schema
-                            </li>
-                            <li
-                                className={`${activePage === 3 ? 'active' : ''}`}
-                                onClick={() => setActivePage(3)}
-                            >
-                                Monitoring
-                            </li>
-                        </ul>
-                        <div
-                            className={`nav-item ${activePage === 4 || activePage === 5 ? 'active' : ''}`}
-                            onClick={() => setActivePage(4)}
-                        >
-                            Manage
-                        </div>
-                        <ul className="item-steps">
-                            <li
-                                className={`${activePage === 4 ? 'active' : ''}`}
-                                onClick={() => setActivePage(4)}
-                            >
-                                Store history & real-time
-                            </li>
-                            <li
-                                className={`${activePage === 5 ? 'active' : ''}`}
-                                onClick={() => setActivePage(5)}
-                            >
-                                Streaming SQL Transforms
-                            </li>
-                        </ul>
-                        <div
-                            className={`nav-item ${activePage === 6 ? 'active' : ''}`}
-                            onClick={() => setActivePage(6)}
-                        >
-                            Load
-                        </div>
-                        <ul className="item-steps">
-                            <li
-                                className={`${activePage === 6 ? 'active' : ''}`}
-                                onClick={() => setActivePage(6)}
-                            >
-                                Stream to destination
-                            </li>
-                        </ul>
-                        <div
-                            className={`nav-item ${activePage === 7 ? 'active' : ''}`}
-                            onClick={() => setActivePage(7)}
-                        >
-                            Pricing
-                        </div>
-                        <ul className="item-steps">
-                            <li
-                                className={`${activePage === 7 ? 'active' : ''}`}
-                                onClick={() => setActivePage(7)}
-                            >
-                                Flat Pricing
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div className="ctas-wrap">
-                    <OutboundLink
-                        target="_blank"
-                        href="https://dashboard.estuary.dev/register"
-                        className="pipeline-link"
-                    >
-                        Build a Pipeline
-                    </OutboundLink>
-                    <OutboundLink
-                        target="_blank"
-                        href="https://docs.estuary.dev/"
-                        className="doc-link"
-                    >
-                        View Docs
-                    </OutboundLink>
-                </div>
-            </div>
+            <Navigation activePage={activePage} setActivePage={setActivePage} />
             <div className="main-content-wrap">
                 <div className={`mac-bg step-bg-${activePage}`}>
-                    {activePage === 0 ? (
-                        <Step0
-                            activePage={activePage}
-                            setState={setActivePage}
-                        />
-                    ) : null}
-                    {activePage === 1 ? (
-                        <Step1
-                            activePage={activePage}
-                            setState={setActivePage}
-                        />
-                    ) : null}
-                    {activePage === 2 ? (
-                        <Step2
-                            activePage={activePage}
-                            setState={setActivePage}
-                        />
-                    ) : null}
-                    {activePage === 3 ? (
-                        <Step3
-                            activePage={activePage}
-                            setState={setActivePage}
-                        />
-                    ) : null}
-                    {activePage === 4 ? (
-                        <Step4
-                            activePage={activePage}
-                            setState={setActivePage}
-                        />
-                    ) : null}
-                    {activePage === 5 ? (
-                        <Step5
-                            activePage={activePage}
-                            setState={setActivePage}
-                        />
-                    ) : null}
-                    {activePage === 6 ? (
-                        <Step6
-                            activePage={activePage}
-                            setState={setActivePage}
-                        />
-                    ) : null}
-                    {activePage === 7 ? (
-                        <Step7 activePage={activePage} />
-                    ) : null}
+                    {renderStep()}
                 </div>
                 <div className="steps-controls">
                     <div
                         className="prev-step"
-                        onClick={() =>
-                            activePage === 0
-                                ? setActivePage(0)
-                                : setActivePage(activePage - 1)
-                        }
+                        onClick={() => setActivePage(Math.max(activePage - 1, 0))}
                     >
                         <span>Previous</span>
                     </div>
                     <div
                         className="next-step"
-                        onClick={() =>
-                            activePage === 7
-                                ? setActivePage(7)
-                                : setActivePage(activePage + 1)
-                        }
+                        onClick={() => setActivePage(Math.min(activePage + 1, 7))}
                     >
                         <span>Next</span>
                     </div>
