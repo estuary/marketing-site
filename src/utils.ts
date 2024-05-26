@@ -1,6 +1,6 @@
 // NOTE: We're assuming that the image name follows the convention of
 // (source|materialization)-name
-const CONNECTOR_IMAGE_RE = /(source|materialize)-([a-z\-]+)/;
+const CONNECTOR_IMAGE_RE = /(source|materialize)-([a-z-]+)/;
 
 export const normalizeConnector = (connector: any) => {
     if (!connector) {
@@ -71,6 +71,7 @@ export const marks = gbPoints.map((_, index) => ({
     label: gByteLabel(scale(index + 1)),
 }));
 
+// eslint-disable-next-line new-cap
 export const currencyFormatter = Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
