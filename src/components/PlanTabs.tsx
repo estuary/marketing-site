@@ -12,9 +12,15 @@ import PricingOpenSource from '../svgs/pricing-open-source-black.svg';
 import { costPerGB } from '../utils';
 import { OutboundLink } from './OutboundLink';
 
-function CustomTabPanel(props) {
-    const { children, value, index, ...other } = props;
+interface CustomTabPanelProps {
+    children: React.ReactNode;
+    value: number;
+    index: number;
+    style?: React.CSSProperties;
+    [key: string]: any;
+}
 
+function CustomTabPanel({ children, value, index, ...other }: CustomTabPanelProps) {
     return (
         <div
             role="tabpanel"
