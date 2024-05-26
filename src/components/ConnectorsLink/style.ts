@@ -10,7 +10,7 @@ interface WrapperProps {
 export const Wrapper = styled.div<WrapperProps>`
     display: flex;
     gap: 16px;
-    flex-direction: ${(props) => props.direction || 'row'};
+    flex-direction: ${(props) => props.direction ?? 'row'};
 
     @media (max-width: 1485px) {
         width: 100%;
