@@ -86,6 +86,7 @@ export const MarqueeWrapper = styled.div`
     height: 74px;
     width: 100%;
     display: flex;
+    overflow-y: hidden;
 
     @media (max-width: 425px) {
         padding: 0;
@@ -126,10 +127,14 @@ export const MarqueeWrapper = styled.div`
         display: flex;
         align-items: center;
         gap: 120px;
+        overflow-y: hidden;
 
         @media (max-width: 810px) {
             gap: 42px;
         }
+    }
+    .rfm-marquee-container {
+        overflow-y: hidden;
     }
     .rfm-marquee:first-child {
         margin-right: 100px;
