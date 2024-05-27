@@ -1,5 +1,5 @@
-import React, { useCallback, useEffect, useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Button, Container, Link } from './styles';
 
 const DEFAULTS = {
@@ -39,7 +39,7 @@ const TakeATour = () => {
             <Link target="_blank" href={SETTINGS.href}>
                 {SETTINGS.message}
             </Link>
-            <Button onClick={onClick}>
+            <Button onClick={onClick} aria-label="Close banner">
                 <CloseIcon color="inherit" fontSize="small" />
             </Button>
         </Container>
