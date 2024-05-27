@@ -70,6 +70,6 @@ module.exports = {
         'react/jsx-filename-extension': [1, { extensions: ['.jsx', '.tsx'] }],
     },
     'settings': {
-        'import/core-modules': ['prop-types', 'pg', 'eslint-webpack-plugin'],
+        'import/core-modules': ['prop-types', 'pg'],
     }
 };
