@@ -13,18 +13,18 @@ import { normalizeConnector } from './src/utils';
 
 // TODO: replace this to ES6 import when gatsby release conversion from commonJS to ES6
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const path = require(`path`);
+const path = require('path');
 
 // Define the template for blog and blog post
-const blogPost = path.resolve(`./src/templates/blog-post.tsx`);
-const blog = path.resolve(`./src/templates/blog.tsx`);
+const blogPost = path.resolve('./src/templates/blog-post.tsx');
+const blog = path.resolve('./src/templates/blog.tsx');
 const comparisonTemplate = path.resolve(
-    `./src/templates/product-comparison.tsx`
+    './src/templates/product-comparison.tsx'
 );
-const caseStudyTemplate = path.resolve(`./src/layouts/CaseStudy/index.tsx`);
+const caseStudyTemplate = path.resolve('./src/layouts/CaseStudy/index.tsx');
 
-const connector = path.resolve(`./src/templates/connector/index.tsx`);
-const connection = path.resolve(`./src/templates/connection.tsx`);
+const connector = path.resolve('./src/templates/connector/index.tsx');
+const connection = path.resolve('./src/templates/connection.tsx');
 
 export const createPages: GatsbyNode['createPages'] = async ({
     graphql,
@@ -34,8 +34,8 @@ export const createPages: GatsbyNode['createPages'] = async ({
     const { createPage, createRedirect } = actions;
 
     createRedirect({
-        fromPath: `/blogs`,
-        toPath: `/blog`,
+        fromPath: '/blogs',
+        toPath: '/blog',
     });
 
     // Get all strapi blog posts sorted by date
@@ -124,7 +124,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
     `);
     if (result.errors || comparisonPages.errors || caseStudyPages.errors) {
         reporter.panicOnBuild(
-            `There was an error loading your blog posts`,
+            'There was an error loading your blog posts',
             result.errors
         );
         return;
@@ -292,9 +292,10 @@ export const createPages: GatsbyNode['createPages'] = async ({
         }
     `);
 
-    const mapped_connectors = connectors.data?.postgres.allConnectors.nodes
-        .filter((conn) => conn?.connectorTagsByConnectorIdList?.length > 0)
-        .map(normalizeConnector) ?? [];
+    const mapped_connectors =
+        connectors.data?.postgres.allConnectors.nodes
+            .filter((conn) => conn?.connectorTagsByConnectorIdList?.length > 0)
+            .map(normalizeConnector) ?? [];
 
     for (const normalized_connector of mapped_connectors) {
         if (!normalized_connector.slug) {
@@ -408,7 +409,7 @@ export const createResolvers: GatsbyNode['createResolvers'] = async ({
                 async resolve(node, _, ctx) {
                     const { id } = node;
                     const logoNode = await ctx.nodeModel.findOne({
-                        type: `ConnectorLogo`,
+                        type: 'ConnectorLogo',
                         query: { filter: { connectorId: { eq: id } } },
                     });
                     return logoNode.logo;

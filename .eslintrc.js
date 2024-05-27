@@ -68,8 +68,9 @@ module.exports = {
         'import/no-import-module-exports': 'off',
         'react/display-name': 'off',
         'react/jsx-filename-extension': [1, { extensions: ['.jsx', '.tsx'] }],
+        'quotes': 'off',
     },
-    'settings': {
+    settings: {
         'import/core-modules': ['prop-types', 'pg'],
-    }
+    },
 };

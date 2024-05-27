@@ -40,7 +40,7 @@ export const ConnectorPage = ({
     const dest_mapped = dest_connector && normalizeConnector(dest_connector);
 
     const isSmallScreen = useMediaQuery('(max-width:600px)');
-    const isMobile = isRealMobile || isSmallScreen
+    const isMobile = isRealMobile || isSmallScreen;
 
     const hasWindow = useWindowExistence();
 
@@ -76,8 +76,8 @@ export const ConnectorPage = ({
                                 {connector_type === 'capture'
                                     ? `extract data from ${source_mapped.title}`
                                     : connector_type === 'materialization'
-                                        ? `write data to ${dest_mapped.title}`
-                                        : `move data from ${source_mapped.title} to ${dest_mapped.title}`}{' '}
+                                      ? `write data to ${dest_mapped.title}`
+                                      : `move data from ${source_mapped.title} to ${dest_mapped.title}`}{' '}
                                 in real-time, allowing you to enable a copy of
                                 your data wherever you want.
                             </span>

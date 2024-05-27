@@ -85,10 +85,13 @@ const transform = async ({ htmlAst, htmlNode, getNode }, opts) => {
             },
             customizeTOC(toc) {
                 if (
-                    (!toc.children || toc.children.length < 1) ||
+                    !toc.children ||
+                    toc.children.length < 1 ||
                     (toc.children.length === 1 &&
                         //@ts-ignore
-                        (toc.children[0].children ? toc.children[0].children.length === 0 : false))
+                        (toc.children[0].children
+                            ? toc.children[0].children.length === 0
+                            : false))
                 ) {
                     return false;
                 }

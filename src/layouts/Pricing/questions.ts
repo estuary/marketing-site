@@ -11,7 +11,8 @@ const frequentlyQuestions = [
     },
     {
         title: 'Do you offer discounted rates?',
-        description: `Discounts are based on two variables - volume commitments and contract duration.`,
+        description:
+            'Discounts are based on two variables - volume commitments and contract duration.',
     },
     {
         title: 'How does Pay-as-you-Go pricing work?',

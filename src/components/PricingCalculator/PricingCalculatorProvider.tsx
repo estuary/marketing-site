@@ -19,19 +19,18 @@ type PricingCalculatorContextProps = {
     setSelectedConnectors: React.Dispatch<React.SetStateAction<number>>;
 };
 
-export const PricingCalculatorContext = React.createContext<
-    PricingCalculatorContextProps
->({
-    prices: {
-        estuary: 0,
-        fivetran: 0,
-        confluent: 0
-    },
-    selectedGbs: 0,
-    setSelectedGbs: () => { },
-    selectedConnectors: 0,
-    setSelectedConnectors: () => { },
-});
+export const PricingCalculatorContext =
+    React.createContext<PricingCalculatorContextProps>({
+        prices: {
+            estuary: 0,
+            fivetran: 0,
+            confluent: 0,
+        },
+        selectedGbs: 0,
+        setSelectedGbs: () => {},
+        selectedConnectors: 0,
+        setSelectedConnectors: () => {},
+    });
 
 export const PricingCalculatorContextProvider = ({
     children,
@@ -59,6 +58,5 @@ export const PricingCalculatorContextProvider = ({
     );
 };
 
-export const usePricingCalculator = () => (
-    React.useContext<PricingCalculatorContextProps>(PricingCalculatorContext)
-)
+export const usePricingCalculator = () =>
+    React.useContext<PricingCalculatorContextProps>(PricingCalculatorContext);

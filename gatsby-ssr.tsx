@@ -34,7 +34,7 @@ export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
       gtag('config', '${GA_MEASUREMENT_ID}');
   `;
 
-    setHtmlAttributes({ lang: `en` });
+    setHtmlAttributes({ lang: 'en' });
     setHeadComponents([
         <link rel="preconnect" key="preconnect-google-gtag" href={GA_ORIGIN} />,
         <link

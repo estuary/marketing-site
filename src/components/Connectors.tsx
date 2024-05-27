@@ -184,9 +184,9 @@ export const Connectors = ({
     const results = useLunr(
         query.length > 0
             ? query
-                .split(' ')
-                .map((term) => `${term}* ${term}~1`)
-                .join(' ')
+                  .split(' ')
+                  .map((term) => `${term}* ${term}~1`)
+                  .join(' ')
             : '',
         index,
         store

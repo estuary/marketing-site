@@ -20,7 +20,12 @@ interface CustomTabPanelProps {
     [key: string]: any;
 }
 
-function CustomTabPanel({ children, value, index, ...other }: CustomTabPanelProps) {
+function CustomTabPanel({
+    children,
+    value,
+    index,
+    ...other
+}: CustomTabPanelProps) {
     return (
         <div
             role="tabpanel"

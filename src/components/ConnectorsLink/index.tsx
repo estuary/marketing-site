@@ -77,9 +77,10 @@ const ConnectorsLink = ({
 
     const detailsHref = useMemo(() => {
         if (sourceId && destinationId) {
-            return `/integrations/${captureConnectors.find((c) => c.id === sourceId)?.slugified_name}-to-${materializationConnectors.find((c) => c.id === destinationId)
+            return `/integrations/${captureConnectors.find((c) => c.id === sourceId)?.slugified_name}-to-${
+                materializationConnectors.find((c) => c.id === destinationId)
                     ?.slugified_name
-                }`;
+            }`;
         } else {
             return '#';
         }

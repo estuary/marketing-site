@@ -65,7 +65,9 @@ const RenderTocItem = ({
 
 export const RenderToc = ({ items }: { items: TocItem[] }) => {
     const [selectedItem, setSelectedItem] = React.useState<string | null>(null);
-    const intersectionObserver = React.useRef<IntersectionObserver | null>(null);
+    const intersectionObserver = React.useRef<IntersectionObserver | null>(
+        null
+    );
     const timeoutRef = React.useRef<NodeJS.Timeout | null>(null);
 
     React.useEffect(() => {

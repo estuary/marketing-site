@@ -125,5 +125,5 @@ export const Topic = styled.li`
 `;
 
 export const LineBreak = styled.span`
-  display: block;
+    display: block;
 `;

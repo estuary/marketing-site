@@ -132,8 +132,7 @@ const Footer = () => {
                     <div className="global-footer-bottom-copyright">
                         <p className="global-footer-bottom-copyright-text">
                             © {new Date().getFullYear()} All Rights Reserved
-                            -&nbsp;
-                            {` `}
+                            -&nbsp;{' '}
                         </p>
 
                         <OutboundLink

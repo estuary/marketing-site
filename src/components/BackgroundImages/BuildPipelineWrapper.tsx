@@ -1,15 +1,18 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 
-import BackgroundImage, { IBackgroundImageProps } from 'gatsby-background-image';
+import BackgroundImage, {
+    IBackgroundImageProps,
+} from 'gatsby-background-image';
 
 type BuildPipeLineBannerBackgroundProps = IBackgroundImageProps & {
     children?: React.ReactNode;
 } & React.HTMLAttributes<HTMLDivElement>;
 
-const BuildPipeLineBannerBackground = (
-    { children, ...rest }: BuildPipeLineBannerBackgroundProps
-) => {
+const BuildPipeLineBannerBackground = ({
+    children,
+    ...rest
+}: BuildPipeLineBannerBackgroundProps) => {
     const data = useStaticQuery(graphql`
         query {
             background: file(

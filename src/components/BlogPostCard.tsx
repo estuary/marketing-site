@@ -36,7 +36,7 @@ export const BlogPostCard = ({
     hero,
     title,
     authors,
-    publishedAt
+    publishedAt,
 }: BlogPostCardProps) => (
     <Link to={`/${slug}`} className="blogs-post-card">
         {hero ? (

@@ -24,4 +24,3 @@ OutboundLinkOutlined.propTypes = {
 };
 
 export { OutboundLinkOutlined };
-

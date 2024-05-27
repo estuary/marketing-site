@@ -91,10 +91,10 @@ const ComparisonPageTemplate = ({
                                         className="estuary-value"
                                         dangerouslySetInnerHTML={{
                                             __html: isMobile
-                                                ? `<div>ESTUARY</div>` +
-                                                `${item.our_feature_desc.data.our_feature_desc}`
+                                                ? '<div>ESTUARY</div>' +
+                                                  `${item.our_feature_desc.data.our_feature_desc}`
                                                 : item.our_feature_desc.data
-                                                    .our_feature_desc,
+                                                      .our_feature_desc,
                                         }}
                                     />
                                     <div
@@ -102,19 +102,19 @@ const ComparisonPageTemplate = ({
                                         dangerouslySetInnerHTML={{
                                             __html: isMobile
                                                 ? `<div>${competitorName}</div>` +
-                                                `${item.their_feature_desc.data.their_feature_desc}`
+                                                  `${item.their_feature_desc.data.their_feature_desc}`
                                                 : item.their_feature_desc.data
-                                                    .their_feature_desc,
+                                                      .their_feature_desc,
                                         }}
                                     />
                                     <div
                                         className="matters-value"
                                         dangerouslySetInnerHTML={{
                                             __html: isMobile
-                                                ? `<div>WHY IT MATTERS</div>` +
-                                                `${item.why_it_matters.data.why_it_matters}`
+                                                ? '<div>WHY IT MATTERS</div>' +
+                                                  `${item.why_it_matters.data.why_it_matters}`
                                                 : item.why_it_matters.data
-                                                    .why_it_matters,
+                                                      .why_it_matters,
                                         }}
                                     />
                                 </div>

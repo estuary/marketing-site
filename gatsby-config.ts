@@ -58,29 +58,29 @@ const strapiConfig = {
 };
 
 const rehypeSelectors = {
-    [`STRAPI_BLOG_POST_BODY_TEXTNODE`]: {
+    STRAPI_BLOG_POST_BODY_TEXTNODE: {
         extractor: (node) => node.Body,
         pluginOpts: {
             enableToc: false,
         },
     },
-    [`STRAPI_JOB_POSTING_DESCRIPTION_TEXTNODE`]: {
+    STRAPI_JOB_POSTING_DESCRIPTION_TEXTNODE: {
         extractor: (node) => node.Description,
         pluginOpts: { enableToc: false },
     },
-    [`STRAPI_CASE_STUDY_BODY_TEXTNODE`]: {
+    STRAPI_CASE_STUDY_BODY_TEXTNODE: {
         extractor: (node) => node.Body,
         pluginOpts: {
             enableToc: false,
         },
     },
-    [`STRAPI_CASE_STUDY_SIDECONTENT_TEXTNODE`]: {
+    STRAPI_CASE_STUDY_SIDECONTENT_TEXTNODE: {
         extractor: (node) => node.SideContent,
         pluginOpts: {
             enableToc: false,
         },
     },
-    [`STRAPI__COMPONENT_CASE_STUDY_CASE_STUDY_ABOUT_DESCRIPTION_TEXTNODE`]: {
+    STRAPI__COMPONENT_CASE_STUDY_CASE_STUDY_ABOUT_DESCRIPTION_TEXTNODE: {
         extractor: (node) => node.Description,
         pluginOpts: {
             enableToc: false,
@@ -94,9 +94,9 @@ const rehypeSelectors = {
 
 const cfg: GatsbyConfig = {
     siteMetadata: {
-        title: `Estuary`,
-        description: `Estuary`,
-        siteUrl: `https://estuary.dev`,
+        title: 'Estuary',
+        description: 'Estuary',
+        siteUrl: 'https://estuary.dev',
         social: {
             twitter: 'estuary twitter',
         },
@@ -114,18 +114,18 @@ const cfg: GatsbyConfig = {
             },
         },
         {
-            resolve: `gatsby-source-filesystem`,
+            resolve: 'gatsby-source-filesystem',
             options: {
                 path: `${__dirname}/src/images`,
-                name: `blog_images`,
+                name: 'blog_images',
             },
         },
         {
-            resolve: `gatsby-source-strapi`,
+            resolve: 'gatsby-source-strapi',
             options: strapiConfig,
         },
         {
-            resolve: `gatsby-plugin-sitemap`,
+            resolve: 'gatsby-plugin-sitemap',
             options: {
                 query: `
               {
@@ -150,13 +150,13 @@ const cfg: GatsbyConfig = {
                 },
             },
         },
-        `gatsby-plugin-robots-txt`,
-        `gatsby-transformer-inline-svg`,
-        `gatsby-plugin-image`,
+        'gatsby-plugin-robots-txt',
+        'gatsby-transformer-inline-svg',
+        'gatsby-plugin-image',
         // `gatsby-plugin-svgr-svgo`,
-        `gatsby-plugin-less`,
+        'gatsby-plugin-less',
         {
-            resolve: `gatsby-transformer-rehype`,
+            resolve: 'gatsby-transformer-rehype',
             options: {
                 // Condition for selecting an existing GrapghQL node (optional)
                 // If not set, the transformer operates on file nodes.
@@ -172,7 +172,7 @@ const cfg: GatsbyConfig = {
                 // Fragment mode (optional, default: true)
                 fragment: true,
                 // Space mode (optional, default: `html`)
-                space: `html`,
+                space: 'html',
                 // EmitParseErrors mode (optional, default: false)
                 emitParseErrors: true,
                 // Verbose mode (optional, default: false)
@@ -180,7 +180,7 @@ const cfg: GatsbyConfig = {
                 // Plugins configs (optional but most likely you need one)
                 plugins: [
                     {
-                        resolve: `@draftbox-co/gatsby-rehype-inline-images`,
+                        resolve: '@draftbox-co/gatsby-rehype-inline-images',
                         // all options are optional and can be omitted
                         pluginOptions: {
                             // all images larger are scaled down to maxWidth (default: maxWidth = imageWidth)
@@ -206,8 +206,8 @@ const cfg: GatsbyConfig = {
                 ],
             },
         },
-        `gatsby-plugin-less`,
-        `gatsby-plugin-styled-components`,
+        'gatsby-plugin-less',
+        'gatsby-plugin-styled-components',
         {
             resolve: 'gatsby-plugin-local-search',
             options: {
@@ -399,8 +399,8 @@ const cfg: GatsbyConfig = {
                 //   refetchInterval: 60, // Refetch data every 60 seconds
             },
         },
-        `gatsby-transformer-sharp`,
-        `gatsby-plugin-sharp`,
+        'gatsby-transformer-sharp',
+        'gatsby-plugin-sharp',
         // {
         //   resolve: `gatsby-plugin-feed`,
         //   options: {

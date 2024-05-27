@@ -20,7 +20,8 @@ export const handleOutboundLinkClick = (e, props) => {
         redirect = false;
     }
 
-    const hasGtag = typeof window !== 'undefined' && typeof window.gtag === 'function';
+    const hasGtag =
+        typeof window !== 'undefined' && typeof window.gtag === 'function';
 
     if (hasGtag) {
         window.gtag('event', 'click', {

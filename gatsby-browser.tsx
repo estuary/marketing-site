@@ -15,19 +15,22 @@ import WrapPageElementComponent from './src/components/WrapPageElementComponent'
 
 export const wrapPageElement = ({ element }) => (
     <WrapPageElementComponent>{element}</WrapPageElementComponent>
-)
+);
 
 export const onClientEntry = () => {
     // IntersectionObserver polyfill for gatsby-background-image (Safari, IE)
-    if (!(`IntersectionObserver` in window)) {
-        import(`intersection-observer`);
-        console.log(`# IntersectionObserver is polyfilled!`);
+    if (!('IntersectionObserver' in window)) {
+        import('intersection-observer');
+        console.log('# IntersectionObserver is polyfilled!');
     }
 };
 
 // Copied from https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-plugin-google-gtag/src/gatsby-browser.js
 export const onRouteUpdate = ({ location }) => {
-    if (process.env.NODE_ENV !== `production` || typeof window.gtag !== `function`) {
+    if (
+        process.env.NODE_ENV !== 'production' ||
+        typeof window.gtag !== 'function'
+    ) {
         return null;
     }
 
@@ -36,10 +39,10 @@ export const onRouteUpdate = ({ location }) => {
         const pagePath = location
             ? location.pathname + location.search + location.hash
             : undefined;
-        window.gtag(`event`, `page_view`, { page_path: pagePath });
+        window.gtag('event', 'page_view', { page_path: pagePath });
     };
 
-    if (`requestAnimationFrame` in window) {
+    if ('requestAnimationFrame' in window) {
         requestAnimationFrame(() => {
             requestAnimationFrame(() => setTimeout(sendPageView, 0));
         });

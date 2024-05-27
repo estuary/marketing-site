@@ -290,19 +290,33 @@ const WhyEstuary = () => {
     const renderStep = () => {
         switch (activePage) {
             case 0:
-                return <Step0 activePage={activePage} setState={setActivePage} />;
+                return (
+                    <Step0 activePage={activePage} setState={setActivePage} />
+                );
             case 1:
-                return <Step1 activePage={activePage} setState={setActivePage} />;
+                return (
+                    <Step1 activePage={activePage} setState={setActivePage} />
+                );
             case 2:
-                return <Step2 activePage={activePage} setState={setActivePage} />;
+                return (
+                    <Step2 activePage={activePage} setState={setActivePage} />
+                );
             case 3:
-                return <Step3 activePage={activePage} setState={setActivePage} />;
+                return (
+                    <Step3 activePage={activePage} setState={setActivePage} />
+                );
             case 4:
-                return <Step4 activePage={activePage} setState={setActivePage} />;
+                return (
+                    <Step4 activePage={activePage} setState={setActivePage} />
+                );
             case 5:
-                return <Step5 activePage={activePage} setState={setActivePage} />;
+                return (
+                    <Step5 activePage={activePage} setState={setActivePage} />
+                );
             case 6:
-                return <Step6 activePage={activePage} setState={setActivePage} />;
+                return (
+                    <Step6 activePage={activePage} setState={setActivePage} />
+                );
             case 7:
                 return <Step7 activePage={activePage} />;
             default:
@@ -320,13 +334,17 @@ const WhyEstuary = () => {
                 <div className="steps-controls">
                     <div
                         className="prev-step"
-                        onClick={() => setActivePage(Math.max(activePage - 1, 0))}
+                        onClick={() =>
+                            setActivePage(Math.max(activePage - 1, 0))
+                        }
                     >
                         <span>Previous</span>
                     </div>
                     <div
                         className="next-step"
-                        onClick={() => setActivePage(Math.min(activePage + 1, 7))}
+                        onClick={() =>
+                            setActivePage(Math.min(activePage + 1, 7))
+                        }
                     >
                         <span>Next</span>
                     </div>

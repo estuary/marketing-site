@@ -74,7 +74,7 @@ const Seo: React.FC<SeoProps> = ({
             <meta name="twitter:card" content="summary" />
             <meta
                 name="twitter:creator"
-                content={site.siteMetadata?.social?.twitter || ``}
+                content={site.siteMetadata?.social?.twitter || ''}
             />
             <meta name="twitter:title" content={title} />
             <meta name="twitter:description" content={metaDescription} />

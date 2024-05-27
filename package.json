@@ -103,10 +103,10 @@
   "scripts": {
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
-    "build:plugins": "yarn --cwd ./plugins/estuary-rehype-transformers install && yarn --cwd ./plugins/estuary-rehype-transformers build",
-    "build": "yarn lint:fix && yarn run build:plugins && gatsby build",
-    "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "build:plugins": "yarn --cwd ./plugins/estuary-rehype-transformers install && yarn --cwd ./plugins/estuary-rehype-transformers build",
+    "build": "yarn lint:fix && yarn format && yarn run build:plugins && gatsby build",
+    "develop": "gatsby develop",
     "start": "yarn run build:plugins && gatsby develop",
     "serve": "yarn run build:plugins && gatsby serve",
     "clean": "rm -r plugins/estuary-rehype-transformers/.parcel-cache && gatsby clean",
