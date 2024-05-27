@@ -7,9 +7,9 @@ import { OutboundLink } from './OutboundLink';
 export interface BioAuthor {
     name: string;
     link: string;
-    picture: {
-        localFile: {
-            childImageSharp: {
+    picture?: {
+        localFile?: {
+            childImageSharp?: {
                 gatsbyImageData: any;
             };
         };
@@ -49,7 +49,7 @@ const Bio = ({ authors }: BioProps) => {
             >
                 {authors.map(({ picture, name, link }) => {
                     const image = getImage(
-                        picture.localFile.childImageSharp.gatsbyImageData
+                        picture?.localFile?.childImageSharp?.gatsbyImageData
                     );
                     const combined = image && (
                         <AvatarWrapper>
