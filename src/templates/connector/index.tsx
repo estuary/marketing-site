@@ -39,7 +39,7 @@ const Connector = ({
     const mappedConnector = normalizeConnector(connector);
 
     return (
-        <Layout headerTheme="light">
+        <Layout>
             <BreadcrumbsWrapper>
                 <Breadcrumbs
                     breadcrumbs={[

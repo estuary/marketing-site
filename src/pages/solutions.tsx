@@ -10,7 +10,7 @@ import SolutionsBanner from '../svgs/solutions-banner.svg';
 
 const SolutionsPage = () => {
     return (
-        <Layout headerTheme="light">
+        <Layout>
             <div className="product-flow-section-one-background-image-wrapper">
                 <div className="product-flow-section-one">
                     <div className="product-flow-section-one-left">

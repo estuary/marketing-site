@@ -12,7 +12,7 @@ import WatchYoutubeButton from '../svgs/youtube-watch.svg';
 
 const LpPodcats = () => {
     return (
-        <Layout headerTheme="light">
+        <Layout>
             <div className="lp-podcast-wrap">
                 <section className="podcast-hero">
                     <div className="hero-container">

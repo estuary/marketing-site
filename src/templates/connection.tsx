@@ -26,7 +26,7 @@ const Connector = ({
     },
 }: ConnectorProps) => {
     return (
-        <Layout headerTheme="light">
+        <Layout>
             <ConnectorPage
                 source_connector={source_connector}
                 dest_connector={destination_connector}

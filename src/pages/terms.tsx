@@ -6,7 +6,7 @@ export const Head = () => <Seo title="Terms of Service" />;
 
 const Terms = () => {
     return (
-        <Layout headerTheme="light">
+        <Layout>
             <div className="terms-root">
                 <h4>Terms of Service</h4>
                 <h6 className="terms-last-updated">

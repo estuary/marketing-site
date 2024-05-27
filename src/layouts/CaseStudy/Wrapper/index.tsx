@@ -4,7 +4,7 @@ import Layout from '../../../components/layout';
 
 const CaseStudyWrapper = ({ children }) => {
     return (
-        <Layout headerTheme="light">
+        <Layout>
             <article
                 className="case-study"
                 itemScope

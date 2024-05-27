@@ -3,7 +3,7 @@ import Layout from '../../../components/layout';
 
 const PricingWrapper = ({ children }) => {
     return (
-        <Layout headerTheme="light">
+        <Layout>
             <div className="pricing-page">
                 <div className="pricing-page-container">{children}</div>
             </div>

@@ -8,7 +8,7 @@ const description =
 
 const Integrations = () => {
     return (
-        <Layout headerTheme="light">
+        <Layout>
             <Connectors
                 title="Integrations"
                 description={description}

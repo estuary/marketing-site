@@ -5,7 +5,7 @@ import Seo from '../components/seo';
 
 const Sources = () => {
     return (
-        <Layout headerTheme="light">
+        <Layout>
             <Connectors
                 connectorType="capture"
                 title="Sources"

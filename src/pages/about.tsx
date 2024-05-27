@@ -141,7 +141,7 @@ const AboutPage = () => {
     console.log('employees', employees);
 
     return (
-        <Layout headerTheme="light">
+        <Layout>
             <div className="product-flow-section-one-background-image-wrapper">
                 <div className="product-flow-section-one">
                     <div className="product-flow-section-one-left">
@@ -493,14 +493,14 @@ const AboutPage = () => {
                         <div className="about-current-openings-list">
                             {jobs.length > 0
                                 ? jobs.map((job) => (
-                                      <Link
-                                          key={`${job.slug}-about-current-openings-list`}
-                                          to={`#${job.slug}`}
-                                          className="about-current-opening-title"
-                                      >
-                                          {job.title}
-                                      </Link>
-                                  ))
+                                    <Link
+                                        key={`${job.slug}-about-current-openings-list`}
+                                        to={`#${job.slug}`}
+                                        className="about-current-opening-title"
+                                    >
+                                        {job.title}
+                                    </Link>
+                                ))
                                 : null}
                             <Link
                                 className="about-get-in-touch-button"
@@ -512,42 +512,42 @@ const AboutPage = () => {
                         <div className="about-current-openings-description-wrapper">
                             {jobs.length > 0
                                 ? jobs.map((job) => (
-                                      <div
-                                          id={job.slug}
-                                          key={`${job.slug}-about-current-openings-description-wrapper`}
-                                      >
-                                          <div className="about-current-openings-title-wrapper">
-                                              <p className="about-opening-title">
-                                                  {job.title}
-                                              </p>
-                                              <Link
-                                                  to={`#${job.slug}`}
-                                                  className="about-link"
-                                              >
-                                                  <LinkIcon />
-                                              </Link>
-                                          </div>
-                                          <div className="about-current-openings-location-wrapper">
-                                              <p className="about-opening-text">
-                                                  Location:{' '}
-                                                  <b>{job.location}</b>
-                                              </p>
-                                          </div>
-                                          <ProcessedPost
-                                              body={
-                                                  job.description.data
-                                                      .childHtmlRehype.html
-                                              }
-                                          />
-                                          <Link
-                                              className="about-get-in-touch-button-mobile"
-                                              to="mailto:careers@estuary.dev"
-                                          >
-                                              Get in touch to apply
-                                          </Link>
-                                          <div className="current-openings-divider" />
-                                      </div>
-                                  ))
+                                    <div
+                                        id={job.slug}
+                                        key={`${job.slug}-about-current-openings-description-wrapper`}
+                                    >
+                                        <div className="about-current-openings-title-wrapper">
+                                            <p className="about-opening-title">
+                                                {job.title}
+                                            </p>
+                                            <Link
+                                                to={`#${job.slug}`}
+                                                className="about-link"
+                                            >
+                                                <LinkIcon />
+                                            </Link>
+                                        </div>
+                                        <div className="about-current-openings-location-wrapper">
+                                            <p className="about-opening-text">
+                                                Location:{' '}
+                                                <b>{job.location}</b>
+                                            </p>
+                                        </div>
+                                        <ProcessedPost
+                                            body={
+                                                job.description.data
+                                                    .childHtmlRehype.html
+                                            }
+                                        />
+                                        <Link
+                                            className="about-get-in-touch-button-mobile"
+                                            to="mailto:careers@estuary.dev"
+                                        >
+                                            Get in touch to apply
+                                        </Link>
+                                        <div className="current-openings-divider" />
+                                    </div>
+                                ))
                                 : null}
                         </div>
                     </div>
