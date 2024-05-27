@@ -2,6 +2,7 @@
 import pg from 'pg';
 import { GatsbyNode } from 'gatsby';
 import { createRemoteFileNode } from 'gatsby-source-filesystem';
+import ESLintPlugin from 'gatsby/node_modules/eslint-webpack-plugin';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { SUPABASE_CONNECTION_STRING } from './config';
 import { normalizeConnector } from './src/utils';
@@ -416,5 +417,16 @@ export const createResolvers: GatsbyNode['createResolvers'] = async ({
                 },
             },
         },
+    });
+};
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+    actions.setWebpackConfig({
+        plugins: [
+            new ESLintPlugin({
+                extensions: ['js', 'jsx', 'ts', 'tsx'],
+                failOnError: true,
+            }),
+        ],
     });
 };
