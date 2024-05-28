@@ -26,6 +26,7 @@ const ProductHero = () => {
             src="../../../../images/lp-product/hero.png"
             alt="Screenshot of dashboard"
             layout="constrained"
+            loading="eager"
             quality={80}
           />
         </ContainerImage>
