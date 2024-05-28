@@ -8,6 +8,94 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import EstuaryLogo from '../svgs/colored-logo.svg';
 import { Stack, Typography } from '@mui/material';
 import { estuaryAllowsEnterprises } from '../content/seo';
+import FlowLogo from '../svgs/flow-logo.svg';
+import styled from 'styled-components';
+import { globalMaxWidth, sectionTopBottomPadding } from '../globalStyles';
+
+export const Wrapper = styled.div`
+  ${globalMaxWidth}
+  ${sectionTopBottomPadding}
+
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+
+  .about-wrap {
+    width: 50%;
+
+    @media (max-width: 1260px) {
+      width: 100%;
+      max-width: calc(100% - 32px);
+    }
+  }
+
+  .about-logo {
+    display: flex;
+    margin: auto;
+    max-width: 350px;
+    width: 50%;
+    @media (max-width: 845px) {
+      display: none;
+      visbility: hidden;
+    }
+  }
+
+  .about-heading {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 48px;
+    color: #04192b;
+    margin-bottom: 24px;
+
+    @media (max-width: 845px) {
+      font-size: 28px;
+      line-height: 36px;
+    }
+  }
+
+  .about-subheading {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    color: #04192b;
+    margin-bottom: 12px;
+    max-width: 590px;
+
+    @media (max-width: 845px) {
+      font-size: 18px;
+      line-height: 26px;
+    }
+  }
+
+  .about-content {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    color: #47506d;
+    margin-bottom: 20px;
+    max-width: 590px;
+
+    @media (max-width: 845px) {
+      font-size: 14px;
+      line-height: 22px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      color: #47506d;
+      text-decoration: underline;
+    }
+  }
+`;
 
 const ComparisonPageTemplate = ({
   data: {
@@ -104,7 +192,6 @@ const ComparisonPageTemplate = ({
                     <GatsbyImage
                       image={item.Picture.localFile.childImageSharp.gatsbyImageData}
                       alt={`${competitorName} logo`}
-                      loading="eager"
                     />
                   </Link>
                 )
@@ -112,7 +199,7 @@ const ComparisonPageTemplate = ({
             })}
           </div>
         </section>
-        <section className="about-estuary">
+        <Wrapper>
           <div className="about-wrap">
             <div className="about-heading">About Estuary</div>
             <div className="about-subheading">
@@ -134,7 +221,10 @@ const ComparisonPageTemplate = ({
               <Link to="/the-estuary-story-and-guiding-principles">our story here.</Link>
             </p>
           </div>
-        </section>
+          <div className="about-logo">
+            <EstuaryLogo />
+          </div>
+        </Wrapper>
         <SignUp />
       </div>
     </Layout>
