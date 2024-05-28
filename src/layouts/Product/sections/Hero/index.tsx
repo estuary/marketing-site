@@ -5,7 +5,6 @@ import Accordion from './components/Accordion';
 import Cards from './components/Cards';
 
 import {
-  Container,
   ContainerHeader,
   ContainerImage,
   Title,
@@ -15,10 +14,11 @@ import {
   Description,
   ContainerContent,
 } from './style';
+import { DefaultWrapper } from '../../../../styles/wrappers';
 
 const ProductHero = () => {
   return (
-    <Container>
+    <DefaultWrapper>
       <ContainerHeader>
         <ContainerImage>
           <StaticImage
@@ -50,7 +50,7 @@ const ProductHero = () => {
         </ContainerContent>
       </ContainerHeader>
       <Cards />
-    </Container>
+    </DefaultWrapper>
   );
 };
 

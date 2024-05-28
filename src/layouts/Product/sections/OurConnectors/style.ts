@@ -3,10 +3,6 @@ import styled from 'styled-components';
 import { Link } from 'gatsby';
 import { globalMaxWidth, sectionTopBottomPadding } from '../../../../globalStyles';
 
-export const Container = styled.section`
-  ${sectionTopBottomPadding}
-`;
-
 export const Wrapper = styled.div`
   ${globalMaxWidth}
 

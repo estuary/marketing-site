@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
 
-export const Wrapper = styled.section`
-  ${sectionTopBottomPadding}
-`
-
 export const Container = styled.div`
   ${globalMaxWidth}
 

@@ -1,11 +1,12 @@
 import React from 'react';
 
 import PipelinesTable from '../../../components/PipelinesTable';
-import { Button, Container, Description, LineBreak, Title, Wrapper } from './style';
+import { Button, Container, Description, LineBreak, Title } from './style';
+import { DefaultWrapper } from '../../../styles/wrappers';
 
 const Pipelines = () => {
   return (
-    <Wrapper>
+    <DefaultWrapper>
       <Container>
         <Title>
           PIPELINES AS <span>FAST</span> AS KAFKA, <LineBreak />
@@ -18,7 +19,7 @@ const Pipelines = () => {
           Detailed Comparison
         </Button>
       </Container>
-    </Wrapper>
+    </DefaultWrapper>
   );
 };
 

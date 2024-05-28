@@ -15,11 +15,11 @@ import {
   Title,
   Topic,
   Topics,
-  Wrapper,
 } from './style';
 
 import DoneIcon from '@mui/icons-material/Done';
 import { ConnectorType } from '../../../../shared';
+import { DefaultWrapper } from '../../../styles/wrappers';
 
 type ChangeDataProps = {
   connector: {
@@ -31,10 +31,10 @@ type ChangeDataProps = {
 
 const ChangeData = ({ connector: { id, title, type } }: ChangeDataProps) => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down(1485))
+  const isMobile = useMediaQuery(theme.breakpoints.down(1485));
 
   return (
-    <Wrapper>
+    <DefaultWrapper>
       <Container>
         <ContainerImage>
           <Cards />
@@ -64,7 +64,12 @@ const ChangeData = ({ connector: { id, title, type } }: ChangeDataProps) => {
               <span>Or connect critical SaaS apps to {title} with real-time data pipelines.</span>
             </Topic>
           </Topics>
-          <ConnectorsLink defaultDestinationId={id} defaultSourceId={id} connectorType={type} direction={isMobile ? "column" : "row"} />
+          <ConnectorsLink
+            defaultDestinationId={id}
+            defaultSourceId={id}
+            connectorType={type}
+            direction={isMobile ? 'column' : 'row'}
+          />
           <Observation>
             <span>Don’t see a connector?</span>
             <a
@@ -76,7 +81,7 @@ const ChangeData = ({ connector: { id, title, type } }: ChangeDataProps) => {
           </Observation>
         </ContainerContent>
       </Container>
-    </Wrapper>
+    </DefaultWrapper>
   );
 };
 
