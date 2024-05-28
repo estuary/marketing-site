@@ -4122,14 +4122,10 @@ table th {
 
 /*Estuary-vs-... temaple*/
 .lp-comparison-wrap {
-  background: url(./images/lp-podcast/img-bg.png) no-repeat;
-
-  @media (max-width: 991px) {
+  @media (min-width: 991px) {
     background: url(./images/lp-podcast/img-bg.png) no-repeat;
     background-size: contain;
   }
-
-  background-size: contain;
 
   .hero-section {
     padding: 90px 0 0;
@@ -4346,6 +4342,13 @@ table th {
 
       p {
         margin: 0;
+      }
+
+      div {
+        @media (min-width: 845px) {
+          display: none;
+          visibility: hidden;
+        }
       }
     }
 
