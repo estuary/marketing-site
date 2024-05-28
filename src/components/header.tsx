@@ -10,8 +10,6 @@ import { OutboundLink, OutboundLinkFilled } from './OutboundLink';
 
 import HeaderNavbar from './HeaderNavbar';
 
-const TakeATour = React.lazy(() => import("./TakeATour"));
-
 const useNavItems = () => {
   const queryResults = useStaticQuery(graphql`
     query GetNavData {
@@ -144,9 +142,6 @@ const Header = (props: { fixedHeader?: boolean }) => {
     <>
       {/* @ts-ignore */}
       <header className={clsx('header', fixedHeader && 'global-header-fixed')} ref={wrapperRef}>
-        <React.Suspense fallback={null}>
-          <TakeATour />
-        </React.Suspense>
         <div className="global-header global-header-dark">
           <Link className="global-header-logo-link" to="/">
             <ColoredLogo className="global-header-logo" style={{ width: 27, height: 35 }} />

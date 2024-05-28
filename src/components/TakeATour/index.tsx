@@ -28,7 +28,9 @@ const TakeATour = () => {
     }, []);
 
     useEffect(() => {
-        if (typeof window !== 'undefined') setCloseTour(!!localStorage.getItem(STORAGE_KEY));
+        if (typeof window !== 'undefined') {
+            setCloseTour(!!localStorage.getItem(STORAGE_KEY));
+        }
     }, []);
 
     if (closeTour) return null;
@@ -38,11 +40,11 @@ const TakeATour = () => {
             <Link target="_blank" href={SETTINGS.href}>
                 {SETTINGS.message}
             </Link>
-            <IconButton onClick={onClick}>
+            <IconButton onClick={onClick} aria-label="Close banner">
                 <CloseIcon color="inherit" fontSize="small" />
             </IconButton>
         </Container>
     );
-};
+}
 
 export default TakeATour;

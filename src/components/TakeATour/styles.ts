@@ -8,7 +8,11 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  top: 0;
   width: 100%;
+  z-index: 99999;
+  display: none;
   font-weight: 700;
 
   @media (min-width: 1024px) {
