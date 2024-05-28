@@ -27,14 +27,13 @@ export const Wrapper = styled.div`
 
     @media (max-width: 1260px) {
       width: 100%;
-      max-width: calc(100% - 32px);
     }
   }
 
   .about-logo {
     display: flex;
     margin: auto;
-    max-width: 300px;
+    max-width: 150px;
     width: 30%;
     @media (max-width: 845px) {
       display: none;
