@@ -12,43 +12,45 @@ import {
   FlowStepTwo,
   FrameContainer,
   LogoContainer,
-  Wrapper,
-  logoImageStyle
+  logoImageStyle,
 } from './styles';
+import { SwoopingLinesBackground } from '../../../styles/heros';
 
 type HeroProps = {
   connector: {
     title: string;
     logo: ImageDataLike;
     type: ConnectorType;
-  }
-}
+  };
+};
 
 const Hero = ({ connector: { title, logo, type } }: HeroProps) => {
   const logoImage = getImage(logo);
 
   return (
-    <Wrapper>
+    <SwoopingLinesBackground>
       <Container>
-        <Content connector={{
-          title: title,
-          type: type
-        }} />
+        <Content
+          connector={{
+            title: title,
+            type: type,
+          }}
+        />
         <ContainerImage>
-          <FlowStepOne><span>01.</span> {type === "capture" ? "Move from " + title : "Select a source"}</FlowStepOne>
-          <FlowStepTwo><span>02.</span> Transform in-flight</FlowStepTwo>
+          <FlowStepOne>
+            <span>01.</span> {type === 'capture' ? 'Move from ' + title : 'Select a source'}
+          </FlowStepOne>
+          <FlowStepTwo>
+            <span>02.</span> Transform in-flight
+          </FlowStepTwo>
           <FlowStepThree>
-            <span>03.</span> {type === "materialization" ? "Deliver to " + title : "Select a destination"}
+            <span>03.</span> {type === 'materialization' ? 'Deliver to ' + title : 'Select a destination'}
           </FlowStepThree>
           <LogoContainer $connectorType={type}>
-            <GatsbyImage
-              alt={`${title} logo`}
-              image={logoImage}
-              style={logoImageStyle}
-            />
+            <GatsbyImage alt={`${title} logo`} image={logoImage} style={logoImageStyle} />
           </LogoContainer>
           <FrameContainer>
-            {type === "capture" ? (
+            {type === 'capture' ? (
               <StaticImage
                 placeholder="none"
                 alt="take a tour"
@@ -70,7 +72,7 @@ const Hero = ({ connector: { title, logo, type } }: HeroProps) => {
           </FrameContainer>
         </ContainerImage>
       </Container>
-    </Wrapper>
+    </SwoopingLinesBackground>
   );
 };
 

@@ -4,19 +4,6 @@ import { ConnectorType } from '../../../../shared';
 import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
 import Vector from '../../../images/lp-connector/hero/Vector.png';
 
-export const Wrapper = styled.section`
-  ${sectionTopBottomPadding}
-
-  background-color: #f9fafc;
-
-  @media (min-width: 1024px) {
-    background-image: url(${Vector});
-    background-size: cover;
-    background-position: top -32px right;
-    background-repeat: no-repeat;
-  }
-`;
-
 export const Container = styled.div`
   ${globalMaxWidth}
 
@@ -39,16 +26,16 @@ export const ContainerImage = styled.div`
 export const LogoContainer = styled.div<{ $connectorType: ConnectorType }>`
   position: absolute;
   z-index: 1;
-  top: ${({ $connectorType }) => $connectorType === "capture" ? "33%" : "31%"};
-  right: ${({ $connectorType }) => $connectorType === "capture" ? "77%" : "11%"};
+  top: ${({ $connectorType }) => ($connectorType === 'capture' ? '33%' : '31%')};
+  right: ${({ $connectorType }) => ($connectorType === 'capture' ? '77%' : '11%')};
   width: 12%;
   max-width: 90px;
   height: auto;
 
   @media (max-width: 1023px) {
     width: 10%;
-    top: ${({ $connectorType }) => $connectorType === "capture" ? "29%" : "27%"};
-    right: ${({ $connectorType }) => $connectorType === "capture" ? "78.5%" : "12%"};
+    top: ${({ $connectorType }) => ($connectorType === 'capture' ? '29%' : '27%')};
+    right: ${({ $connectorType }) => ($connectorType === 'capture' ? '78.5%' : '12%')};
   }
 `;
 
@@ -64,10 +51,10 @@ export const FrameContainer = styled.div`
 export const logoImageStyle: CSSProperties = {
   width: '100%',
   height: 'auto',
-}
+};
 
 const TextBaseStyling = styled.span`
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   text-transform: uppercase;
   font-size: 1rem;
   font-weight: 600;
@@ -75,7 +62,7 @@ const TextBaseStyling = styled.span`
   position: absolute;
   z-index: 1;
   text-align: center;
-  color: #47506D;
+  color: #47506d;
   width: 100%;
   max-width: 150px;
   height: auto;
@@ -84,12 +71,12 @@ const TextBaseStyling = styled.span`
     text-transform: uppercase;
     font-size: 1rem;
     font-weight: 700;
-    color: #5072EB;
+    color: #5072eb;
 
     @media (max-width: 1280px) {
       font-size: 0.75rem;
     }
-  
+
     @media (max-width: 1023px) {
       font-size: 0.75rem;
     }
@@ -105,7 +92,7 @@ const TextBaseStyling = styled.span`
     font-size: 0.75rem;
     line-height: 16px;
   }
-`
+`;
 
 export const FlowStepOne = styled(TextBaseStyling)`
   top: 100%;
@@ -131,7 +118,7 @@ export const FlowStepOne = styled(TextBaseStyling)`
   @media (max-width: 424px) {
     left: -1%;
   }
-`
+`;
 
 export const FlowStepTwo = styled(TextBaseStyling)`
   top: 105%;
@@ -157,7 +144,7 @@ export const FlowStepTwo = styled(TextBaseStyling)`
   @media (max-width: 425px) {
     left: 35%;
   }
-`
+`;
 
 export const FlowStepThree = styled(TextBaseStyling)`
   top: 97%;
