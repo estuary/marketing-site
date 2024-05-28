@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-import IconButton from '@mui/material/IconButton';
 import { OutboundLink } from '../OutboundLink';
 
 export const Container = styled.div`
@@ -25,10 +24,4 @@ export const Link = styled(OutboundLink)`
   font-size: 12px;
   text-decoration-line: underline;
   color: #fff;
-`;
-
-export const Button = styled(IconButton)`
-  color: #fff;
-  position: absolute;
-  right: 5px;
 `;
