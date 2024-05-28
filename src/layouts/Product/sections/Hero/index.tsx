@@ -22,6 +22,7 @@ const ProductHero = () => {
       <ContainerHeader>
         <ContainerImage>
           <StaticImage
+            className="hero-image"
             src="../../../../images/lp-product/hero.png"
             alt="Screenshot of dashboard"
             layout="constrained"
