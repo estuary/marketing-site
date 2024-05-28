@@ -158,16 +158,16 @@ h6 {
   font-size: var(--fontSize-1);
 }
 
-h1 > a {
+h1>a {
   color: inherit;
   text-decoration: none;
 }
 
-h2 > a,
-h3 > a,
-h4 > a,
-h5 > a,
-h6 > a {
+h2>a,
+h3>a,
+h4>a,
+h5>a,
+h6>a {
   text-decoration: none;
   color: inherit;
 }
@@ -199,7 +199,7 @@ ol li {
   margin-bottom: calc(var(--spacing-6) / 2);
 }
 
-li > p {
+li>p {
   margin-bottom: calc(var(--spacing-6) / 2);
 }
 
@@ -207,7 +207,7 @@ li *:last-child {
   margin-bottom: var(--spacing-0);
 }
 
-li > ul {
+li>ul {
   margin-left: var(--spacing-8);
   margin-top: calc(var(--spacing-8) / 2);
 }
@@ -228,12 +228,12 @@ blockquote {
   margin-bottom: var(--spacing-8);
 }
 
-blockquote > :last-child {
+blockquote> :last-child {
   margin-bottom: var(--spacing-0);
 }
 
-blockquote > ul,
-blockquote > ol {
+blockquote>ul,
+blockquote>ol {
   list-style-position: inside;
 }
 
@@ -306,6 +306,7 @@ input {
   display: flex;
   flex-direction: row;
   width: 100%;
+  height: 116px;
   top: 0;
 
   .global-header-links {
@@ -429,13 +430,7 @@ input {
 
 .header {
   background-color: #04192b;
-  height: 100px;
-  width: 100vw;
-}
-
-.header {
-  background-color: #04192b;
-  height: 100px;
+  height: 116px;
   width: 100vw;
 }
 
@@ -543,8 +538,7 @@ input {
   }
 }
 
-.global-header-title-light {
-}
+.global-header-title-light {}
 
 .global-header-wrapper {
   display: flex;
@@ -801,7 +795,7 @@ input {
   width: 100%;
   min-height: 640px;
   background-color: #04192b;
-  background-image: url('./images/overlay-vector-right.svg');
+  background-image: url("./images/overlay-vector-right.svg");
   background-position: bottom right;
   background-repeat: no-repeat;
   background-size: 75%;
@@ -843,7 +837,7 @@ input {
 
 .global-footer-subtext {
   color: #b7c6dd;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-style: normal;
   max-width: 400px;
 }
@@ -852,7 +846,7 @@ input {
   color: #ffffff;
   font-weight: 700;
   font-size: 18px;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-style: normal;
   margin-bottom: 8px;
   margin-top: 0;
@@ -1115,6 +1109,7 @@ input {
 }
 
 .blog-post {
+
   // The auto-detection isn't great so until we start tagging languages let's just hide this
   .language-tag {
     display: none;
@@ -1171,11 +1166,11 @@ nav.blog-post-nav {
       text-decoration: underline;
     }
 
-    & > :first-child {
+    &> :first-child {
       margin-right: 5px;
     }
 
-    & > :last-child {
+    &> :last-child {
       margin-left: 5px;
     }
   }
@@ -1278,7 +1273,7 @@ table th {
 
   display: flex;
   width: 100%;
-  background-image: url('./images/product-flow-section-one-background.svg');
+  background-image: url("./images/product-flow-section-one-background.svg");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -1922,7 +1917,7 @@ table th {
     color: #04192b;
   }
 
-  & > span {
+  &>span {
     font-weight: 400;
     font-size: 18px;
     line-height: 30px;
@@ -1978,7 +1973,7 @@ table th {
   background-color: #04192b;
   min-height: 400px;
 
-  > div:first-of-type {
+  >div:first-of-type {
     width: 100% !important;
   }
 }
@@ -2057,7 +2052,7 @@ table th {
   display: flex;
   margin: auto;
 
-  & > svg {
+  &>svg {
     width: 100%;
   }
 }
@@ -2403,7 +2398,7 @@ table th {
   background-size: 35%;
   background-position-y: 60%;
 
-  & > div:last-child {
+  &>div:last-child {
     width: 100%;
     max-width: 50rem;
   }
@@ -2544,7 +2539,7 @@ table th {
     margin-top: 24px;
   }
 
-  & > p {
+  &>p {
     font-weight: 400;
     font-size: 17px;
     line-height: 30px;
@@ -2814,7 +2809,7 @@ table th {
     transform: none;
     gap: 0;
 
-    > div {
+    >div {
       padding: 0px 32px;
 
       .content {
@@ -2826,7 +2821,7 @@ table th {
       }
     }
 
-    > div:first-of-type {
+    >div:first-of-type {
       .content {
         padding: 0;
       }
@@ -2994,7 +2989,7 @@ table th {
   .section-one-right-image {
     margin-left: 0px;
 
-    & > :first-child {
+    &> :first-child {
       overflow: visible;
       max-height: 55vw;
       min-height: 14rem;
@@ -3007,7 +3002,7 @@ table th {
       }
     }
 
-    & > :not(:first-child) {
+    &> :not(:first-child) {
       display: none;
     }
   }
@@ -3479,8 +3474,7 @@ table th {
     right: 2%;
   }
 
-  .arrow {
-  }
+  .arrow {}
 
   .section-six-slider-wrapper {
     margin-left: 30px;
@@ -4050,6 +4044,7 @@ table th {
   .section-top-bottom-padding();
 
   .global-max-width();
+
   .signup-bg {
     .section-top-bottom-padding();
 
@@ -4455,6 +4450,7 @@ table th {
       }
 
       &:last-child {
+
         .estuary-value,
         .competitor-value,
         .matters-value {
@@ -4532,6 +4528,7 @@ table th {
       }
 
       a {
+
         svg,
         img {
           height: 50px;
@@ -5835,6 +5832,14 @@ table th {
     margin-right: 10px;
   }
 
+  .blog-post-header {
+    .section-top-bottom-padding();
+    background-color: #f9fafc;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('./images/blog-post-background.svg');
+  }
+
   .blog-post-header-wrapper {
     .global-max-width();
 
@@ -6093,6 +6098,7 @@ table th {
 
     ul,
     ol {
+
       li span,
       li a,
       li {
@@ -6573,9 +6579,11 @@ table th {
           0% {
             transform: translateX(-100%);
           }
+
           50% {
             transform: translateX(0%);
           }
+
           100% {
             transform: translateX(-100%);
           }
@@ -6817,6 +6825,7 @@ table th {
     }
   }
 }
+
 /*Blog post template updates end*/
 
 .blog-post-breadcrumbs-wrapper {
@@ -6836,39 +6845,47 @@ table th {
     @media (min-width: 801px) {
       padding-right: 100px;
     }
+
     @media (max-width: 800px) {
       padding-right: 20px;
     }
   }
+
   .slick-slide {
     margin: 0px 10px;
     overflow: visible !important;
     width: 190px !important;
   }
+
   .slick-track {
     overflow: visible !important;
     display: flex;
     justify-content: center;
     align-items: center;
   }
+
   .slick-list {
     height: 80px;
   }
+
   .gatsby-image-wrapper {
     height: 46px !important;
     display: flex !important;
     align-items: center;
     justify-content: space-between;
   }
+
   .rfm-marquee,
   .rfm-initial-child-container {
     display: flex;
     align-items: end;
     gap: 120px;
+
     @media (max-width: 810px) {
       gap: 50px;
     }
   }
+
   .rfm-initial-child-container {
     padding-right: 60px;
   }
@@ -6888,6 +6905,7 @@ table th {
     visibility: visible;
     object-fit: contain !important;
   }
+
   .slick-slide {
     width: 130px !important;
   }
@@ -6914,4 +6932,5 @@ table th {
     margin-top: 0px;
   }
 }
+
 /*Blog post template updates end*/

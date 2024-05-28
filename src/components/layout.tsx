@@ -1,8 +1,8 @@
-import * as React from "react"
 import clsx from "clsx"
+import * as React from "react"
 
-import Header from "./header"
 import Footer from "./footer"
+import Header from "./header"
 const TakeATour = React.lazy(() => import("./TakeATour"))
 
 const Layout = ({
