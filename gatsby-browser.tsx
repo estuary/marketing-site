@@ -17,6 +17,10 @@ export const wrapPageElement = ({ element }) => (
     <WrapPageElementComponent>{element}</WrapPageElementComponent>
 );
 
+export const wrapPageElement = ({ element }) => (
+  <WrapPageElementComponent>{element}</WrapPageElementComponent>
+);
+
 export const onClientEntry = () => {
     // IntersectionObserver polyfill for gatsby-background-image (Safari, IE)
     if (!('IntersectionObserver' in window)) {

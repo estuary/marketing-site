@@ -1,6 +1,7 @@
 import CloseIcon from '@mui/icons-material/Close';
+import IconButton from '@mui/material/IconButton';
 import React, { useCallback, useEffect, useState } from 'react';
-import { Button, Container, Link } from './styles';
+import { Container, Link } from './styles';
 
 const DEFAULTS = {
     href: '/why',
@@ -39,11 +40,11 @@ const TakeATour = () => {
             <Link target="_blank" href={SETTINGS.href}>
                 {SETTINGS.message}
             </Link>
-            <Button onClick={onClick} aria-label="Close banner">
+            <IconButton onClick={onClick} aria-label="Close banner">
                 <CloseIcon color="inherit" fontSize="small" />
-            </Button>
+            </IconButton>
         </Container>
     );
-};
+}
 
 export default TakeATour;
