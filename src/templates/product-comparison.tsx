@@ -16,12 +16,14 @@ export const Wrapper = styled.div`
   ${globalMaxWidth}
   ${sectionTopBottomPadding}
 
+    font-family: 'Inter', sans-serif;
+  font-style: normal;
   display: flex;
   justify-content: space-between;
   gap: 50px;
 
   .about-wrap {
-    width: 50%;
+    width: 70%;
 
     @media (max-width: 1260px) {
       width: 100%;
@@ -32,8 +34,8 @@ export const Wrapper = styled.div`
   .about-logo {
     display: flex;
     margin: auto;
-    max-width: 350px;
-    width: 50%;
+    max-width: 300px;
+    width: 30%;
     @media (max-width: 845px) {
       display: none;
       visbility: hidden;
@@ -41,8 +43,6 @@ export const Wrapper = styled.div`
   }
 
   .about-heading {
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
     font-weight: 500;
     font-size: 36px;
     line-height: 48px;
@@ -56,14 +56,11 @@ export const Wrapper = styled.div`
   }
 
   .about-subheading {
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
     font-weight: 700;
     font-size: 24px;
     line-height: 36px;
     color: #04192b;
     margin-bottom: 12px;
-    max-width: 590px;
 
     @media (max-width: 845px) {
       font-size: 18px;
@@ -72,14 +69,11 @@ export const Wrapper = styled.div`
   }
 
   .about-content {
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
     font-weight: 400;
     font-size: 20px;
     line-height: 30px;
     color: #47506d;
     margin-bottom: 20px;
-    max-width: 590px;
 
     @media (max-width: 845px) {
       font-size: 14px;
