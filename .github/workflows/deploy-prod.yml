@@ -35,6 +35,14 @@ jobs:
                   restore-keys: |
                       ${{ runner.os }}-gatsby-build-prod-
             - run: yarn install
+            - name: Run ESLint
+              run: yarn lint
+              env:
+                CI: true
+            - name: Run Prettier
+              run: yarn format
+              env:
+                CI: true
             - run: yarn run build --log-pages
               env:
                   CI: true
