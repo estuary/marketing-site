@@ -106,7 +106,7 @@ export function CascadingMenu({
 
 export interface NavItem {
     title: string;
-    path?: string;
+    path: string;
     children?: NavItem[];
 }
 
@@ -193,7 +193,7 @@ export const NavMenuList = ({ item }: { item: NavItem }) => {
         >
             <ListItemText
                 primary={
-                    <Link to={item.path ?? ''} className="global-header-link">
+                    <Link to={item.path} className="global-header-link">
                         {item.title}
                     </Link>
                 }
