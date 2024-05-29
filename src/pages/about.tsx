@@ -14,6 +14,7 @@ import CultureIcon from '../svgs/about-careers-culture-icon.svg';
 import EstuaryLogoSmall from '../svgs/estuary-logo-small.svg';
 import FlowLogo from '../svgs/flow-logo.svg';
 import LinkIcon from '../svgs/link-icon.svg';
+import { estuaryHelpsYourTeam } from '../content/seo';
 
 // const jobs = [
 //     {
@@ -568,12 +569,7 @@ const AboutPage = () => {
 };
 
 export const Head = () => {
-    return (
-        <Seo
-            title="About"
-            description="Estuary helps your team get the most out of the ever-expanding list of valuable databases, warehouses, and other tools so you can focus on insights instead of pipelines."
-        />
-    );
+    return <Seo title="About" description={estuaryHelpsYourTeam} />;
 };
 
 export default AboutPage;

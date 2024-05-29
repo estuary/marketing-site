@@ -7,6 +7,7 @@ import Image2 from '../svgs/solutions-2.svg';
 import Image3 from '../svgs/solutions-3.svg';
 import Image4 from '../svgs/solutions-4.svg';
 import SolutionsBanner from '../svgs/solutions-banner.svg';
+import { estuaryAllowsEnterprises } from '../content/seo';
 
 const SolutionsPage = () => {
     return (
@@ -23,10 +24,7 @@ const SolutionsPage = () => {
                             between batch and streaming processes.
                         </p>
                         <p className="product-flow-section-one-subtext">
-                            Estuary allows enterprises of any size to deploy
-                            true real-time pipelines that scale for high-volume
-                            use cases — without making difficult trade-offs or
-                            investing in complex infrastructure.
+                            {estuaryAllowsEnterprises}
                         </p>
                     </div>
                     <div className="product-flow-section-one-right">
@@ -169,12 +167,7 @@ const SolutionsPage = () => {
 };
 
 export const Head = () => {
-    return (
-        <Seo
-            title="Solutions"
-            description="Estuary allows enterprises of any size to deploy true real-time pipelines that scale for high-volume use cases — without making difficult trade-offs or investing in complex infrastructure."
-        />
-    );
+    return <Seo title="Solutions" description={estuaryAllowsEnterprises} />;
 };
 
 export default SolutionsPage;

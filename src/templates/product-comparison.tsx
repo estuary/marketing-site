@@ -6,6 +6,7 @@ import Seo from '../components/seo';
 import SignUp from '../components/signup';
 
 import EstuaryLogo from '../svgs/colored-logo.svg';
+import { estuaryAllowsEnterprises } from '../content/seo';
 
 const ComparisonPageTemplate = ({
     data: {
@@ -197,12 +198,7 @@ export const Head = ({
     },
 }) => {
     const title = `Estuary Vs ${their_name}`;
-    return (
-        <Seo
-            title={title}
-            description="Estuary allows enterprises of any size to deploy true real-time pipelines that scale for high-volume use cases — without making difficult trade-offs or investing in complex infrastructure."
-        />
-    );
+    return <Seo title={title} description={estuaryAllowsEnterprises} />;
 };
 
 export const pageQuery = graphql`

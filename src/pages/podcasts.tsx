@@ -9,6 +9,7 @@ import SpotifyButton from '../svgs/listen-spotify.svg';
 import SubscribeYoutubeImage from '../svgs/subscribe-image.svg';
 import SubscribeYoutubeButton from '../svgs/subscribe-youtube.svg';
 import WatchYoutubeButton from '../svgs/youtube-watch.svg';
+import { estuaryAllowsEnterprises } from '../content/seo';
 
 const LpPodcats = () => {
     return (
@@ -166,12 +167,7 @@ const LpPodcats = () => {
 };
 
 export const Head = () => {
-    return (
-        <Seo
-            title="Podcasts"
-            description="Estuary allows enterprises of any size to deploy true real-time pipelines that scale for high-volume use cases — without making difficult trade-offs or investing in complex infrastructure."
-        />
-    );
+    return <Seo title="Podcasts" description={estuaryAllowsEnterprises} />;
 };
 
 export default LpPodcats;
