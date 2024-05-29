@@ -104,7 +104,7 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "format": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "format:fix": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\" --log-level error",
+    "format:fix": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "build:plugins": "yarn --cwd ./plugins/estuary-rehype-transformers install && yarn --cwd ./plugins/estuary-rehype-transformers build",
     "build": "yarn run build:plugins && gatsby build",
     "develop": "gatsby develop",
