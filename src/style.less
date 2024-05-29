@@ -5358,9 +5358,15 @@ table th {
       font-weight: 400;
       line-height: normal;
       cursor: pointer;
+      background-color: transparent;
+      border: none;
 
       span {
         text-decoration-line: underline;
+      }
+
+      &:disabled {
+        color: #4a4a4a80;
       }
     }
 

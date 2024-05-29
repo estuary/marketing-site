@@ -15,22 +15,24 @@ const WhyEstuary = () => {
                     <Step activePage={activePage} setActivePage={setActivePage} />
                 </div>
                 <div className="steps-controls">
-                    <div
+                    <button
                         className="prev-step"
                         onClick={() =>
                             setActivePage(Math.max(activePage - 1, 0))
                         }
+                        disabled={activePage === 0}
                     >
                         <span>Previous</span>
-                    </div>
-                    <div
+                    </button>
+                    <button
                         className="next-step"
                         onClick={() =>
                             setActivePage(Math.min(activePage + 1, 7))
                         }
+                        disabled={activePage === 7}
                     >
                         <span>Next</span>
-                    </div>
+                    </button>
                 </div>
             </div>
         </main>
