@@ -1,7 +1,7 @@
-import React from "react"
+import React from 'react';
 
-import { ProcessedPost } from '../../../components/BlogPostProcessor'
-import { GatsbyImage } from "gatsby-plugin-image"
+import { GatsbyImage } from 'gatsby-plugin-image';
+import { ProcessedPost } from '../../../components/BlogPostProcessor';
 
 const Topic = ({ Title, Description, Icon }) => {
     return (
@@ -18,21 +18,23 @@ const Topic = ({ Title, Description, Icon }) => {
                 <p className="description">{Description}</p>
             </div>
         </div>
-    )
-}
+    );
+};
 
 const CaseStudyAbout = ({ Title, Description, Topics }) => {
     return (
         <div className="about">
             <p className="title">{Title}</p>
             <div className="topics">
-                {Topics.map((topic, index) => <Topic key={index} {...topic} />)}
+                {Topics.map((topic, index) => (
+                    <Topic key={index} {...topic} />
+                ))}
             </div>
             <div className="description">
                 <ProcessedPost body={Description.data.childHtmlRehype.html} />
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default CaseStudyAbout
+export default CaseStudyAbout;

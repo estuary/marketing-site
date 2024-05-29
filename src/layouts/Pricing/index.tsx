@@ -1,15 +1,15 @@
-import "./style.less"
+import './style.less';
 
-import React from "react"
+import React from 'react';
 
-import Header from "./Head"
-import Wrapper from "./Wrapper"
+import Header from './Head';
+import Wrapper from './Wrapper';
 
-import Hero from "./Sections/Hero"
-import Plans from "./Sections/Plans"
-import CostCalculator from "./Sections/CostCalculator"
-import PricingComparison from "./Sections/PricingComparison"
-import FrequentlyQuestions from "./Sections/FrequentlyQuestions"
+import Hero from './Sections/Hero';
+import Plans from './Sections/Plans';
+import CostCalculator from './Sections/CostCalculator';
+import PricingComparison from './Sections/PricingComparison';
+import FrequentlyQuestions from './Sections/FrequentlyQuestions';
 
 const PricingPage = () => {
     return (
@@ -19,10 +19,10 @@ const PricingPage = () => {
             <CostCalculator />
             <PricingComparison />
             <FrequentlyQuestions />
-        </Wrapper >
-    )
-}
+        </Wrapper>
+    );
+};
 
-export const Head = Header
+export const Head = Header;
 
-export default PricingPage
+export default PricingPage;

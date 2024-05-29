@@ -1,14 +1,11 @@
-import * as React from "react"
-import unified from "unified"
-import rehypeParse from "rehype-parse"
-import rehypeReact from "rehype-react"
-import ImgSharpInline from "../../plugins/estuary-rehype-transformers/src/ImgSharp"
+import * as React from 'react';
 
-export const ProcessedPost = ({
-    body,
-}: {
-    body: string
-}) => {
+export const ProcessedPost = ({ body }: { body: string }) => {
     // return (JSON.stringify(body,null,4))
-    return <div className="dynamic-html" dangerouslySetInnerHTML={{__html: body}}></div>
-}
+    return (
+        <div
+            className="dynamic-html"
+            dangerouslySetInnerHTML={{ __html: body }}
+        />
+    );
+};

@@ -1,10 +1,10 @@
-import React from "react"
+import React from 'react';
 
-import Layout from "../../../../components/layout"
+import Layout from '../../../../components/layout';
 
 const ProductWrapper = ({ children }) => {
     return (
-        <Layout headerTheme="light">
+        <Layout>
             <article
                 className="product-page"
                 itemScope
@@ -13,7 +13,7 @@ const ProductWrapper = ({ children }) => {
                 {children}
             </article>
         </Layout>
-    )
-}
+    );
+};
 
-export default ProductWrapper
+export default ProductWrapper;

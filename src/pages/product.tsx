@@ -13,18 +13,18 @@ import Pipelines from '../layouts/Product/sections/Pipelines';
 import UnifiedDataStack from '../layouts/Product/sections/UnifiedDataStack';
 
 const Product = () => {
-  return (
-    <Wrapper>
-      <Hero />
-      <DataIntoStream />
-      <TakeATour />
-      <OurConnectors />
-      <TakeControlBack />
-      <TheAutomation />
-      <Pipelines />
-      <UnifiedDataStack />
-    </Wrapper>
-  );
+    return (
+        <Wrapper>
+            <Hero />
+            <DataIntoStream />
+            <TakeATour />
+            <OurConnectors />
+            <TakeControlBack />
+            <TheAutomation />
+            <Pipelines />
+            <UnifiedDataStack />
+        </Wrapper>
+    );
 };
 
 export const Head = Header;

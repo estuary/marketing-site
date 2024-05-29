@@ -1,21 +1,48 @@
-import { StaticImage } from "gatsby-plugin-image"
-import React from "react"
+import { StaticImage } from 'gatsby-plugin-image';
+import React from 'react';
 
-import { Button, Container, ContainerContent, ContainerImage, ContainerTopics, Title, Topic, Wrapper } from "./styles"
+import {
+    Button,
+    Container,
+    ContainerContent,
+    ContainerImage,
+    ContainerTopics,
+    Title,
+    Topic,
+    Wrapper,
+} from './styles';
 
 const TakeControlBack = () => {
     return (
         <Container>
             <Wrapper>
                 <ContainerContent>
-                    <Title><span>TAKE BACK CONTROL</span> OF YOUR DATA</Title>
+                    <Title>
+                        <span>TAKE BACK CONTROL</span> OF YOUR DATA
+                    </Title>
                     <ContainerTopics>
-                        <Topic>Build real-time data products with streaming transforms in SQL & Typescript</Topic>
-                        <Topic>Connect your own cloud storage for a real-time data lake, for both audit-ability and re-syncs without impacting your source</Topic>
-                        <Topic>Push data to your destination using time-travel and history mode</Topic>
-                        <Topic>Enforce data contracts or take advantage of automated schema drift</Topic>
+                        <Topic>
+                            Build real-time data products with streaming
+                            transforms in SQL & Typescript
+                        </Topic>
+                        <Topic>
+                            Connect your own cloud storage for a real-time data
+                            lake, for both audit-ability and re-syncs without
+                            impacting your source
+                        </Topic>
+                        <Topic>
+                            Push data to your destination using time-travel and
+                            history mode
+                        </Topic>
+                        <Topic>
+                            Enforce data contracts or take advantage of
+                            automated schema drift
+                        </Topic>
                     </ContainerTopics>
-                    <Button target="_blank" href="https://dashboard.estuary.dev/register">
+                    <Button
+                        target="_blank"
+                        href="https://dashboard.estuary.dev/register"
+                    >
                         Build a Pipeline
                     </Button>
                 </ContainerContent>
@@ -29,7 +56,7 @@ const TakeControlBack = () => {
                 </ContainerImage>
             </Wrapper>
         </Container>
-    )
-}
+    );
+};
 
-export default TakeControlBack
+export default TakeControlBack;

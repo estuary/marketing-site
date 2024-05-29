@@ -1,22 +1,22 @@
-import { graphql } from "gatsby"
-import React from "react"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
-import { ConnectorPage } from "../components/ConnectorPage"
+import { graphql } from 'gatsby';
+import React from 'react';
+import { ConnectorPage } from '../components/ConnectorPage';
+import Layout from '../components/layout';
+import Seo from '../components/seo';
 
 export interface ConnectorProps {
     data: {
         source: {
-            connector: any
-        }
+            connector: any;
+        };
         destination: {
-            connector: any
-        }
-    }
+            connector: any;
+        };
+    };
     pageContext: {
-        source_id: string
-        destination_id: string
-    }
+        source_id: string;
+        destination_id: string;
+    };
 }
 
 const Connector = ({
@@ -24,19 +24,18 @@ const Connector = ({
         source: { connector: source_connector },
         destination: { connector: destination_connector },
     },
-    pageContext,
 }: ConnectorProps) => {
     return (
-        <Layout headerTheme="light">
+        <Layout>
             <ConnectorPage
                 source_connector={source_connector}
                 dest_connector={destination_connector}
             />
         </Layout>
-    )
-}
+    );
+};
 
-export default Connector
+export default Connector;
 
 /**
  * Head export to define metadata for the page
@@ -49,14 +48,14 @@ export const Head = ({
         destination: { connector: destination_connector },
     },
 }) => {
-    const title = `${source_connector.title?.["en-US"]} to ${destination_connector.title?.["en-US"]}`
+    const title = `${source_connector.title?.['en-US']} to ${destination_connector.title?.['en-US']}`;
     return (
         <Seo
             title={title}
-            description={`Estuary helps move data from ${source_connector.title?.["en-US"]} to ${destination_connector.title?.["en-US"]} in minutes with millisecond latency.`}
+            description={`Estuary helps move data from ${source_connector.title?.['en-US']} to ${destination_connector.title?.['en-US']} in minutes with millisecond latency.`}
         />
-    )
-}
+    );
+};
 
 export const pageQuery = graphql`
     query ConnectorData(
@@ -112,4 +111,4 @@ export const pageQuery = graphql`
             }
         }
     }
-`
+`;
