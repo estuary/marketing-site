@@ -1,13 +1,6 @@
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import {
-    globalMaxWidth,
-    sectionTopBottomPadding,
-} from '../../../../globalStyles';
-
-export const Container = styled.section`
-    ${sectionTopBottomPadding}
-`;
+import { globalMaxWidth } from '../../../../globalStyles';
 
 export const Wrapper = styled.div`
     ${globalMaxWidth}
