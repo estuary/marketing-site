@@ -1,12 +1,80 @@
 import { Link, graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import * as React from 'react';
+import styled from 'styled-components';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
 import SignUp from '../components/signup';
 
 import EstuaryLogo from '../svgs/colored-logo.svg';
 import { estuaryAllowsEnterprises } from '../content/seo';
+import { globalMaxWidth, sectionTopBottomPadding } from '../globalStyles';
+
+export const AboutUsWrapper = styled.div`
+    ${globalMaxWidth}
+    ${sectionTopBottomPadding}
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    .about-wrap {
+        width: 70%;
+        @media (max-width: 1260px) {
+            width: 100%;
+        }
+    }
+    .about-logo {
+        display: flex;
+        margin: auto;
+        max-width: 150px;
+        width: 30%;
+        @media (max-width: 845px) {
+            display: none;
+            visbility: hidden;
+        }
+    }
+    .about-heading {
+        font-weight: 500;
+        font-size: 36px;
+        line-height: 48px;
+        color: #04192b;
+        margin-bottom: 24px;
+        @media (max-width: 845px) {
+            font-size: 28px;
+            line-height: 36px;
+        }
+    }
+    .about-subheading {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 36px;
+        color: #04192b;
+        margin-bottom: 12px;
+        @media (max-width: 845px) {
+            font-size: 18px;
+            line-height: 26px;
+        }
+    }
+    .about-content {
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 30px;
+        color: #47506d;
+        margin-bottom: 20px;
+        @media (max-width: 845px) {
+            font-size: 14px;
+            line-height: 22px;
+        }
+        &:last-child {
+            margin-bottom: 0;
+        }
+        a {
+            color: #47506d;
+            text-decoration: underline;
+        }
+    }
+`;
 
 const ComparisonPageTemplate = ({
     data: {
@@ -152,7 +220,7 @@ const ComparisonPageTemplate = ({
                         })}
                     </div>
                 </section>
-                <section className="about-estuary">
+                <AboutUsWrapper>
                     <div className="about-wrap">
                         <div className="about-heading">About Estuary</div>
                         <div className="about-subheading">
@@ -185,7 +253,10 @@ const ComparisonPageTemplate = ({
                             </Link>
                         </p>
                     </div>
-                </section>
+                    <div className="about-logo">
+                        <EstuaryLogo />
+                    </div>
+                </AboutUsWrapper>
                 <SignUp />
             </div>
         </Layout>
