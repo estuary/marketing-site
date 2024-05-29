@@ -8,7 +8,7 @@ export const Head = () => <Seo title="Privacy Policy" />;
 
 const PrivacyPolicy = () => {
     return (
-        <Layout headerTheme="light">
+        <Layout>
             <LegalWrapper className="privacy-root">
                 <h2>Privacy Policy</h2>
                 <p className="last-updated">Revised as of [May 28, 2024]</p>
