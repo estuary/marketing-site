@@ -10,6 +10,7 @@ const PrivacyPolicy = () => {
     <Layout headerTheme="light">
       <div className="privacy-policy-root">
         <h2>Privacy Policy</h2>
+        <h4>Revised as of [May 28, 2024]</h4>
         <h5>We respect your privacy.</h5>
         <p>
           Estuary Technologies, Inc. ("<span className="privacy-underline">Estuary</span>,” “
@@ -25,10 +26,10 @@ const PrivacyPolicy = () => {
           of Use.
         </p>
         <p>
-          By using the Website or when you sign up to access and use the Services, you acknowledge that you have read,
-          understood and agree to be legally bound by the terms of this Privacy Policy, the accompanying Terms of Use.
-          If you do not agree to (or cannot comply with) all of the terms of this Privacy Policy and the Terms of Use,
-          you may not access or use the Services.
+          By using the Website, or by signing up to access and use the Services, you acknowledge that you have read,
+          understood and agree to be legally bound by the terms of this Privacy Policy and the accompanying Terms of
+          Use. If you do not agree to (or cannot comply with) all of the terms of this Privacy Policy and the Terms of
+          Use, you may not access or use the Services.
         </p>
         <p>
           If you accept or agree to this Agreement on behalf of a company or other legal entity, you represent and
@@ -44,7 +45,7 @@ const PrivacyPolicy = () => {
         <p className="privacy-underline privacy-bold">THE INFORMATION WE COLLECT AND HOW WE USE IT</p>
         <p>
           In the course of operating the Services, Estuary collects or receives the following types of information from
-          you, which may include personal information.
+          you, which may include personal information:
         </p>
 
         <p className="privacy-bold">Contact Information</p>
@@ -82,12 +83,26 @@ const PrivacyPolicy = () => {
 
         <p className="privacy-bold">Server Log Information</p>
         <p>
-          Our servers keep log files that record data each time a device accesses those servers. The log files contain
-          data about the nature of such access, including the device’s IP address, user agent string (e.g., operating
-          system and browser type/version), and the pages you’ve clicked on while on our Services, and details regarding
-          your activity on the Services such as time spent on the Services and other similar data with respect to how
-          you use the Services. We may use these log files for purposes such as assisting in monitoring and
-          troubleshooting errors and incidents, analyzing traffic, or optimizing the user experience.
+          Our servers and CookieFirst (discussed below) keep log files that record data each time a device accesses the
+          servers. The log files contain the following items:
+        </p>
+        <ul>
+          <li>Your consent status or the withdrawal of consent</li>
+          <li>Your IP address</li>
+          <li>Information about your Browser</li>
+          <li>Information about your Device</li>
+          <li>
+            The date and time you have visited our website, and the pages you’ve clicked on while on our Services and
+            time spent on the Services
+          </li>
+          <li>The webpage url where you saved or updated your consent preferences</li>
+          <li>The approximate location of the user that saved their consent preference</li>
+          <li>A universally unique identifier (UUID) of the website visitor that clicked the cookie banner</li>
+          <li>Other similar data about the nature of your access and how you use the Services</li>
+        </ul>
+        <p>
+          We may use these log files for purposes such as assisting in monitoring and troubleshooting errors and
+          incidents, analyzing traffic, or optimizing the user experience.
         </p>
 
         <p className="privacy-bold">Cookies</p>
@@ -113,10 +128,27 @@ const PrivacyPolicy = () => {
           </li>
         </ul>
         <p>
-          If you do not want us to place a cookie on your device, you may be able to turn that feature off on your
-          device. Please consult your browser’s documentation for information on how to do this and how to delete
-          persistent cookies. However, if you decide not to accept cookies from us, certain aspects of the Services may
-          not function properly or as intended.
+          To obtain and record your consent for the use and storage of cookies, we use a consent management platform:
+          CookieFirst. This technology is provided by Digital Data Solutions BV, Plantage Middenlaan 42a, 1018 DH,
+          Amsterdam, The Netherlands. Website:{' '}
+          <OutboundLink href="https://cookiefirst.com">https://cookiefirst.com</OutboundLink> referred to as
+          CookieFirst.
+        </p>
+        <p>
+          When you access our website, a connection is established with CookieFirst’s server and we seek consent from
+          you regarding the use of certain cookies. If approved, CookieFirst then stores a cookie in your browser, which
+          then activates only those cookies to which you have consented (and documents such activity accordingly). The
+          data processed is stored until the predefined storage period expires or you request to delete the data.
+          Certain mandatory legal storage periods may apply notwithstanding the aforementioned.
+        </p>
+        <p>
+          For the avoidance of doubt, CookieFirst is used to obtain the legally required consent for the use of cookies.
+          The legal basis for this is article 6(1)(c) of the General Data Protection Regulation (GDPR).
+        </p>
+        <p>
+          We have concluded a data processing agreement with CookieFirst. This is a contract required by data protection
+          law, which ensures that data of our website visitors is only processed in accordance with our instructions and
+          in compliance with the GDPR.
         </p>
 
         <p className="privacy-bold">Third-Party Analytics Providers</p>
@@ -309,7 +341,7 @@ const PrivacyPolicy = () => {
           regular basis.
         </p>
 
-        <p className="privacy-underline privacy-bold">CHANGES TO THIS PRIVACY POLICY</p>
+        <p className="privacy-underline privacy-bold">HOW TO CONTACT US</p>
         <p>
           If you have questions about this Privacy Policy, please e-mail us at{' '}
           <a href="mailto:privacy@estuary.dev">privacy@estuary.dev</a> with “Privacy Policy” in the subject line.
