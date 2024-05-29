@@ -75,7 +75,7 @@ const TakeATour = () => {
                     </ContainerIcons>
                     <Title>TAKE A TOUR</Title>
                     <Description>
-                        Learn more about how estuary can help with real-time
+                        Learn more about how Estuary can help with real-time
                         replication.
                     </Description>
                     <ContainerButton>

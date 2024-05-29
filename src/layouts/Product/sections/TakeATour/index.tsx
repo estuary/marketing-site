@@ -2,10 +2,10 @@ import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
 import { webinarsUrl } from '../../../../../shared';
+import { SwoopingLinesBackground } from '../../../../styles/heros';
 import {
     ActionLink,
     Button,
-    Container,
     ContainerButton,
     ContainerContent,
     ContainerIcon,
@@ -18,7 +18,7 @@ import {
 
 const TakeATour = () => {
     return (
-        <Container>
+        <SwoopingLinesBackground>
             <Wrapper>
                 <ContainerImage>
                     <StaticImage
@@ -59,7 +59,7 @@ const TakeATour = () => {
                     </ContainerIcons>
                     <Title>TAKE A TOUR</Title>
                     <Description>
-                        Learn more about how estuary can help with real-time
+                        Learn more about how Estuary can help with real-time
                         replication.
                     </Description>
                     <ContainerButton>
@@ -72,7 +72,7 @@ const TakeATour = () => {
                     </ContainerButton>
                 </ContainerContent>
             </Wrapper>
-        </Container>
+        </SwoopingLinesBackground>
     );
 };
 

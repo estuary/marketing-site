@@ -3,21 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'gatsby';
 import { OutboundLink } from '../../../../components/OutboundLink';
 
-import {
-    globalMaxWidth,
-    sectionTopBottomPadding,
-} from '../../../../globalStyles';
-import vectorBackgroundImage from '../../../../images/lp-product/Vector.png';
-
-export const Container = styled.section`
-    ${sectionTopBottomPadding}
-
-    background-image: url(${vectorBackgroundImage});
-    background-size: cover;
-    background-position: top;
-    background-repeat: no-repeat;
-    background-color: #f9fafc;
-`;
+import { globalMaxWidth } from '../../../../globalStyles';
 
 export const Wrapper = styled.div`
     ${globalMaxWidth}

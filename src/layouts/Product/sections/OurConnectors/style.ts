@@ -1,21 +1,7 @@
 import styled from 'styled-components';
 
 import { Link } from 'gatsby';
-import {
-    globalMaxWidth,
-    sectionTopBottomPadding,
-} from '../../../../globalStyles';
-import VectorImage from '../../../../images/lp-product/vector-ourconnectors.png';
-
-export const Container = styled.section`
-    ${sectionTopBottomPadding}
-
-    background-image: url(${VectorImage});
-    background-size: cover;
-    background-position: top;
-    background-repeat: no-repeat;
-    background-color: #f9fafc;
-`;
+import { globalMaxWidth } from '../../../../globalStyles';
 
 export const Wrapper = styled.div`
     ${globalMaxWidth}

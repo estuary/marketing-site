@@ -1,9 +1,9 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
+import { DefaultWrapperDark } from '../../../../styles/wrappers';
 import {
     Button,
-    Container,
     ContainerContent,
     ContainerImage,
     ContainerTopics,
@@ -14,7 +14,7 @@ import {
 
 const TakeControlBack = () => {
     return (
-        <Container>
+        <DefaultWrapperDark>
             <Wrapper>
                 <ContainerContent>
                     <Title>
@@ -55,7 +55,7 @@ const TakeControlBack = () => {
                     />
                 </ContainerImage>
             </Wrapper>
-        </Container>
+        </DefaultWrapperDark>
     );
 };
 
