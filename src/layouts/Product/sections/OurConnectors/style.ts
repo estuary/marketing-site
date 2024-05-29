@@ -25,13 +25,13 @@ export const ContainerImage = styled.div`
 
     @media (max-width: 1023px) {
         .desktop-image {
-            display: none;
+            display: none !important;
         }
     }
 
     @media (min-width: 1024px) {
         .mobile-image {
-            display: none;
+            display: none !important;
         }
     }
 `;
