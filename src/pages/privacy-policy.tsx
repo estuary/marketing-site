@@ -11,7 +11,7 @@ const PrivacyPolicy = () => {
     <Layout headerTheme="light">
       <LegalWrapper className="privacy-root">
         <h2>Privacy Policy</h2>
-        <h6 className="last-updated">Revised as of [May 28, 2024]</h6>
+        <p className="last-updated">Revised as of [May 28, 2024]</p>
         <h5>We respect your privacy.</h5>
         <p>
           Estuary Technologies, Inc. ("<span className="legal-underline">Estuary</span>,” “
