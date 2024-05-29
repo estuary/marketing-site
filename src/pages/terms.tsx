@@ -1,15 +1,16 @@
 import * as React from 'react';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
+import LegalWrapper from '../components/LegalWrapper';
 
 export const Head = () => <Seo title="Terms of Service" />;
 
 const Terms = () => {
   return (
     <Layout headerTheme="light">
-      <div className="terms-root">
+      <LegalWrapper className="terms-root">
         <h4>Terms of Service</h4>
-        <h6 className="terms-last-updated">Last updated January 20th, 2022</h6>
+        <h6 className="last-updated">Last updated January 20th, 2022</h6>
 
         <p>
           These terms of use (the “<span className="privacy-underline">Terms of Use</span>”) are a legal agreement
@@ -339,7 +340,7 @@ const Terms = () => {
           convenience and shall not be given any legal import. This Agreement will inure to the benefit of our
           successors, assigns, licensees, and sublicensees.
         </p>
-      </div>
+      </LegalWrapper>
     </Layout>
   );
 };

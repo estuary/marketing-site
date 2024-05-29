@@ -2,15 +2,16 @@ import * as React from 'react';
 import Layout from '../components/layout';
 import { OutboundLink } from '../components/OutboundLink';
 import Seo from '../components/seo';
+import LegalWrapper from '../components/LegalWrapper';
 
 export const Head = () => <Seo title="Privacy Policy" />;
 
 const PrivacyPolicy = () => {
   return (
     <Layout headerTheme="light">
-      <div className="privacy-policy-root">
+      <LegalWrapper className="privacy-root">
         <h2>Privacy Policy</h2>
-        <h4>Revised as of [May 28, 2024]</h4>
+        <h6 className="last-updated">Revised as of [May 28, 2024]</h6>
         <h5>We respect your privacy.</h5>
         <p>
           Estuary Technologies, Inc. ("<span className="privacy-underline">Estuary</span>,” “
@@ -346,7 +347,7 @@ const PrivacyPolicy = () => {
           If you have questions about this Privacy Policy, please e-mail us at{' '}
           <a href="mailto:privacy@estuary.dev">privacy@estuary.dev</a> with “Privacy Policy” in the subject line.
         </p>
-      </div>
+      </LegalWrapper>
     </Layout>
   );
 };
