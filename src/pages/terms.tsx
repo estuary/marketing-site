@@ -1,4 +1,5 @@
 import * as React from 'react';
+import LegalWrapper from '../components/LegalWrapper';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
 
@@ -6,27 +7,27 @@ export const Head = () => <Seo title="Terms of Service" />;
 
 const Terms = () => {
     return (
-        <Layout>
-            <div className="terms-root">
+        <Layout headerTheme="light">
+            <LegalWrapper className="terms-root">
                 <h4>Terms of Service</h4>
-                <h6 className="terms-last-updated">
+                <h6 className="last-updated">
                     Last updated January 20th, 2022
                 </h6>
 
                 <p>
                     These terms of use (the “
-                    <span className="privacy-underline">Terms of Use</span>”)
-                    are a legal agreement between you and Estuary Technologies,
-                    Inc. (“<span className="privacy-underline">Estuary</span>,”
-                    “<span className="privacy-underline">we</span>,” “
-                    <span className="privacy-underline">us</span>,” or “
-                    <span className="privacy-underline">our</span>). These Terms
+                    <span className="legal-underline">Terms of Use</span>”) are
+                    a legal agreement between you and Estuary Technologies, Inc.
+                    (“<span className="legal-underline">Estuary</span>,” “
+                    <span className="legal-underline">we</span>,” “
+                    <span className="legal-underline">us</span>,” or “
+                    <span className="legal-underline">our</span>). These Terms
                     of Use specify the terms under which you may access and use
                     the website located at{' '}
                     <a href="https://www.estuary.dev/">
                         https://www.estuary.dev/
                     </a>{' '}
-                    (the “<span className="privacy-underline">Website</span>).
+                    (the “<span className="legal-underline">Website</span>).
                     Please note that we offer additional products and services,
                     which are provided pursuant to a separate manually or
                     digitally-executed agreement.
@@ -38,9 +39,9 @@ const Terms = () => {
                     have read, understood, and agree to be legally bound by
                     these Terms of Use and our Privacy Policy, which is hereby
                     incorporated by reference (collectively, this “
-                    <span className="privacy-underline">Agreement</span>). If
-                    you do not agree to any of these terms, then please do not
-                    use the Website.
+                    <span className="legal-underline">Agreement</span>). If you
+                    do not agree to any of these terms, then please do not use
+                    the Website.
                 </p>
 
                 <p>
@@ -53,7 +54,7 @@ const Terms = () => {
                     .
                 </p>
 
-                <p className="privacy-bold">
+                <p className="legal-bold">
                     THE SECTIONS BELOW TITLED “BINDING ARBITRATION” AND “CLASS
                     ACTION WAIVER” CONTAIN A BINDING ARBITRATION AGREEMENT AND
                     CLASS ACTION WAIVER. THEY AFFECT YOUR LEGAL RIGHTS. PLEASE
@@ -65,14 +66,13 @@ const Terms = () => {
                     company or other legal entity, you represent and warrant
                     that you have the authority to bind that company or other
                     legal entity to the Agreement and, in such event, “
-                    <span className="privacy-underline">you</span>” and “
-                    <span className="privacy-underline">your</span>” will refer
+                    <span className="legal-underline">you</span>” and “
+                    <span className="legal-underline">your</span>” will refer
                     and apply to that company or other legal entity, and any
                     employees, contractors, or agents authorized by you to
                     access and use the Products pursuant to the terms of this
                     Agreement (“
-                    <span className="privacy-underline">Authorized Users</span>
-                    ”).
+                    <span className="legal-underline">Authorized Users</span>”).
                 </p>
 
                 <p>
@@ -82,7 +82,7 @@ const Terms = () => {
 
                 <p>
                     1.{' '}
-                    <span className="privacy-bold privacy-underline">
+                    <span className="legal-bold legal-underline">
                         INTELLECTUAL PROPERTY
                     </span>
                 </p>
@@ -91,7 +91,7 @@ const Terms = () => {
                     graphics, images, sound recordings, and other material
                     provided by or on behalf of Estuary or its licensors
                     (collectively referred to as the &quot;
-                    <span className="privacy-underline">Content</span>”). The
+                    <span className="legal-underline">Content</span>”). The
                     Content may be owned by us or third parties. The Content is
                     protected under both United States and foreign laws.
                     Unauthorized use of the Content may violate copyright,
@@ -121,18 +121,16 @@ const Terms = () => {
 
                 <p>
                     The trademarks, service marks, and logos of Estuary (the “
-                    <span className="privacy-underline">
-                        Estuary Trademarks
-                    </span>
+                    <span className="legal-underline">Estuary Trademarks</span>
                     ”) used and displayed on the Website is owned by Estuary.
                     Other company, product, and service names located on the
                     Website may be trademarks or service marks owned by others
                     (the “
-                    <span className="privacy-underline">
+                    <span className="legal-underline">
                         Third-Party Trademarks
                     </span>
                     ,” and, collectively with Estuary Trademarks, the “
-                    <span className="privacy-underline">Trademarks</span>).
+                    <span className="legal-underline">Trademarks</span>).
                     Nothing on the Website should be construed as granting, by
                     implication, estoppel, or otherwise, any license or right to
                     use the Trademarks, without our prior written permission
@@ -154,7 +152,7 @@ const Terms = () => {
 
                 <p>
                     2.{' '}
-                    <span className="privacy-bold privacy-underline">
+                    <span className="legal-bold legal-underline">
                         COMMUNITY GUIDELINES
                     </span>
                 </p>
@@ -163,7 +161,7 @@ const Terms = () => {
                     its users follow a few simple rules. By accessing the
                     Website, you agree to comply with these community guidelines
                     (the “
-                    <span className="privacy-underline">
+                    <span className="legal-underline">
                         Community Guidelines
                     </span>
                     ”) and that:
@@ -211,7 +209,7 @@ const Terms = () => {
                         You will not use any robot, spider, scraper, or other
                         automated means to access the Website for any purpose
                         without our express, written permission;{' '}
-                        <span className="privacy-underline">
+                        <span className="legal-underline">
                             provided, however
                         </span>
                         , that we may grant the operators of public search
@@ -235,7 +233,7 @@ const Terms = () => {
 
                 <p>
                     3.{' '}
-                    <span className="privacy-bold privacy-underline">
+                    <span className="legal-bold legal-underline">
                         COMMUNICATIONS WITH US
                     </span>
                 </p>
@@ -255,7 +253,7 @@ const Terms = () => {
 
                 <p>
                     4.{' '}
-                    <span className="privacy-bold privacy-underline">
+                    <span className="legal-bold legal-underline">
                         NO WARRANTIES; LIMITATION OF LIABILITY
                     </span>
                 </p>
@@ -306,13 +304,13 @@ const Terms = () => {
 
                 <p>
                     5.{' '}
-                    <span className="privacy-bold privacy-underline">
+                    <span className="legal-bold legal-underline">
                         EXTERNAL SITES
                     </span>
                 </p>
                 <p>
                     The Website may contain links to third-party websites (“
-                    <span className="privacy-underline">External Sites</span>”).
+                    <span className="legal-underline">External Sites</span>”).
                     These links are provided solely as a convenience to you and
                     not as an endorsement by us of the content on such External
                     Sites. The content of such External Sites is developed and
@@ -331,7 +329,7 @@ const Terms = () => {
 
                 <p>
                     6.{' '}
-                    <span className="privacy-bold privacy-underline">
+                    <span className="legal-bold legal-underline">
                         INDEMNIFICATION
                     </span>
                 </p>
@@ -358,7 +356,7 @@ const Terms = () => {
 
                 <p>
                     7.{' '}
-                    <span className="privacy-bold privacy-underline">
+                    <span className="legal-bold legal-underline">
                         COMPLIANCE WITH APPLICABLE LAWS
                     </span>
                 </p>
@@ -375,7 +373,7 @@ const Terms = () => {
 
                 <p>
                     8.{' '}
-                    <span className="privacy-bold privacy-underline">
+                    <span className="legal-bold legal-underline">
                         CHANGES TO THE AGREEMENT
                     </span>
                 </p>
@@ -391,7 +389,7 @@ const Terms = () => {
 
                 <p>
                     9.{' '}
-                    <span className="privacy-bold privacy-underline">
+                    <span className="legal-bold legal-underline">
                         TERMINATION OF THE AGREEMENT
                     </span>
                 </p>
@@ -400,13 +398,13 @@ const Terms = () => {
                     suspend, or terminate this Agreement and the Website, and
                     your access to all or any part of the Website, at any time
                     and for any reason without prior notice or liability.{' '}
-                    <span className="privacy-underline">Sections 3-15</span>{' '}
-                    shall survive the termination of this Agreement.
+                    <span className="legal-underline">Sections 3-15</span> shall
+                    survive the termination of this Agreement.
                 </p>
 
                 <p>
                     10.{' '}
-                    <span className="privacy-bold privacy-underline">
+                    <span className="legal-bold legal-underline">
                         CONTROLLING LAW
                     </span>
                 </p>
@@ -418,55 +416,54 @@ const Terms = () => {
 
                 <p>
                     11.{' '}
-                    <span className="privacy-bold privacy-underline">
+                    <span className="legal-bold legal-underline">
                         BINDING ARBITRATION
                     </span>
                 </p>
                 <p>
                     In the event of a dispute arising between you and Estuary
                     under or relating to these Terms of Use or the Website
-                    (each, a “<span className="privacy-underline">Dispute</span>
+                    (each, a “<span className="legal-underline">Dispute</span>
                     ”), such dispute will be finally and exclusively resolved by
                     binding arbitration governed by the Federal Arbitration Act
                     (“
-                    <span className="privacy-underline">FAA</span>). Any
-                    election to arbitrate, at any time, shall be final and
-                    binding on the other party. NEITHER PARTY SHALL HAVE THE
-                    RIGHT TO LITIGATE SUCH CLAIM IN COURT OR TO HAVE A JURY
-                    TRIAL, EXCEPT EITHER PARTY MAY BRING ITS CLAIM IN ITS LOCAL
-                    SMALL CLAIMS COURT, IF PERMITTED BY THAT SMALL CLAIMS COURT
-                    RULES AND IF WITHIN SUCH COURT’S JURISDICTION. ARBITRATION
-                    IS DIFFERENT FROM COURT, AND DISCOVERY AND APPEAL RIGHTS MAY
-                    ALSO BE LIMITED IN ARBITRATION. All disputes will be
-                    resolved before a neutral arbitrator selected jointly by you
-                    and Estuary, whose decision will be final, except for a
-                    limited right of appeal under the FAA. The arbitration shall
-                    be commenced and conducted by JAMS pursuant to its then
-                    current Comprehensive Arbitration Rules and Procedures and
-                    in accordance with the Expedited Procedures in those rules,
-                    or, where appropriate, pursuant to JAMS’ Streamlined
-                    Arbitration Rules and Procedures. All applicable JAMS’ rules
-                    and procedures are available at the JAMS website
-                    www.jamsadr.com. Each of you and Estuary will be responsible
-                    for paying any JAMS filing, administrative, and arbitrator
-                    fees in accordance with JAMS rules. Judgment on the
-                    arbitrator’s award may be entered in any court having
-                    jurisdiction. This clause shall not preclude parties from
-                    seeking provisional remedies in aid of arbitration from a
-                    court of appropriate jurisdiction. The arbitration may be
-                    conducted in person, through the submission of documents, by
-                    phone, or online. If conducted in person, the arbitration
-                    shall take place in the United States county where you
-                    reside. The parties may litigate in court to compel
-                    arbitration, to stay a proceeding pending arbitration, or to
-                    confirm, modify, vacate, or enter judgment on the award
-                    entered by the arbitrator. The parties shall cooperate in
-                    good faith in the voluntary and informal exchange of all
-                    non-privileged documents and other information (including
-                    electronically stored information) relevant to the Dispute
-                    immediately after commencement of the arbitration. As set
-                    forth in{' '}
-                    <span className="privacy-underline">Section 13</span> below,
+                    <span className="legal-underline">FAA</span>). Any election
+                    to arbitrate, at any time, shall be final and binding on the
+                    other party. NEITHER PARTY SHALL HAVE THE RIGHT TO LITIGATE
+                    SUCH CLAIM IN COURT OR TO HAVE A JURY TRIAL, EXCEPT EITHER
+                    PARTY MAY BRING ITS CLAIM IN ITS LOCAL SMALL CLAIMS COURT,
+                    IF PERMITTED BY THAT SMALL CLAIMS COURT RULES AND IF WITHIN
+                    SUCH COURT’S JURISDICTION. ARBITRATION IS DIFFERENT FROM
+                    COURT, AND DISCOVERY AND APPEAL RIGHTS MAY ALSO BE LIMITED
+                    IN ARBITRATION. All disputes will be resolved before a
+                    neutral arbitrator selected jointly by you and Estuary,
+                    whose decision will be final, except for a limited right of
+                    appeal under the FAA. The arbitration shall be commenced and
+                    conducted by JAMS pursuant to its then current Comprehensive
+                    Arbitration Rules and Procedures and in accordance with the
+                    Expedited Procedures in those rules, or, where appropriate,
+                    pursuant to JAMS’ Streamlined Arbitration Rules and
+                    Procedures. All applicable JAMS’ rules and procedures are
+                    available at the JAMS website www.jamsadr.com. Each of you
+                    and Estuary will be responsible for paying any JAMS filing,
+                    administrative, and arbitrator fees in accordance with JAMS
+                    rules. Judgment on the arbitrator’s award may be entered in
+                    any court having jurisdiction. This clause shall not
+                    preclude parties from seeking provisional remedies in aid of
+                    arbitration from a court of appropriate jurisdiction. The
+                    arbitration may be conducted in person, through the
+                    submission of documents, by phone, or online. If conducted
+                    in person, the arbitration shall take place in the United
+                    States county where you reside. The parties may litigate in
+                    court to compel arbitration, to stay a proceeding pending
+                    arbitration, or to confirm, modify, vacate, or enter
+                    judgment on the award entered by the arbitrator. The parties
+                    shall cooperate in good faith in the voluntary and informal
+                    exchange of all non-privileged documents and other
+                    information (including electronically stored information)
+                    relevant to the Dispute immediately after commencement of
+                    the arbitration. As set forth in{' '}
+                    <span className="legal-underline">Section 13</span> below,
                     nothing in these Terms of Use will prevent us from seeking
                     injunctive relief in any court of competent jurisdiction as
                     necessary to protect our proprietary interests.
@@ -474,7 +471,7 @@ const Terms = () => {
 
                 <p>
                     12.{' '}
-                    <span className="privacy-bold privacy-underline">
+                    <span className="legal-bold legal-underline">
                         CLASS ACTION WAIVER
                     </span>
                 </p>
@@ -495,7 +492,7 @@ const Terms = () => {
 
                 <p>
                     13.{' '}
-                    <span className="privacy-bold privacy-underline">
+                    <span className="legal-bold legal-underline">
                         EQUITABLE RELIEF
                     </span>
                 </p>
@@ -517,7 +514,7 @@ const Terms = () => {
 
                 <p>
                     14.{' '}
-                    <span className="privacy-bold privacy-underline">
+                    <span className="legal-bold legal-underline">
                         RESTRICTIONS
                     </span>
                 </p>
@@ -536,7 +533,7 @@ const Terms = () => {
 
                 <p>
                     15.{' '}
-                    <span className="privacy-bold privacy-underline">
+                    <span className="legal-bold legal-underline">
                         MISCELLANEOUS
                     </span>
                 </p>
@@ -556,7 +553,7 @@ const Terms = () => {
                     legal import. This Agreement will inure to the benefit of
                     our successors, assigns, licensees, and sublicensees.
                 </p>
-            </div>
+            </LegalWrapper>
         </Layout>
     );
 };

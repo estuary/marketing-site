@@ -1,4 +1,5 @@
 import * as React from 'react';
+import LegalWrapper from '../components/LegalWrapper';
 import { OutboundLink } from '../components/OutboundLink';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
@@ -7,22 +8,23 @@ export const Head = () => <Seo title="Privacy Policy" />;
 
 const PrivacyPolicy = () => {
     return (
-        <Layout>
-            <div className="privacy-policy-root">
+        <Layout headerTheme="light">
+            <LegalWrapper className="privacy-root">
                 <h2>Privacy Policy</h2>
+                <p className="last-updated">Revised as of [May 28, 2024]</p>
                 <h5>We respect your privacy.</h5>
                 <p>
                     Estuary Technologies, Inc. (&quot;
-                    <span className="privacy-underline">Estuary</span>,” “
-                    <span className="privacy-underline">we</span>,” “
-                    <span className="privacy-underline">us</span>,” or “
-                    <span className="privacy-underline">our</span>”) welcomes
-                    you. Our collection and use of information from visitors of
-                    our Website and Customers of our Product and related
-                    services (collectively with the Website and Product, the “
-                    <span className="privacy-underline">Services</span>”) is
+                    <span className="legal-underline">Estuary</span>,” “
+                    <span className="legal-underline">we</span>,” “
+                    <span className="legal-underline">us</span>,” or “
+                    <span className="legal-underline">our</span>”) welcomes you.
+                    Our collection and use of information from visitors of our
+                    Website and Customers of our Product and related services
+                    (collectively with the Website and Product, the “
+                    <span className="legal-underline">Services</span>”) is
                     subject to the following privacy policy (the “
-                    <span className="privacy-underline">Privacy Policy</span>”),
+                    <span className="legal-underline">Privacy Policy</span>”),
                     which may be updated by us from time to time without notice
                     to you.
                 </p>
@@ -31,21 +33,21 @@ const PrivacyPolicy = () => {
                     of this Privacy Policy and the accompanying Terms of Use.
                 </p>
                 <p>
-                    By using the Website or when you sign up to access and use
-                    the Services, you acknowledge that you have read, understood
-                    and agree to be legally bound by the terms of this Privacy
-                    Policy, the accompanying Terms of Use. If you do not agree
-                    to (or cannot comply with) all of the terms of this Privacy
-                    Policy and the Terms of Use, you may not access or use the
-                    Services.
+                    By using the Website, or by signing up to access and use the
+                    Services, you acknowledge that you have read, understood and
+                    agree to be legally bound by the terms of this Privacy
+                    Policy and the accompanying Terms of Use. If you do not
+                    agree to (or cannot comply with) all of the terms of this
+                    Privacy Policy and the Terms of Use, you may not access or
+                    use the Services.
                 </p>
                 <p>
                     If you accept or agree to this Agreement on behalf of a
                     company or other legal entity, you represent and warrant
                     that you have the authority to bind that company or other
                     legal entity to the Agreement and, in such event, “
-                    <span className="privacy-underline">you</span>” and “
-                    <span className="privacy-underline">your</span>” will refer
+                    <span className="legal-underline">you</span>” and “
+                    <span className="legal-underline">your</span>” will refer
                     and apply to that company or other legal entity and any
                     Authorized Users.
                 </p>
@@ -55,16 +57,16 @@ const PrivacyPolicy = () => {
                     Software Agreement, as applicable.
                 </p>
 
-                <p className="privacy-underline privacy-bold">
+                <p className="legal-underline legal-bold">
                     THE INFORMATION WE COLLECT AND HOW WE USE IT
                 </p>
                 <p>
                     In the course of operating the Services, Estuary collects or
                     receives the following types of information from you, which
-                    may include personal information.
+                    may include personal information:
                 </p>
 
-                <p className="privacy-bold">Contact Information</p>
+                <p className="legal-bold">Contact Information</p>
                 <p>
                     We collect contact information through our Services; contact
                     information typically includes your name, email address, and
@@ -76,7 +78,7 @@ const PrivacyPolicy = () => {
                     Product, and providing you the Services.
                 </p>
 
-                <p className="privacy-bold">Payment Information</p>
+                <p className="legal-bold">Payment Information</p>
                 <p>
                     If you purchase the Product, to process your payment you
                     will be required to provide to us certain billing
@@ -84,9 +86,7 @@ const PrivacyPolicy = () => {
                     number, expiration date, bank account information, billing
                     address, activation code, and similar information
                     (collectively, “
-                    <span className="privacy-underline">
-                        Payment Information
-                    </span>
+                    <span className="legal-underline">Payment Information</span>
                     ”). You authorize our third-party payment vendors including,
                     without limitation, Stripe, to collect, process, and store
                     such Payment Information in accordance with their respective
@@ -100,7 +100,7 @@ const PrivacyPolicy = () => {
                     respectively.
                 </p>
 
-                <p className="privacy-bold">Activity Information</p>
+                <p className="legal-bold">Activity Information</p>
                 <p>
                     We will have access to any Customer Content that you submit
                     to us for our portability services. Customer content
@@ -115,22 +115,46 @@ const PrivacyPolicy = () => {
                     portability services.
                 </p>
 
-                <p className="privacy-bold">Server Log Information</p>
+                <p className="legal-bold">Server Log Information</p>
                 <p>
-                    Our servers keep log files that record data each time a
-                    device accesses those servers. The log files contain data
-                    about the nature of such access, including the device’s IP
-                    address, user agent string (e.g., operating system and
-                    browser type/version), and the pages you’ve clicked on while
-                    on our Services, and details regarding your activity on the
-                    Services such as time spent on the Services and other
-                    similar data with respect to how you use the Services. We
-                    may use these log files for purposes such as assisting in
+                    Our servers and CookieFirst (discussed below) keep log files
+                    that record data each time a device accesses the servers.
+                    The log files contain the following items:
+                </p>
+                <ul>
+                    <li>Your consent status or the withdrawal of consent</li>
+                    <li>Your IP address</li>
+                    <li>Information about your Browser</li>
+                    <li>Information about your Device</li>
+                    <li>
+                        The date and time you have visited our website, and the
+                        pages you’ve clicked on while on our Services and time
+                        spent on the Services
+                    </li>
+                    <li>
+                        The webpage url where you saved or updated your consent
+                        preferences
+                    </li>
+                    <li>
+                        The approximate location of the user that saved their
+                        consent preference
+                    </li>
+                    <li>
+                        A universally unique identifier (UUID) of the website
+                        visitor that clicked the cookie banner
+                    </li>
+                    <li>
+                        Other similar data about the nature of your access and
+                        how you use the Services
+                    </li>
+                </ul>
+                <p>
+                    We may use these log files for purposes such as assisting in
                     monitoring and troubleshooting errors and incidents,
                     analyzing traffic, or optimizing the user experience.
                 </p>
 
-                <p className="privacy-bold">Cookies</p>
+                <p className="legal-bold">Cookies</p>
                 <p>
                     We may collect information using “cookie” and other similar
                     technologies. Cookies are small packets of data that a
@@ -145,15 +169,13 @@ const PrivacyPolicy = () => {
                 </p>
                 <ul>
                     <li>
-                        <span className="privacy-bold">Session Cookies:</span>{' '}
-                        We use session cookies to make it easier for you to
+                        <span className="legal-bold">Session Cookies:</span> We
+                        use session cookies to make it easier for you to
                         navigate our Services. A session ID cookie expires when
                         you close the Services.
                     </li>
                     <li>
-                        <span className="privacy-bold">
-                            Persistent Cookies:
-                        </span>{' '}
+                        <span className="legal-bold">Persistent Cookies:</span>{' '}
                         A persistent cookie remains on your device for an
                         extended period of time or until you delete them.
                         Persistent cookies enable us to track and target the
@@ -165,15 +187,43 @@ const PrivacyPolicy = () => {
                     </li>
                 </ul>
                 <p>
-                    If you do not want us to place a cookie on your device, you
-                    may be able to turn that feature off on your device. Please
-                    consult your browser’s documentation for information on how
-                    to do this and how to delete persistent cookies. However, if
-                    you decide not to accept cookies from us, certain aspects of
-                    the Services may not function properly or as intended.
+                    To obtain and record your consent for the use and storage of
+                    cookies, we use a consent management platform: CookieFirst.
+                    This technology is provided by Digital Data Solutions BV,
+                    Plantage Middenlaan 42a, 1018 DH, Amsterdam, The
+                    Netherlands. Website:{' '}
+                    <OutboundLink href="https://cookiefirst.com">
+                        https://cookiefirst.com
+                    </OutboundLink>{' '}
+                    referred to as CookieFirst.
+                </p>
+                <p>
+                    When you access our website, a connection is established
+                    with CookieFirst’s server and we seek consent from you
+                    regarding the use of certain cookies. If approved,
+                    CookieFirst then stores a cookie in your browser, which then
+                    activates only those cookies to which you have consented
+                    (and documents such activity accordingly). The data
+                    processed is stored until the predefined storage period
+                    expires or you request to delete the data. Certain mandatory
+                    legal storage periods may apply notwithstanding the
+                    aforementioned.
+                </p>
+                <p>
+                    For the avoidance of doubt, CookieFirst is used to obtain
+                    the legally required consent for the use of cookies. The
+                    legal basis for this is article 6(1)(c) of the General Data
+                    Protection Regulation (GDPR).
+                </p>
+                <p>
+                    We have concluded a data processing agreement with
+                    CookieFirst. This is a contract required by data protection
+                    law, which ensures that data of our website visitors is only
+                    processed in accordance with our instructions and in
+                    compliance with the GDPR.
                 </p>
 
-                <p className="privacy-bold">Third-Party Analytics Providers</p>
+                <p className="legal-bold">Third-Party Analytics Providers</p>
                 <p>
                     We use one or more third–party analytics services to
                     evaluate your use of the Services, as the case may be, by
@@ -224,7 +274,7 @@ const PrivacyPolicy = () => {
                     </OutboundLink>
                 </p>
 
-                <p className="privacy-bold">Third-Party OAuth Providers</p>
+                <p className="legal-bold">Third-Party OAuth Providers</p>
                 <p>
                     The use and transfer of information received from Google
                     APIs to any other app will adhere to{' '}
@@ -234,7 +284,7 @@ const PrivacyPolicy = () => {
                     , including the Limited Use requirements.
                 </p>
 
-                <p className="privacy-bold">Aggregate Data</p>
+                <p className="legal-bold">Aggregate Data</p>
                 <p>
                     In an ongoing effort to better understand our users and the
                     Services, we might analyze data with respect to how you use
@@ -250,7 +300,7 @@ const PrivacyPolicy = () => {
                     other third parties for other lawful purposes.
                 </p>
 
-                <p className="privacy-bold">Onward Transfer to Third Parties</p>
+                <p className="legal-bold">Onward Transfer to Third Parties</p>
                 <ul>
                     <li>
                         Like many businesses, we hire other companies to perform
@@ -295,7 +345,7 @@ const PrivacyPolicy = () => {
                     </li>
                 </ul>
 
-                <p className="privacy-bold">Business Transfers</p>
+                <p className="legal-bold">Business Transfers</p>
                 <p>
                     In the event of a merger, dissolution, reorganization or
                     similar corporate event, or the sale of all or substantially
@@ -309,7 +359,7 @@ const PrivacyPolicy = () => {
                     legal successors in interest.
                 </p>
 
-                <p className="privacy-bold">Disclosure to Public Authorities</p>
+                <p className="legal-bold">Disclosure to Public Authorities</p>
                 <p>
                     We are required to disclose personal information in response
                     to lawful requests by public authorities, including for the
@@ -320,7 +370,7 @@ const PrivacyPolicy = () => {
                     not limited to, in response to court orders and subpoenas.
                 </p>
 
-                <p className="privacy-underline privacy-bold">
+                <p className="legal-underline legal-bold">
                     OPT-OUT FOR DIRECT MARKETING; EMAIL MANAGEMENT
                 </p>
                 <p>
@@ -336,7 +386,7 @@ const PrivacyPolicy = () => {
                     related to the Services.
                 </p>
 
-                <p className="privacy-underline privacy-bold">
+                <p className="legal-underline legal-bold">
                     HOW WE PROTECT YOUR INFORMATION
                 </p>
                 <p>
@@ -359,7 +409,7 @@ const PrivacyPolicy = () => {
                     information you send to us via e-mail.
                 </p>
 
-                <p className="privacy-underline privacy-bold">CHILDREN</p>
+                <p className="legal-underline legal-bold">CHILDREN</p>
                 <p>
                     We do not knowingly collect personal information from
                     children under the age of 13 through the Services. If you
@@ -376,7 +426,7 @@ const PrivacyPolicy = () => {
                     databases.
                 </p>
 
-                <p className="privacy-underline privacy-bold">
+                <p className="legal-underline legal-bold">
                     IMPORTANT NOTICE TO ALL NON-US RESIDENTS
                 </p>
                 <p>
@@ -390,7 +440,7 @@ const PrivacyPolicy = () => {
                     the Services, you do so at your own risk.
                 </p>
 
-                <p className="privacy-underline privacy-bold">
+                <p className="legal-underline legal-bold">
                     CALIFORNIA PRIVACY RIGHTS
                 </p>
                 <p>
@@ -409,13 +459,13 @@ const PrivacyPolicy = () => {
                     .
                 </p>
 
-                <p className="privacy-underline privacy-bold">DO NOT TRACK</p>
+                <p className="legal-underline legal-bold">DO NOT TRACK</p>
                 <p>
                     Estuary does not respond to “Do Not Track” settings or other
                     related mechanisms at this time.
                 </p>
 
-                <p className="privacy-underline privacy-bold">
+                <p className="legal-underline legal-bold">
                     NEVADA PRIVACY RIGHTS
                 </p>
                 <p>
@@ -431,7 +481,7 @@ const PrivacyPolicy = () => {
                     Revised Statutes Chapter 603A.
                 </p>
 
-                <p className="privacy-underline privacy-bold">
+                <p className="legal-underline legal-bold">
                     LINKS TO EXTERNAL WEBSITES
                 </p>
                 <p>
@@ -444,7 +494,7 @@ const PrivacyPolicy = () => {
                     such External Sites.
                 </p>
 
-                <p className="privacy-underline privacy-bold">
+                <p className="legal-underline legal-bold">
                     CHANGES TO THIS PRIVACY POLICY
                 </p>
                 <p>
@@ -460,16 +510,14 @@ const PrivacyPolicy = () => {
                     Privacy Policy on a regular basis.
                 </p>
 
-                <p className="privacy-underline privacy-bold">
-                    CHANGES TO THIS PRIVACY POLICY
-                </p>
+                <p className="legal-underline legal-bold">HOW TO CONTACT US</p>
                 <p>
                     If you have questions about this Privacy Policy, please
                     e-mail us at{' '}
                     <a href="mailto:privacy@estuary.dev">privacy@estuary.dev</a>{' '}
                     with “Privacy Policy” in the subject line.
                 </p>
-            </div>
+            </LegalWrapper>
         </Layout>
     );
 };
