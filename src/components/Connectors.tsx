@@ -184,9 +184,9 @@ export const Connectors = ({
     const results = useLunr(
         query.length > 0
             ? query
-                  .split(' ')
-                  .map((term) => `${term}* ${term}~1`)
-                  .join(' ')
+                .split(' ')
+                .map((term) => `${term}* ${term}~1`)
+                .join(' ')
             : '',
         index,
         store
@@ -279,10 +279,9 @@ export const Connectors = ({
                                 className="connector-bottom-vector"
                             >
                                 <FlowLogo className="connector-bottom-flow" />
-
                                 <StaticImage
                                     src="../images/connectors-bottom.png"
-                                    alt={bottomTitle ?? ''}
+                                    alt={bottomTitle ?? 'Connectors logos background image'}
                                     width={500}
                                 />
                             </div>
