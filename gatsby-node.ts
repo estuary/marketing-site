@@ -35,7 +35,9 @@ export const createPages: GatsbyNode['createPages'] = async ({
 
     const validateDataExistence = (data: any[] | undefined, name: string) => {
         if (!Array.isArray(data) || data.length === 0) {
-            throw new Error(`${name} array is either not an array or is empty.`);
+            throw new Error(
+                `${name} array is either not an array or is empty.`
+            );
         }
     };
 

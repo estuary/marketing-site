@@ -12,7 +12,10 @@ const WhyEstuary = () => {
             <Navigation activePage={activePage} setActivePage={setActivePage} />
             <div className="main-content-wrap">
                 <div className={`mac-bg step-bg-${activePage}`}>
-                    <Step activePage={activePage} setActivePage={setActivePage} />
+                    <Step
+                        activePage={activePage}
+                        setActivePage={setActivePage}
+                    />
                 </div>
                 <div className="steps-controls">
                     <button
