@@ -1,32 +1,33 @@
 import * as React from 'react';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
+import LegalWrapper from '../components/LegalWrapper';
 
 export const Head = () => <Seo title="Terms of Service" />;
 
 const Terms = () => {
   return (
     <Layout headerTheme="light">
-      <div className="terms-root">
+      <LegalWrapper className="terms-root">
         <h4>Terms of Service</h4>
-        <h6 className="terms-last-updated">Last updated January 20th, 2022</h6>
+        <h6 className="last-updated">Last updated January 20th, 2022</h6>
 
         <p>
-          These terms of use (the “<span className="privacy-underline">Terms of Use</span>”) are a legal agreement
-          between you and Estuary Technologies, Inc. (“<span className="privacy-underline">Estuary</span>,” “
-          <span className="privacy-underline">we</span>,” “<span className="privacy-underline">us</span>,” or “
-          <span className="privacy-underline">our</span>). These Terms of Use specify the terms under which you may
-          access and use the website located at <a href="https://www.estuary.dev/">https://www.estuary.dev/</a> (the “
-          <span className="privacy-underline">Website</span>). Please note that we offer additional products and
-          services, which are provided pursuant to a separate manually or digitally-executed agreement.
+          These terms of use (the “<span className="legal-underline">Terms of Use</span>”) are a legal agreement between
+          you and Estuary Technologies, Inc. (“<span className="legal-underline">Estuary</span>,” “
+          <span className="legal-underline">we</span>,” “<span className="legal-underline">us</span>,” or “
+          <span className="legal-underline">our</span>). These Terms of Use specify the terms under which you may access
+          and use the website located at <a href="https://www.estuary.dev/">https://www.estuary.dev/</a> (the “
+          <span className="legal-underline">Website</span>). Please note that we offer additional products and services,
+          which are provided pursuant to a separate manually or digitally-executed agreement.
         </p>
 
         <p>
           By accessing or using our Website, or otherwise manifesting your assent to these Terms of Use, you acknowledge
           that you have read, understood, and agree to be legally bound by these Terms of Use and our Privacy Policy,
           which is hereby incorporated by reference (collectively, this “
-          <span className="privacy-underline">Agreement</span>). If you do not agree to any of these terms, then please
-          do not use the Website.
+          <span className="legal-underline">Agreement</span>). If you do not agree to any of these terms, then please do
+          not use the Website.
         </p>
 
         <p>
@@ -35,7 +36,7 @@ const Terms = () => {
           <a href="https://support.google.com/accounts/answer/10130420?hl=en">here</a>.
         </p>
 
-        <p className="privacy-bold">
+        <p className="legal-bold">
           THE SECTIONS BELOW TITLED “BINDING ARBITRATION” AND “CLASS ACTION WAIVER” CONTAIN A BINDING ARBITRATION
           AGREEMENT AND CLASS ACTION WAIVER. THEY AFFECT YOUR LEGAL RIGHTS. PLEASE READ THEM.
         </p>
@@ -43,10 +44,10 @@ const Terms = () => {
         <p>
           If you accept or agree to this Agreement on behalf of a company or other legal entity, you represent and
           warrant that you have the authority to bind that company or other legal entity to the Agreement and, in such
-          event, “<span className="privacy-underline">you</span>” and “<span className="privacy-underline">your</span>”
-          will refer and apply to that company or other legal entity, and any employees, contractors, or agents
-          authorized by you to access and use the Products pursuant to the terms of this Agreement (“
-          <span className="privacy-underline">Authorized Users</span>”).
+          event, “<span className="legal-underline">you</span>” and “<span className="legal-underline">your</span>” will
+          refer and apply to that company or other legal entity, and any employees, contractors, or agents authorized by
+          you to access and use the Products pursuant to the terms of this Agreement (“
+          <span className="legal-underline">Authorized Users</span>”).
         </p>
 
         <p>
@@ -54,12 +55,12 @@ const Terms = () => {
         </p>
 
         <p>
-          1. <span className="privacy-bold privacy-underline">INTELLECTUAL PROPERTY</span>
+          1. <span className="legal-bold legal-underline">INTELLECTUAL PROPERTY</span>
         </p>
         <p>
           The Website contains material, such as software, text, graphics, images, sound recordings, and other material
           provided by or on behalf of Estuary or its licensors (collectively referred to as the "
-          <span className="privacy-underline">Content</span>”). The Content may be owned by us or third parties. The
+          <span className="legal-underline">Content</span>”). The Content may be owned by us or third parties. The
           Content is protected under both United States and foreign laws. Unauthorized use of the Content may violate
           copyright, trademark, and other laws.
         </p>
@@ -79,14 +80,14 @@ const Terms = () => {
 
         <p>
           The trademarks, service marks, and logos of Estuary (the “
-          <span className="privacy-underline">Estuary Trademarks</span>”) used and displayed on the Website is owned by
+          <span className="legal-underline">Estuary Trademarks</span>”) used and displayed on the Website is owned by
           Estuary. Other company, product, and service names located on the Website may be trademarks or service marks
-          owned by others (the “<span className="privacy-underline">Third-Party Trademarks</span>,” and, collectively
-          with Estuary Trademarks, the “<span className="privacy-underline">Trademarks</span>). Nothing on the Website
-          should be construed as granting, by implication, estoppel, or otherwise, any license or right to use the
-          Trademarks, without our prior written permission specific for each such use. Use of the Trademarks as part of
-          a link to or from any site is prohibited unless establishment of such a link is approved in advance by us in
-          writing. All goodwill generated from the use of Estuary Trademarks inures to our benefit.
+          owned by others (the “<span className="legal-underline">Third-Party Trademarks</span>,” and, collectively with
+          Estuary Trademarks, the “<span className="legal-underline">Trademarks</span>). Nothing on the Website should
+          be construed as granting, by implication, estoppel, or otherwise, any license or right to use the Trademarks,
+          without our prior written permission specific for each such use. Use of the Trademarks as part of a link to or
+          from any site is prohibited unless establishment of such a link is approved in advance by us in writing. All
+          goodwill generated from the use of Estuary Trademarks inures to our benefit.
         </p>
         <p>
           Elements of the Website is protected by trade dress, trademark, unfair competition, and other state and
@@ -96,12 +97,12 @@ const Terms = () => {
         </p>
 
         <p>
-          2. <span className="privacy-bold privacy-underline">COMMUNITY GUIDELINES</span>
+          2. <span className="legal-bold legal-underline">COMMUNITY GUIDELINES</span>
         </p>
         <p>
           Estuary’s community, like any community, functions best when its users follow a few simple rules. By accessing
           the Website, you agree to comply with these community guidelines (the “
-          <span className="privacy-underline">Community Guidelines</span>”) and that:
+          <span className="legal-underline">Community Guidelines</span>”) and that:
         </p>
         <ul>
           <li>
@@ -133,9 +134,9 @@ const Terms = () => {
           </li>
           <li>
             You will not use any robot, spider, scraper, or other automated means to access the Website for any purpose
-            without our express, written permission; <span className="privacy-underline">provided, however</span>, that
-            we may grant the operators of public search engines permission to use spiders to copy materials from the
-            public portions of the Website for the sole purpose of, and solely to the extent necessary for, creating
+            without our express, written permission; <span className="legal-underline">provided, however</span>, that we
+            may grant the operators of public search engines permission to use spiders to copy materials from the public
+            portions of the Website for the sole purpose of, and solely to the extent necessary for, creating
             publicly-available searchable indices of the materials, but not caches or archives of such materials; and
           </li>
           <li>
@@ -146,7 +147,7 @@ const Terms = () => {
         <p>If you find something that violates our Community Guidelines, please let us know, and we’ll review it.</p>
 
         <p>
-          3. <span className="privacy-bold privacy-underline">COMMUNICATIONS WITH US</span>
+          3. <span className="legal-bold legal-underline">COMMUNICATIONS WITH US</span>
         </p>
         <p>
           Although we encourage you to e-mail us, we do not want you to, and you should not, e-mail us any content that
@@ -158,7 +159,7 @@ const Terms = () => {
         </p>
 
         <p>
-          4. <span className="privacy-bold privacy-underline">NO WARRANTIES; LIMITATION OF LIABILITY</span>
+          4. <span className="legal-bold legal-underline">NO WARRANTIES; LIMITATION OF LIABILITY</span>
         </p>
         <p>
           THE WEBSITE AND THE CONTENT ARE PROVIDED “AS IS” AND “AS AVAILABLE” WITHOUT ANY WARRANTIES OF ANY KIND,
@@ -190,22 +191,22 @@ const Terms = () => {
         <p>NOTHING IN THESE TERMS OF USE SHALL AFFECT ANY NON-WAIVABLE STATUTORY RIGHTS THAT APPLY TO YOU.</p>
 
         <p>
-          5. <span className="privacy-bold privacy-underline">EXTERNAL SITES</span>
+          5. <span className="legal-bold legal-underline">EXTERNAL SITES</span>
         </p>
         <p>
           The Website may contain links to third-party websites (“
-          <span className="privacy-underline">External Sites</span>”). These links are provided solely as a convenience
-          to you and not as an endorsement by us of the content on such External Sites. The content of such External
-          Sites is developed and provided by others. You should contact the site administrator or webmaster for those
-          External Sites if you have any concerns regarding such links or any content located on such External Sites. We
-          are not responsible for the content of any linked External Sites and do not make any representations regarding
-          the content or accuracy of materials on such External Sites. You should take precautions when downloading
-          files from all websites to protect your computer from viruses and other destructive programs. If you decide to
+          <span className="legal-underline">External Sites</span>”). These links are provided solely as a convenience to
+          you and not as an endorsement by us of the content on such External Sites. The content of such External Sites
+          is developed and provided by others. You should contact the site administrator or webmaster for those External
+          Sites if you have any concerns regarding such links or any content located on such External Sites. We are not
+          responsible for the content of any linked External Sites and do not make any representations regarding the
+          content or accuracy of materials on such External Sites. You should take precautions when downloading files
+          from all websites to protect your computer from viruses and other destructive programs. If you decide to
           access linked External Sites, you do so at your own risk.
         </p>
 
         <p>
-          6. <span className="privacy-bold privacy-underline">INDEMNIFICATION</span>
+          6. <span className="legal-bold legal-underline">INDEMNIFICATION</span>
         </p>
         <p>
           You agree to defend, indemnify, and hold us and our officers, directors, employees, agents, successors,
@@ -221,7 +222,7 @@ const Terms = () => {
         </p>
 
         <p>
-          7. <span className="privacy-bold privacy-underline">COMPLIANCE WITH APPLICABLE LAWS</span>
+          7. <span className="legal-bold legal-underline">COMPLIANCE WITH APPLICABLE LAWS</span>
         </p>
         <p>
           The Website is based in the United States. We make no claims concerning whether the Content may be downloaded,
@@ -231,7 +232,7 @@ const Terms = () => {
         </p>
 
         <p>
-          8. <span className="privacy-bold privacy-underline">CHANGES TO THE AGREEMENT</span>
+          8. <span className="legal-bold legal-underline">CHANGES TO THE AGREEMENT</span>
         </p>
         <p>
           These Terms of Use are effective as of the last updated date stated at the top. We may change these Terms of
@@ -241,17 +242,17 @@ const Terms = () => {
         </p>
 
         <p>
-          9. <span className="privacy-bold privacy-underline">TERMINATION OF THE AGREEMENT</span>
+          9. <span className="legal-bold legal-underline">TERMINATION OF THE AGREEMENT</span>
         </p>
         <p>
           We reserve the right, in our sole discretion, to restrict, suspend, or terminate this Agreement and the
           Website, and your access to all or any part of the Website, at any time and for any reason without prior
-          notice or liability. <span className="privacy-underline">Sections 3-15</span> shall survive the termination of
+          notice or liability. <span className="legal-underline">Sections 3-15</span> shall survive the termination of
           this Agreement.
         </p>
 
         <p>
-          10. <span className="privacy-bold privacy-underline">CONTROLLING LAW</span>
+          10. <span className="legal-bold legal-underline">CONTROLLING LAW</span>
         </p>
         <p>
           This Agreement and any action related thereto will be governed by the laws of the State of New York without
@@ -259,13 +260,13 @@ const Terms = () => {
         </p>
 
         <p>
-          11. <span className="privacy-bold privacy-underline">BINDING ARBITRATION</span>
+          11. <span className="legal-bold legal-underline">BINDING ARBITRATION</span>
         </p>
         <p>
           In the event of a dispute arising between you and Estuary under or relating to these Terms of Use or the
-          Website (each, a “<span className="privacy-underline">Dispute</span>”), such dispute will be finally and
+          Website (each, a “<span className="legal-underline">Dispute</span>”), such dispute will be finally and
           exclusively resolved by binding arbitration governed by the Federal Arbitration Act (“
-          <span className="privacy-underline">FAA</span>). Any election to arbitrate, at any time, shall be final and
+          <span className="legal-underline">FAA</span>). Any election to arbitrate, at any time, shall be final and
           binding on the other party. NEITHER PARTY SHALL HAVE THE RIGHT TO LITIGATE SUCH CLAIM IN COURT OR TO HAVE A
           JURY TRIAL, EXCEPT EITHER PARTY MAY BRING ITS CLAIM IN ITS LOCAL SMALL CLAIMS COURT, IF PERMITTED BY THAT
           SMALL CLAIMS COURT RULES AND IF WITHIN SUCH COURT’S JURISDICTION. ARBITRATION IS DIFFERENT FROM COURT, AND
@@ -284,13 +285,13 @@ const Terms = () => {
           confirm, modify, vacate, or enter judgment on the award entered by the arbitrator. The parties shall cooperate
           in good faith in the voluntary and informal exchange of all non-privileged documents and other information
           (including electronically stored information) relevant to the Dispute immediately after commencement of the
-          arbitration. As set forth in <span className="privacy-underline">Section 13</span> below, nothing in these
-          Terms of Use will prevent us from seeking injunctive relief in any court of competent jurisdiction as
-          necessary to protect our proprietary interests.
+          arbitration. As set forth in <span className="legal-underline">Section 13</span> below, nothing in these Terms
+          of Use will prevent us from seeking injunctive relief in any court of competent jurisdiction as necessary to
+          protect our proprietary interests.
         </p>
 
         <p>
-          12. <span className="privacy-bold privacy-underline">CLASS ACTION WAIVER</span>
+          12. <span className="legal-bold legal-underline">CLASS ACTION WAIVER</span>
         </p>
         <p>
           You agree that any arbitration or proceeding shall be limited to the Dispute between us and you individually.
@@ -303,7 +304,7 @@ const Terms = () => {
         </p>
 
         <p>
-          13. <span className="privacy-bold privacy-underline">EQUITABLE RELIEF</span>
+          13. <span className="legal-bold legal-underline">EQUITABLE RELIEF</span>
         </p>
         <p>
           You acknowledge and agree that in the event of a breach or threatened violation of our intellectual property
@@ -316,7 +317,7 @@ const Terms = () => {
         </p>
 
         <p>
-          14. <span className="privacy-bold privacy-underline">RESTRICTIONS</span>
+          14. <span className="legal-bold legal-underline">RESTRICTIONS</span>
         </p>
         <p>
           The Website is available only to individuals aged 13 years or older. If you are 13 or older, but under the age
@@ -327,7 +328,7 @@ const Terms = () => {
         </p>
 
         <p>
-          15. <span className="privacy-bold privacy-underline">MISCELLANEOUS</span>
+          15. <span className="legal-bold legal-underline">MISCELLANEOUS</span>
         </p>
         <p>
           Our failure to act on or enforce any provision of the Agreement shall not be construed as a waiver of that
@@ -339,7 +340,7 @@ const Terms = () => {
           convenience and shall not be given any legal import. This Agreement will inure to the benefit of our
           successors, assigns, licensees, and sublicensees.
         </p>
-      </div>
+      </LegalWrapper>
     </Layout>
   );
 };
