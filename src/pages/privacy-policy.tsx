@@ -14,13 +14,13 @@ const PrivacyPolicy = () => {
         <h6 className="last-updated">Revised as of [May 28, 2024]</h6>
         <h5>We respect your privacy.</h5>
         <p>
-          Estuary Technologies, Inc. ("<span className="privacy-underline">Estuary</span>,” “
-          <span className="privacy-underline">we</span>,” “<span className="privacy-underline">us</span>,” or “
-          <span className="privacy-underline">our</span>”) welcomes you. Our collection and use of information from
+          Estuary Technologies, Inc. ("<span className="legal-underline">Estuary</span>,” “
+          <span className="legal-underline">we</span>,” “<span className="legal-underline">us</span>,” or “
+          <span className="legal-underline">our</span>”) welcomes you. Our collection and use of information from
           visitors of our Website and Customers of our Product and related services (collectively with the Website and
-          Product, the “<span className="privacy-underline">Services</span>”) is subject to the following privacy policy
-          (the “<span className="privacy-underline">Privacy Policy</span>”), which may be updated by us from time to
-          time without notice to you.
+          Product, the “<span className="legal-underline">Services</span>”) is subject to the following privacy policy
+          (the “<span className="legal-underline">Privacy Policy</span>”), which may be updated by us from time to time
+          without notice to you.
         </p>
         <p>
           By visiting our Website, visitors are agreeing to the terms of this Privacy Policy and the accompanying Terms
@@ -35,21 +35,21 @@ const PrivacyPolicy = () => {
         <p>
           If you accept or agree to this Agreement on behalf of a company or other legal entity, you represent and
           warrant that you have the authority to bind that company or other legal entity to the Agreement and, in such
-          event, “<span className="privacy-underline">you</span>” and “<span className="privacy-underline">your</span>”
-          will refer and apply to that company or other legal entity and any Authorized Users.
+          event, “<span className="legal-underline">you</span>” and “<span className="legal-underline">your</span>” will
+          refer and apply to that company or other legal entity and any Authorized Users.
         </p>
         <p>
           Capitalized terms not defined in this Privacy Policy shall have the meaning set forth in our Terms of Use or
           the Master Software Agreement, as applicable.
         </p>
 
-        <p className="privacy-underline privacy-bold">THE INFORMATION WE COLLECT AND HOW WE USE IT</p>
+        <p className="legal-underline legal-bold">THE INFORMATION WE COLLECT AND HOW WE USE IT</p>
         <p>
           In the course of operating the Services, Estuary collects or receives the following types of information from
           you, which may include personal information:
         </p>
 
-        <p className="privacy-bold">Contact Information</p>
+        <p className="legal-bold">Contact Information</p>
         <p>
           We collect contact information through our Services; contact information typically includes your name, email
           address, and any information you provide in messages to us. We use such contact information for purposes such
@@ -58,21 +58,20 @@ const PrivacyPolicy = () => {
           Services.
         </p>
 
-        <p className="privacy-bold">Payment Information</p>
+        <p className="legal-bold">Payment Information</p>
         <p>
           If you purchase the Product, to process your payment you will be required to provide to us certain billing
           information, which may include providing a credit card number, expiration date, bank account information,
           billing address, activation code, and similar information (collectively, “
-          <span className="privacy-underline">Payment Information</span>”). You authorize our third-party payment
-          vendors including, without limitation, Stripe, to collect, process, and store such Payment Information in
-          accordance with their respective privacy policies. We reserve the right to change our payment vendors at any
-          time, or to use additional payment vendors, at our discretion, and will update this Privacy Policy from time
-          to time accordingly. By purchasing the Product, you agree to be bound by Stripe’s terms and conditions and
-          privacy policy, which are available at https://stripe.com/legal and https://stripe.com/us/privacy,
-          respectively.
+          <span className="legal-underline">Payment Information</span>”). You authorize our third-party payment vendors
+          including, without limitation, Stripe, to collect, process, and store such Payment Information in accordance
+          with their respective privacy policies. We reserve the right to change our payment vendors at any time, or to
+          use additional payment vendors, at our discretion, and will update this Privacy Policy from time to time
+          accordingly. By purchasing the Product, you agree to be bound by Stripe’s terms and conditions and privacy
+          policy, which are available at https://stripe.com/legal and https://stripe.com/us/privacy, respectively.
         </p>
 
-        <p className="privacy-bold">Activity Information</p>
+        <p className="legal-bold">Activity Information</p>
         <p>
           We will have access to any Customer Content that you submit to us for our portability services. Customer
           content includes: (i) the data that Customer, or its Client, as applicable, requests Estuary to transfer from
@@ -82,7 +81,7 @@ const PrivacyPolicy = () => {
           provide you the data portability services.
         </p>
 
-        <p className="privacy-bold">Server Log Information</p>
+        <p className="legal-bold">Server Log Information</p>
         <p>
           Our servers and CookieFirst (discussed below) keep log files that record data each time a device accesses the
           servers. The log files contain the following items:
@@ -106,7 +105,7 @@ const PrivacyPolicy = () => {
           incidents, analyzing traffic, or optimizing the user experience.
         </p>
 
-        <p className="privacy-bold">Cookies</p>
+        <p className="legal-bold">Cookies</p>
         <p>
           We may collect information using “cookie” and other similar technologies. Cookies are small packets of data
           that a website stores on your computer’s or mobile device’s hard drive (or other storage medium) so that your
@@ -117,11 +116,11 @@ const PrivacyPolicy = () => {
         </p>
         <ul>
           <li>
-            <span className="privacy-bold">Session Cookies:</span> We use session cookies to make it easier for you to
+            <span className="legal-bold">Session Cookies:</span> We use session cookies to make it easier for you to
             navigate our Services. A session ID cookie expires when you close the Services.
           </li>
           <li>
-            <span className="privacy-bold">Persistent Cookies:</span> A persistent cookie remains on your device for an
+            <span className="legal-bold">Persistent Cookies:</span> A persistent cookie remains on your device for an
             extended period of time or until you delete them. Persistent cookies enable us to track and target the
             interests of our visitors to personalize the experience on our Services. Also, to the extent we provide a
             log-in portal or related feature on our Services, persistent cookies can be used to store your passwords so
@@ -152,7 +151,7 @@ const PrivacyPolicy = () => {
           in compliance with the GDPR.
         </p>
 
-        <p className="privacy-bold">Third-Party Analytics Providers</p>
+        <p className="legal-bold">Third-Party Analytics Providers</p>
         <p>
           We use one or more third–party analytics services to evaluate your use of the Services, as the case may be, by
           compiling reports on activity (based on their collection of IP addresses, Internet service provider, browser
@@ -189,7 +188,7 @@ const PrivacyPolicy = () => {
           </OutboundLink>
         </p>
 
-        <p className="privacy-bold">Third-Party OAuth Providers</p>
+        <p className="legal-bold">Third-Party OAuth Providers</p>
         <p>
           The use and transfer of information received from Google APIs to any other app will adhere to{' '}
           <OutboundLink href="https://developers.google.com/terms/api-services-user-data-policy">
@@ -198,7 +197,7 @@ const PrivacyPolicy = () => {
           , including the Limited Use requirements.
         </p>
 
-        <p className="privacy-bold">Aggregate Data</p>
+        <p className="legal-bold">Aggregate Data</p>
         <p>
           In an ongoing effort to better understand our users and the Services, we might analyze data with respect to
           how you use the Services, including Usage Data, alone and in combination with other data (including anonymized
@@ -209,7 +208,7 @@ const PrivacyPolicy = () => {
           to other third parties for other lawful purposes.
         </p>
 
-        <p className="privacy-bold">Onward Transfer to Third Parties</p>
+        <p className="legal-bold">Onward Transfer to Third Parties</p>
         <ul>
           <li>
             Like many businesses, we hire other companies to perform certain business-related services. We may disclose
@@ -240,7 +239,7 @@ const PrivacyPolicy = () => {
           </li>
         </ul>
 
-        <p className="privacy-bold">Business Transfers</p>
+        <p className="legal-bold">Business Transfers</p>
         <p>
           In the event of a merger, dissolution, reorganization or similar corporate event, or the sale of all or
           substantially all of our assets, we expect that the information that we have collected, including personal
@@ -250,7 +249,7 @@ const PrivacyPolicy = () => {
           successors in interest.
         </p>
 
-        <p className="privacy-bold">Disclosure to Public Authorities</p>
+        <p className="legal-bold">Disclosure to Public Authorities</p>
         <p>
           We are required to disclose personal information in response to lawful requests by public authorities,
           including for the purpose of meeting national security or law enforcement requirements. We may also disclose
@@ -258,7 +257,7 @@ const PrivacyPolicy = () => {
           law or regulation including, but not limited to, in response to court orders and subpoenas.
         </p>
 
-        <p className="privacy-underline privacy-bold">OPT-OUT FOR DIRECT MARKETING; EMAIL MANAGEMENT</p>
+        <p className="legal-underline legal-bold">OPT-OUT FOR DIRECT MARKETING; EMAIL MANAGEMENT</p>
         <p>
           You may opt out at any time from the use of your personal information for direct marketing purposes by
           emailing the instructions to <a href="mailto:privacy@estuary.dev">privacy@estuary.dev</a> or by clicking on
@@ -267,7 +266,7 @@ const PrivacyPolicy = () => {
           cannot opt out of receiving transactional e-mails related to the Services.
         </p>
 
-        <p className="privacy-underline privacy-bold">HOW WE PROTECT YOUR INFORMATION</p>
+        <p className="legal-underline legal-bold">HOW WE PROTECT YOUR INFORMATION</p>
         <p>
           Estuary takes very seriously the security and privacy of the personal information that it collects pursuant to
           this Privacy Policy. Accordingly, we implement reasonable security measures designed to protect your personal
@@ -280,7 +279,7 @@ const PrivacyPolicy = () => {
           take special care in deciding what information you send to us via e-mail.
         </p>
 
-        <p className="privacy-underline privacy-bold">CHILDREN</p>
+        <p className="legal-underline legal-bold">CHILDREN</p>
         <p>
           We do not knowingly collect personal information from children under the age of 13 through the Services. If
           you are under 13, please do not give us any personal information. We encourage parents and legal guardians to
@@ -291,7 +290,7 @@ const PrivacyPolicy = () => {
           from our databases.
         </p>
 
-        <p className="privacy-underline privacy-bold">IMPORTANT NOTICE TO ALL NON-US RESIDENTS</p>
+        <p className="legal-underline legal-bold">IMPORTANT NOTICE TO ALL NON-US RESIDENTS</p>
         <p>
           Our servers are located in the US and elsewhere. Please be aware that your information may be transferred to,
           processed, maintained, and used on computers, servers, and systems located outside of your state, province,
@@ -300,7 +299,7 @@ const PrivacyPolicy = () => {
           your own risk.
         </p>
 
-        <p className="privacy-underline privacy-bold">CALIFORNIA PRIVACY RIGHTS</p>
+        <p className="legal-underline legal-bold">CALIFORNIA PRIVACY RIGHTS</p>
         <p>
           Pursuant to Section 1798.83 of the California Civil Code, residents of California have the right to obtain
           certain information about the types of personal information that companies with whom they have an established
@@ -311,10 +310,10 @@ const PrivacyPolicy = () => {
           <a href="mailto:privacy@estuary.dev">privacy@estuary.dev</a>.
         </p>
 
-        <p className="privacy-underline privacy-bold">DO NOT TRACK</p>
+        <p className="legal-underline legal-bold">DO NOT TRACK</p>
         <p>Estuary does not respond to “Do Not Track” settings or other related mechanisms at this time.</p>
 
-        <p className="privacy-underline privacy-bold">NEVADA PRIVACY RIGHTS</p>
+        <p className="legal-underline legal-bold">NEVADA PRIVACY RIGHTS</p>
         <p>
           If you are a resident of Nevada, you have the right to opt-out of the sale of certain personal information to
           third parties who intend to license or sell that personal information. You can exercise this right by
@@ -324,7 +323,7 @@ const PrivacyPolicy = () => {
           Chapter 603A.
         </p>
 
-        <p className="privacy-underline privacy-bold">LINKS TO EXTERNAL WEBSITES</p>
+        <p className="legal-underline legal-bold">LINKS TO EXTERNAL WEBSITES</p>
         <p>
           The Services may contain links to third-party websites (“External Sites”). Estuary has no control over the
           privacy practices or the content of any such External Sites. As such, we are not responsible for the content
@@ -332,7 +331,7 @@ const PrivacyPolicy = () => {
           use when visiting any such External Sites.
         </p>
 
-        <p className="privacy-underline privacy-bold">CHANGES TO THIS PRIVACY POLICY</p>
+        <p className="legal-underline legal-bold">CHANGES TO THIS PRIVACY POLICY</p>
         <p>
           This Privacy Policy is effective as of the last updated date stated at the top of this Privacy Policy. We may
           change this Privacy Policy from time to time with or without notice to you. By accessing the Services after we
@@ -342,7 +341,7 @@ const PrivacyPolicy = () => {
           regular basis.
         </p>
 
-        <p className="privacy-underline privacy-bold">HOW TO CONTACT US</p>
+        <p className="legal-underline legal-bold">HOW TO CONTACT US</p>
         <p>
           If you have questions about this Privacy Policy, please e-mail us at{' '}
           <a href="mailto:privacy@estuary.dev">privacy@estuary.dev</a> with “Privacy Policy” in the subject line.

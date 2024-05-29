@@ -4,11 +4,11 @@ const LegalWrapper = styled.div`
   padding-left: calc(min(9%, 146px));
   padding-right: calc(min(9%, 146px));
 
-  .privacy-underline {
+  .legal-underline {
     text-decoration: underline;
   }
 
-  .privacy-bold {
+  .legal-bold {
     font-weight: bold;
   }
 
