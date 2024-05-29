@@ -1,7 +1,7 @@
 /* eslint-disable no-await-in-loop */
+import pg from 'pg';
 import { GatsbyNode } from 'gatsby';
 import { createRemoteFileNode } from 'gatsby-source-filesystem';
-import pg from 'pg';
 import { SUPABASE_CONNECTION_STRING } from './config';
 import { normalizeConnector } from './src/utils';
 
