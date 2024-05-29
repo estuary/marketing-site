@@ -89,22 +89,6 @@ const ComparisonPageTemplate = ({
         allPages: { nodes: allPages },
     },
 }) => {
-    const [isMobile, setMobile] = React.useState(false);
-    const checkIfMobile = () =>
-        typeof window !== 'undefined' && window.innerWidth < 845
-            ? setMobile(true)
-            : setMobile(false);
-
-    React.useEffect(() => {
-        window.addEventListener('load', checkIfMobile, false);
-        window.addEventListener('resize', checkIfMobile, false);
-
-        return () => {
-            window.removeEventListener('load', checkIfMobile, false);
-            window.removeEventListener('resize', checkIfMobile, false);
-        };
-    }, []);
-
     return (
         <Layout>
             <div className="lp-comparison-wrap">
@@ -159,31 +143,19 @@ const ComparisonPageTemplate = ({
                                     <div
                                         className="estuary-value"
                                         dangerouslySetInnerHTML={{
-                                            __html: isMobile
-                                                ? '<div>ESTUARY</div>' +
-                                                  `${item.our_feature_desc.data.our_feature_desc}`
-                                                : item.our_feature_desc.data
-                                                      .our_feature_desc,
+                                            __html: `<div>ESTUARY</div>${item.our_feature_desc.data.our_feature_desc}`,
                                         }}
                                     />
                                     <div
                                         className="competitor-value"
                                         dangerouslySetInnerHTML={{
-                                            __html: isMobile
-                                                ? `<div>${competitorName}</div>` +
-                                                  `${item.their_feature_desc.data.their_feature_desc}`
-                                                : item.their_feature_desc.data
-                                                      .their_feature_desc,
+                                            __html: `<div>${competitorName}</div>${item.our_feature_desc.data.our_feature_desc}`,
                                         }}
                                     />
                                     <div
                                         className="matters-value"
                                         dangerouslySetInnerHTML={{
-                                            __html: isMobile
-                                                ? '<div>WHY IT MATTERS</div>' +
-                                                  `${item.why_it_matters.data.why_it_matters}`
-                                                : item.why_it_matters.data
-                                                      .why_it_matters,
+                                            __html: `<div>WHY IT MATTERS</div>${item.our_feature_desc.data.our_feature_desc}`,
                                         }}
                                     />
                                 </div>
