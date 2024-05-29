@@ -19,15 +19,15 @@ const BaseStyling = `
 `;
 
 export const Button = styled(OutboundLink)`
-  ${BaseStyling}
-  border: 2px solid #625eff;
-  background-color: #fff;
-  color: #04192b;
+    ${BaseStyling}
+    border: 2px solid #625eff;
+    background-color: #fff;
+    color: #04192b;
 `;
 
 export const ActionLink = styled<any>(Link)`
-  ${BaseStyling}
-  border: 2px solid #5072eb;
-  background-color: #5072eb;
-  color: #fff;
+    ${BaseStyling}
+    border: 2px solid #5072eb;
+    background-color: #5072eb;
+    color: #fff;
 `;

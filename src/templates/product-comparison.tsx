@@ -1,12 +1,11 @@
-import * as React from "react"
-import { Link, graphql } from "gatsby"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
-import SignUp from "../components/signup"
-import { GatsbyImage } from "gatsby-plugin-image"
+import { Link, graphql } from 'gatsby';
+import { GatsbyImage } from 'gatsby-plugin-image';
+import * as React from 'react';
+import Layout from '../components/layout';
+import Seo from '../components/seo';
+import SignUp from '../components/signup';
 
-import EstuaryLogo from "../svgs/colored-logo.svg"
-import { Stack, Typography } from "@mui/material"
+import EstuaryLogo from '../svgs/colored-logo.svg';
 
 const ComparisonPageTemplate = ({
     data: {
@@ -21,24 +20,24 @@ const ComparisonPageTemplate = ({
         allPages: { nodes: allPages },
     },
 }) => {
-    const [isMobile, setMobile] = React.useState(false)
+    const [isMobile, setMobile] = React.useState(false);
     const checkIfMobile = () =>
-        typeof window !== "undefined" && window.innerWidth < 845
+        typeof window !== 'undefined' && window.innerWidth < 845
             ? setMobile(true)
-            : setMobile(false)
+            : setMobile(false);
 
     React.useEffect(() => {
-        window.addEventListener("load", checkIfMobile, false)
-        window.addEventListener("resize", checkIfMobile, false)
+        window.addEventListener('load', checkIfMobile, false);
+        window.addEventListener('resize', checkIfMobile, false);
 
         return () => {
-            window.removeEventListener("load", checkIfMobile, false)
-            window.removeEventListener("resize", checkIfMobile, false)
-        }
-    }, [])
+            window.removeEventListener('load', checkIfMobile, false);
+            window.removeEventListener('resize', checkIfMobile, false);
+        };
+    }, []);
 
     return (
-        <Layout headerTheme="light">
+        <Layout>
             <div className="lp-comparison-wrap">
                 <section className="hero-section">
                     <div className="hero-container">
@@ -64,7 +63,8 @@ const ComparisonPageTemplate = ({
                         <div className="hero-image-wrap">
                             <GatsbyImage
                                 image={
-                                    DescriptivePicture.localFile.childImageSharp.gatsbyImageData
+                                    DescriptivePicture.localFile.childImageSharp
+                                        .gatsbyImageData
                                 }
                                 alt={`${competitorName} logo`}
                                 className="hero-logo competitor"
@@ -91,10 +91,8 @@ const ComparisonPageTemplate = ({
                                         className="estuary-value"
                                         dangerouslySetInnerHTML={{
                                             __html: isMobile
-                                                ? `<div>ESTUARY</div>` +
-                                                  "" +
-                                                  item.our_feature_desc.data
-                                                      .our_feature_desc
+                                                ? '<div>ESTUARY</div>' +
+                                                  `${item.our_feature_desc.data.our_feature_desc}`
                                                 : item.our_feature_desc.data
                                                       .our_feature_desc,
                                         }}
@@ -104,9 +102,7 @@ const ComparisonPageTemplate = ({
                                         dangerouslySetInnerHTML={{
                                             __html: isMobile
                                                 ? `<div>${competitorName}</div>` +
-                                                  "" +
-                                                  item.their_feature_desc.data
-                                                      .their_feature_desc
+                                                  `${item.their_feature_desc.data.their_feature_desc}`
                                                 : item.their_feature_desc.data
                                                       .their_feature_desc,
                                         }}
@@ -115,16 +111,14 @@ const ComparisonPageTemplate = ({
                                         className="matters-value"
                                         dangerouslySetInnerHTML={{
                                             __html: isMobile
-                                                ? "<div>WHY IT MATTERS</div>" +
-                                                  "" +
-                                                  item.why_it_matters.data
-                                                      .why_it_matters
+                                                ? '<div>WHY IT MATTERS</div>' +
+                                                  `${item.why_it_matters.data.why_it_matters}`
                                                 : item.why_it_matters.data
                                                       .why_it_matters,
                                         }}
                                     />
                                 </div>
-                            )
+                            );
                         })}
                     </div>
                 </section>
@@ -153,7 +147,7 @@ const ComparisonPageTemplate = ({
                                         />
                                     </Link>
                                 )
-                            )
+                            );
                         })}
                     </div>
                 </section>
@@ -165,24 +159,26 @@ const ComparisonPageTemplate = ({
                             data integration solutions.
                         </div>
                         <p className="about-content">
-                            We're creating a new kind of DataOps platform that
-                            <b>empowers data teams</b> to build{" "}
+                            We&apos;re creating a new kind of DataOps platform
+                            that
+                            <b>empowers data teams</b> to build{' '}
                             <b>real-time,</b>
                             data-intensive pipelines and applications, at scale,
                             <b>with minimal friction,</b> in a <b>UI or CLI</b>.
-                            We aim to make real-time data{" "}
+                            We aim to make real-time data{' '}
                             <b>accessible to the analyst</b>, while bringing
-                            power tooling to the streaming enthusiast. Flow{" "}
-                            <b>unifies</b> a team's databases, pub/sub systems,
-                            and SaaS around their data, without requiring new
-                            investments in infrastructure or development.
+                            power tooling to the streaming enthusiast. Flow{' '}
+                            <b>unifies</b> a team&apos;s databases, pub/sub
+                            systems, and SaaS around their data, without
+                            requiring new investments in infrastructure or
+                            development.
                         </p>
                         <p className="about-content">
                             Estuary <b>develops in the open</b> to produce both
                             the runtime for our managed service and an ecosystem
                             of
                             <b>open-source</b> connectors. You can read more
-                            about{" "}
+                            about{' '}
                             <Link to="/the-estuary-story-and-guiding-principles">
                                 our story here.
                             </Link>
@@ -192,24 +188,22 @@ const ComparisonPageTemplate = ({
                 <SignUp />
             </div>
         </Layout>
-    )
-}
+    );
+};
 
 export const Head = ({
     data: {
         thisPage: { their_name },
     },
 }) => {
-    const title = `Estuary Vs ${their_name}`
+    const title = `Estuary Vs ${their_name}`;
     return (
         <Seo
             title={title}
-            description={
-                "Estuary allows enterprises of any size to deploy true real-time pipelines that scale for high-volume use cases — without making difficult trade-offs or investing in complex infrastructure."
-            }
+            description="Estuary allows enterprises of any size to deploy true real-time pipelines that scale for high-volume use cases — without making difficult trade-offs or investing in complex infrastructure."
         />
-    )
-}
+    );
+};
 
 export const pageQuery = graphql`
     query ComparisonData($id: String!) {
@@ -268,6 +262,6 @@ export const pageQuery = graphql`
             }
         }
     }
-`
+`;
 
-export default ComparisonPageTemplate
+export default ComparisonPageTemplate;

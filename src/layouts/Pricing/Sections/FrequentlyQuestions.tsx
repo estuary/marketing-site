@@ -1,12 +1,12 @@
-import React from "react"
-import { Typography } from "@mui/material"
+import React from 'react';
+import { Typography } from '@mui/material';
 
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-import frequentlyQuestions from "../questions"
+import frequentlyQuestions from '../questions';
 
 const PricingFrequentlyQuestions = () => {
     return (
@@ -19,15 +19,30 @@ const PricingFrequentlyQuestions = () => {
                     {frequentlyQuestions.map((item, index) => (
                         <Accordion defaultExpanded={true} key={index}>
                             <AccordionSummary
-                                expandIcon={<ExpandMoreIcon sx={{ color: "#27272A", fontSize: "2rem" }} />}
+                                expandIcon={
+                                    <ExpandMoreIcon
+                                        sx={{
+                                            color: '#27272A',
+                                            fontSize: '2rem',
+                                        }}
+                                    />
+                                }
                                 aria-controls="panel1a-content"
                                 id="panel1a-header"
                                 className="faq-question"
                             >
-                                <Typography className="faq-text">{item.title}</Typography>
+                                <Typography className="faq-text">
+                                    {item.title}
+                                </Typography>
                             </AccordionSummary>
                             <AccordionDetails>
-                                <Typography className="faq-description" sx={{ lineHeight: "2.5rem", color: "#3F3F46" }}>
+                                <Typography
+                                    className="faq-description"
+                                    sx={{
+                                        lineHeight: '2.5rem',
+                                        color: '#3F3F46',
+                                    }}
+                                >
                                     {item.description}
                                 </Typography>
                             </AccordionDetails>
@@ -36,7 +51,7 @@ const PricingFrequentlyQuestions = () => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default PricingFrequentlyQuestions
+export default PricingFrequentlyQuestions;

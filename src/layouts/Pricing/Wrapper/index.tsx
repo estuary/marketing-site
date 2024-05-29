@@ -1,16 +1,14 @@
-import React from "react"
-import Layout from "../../../components/layout"
+import React from 'react';
+import Layout from '../../../components/layout';
 
 const PricingWrapper = ({ children }) => {
     return (
-        <Layout headerTheme="light">
+        <Layout>
             <div className="pricing-page">
-                <div className="pricing-page-container">
-                    {children}
-                </div>
+                <div className="pricing-page-container">{children}</div>
             </div>
-        </Layout >
-    )
-}
+        </Layout>
+    );
+};
 
-export default PricingWrapper
+export default PricingWrapper;

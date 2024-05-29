@@ -12,7 +12,7 @@ import { GA_MEASUREMENT_ID, GA_ORIGIN } from './shared';
  */
 
 export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
-  const googleAnalyticsHTML = `
+    const googleAnalyticsHTML = `
       window.dataLayer = window.dataLayer || [];
       function gtag() {
           dataLayer.push(arguments);
@@ -34,24 +34,45 @@ export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
       gtag('config', '${GA_MEASUREMENT_ID}');
   `;
 
-  setHtmlAttributes({ lang: `en` });
-  setHeadComponents([
-    <link rel="preconnect" key="preconnect-google-gtag" href={GA_ORIGIN} />,
-    <link rel="dns-prefetch" key="dns-prefetch-google-gtag" href={GA_ORIGIN} />,
-    <script
-      key="google-analytics-config"
-      dangerouslySetInnerHTML={{
-        __html: googleAnalyticsHTML,
-      }}
-    />,
-    <script key="google-analytics-loader" async src={`${GA_ORIGIN}/gtag/js?id=${GA_MEASUREMENT_ID}`} />,
-    <link rel="preconnect" href="//consent.cookiefirst.com" />,
-    <link rel="dns-prefetch" href="//edge.cookiefirst.com" />,
-    <link rel="dns-prefetch" href="//api.cookiefirst.com" />,
-    <script
-      id="CookieFirst"
-      async
-      src="https://consent.cookiefirst.com/sites/estuary.dev-bb4406bb-2dfd-4133-8a4c-7b737e5b0bac/consent.js"
-    />,
-  ]);
+    setHtmlAttributes({ lang: 'en' });
+    setHeadComponents([
+        <link rel="preconnect" key="preconnect-google-gtag" href={GA_ORIGIN} />,
+        <link
+            rel="dns-prefetch"
+            key="dns-prefetch-google-gtag"
+            href={GA_ORIGIN}
+        />,
+        <script
+            key="google-analytics-config"
+            dangerouslySetInnerHTML={{
+                __html: googleAnalyticsHTML,
+            }}
+        />,
+        <script
+            key="google-analytics-loader"
+            async
+            src={`${GA_ORIGIN}/gtag/js?id=${GA_MEASUREMENT_ID}`}
+        />,
+        <link
+            key="consent-cookiefirst"
+            rel="preconnect"
+            href="//consent.cookiefirst.com"
+        />,
+        <link
+            key="edge-cookiefirst"
+            rel="dns-prefetch"
+            href="//edge.cookiefirst.com"
+        />,
+        <link
+            key="api-cookiefirst"
+            rel="dns-prefetch"
+            href="//api.cookiefirst.com"
+        />,
+        <script
+            key="script-cookiefirst"
+            id="CookieFirst"
+            async
+            src="https://consent.cookiefirst.com/sites/estuary.dev-bb4406bb-2dfd-4133-8a4c-7b737e5b0bac/consent.js"
+        />,
+    ]);
 };

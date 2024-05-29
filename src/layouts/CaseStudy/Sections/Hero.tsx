@@ -1,5 +1,5 @@
-import React from "react"
-import { GatsbyImage } from "gatsby-plugin-image"
+import React from 'react';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 const CaseStudyHero = ({ title, description, image }) => {
     return (
@@ -9,14 +9,10 @@ const CaseStudyHero = ({ title, description, image }) => {
                 <h1>{description}</h1>
             </div>
             <div className="logo">
-                <GatsbyImage
-                    alt={title}
-                    image={image}
-                    loading="eager"
-                />
+                <GatsbyImage alt={title} image={image} loading="eager" />
             </div>
         </header>
-    )
-}
+    );
+};
 
-export default CaseStudyHero
+export default CaseStudyHero;

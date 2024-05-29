@@ -1,10 +1,13 @@
-import styled from "styled-components"
-import { BaseButtonFilledStyling, BaseButtonPrimaryStyling } from "../../globalStyles"
+import styled from 'styled-components';
+import {
+    BaseButtonFilledStyling,
+    BaseButtonPrimaryStyling,
+} from '../../globalStyles';
 
 export const AnchorFilled = styled.a`
-  ${BaseButtonFilledStyling}
-`
+    ${BaseButtonFilledStyling}
+`;
 
 export const AnchorOutlined = styled.a`
-  ${BaseButtonPrimaryStyling}
-`
+    ${BaseButtonPrimaryStyling}
+`;

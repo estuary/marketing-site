@@ -82,9 +82,13 @@
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "eslint": "^8.57.0",
+    "eslint-config-kentcdodds": "^21.0.0",
     "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-formatjs": "^4.13.3",
     "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-unused-imports": "^3.2.0",
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.30",
     "prettier": "3.2.5",
     "typescript": "^5.4.2"
@@ -97,10 +101,13 @@
     "graphql": "15.8.0"
   },
   "scripts": {
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "format": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "format:fix": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "build:plugins": "yarn --cwd ./plugins/estuary-rehype-transformers install && yarn --cwd ./plugins/estuary-rehype-transformers build",
     "build": "yarn run build:plugins && gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "yarn run build:plugins && gatsby develop",
     "serve": "yarn run build:plugins && gatsby serve",
     "clean": "rm -r plugins/estuary-rehype-transformers/.parcel-cache && gatsby clean",

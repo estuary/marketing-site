@@ -1,7 +1,7 @@
-import { StaticImage } from "gatsby-plugin-image"
-import React from "react"
-import OpenHubspotModal from "../../../components/HubSpot/OpenModal"
-import { OutboundLink } from "../../../components/OutboundLink"
+import { StaticImage } from 'gatsby-plugin-image';
+import React from 'react';
+import OpenHubspotModal from '../../../components/HubSpot/OpenModal';
+import { OutboundLink } from '../../../components/OutboundLink';
 
 const PricingHero = () => {
     return (
@@ -23,8 +23,8 @@ const PricingHero = () => {
                         Build free pipeline
                     </OutboundLink>
                     <OpenHubspotModal
-                        buttonLabel={"Contact Us"}
-                        buttonClass={"section-one-demo-button"}
+                        buttonLabel="Contact Us"
+                        buttonClass="section-one-demo-button"
                         buttonId="pricing-hero-hubspot"
                     />
                 </div>
@@ -50,7 +50,7 @@ const PricingHero = () => {
                 </OutboundLink>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default PricingHero
+export default PricingHero;

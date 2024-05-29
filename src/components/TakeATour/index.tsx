@@ -45,6 +45,6 @@ const TakeATour = () => {
             </IconButton>
         </Container>
     );
-}
+};
 
 export default TakeATour;

@@ -1,27 +1,34 @@
-import { StaticImage } from "gatsby-plugin-image"
-import * as React from "react"
-import ReactPlayer from "react-player"
-import { estuaryProductFlowVideoUrl } from "../../../../shared"
-import useWindowExistence from "../../../hooks/useWindowExistence"
-import PlayIcon from "../../../svgs/play.svg"
-import { Button, Container, Description, Title, VideoTextAndButton, VideoWrapper, Wrapper } from "./styles"
+import { StaticImage } from 'gatsby-plugin-image';
+import * as React from 'react';
+import ReactPlayer from 'react-player';
+import { estuaryProductFlowVideoUrl } from '../../../../shared';
+import useWindowExistence from '../../../hooks/useWindowExistence';
+import PlayIcon from '../../../svgs/play.svg';
+import {
+    Button,
+    Container,
+    Description,
+    Title,
+    VideoTextAndButton,
+    VideoWrapper,
+    Wrapper,
+} from './styles';
 
 const SectionFive = () => {
-    const hasWindow = useWindowExistence()
+    const hasWindow = useWindowExistence();
 
     return (
         <Container>
             <Wrapper>
                 <Title>
-                    <span>
-                        Built {" "}
-                    </span>
+                    <span>Built </span>
                     in minutes
                 </Title>
                 <Description>
-                    Use the UI to quickly build end-to-end pipelines using no-code connectors. Estuary Flow does the rest.
+                    Use the UI to quickly build end-to-end pipelines using
+                    no-code connectors. Estuary Flow does the rest.
                 </Description>
-                {hasWindow && (
+                {hasWindow ? (
                     <VideoWrapper>
                         <ReactPlayer
                             light={
@@ -43,18 +50,16 @@ const SectionFive = () => {
                                     </span>
                                     <Button>
                                         <PlayIcon />
-                                        <span>
-                                            Play Video
-                                        </span>
+                                        <span>Play Video</span>
                                     </Button>
                                 </VideoTextAndButton>
                             }
                         />
                     </VideoWrapper>
-                )}
+                ) : null}
             </Wrapper>
         </Container>
-    )
-}
+    );
+};
 
-export default SectionFive
+export default SectionFive;

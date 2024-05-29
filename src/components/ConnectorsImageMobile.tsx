@@ -1,9 +1,9 @@
-import * as React from "react"
-import { StaticImage } from "gatsby-plugin-image"
+import * as React from 'react';
+import { StaticImage } from 'gatsby-plugin-image';
 
 export interface ConnectorImageProps {
-    source: any
-    destination: any
+    source: any;
+    destination: any;
 }
 
 const ConnectorsImageMobile = () => {
@@ -20,7 +20,7 @@ const ConnectorsImageMobile = () => {
             layout="constrained"
             quality={80}
         />
-    )
-}
+    );
+};
 
-export default ConnectorsImageMobile
+export default ConnectorsImageMobile;
