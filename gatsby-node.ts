@@ -1,7 +1,7 @@
 /* eslint-disable no-await-in-loop */
-import pg from 'pg';
 import { GatsbyNode } from 'gatsby';
 import { createRemoteFileNode } from 'gatsby-source-filesystem';
+import pg from 'pg';
 import { SUPABASE_CONNECTION_STRING } from './config';
 import { normalizeConnector } from './src/utils';
 
@@ -32,6 +32,12 @@ export const createPages: GatsbyNode['createPages'] = async ({
     reporter,
 }) => {
     const { createPage, createRedirect } = actions;
+
+    const validateDataExistence = (array, name) => {
+        if (!Array.isArray(array) || array.length === 0) {
+            throw new Error(`${name} array is either not an array or is empty.`);
+        }
+    };
 
     createRedirect({
         fromPath: '/blogs',
@@ -94,6 +100,8 @@ export const createPages: GatsbyNode['createPages'] = async ({
 
     const allCaseStudies = caseStudyPages.data?.allStrapiCaseStudy.nodes;
 
+    validateDataExistence(allCaseStudies, 'Case Studies');
+
     allCaseStudies?.forEach((node) => {
         createPage({
             path: `customers/${node.Slug}`,
@@ -131,8 +139,12 @@ export const createPages: GatsbyNode['createPages'] = async ({
     }
 
     const allPosts = result.data?.allStrapiBlogPost.nodes ?? [];
+
     const allComparisonPages =
         comparisonPages.data?.allStrapiProductComparisonPage.nodes;
+
+    validateDataExistence(allPosts, 'Posts');
+    validateDataExistence(allComparisonPages, 'Comparison Pages');
 
     allComparisonPages?.forEach((node) => {
         createPage({
@@ -296,6 +308,8 @@ export const createPages: GatsbyNode['createPages'] = async ({
         connectors.data?.postgres.allConnectors.nodes
             .filter((conn) => conn?.connectorTagsByConnectorIdList?.length > 0)
             .map(normalizeConnector) ?? [];
+
+    validateDataExistence(mapped_connectors, 'Connectors');
 
     for (const normalized_connector of mapped_connectors) {
         if (!normalized_connector.slug) {
