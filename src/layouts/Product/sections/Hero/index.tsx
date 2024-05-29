@@ -22,8 +22,9 @@ const ProductHero = () => {
                     <StaticImage
                         placeholder="none"
                         src="../../../../images/lp-product/hero.png"
-                        alt="Hero"
+                        alt="Screenshot of dashboard"
                         layout="constrained"
+                        loading="eager"
                     />
                 </ContainerImage>
                 <ContainerContent>
