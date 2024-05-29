@@ -1,9 +1,8 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
-
+import { DefaultWrapperDark } from '../../../../styles/wrappers';
 import {
     Button,
-    Container,
     ContainerContent,
     ContainerImage,
     ContainerTopics,
@@ -15,7 +14,7 @@ import {
 
 const UnifiedDataStack = () => {
     return (
-        <Container>
+        <DefaultWrapperDark>
             <Wrapper>
                 <ContainerImage>
                     <StaticImage
@@ -57,7 +56,7 @@ const UnifiedDataStack = () => {
                     </Button>
                 </ContainerContent>
             </Wrapper>
-        </Container>
+        </DefaultWrapperDark>
     );
 };
 

@@ -4,8 +4,8 @@ import DoneIcon from '@mui/icons-material/Done';
 import { useMediaQuery } from '@mui/material';
 import { ConnectorType } from '../../../../shared';
 import ConnectorsLink from '../../../components/ConnectorsLink';
+import { DefaultWrapper } from '../../../styles/wrappers';
 import Cards from './components/Cards';
-
 import {
     Container,
     ContainerContent,
@@ -16,7 +16,6 @@ import {
     Title,
     Topic,
     Topics,
-    Wrapper,
 } from './style';
 
 type ChangeDataProps = {
@@ -31,7 +30,7 @@ const ChangeData = ({ connector: { id, title, type } }: ChangeDataProps) => {
     const isColumn = useMediaQuery('(max-width:1485px)');
 
     return (
-        <Wrapper>
+        <DefaultWrapper>
             <Container>
                 <ContainerImage>
                     <Cards />
@@ -87,7 +86,7 @@ const ChangeData = ({ connector: { id, title, type } }: ChangeDataProps) => {
                     </Observation>
                 </ContainerContent>
             </Container>
-        </Wrapper>
+        </DefaultWrapper>
     );
 };
 

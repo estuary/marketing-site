@@ -1,9 +1,9 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
+import { DefaultWrapper } from '../../../../styles/wrappers';
 import {
     Button,
-    Container,
     ContainerContent,
     ContainerImage,
     ContainerTopics,
@@ -16,7 +16,7 @@ import {
 
 const OurConnectors = () => {
     return (
-        <Container>
+        <DefaultWrapper>
             <Wrapper>
                 <ContainerImage>
                     <StaticImage
@@ -62,7 +62,7 @@ const OurConnectors = () => {
                     </Button>
                 </ContainerContent>
             </Wrapper>
-        </Container>
+        </DefaultWrapper>
     );
 };
 

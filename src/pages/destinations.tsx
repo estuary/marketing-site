@@ -2,6 +2,7 @@ import React from 'react';
 import { Connectors } from '../components/Connectors';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
+import { estuaryHelpsYourTeam } from '../content/seo';
 
 const Sources = () => {
     return (
@@ -9,7 +10,7 @@ const Sources = () => {
             <Connectors
                 connectorType="materialization"
                 title="Destinations"
-                description="Estuary helps your team get the most out of the ever-expanding list of valuable databases, warehouses, and other tools so you can focus on insights instead of pipelines."
+                description={estuaryHelpsYourTeam}
                 bottomTitle="Sources"
                 bottomDescription="Open-source integrations guarantee that you’re covered, and real-time, no matter whether you’re pulling data from a database, filestore, or SaaS application."
             />

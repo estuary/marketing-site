@@ -1,21 +1,7 @@
 import styled from 'styled-components';
 
 import { Link } from 'gatsby';
-import {
-    globalMaxWidth,
-    sectionTopBottomPadding,
-} from '../../../../globalStyles';
-import VectorImage from '../../../../images/lp-product/vector-ourconnectors.png';
-
-export const Container = styled.section`
-    ${sectionTopBottomPadding}
-
-    background-image: url(${VectorImage});
-    background-size: cover;
-    background-position: top;
-    background-repeat: no-repeat;
-    background-color: #f9fafc;
-`;
+import { globalMaxWidth } from '../../../../globalStyles';
 
 export const Wrapper = styled.div`
     ${globalMaxWidth}
@@ -37,15 +23,15 @@ export const ContainerImage = styled.div`
     justify-content: center;
     align-items: center;
 
-    @media (max-width: 1023px) {
+    @media (max-width: 700px) {
         .desktop-image {
-            display: none;
+            display: none !important;
         }
     }
 
-    @media (min-width: 1024px) {
+    @media (min-width: 701px) {
         .mobile-image {
-            display: none;
+            display: none !important;
         }
     }
 `;

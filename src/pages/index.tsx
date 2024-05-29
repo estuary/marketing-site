@@ -34,8 +34,8 @@ const IndexPage = () => {
 export const Head = () => {
     return (
         <Seo
-            title="Real-time ETL"
-            description="Managed streaming data pipelines, streaming SQL & turnkey connectivity to clouds, databases, and apps"
+            title="Estuary | Real-Time Data Integration, CDC & ETL Platform"
+            description="Estuary Flow is the fastest, most reliable real-time data platform for CDC, ETL, and streaming pipelines. Build and automate data pipelines in minutes. Try it Free!"
         />
     );
 };

@@ -4,6 +4,7 @@ import React from 'react';
 import { estuaryProductFlowVideoUrl } from '../../../../shared';
 import useWindowExistence from '../../../hooks/useWindowExistence';
 import { ContainerIcon } from '../styles';
+import { DefaultWrapperDark } from '../../../styles/wrappers';
 import {
     Container,
     ContainerButton,
@@ -14,7 +15,6 @@ import {
     EstuaryProductVideo,
     Title,
     VideoPreviewContainer,
-    Wrapper,
 } from './styles';
 import TakeATourButtons from './TakeATourButtons';
 
@@ -22,7 +22,7 @@ const TakeATour = () => {
     const hasWindow = useWindowExistence();
 
     return (
-        <Wrapper>
+        <DefaultWrapperDark>
             <Container>
                 <ContainerLeft>
                     {hasWindow ? (
@@ -75,7 +75,7 @@ const TakeATour = () => {
                     </ContainerIcons>
                     <Title>TAKE A TOUR</Title>
                     <Description>
-                        Learn more about how estuary can help with real-time
+                        Learn more about how Estuary can help with real-time
                         replication.
                     </Description>
                     <ContainerButton>
@@ -83,7 +83,7 @@ const TakeATour = () => {
                     </ContainerButton>
                 </ContainerContent>
             </Container>
-        </Wrapper>
+        </DefaultWrapperDark>
     );
 };
 

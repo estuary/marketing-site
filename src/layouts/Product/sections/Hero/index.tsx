@@ -1,11 +1,9 @@
 import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
-
+import { DefaultWrapper } from '../../../../styles/wrappers';
 import Accordion from './components/Accordion';
 import Cards from './components/Cards';
-
 import {
-    Container,
     ContainerHeader,
     ContainerImage,
     Title,
@@ -18,14 +16,15 @@ import {
 
 const ProductHero = () => {
     return (
-        <Container>
+        <DefaultWrapper>
             <ContainerHeader>
                 <ContainerImage>
                     <StaticImage
                         placeholder="none"
                         src="../../../../images/lp-product/hero.png"
-                        alt="Hero"
+                        alt="Screenshot of dashboard"
                         layout="constrained"
+                        loading="eager"
                     />
                 </ContainerImage>
                 <ContainerContent>
@@ -53,7 +52,7 @@ const ProductHero = () => {
                 </ContainerContent>
             </ContainerHeader>
             <Cards />
-        </Container>
+        </DefaultWrapper>
     );
 };
 
