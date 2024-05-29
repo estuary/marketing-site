@@ -1,21 +1,7 @@
 import styled, { CSSProperties } from 'styled-components';
 
 import { ConnectorType } from '../../../../shared';
-import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
-import Vector from '../../../images/lp-connector/hero/Vector.png';
-
-export const Wrapper = styled.section`
-    ${sectionTopBottomPadding}
-
-    background-color: #f9fafc;
-
-    @media (min-width: 1024px) {
-        background-image: url(${Vector});
-        background-size: cover;
-        background-position: top -32px right;
-        background-repeat: no-repeat;
-    }
-`;
+import { globalMaxWidth } from '../../../globalStyles';
 
 export const Container = styled.div`
     ${globalMaxWidth}

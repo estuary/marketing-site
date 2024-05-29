@@ -18,6 +18,7 @@ import Layout from '../components/layout';
 import Seo from '../components/seo';
 import logoUrl from '../images/combination-mark__multi-blue.png';
 import { costPerGB } from '../utils';
+import { SwoopingLinesBackground } from '../styles/heros';
 
 dayjs.extend(reltime);
 
@@ -52,7 +53,7 @@ const authorSocialLink = post?.authors[0]?.link */
                 itemScope
                 itemType="http://schema.org/Article"
             >
-                <div className="blog-post-header">
+                <SwoopingLinesBackground>
                     <div className="blog-post-header-wrapper">
                         <div className="header-info">
                             <div className="post-info">
@@ -99,7 +100,7 @@ const authorSocialLink = post?.authors[0]?.link */
                             />
                         ) : null}
                     </div>
-                </div>
+                </SwoopingLinesBackground>
 
                 {post.body ? (
                     <section className="blog-post-content">

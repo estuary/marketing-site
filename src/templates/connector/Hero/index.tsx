@@ -7,6 +7,7 @@ import {
 import React from 'react';
 
 import { ConnectorType } from '../../../../shared';
+import { SwoopingLinesBackground } from '../../../styles/heros';
 import Content from './components/Content';
 
 import {
@@ -17,7 +18,6 @@ import {
     FlowStepTwo,
     FrameContainer,
     LogoContainer,
-    Wrapper,
     logoImageStyle,
 } from './styles';
 
@@ -33,7 +33,7 @@ const Hero = ({ connector: { title, logo, type } }: HeroProps) => {
     const logoImage = getImage(logo);
 
     return (
-        <Wrapper>
+        <SwoopingLinesBackground>
             <Container>
                 <Content
                     connector={{
@@ -87,7 +87,7 @@ const Hero = ({ connector: { title, logo, type } }: HeroProps) => {
                     </FrameContainer>
                 </ContainerImage>
             </Container>
-        </Wrapper>
+        </SwoopingLinesBackground>
     );
 };
 
