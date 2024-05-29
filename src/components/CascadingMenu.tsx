@@ -127,7 +127,7 @@ export const NavMenuItem = ({ item }: { item: NavItem }) => {
         );
         if (item.path) {
             submenu = (
-                <Link className="global-header-menu-link" to={item.path ?? '#'}>
+                <Link className="global-header-menu-link" to={item.path}>
                     {submenu}
                 </Link>
             );
@@ -135,7 +135,7 @@ export const NavMenuItem = ({ item }: { item: NavItem }) => {
         return submenu;
     } else {
         return (
-            <Link className="global-header-menu-link" to={item.path ?? '#'}>
+            <Link className="global-header-menu-link" to={item.path}>
                 <CascadingMenuItem>{item.title}</CascadingMenuItem>
             </Link>
         );
@@ -151,7 +151,7 @@ export const NavMenuTopLevel = ({ item }: { item: NavItem }) => {
         <>
             <Link
                 className="global-header-link"
-                to={item.path ?? '#'}
+                to={item.path}
                 {...bindHover(popupState)}
                 {...bindFocus(popupState)}
             >
