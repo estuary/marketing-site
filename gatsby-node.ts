@@ -1,7 +1,7 @@
 /* eslint-disable no-await-in-loop */
-import pg from 'pg';
 import { GatsbyNode } from 'gatsby';
 import { createRemoteFileNode } from 'gatsby-source-filesystem';
+import pg from 'pg';
 import { SUPABASE_CONNECTION_STRING } from './config';
 import { normalizeConnector } from './src/utils';
 
@@ -366,37 +366,38 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
         connectionTimeoutMillis: 5 * 1000,
     });
 
-    const connectors = await pool.query(
-        'select connectors.id as id, connectors.logo_url as logo_url from public.connectors;'
-    );
+    try {
+        const connectors = await pool.query(
+            'select connectors.id as id, connectors.logo_url as logo_url from public.connectors;'
+        );
 
-    for (const conn of connectors.rows) {
-        const usUrl = conn.logo_url?.['en-US'];
-        if (!usUrl) {
-            await pool.end();
-            return;
+        for (const conn of connectors.rows) {
+            const usUrl = conn.logo_url?.['en-US'];
+            if (!usUrl) {
+                return;
+            }
+
+            const fileNode = await createRemoteFileNode({
+                url: usUrl,
+                createNode,
+                createNodeId,
+                getCache,
+            });
+
+            await createNode({
+                connectorId: conn.id,
+                logoUrl: usUrl,
+                logo: fileNode,
+                id: createNodeId(createLogoNodeId(conn.id)),
+                internal: {
+                    type: 'ConnectorLogo',
+                    contentDigest: createContentDigest(fileNode),
+                },
+            });
         }
-
-        const fileNode = await createRemoteFileNode({
-            url: usUrl,
-            createNode,
-            createNodeId,
-            getCache,
-        });
-
-        await createNode({
-            connectorId: conn.id,
-            logoUrl: usUrl,
-            logo: fileNode,
-            id: createNodeId(createLogoNodeId(conn.id)),
-            internal: {
-                type: 'ConnectorLogo',
-                contentDigest: createContentDigest(fileNode),
-            },
-        });
+    } finally {
+        await pool.end();
     }
-
-    await pool.end();
 };
 
 export const createResolvers: GatsbyNode['createResolvers'] = async ({
