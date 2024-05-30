@@ -16,7 +16,7 @@ import Seo from '../components/seo';
 
 const IndexPage = () => {
     return (
-        <Layout headerTheme="dark" showTour>
+        <Layout>
             <SectionOne />
             <SectionTwo />
             <SectionThree />
