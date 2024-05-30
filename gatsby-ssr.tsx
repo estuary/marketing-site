@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { GA_MEASUREMENT_ID, GA_ORIGIN } from './shared';
+import { GA_ANALYTICS_ENDPOINT, GA_MEASUREMENT_ID, GA_ORIGIN } from './shared';
 
 /**
  * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
@@ -36,11 +36,22 @@ export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
 
     setHtmlAttributes({ lang: 'en' });
     setHeadComponents([
-        <link rel="preconnect" key="preconnect-google-gtag" href={GA_ORIGIN} />,
         <link
             rel="dns-prefetch"
             key="dns-prefetch-google-gtag"
             href={GA_ORIGIN}
+        />,
+        <link rel="preconnect" key="preconnect-google-gtag" href={GA_ORIGIN} />,
+
+        <link
+            rel="dns-prefetch"
+            key="dns-prefetch-google-analytics"
+            href={GA_ANALYTICS_ENDPOINT}
+        />,
+        <link
+            rel="preconnect"
+            key="preconnect-google-analytics"
+            href={GA_ANALYTICS_ENDPOINT}
         />,
         <script
             key="google-analytics-config"

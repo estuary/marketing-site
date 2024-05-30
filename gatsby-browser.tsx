@@ -26,10 +26,12 @@ export const onClientEntry = () => {
 };
 
 // Copied from https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-plugin-google-gtag/src/gatsby-browser.js
-export const onRouteUpdate = ({ location }) => {
+export const onRouteUpdate = ({ location, prevLocation }) => {
     if (
         process.env.NODE_ENV !== 'production' ||
-        typeof window.gtag !== 'function'
+        typeof window.gtag !== 'function' ||
+        // Check this to prevent this call from being fired on load of the page
+        !prevLocation
     ) {
         return null;
     }
