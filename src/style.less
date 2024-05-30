@@ -6834,9 +6834,14 @@ table th {
 
 /*Blog post template updates end*/
 
-/*CookieFirst styling*/
-.cookiefirst-root [data-cookiefirst-widget],
-.cookiefirst-root [data-cookiefirst-widget] button {
+/*CookieFirst styling for modal and not dialog*/
+.cookiefirst-root [data-cookiefirst-widget='banner'],
+.cookiefirst-root [data-cookiefirst-widget='banner'] button {
+    --banner-font-size-lg: 25px;
     --banner-font-size: 20px;
-    padding: 20px;
+
+    @media (max-width: 900px) {
+        --banner-font-size-lg: 18px;
+        --banner-font-size: 14px;
+    }
 }
