@@ -106,7 +106,6 @@
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "format": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "format:fix": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "prepare": "husky install",
     "pre_commit": "yarn lint:fix && yarn format:fix",
     "build:plugins": "yarn --cwd ./plugins/estuary-rehype-transformers install && yarn --cwd ./plugins/estuary-rehype-transformers build",
     "build": "yarn run build:plugins && gatsby build",
@@ -114,6 +113,6 @@
     "start": "yarn run build:plugins && gatsby develop",
     "serve": "yarn run build:plugins && gatsby serve",
     "clean": "rm -r plugins/estuary-rehype-transformers/.parcel-cache && gatsby clean",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package && husky install"
   }
 }
