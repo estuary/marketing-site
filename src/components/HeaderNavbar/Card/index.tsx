@@ -1,15 +1,18 @@
 import React from 'react';
-import clsx from 'clsx';
+import { Container, Divider, Wrapper } from './styles';
 
 const HeaderCard = ({ show, children, customRef, ...props }) => {
     return (
-        <div
+        <Wrapper
             ref={customRef}
-            className={clsx('header-card', show && 'show')}
+            show={show}
             {...props}
         >
-            {children}
-        </div>
+            <Divider />
+            <Container>
+                {children}
+            </Container>
+        </Wrapper>
     );
 };
 

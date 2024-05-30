@@ -67,7 +67,7 @@ const HeaderNavbarProduct = ({ active, setActive }) => {
                 >
                     <CardItem title="PRODUCT" onlyContent items={products} />
                     <CardItem title="COMPARE" items={compare} />
-                    <CardItem className="hide-on-mobile" title="CASE STUDY">
+                    <CardItem className="hide-on-mobile" title="WEBINARS">
                         <StaticImage
                             src="../../../svgs/navbar-image-1.svg"
                             alt="Connect&Go Success Story"
