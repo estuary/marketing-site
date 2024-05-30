@@ -26,10 +26,18 @@ export const onClientEntry = () => {
 };
 
 // Copied from https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-plugin-google-gtag/src/gatsby-browser.js
-export const onRouteUpdate = ({ location }) => {
+export const onRouteUpdate = ({ location, prevLocation }) => {
+    window.dataLayer ||= [];
+    window.gtag ||= function gtag() {
+        // Going to stick with the example code
+        // eslint-disable-next-line prefer-rest-params
+        window.dataLayer?.push(arguments);
+    };
+
     if (
         process.env.NODE_ENV !== 'production' ||
-        typeof window.gtag !== 'function'
+        // Check this to prevent this call from being fired on load of the page
+        !prevLocation
     ) {
         return null;
     }
@@ -39,7 +47,7 @@ export const onRouteUpdate = ({ location }) => {
         const pagePath = location
             ? location.pathname + location.search + location.hash
             : undefined;
-        window.gtag('event', 'page_view', { page_path: pagePath });
+        window.gtag?.('event', 'page_view', { page_path: pagePath });
     };
 
     if ('requestAnimationFrame' in window) {
