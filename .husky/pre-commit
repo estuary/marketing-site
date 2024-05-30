@@ -4,7 +4,6 @@
 
 echo "Running pre-commit hook..."
 yarn pre_commit
-echo "Running pre-commit hook..."
 
 if [ $? -eq 0 ]; then
   echo "Pre-commit hook completed successfully."
