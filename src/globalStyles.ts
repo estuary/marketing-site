@@ -90,8 +90,14 @@ export const LinkFilled = styled(Link)`
     ${BaseButtonFilledStyling}
 `;
 
-export const LinkOutlined = styled(Link)`
+type LinkOutlinedProps = {
+  theme: 'light' | 'dark';
+}
+
+export const LinkOutlined = styled(Link) <LinkOutlinedProps>`
     ${BaseButtonPrimaryStyling}
+    background-color: ${(props) => (props.theme === 'dark' ? 'transparent' : 'initial')};
+    color: ${(props) => (props.theme === 'dark' ? '#FFFFFF' : 'initial')};
 `;
 
 export const ButtonFilled = styled.button`
