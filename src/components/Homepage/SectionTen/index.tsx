@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { webinarsUrl } from '../../../../shared';
+import { OutboundLinkOutlined } from '../../OutboundLink';
 import {
     ButtonFilled,
-    ButtonOutlined,
     Buttons,
     Container,
     HubspotButton,
@@ -25,9 +25,9 @@ const SectionTen = () => {
                     >
                         Try Now
                     </ButtonFilled>
-                    <ButtonOutlined href={webinarsUrl} target="_blank">
+                    <OutboundLinkOutlined href={webinarsUrl} target="_blank">
                         Watch Demo
-                    </ButtonOutlined>
+                    </OutboundLinkOutlined>
                     <HubspotButton
                         buttonLabel="Contact Us"
                         buttonId="section-ten-hubspot"

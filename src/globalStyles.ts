@@ -1,7 +1,11 @@
 import { Link } from 'gatsby';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 /* TODO: Transfer the global styles from style.less to this styled-components file */
+
+type LinkOutlinedProps = {
+    theme?: 'light' | 'dark';
+};
 
 export const globalMaxWidth = `
   max-width: calc(1280px + 2 * min(10vw,160px));
@@ -70,13 +74,28 @@ export const BaseButtonFilledStyling = `
   color: #FFFFFF;
 `;
 
-export const BaseButtonPrimaryStyling = `
-  ${BaseButtonStyling}
+export const baseButtonPrimaryStyling = (
+    theme: 'light' | 'dark' | undefined
+) => {
+    const lightStyles = css`
+        color: #5072eb;
+        background-color: #fdfdfe;
+        border: 2px solid #5072eb;
+    `;
 
-  background-color: #FDFDFE;
-  border: 2px solid #5072EB;
-  color: #5072EB;
-`;
+    switch (theme) {
+        case 'light':
+            return lightStyles;
+        case 'dark':
+            return css`
+                color: #ffffff;
+                background-color: transparent;
+                border: 2px solid #5072eb;
+            `;
+        default:
+            return lightStyles;
+    }
+};
 
 export const BaseButtonSecondaryStyling = `
   ${BaseButtonStyling}
@@ -90,23 +109,16 @@ export const LinkFilled = styled(Link)`
     ${BaseButtonFilledStyling}
 `;
 
-type LinkOutlinedProps = {
-    theme: 'light' | 'dark';
-};
-
 export const LinkOutlined = styled(Link)<LinkOutlinedProps>`
-    ${BaseButtonPrimaryStyling}
-    background-color: ${(props) =>
-        props.theme === 'dark' ? 'transparent' : 'initial'};
-    color: ${(props) => (props.theme === 'dark' ? '#FFFFFF' : 'initial')};
+    ${(props) => baseButtonPrimaryStyling(props.theme)}
 `;
 
 export const ButtonFilled = styled.button`
     ${BaseButtonFilledStyling}
 `;
 
-export const ButtonOutlinedPrimary = styled.button`
-    ${BaseButtonPrimaryStyling}
+export const ButtonOutlinedPrimary = styled.button<LinkOutlinedProps>`
+    ${(props) => baseButtonPrimaryStyling(props.theme)}
 `;
 
 export const ButtonOutlinedSecondary = styled.button`
