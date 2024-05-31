@@ -79,5 +79,4 @@ export const Content = styled.div`
   display: flex;
   gap: 8px;
   flex-direction: column;
-  min-width: max-content;
 `
