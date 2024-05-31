@@ -16,7 +16,7 @@ const SliderHorizontal = () => {
         },
     });
 
-    const notLoadedSlideStyle = { display: !loaded && 'none' };
+    const notLoadedSlideStyle = { display: !loaded ? 'none' : 'flex' };
 
     return (
         <div className="slider-horiztonal-root">
@@ -68,7 +68,7 @@ const SliderHorizontal = () => {
                             <button
                                 key={idx}
                                 onClick={() => {
-                                    instanceRef.current.moveToIdx(idx);
+                                    instanceRef.current?.moveToIdx(idx);
                                 }}
                                 className={`dot${currentSlide === idx ? ' active' : ''}`}
                             />
