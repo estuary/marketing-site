@@ -19,6 +19,7 @@ import Seo from '../components/seo';
 import logoUrl from '../images/combination-mark__multi-blue.png';
 import { costPerGB } from '../utils';
 import { SwoopingLinesBackground } from '../styles/heros';
+import BuildPipeLineBannerBackground from '../components/BackgroundImages/BuildPipelineWrapper';
 
 dayjs.extend(reltime);
 
@@ -110,7 +111,7 @@ const authorSocialLink = post?.authors[0]?.link */
                                     body={post.body.data.childHtmlRehype.html}
                                 />
 
-                                <div className="big-build-pipeline-banner-container">
+                                <BuildPipeLineBannerBackground>
                                     <div className="build-pipeline-banner">
                                         <h3>
                                             Start streaming your data{' '}
@@ -123,7 +124,7 @@ const authorSocialLink = post?.authors[0]?.link */
                                             Build a Pipeline
                                         </OutboundLink>
                                     </div>
-                                </div>
+                                </BuildPipeLineBannerBackground>
                             </div>
 
                             <div className="post-sidebar">
@@ -201,7 +202,7 @@ const authorSocialLink = post?.authors[0]?.link */
                     </div>
                 </section>
                 <section className="big-build-pipeline-banner-section">
-                    <div className="big-build-pipeline-banner-container">
+                    <BuildPipeLineBannerBackground>
                         <div className="big-build-pipeline-banner-container_layout">
                             <div className="left-column-container">
                                 <h5>Streaming Pipelines.</h5>
@@ -255,7 +256,7 @@ const authorSocialLink = post?.authors[0]?.link */
                                 More on our Pricing
                             </OutboundLink>
                         </div>
-                    </div>
+                    </BuildPipeLineBannerBackground>
                 </section>
             </article>
             <BlogPostPopupModal />

@@ -6561,14 +6561,12 @@ table th {
     .big-build-pipeline-banner-container {
         padding: 48px 90px;
         max-width: 1356px;
-        border-radius: 24px;
         margin-left: auto;
         margin-right: auto;
-        background-position: top right -150px;
-        background-image: url('./images/big-banner-build-pipeline-background-image.png');
-        background-color: #04192b;
-        background-repeat: no-repeat;
-        background-size: cover;
+
+        &:after {
+            border-radius: 24px;
+        }
 
         @media (max-width: 1150px) {
             padding: 32px;
@@ -6579,7 +6577,6 @@ table th {
             flex-direction: column;
             background-size: cover;
             align-items: start;
-            background-position: top right -1200px;
         }
     }
 
