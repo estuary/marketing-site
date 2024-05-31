@@ -9,15 +9,6 @@ export const CardItem = styled.div`
   transition: 200ms ease-in-out;
   width: 100%;
 
-  .icon {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    min-width: 28px;
-    min-height: 28px;
-  }
-
   .header-chevron-icon {
     display: none;
   }
@@ -69,4 +60,13 @@ export const ContentWrapper = styled.div`
 export const TextWrapper = styled.div`
   display: flex;
   flex-direction: column;
+`
+
+export const Icon = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 28px;
+  min-height: 28px;
 `

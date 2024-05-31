@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import { Link } from 'gatsby';
 import { default as React } from 'react';
 import { OutboundLink } from '../../OutboundLink';
-import { CardItem, ContentWrapper, Description, TextWrapper, Title } from './styles';
+import { CardItem, ContentWrapper, Description, Icon, TextWrapper, Title } from './styles';
 
 const ItemLink = ({ name, description, Image, to }) => {
     const LinkElement: any = to[0] === '/' ? Link : OutboundLink;
@@ -14,17 +14,17 @@ const ItemLink = ({ name, description, Image, to }) => {
     return (
         <LinkElement {...linkProps}>
             <CardItem>
-                {Image ? (
-                    <div className="icon">
+                {Image && (
+                    <Icon>
                         <Image />
-                    </div>
-                ) : null}
+                    </Icon>
+                )}
                 <ContentWrapper>
                     <TextWrapper>
                         <Title>{name}</Title>
-                        {description ? (
+                        {description && (
                             <Description>{description}</Description>
-                        ) : null}
+                        )}
                     </TextWrapper>
                     {isCompareCard && <Chevron className='header-chevron-icon' fontSize="small" />}
                 </ContentWrapper>
