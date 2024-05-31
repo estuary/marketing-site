@@ -30,18 +30,6 @@ export const Container = styled.div`
     padding-bottom: 60px;
     background-color: #04192b;
     width: 100%;
-
-    .card-title {
-        color: #a4b6f4b2;
-        font-size: 1rem;
-        line-height: 19.2px;
-        margin: 0 0 16px 0;
-        font-weight: 600;
-    }
-
-    .container-image {
-        margin-top: 10px;
-    }
 `;
 
 export const Divider = styled.div`

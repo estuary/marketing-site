@@ -5,6 +5,7 @@ import * as React from 'react';
 import { OutboundLink } from '../../OutboundLink';
 import {
     CardItem,
+    CardTitle,
     Content,
     ContentWrapper,
     Description,
@@ -55,14 +56,13 @@ const HeaderCardItem = ({
 }: any) => {
     return (
         <div {...props}>
-            <p
+            <CardTitle
                 className={clsx({
-                    'card-title': true,
                     'hide-on-mobile': onlyContent,
                 })}
             >
                 {title}
-            </p>
+            </CardTitle>
             <Content>
                 {items.map((item, index) => (
                     <ItemLink key={index} {...item} />

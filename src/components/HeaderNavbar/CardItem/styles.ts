@@ -33,10 +33,10 @@ export const CardItem = styled.div`
     }
 `;
 
-export const Title = styled.p`
+export const Title = styled.span`
     color: #ffffff;
     margin: 0;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 700;
     line-height: 28px;
 `;
@@ -67,10 +67,9 @@ export const Icon = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 28px;
     min-width: 28px;
-    max-width: 28px;
-    min-height: 28px;
-    max-height: 28px;
+    height: 28px;
     border: 1px solid #5072eb80;
     border-radius: 100%;
 `;
@@ -79,4 +78,12 @@ export const Content = styled.div`
     display: flex;
     gap: 8px;
     flex-direction: column;
+`;
+
+export const CardTitle = styled.span`
+    color: #a4b6f4b2;
+    font-size: 1rem;
+    line-height: 19.2px;
+    margin: 0 0 16px 0;
+    font-weight: 600;
 `;
