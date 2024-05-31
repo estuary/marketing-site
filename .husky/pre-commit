@@ -1,0 +1,13 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+. "$(dirname "$0")/common.sh"
+
+echo "Running pre-commit hook..."
+yarn pre_commit
+
+if [ $? -eq 0 ]; then
+  echo "Pre-commit hook completed successfully."
+else
+  echo "Pre-commit hook failed."
+  exit 1
+fi

@@ -91,12 +91,13 @@ export const LinkFilled = styled(Link)`
 `;
 
 type LinkOutlinedProps = {
-  theme: 'light' | 'dark';
-}
+    theme: 'light' | 'dark';
+};
 
-export const LinkOutlined = styled(Link) <LinkOutlinedProps>`
+export const LinkOutlined = styled(Link)<LinkOutlinedProps>`
     ${BaseButtonPrimaryStyling}
-    background-color: ${(props) => (props.theme === 'dark' ? 'transparent' : 'initial')};
+    background-color: ${(props) =>
+        props.theme === 'dark' ? 'transparent' : 'initial'};
     color: ${(props) => (props.theme === 'dark' ? '#FFFFFF' : 'initial')};
 `;
 

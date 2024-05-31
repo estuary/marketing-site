@@ -90,7 +90,7 @@ const HeaderNavbarResources = ({ active, setActive }) => {
                         <OutboundLinkOutlined
                             target="_blank"
                             href={webinarsUrl} // TODO: replace this URL with the tour video URL
-                            theme='dark'
+                            theme="dark"
                         >
                             Watch Product Tour (2min)
                         </OutboundLinkOutlined>

@@ -7,12 +7,7 @@ export const read = [
         name: 'Blog',
         to: '/blog/data-engineering',
         hasChevronIcon: true,
-        Image: () => (
-            <StaticImage
-                src="../../../svgs/blog.svg"
-                alt="Blog"
-            />
-        ),
+        Image: () => <StaticImage src="../../../svgs/blog.svg" alt="Blog" />,
     },
     {
         name: 'Documents & Guides',
@@ -30,10 +25,7 @@ export const read = [
         to: '/about',
         hasChevronIcon: true,
         Image: () => (
-            <StaticImage
-                src="../../../svgs/estuary-icon.svg"
-                alt="About us"
-            />
+            <StaticImage src="../../../svgs/estuary-icon.svg" alt="About us" />
         ),
     },
 ];
@@ -44,10 +36,7 @@ export const listen = [
         to: '/podcasts',
         hasChevronIcon: true,
         Image: () => (
-            <StaticImage
-                src="../../../svgs/microphone.svg"
-                alt="About us"
-            />
+            <StaticImage src="../../../svgs/microphone.svg" alt="About us" />
         ),
     },
     {
@@ -55,10 +44,7 @@ export const listen = [
         to: webinarsUrl,
         hasChevronIcon: true,
         Image: () => (
-            <StaticImage
-                src="../../../svgs/webinars.svg"
-                alt="About us"
-            />
+            <StaticImage src="../../../svgs/webinars.svg" alt="About us" />
         ),
     },
     {
@@ -66,10 +52,7 @@ export const listen = [
         to: 'https://www.youtube.com/watch?v=Ys5BoNqKljc',
         hasChevronIcon: true,
         Image: () => (
-            <StaticImage
-                src="../../../svgs/youtube.svg"
-                alt="About us"
-            />
+            <StaticImage src="../../../svgs/youtube.svg" alt="About us" />
         ),
     },
 ];
@@ -103,7 +86,8 @@ export const caseStudies = [
     {
         name: 'TRUE PLATFORM',
         to: '/customers/casestudy/trueplatform/',
-        description: 'True Platform discovered seamless, scalable data movement.',
+        description:
+            'True Platform discovered seamless, scalable data movement.',
         hasChevronIcon: false,
         Image: () => (
             <StaticImage
@@ -117,7 +101,8 @@ export const caseStudies = [
     {
         name: 'SOLI & COMPANY',
         to: '/customers/casestudy/soli_&_company/',
-        description: 'Soli & Company trusts Estuary’s approachable pricing and quick setup.',
+        description:
+            'Soli & Company trusts Estuary’s approachable pricing and quick setup.',
         hasChevronIcon: false,
         Image: () => (
             <StaticImage

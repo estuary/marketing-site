@@ -1,9 +1,17 @@
 import Chevron from '@mui/icons-material/ChevronRight';
 import clsx from 'clsx';
 import { Link } from 'gatsby';
-import { default as React } from 'react';
+import * as React from 'react';
 import { OutboundLink } from '../../OutboundLink';
-import { CardItem, Content, ContentWrapper, Description, Icon, TextWrapper, Title } from './styles';
+import {
+    CardItem,
+    Content,
+    ContentWrapper,
+    Description,
+    Icon,
+    TextWrapper,
+    Title,
+} from './styles';
 
 const ItemLink = ({ name, description, Image, to, hasChevronIcon }) => {
     const LinkElement: any = to[0] === '/' ? Link : OutboundLink;
@@ -12,19 +20,24 @@ const ItemLink = ({ name, description, Image, to, hasChevronIcon }) => {
     return (
         <LinkElement {...linkProps}>
             <CardItem>
-                {Image && (
+                {Image ? (
                     <Icon>
                         <Image />
                     </Icon>
-                )}
+                ) : null}
                 <ContentWrapper>
                     <TextWrapper>
                         <Title>{name}</Title>
-                        {description && (
+                        {description ? (
                             <Description>{description}</Description>
-                        )}
+                        ) : null}
                     </TextWrapper>
-                    {hasChevronIcon && <Chevron className='header-chevron-icon' fontSize="small" />}
+                    {hasChevronIcon ? (
+                        <Chevron
+                            className="header-chevron-icon"
+                            fontSize="small"
+                        />
+                    ) : null}
                 </ContentWrapper>
             </CardItem>
         </LinkElement>

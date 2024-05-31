@@ -79,7 +79,7 @@ const HeaderNavbarProduct = ({ active, setActive }) => {
                         <OutboundLinkOutlined
                             target="_blank"
                             href={webinarsUrl}
-                            theme='dark'
+                            theme="dark"
                         >
                             Watch Estuary 101
                         </OutboundLinkOutlined>
