@@ -4,10 +4,10 @@ import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import React, { useEffect, useRef } from 'react';
 import { isDesktop } from 'react-device-detect';
-import { webinarsUrl } from '../../../../shared';
-import { OutboundLinkFilled } from '../../OutboundLink';
+import { OutboundLinkOutlined } from '../../OutboundLink';
 import CardItem from '../CardItem';
-import { caseStudies, listen, read, tour } from './items';
+import { ColumnWithTwoRows, ImageWrapper } from '../styles';
+import { caseStudies, listen, read } from './items';
 
 const Card = React.lazy(() => import('../Card'));
 
@@ -65,35 +65,34 @@ const HeaderNavbarResources = ({ active, setActive }) => {
                     show={active}
                     onMouseLeave={onMouseLeave}
                 >
-                    <CardItem title="READ" onlyContent items={read} />
-                    <CardItem
-                        className="no-padding"
-                        title="LISTEN"
-                        onlyContent
-                        items={listen}
-                    />
-                    <CardItem
-                        className="hide-on-mobile"
-                        title="TOUR"
-                        items={tour}
-                    />
                     <CardItem
                         className="hide-on-mobile"
                         title="CASE STUDIES"
                         items={caseStudies}
                     />
-                    <CardItem className="hide-on-mobile" title="WEBINAR">
-                        <StaticImage
-                            src="../../../svgs/navbar-image-2.svg"
-                            alt="Estuary 101 Webinar"
+                    <ColumnWithTwoRows>
+                        <CardItem title="READ" onlyContent items={read} />
+                        <CardItem
+                            className="no-padding"
+                            title="LISTEN"
+                            onlyContent
+                            items={listen}
                         />
-                        <OutboundLinkFilled
+                    </ColumnWithTwoRows>
+                    <CardItem className="hide-on-mobile" title="TOURS">
+                        <ImageWrapper>
+                            <StaticImage
+                                src="../../../images/product-tour-2min.png"
+                                alt="Product tour - 2 minutes"
+                            />
+                        </ImageWrapper>
+                        <OutboundLinkOutlined
                             target="_blank"
-                            href={webinarsUrl}
-                            className="cta-button"
+                            href='/why'
+                            theme='dark'
                         >
-                            Watch Estuary 101
-                        </OutboundLinkFilled>
+                            Watch Product Tour (2min)
+                        </OutboundLinkOutlined>
                     </CardItem>
                 </Card>
             </React.Suspense>

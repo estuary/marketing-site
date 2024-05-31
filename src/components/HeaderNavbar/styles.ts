@@ -7,3 +7,9 @@ export const ImageWrapper = styled.div`
   border-radius: 12px;
   max-width: 380px;
 `;
+
+export const ColumnWithTwoRows = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 38px;
+`;

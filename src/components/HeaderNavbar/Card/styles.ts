@@ -39,13 +39,6 @@ export const Container = styled.div`
     font-weight: 600;
   }
 
-  .content {
-    display: flex;
-    gap: 8px;
-    flex-direction: column;
-    min-width: max-content;
-  }
-
   .container-image {
     margin-top: 10px;
   }

@@ -7,8 +7,8 @@ import { isDesktop } from 'react-device-detect';
 import { webinarsUrl } from '../../../../shared';
 import { OutboundLinkOutlined } from '../../OutboundLink';
 import CardItem from '../CardItem';
+import { ImageWrapper } from '../styles';
 import { compare, products } from './items';
-import { ImageWrapper } from './styles';
 
 const Card = React.lazy(() => import('../Card'));
 

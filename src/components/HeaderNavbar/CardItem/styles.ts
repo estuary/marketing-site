@@ -66,7 +66,18 @@ export const Icon = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   min-width: 28px;
+  max-width: 28px;
   min-height: 28px;
+  max-height: 28px;
+  border: 1px solid #5072EB80;
+  border-radius: 100%;
+`
+
+export const Content = styled.div`
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  min-width: max-content;
 `

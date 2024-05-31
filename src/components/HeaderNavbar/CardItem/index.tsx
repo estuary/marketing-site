@@ -3,13 +3,11 @@ import clsx from 'clsx';
 import { Link } from 'gatsby';
 import { default as React } from 'react';
 import { OutboundLink } from '../../OutboundLink';
-import { CardItem, ContentWrapper, Description, Icon, TextWrapper, Title } from './styles';
+import { CardItem, Content, ContentWrapper, Description, Icon, TextWrapper, Title } from './styles';
 
-const ItemLink = ({ name, description, Image, to }) => {
+const ItemLink = ({ name, description, Image, to, hasChevronIcon }) => {
     const LinkElement: any = to[0] === '/' ? Link : OutboundLink;
-    const linkProps = to[0] === '/' ? { to } : { href: to };
-
-    const isCompareCard = to !== '/product';
+    const linkProps = to[0] === '/' ? { to } : { href: to, target: '_blank' };
 
     return (
         <LinkElement {...linkProps}>
@@ -26,7 +24,7 @@ const ItemLink = ({ name, description, Image, to }) => {
                             <Description>{description}</Description>
                         )}
                     </TextWrapper>
-                    {isCompareCard && <Chevron className='header-chevron-icon' fontSize="small" />}
+                    {hasChevronIcon && <Chevron className='header-chevron-icon' fontSize="small" />}
                 </ContentWrapper>
             </CardItem>
         </LinkElement>
@@ -52,12 +50,12 @@ const HeaderCardItem = ({
             >
                 {title}
             </p>
-            <div className="content">
+            <Content>
                 {items.map((item, index) => (
                     <ItemLink key={index} {...item} />
                 ))}
                 {children}
-            </div>
+            </Content>
         </div>
     );
 };
