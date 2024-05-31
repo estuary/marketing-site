@@ -1,27 +1,34 @@
+import Chevron from '@mui/icons-material/ChevronRight';
 import clsx from 'clsx';
 import { Link } from 'gatsby';
-import React from 'react';
+import { default as React } from 'react';
 import { OutboundLink } from '../../OutboundLink';
+import { CardItem, ContentWrapper, Description, TextWrapper, Title } from './styles';
 
 const ItemLink = ({ name, description, Image, to }) => {
     const LinkElement: any = to[0] === '/' ? Link : OutboundLink;
     const linkProps = to[0] === '/' ? { to } : { href: to };
 
+    const isCompareCard = to !== '/product';
+
     return (
         <LinkElement {...linkProps}>
-            <div className="card-item">
+            <CardItem>
                 {Image ? (
                     <div className="icon">
                         <Image />
                     </div>
                 ) : null}
-                <div>
-                    <p className="title">{name}</p>
-                    {description ? (
-                        <p className="description">{description}</p>
-                    ) : null}
-                </div>
-            </div>
+                <ContentWrapper>
+                    <TextWrapper>
+                        <Title>{name}</Title>
+                        {description ? (
+                            <Description>{description}</Description>
+                        ) : null}
+                    </TextWrapper>
+                    {isCompareCard && <Chevron className='header-chevron-icon' fontSize="small" />}
+                </ContentWrapper>
+            </CardItem>
         </LinkElement>
     );
 };

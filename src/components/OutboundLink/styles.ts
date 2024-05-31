@@ -8,6 +8,12 @@ export const AnchorFilled = styled.a`
     ${BaseButtonFilledStyling}
 `;
 
-export const AnchorOutlined = styled.a`
+type AnchorOutlinedProps = {
+    theme: 'light' | 'dark';
+}
+
+export const AnchorOutlined = styled.a<AnchorOutlinedProps>`
     ${BaseButtonPrimaryStyling}
+    background-color: ${(props) => (props.theme === 'dark' ? 'transparent' : 'initial')};
+    color: ${(props) => (props.theme === 'dark' ? '#FFFFFF' : 'initial')};
 `;

@@ -23,8 +23,8 @@ export const Container = styled.div`
 
   font-family: 'Inter', sans-serif;
 
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 38px;
   padding-top: 60px;
   padding-bottom: 60px;
@@ -41,64 +41,13 @@ export const Container = styled.div`
 
   .content {
     display: flex;
+    gap: 8px;
     flex-direction: column;
     min-width: max-content;
   }
 
   .container-image {
     margin-top: 10px;
-  }
-
-  .cta-button {
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-
-    display: block;
-    width: max-content;
-    margin: 0 auto;
-    margin-top: 14px;
-    padding: 7px 45px;
-  }
-
-  .card-item {
-    display: flex;
-    gap: 16px;
-    padding: 12px;
-
-    .title {
-      color: #ffffff;
-      margin: 0;
-      font-size: 16px;
-      font-weight: 700;
-      line-height: 28px;
-    }
-
-    .description {
-      font-size: 0.875rem;
-      font-weight: 400;
-      line-height: 30px;
-      color: #ffffff;
-      margin: 0;
-      max-width: 280px;
-    }
-
-    .icon {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-    }
-
-    @media (min-width: 1024px) {
-      &:hover {
-        border-radius: 2px;
-        background: #f8f8f8;
-
-        .title {
-          color: #ffffff;
-        }
-      }
-    }
   }
 `;
 

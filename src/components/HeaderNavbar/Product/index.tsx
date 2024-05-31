@@ -4,9 +4,11 @@ import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import React, { useEffect, useRef } from 'react';
 import { isDesktop } from 'react-device-detect';
-import { LinkFilled } from '../../../globalStyles';
+import { webinarsUrl } from '../../../../shared';
+import { OutboundLinkOutlined } from '../../OutboundLink';
 import CardItem from '../CardItem';
 import { compare, products } from './items';
+import { ImageWrapper } from './styles';
 
 const Card = React.lazy(() => import('../Card'));
 
@@ -68,17 +70,19 @@ const HeaderNavbarProduct = ({ active, setActive }) => {
                     <CardItem title="PRODUCT" onlyContent items={products} />
                     <CardItem title="COMPARE" items={compare} />
                     <CardItem className="hide-on-mobile" title="WEBINARS">
-                        <StaticImage
-                            src="../../../svgs/navbar-image-1.svg"
-                            alt="Connect&Go Success Story"
-                        />
-                        <LinkFilled
+                        <ImageWrapper>
+                            <StaticImage
+                                src="../../../images/webinar101.png"
+                                alt="Estuary 101 Webinar"
+                            />
+                        </ImageWrapper>
+                        <OutboundLinkOutlined
                             target="_blank"
-                            to="/customers/connectngo"
-                            className="cta-button"
+                            href={webinarsUrl}
+                            theme='dark'
                         >
-                            Read Customer Story
-                        </LinkFilled>
+                            Watch Estuary 101
+                        </OutboundLinkOutlined>
                     </CardItem>
                 </Card>
             </React.Suspense>

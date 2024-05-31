@@ -11,7 +11,7 @@ export const products = [
                 src="../../../svgs/header-book.svg"
                 width={28}
                 height={28}
-                alt="book"
+                alt="Estuary Flow product"
             />
         ),
     },
@@ -26,7 +26,7 @@ export const compare = [
                 src="../../../svgs/header-balance.svg"
                 width={28}
                 height={28}
-                alt="book"
+                alt="Compare with concurrent"
             />
         ),
     },
@@ -38,7 +38,7 @@ export const compare = [
                 src="../../../svgs/header-balance.svg"
                 width={28}
                 height={28}
-                alt="book"
+                alt="Compare with concurrent"
             />
         ),
     },
@@ -50,7 +50,7 @@ export const compare = [
                 src="../../../svgs/header-balance.svg"
                 width={28}
                 height={28}
-                alt="book"
+                alt="Compare with concurrent"
             />
         ),
     },
@@ -62,7 +62,7 @@ export const compare = [
                 src="../../../svgs/header-balance.svg"
                 width={28}
                 height={28}
-                alt="book"
+                alt="Compare with concurrent"
             />
         ),
     },
