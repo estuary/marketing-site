@@ -4,6 +4,7 @@ import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import React, { useEffect, useRef } from 'react';
 import { isDesktop } from 'react-device-detect';
+import { webinarsUrl } from '../../../../shared';
 import { OutboundLinkOutlined } from '../../OutboundLink';
 import CardItem from '../CardItem';
 import { ColumnWithTwoRows, ImageWrapper } from '../styles';
@@ -88,7 +89,7 @@ const HeaderNavbarResources = ({ active, setActive }) => {
                         </ImageWrapper>
                         <OutboundLinkOutlined
                             target="_blank"
-                            href='/why'
+                            href={webinarsUrl} // TODO: replace this URL with the tour video URL
                             theme='dark'
                         >
                             Watch Product Tour (2min)
