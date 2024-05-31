@@ -78,6 +78,7 @@ export const baseButtonPrimaryStyling = (
     theme: 'light' | 'dark' | undefined
 ) => {
     const lightStyles = css`
+        ${BaseButtonStyling};
         color: #5072eb;
         background-color: #fdfdfe;
         border: 2px solid #5072eb;
@@ -88,6 +89,7 @@ export const baseButtonPrimaryStyling = (
             return lightStyles;
         case 'dark':
             return css`
+                ${BaseButtonStyling};
                 color: #ffffff;
                 background-color: transparent;
                 border: 2px solid #5072eb;
