@@ -78,25 +78,23 @@ export const BaseButtonFilledStyling = `
 export const baseButtonPrimaryStyling = (
     theme: 'light' | 'dark' | undefined
 ) => {
-    const lightStyles = css`
-        ${BaseButtonStyling};
-        color: #5072eb;
-        background-color: #fdfdfe;
-        border: 2px solid #5072eb;
-    `;
+    const borderStyle = '2px solid #5072eb';
 
     switch (theme) {
-        case 'light':
-            return lightStyles;
         case 'dark':
             return css`
                 ${BaseButtonStyling};
                 color: #ffffff;
                 background-color: transparent;
-                border: 2px solid #5072eb;
+                border: ${borderStyle};
             `;
         default:
-            return lightStyles;
+            return css`
+                ${BaseButtonStyling};
+                color: #5072eb;
+                background-color: #fdfdfe;
+                border: ${borderStyle};
+            `;
     }
 };
 
