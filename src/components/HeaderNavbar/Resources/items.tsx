@@ -36,7 +36,7 @@ export const listen = [
         to: '/podcasts',
         hasChevronIcon: true,
         Image: () => (
-            <StaticImage src="../../../svgs/microphone.svg" alt="About us" />
+            <StaticImage src="../../../svgs/microphone.svg" alt="Podcasts" />
         ),
     },
     {
@@ -44,7 +44,7 @@ export const listen = [
         to: webinarsUrl,
         hasChevronIcon: true,
         Image: () => (
-            <StaticImage src="../../../svgs/webinars.svg" alt="About us" />
+            <StaticImage src="../../../svgs/webinars.svg" alt="Webinars" />
         ),
     },
     {
@@ -52,7 +52,7 @@ export const listen = [
         to: 'https://www.youtube.com/watch?v=Ys5BoNqKljc',
         hasChevronIcon: true,
         Image: () => (
-            <StaticImage src="../../../svgs/youtube.svg" alt="About us" />
+            <StaticImage src="../../../svgs/youtube.svg" alt="Youtube" />
         ),
     },
 ];
