@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 import { globalMaxWidth } from '../../../globalStyles';
 
 interface ContainerProps {
-    show?: boolean;
+    $show?: boolean;
 }
 
 export const Wrapper = styled.div<ContainerProps>`
@@ -11,7 +11,7 @@ export const Wrapper = styled.div<ContainerProps>`
     position: fixed;
     top: 116px;
     z-index: 10;
-    display: ${(props) => (props.show ? 'flex' : 'none')};
+    display: ${(props) => (props.$show ? 'flex' : 'none')};
     flex-direction: column;
     left: 50%;
     transform: translateX(-50%);
@@ -30,6 +30,14 @@ export const Container = styled.div`
     padding-bottom: 60px;
     background-color: #04192b;
     width: 100%;
+
+    @media (max-width: 1024px) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media (max-width: 630px) {
+        grid-template-columns: 1fr;
+    }
 `;
 
 export const Divider = styled.div`

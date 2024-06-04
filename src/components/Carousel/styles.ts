@@ -1,89 +1,48 @@
 import CircleIcon from '@mui/icons-material/Circle';
-import { GatsbyImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
-import { globalMaxWidth, sectionTopBottomPadding } from '../../globalStyles';
-import overlayVectorRight from '../../images/overlay-vector-right.png';
 
-export const Container = styled.section`
-    background-color: #04192b;
-    background-image: url(${overlayVectorRight});
-    background-repeat: no-repeat;
-    background-position: center -520px;
+export const Container = styled.div`
+    ul,
+    li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+`;
+
+export const Viewport = styled.ul`
+    display: flex;
+    gap: 48px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+`;
+
+export const Slide = styled.li`
+    position: relative;
+    flex: 0 0 100%;
     width: 100%;
+    height: 100%;
+    counter-increment: item;
+    margin: 0 100px;
+    scroll-snap-align: center;
 `;
 
-export const Wrapper = styled.div`
-    ${globalMaxWidth}
-    ${sectionTopBottomPadding}
-
-  display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
-    & > .keen-slider {
-        height: fit-content !important;
-    }
-`;
-
-export const Slides = styled.div`
+export const Navigation = styled.div`
+    text-align: center;
     display: flex;
-    align-items: flex-start;
-
-    & > div:first-child {
-        img:first-of-type {
-            border-radius: 100%;
-            overflow: hidden;
-        }
-    }
-`;
-
-export const Slide = styled.div`
-    display: flex;
-    align-items: center;
-    flex-direction: column;
     gap: 24px;
-    margin: 0;
-`;
-
-export const Title = styled.h2`
-    text-align: center;
-    font-size: 1.25rem;
-    font-weight: 700;
-    line-height: 24px;
-    color: #5072eb;
-    text-transform: uppercase;
-    margin: 0;
-
-    @media (max-width: 425px) {
-        font-size: 1.75rem;
-        line-height: 33.6px;
-    }
-`;
-
-export const Description = styled.p`
-    font-size: 2rem;
-    font-weight: 300;
-    line-height: 44.8px;
-    color: #ffffff;
-    margin: 24px 0 60px 0;
-    text-align: center;
-
-    @media (max-width: 425px) {
-        font-size: 1rem;
-        line-height: 30px;
-        font-weight: 500;
-    }
-`;
-
-export const Slider = styled.div`
-    display: flex;
     align-items: center;
-    gap: 40px;
-
-    @media (max-width: 425px) {
-        gap: 20px;
-    }
+    justify-content: center;
+    margin-top: 24px;
 `;
 
 export const Dots = styled.ul`
@@ -94,7 +53,6 @@ export const Dots = styled.ul`
     flex-wrap: wrap;
     gap: 20px;
     margin: 0;
-    width: 100%;
 `;
 
 export const DotWrapper = styled.li`
@@ -107,26 +65,6 @@ export const DotWrapper = styled.li`
 
 export const Dot = styled(CircleIcon)`
     cursor: pointer;
-`;
-
-export const AvatarWrapper = styled.div`
-    width: 136px;
-    height: 136px;
-    background-color: #a3a7b5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 100%;
-    padding: 24px;
-    overflow: hidden;
-`;
-
-export const AvatarImg = styled(GatsbyImage)`
-    min-width: 110px;
-`;
-
-export const AvatarSvg = styled.img`
-    padding: 16px;
 `;
 
 export const Arrow = styled.button`

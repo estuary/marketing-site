@@ -5,6 +5,7 @@ import styled, { css } from 'styled-components';
 
 type LinkOutlinedProps = {
     theme?: 'light' | 'dark';
+    $fullWidth?: boolean;
 };
 
 export const globalMaxWidth = `
@@ -113,6 +114,7 @@ export const LinkFilled = styled(Link)`
 
 export const LinkOutlined = styled(Link)<LinkOutlinedProps>`
     ${(props) => baseButtonPrimaryStyling(props.theme)}
+    width: ${(props) => (props.$fullWidth ? '100%' : 'auto')};
 `;
 
 export const ButtonFilled = styled.button`
@@ -121,6 +123,7 @@ export const ButtonFilled = styled.button`
 
 export const ButtonOutlinedPrimary = styled.button<LinkOutlinedProps>`
     ${(props) => baseButtonPrimaryStyling(props.theme)}
+    width: ${(props) => (props.$fullWidth ? '100%' : 'auto')};
 `;
 
 export const ButtonOutlinedSecondary = styled.button`

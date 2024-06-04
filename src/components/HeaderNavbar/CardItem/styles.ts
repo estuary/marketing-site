@@ -78,6 +78,7 @@ export const Content = styled.div`
     display: flex;
     gap: 8px;
     flex-direction: column;
+    padding: 12px;
 `;
 
 export const CardTitle = styled.span`

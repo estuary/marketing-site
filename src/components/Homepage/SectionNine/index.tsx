@@ -1,8 +1,23 @@
 import { graphql, useStaticQuery } from 'gatsby';
-import 'keen-slider/keen-slider.min.css';
 import * as React from 'react';
 import Carousel from '../../Carousel';
-import { Container, Wrapper } from './styles';
+import {
+    AvatarImg,
+    AvatarSvg,
+    AvatarWrapper,
+    Container,
+    Description,
+    Slide,
+    Title,
+    Wrapper,
+} from './styles';
+
+type Testimonial = {
+    id: string;
+    logo: any;
+    name: string;
+    text: string;
+};
 
 const SectionNine = () => {
     const {
@@ -36,7 +51,44 @@ const SectionNine = () => {
     return (
         <Container>
             <Wrapper>
-                <Carousel data={testimonials} />
+                <Carousel hasArrow aria-label="Customer testimonials carousel">
+                    {testimonials.map(
+                        ({ id, logo, name, text }: Testimonial) => {
+                            const isImageSvg =
+                                !logo.localFile.childImageSharp &&
+                                logo.localFile.extension === 'svg';
+
+                            return (
+                                <Slide key={id}>
+                                    <AvatarWrapper>
+                                        {isImageSvg ? (
+                                            <AvatarSvg
+                                                src={logo.localFile.publicURL}
+                                                alt={`${name} avatar`}
+                                                width={110}
+                                                height={110}
+                                            />
+                                        ) : (
+                                            <AvatarImg
+                                                image={
+                                                    logo.localFile
+                                                        .childImageSharp
+                                                        ?.gatsbyImageData
+                                                }
+                                                $isSeattleDataGuyLogo={
+                                                    name === 'Seattle Data Guy'
+                                                }
+                                                alt={`${name} avatar`}
+                                            />
+                                        )}
+                                    </AvatarWrapper>
+                                    <Title>{name}</Title>
+                                    <Description>{text}</Description>
+                                </Slide>
+                            );
+                        }
+                    )}
+                </Carousel>
             </Wrapper>
         </Container>
     );

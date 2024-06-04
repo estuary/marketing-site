@@ -5,9 +5,10 @@ import { StaticImage } from 'gatsby-plugin-image';
 import React, { useEffect, useRef } from 'react';
 import { isDesktop } from 'react-device-detect';
 import { webinarsUrl } from '../../../../shared';
+import Carousel from '../../Carousel';
 import { OutboundLinkOutlined } from '../../OutboundLink';
 import CardItem from '../CardItem';
-import { ImageWrapper } from '../styles';
+import { ImageWrapper, Slide } from '../styles';
 import { compare, products } from './items';
 
 const Card = React.lazy(() => import('../Card'));
@@ -67,22 +68,27 @@ const HeaderNavbarProduct = ({ active, setActive }) => {
                     show={active}
                     onMouseLeave={onMouseLeave}
                 >
-                    <CardItem title="PRODUCT" onlyContent items={products} />
+                    <CardItem title="PRODUCT" items={products} />
                     <CardItem title="COMPARE" items={compare} />
                     <CardItem className="hide-on-mobile" title="WEBINARS">
-                        <ImageWrapper>
-                            <StaticImage
-                                src="../../../images/webinar101.png"
-                                alt="Estuary 101 Webinar"
-                            />
-                        </ImageWrapper>
-                        <OutboundLinkOutlined
-                            target="_blank"
-                            href={webinarsUrl}
-                            theme="dark"
-                        >
-                            Watch Estuary 101
-                        </OutboundLinkOutlined>
+                        <Carousel aria-label="Webinars carousel">
+                            <Slide key="header-carousel-tour-2">
+                                <ImageWrapper>
+                                    <StaticImage
+                                        src="../../../images/webinar101.png"
+                                        alt="Estuary 101 Webinar"
+                                    />
+                                </ImageWrapper>
+                                <OutboundLinkOutlined
+                                    target="_blank"
+                                    href={webinarsUrl}
+                                    theme="dark"
+                                    fullWidth
+                                >
+                                    Watch Estuary 101
+                                </OutboundLinkOutlined>
+                            </Slide>
+                        </Carousel>
                     </CardItem>
                 </Card>
             </React.Suspense>

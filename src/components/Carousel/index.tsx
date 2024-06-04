@@ -1,137 +1,151 @@
-import { useKeenSlider } from 'keen-slider/react';
 import * as React from 'react';
 import ChevronLeftIcon from '../../svgs/chevron-left.svg';
 import ChevronRightIcon from '../../svgs/chevron-right.svg';
 import {
     Arrow,
-    AvatarImg,
-    AvatarSvg,
-    AvatarWrapper,
-    Description,
+    Container,
     Dot,
     DotWrapper,
     Dots,
+    Navigation,
     Slide,
-    Slider,
-    Slides,
-    Title,
+    Viewport,
 } from './styles';
 
-type CarouselProps = {
-    data: any[];
-    hasArrows?: boolean;
+type CarouselProps = React.HTMLAttributes<HTMLDivElement> & {
+    children: React.ReactNode;
+    hasArrow?: boolean;
 };
 
-const Carousel = ({ data, hasArrows = true }: CarouselProps) => {
+const Carousel = ({ children, hasArrow = false, ...rest }: CarouselProps) => {
     const [currentSlide, setCurrentSlide] = React.useState(0);
-    const [loaded, setLoaded] = React.useState(false);
-    const [sliderRef, instanceRef] = useKeenSlider({
-        initial: 0,
-        slideChanged(s) {
-            setCurrentSlide(s.track.details.rel);
-        },
-        created() {
-            setLoaded(true);
-        },
-    });
+    const [isTransitioning, setIsTransitioning] = React.useState(false);
+    const slideRefs = React.useRef<(HTMLLIElement | null)[]>([]);
+    const isDotClick = React.useRef(false);
 
-    const isRightArrowDisabled = instanceRef.current
-        ? currentSlide === instanceRef.current.track.details.slides.length - 1
-        : false;
     const isLeftArrowDisabled = currentSlide === 0;
+    const isRightArrowDisabled = currentSlide === slideRefs.current.length - 1;
 
-    const onLeftArrowClick = (e: any) =>
-        e.stopPropagation() ||
-        (instanceRef.current && instanceRef.current.prev());
-    const onRightArrowClick = (e: any) =>
-        e.stopPropagation() ||
-        (instanceRef.current && instanceRef.current.next());
-    const onDotClick = (idx: number) => {
-        if (instanceRef.current) {
-            instanceRef.current.moveToIdx(idx);
+    const observeSlides = React.useCallback(
+        (observer: IntersectionObserver) => {
+            slideRefs.current.forEach((slide) => {
+                if (slide) {
+                    observer.observe(slide);
+                }
+            });
+        },
+        []
+    );
+
+    const createIntersectionObserver = React.useCallback(() => {
+        const observerCallback = (entries: IntersectionObserverEntry[]) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+                    const index = slideRefs.current.indexOf(
+                        entry.target as HTMLLIElement
+                    );
+                    if (index !== -1) {
+                        setCurrentSlide(index);
+                    }
+                }
+            });
+        };
+
+        return new IntersectionObserver(observerCallback, { threshold: 0.5 });
+    }, []);
+
+    React.useEffect(() => {
+        if (slideRefs.current[currentSlide]) {
+            slideRefs.current[currentSlide]?.scrollIntoView({
+                behavior: isDotClick.current ? 'instant' : 'smooth',
+                block: 'nearest',
+                inline: 'center',
+            });
+            isDotClick.current = false;
         }
-    };
+    }, [currentSlide]);
+
+    React.useEffect(() => {
+        const observer = createIntersectionObserver();
+        observeSlides(observer);
+
+        return () => {
+            observer.disconnect();
+        };
+    }, [createIntersectionObserver, observeSlides]);
+
+    const onArrowClick = React.useCallback(
+        (direction: 'left' | 'right') => () => {
+            if (!isTransitioning) {
+                setIsTransitioning(true);
+                const nextSlide =
+                    direction === 'left' ? currentSlide - 1 : currentSlide + 1;
+                setCurrentSlide(nextSlide);
+                setTimeout(() => {
+                    setIsTransitioning(false);
+                }, 500);
+            }
+        },
+        [currentSlide, isTransitioning]
+    );
+
+    const handleDotClick = React.useCallback(
+        (index: number) => {
+            setCurrentSlide(index);
+            isDotClick.current = true;
+        },
+        [isDotClick]
+    );
 
     return (
-        <>
-            <Slides ref={sliderRef} className="keen-slider">
-                {data.map(({ id, logo, name, text }) => {
-                    const isImageSvg =
-                        !logo.localFile.childImageSharp &&
-                        logo.localFile.extension === 'svg';
-
-                    return (
-                        <Slide
-                            key={id}
-                            className="keen-slider__slide"
-                            style={{ display: loaded ? 'flex' : 'none' }}
-                        >
-                            <AvatarWrapper>
-                                {isImageSvg ? (
-                                    <AvatarSvg
-                                        src={logo.localFile.publicURL}
-                                        alt={`${name} avatar`}
-                                        width={110}
-                                        height={110}
-                                    />
-                                ) : (
-                                    <AvatarImg
-                                        image={
-                                            logo.localFile.childImageSharp
-                                                ?.gatsbyImageData
-                                        }
-                                        alt={`${name} avatar`}
-                                    />
-                                )}
-                            </AvatarWrapper>
-                            <Title>{name}</Title>
-                            <Description>{text}</Description>
-                        </Slide>
-                    );
-                })}
-            </Slides>
-            {loaded && instanceRef.current ? (
-                <Slider>
-                    {hasArrows ? (
-                        <Arrow
-                            onClick={onLeftArrowClick}
-                            disabled={isLeftArrowDisabled}
-                            aria-label="previous testimonial"
-                        >
-                            <ChevronLeftIcon />
-                        </Arrow>
-                    ) : null}
-                    <Dots>
-                        {[
-                            ...Array(
-                                instanceRef.current.track.details.slides.length
-                            ).keys(),
-                        ].map((idx) => {
-                            const isDotActive = currentSlide === idx;
-                            return (
-                                <DotWrapper key={idx}>
-                                    <Dot
-                                        onClick={() => onDotClick(idx)}
-                                        htmlColor={
-                                            isDotActive ? '#5072EB' : '#FFFFFF'
-                                        }
-                                    />
-                                </DotWrapper>
-                            );
-                        })}
-                    </Dots>
-                    {hasArrows ? (
-                        <Arrow
-                            onClick={onRightArrowClick}
-                            disabled={isRightArrowDisabled}
-                            aria-label="next testimonial"
-                        >
-                            <ChevronRightIcon />
-                        </Arrow>
-                    ) : null}
-                </Slider>
-            ) : null}
-        </>
+        <Container aria-label={rest['aria-label']} {...rest}>
+            <Viewport>
+                {React.Children.map(children, (child, index) => (
+                    <Slide
+                        key={`${rest['aria-label']}-${index}}`}
+                        ref={(el) => {
+                            slideRefs.current[index] = el;
+                        }}
+                    >
+                        {child}
+                    </Slide>
+                ))}
+            </Viewport>
+            <Navigation>
+                {hasArrow ? (
+                    <Arrow
+                        onClick={onArrowClick('left')}
+                        disabled={isLeftArrowDisabled}
+                        aria-label="previous testimonial"
+                    >
+                        <ChevronLeftIcon />
+                    </Arrow>
+                ) : null}
+                <Dots>
+                    {React.Children.map(children, (_, index) => (
+                        <DotWrapper key={`${rest['aria-label']}-dot-${index}}`}>
+                            <Dot
+                                htmlColor={
+                                    currentSlide === index
+                                        ? '#5072EB'
+                                        : '#FFFFFF'
+                                }
+                                onClick={() => handleDotClick(index)}
+                            />
+                        </DotWrapper>
+                    ))}
+                </Dots>
+                {hasArrow ? (
+                    <Arrow
+                        onClick={onArrowClick('right')}
+                        disabled={isRightArrowDisabled}
+                        aria-label="next testimonial"
+                    >
+                        <ChevronRightIcon />
+                    </Arrow>
+                ) : null}
+            </Navigation>
+        </Container>
     );
 };
 

@@ -5,9 +5,11 @@ import { StaticImage } from 'gatsby-plugin-image';
 import React, { useEffect, useRef } from 'react';
 import { isDesktop } from 'react-device-detect';
 import { webinarsUrl } from '../../../../shared';
+import { LinkOutlined } from '../../../globalStyles';
+import Carousel from '../../Carousel';
 import { OutboundLinkOutlined } from '../../OutboundLink';
 import CardItem from '../CardItem';
-import { ColumnWithTwoRows, ImageWrapper } from '../styles';
+import { ColumnWithTwoRows, ImageWrapper, Slide } from '../styles';
 import { caseStudies, listen, read } from './items';
 
 const Card = React.lazy(() => import('../Card'));
@@ -66,34 +68,50 @@ const HeaderNavbarResources = ({ active, setActive }) => {
                     show={active}
                     onMouseLeave={onMouseLeave}
                 >
-                    <CardItem
-                        className="hide-on-mobile"
-                        title="CASE STUDIES"
-                        items={caseStudies}
-                    />
+                    <CardItem title="CASE STUDIES" items={caseStudies} />
                     <ColumnWithTwoRows>
-                        <CardItem title="READ" onlyContent items={read} />
+                        <CardItem title="READ" items={read} />
                         <CardItem
                             className="no-padding"
                             title="LISTEN"
-                            onlyContent
                             items={listen}
                         />
                     </ColumnWithTwoRows>
                     <CardItem className="hide-on-mobile" title="TOURS">
-                        <ImageWrapper>
-                            <StaticImage
-                                src="../../../images/product-tour-2min.png"
-                                alt="Product tour - 2 minutes"
-                            />
-                        </ImageWrapper>
-                        <OutboundLinkOutlined
-                            target="_blank"
-                            href={webinarsUrl} // TODO: replace this URL with the tour video URL
-                            theme="dark"
-                        >
-                            Watch Product Tour (2min)
-                        </OutboundLinkOutlined>
+                        <Carousel aria-label="Tours carousel">
+                            <Slide key="header-carousel-tour-1">
+                                <ImageWrapper>
+                                    <StaticImage
+                                        src="../../../images/product-tour-2min.png"
+                                        alt="Product tour - 2 minutes"
+                                    />
+                                </ImageWrapper>
+                                <LinkOutlined
+                                    target="_blank"
+                                    to="/why"
+                                    theme="dark"
+                                    $fullWidth
+                                >
+                                    Watch Product Tour (2 min)
+                                </LinkOutlined>
+                            </Slide>
+                            <Slide key="header-carousel-tour-2">
+                                <ImageWrapper>
+                                    <StaticImage
+                                        src="../../../images/product-tour-2min.png"
+                                        alt="Product tour - 2 minutes"
+                                    />
+                                </ImageWrapper>
+                                <OutboundLinkOutlined
+                                    target="_blank"
+                                    href={webinarsUrl}
+                                    theme="dark"
+                                    fullWidth
+                                >
+                                    Real-time 101 (30 min)
+                                </OutboundLinkOutlined>
+                            </Slide>
+                        </Carousel>
                     </CardItem>
                 </Card>
             </React.Suspense>
