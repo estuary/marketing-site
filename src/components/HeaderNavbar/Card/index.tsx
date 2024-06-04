@@ -1,12 +1,14 @@
 import React from 'react';
-import { Container, Divider, Wrapper } from './styles';
+import { Container, Divider, MenuBackground, Wrapper } from './styles';
 
 const HeaderCard = ({ show, children, customRef, ...props }) => {
     return (
-        <Wrapper ref={customRef} $show={show} {...props}>
-            <Divider />
-            <Container>{children}</Container>
-        </Wrapper>
+        <MenuBackground ref={customRef} $show={show}>
+            <Wrapper {...props}>
+                <Divider />
+                <Container>{children}</Container>
+            </Wrapper>
+        </MenuBackground>
     );
 };
 

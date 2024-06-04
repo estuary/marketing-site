@@ -5,17 +5,27 @@ interface ContainerProps {
     $show?: boolean;
 }
 
-export const Wrapper = styled.div<ContainerProps>`
-    width: 100%;
-    background-color: #04192b;
+const BaseMenuStyling = `
     position: fixed;
-    top: 116px;
-    z-index: 10;
-    display: ${(props) => (props.$show ? 'flex' : 'none')};
-    flex-direction: column;
     left: 50%;
     transform: translateX(-50%);
-    box-shadow: 0px 7px 15px 7px rgba(0, 0, 0, 0.07);
+`;
+
+export const MenuBackground = styled.div<ContainerProps>`
+    ${BaseMenuStyling};
+    width: 100vw;
+    height: 100vh;
+    background-color: #00000099;
+    top: 116px;
+    display: ${(props) => (props.$show ? 'flex' : 'none')};
+`;
+
+export const Wrapper = styled.div`
+    ${BaseMenuStyling};
+    width: 100%;
+    background-color: #04192b;
+    z-index: 10;
+    flex-direction: column;
 `;
 
 export const Container = styled.div`
