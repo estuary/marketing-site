@@ -20,5 +20,4 @@ export const Slide = styled.div`
     flex-direction: column;
     gap: 24px;
     margin: 0;
-    padding: 12px 0;
 `;
