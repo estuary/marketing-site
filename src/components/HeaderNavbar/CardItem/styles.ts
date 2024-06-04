@@ -33,8 +33,10 @@ export const CardItem = styled.div`
     }
 `;
 
+const textColor = '#ffffff';
+
 export const Title = styled.span`
-    color: #ffffff;
+    color: ${textColor};
     margin: 0;
     font-size: 1rem;
     font-weight: 700;
@@ -45,7 +47,7 @@ export const Description = styled.p`
     font-size: 0.875rem;
     font-weight: 400;
     line-height: 30px;
-    color: #ffffff;
+    color: ${textColor};
     margin: 0;
     max-width: 280px;
 `;
