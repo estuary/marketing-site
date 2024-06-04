@@ -121,20 +121,24 @@ const Carousel = ({ children, hasArrow = false, ...rest }: CarouselProps) => {
                         <ChevronLeftIcon />
                     </Arrow>
                 ) : null}
-                <Dots>
-                    {React.Children.map(children, (_, index) => (
-                        <DotWrapper key={`${rest['aria-label']}-dot-${index}}`}>
-                            <Dot
-                                htmlColor={
-                                    currentSlide === index
-                                        ? '#5072EB'
-                                        : '#FFFFFF'
-                                }
-                                onClick={() => handleDotClick(index)}
-                            />
-                        </DotWrapper>
-                    ))}
-                </Dots>
+                {React.Children.count(children) > 1 ? (
+                    <Dots>
+                        {React.Children.map(children, (_, index) => (
+                            <DotWrapper
+                                key={`${rest['aria-label']}-dot-${index}}`}
+                            >
+                                <Dot
+                                    htmlColor={
+                                        currentSlide === index
+                                            ? '#5072EB'
+                                            : '#FFFFFF'
+                                    }
+                                    onClick={() => handleDotClick(index)}
+                                />
+                            </DotWrapper>
+                        ))}
+                    </Dots>
+                ) : null}
                 {hasArrow ? (
                     <Arrow
                         onClick={onArrowClick('right')}
