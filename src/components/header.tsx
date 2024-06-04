@@ -206,7 +206,7 @@ const Header = (props: { fixedHeader?: boolean }) => {
                         <button
                             onClick={() => setMobileMenuOpen((open) => !open)}
                             className="global-header-mobile-menu-button"
-                            title="Menu"
+                            title="Navigation Menu"
                         >
                             <MenuBarsImage />
                         </button>
