@@ -10,7 +10,6 @@ import ConnectorsImageDesktop from '../components/ConnectorsImageDesktop';
 import ConnectorsImageMobile from '../components/ConnectorsImageMobile';
 import ConnectorsLink from '../components/ConnectorsLink';
 import { OutboundLink } from '../components/OutboundLink';
-import SliderHorizontal from '../components/SliderHorizontal';
 import useWindowExistence from '../hooks/useWindowExistence';
 import CareerAvatar from '../svgs/about-careers-avatar-icon.svg';
 import ColoredLogo from '../svgs/colored-logo.svg';
@@ -23,6 +22,7 @@ import StreamingELT from '../svgs/icon-streaming-elt.svg';
 import FlowLongtailSaas from '../svgs/product-flow-longtail-saas.svg';
 import SectionTwoDataCaptureImg1 from '../svgs/product-flow-section-two-data-capture-image1.svg';
 import { normalizeConnector } from '../utils';
+import Carousel from './Carousel';
 
 export interface ConnectorPageProps {
     source_connector: any;
@@ -299,7 +299,46 @@ export const ConnectorPage = ({
             </div>
             <div className="connector-section-wrapper-vertical">
                 <p className="small-uppercase-header">why estuary flow</p>
-                <SliderHorizontal />
+                <Carousel
+                    aria-label="Why Estuary Flow carousel"
+                    activeDotColor="#c4c4c4"
+                    dotColor="#efefef"
+                >
+                    <div>
+                        <div className="slider-horizontal-text-wrapper">
+                            <h2 className="header-horizontal">
+                                Built for architects
+                            </h2>
+                            <p className="section-six-text">
+                                Future-proof your systems with unlimited
+                                scalability and access to exact copies of all
+                                your data with millisecond latency.
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <div className="slider-horizontal-text-wrapper">
+                            <h2 className="header-horizontal">
+                                Built for engineers
+                            </h2>
+                            <p className="section-six-text">
+                                Spend your time creating value instead of
+                                integrating systems.
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <div className="slider-horizontal-text-wrapper">
+                            <h2 className="header-horizontal">
+                                Built for analysts
+                            </h2>
+                            <p className="section-six-text">
+                                Gain access to all of your data in your favorite
+                                SQL or BI environment.
+                            </p>
+                        </div>
+                    </div>
+                </Carousel>
             </div>
             <div className="connector-section-wrapper-vertical">
                 <div className="product-flow-section-three-tile-wrapper">

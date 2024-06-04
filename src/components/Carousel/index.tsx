@@ -15,11 +15,20 @@ import {
 type CarouselProps = React.HTMLAttributes<HTMLDivElement> & {
     children: React.ReactNode;
     hasArrow?: boolean;
+    dotColor?: string;
+    activeDotColor?: string;
 };
 
-const Carousel = ({ children, hasArrow = false, ...rest }: CarouselProps) => {
+const Carousel = ({
+    children,
+    hasArrow = false,
+    dotColor,
+    activeDotColor,
+    ...rest
+}: CarouselProps) => {
     const [currentSlide, setCurrentSlide] = React.useState(0);
     const [isTransitioning, setIsTransitioning] = React.useState(false);
+    const hasMounted = React.useRef(false);
     const slideRefs = React.useRef<(HTMLLIElement | null)[]>([]);
     const isDotClick = React.useRef(false);
 
@@ -55,7 +64,7 @@ const Carousel = ({ children, hasArrow = false, ...rest }: CarouselProps) => {
     }, []);
 
     React.useEffect(() => {
-        if (slideRefs.current[currentSlide]) {
+        if (hasMounted.current && slideRefs.current[currentSlide]) {
             slideRefs.current[currentSlide]?.scrollIntoView({
                 behavior: isDotClick.current ? 'instant' : 'smooth',
                 block: 'nearest',
@@ -68,6 +77,8 @@ const Carousel = ({ children, hasArrow = false, ...rest }: CarouselProps) => {
     React.useEffect(() => {
         const observer = createIntersectionObserver();
         observeSlides(observer);
+
+        hasMounted.current = true;
 
         return () => {
             observer.disconnect();
@@ -130,8 +141,8 @@ const Carousel = ({ children, hasArrow = false, ...rest }: CarouselProps) => {
                                 <Dot
                                     htmlColor={
                                         currentSlide === index
-                                            ? '#5072EB'
-                                            : '#FFFFFF'
+                                            ? activeDotColor ?? '#5072EB'
+                                            : dotColor ?? '#FFFFFF'
                                     }
                                     onClick={() => handleDotClick(index)}
                                 />
