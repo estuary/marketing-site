@@ -1,12 +1,16 @@
 import { Link } from 'gatsby';
 import styled from 'styled-components';
+import { globalMaxWidth } from '../../globalStyles';
 
-export const Container = styled.nav``;
+export const Container = styled.nav`
+    ${globalMaxWidth};
+`;
 
 export const Links = styled.ol`
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
     line-height: 28.8px;
+    height: 28.8px;
     list-style-type: none;
     margin: 0;
 
