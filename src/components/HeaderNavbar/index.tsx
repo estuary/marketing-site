@@ -8,16 +8,26 @@ import LinkResources from './Resources';
 const HeaderNavbar = () => {
     const [current, setCurrent] = useState('');
 
+    const closeMenus = () => setCurrent('');
+
     return (
-        <div className="global-header-links">
+        <div className="global-header-links" onMouseLeave={closeMenus}>
             <LinkProduct
                 active={current === 'product'}
                 setActive={setCurrent}
             />
-            <Link className="global-header-link" to="/pricing">
+            <Link
+                onMouseEnter={closeMenus}
+                className="global-header-link"
+                to="/pricing"
+            >
                 Pricing
             </Link>
-            <Link className="global-header-link" to="/integrations">
+            <Link
+                onMouseEnter={closeMenus}
+                className="global-header-link"
+                to="/integrations"
+            >
                 Connectors
             </Link>
             <LinkResources
@@ -27,6 +37,7 @@ const HeaderNavbar = () => {
             <OutboundLink
                 className="global-header-link"
                 href="https://docs.estuary.dev"
+                onMouseEnter={closeMenus}
             >
                 Docs
             </OutboundLink>
