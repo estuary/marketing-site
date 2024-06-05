@@ -11,7 +11,7 @@ const HeaderNavbar = () => {
     const closeMenus = () => setCurrent('');
 
     return (
-        <div className="global-header-links">
+        <div className="global-header-links" onMouseLeave={closeMenus}>
             <LinkProduct
                 active={current === 'product'}
                 setActive={setCurrent}
