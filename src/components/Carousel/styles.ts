@@ -12,6 +12,7 @@ export const Container = styled.div`
 
 export const Viewport = styled.ul`
     display: flex;
+    align-items: center;
     gap: 48px;
     overflow-x: auto;
     scroll-behavior: smooth;
