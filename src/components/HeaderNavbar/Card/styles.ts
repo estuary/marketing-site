@@ -12,25 +12,19 @@ const BaseMenuStyling = `
 `;
 
 export const MenuBackgroundDesktop = styled.div<ContainerProps>`
-    width: 100vw;
-    height: 100vh;
-    background-color: #00000099;
-    top: 116px;
-    display: ${(props) => (props.$show ? 'flex' : 'none')};
-
     @media (min-width: 1024px) {
         ${BaseMenuStyling};
-    }
-
-    @media (max-width: 1023px) {
-        display: none;
+        width: 100vw;
+        height: 100vh;
+        top: 116px;
+        display: ${(props) => (props.$show ? 'flex' : 'none')};
+        background-color: #00000099;
     }
 `;
 
 export const Wrapper = styled.div`
     width: 100%;
     background-color: #04192b;
-    z-index: 10;
     flex-direction: column;
 
     @media (min-width: 1024px) {
