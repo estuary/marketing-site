@@ -149,13 +149,13 @@ const ComparisonPageTemplate = ({
                                     <div
                                         className="competitor-value"
                                         dangerouslySetInnerHTML={{
-                                            __html: `<div>${competitorName}</div>${item.our_feature_desc.data.our_feature_desc}`,
+                                            __html: `<div>${competitorName}</div>${item.their_feature_desc.data.their_feature_desc}`,
                                         }}
                                     />
                                     <div
                                         className="matters-value"
                                         dangerouslySetInnerHTML={{
-                                            __html: `<div>WHY IT MATTERS</div>${item.our_feature_desc.data.our_feature_desc}`,
+                                            __html: `<div>WHY IT MATTERS</div>${item.why_it_matters.data.why_it_matter}`,
                                         }}
                                     />
                                 </div>
