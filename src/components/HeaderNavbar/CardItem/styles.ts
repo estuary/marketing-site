@@ -90,7 +90,7 @@ export const Icon = styled.div`
 
 export const Content = styled.div`
     display: flex;
-    gap: 8px;
+    gap: 12px;
     flex-direction: column;
     padding: 12px 0;
 

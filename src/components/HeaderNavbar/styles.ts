@@ -17,8 +17,8 @@ export const ColumnWithTwoRows = styled.div`
         gap: 38px;
     }
 
-    @media (max-height: 1023px) {
-        gap: 0;
+    @media (max-height: 1024px) {
+        gap: 12px;
     }
 `;
 

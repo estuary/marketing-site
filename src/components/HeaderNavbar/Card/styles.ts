@@ -50,10 +50,6 @@ export const Container = styled.div`
         padding: 0 20px;
     }
 
-    @media (max-height: 1023px) {
-        ${globalMaxWidth};
-    }
-
     @media (max-width: 570px) {
         gap: 8px;
         grid-template-columns: 1fr;
