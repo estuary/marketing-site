@@ -34,7 +34,7 @@ export const Title = styled.h2`
     margin: 0;
 
     @media (max-width: 425px) {
-        font-size: 1.75rem;
+        font-size: 1rem;
         line-height: 33.6px;
     }
 `;
@@ -51,6 +51,7 @@ export const Description = styled.p`
         font-size: 1rem;
         line-height: 30px;
         font-weight: 500;
+        margin: 0;
     }
 `;
 
@@ -64,6 +65,11 @@ export const AvatarWrapper = styled.div`
     border-radius: 100%;
     padding: 24px;
     overflow: hidden;
+
+    @media (max-width: 425px) {
+        width: 62px;
+        height: 62px;
+    }
 `;
 
 export const AvatarImg = styled(GatsbyImage)<{
@@ -72,8 +78,15 @@ export const AvatarImg = styled(GatsbyImage)<{
     min-width: 110px;
     border-radius: ${({ $isSeattleDataGuyLogo }) =>
         $isSeattleDataGuyLogo ? '100%' : '0'};
+    @media (max-width: 425px) {
+        min-width: 52px;
+    }
 `;
 
 export const AvatarSvg = styled.img`
     padding: 16px;
+
+    @media (max-width: 425px) {
+        padding: 32px;
+    }
 `;
