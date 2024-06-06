@@ -155,7 +155,7 @@ const ComparisonPageTemplate = ({
                                     <div
                                         className="matters-value"
                                         dangerouslySetInnerHTML={{
-                                            __html: `<div>WHY IT MATTERS</div>${item.why_it_matters.data.why_it_matter}`,
+                                            __html: `<div>WHY IT MATTERS</div>${item.why_it_matters.data.why_it_matters}`,
                                         }}
                                     />
                                 </div>
