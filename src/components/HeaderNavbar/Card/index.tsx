@@ -1,14 +1,28 @@
+import { useMediaQuery } from '@mui/material';
 import React from 'react';
-import { Container, Divider, MenuBackground, Wrapper } from './styles';
+import { isMobile as isRealMobile } from 'react-device-detect';
+import { Container, Divider, MenuBackgroundDesktop, Wrapper } from './styles';
 
 const HeaderCard = ({ show, children, customRef, ...props }) => {
-    return (
-        <MenuBackground ref={customRef} $show={show}>
-            <Wrapper {...props}>
+    const isSmallScreen = useMediaQuery('(max-width:1024px)');
+    const isMobile = isRealMobile || isSmallScreen;
+
+    if (isMobile) {
+        return (
+            <Wrapper ref={customRef} {...props}>
                 <Divider />
                 <Container>{children}</Container>
             </Wrapper>
-        </MenuBackground>
+        );
+    }
+
+    return (
+        <MenuBackgroundDesktop $show={show}>
+            <Wrapper ref={customRef} {...props}>
+                <Divider />
+                <Container>{children}</Container>
+            </Wrapper>
+        </MenuBackgroundDesktop>
     );
 };
 

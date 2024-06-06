@@ -11,21 +11,31 @@ const BaseMenuStyling = `
     transform: translateX(-50%);
 `;
 
-export const MenuBackground = styled.div<ContainerProps>`
-    ${BaseMenuStyling};
+export const MenuBackgroundDesktop = styled.div<ContainerProps>`
     width: 100vw;
     height: 100vh;
     background-color: #00000099;
     top: 116px;
     display: ${(props) => (props.$show ? 'flex' : 'none')};
+
+    @media (min-width: 1024px) {
+        ${BaseMenuStyling};
+    }
+
+    @media (max-width: 1023px) {
+        display: none;
+    }
 `;
 
 export const Wrapper = styled.div`
-    ${BaseMenuStyling};
     width: 100%;
     background-color: #04192b;
     z-index: 10;
     flex-direction: column;
+
+    @media (min-width: 1024px) {
+        ${BaseMenuStyling};
+    }
 `;
 
 export const Container = styled.div`
@@ -41,11 +51,17 @@ export const Container = styled.div`
     background-color: #04192b;
     width: 100%;
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1023px) {
         grid-template-columns: 1fr 1fr;
+        padding: 0 20px;
     }
 
-    @media (max-width: 630px) {
+    @media (max-height: 1023px) {
+        ${globalMaxWidth};
+    }
+
+    @media (max-width: 570px) {
+        gap: 8px;
         grid-template-columns: 1fr;
     }
 `;
@@ -57,4 +73,20 @@ export const Divider = styled.div`
     background-color: #1b3465;
     width: 100%;
     height: 1px;
+
+    @media (max-width: 1024px) {
+        margin: 12px 0;
+    }
+
+    @media (max-width: 1023px) {
+        padding: 0;
+    }
+
+    @media (max-height: 1024px) {
+        margin: 12px 0;
+    }
+
+    @media (max-width: 570px) {
+        display: none;
+    }
 `;

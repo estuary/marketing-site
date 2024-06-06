@@ -1,3 +1,4 @@
+import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material';
 import { styled } from 'styled-components';
 
 export const ImageWrapper = styled.div`
@@ -11,7 +12,14 @@ export const ImageWrapper = styled.div`
 export const ColumnWithTwoRows = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 38px;
+
+    @media (min-width: 1024px) {
+        gap: 38px;
+    }
+
+    @media (max-height: 1023px) {
+        gap: 0;
+    }
 `;
 
 export const Slide = styled.div`
@@ -20,4 +28,34 @@ export const Slide = styled.div`
     flex-direction: column;
     gap: 24px;
     margin: 0;
+`;
+
+export const MenuAccordion = styled(Accordion)`
+    background: transparent;
+
+    &.MuiAccordion-root:before {
+        display: none;
+    }
+
+    &.MuiAccordion-root {
+        margin: auto 0 !important;
+    }
+`;
+
+export const MenuAccordionButton = styled(AccordionSummary)`
+    min-height: 0 !important;
+
+    &.Mui-expanded {
+        min-height: 0 !important;
+    }
+
+    & .MuiAccordionSummary-content {
+        margin: 0 !important;
+    }
+
+    padding: 0 !important;
+`;
+
+export const MenuAccordionContent = styled(AccordionDetails)`
+    padding: 0;
 `;

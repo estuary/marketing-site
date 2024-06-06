@@ -1,42 +1,54 @@
 import Chevron from '@mui/icons-material/ChevronRight';
+import { useMediaQuery } from '@mui/material';
 import clsx from 'clsx';
 import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import React, { useEffect, useRef } from 'react';
-import { isDesktop } from 'react-device-detect';
 import { webinarsUrl } from '../../../../shared';
 import Carousel from '../../Carousel';
 import { OutboundLinkOutlined } from '../../OutboundLink';
 import CardItem from '../CardItem';
-import { ImageWrapper, Slide } from '../styles';
+import {
+    ImageWrapper,
+    MenuAccordion,
+    MenuAccordionButton,
+    MenuAccordionContent,
+    Slide,
+} from '../styles';
 import { compare, products } from './items';
 
 const Card = React.lazy(() => import('../Card'));
 
 const HeaderNavbarProduct = ({ active, setActive }) => {
+    const isMobile = useMediaQuery('(max-width:1024px)');
+
     const wrapperRef: React.RefObject<HTMLDivElement> = useRef(null);
 
     const onClick = (ev) => {
-        ev.preventDefault();
-        if (!isDesktop) {
+        if (isMobile) {
+            ev.preventDefault();
             setActive((prev) => (prev === 'product' ? '' : 'product'));
         }
     };
 
     const onMouseEnter = (ev) => {
-        ev.preventDefault();
-        if (isDesktop) setActive('product');
+        if (!isMobile) {
+            ev.preventDefault();
+            setActive('product');
+        }
     };
 
     const onMouseLeave = (ev) => {
-        ev.preventDefault();
-        if (isDesktop) setActive('');
+        if (!isMobile) {
+            ev.preventDefault();
+            setActive('');
+        }
     };
 
     useEffect(() => {
         function handleClickOutside(event) {
             if (
-                isDesktop &&
+                !isMobile &&
                 !wrapperRef.current?.contains(event.target) &&
                 !event.target.className?.includes?.('active')
             ) {
@@ -49,50 +61,56 @@ const HeaderNavbarProduct = ({ active, setActive }) => {
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, [active, setActive]);
+    }, [active, setActive, isMobile]);
 
     return (
-        <>
-            <Link
-                className={clsx('global-header-link', active && 'active')}
-                to="#"
-                onClick={onClick}
-                onMouseEnter={onMouseEnter}
-            >
-                Product
-                <Chevron className="menu-chevron" fontSize="small" />
-            </Link>
-            <React.Suspense fallback={null}>
-                <Card
-                    customRef={wrapperRef}
-                    show={active}
-                    onMouseLeave={onMouseLeave}
+        <MenuAccordion elevation={0} expanded={active}>
+            <MenuAccordionButton onClick={onClick} onMouseEnter={onMouseEnter}>
+                <Link
+                    className={clsx('global-header-link', active && 'active')}
+                    to="#"
                 >
-                    <CardItem title="PRODUCT" items={products} />
-                    <CardItem title="COMPARE" items={compare} />
-                    <CardItem className="hide-on-mobile" title="WEBINARS">
-                        <Carousel aria-label="Webinars carousel">
-                            <Slide key="header-carousel-tour-2">
-                                <ImageWrapper>
-                                    <StaticImage
-                                        src="../../../images/webinar101.png"
-                                        alt="Estuary 101 Webinar"
-                                    />
-                                </ImageWrapper>
-                                <OutboundLinkOutlined
-                                    target="_blank"
-                                    href={webinarsUrl}
-                                    theme="dark"
-                                    fullWidth
-                                >
-                                    Watch Estuary 101
-                                </OutboundLinkOutlined>
-                            </Slide>
-                        </Carousel>
-                    </CardItem>
-                </Card>
-            </React.Suspense>
-        </>
+                    Product
+                    <Chevron className="menu-chevron" fontSize="small" />
+                </Link>
+            </MenuAccordionButton>
+            <MenuAccordionContent>
+                <React.Suspense fallback={null}>
+                    <Card
+                        customRef={wrapperRef}
+                        show={active}
+                        onMouseLeave={onMouseLeave}
+                    >
+                        <CardItem
+                            title="PRODUCT"
+                            items={products}
+                            onlyContent
+                        />
+                        <CardItem title="COMPARE" items={compare} />
+                        <CardItem className="hide-on-mobile" title="WEBINARS">
+                            <Carousel aria-label="Webinars carousel">
+                                <Slide key="header-carousel-tour-2">
+                                    <ImageWrapper>
+                                        <StaticImage
+                                            src="../../../images/webinar101.png"
+                                            alt="Estuary 101 Webinar"
+                                        />
+                                    </ImageWrapper>
+                                    <OutboundLinkOutlined
+                                        target="_blank"
+                                        href={webinarsUrl}
+                                        theme="dark"
+                                        fullWidth
+                                    >
+                                        Watch Estuary 101
+                                    </OutboundLinkOutlined>
+                                </Slide>
+                            </Carousel>
+                        </CardItem>
+                    </Card>
+                </React.Suspense>
+            </MenuAccordionContent>
+        </MenuAccordion>
     );
 };
 

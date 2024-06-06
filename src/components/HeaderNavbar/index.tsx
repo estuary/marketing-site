@@ -1,7 +1,6 @@
 import { Link } from 'gatsby';
 import React, { useState } from 'react';
 import { OutboundLink } from '../OutboundLink';
-
 import LinkProduct from './Product';
 import LinkResources from './Resources';
 

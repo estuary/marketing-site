@@ -13,6 +13,10 @@ export const CardItem = styled.div`
         display: none;
     }
 
+    @media (max-width: 1024px) {
+        padding: 0;
+    }
+
     @media (min-width: 1024px) {
         &:hover {
             border-color: #625eff;
@@ -41,6 +45,10 @@ export const Title = styled.span`
     font-size: 1rem;
     font-weight: 700;
     line-height: 28px;
+
+    @media (max-width: 1024px) {
+        font-size: 0.875rem;
+    }
 `;
 
 export const Description = styled.p`
@@ -50,6 +58,10 @@ export const Description = styled.p`
     color: ${textColor};
     margin: 0;
     max-width: 280px;
+
+    @media (max-width: 1024px) {
+        font-size: 0.75rem;
+    }
 `;
 
 export const ContentWrapper = styled.div`
@@ -81,6 +93,14 @@ export const Content = styled.div`
     gap: 8px;
     flex-direction: column;
     padding: 12px 0;
+
+    @media (max-width: 768px) {
+        padding: 8px 0 0;
+    }
+
+    @media (max-height: 1024px) {
+        padding: 0;
+    }
 `;
 
 export const CardTitle = styled.span`
@@ -89,4 +109,9 @@ export const CardTitle = styled.span`
     line-height: 19.2px;
     margin: 0 0 16px 0;
     font-weight: 600;
+
+    @media (max-width: 1024px) {
+        font-size: 0.875rem;
+        margin-top: 8px;
+    }
 `;

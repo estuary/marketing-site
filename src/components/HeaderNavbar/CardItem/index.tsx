@@ -30,7 +30,9 @@ const ItemLink = ({ name, description, Image, to, hasChevronIcon }) => {
                     <TextWrapper>
                         <Title>{name}</Title>
                         {description ? (
-                            <Description>{description}</Description>
+                            <Description className="hide-on-mobile">
+                                {description}
+                            </Description>
                         ) : null}
                     </TextWrapper>
                     {hasChevronIcon ? (
