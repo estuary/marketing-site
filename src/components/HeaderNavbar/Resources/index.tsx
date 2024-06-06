@@ -122,7 +122,7 @@ const HeaderNavbarResources = ({ active, setActive }) => {
                                 <Slide key="header-carousel-tour-2">
                                     <ImageWrapper>
                                         <StaticImage
-                                            src="../../../images/product-tour-2min.png"
+                                            src="../../../images/real-time-101-30min.png"
                                             alt="Product tour - 2 minutes"
                                         />
                                     </ImageWrapper>
