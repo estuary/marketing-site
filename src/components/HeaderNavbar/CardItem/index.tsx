@@ -19,7 +19,7 @@ const ItemLink = ({ name, description, Image, to, hasChevronIcon }) => {
     const linkProps = to[0] === '/' ? { to } : { href: to, target: '_blank' };
 
     return (
-        <LinkElement {...linkProps}>
+        <LinkElement {...linkProps} aria-label={`Read case study for ${name}`}>
             <CardItem>
                 {Image ? (
                     <Icon>
