@@ -1,7 +1,6 @@
 import React from 'react';
 
-import PricingExampleTwo from '../../../svgs/graphic_parent_2.svg';
-import PricingExampleOne from '../../../svgs/graphic_parent.svg';
+import { StaticImage } from 'gatsby-plugin-image';
 import { costPerGB } from '../../../utils';
 
 const PricingComparison = () => {
@@ -11,7 +10,12 @@ const PricingComparison = () => {
             <div className="pricing-comparison-row">
                 <div className="box-container">
                     <div className="no-box-shadow">
-                        <PricingExampleOne />
+                        <StaticImage
+                            quality={100}
+                            alt="Pricing per connector to capture, transform, and materialize data in real-time from MySQL and Salesforce sources to Snowflake destination"
+                            src="../../../images/pricing/graphic_parent.png"
+                            layout="constrained"
+                        />
                     </div>
 
                     <div>
@@ -35,7 +39,12 @@ const PricingComparison = () => {
 
                 <div className="box-container">
                     <div className="no-box-shadow">
-                        <PricingExampleTwo />
+                        <StaticImage
+                            quality={100}
+                            alt="Pricing per connector to capture, transform, and materialize data in real-time from MySQL and Salesforce sources to Snowflake, Google BigQuery and Elasticsearch destinations"
+                            src="../../../images/pricing/graphic_parent_2.png"
+                            layout="constrained"
+                        />
                     </div>
                     <div>
                         <div className="pricing-comparison-text">

@@ -29,8 +29,8 @@ export const normalizeConnector = (connector: any) => {
     };
 };
 
-export const costPerGB_calc = 1.0;
-export const costPerGB = `$${Math.round(costPerGB_calc)}/GB`;
+export const costPerGB_calc = 0.5;
+export const costPerGB = `$${costPerGB_calc.toFixed(2)}/GB`;
 
 export const gbPoints = [2, 250, 500, 1000, 2000];
 
