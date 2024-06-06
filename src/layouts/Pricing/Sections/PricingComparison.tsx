@@ -13,7 +13,7 @@ const PricingComparison = () => {
                         <StaticImage
                             quality={100}
                             alt="Pricing per connector to capture, transform, and materialize data in real-time from MySQL and Salesforce sources to Snowflake destination"
-                            src="../../../images/graphic_parent.png"
+                            src="../../../images/pricing/graphic_parent.png"
                             layout="constrained"
                         />
                     </div>
@@ -42,7 +42,7 @@ const PricingComparison = () => {
                         <StaticImage
                             quality={100}
                             alt="Pricing per connector to capture, transform, and materialize data in real-time from MySQL and Salesforce sources to Snowflake, Google BigQuery and Elasticsearch destinations"
-                            src="../../../images/graphic_parent_2.png"
+                            src="../../../images/pricing/graphic_parent_2.png"
                             layout="constrained"
                         />
                     </div>
