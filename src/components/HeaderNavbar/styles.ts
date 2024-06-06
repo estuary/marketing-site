@@ -31,10 +31,10 @@ export const Slide = styled.div`
 `;
 
 export const MenuAccordion = styled(Accordion)`
-    background: transparent;
+    background: transparent !important;
 
     &.MuiAccordion-root:before {
-        display: none;
+        display: none !important;
     }
 
     &.MuiAccordion-root {
@@ -44,6 +44,7 @@ export const MenuAccordion = styled(Accordion)`
 
 export const MenuAccordionButton = styled(AccordionSummary)`
     min-height: 0 !important;
+    padding: 0 !important;
 
     &.Mui-expanded {
         min-height: 0 !important;
@@ -52,10 +53,8 @@ export const MenuAccordionButton = styled(AccordionSummary)`
     & .MuiAccordionSummary-content {
         margin: 0 !important;
     }
-
-    padding: 0 !important;
 `;
 
 export const MenuAccordionContent = styled(AccordionDetails)`
-    padding: 0;
+    padding: 0 !important;
 `;
