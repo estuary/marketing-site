@@ -359,6 +359,7 @@ input {
   background-color: #04192b;
   height: 116px;
   width: 100%;
+
 }
 
 .global-main-fixed-header {
@@ -1676,7 +1677,6 @@ table th {
 .connection-description {
   display: flex;
   flex-direction: column;
-  //   justify-content: center;
   align-items: center;
   flex: 1 1 50%;
 
@@ -2949,9 +2949,7 @@ table th {
   .section-one-bottom {
     margin-top: 0px;
     margin-bottom: 1rem;
-    /* flex-wrap is breaking image resizing */
     flex-wrap: wrap;
-    /* width: 375px; */
   }
 
   .section-one-bottom-logo {
@@ -2976,7 +2974,6 @@ table th {
   }
 
   .section-two-header-vectors {
-    /* width: 40px; */
   }
 
   .section-two-first-graphic-wrapper {
@@ -3032,7 +3029,6 @@ table th {
   }
 
   .react-player {
-    /* width: 250px; */
   }
 
   .section-three-try-it-button,
@@ -3410,8 +3406,6 @@ table th {
     left: auto;
     right: 2%;
   }
-
-  .arrow {}
 
   .section-six-slider-wrapper {
     margin-left: 30px;
@@ -5863,6 +5857,23 @@ table th {
     .dynamic-html {
       width: 100%;
       overflow: hidden;
+
+      .table {
+        overflow-x: auto;
+
+        @media (max-width: 620px) {
+          float: none !important;
+          width: 100% !important;
+          margin: 0;
+        }
+
+        &>table {
+          width: 100%;
+          min-width: 400px;
+          margin-top: 0;
+          margin-bottom: 0;
+        }
+      }
     }
   }
 
