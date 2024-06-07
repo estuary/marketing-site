@@ -63,6 +63,7 @@
   --background-color-primary: #04192b;
   --background-color-sharing-button: #ffffff;
   --border-color-sharing-button: #d7dce5;
+  --header-link-hover: #5072eb4d;
 }
 
 /* HTML elements */
@@ -322,18 +323,15 @@ input {
 
   .global-header-links {
     display: flex;
-    gap: 24px;
+    gap: 12px;
     padding-left: 7%;
     padding-right: 28px;
 
     .global-header-link {
-      border-radius: 24px;
-      padding: 10px 12px;
       display: flex;
       gap: 5px;
       justify-content: center;
       align-items: center;
-      transition: background-color 150ms;
 
       .menu-chevron {
         transition: transform 150ms;
@@ -341,7 +339,7 @@ input {
       }
 
       &.active {
-        background-color: #5072eb4d;
+        background-color: var(--header-link-hover);
 
         .menu-chevron {
           transform: rotate(-90deg);
@@ -497,6 +495,15 @@ input {
   cursor: pointer;
   display: flex;
   align-self: center;
+  border-radius: 24px;
+  padding: 10px 12px;
+  transition: background-color 150ms;
+
+  &:hover {
+    @media (min-width: 1024px) {
+      background-color: var(--header-link-hover);
+    }
+  }
 }
 
 .global-header-menu-link {
@@ -522,9 +529,30 @@ input {
   display: flex;
 }
 
+.header-social-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 0 1rem 0 2rem;
+}
+
 .header-social-icon {
-  margin: auto;
-  height: 24px;
+  margin: auto 0;
+  min-height: 24px;
+  min-width: 24px;
+  border-radius: 100%;
+  transition: background-color 150ms;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+
+  &:hover {
+    @media (min-width: 1024px) {
+      background-color: var(--header-link-hover);
+    }
+  }
 }
 
 .global-header-select {
@@ -888,12 +916,21 @@ input {
 
 .global-footer-bottom-social {
   display: flex;
+  gap: 32px;
 }
 
 .social-icon {
   width: 24px;
   height: 24px;
-  margin: 0 15px;
+  color: #B7C6DD;
+}
+
+.social-icon-footer {
+  .social-icon;
+
+  &:hover {
+    color: #B7C6DD99;
+  }
 }
 
 .main-heading {
