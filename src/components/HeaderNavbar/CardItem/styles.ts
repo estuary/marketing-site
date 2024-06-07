@@ -6,7 +6,7 @@ export const CardItem = styled.div`
     padding: 12px;
     border: 1px solid transparent;
     border-radius: 16px;
-    transition: 200ms ease-in-out;
+    transition: border 200ms ease-in-out;
     width: 100%;
 
     .header-chevron-icon {

@@ -3,7 +3,7 @@ import { useMediaQuery } from '@mui/material';
 import clsx from 'clsx';
 import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { webinarsUrl } from '../../../../shared';
 import { LinkOutlined } from '../../../globalStyles';
 import Carousel from '../../Carousel';
@@ -24,45 +24,21 @@ const Card = React.lazy(() => import('../Card'));
 const HeaderNavbarResources = ({ active, setActive }) => {
     const isMobile = useMediaQuery('(max-width:1024px)');
 
-    const wrapperRef: React.RefObject<HTMLDivElement> = useRef(null);
-
-    const onClick = (ev) => {
+    const onClick = (ev: { preventDefault: () => void }) => {
         if (isMobile) {
             ev.preventDefault();
-            setActive((prev) => (prev === 'resources' ? '' : 'resources'));
+            setActive((prev: string) =>
+                prev === 'resources' ? '' : 'resources'
+            );
         }
     };
 
-    const onMouseEnter = (ev) => {
+    const onMouseEnter = (ev: { preventDefault: () => void }) => {
         if (!isMobile) {
             ev.preventDefault();
             setActive('resources');
         }
     };
-
-    const onMouseLeave = (ev) => {
-        if (!isMobile) {
-            ev.preventDefault();
-            setActive('');
-        }
-    };
-
-    useEffect(() => {
-        function handleClickOutside(event) {
-            if (
-                !isMobile &&
-                !wrapperRef.current?.contains(event.target) &&
-                !event.target.className?.includes?.('active')
-            ) {
-                setActive('');
-            }
-        }
-
-        if (active) document.addEventListener('mousedown', handleClickOutside);
-        return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
-        };
-    }, [active, setActive, isMobile]);
 
     return (
         <MenuAccordion elevation={0} expanded={active}>
@@ -77,11 +53,7 @@ const HeaderNavbarResources = ({ active, setActive }) => {
             </MenuAccordionButton>
             <MenuAccordionContent>
                 <React.Suspense fallback={null}>
-                    <Card
-                        customRef={wrapperRef}
-                        show={active}
-                        onMouseLeave={onMouseLeave}
-                    >
+                    <Card>
                         <CardItem
                             className="hide-on-mobile"
                             title="CASE STUDIES"

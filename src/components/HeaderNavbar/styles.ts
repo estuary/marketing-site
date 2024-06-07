@@ -58,3 +58,16 @@ export const MenuAccordionButton = styled(AccordionSummary)`
 export const MenuAccordionContent = styled(AccordionDetails)`
     padding: 0 !important;
 `;
+
+export const MenuBackground = styled.div<{ $isMenuOpen?: boolean }>`
+    @media (min-width: 1024px) {
+        position: fixed;
+        top: 116px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100vw;
+        height: 100vh;
+        display: ${({ $isMenuOpen }) => ($isMenuOpen ? 'flex' : 'none')};
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+`;

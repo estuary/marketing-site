@@ -1,34 +1,16 @@
 import { styled } from 'styled-components';
 import { globalMaxWidth } from '../../../globalStyles';
 
-interface ContainerProps {
-    $show?: boolean;
-}
-
-const BaseMenuStyling = `
-    position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
-`;
-
-export const MenuBackgroundDesktop = styled.div<ContainerProps>`
-    @media (min-width: 1024px) {
-        ${BaseMenuStyling};
-        width: 100vw;
-        height: 100vh;
-        top: 116px;
-        display: ${(props) => (props.$show ? 'flex' : 'none')};
-        background-color: #00000099;
-    }
-`;
-
 export const Wrapper = styled.div`
     width: 100%;
     background-color: #04192b;
     flex-direction: column;
 
     @media (min-width: 1024px) {
-        ${BaseMenuStyling};
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 116px;
     }
 `;
 

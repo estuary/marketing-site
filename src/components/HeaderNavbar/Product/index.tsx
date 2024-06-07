@@ -3,7 +3,7 @@ import { useMediaQuery } from '@mui/material';
 import clsx from 'clsx';
 import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { webinarsUrl } from '../../../../shared';
 import Carousel from '../../Carousel';
 import { OutboundLinkOutlined } from '../../OutboundLink';
@@ -22,46 +22,19 @@ const Card = React.lazy(() => import('../Card'));
 const HeaderNavbarProduct = ({ active, setActive }) => {
     const isMobile = useMediaQuery('(max-width:1024px)');
 
-    const wrapperRef: React.RefObject<HTMLDivElement> = useRef(null);
-
-    const onClick = (ev) => {
+    const onClick = (ev: { preventDefault: () => void }) => {
         if (isMobile) {
             ev.preventDefault();
-            setActive((prev) => (prev === 'product' ? '' : 'product'));
+            setActive((prev: string) => (prev === 'product' ? '' : 'product'));
         }
     };
 
-    const onMouseEnter = (ev) => {
+    const onMouseEnter = (ev: { preventDefault: () => void }) => {
         if (!isMobile) {
             ev.preventDefault();
             setActive('product');
         }
     };
-
-    const onMouseLeave = (ev) => {
-        if (!isMobile) {
-            ev.preventDefault();
-            setActive('');
-        }
-    };
-
-    useEffect(() => {
-        function handleClickOutside(event) {
-            if (
-                !isMobile &&
-                !wrapperRef.current?.contains(event.target) &&
-                !event.target.className?.includes?.('active')
-            ) {
-                setActive('');
-            }
-        }
-
-        if (active) document.addEventListener('mousedown', handleClickOutside);
-
-        return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
-        };
-    }, [active, setActive, isMobile]);
 
     return (
         <MenuAccordion elevation={0} expanded={active}>
@@ -76,11 +49,7 @@ const HeaderNavbarProduct = ({ active, setActive }) => {
             </MenuAccordionButton>
             <MenuAccordionContent>
                 <React.Suspense fallback={null}>
-                    <Card
-                        customRef={wrapperRef}
-                        show={active}
-                        onMouseLeave={onMouseLeave}
-                    >
+                    <Card>
                         <CardItem
                             title="PRODUCT"
                             items={products}
