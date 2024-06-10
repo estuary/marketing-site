@@ -260,20 +260,27 @@ export const createPages: GatsbyNode['createPages'] = async ({
     for (const posts of postsByCategory) {
         if (posts.length > 0) {
             posts.forEach((post, index) => {
-                const previousPostId = index === 0 ? null : posts[index - 1].id;
-                const nextPostId =
-                    index === posts.length - 1 ? null : posts[index + 1].id;
+                if (!post.Slug) {
+                    throw new Error(
+                        `Unable to figure out a slug for the post with id: ${post.id}`
+                    );
+                } else {
+                    const previousPostId =
+                        index === 0 ? null : posts[index - 1].id;
+                    const nextPostId =
+                        index === posts.length - 1 ? null : posts[index + 1].id;
 
-                createPage({
-                    path: post.Slug,
-                    component: blogPost,
-                    context: {
-                        id: post.id,
-                        previousPostId,
-                        nextPostId,
-                        lastMod: post.updatedAt,
-                    },
-                });
+                    createPage({
+                        path: post.Slug,
+                        component: blogPost,
+                        context: {
+                            id: post.id,
+                            previousPostId,
+                            nextPostId,
+                            lastMod: post.updatedAt,
+                        },
+                    });
+                }
             });
         }
     }
