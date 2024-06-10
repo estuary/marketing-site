@@ -14,7 +14,13 @@ const Card = ({ href, title, description, image }: CardProps) => {
             {image}
             <CardTitle>{title}</CardTitle>
             <CardDescription>{description}</CardDescription>
-            <Button to={href} target="_blank" rel="noopener noreferrer">
+            <Button
+                to={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                theme="dark"
+                aria-label={`Read case study for ${title}`}
+            >
                 Read
             </Button>
         </CardContainer>

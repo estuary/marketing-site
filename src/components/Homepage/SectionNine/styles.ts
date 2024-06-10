@@ -1,4 +1,3 @@
-import CircleIcon from '@mui/icons-material/Circle';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
@@ -15,27 +14,6 @@ export const Container = styled.section`
 export const Wrapper = styled.div`
     ${globalMaxWidth}
     ${sectionTopBottomPadding}
-
-  display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
-    & > .keen-slider {
-        height: fit-content !important;
-    }
-`;
-
-export const Slides = styled.div`
-    display: flex;
-    align-items: flex-start;
-
-    & > div:first-child {
-        img:first-of-type {
-            border-radius: 100%;
-            overflow: hidden;
-        }
-    }
 `;
 
 export const Slide = styled.div`
@@ -56,7 +34,7 @@ export const Title = styled.h2`
     margin: 0;
 
     @media (max-width: 425px) {
-        font-size: 1.75rem;
+        font-size: 1rem;
         line-height: 33.6px;
     }
 `;
@@ -73,40 +51,8 @@ export const Description = styled.p`
         font-size: 1rem;
         line-height: 30px;
         font-weight: 500;
+        margin: 0;
     }
-`;
-
-export const Slider = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 40px;
-
-    @media (max-width: 425px) {
-        gap: 20px;
-    }
-`;
-
-export const Dots = styled.ul`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 0;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin: 0;
-    width: 100%;
-`;
-
-export const DotWrapper = styled.li`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    list-style: none;
-    margin: 0;
-`;
-
-export const Dot = styled(CircleIcon)`
-    cursor: pointer;
 `;
 
 export const AvatarWrapper = styled.div`
@@ -119,27 +65,28 @@ export const AvatarWrapper = styled.div`
     border-radius: 100%;
     padding: 24px;
     overflow: hidden;
+
+    @media (max-width: 425px) {
+        width: 62px;
+        height: 62px;
+    }
 `;
 
-export const AvatarImg = styled(GatsbyImage)`
+export const AvatarImg = styled(GatsbyImage)<{
+    $isSeattleDataGuyLogo?: boolean;
+}>`
     min-width: 110px;
+    border-radius: ${({ $isSeattleDataGuyLogo }) =>
+        $isSeattleDataGuyLogo ? '100%' : '0'};
+    @media (max-width: 425px) {
+        min-width: 52px;
+    }
 `;
 
 export const AvatarSvg = styled.img`
     padding: 16px;
-`;
 
-export const Arrow = styled.button`
-    background-color: transparent;
-    border: 2px solid #5072eb;
-    border-radius: 4px;
-    padding: 8px 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-
-    &:disabled {
-        border-color: #5072eb80;
+    @media (max-width: 425px) {
+        padding: 32px;
     }
 `;

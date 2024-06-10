@@ -63,6 +63,7 @@
   --background-color-primary: #04192b;
   --background-color-sharing-button: #ffffff;
   --border-color-sharing-button: #d7dce5;
+  --header-link-hover: #5072eb4d;
 }
 
 /* HTML elements */
@@ -311,17 +312,26 @@ input {
   height: 116px;
   top: 0;
 
+  @media (max-width: 768px),
+  (max-height: 768px) {
+    justify-content: space-between;
+
+    .hide-on-mobile {
+      display: none;
+    }
+  }
+
   .global-header-links {
     display: flex;
-    gap: 24px;
+    gap: 12px;
+    padding-left: 7%;
+    padding-right: 28px;
 
     .global-header-link {
-      border-radius: 4px;
       display: flex;
       gap: 5px;
       justify-content: center;
       align-items: center;
-      transition: background-color 150ms;
 
       .menu-chevron {
         transition: transform 150ms;
@@ -329,95 +339,10 @@ input {
       }
 
       &.active {
-        background-color: #5072eb4d;
+        background-color: var(--header-link-hover);
 
         .menu-chevron {
           transform: rotate(-90deg);
-        }
-      }
-    }
-  }
-
-  .header-card {
-    position: fixed;
-    top: 120px;
-    font-family: 'Inter', sans-serif;
-    z-index: 10;
-    display: none;
-
-    &.show {
-      display: flex;
-    }
-
-    gap: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 25px 50px;
-    background-color: #fff;
-    box-shadow: 7px 7px 15px 7px rgba(0, 0, 0, 0.07);
-
-    .card-title {
-      color: #adadad;
-      font-size: 12px;
-      margin: 0;
-      font-weight: 600;
-    }
-
-    .content {
-      display: flex;
-      flex-direction: column;
-      min-width: max-content;
-    }
-
-    .container-image {
-      margin-top: 10px;
-    }
-
-    .cta-button {
-      font-family: 'Inter', sans-serif;
-      font-size: 12px;
-
-      display: block;
-      width: max-content;
-      margin: 0 auto;
-      margin-top: 14px;
-      padding: 7px 45px;
-    }
-
-    .card-item {
-      display: flex;
-      gap: 15px;
-      padding: 3px 0px;
-
-      .title {
-        color: #3f3f46;
-        margin: 0;
-        font-size: 16px;
-        font-weight: 600;
-      }
-
-      .description {
-        font-size: 12px;
-        font-weight: 400;
-        color: #000;
-        margin: 0;
-      }
-
-      .icon {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      @media (min-width: 1024px) {
-        &:hover {
-          border-radius: 2px;
-          background: #f8f8f8;
-
-          .title {
-            color: #5072eb;
-          }
         }
       }
     }
@@ -433,7 +358,8 @@ input {
 .header {
   background-color: #04192b;
   height: 116px;
-  width: 100vw;
+  width: 100%;
+
 }
 
 .global-main-fixed-header {
@@ -554,8 +480,10 @@ input {
   flex-grow: 1;
   gap: 35px;
   justify-content: flex-start;
-  padding-left: 7%;
-  padding-right: 28px;
+
+  @media (max-width: 1024px) {
+    .global-max-width();
+  }
 }
 
 .global-header-link {
@@ -568,6 +496,15 @@ input {
   cursor: pointer;
   display: flex;
   align-self: center;
+  border-radius: 24px;
+  padding: 10px 12px;
+  transition: background-color 150ms;
+
+  &:hover {
+    @media (min-width: 1024px) {
+      background-color: var(--header-link-hover);
+    }
+  }
 }
 
 .global-header-menu-link {
@@ -593,9 +530,30 @@ input {
   display: flex;
 }
 
+.header-social-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 0 1rem 0 2rem;
+}
+
 .header-social-icon {
-  margin: auto;
-  height: 24px;
+  margin: auto 0;
+  min-height: 24px;
+  min-width: 24px;
+  border-radius: 100%;
+  transition: background-color 150ms;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+
+  &:hover {
+    @media (min-width: 1024px) {
+      background-color: var(--header-link-hover);
+    }
+  }
 }
 
 .global-header-select {
@@ -959,12 +917,21 @@ input {
 
 .global-footer-bottom-social {
   display: flex;
+  gap: 32px;
 }
 
 .social-icon {
   width: 24px;
   height: 24px;
-  margin: 0 15px;
+  color: #B7C6DD;
+}
+
+.social-icon-footer {
+  .social-icon;
+
+  &:hover {
+    color: #B7C6DD99;
+  }
 }
 
 .main-heading {
@@ -1710,7 +1677,6 @@ table th {
 .connection-description {
   display: flex;
   flex-direction: column;
-  //   justify-content: center;
   align-items: center;
   flex: 1 1 50%;
 
@@ -1799,6 +1765,7 @@ table th {
 
   display: flex;
   flex-direction: column;
+  margin-bottom: 48px;
 }
 
 .connector-section-wrapper-top-margin {
@@ -2751,14 +2718,6 @@ table th {
     margin-right: auto;
   }
 
-  .global-header {
-    justify-content: space-between;
-
-    .hide-on-mobile {
-      display: none;
-    }
-  }
-
   .global-header-padder,
   .global-header-login-try,
   .header-social-icon {
@@ -2826,12 +2785,17 @@ table th {
 
     .global-header-links {
       flex-direction: column;
-      padding: 8px 0px;
+      padding: 24px 0px;
       gap: 0;
       width: 100%;
 
+      @media (max-width: 350px),
+      (max-height: 350px) {
+        padding: 0;
+      }
+
       .global-header-link {
-        padding: 12px 16px;
+        padding: 12px 0;
         width: 100%;
         justify-content: space-between;
       }
@@ -2840,6 +2804,14 @@ table th {
     &.is-open {
       display: flex;
     }
+  }
+
+  .menu-background {
+    width: 100vw;
+    height: 100vh;
+    background-color: #00000099;
+    position: fixed;
+    z-index: 2;
   }
 
   .global-header-mobile-menu-wrapper {
@@ -2977,9 +2949,7 @@ table th {
   .section-one-bottom {
     margin-top: 0px;
     margin-bottom: 1rem;
-    /* flex-wrap is breaking image resizing */
     flex-wrap: wrap;
-    /* width: 375px; */
   }
 
   .section-one-bottom-logo {
@@ -3004,7 +2974,6 @@ table th {
   }
 
   .section-two-header-vectors {
-    /* width: 40px; */
   }
 
   .section-two-first-graphic-wrapper {
@@ -3060,7 +3029,6 @@ table th {
   }
 
   .react-player {
-    /* width: 250px; */
   }
 
   .section-three-try-it-button,
@@ -3438,8 +3406,6 @@ table th {
     left: auto;
     right: 2%;
   }
-
-  .arrow {}
 
   .section-six-slider-wrapper {
     margin-left: 30px;
@@ -6736,10 +6702,10 @@ table th {
 /*Blog post template updates end*/
 
 .blog-post-breadcrumbs-wrapper {
-  padding: 40px 90px;
+  padding: 40px 0;
 
-  @media (max-width: 1024px) {
-    padding: 20px;
+  @media (max-width: 809px) {
+    padding: 40px 0 20px;
   }
 
   @media (max-width: 768px) {

@@ -95,9 +95,5 @@ export const CardDescription = styled.p`
 `;
 
 export const Button = styled(LinkOutlined)`
-    border: 2px solid #5072eb;
-    padding: 16px 24px;
     width: 100%;
-    background-color: transparent;
-    color: #ffffff;
 `;

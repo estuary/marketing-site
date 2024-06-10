@@ -1,103 +1,118 @@
 import Chevron from '@mui/icons-material/ChevronRight';
+import { useMediaQuery } from '@mui/material';
 import clsx from 'clsx';
 import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
-import React, { useEffect, useRef } from 'react';
-import { isDesktop } from 'react-device-detect';
+import React from 'react';
 import { webinarsUrl } from '../../../../shared';
-import { OutboundLinkFilled } from '../../OutboundLink';
+import { LinkOutlined } from '../../../globalStyles';
+import Carousel from '../../Carousel';
+import { OutboundLinkOutlined } from '../../OutboundLink';
 import CardItem from '../CardItem';
-import { caseStudies, listen, read, tour } from './items';
+import {
+    ColumnWithTwoRows,
+    ImageWrapper,
+    MenuAccordion,
+    MenuAccordionButton,
+    MenuAccordionContent,
+    Slide,
+} from '../styles';
+import { caseStudies, listen, read } from './items';
 
 const Card = React.lazy(() => import('../Card'));
 
 const HeaderNavbarResources = ({ active, setActive }) => {
-    const wrapperRef: React.RefObject<HTMLDivElement> = useRef(null);
+    const isMobile = useMediaQuery('(max-width:1024px)');
 
-    const onClick = (ev) => {
-        ev.preventDefault();
-        if (!isDesktop) {
-            setActive((prev) => (prev === 'resources' ? '' : 'resources'));
+    const onClick = (ev: { preventDefault: () => void }) => {
+        if (isMobile) {
+            ev.preventDefault();
+            setActive((prev: string) =>
+                prev === 'resources' ? '' : 'resources'
+            );
         }
     };
 
-    const onMouseEnter = (ev) => {
-        ev.preventDefault();
-        if (isDesktop) setActive('resources');
-    };
-
-    const onMouseLeave = (ev) => {
-        ev.preventDefault();
-        if (isDesktop) setActive('');
-    };
-
-    useEffect(() => {
-        function handleClickOutside(event) {
-            if (
-                wrapperRef.current &&
-                !wrapperRef.current.contains(event.target) &&
-                !event.target.className?.includes?.('active')
-            ) {
-                setActive('');
-            }
+    const onMouseEnter = (ev: { preventDefault: () => void }) => {
+        if (!isMobile) {
+            ev.preventDefault();
+            setActive('resources');
         }
-
-        if (active) document.addEventListener('mousedown', handleClickOutside);
-        return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
-        };
-    }, [active, setActive]);
+    };
 
     return (
-        <>
-            <Link
-                className={clsx('global-header-link', active && 'active')}
-                to="#"
-                onClick={onClick}
-                onMouseEnter={onMouseEnter}
-            >
-                Resources
-                <Chevron className="menu-chevron" fontSize="small" />
-            </Link>
-            <React.Suspense fallback={null}>
-                <Card
-                    customRef={wrapperRef}
-                    show={active}
-                    onMouseLeave={onMouseLeave}
+        <MenuAccordion elevation={0} expanded={active}>
+            <MenuAccordionButton onClick={onClick} onMouseEnter={onMouseEnter}>
+                <Link
+                    className={clsx('global-header-link', active && 'active')}
+                    to="#"
                 >
-                    <CardItem title="READ" onlyContent items={read} />
-                    <CardItem
-                        className="no-padding"
-                        title="LISTEN"
-                        onlyContent
-                        items={listen}
-                    />
-                    <CardItem
-                        className="hide-on-mobile"
-                        title="TOUR"
-                        items={tour}
-                    />
-                    <CardItem
-                        className="hide-on-mobile"
-                        title="CASE STUDIES"
-                        items={caseStudies}
-                    />
-                    <CardItem className="hide-on-mobile" title="WEBINAR">
-                        <StaticImage
-                            src="../../../svgs/navbar-image-2.svg"
-                            alt="Estuary 101 Webinar"
+                    Resources
+                    <Chevron className="menu-chevron" fontSize="small" />
+                </Link>
+            </MenuAccordionButton>
+            <MenuAccordionContent>
+                <React.Suspense fallback={null}>
+                    <Card>
+                        <CardItem
+                            className="hide-on-mobile"
+                            title="CASE STUDIES"
+                            items={caseStudies}
+                            onlyContent
                         />
-                        <OutboundLinkFilled
-                            target="_blank"
-                            href={webinarsUrl}
-                            className="cta-button"
+                        <ColumnWithTwoRows>
+                            <CardItem title="READ" items={read} onlyContent />
+                            <CardItem
+                                className="no-padding"
+                                title="LISTEN"
+                                items={listen}
+                                onlyContent
+                            />
+                        </ColumnWithTwoRows>
+                        <CardItem
+                            className="hide-on-mobile"
+                            title="TOURS"
+                            onlyContent
                         >
-                            Watch Estuary 101
-                        </OutboundLinkFilled>
-                    </CardItem>
-                </Card>
-            </React.Suspense>
-        </>
+                            <Carousel aria-label="Tours carousel">
+                                <Slide key="header-carousel-tour-1">
+                                    <ImageWrapper>
+                                        <StaticImage
+                                            src="../../../images/product-tour-2min.png"
+                                            alt="Product tour - 2 minutes"
+                                        />
+                                    </ImageWrapper>
+                                    <LinkOutlined
+                                        target="_blank"
+                                        to="/why"
+                                        theme="dark"
+                                        $fullWidth
+                                    >
+                                        Watch Product Tour (2 min)
+                                    </LinkOutlined>
+                                </Slide>
+                                <Slide key="header-carousel-tour-2">
+                                    <ImageWrapper>
+                                        <StaticImage
+                                            src="../../../images/real-time-101-30min.png"
+                                            alt="Product tour - 2 minutes"
+                                        />
+                                    </ImageWrapper>
+                                    <OutboundLinkOutlined
+                                        target="_blank"
+                                        href={webinarsUrl}
+                                        theme="dark"
+                                        fullWidth
+                                    >
+                                        Real-time 101 (30 min)
+                                    </OutboundLinkOutlined>
+                                </Slide>
+                            </Carousel>
+                        </CardItem>
+                    </Card>
+                </React.Suspense>
+            </MenuAccordionContent>
+        </MenuAccordion>
     );
 };
 

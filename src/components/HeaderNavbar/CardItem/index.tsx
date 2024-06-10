@@ -1,27 +1,48 @@
+import Chevron from '@mui/icons-material/ChevronRight';
 import clsx from 'clsx';
 import { Link } from 'gatsby';
-import React from 'react';
+import * as React from 'react';
 import { OutboundLink } from '../../OutboundLink';
+import {
+    CardItem,
+    CardTitle,
+    Content,
+    ContentWrapper,
+    Description,
+    Icon,
+    TextWrapper,
+    Title,
+} from './styles';
 
-const ItemLink = ({ name, description, Image, to }) => {
+const ItemLink = ({ name, description, Image, to, hasChevronIcon }) => {
     const LinkElement: any = to[0] === '/' ? Link : OutboundLink;
-    const linkProps = to[0] === '/' ? { to } : { href: to };
+    const linkProps = to[0] === '/' ? { to } : { href: to, target: '_blank' };
 
     return (
-        <LinkElement {...linkProps}>
-            <div className="card-item">
+        <LinkElement {...linkProps} aria-label={`Read case study for ${name}`}>
+            <CardItem>
                 {Image ? (
-                    <div className="icon">
+                    <Icon>
                         <Image />
-                    </div>
+                    </Icon>
                 ) : null}
-                <div>
-                    <p className="title">{name}</p>
-                    {description ? (
-                        <p className="description">{description}</p>
+                <ContentWrapper>
+                    <TextWrapper>
+                        <Title>{name}</Title>
+                        {description ? (
+                            <Description className="hide-on-mobile">
+                                {description}
+                            </Description>
+                        ) : null}
+                    </TextWrapper>
+                    {hasChevronIcon ? (
+                        <Chevron
+                            className="header-chevron-icon"
+                            fontSize="small"
+                        />
                     ) : null}
-                </div>
-            </div>
+                </ContentWrapper>
+            </CardItem>
         </LinkElement>
     );
 };
@@ -37,20 +58,19 @@ const HeaderCardItem = ({
 }: any) => {
     return (
         <div {...props}>
-            <p
+            <CardTitle
                 className={clsx({
-                    'card-title': true,
                     'hide-on-mobile': onlyContent,
                 })}
             >
                 {title}
-            </p>
-            <div className="content">
+            </CardTitle>
+            <Content>
                 {items.map((item, index) => (
                     <ItemLink key={index} {...item} />
                 ))}
                 {children}
-            </div>
+            </Content>
         </div>
     );
 };

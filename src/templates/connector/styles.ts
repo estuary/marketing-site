@@ -8,12 +8,11 @@ export const ContainerIcon = styled.div`
 `;
 
 export const BreadcrumbsWrapper = styled.div`
-    max-width: 1580px;
     margin: auto;
-    padding: 40px 90px;
+    padding: 40px 0;
 
-    @media (max-width: 1280px) {
-        padding: 20px;
+    @media (max-width: 810px) {
+        padding: 40px 0 20px;
     }
 
     @media (max-width: 768px) {
