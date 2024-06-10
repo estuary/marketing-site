@@ -20,7 +20,7 @@ const ShareArticle = ({ articleTitle }: ShareArticleProps) => {
 
     const articleUrl = window.location.href;
 
-    const articleUrlToClipboard = async () => {
+    const copyArticleUrlToClipboard = async () => {
         try {
             await navigator.clipboard.writeText(articleUrl);
         } catch (error) {
@@ -33,7 +33,7 @@ const ShareArticle = ({ articleTitle }: ShareArticleProps) => {
             <span>Share this article</span>
             <SocialButtonsWrapper>
                 <CopyButton>
-                    <CopyIcon onClick={articleUrlToClipboard} />
+                    <CopyIcon onClick={copyArticleUrlToClipboard} />
                 </CopyButton>
                 <SocialLink
                     target="_blank"
