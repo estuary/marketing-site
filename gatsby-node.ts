@@ -16,7 +16,7 @@ import { normalizeConnector } from './src/utils';
 const path = require('path');
 
 // Define the template for blog and blog post
-const blogPost = path.resolve('./src/templates/blog-post.tsx');
+const blogPost = path.resolve('./src/templates/blog-post/index.tsx');
 const blog = path.resolve('./src/templates/blog.tsx');
 const comparisonTemplate = path.resolve(
     './src/templates/product-comparison.tsx'

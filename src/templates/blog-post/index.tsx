@@ -7,19 +7,20 @@ import reltime from 'dayjs/plugin/relativeTime';
 import CalendarTodayOutlined from '@mui/icons-material/CalendarTodayOutlined';
 import DoneIcon from '@mui/icons-material/Done';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import { PopularArticles } from '../components/BlogPopularArticles';
-import BlogPostPopupModal from '../components/BlogPostPopupModal';
-import { ProcessedPost } from '../components/BlogPostProcessor';
-import { RenderToc } from '../components/BlogPostToc';
-import Breadcrumbs from '../components/Breadcrumbs';
-import { OutboundLink } from '../components/OutboundLink';
-import Bio from '../components/bio';
-import Layout from '../components/layout';
-import Seo from '../components/seo';
-import logoUrl from '../images/combination-mark__multi-blue.png';
-import { costPerGB } from '../utils';
-import { SwoopingLinesBackground } from '../styles/heros';
-import BuildPipeLineBannerBackground from '../components/BackgroundImages/BuildPipelineWrapper';
+import BuildPipeLineBannerBackground from '../../components/BackgroundImages/BuildPipelineWrapper';
+import { PopularArticles } from '../../components/BlogPopularArticles';
+import BlogPostPopupModal from '../../components/BlogPostPopupModal';
+import { ProcessedPost } from '../../components/BlogPostProcessor';
+import { RenderToc } from '../../components/BlogPostToc';
+import Breadcrumbs from '../../components/Breadcrumbs';
+import { OutboundLink } from '../../components/OutboundLink';
+import Bio from '../../components/bio';
+import Layout from '../../components/layout';
+import Seo from '../../components/seo';
+import logoUrl from '../../images/combination-mark__multi-blue.png';
+import { SwoopingLinesBackground } from '../../styles/heros';
+import { costPerGB } from '../../utils';
+import ShareArticle from './ShareArticle';
 
 dayjs.extend(reltime);
 
@@ -28,7 +29,7 @@ const BlogPostTemplate = ({ data: { post } }) => {
 
     /* const authorImage = post?.authors[0]?.picture && getImage(post.authors[0].picture.localFile.childImageSharp.gatsbyImageData)
 
-const authorSocialLink = post?.authors[0]?.link */
+    const authorSocialLink = post?.authors[0]?.link */
 
     return (
         <Layout>
@@ -100,6 +101,9 @@ const authorSocialLink = post?.authors[0]?.link */
                                 loading="eager"
                             />
                         ) : null}
+                        <div className="share-article-mobile">
+                            <ShareArticle articleTitle={post.title} />
+                        </div>
                     </div>
                 </SwoopingLinesBackground>
 
@@ -128,6 +132,9 @@ const authorSocialLink = post?.authors[0]?.link */
                             </div>
 
                             <div className="post-sidebar">
+                                <div className="share-article-desktop">
+                                    <ShareArticle articleTitle={post.title} />
+                                </div>
                                 <RenderToc
                                     items={
                                         post.body.data.childHtmlRehype
