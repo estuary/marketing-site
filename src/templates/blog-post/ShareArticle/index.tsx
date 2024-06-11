@@ -9,6 +9,7 @@ import TwitterXOutlinedIcon from '../../../svgs/share-social-icons/twitter-x-out
 import {
     Container,
     CopyButton,
+    FailedCopyInput,
     SocialButtonsWrapper,
     SocialLink,
 } from './styles';
@@ -22,6 +23,7 @@ type ShareArticleProps = {
 
 const ShareArticle = ({ article: { title, slug } }: ShareArticleProps) => {
     const [isCopied, setIsCopied] = React.useState(false);
+    const [isCopyFailed, setIsCopyFailed] = React.useState(false);
 
     const shareMessage = `Check out the article "${title}"`;
 
@@ -31,15 +33,16 @@ const ShareArticle = ({ article: { title, slug } }: ShareArticleProps) => {
         try {
             await navigator.clipboard.writeText(articleUrl);
             setIsCopied(true);
+            setIsCopyFailed(false);
         } catch (error) {
-            // Todo: treat this possible error
+            setIsCopyFailed(true);
         }
     };
 
     const handleTooltipClose = () => {
         setTimeout(() => {
             setIsCopied(false);
-        }, 2000);
+        }, 800);
     };
 
     return (
@@ -104,6 +107,9 @@ const ShareArticle = ({ article: { title, slug } }: ShareArticleProps) => {
                 >
                     <EmailOutlinedIcon />
                 </SocialLink>
+                {isCopyFailed ? (
+                    <FailedCopyInput value={articleUrl} variant="filled" />
+                ) : null}
             </SocialButtonsWrapper>
         </Container>
     );

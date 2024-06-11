@@ -1,3 +1,4 @@
+import { TextField } from '@mui/material';
 import { styled } from 'styled-components';
 import { OutboundLink } from '../../../components/OutboundLink';
 
@@ -40,6 +41,10 @@ const baseSocialButtonStyling = `
   background-color: #FFFFFF;
   cursor: pointer;
 
+  &:hover {
+    background-color: #f9fafc;
+  }
+
   @media (max-width: 1150px) {
     width: 48px;
     height: 48px;
@@ -51,15 +56,24 @@ export const CopyButton = styled.button<{ isCopied: boolean }>`
 
     transition: background-color, border 300ms ease-in-out;
 
-    background-color: ${(props) =>
-        props.isCopied ? '#00A99D30' : 'transparent'};
+    background-color: ${(props) => (props.isCopied ? '#00A99D30' : '#FFFFFF')};
     border-color: ${(props) => (props.isCopied ? '#00A99D' : '#D7DCE5')};
+
+    &:hover {
+        background-color: ${(props) =>
+            props.isCopied ? '#00A99D30' : '#f9fafc'};
+        border-color: ${(props) => (props.isCopied ? '#00A99D' : '#D7DCE5')};
+    }
 `;
 
 export const SocialLink = styled(OutboundLink)`
     ${baseSocialButtonStyling}
+`;
 
-    &:hover {
-        background-color: #f9fafc;
+export const FailedCopyInput = styled(TextField)`
+    width: 100%;
+
+    .MuiInputBase-input {
+        padding: 12px;
     }
 `;
