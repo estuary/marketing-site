@@ -4,7 +4,7 @@ import * as React from 'react';
 import CopyIcon from '../../../svgs/share-social-icons/copy.svg';
 import EmailOutlinedIcon from '../../../svgs/share-social-icons/email-outlined.svg';
 import FacebookOutlinedIcon from '../../../svgs/share-social-icons/facebook-outlined.svg';
-import SlackOutlinedIcon from '../../../svgs/share-social-icons/slack-outlined.svg';
+import LinkedinOutlinedIcon from '../../../svgs/share-social-icons/linkedin-outlined.svg';
 import TwitterXOutlinedIcon from '../../../svgs/share-social-icons/twitter-x-outlined.svg';
 import {
     Container,
@@ -80,8 +80,7 @@ const ShareArticle = ({ article: { title, slug } }: ShareArticleProps) => {
                     aria-label={getSocialLinkAriaLabel('Linkedin')}
                     href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURI(articleUrl)}`}
                 >
-                    <SlackOutlinedIcon />{' '}
-                    {/* TODO: replace this icon with Linkedin one */}
+                    <LinkedinOutlinedIcon />
                 </SocialLink>
                 <SocialLink
                     target="_blank"
