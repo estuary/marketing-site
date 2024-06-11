@@ -37,6 +37,7 @@ const HeaderNavbar = () => {
                     setActive={setActiveMenu}
                 />
                 <OutboundLink
+                    target="_blank"
                     className="global-header-link"
                     href="https://docs.estuary.dev"
                     onMouseEnter={closeMenus}
