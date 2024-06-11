@@ -29,6 +29,9 @@ const ShareArticle = ({ article: { title, slug } }: ShareArticleProps) => {
 
     const articleUrl = `https://estuary.dev/${slug}`;
 
+    const getSocialLinkAriaLabel = (platform: string) =>
+        `Click to share article on ${platform}`;
+
     const copyArticleUrlToClipboard = async () => {
         try {
             await navigator.clipboard.writeText(articleUrl);
@@ -80,7 +83,7 @@ const ShareArticle = ({ article: { title, slug } }: ShareArticleProps) => {
                 </Tooltip>
                 <SocialLink
                     target="_blank"
-                    aria-label="Share article in Linkedin"
+                    aria-label={getSocialLinkAriaLabel('Linkedin')}
                     href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURI(articleUrl)}`}
                 >
                     <SlackOutlinedIcon />{' '}
@@ -88,21 +91,21 @@ const ShareArticle = ({ article: { title, slug } }: ShareArticleProps) => {
                 </SocialLink>
                 <SocialLink
                     target="_blank"
-                    aria-label="Share article in X (Twitter)"
+                    aria-label={getSocialLinkAriaLabel('X (Twitter)')}
                     href={`https://twitter.com/intent/tweet?url=${encodeURI(articleUrl)}&text=${encodeURI(`${shareMessage}:`)}`}
                 >
                     <TwitterXOutlinedIcon />
                 </SocialLink>
                 <SocialLink
                     target="_blank"
-                    aria-label="Share article in Facebook"
+                    aria-label={getSocialLinkAriaLabel('Facebook')}
                     href={`https://facebook.com/sharer/sharer.php?u=${encodeURI(articleUrl)}`}
                 >
                     <FacebookOutlinedIcon />
                 </SocialLink>
                 <SocialLink
                     target="_blank"
-                    aria-label="Share article in email"
+                    aria-label={getSocialLinkAriaLabel('email')}
                     href={`mailto:?subject=${encodeURI('Checkout this amazing article!')}&body=${encodeURI(`${`${shareMessage}:`} ${articleUrl}`)}`}
                 >
                     <EmailOutlinedIcon />
