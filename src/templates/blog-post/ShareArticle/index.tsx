@@ -32,20 +32,18 @@ const ShareArticle = ({ article: { title, slug } }: ShareArticleProps) => {
     const getSocialLinkAriaLabel = (platform: string) =>
         `Click to share article on ${platform}`;
 
-    const copyArticleUrlToClipboard = async () => {
-        try {
-            await navigator.clipboard.writeText(articleUrl);
-            setIsCopied(true);
-            setIsCopyFailed(false);
-        } catch (error) {
-            setIsCopyFailed(true);
-        }
-    };
-
-    const handleTooltipClose = () => {
-        setTimeout(() => {
-            setIsCopied(false);
-        }, 800);
+    const copyToClipboard = () => {
+        navigator.clipboard.writeText(articleUrl).then(
+            () => {
+                setIsCopied(true);
+                setIsCopyFailed(false);
+                setTimeout(() => setIsCopied(false), 2000);
+            },
+            () => {
+                setIsCopied(false);
+                setIsCopyFailed(false);
+            }
+        );
     };
 
     return (
@@ -56,7 +54,6 @@ const ShareArticle = ({ article: { title, slug } }: ShareArticleProps) => {
                     title="Copied"
                     arrow
                     open={isCopied}
-                    onClose={handleTooltipClose}
                     slotProps={{
                         popper: {
                             modifiers: [
@@ -70,10 +67,7 @@ const ShareArticle = ({ article: { title, slug } }: ShareArticleProps) => {
                         },
                     }}
                 >
-                    <CopyButton
-                        onClick={copyArticleUrlToClipboard}
-                        isCopied={isCopied}
-                    >
+                    <CopyButton onClick={copyToClipboard} isCopied={isCopied}>
                         {isCopied ? (
                             <CheckIcon fontSize="small" htmlColor="#00A99D" />
                         ) : (
