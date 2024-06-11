@@ -137,7 +137,7 @@ const Footer = () => {
 
                         <OutboundLink
                             className="global-footer-copyright-link"
-                            href="https://www.estuary.dev/"
+                            href="https://estuary.dev/"
                         >
                             estuary.dev
                         </OutboundLink>
@@ -160,7 +160,7 @@ const Footer = () => {
                         </OutboundLink>
                         <OutboundLink
                             target="_blank"
-                            href="https://www.linkedin.com/company/65266256/"
+                            href="https://www.linkedin.com/company/estuary-tech/"
                             aria-label="Linkedin Company Link"
                         >
                             <LinkedinIcon className="social-icon-footer" />

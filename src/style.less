@@ -2973,8 +2973,7 @@ table th {
     font-size: 1.75rem;
   }
 
-  .section-two-header-vectors {
-  }
+  .section-two-header-vectors {}
 
   .section-two-first-graphic-wrapper {
     margin-left: 20px;
@@ -3028,8 +3027,7 @@ table th {
     font-size: 0.625rem;
   }
 
-  .react-player {
-  }
+  .react-player {}
 
   .section-three-try-it-button,
   .section-four-try-it-button,
@@ -5911,6 +5909,23 @@ table th {
     }
   }
 
+  .share-article-mobile {
+    display: none;
+
+    @media (max-width: 1150px) {
+      display: flex;
+      margin-right: auto;
+    }
+  }
+
+  .share-article-desktop {
+    display: flex;
+
+    @media (max-width: 1150px) {
+      display: none;
+    }
+  }
+
   .post-content {
     max-width: calc(100% - 422px);
     width: 100%;
@@ -6170,6 +6185,10 @@ table th {
       font-size: 1.25rem;
       line-height: 30px;
       color: #04192b;
+    }
+
+    @media (max-width: 1150px) {
+      margin-top: 0;
     }
   }
 
