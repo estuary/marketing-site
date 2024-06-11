@@ -12,13 +12,16 @@ import {
 } from './styles';
 
 type ShareArticleProps = {
-    articleTitle: string;
+    article: {
+        title: string;
+        slug: string;
+    };
 };
 
-const ShareArticle = ({ articleTitle }: ShareArticleProps) => {
-    const shareMessage = `Check out the article "${articleTitle}"`;
+const ShareArticle = ({ article: { title, slug } }: ShareArticleProps) => {
+    const shareMessage = `Check out the article "${title}"`;
 
-    const articleUrl = window.location.href;
+    const articleUrl = `https://estuary.dev/${slug}`;
 
     const copyArticleUrlToClipboard = async () => {
         try {

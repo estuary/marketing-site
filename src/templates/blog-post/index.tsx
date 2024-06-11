@@ -102,7 +102,12 @@ const BlogPostTemplate = ({ data: { post } }) => {
                             />
                         ) : null}
                         <div className="share-article-mobile">
-                            <ShareArticle articleTitle={post.title} />
+                            <ShareArticle
+                                article={{
+                                    title: post.title,
+                                    slug: post.slug,
+                                }}
+                            />
                         </div>
                     </div>
                 </SwoopingLinesBackground>
@@ -133,7 +138,12 @@ const BlogPostTemplate = ({ data: { post } }) => {
 
                             <div className="post-sidebar">
                                 <div className="share-article-desktop">
-                                    <ShareArticle articleTitle={post.title} />
+                                    <ShareArticle
+                                        article={{
+                                            title: post.title,
+                                            slug: post.slug,
+                                        }}
+                                    />
                                 </div>
                                 <RenderToc
                                     items={
