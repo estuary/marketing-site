@@ -1,3 +1,5 @@
+import CheckIcon from '@mui/icons-material/Check';
+import Tooltip from '@mui/material/Tooltip';
 import * as React from 'react';
 import CopyIcon from '../../../svgs/share-social-icons/copy.svg';
 import EmailOutlinedIcon from '../../../svgs/share-social-icons/email-outlined.svg';
@@ -19,6 +21,8 @@ type ShareArticleProps = {
 };
 
 const ShareArticle = ({ article: { title, slug } }: ShareArticleProps) => {
+    const [isCopied, setIsCopied] = React.useState(false);
+
     const shareMessage = `Check out the article "${title}"`;
 
     const articleUrl = `https://estuary.dev/${slug}`;
@@ -26,18 +30,51 @@ const ShareArticle = ({ article: { title, slug } }: ShareArticleProps) => {
     const copyArticleUrlToClipboard = async () => {
         try {
             await navigator.clipboard.writeText(articleUrl);
+            setIsCopied(true);
         } catch (error) {
             // Todo: treat this possible error
         }
+    };
+
+    const handleTooltipClose = () => {
+        setTimeout(() => {
+            setIsCopied(false);
+        }, 2000);
     };
 
     return (
         <Container>
             <span>Share this article</span>
             <SocialButtonsWrapper>
-                <CopyButton>
-                    <CopyIcon onClick={copyArticleUrlToClipboard} />
-                </CopyButton>
+                <Tooltip
+                    title="Copied"
+                    arrow
+                    open={isCopied}
+                    onClose={handleTooltipClose}
+                    slotProps={{
+                        popper: {
+                            modifiers: [
+                                {
+                                    name: 'offset',
+                                    options: {
+                                        offset: [0, -4],
+                                    },
+                                },
+                            ],
+                        },
+                    }}
+                >
+                    <CopyButton
+                        onClick={copyArticleUrlToClipboard}
+                        isCopied={isCopied}
+                    >
+                        {isCopied ? (
+                            <CheckIcon fontSize="small" htmlColor="#00A99D" />
+                        ) : (
+                            <CopyIcon />
+                        )}
+                    </CopyButton>
+                </Tooltip>
                 <SocialLink
                     target="_blank"
                     aria-label="Share article in Linkedin"

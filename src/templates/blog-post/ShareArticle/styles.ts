@@ -40,20 +40,26 @@ const baseSocialButtonStyling = `
   background-color: #FFFFFF;
   cursor: pointer;
 
-  &:hover {
-    background-color: #F9FAFC;
-  }
-
   @media (max-width: 1150px) {
     width: 48px;
     height: 48px;
   }
 `;
 
-export const CopyButton = styled.button`
+export const CopyButton = styled.button<{ isCopied: boolean }>`
     ${baseSocialButtonStyling}
+
+    transition: background-color, border 300ms ease-in-out;
+
+    background-color: ${(props) =>
+        props.isCopied ? '#00A99D30' : 'transparent'};
+    border-color: ${(props) => (props.isCopied ? '#00A99D' : '#D7DCE5')};
 `;
 
 export const SocialLink = styled(OutboundLink)`
     ${baseSocialButtonStyling}
+
+    &:hover {
+        background-color: #f9fafc;
+    }
 `;
