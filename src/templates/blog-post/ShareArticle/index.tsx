@@ -67,7 +67,7 @@ const ShareArticle = ({ article: { title, slug } }: ShareArticleProps) => {
                         },
                     }}
                 >
-                    <CopyButton onClick={copyToClipboard} isCopied={isCopied}>
+                    <CopyButton onClick={copyToClipboard} $isCopied={isCopied}>
                         {isCopied ? (
                             <CheckIcon fontSize="small" htmlColor="#00A99D" />
                         ) : (

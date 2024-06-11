@@ -51,18 +51,18 @@ const baseSocialButtonStyling = `
   }
 `;
 
-export const CopyButton = styled.button<{ isCopied: boolean }>`
+export const CopyButton = styled.button<{ $isCopied: boolean }>`
     ${baseSocialButtonStyling}
 
     transition: background-color, border 300ms ease-in-out;
 
-    background-color: ${(props) => (props.isCopied ? '#00A99D30' : '#FFFFFF')};
-    border-color: ${(props) => (props.isCopied ? '#00A99D' : '#D7DCE5')};
+    background-color: ${(props) => (props.$isCopied ? '#00A99D30' : '#FFFFFF')};
+    border-color: ${(props) => (props.$isCopied ? '#00A99D' : '#D7DCE5')};
 
     &:hover {
         background-color: ${(props) =>
-            props.isCopied ? '#00A99D30' : '#f9fafc'};
-        border-color: ${(props) => (props.isCopied ? '#00A99D' : '#D7DCE5')};
+            props.$isCopied ? '#00A99D30' : '#f9fafc'};
+        border-color: ${(props) => (props.$isCopied ? '#00A99D' : '#D7DCE5')};
     }
 `;
 
