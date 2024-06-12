@@ -17,9 +17,8 @@ import {
     MenuAccordionContent,
     Slide,
 } from '../styles';
+import Card from '../Card';
 import { caseStudies, listen, read } from './items';
-
-const Card = React.lazy(() => import('../Card'));
 
 const HeaderNavbarResources = ({ active, setActive }) => {
     const isMobile = useMediaQuery('(max-width:1024px)');
@@ -52,65 +51,63 @@ const HeaderNavbarResources = ({ active, setActive }) => {
                 </Link>
             </MenuAccordionButton>
             <MenuAccordionContent>
-                <React.Suspense fallback={null}>
-                    <Card>
+                <Card>
+                    <CardItem
+                        className="hide-on-mobile"
+                        title="CASE STUDIES"
+                        items={caseStudies}
+                        onlyContent
+                    />
+                    <ColumnWithTwoRows>
+                        <CardItem title="READ" items={read} onlyContent />
                         <CardItem
-                            className="hide-on-mobile"
-                            title="CASE STUDIES"
-                            items={caseStudies}
+                            className="no-padding"
+                            title="LISTEN"
+                            items={listen}
                             onlyContent
                         />
-                        <ColumnWithTwoRows>
-                            <CardItem title="READ" items={read} onlyContent />
-                            <CardItem
-                                className="no-padding"
-                                title="LISTEN"
-                                items={listen}
-                                onlyContent
-                            />
-                        </ColumnWithTwoRows>
-                        <CardItem
-                            className="hide-on-mobile"
-                            title="TOURS"
-                            onlyContent
-                        >
-                            <Carousel aria-label="Tours carousel">
-                                <Slide key="header-carousel-tour-1">
-                                    <ImageWrapper>
-                                        <StaticImage
-                                            src="../../../images/product-tour-2min.png"
-                                            alt="Product tour - 2 minutes"
-                                        />
-                                    </ImageWrapper>
-                                    <LinkOutlined
-                                        target="_blank"
-                                        to="/why"
-                                        theme="dark"
-                                        $fullWidth
-                                    >
-                                        Watch Product Tour (2 min)
-                                    </LinkOutlined>
-                                </Slide>
-                                <Slide key="header-carousel-tour-2">
-                                    <ImageWrapper>
-                                        <StaticImage
-                                            src="../../../images/real-time-101-30min.png"
-                                            alt="Product tour - 2 minutes"
-                                        />
-                                    </ImageWrapper>
-                                    <OutboundLinkOutlined
-                                        target="_blank"
-                                        href={webinarsUrl}
-                                        theme="dark"
-                                        fullWidth
-                                    >
-                                        Real-time 101 (30 min)
-                                    </OutboundLinkOutlined>
-                                </Slide>
-                            </Carousel>
-                        </CardItem>
-                    </Card>
-                </React.Suspense>
+                    </ColumnWithTwoRows>
+                    <CardItem
+                        className="hide-on-mobile"
+                        title="TOURS"
+                        onlyContent
+                    >
+                        <Carousel aria-label="Tours carousel">
+                            <Slide key="header-carousel-tour-1">
+                                <ImageWrapper>
+                                    <StaticImage
+                                        src="../../../images/product-tour-2min.png"
+                                        alt="Product tour - 2 minutes"
+                                    />
+                                </ImageWrapper>
+                                <LinkOutlined
+                                    target="_blank"
+                                    to="/why"
+                                    theme="dark"
+                                    $fullWidth
+                                >
+                                    Watch Product Tour (2 min)
+                                </LinkOutlined>
+                            </Slide>
+                            <Slide key="header-carousel-tour-2">
+                                <ImageWrapper>
+                                    <StaticImage
+                                        src="../../../images/real-time-101-30min.png"
+                                        alt="Product tour - 2 minutes"
+                                    />
+                                </ImageWrapper>
+                                <OutboundLinkOutlined
+                                    target="_blank"
+                                    href={webinarsUrl}
+                                    theme="dark"
+                                    fullWidth
+                                >
+                                    Real-time 101 (30 min)
+                                </OutboundLinkOutlined>
+                            </Slide>
+                        </Carousel>
+                    </CardItem>
+                </Card>
             </MenuAccordionContent>
         </MenuAccordion>
     );

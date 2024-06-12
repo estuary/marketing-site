@@ -207,7 +207,18 @@ const cfg: GatsbyConfig = {
             },
         },
         'gatsby-plugin-less',
-        'gatsby-plugin-styled-components',
+        {
+            resolve: 'gatsby-plugin-styled-components',
+            options: {
+                minify: true,
+                transpileTemplateLiterals: false,
+                pure: true,
+                displayName: true,
+                fileName: true,
+                preprocess: false,
+                meaninglessFileNames: ['index', 'styles'],
+            },
+        },
         {
             resolve: 'gatsby-plugin-local-search',
             options: {
