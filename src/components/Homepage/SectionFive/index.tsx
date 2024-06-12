@@ -21,7 +21,7 @@ const SectionFive = () => {
         <Container>
             <Wrapper>
                 <Title>
-                    <span>Built </span>
+                    <span>Build </span>
                     in minutes
                 </Title>
                 <Description>
