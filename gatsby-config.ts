@@ -210,13 +210,13 @@ const cfg: GatsbyConfig = {
         {
             resolve: 'gatsby-plugin-styled-components',
             options: {
-                minify: true,
-                transpileTemplateLiterals: false,
-                pure: true,
-                displayName: true,
-                fileName: true,
+                minify: true, // Should be safe to minify
+                transpileTemplateLiterals: false, // Setting to false just to be safe - think we can remove in future
+                pure: true, // I _think_ our styled components are all pure so this should be good
+                displayName: false, // Good to enable when debugging - but should not be needed for production
+                fileName: true, // We want to use the file in the style name
                 preprocess: false,
-                meaninglessFileNames: ['index', 'styles'],
+                meaninglessFileNames: ['index', 'styles'], // Having these two files names in the class name isn't too valuable
             },
         },
         {
