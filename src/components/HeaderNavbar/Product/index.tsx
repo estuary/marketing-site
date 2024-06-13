@@ -1,7 +1,4 @@
-import Chevron from '@mui/icons-material/ChevronRight';
 import { useMediaQuery } from '@mui/material';
-import clsx from 'clsx';
-import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { webinarsUrl } from '../../../../shared';
@@ -17,6 +14,7 @@ import {
 } from '../styles';
 import Card from '../Card';
 import { compare, products } from './items';
+import ProductLink from './Link';
 
 const HeaderNavbarProduct = ({ active, setActive }) => {
     const isMobile = useMediaQuery('(max-width:1024px)');
@@ -38,13 +36,7 @@ const HeaderNavbarProduct = ({ active, setActive }) => {
     return (
         <MenuAccordion elevation={0} expanded={active}>
             <MenuAccordionButton onClick={onClick} onMouseEnter={onMouseEnter}>
-                <Link
-                    className={clsx('global-header-link', active && 'active')}
-                    to="#"
-                >
-                    Product
-                    <Chevron className="menu-chevron" fontSize="small" />
-                </Link>
+                <ProductLink active={active} />
             </MenuAccordionButton>
             <MenuAccordionContent>
                 <Card>
