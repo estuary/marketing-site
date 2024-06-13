@@ -5,9 +5,9 @@ import { useEffect, useRef, useState } from 'react';
 import ColoredLogo from '../svgs/colored-logo.svg';
 import GithubIcon from '../svgs/github-outline.svg';
 import SlackIcon from '../svgs/slack-outline.svg';
-import { OutboundLink, OutboundLinkFilled } from './OutboundLink';
 import HeaderNavbar from './HeaderNavbar';
 import HeaderNavBarBackground from './HeaderNavbar/Background';
+import { OutboundLink, OutboundLinkFilled } from './OutboundLink';
 
 /* const useNavItems = () => {
   const queryResults = useStaticQuery(graphql`
@@ -124,11 +124,15 @@ const MenuBarsImage = () => (
     </svg>
 );
 
-const Header = ({ fixedHeader }: { fixedHeader?: boolean }) => {
+type HeaderProps = {
+    fixedHeader?: boolean;
+};
+
+const Header = ({ fixedHeader }: HeaderProps) => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [activeMenu, setActiveMenu] = useState<string | null>(null);
 
-    const wrapperRef: React.RefObject<HTMLDivElement> = useRef(null);
+    const wrapperRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
         function handleClickOutside(event) {
