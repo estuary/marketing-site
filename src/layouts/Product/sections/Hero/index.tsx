@@ -1,9 +1,10 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { DefaultWrapperDarkBlue } from '../../../../styles/wrappers';
-import Cards from './Cards';
+import Card from './Card';
 import {
     ButtonsContainer,
+    Cards,
     Container,
     ContainerContent,
     Description,
@@ -48,7 +49,40 @@ const ProductHero = () => {
                     />
                 </ImageContainer>
             </Container>
-            <Cards />
+            <Cards>
+                <Card
+                    title="SEE OVERVIEW"
+                    description="Learn how to build a pipeline in minutes."
+                    isActive
+                    icon={
+                        <StaticImage
+                            src="../../../../svgs/product-page/record-outlined.svg"
+                            alt="Watch a video to build a pipeline in minutes"
+                        />
+                    }
+                />
+                <Card
+                    title="QUICKSTART"
+                    description="Create a free account and use a tutorial for a pipeline."
+                    icon={
+                        <StaticImage
+                            src="../../../../svgs/product-page/sign-up-outlined.svg"
+                            alt="Register now and learn how to create a pipeline with our tutorial"
+                        />
+                    }
+                />
+                <Card
+                    title="JOIN COMMUNITY"
+                    description="Connect with others, and ask the experts."
+                    icon={
+                        <StaticImage
+                            src="../../../../svgs/product-page/slack-outlined.svg"
+                            alt="Join the Estuary community and receive support from experts"
+                            style={{ color: '#5072EB' }}
+                        />
+                    }
+                />
+            </Cards>
         </DefaultWrapperDarkBlue>
     );
 };

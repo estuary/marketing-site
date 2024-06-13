@@ -13,6 +13,19 @@ export const Container = styled.div`
     margin-bottom: 60px;
 `;
 
+export const Cards = styled.div`
+    ${globalMaxWidth}
+
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    gap: 20px;
+
+    @media (min-width: 1024px) {
+        flex-direction: row;
+    }
+`;
+
 export const ImageContainer = styled.div`
     width: 45%;
 `;
