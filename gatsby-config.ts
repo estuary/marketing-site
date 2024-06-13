@@ -209,11 +209,11 @@ const cfg: GatsbyConfig = {
         'gatsby-plugin-less',
         {
             resolve: 'gatsby-plugin-styled-components',
+            // https://styled-components.com/docs/tooling#babel-plugin
             options: {
-                minify: true, // Should be safe to minify
+                ssr: false, // We need this to prevent mismatch errors
                 transpileTemplateLiterals: false, // Setting to false just to be safe - think we can remove in future
-                pure: true, // I _think_ our styled components are all pure so this should be good
-                displayName: false, // Good to enable when debugging - but should not be needed for production
+                displayName: true, // Good to enable when debugging - but should not be needed for production
                 fileName: true, // We want to use the file in the style name
                 preprocess: false,
                 meaninglessFileNames: ['index', 'styles'], // Having these two files names in the class name isn't too valuable

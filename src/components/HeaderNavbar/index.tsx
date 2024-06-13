@@ -1,23 +1,18 @@
 import { Link } from 'gatsby';
-import React, { Suspense, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import { OutboundLink } from '../OutboundLink';
-import ProductLink from './Product/Link';
-import ResourcesLink from './Resources/Link';
-
-const LinkProduct = React.lazy(() => import('./Product'));
-const LinkResources = React.lazy(() => import('./Resources'));
+import LinkProduct from './Product';
+import LinkResources from './Resources';
 
 const HeaderNavbar = ({ activeMenu, setActiveMenu }) => {
     const closeMenus = useCallback(() => setActiveMenu(''), [setActiveMenu]);
 
     return (
         <div className="global-header-links" onMouseLeave={closeMenus}>
-            <Suspense fallback={<ProductLink active={false} />}>
-                <LinkProduct
-                    active={activeMenu === 'product'}
-                    setActive={setActiveMenu}
-                />
-            </Suspense>
+            <LinkProduct
+                active={activeMenu === 'product'}
+                setActive={setActiveMenu}
+            />
             <Link
                 onMouseEnter={closeMenus}
                 className="global-header-link"
@@ -32,12 +27,10 @@ const HeaderNavbar = ({ activeMenu, setActiveMenu }) => {
             >
                 Connectors
             </Link>
-            <Suspense fallback={<ResourcesLink active={false} />}>
-                <LinkResources
-                    active={activeMenu === 'resources'}
-                    setActive={setActiveMenu}
-                />
-            </Suspense>
+            <LinkResources
+                active={activeMenu === 'resources'}
+                setActive={setActiveMenu}
+            />
             <OutboundLink
                 target="_blank"
                 className="global-header-link"
