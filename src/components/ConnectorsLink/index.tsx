@@ -53,9 +53,9 @@ const ConnectorsLink = ({
             }
         }
     `);
-
     const [captureConnectors, materializationConnectors] = useMemo(() => {
         const mapped: ReturnType<typeof normalizeConnector>[] = connectors
+            .filter((connector) => connector.logo !== null)
             .filter(
                 (connector) =>
                     connector?.connectorTagsByConnectorIdList?.length > 0
