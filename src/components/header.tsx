@@ -210,18 +210,7 @@ const Header = ({ fixedHeader }: HeaderProps) => {
                             <OutboundLinkFilled
                                 target="_blank"
                                 href="https://dashboard.estuary.dev/register"
-                                style={{
-                                    textDecoration: 'none',
-                                    width: 'fit-content',
-                                    minWidth: '124px',
-                                    height: '40px',
-                                    textAlign: 'center',
-                                    marginTop: 'auto',
-                                    marginBottom: 'auto',
-                                    fontFamily: "'Inter', sans-serif",
-                                    fontStyle: 'normal',
-                                    // textWrap: "nowrap",
-                                }}
+                                className="global-header-try-it-button"
                             >
                                 Try it free
                             </OutboundLinkFilled>
