@@ -1,5 +1,5 @@
 import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material';
-import { styled } from 'styled-components';
+import styled from 'styled-components';
 
 export const ImageWrapper = styled.div`
     padding: 8px;
@@ -59,7 +59,9 @@ export const MenuAccordionContent = styled(AccordionDetails)`
     padding: 0 !important;
 `;
 
-export const MenuBackground = styled.div<{ $isMenuOpen?: boolean }>`
+export const MenuBackground = styled.div`
+    display: none;
+
     @media (min-width: 1024px) {
         position: fixed;
         top: 116px;
@@ -67,7 +69,7 @@ export const MenuBackground = styled.div<{ $isMenuOpen?: boolean }>`
         transform: translateX(-50%);
         width: 100vw;
         height: 100vh;
-        display: ${({ $isMenuOpen }) => ($isMenuOpen ? 'flex' : 'none')};
+        display: flex;
         background-color: rgba(0, 0, 0, 0.6);
     }
 `;

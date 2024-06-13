@@ -12,7 +12,7 @@ const HeaderNavbar = () => {
 
     return (
         <>
-            <MenuBackground $isMenuOpen={!!activeMenu} />
+            {activeMenu ? <MenuBackground /> : null}
             <div className="global-header-links" onMouseLeave={closeMenus}>
                 <LinkProduct
                     active={activeMenu === 'product'}

@@ -1,5 +1,5 @@
 import { TextField } from '@mui/material';
-import { styled } from 'styled-components';
+import styled from 'styled-components';
 import { OutboundLink } from '../../../components/OutboundLink';
 
 export const Container = styled.div`
