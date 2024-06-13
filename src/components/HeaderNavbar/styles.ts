@@ -1,5 +1,5 @@
 import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material';
-import { styled } from 'styled-components';
+import styled from 'styled-components';
 
 export const ImageWrapper = styled.div`
     padding: 8px;
