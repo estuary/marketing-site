@@ -6,8 +6,8 @@ import ColoredLogo from '../svgs/colored-logo.svg';
 import GithubIcon from '../svgs/github-outline.svg';
 import SlackIcon from '../svgs/slack-outline.svg';
 import { OutboundLink, OutboundLinkFilled } from './OutboundLink';
-
 import HeaderNavbar from './HeaderNavbar';
+import HeaderNavBarBackground from './HeaderNavbar/Background';
 
 /* const useNavItems = () => {
   const queryResults = useStaticQuery(graphql`
@@ -124,11 +124,11 @@ const MenuBarsImage = () => (
     </svg>
 );
 
-const Header = (props: { fixedHeader?: boolean }) => {
+const Header = ({ fixedHeader }: { fixedHeader?: boolean }) => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const wrapperRef: React.RefObject<HTMLDivElement> = useRef(null);
+    const [activeMenu, setActiveMenu] = useState<string | null>(null);
 
-    const { fixedHeader } = props;
+    const wrapperRef: React.RefObject<HTMLDivElement> = useRef(null);
 
     useEffect(() => {
         function handleClickOutside(event) {
@@ -147,7 +147,10 @@ const Header = (props: { fixedHeader?: boolean }) => {
     }, [wrapperRef]);
 
     return (
-        <div className={clsx(mobileMenuOpen && 'menu-background')}>
+        <>
+            <HeaderNavBarBackground
+                menuOpen={Boolean(mobileMenuOpen || activeMenu)}
+            />
             <header
                 className={clsx('header', fixedHeader && 'global-header-fixed')}
                 ref={wrapperRef}
@@ -164,10 +167,14 @@ const Header = (props: { fixedHeader?: boolean }) => {
                         <div
                             className={clsx(
                                 'global-header-link-wrapper',
-                                mobileMenuOpen && 'is-open'
+                                Boolean(mobileMenuOpen || activeMenu) &&
+                                    'is-open'
                             )}
                         >
-                            <HeaderNavbar />
+                            <HeaderNavbar
+                                activeMenu={activeMenu}
+                                setActiveMenu={setActiveMenu}
+                            />
                         </div>
                         <div className="header-social-icons">
                             <OutboundLink
@@ -189,6 +196,7 @@ const Header = (props: { fixedHeader?: boolean }) => {
                         </div>
                         <div className="global-header-login-try">
                             <OutboundLink
+                                target="_blank"
                                 className="global-header-link"
                                 href="https://dashboard.estuary.dev"
                                 style={{ marginRight: '1rem' }}
@@ -198,7 +206,18 @@ const Header = (props: { fixedHeader?: boolean }) => {
                             <OutboundLinkFilled
                                 target="_blank"
                                 href="https://dashboard.estuary.dev/register"
-                                className="global-header-try-it-button"
+                                style={{
+                                    textDecoration: 'none',
+                                    width: 'fit-content',
+                                    minWidth: '124px',
+                                    height: '40px',
+                                    textAlign: 'center',
+                                    marginTop: 'auto',
+                                    marginBottom: 'auto',
+                                    fontFamily: "'Inter', sans-serif",
+                                    fontStyle: 'normal',
+                                    // textWrap: "nowrap",
+                                }}
                             >
                                 Try it free
                             </OutboundLinkFilled>
@@ -215,7 +234,7 @@ const Header = (props: { fixedHeader?: boolean }) => {
                     </div>
                 </div>
             </header>
-        </div>
+        </>
     );
 };
 
