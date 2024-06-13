@@ -1,58 +1,55 @@
-import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
-import { DefaultWrapper } from '../../../../styles/wrappers';
-import Accordion from './components/Accordion';
-import Cards from './components/Cards';
+import React from 'react';
+import { DefaultWrapperDarkBlue } from '../../../../styles/wrappers';
+import Cards from './Cards';
 import {
-    ContainerHeader,
-    ContainerImage,
-    Title,
-    ContainerButton,
-    Button,
-    ActionLink,
-    Description,
+    ButtonsContainer,
+    Container,
     ContainerContent,
+    Description,
+    ImageContainer,
+    PrimaryButton,
+    SecondaryButton,
+    Title,
 } from './style';
 
 const ProductHero = () => {
     return (
-        <DefaultWrapper>
-            <ContainerHeader>
-                <ContainerImage>
-                    <StaticImage
-                        placeholder="none"
-                        src="../../../../images/lp-product/hero.png"
-                        alt="Screenshot of dashboard"
-                        layout="constrained"
-                        loading="eager"
-                    />
-                </ContainerImage>
+        <DefaultWrapperDarkBlue>
+            <Container>
                 <ContainerContent>
-                    <Title>
-                        STREAMING OR BATCH, <span>FROM ONE PLATFORM</span>
-                    </Title>
+                    <Title>ESTUARY FLOW</Title>
                     <Description>
-                        Capture and stream your database and API events into
-                        your apps, warehouse, and AI without managing any infra.
-                        Choose from hundreds of both batch and streaming
-                        connectors while maintaining full control of your data.
+                        Estuary Flow is the only platform built for change data
+                        capture (CDC) that lets you capture, transform, and
+                        materialize data in real-time and batch for analytics,
+                        ops, and AI - in minutes, with millisecond latency.
                     </Description>
-                    <ContainerButton>
-                        <Button
+                    <ButtonsContainer>
+                        <PrimaryButton
                             target="_blank"
                             href="https://dashboard.estuary.dev/register"
                         >
                             Build a Pipeline
-                        </Button>
-                        <ActionLink target="_blank" to="/pricing">
-                            View Pricing
-                        </ActionLink>
-                    </ContainerButton>
-                    <Accordion />
+                        </PrimaryButton>
+                        <SecondaryButton
+                            buttonLabel="Contact Us"
+                            buttonId="product-page-section-one-hubspot"
+                        />
+                    </ButtonsContainer>
                 </ContainerContent>
-            </ContainerHeader>
+                <ImageContainer>
+                    <StaticImage
+                        src="../../../../images/real-time-graphic.png"
+                        alt="Real-time graphic"
+                        placeholder="none"
+                        loading="eager"
+                        layout="constrained"
+                    />
+                </ImageContainer>
+            </Container>
             <Cards />
-        </DefaultWrapper>
+        </DefaultWrapperDarkBlue>
     );
 };
 
