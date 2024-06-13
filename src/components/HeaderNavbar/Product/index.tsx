@@ -12,9 +12,10 @@ import {
     MenuAccordionContent,
     Slide,
 } from '../styles';
-import Card from '../Card';
 import { compare, products } from './items';
 import ProductLink from './Link';
+
+const Card = React.lazy(() => import('../Card'));
 
 const HeaderNavbarProduct = ({ active, setActive }) => {
     const isMobile = useMediaQuery('(max-width:1024px)');
@@ -39,30 +40,36 @@ const HeaderNavbarProduct = ({ active, setActive }) => {
                 <ProductLink active={active} />
             </MenuAccordionButton>
             <MenuAccordionContent>
-                <Card>
-                    <CardItem title="PRODUCT" items={products} onlyContent />
-                    <CardItem title="COMPARE" items={compare} />
-                    <CardItem className="hide-on-mobile" title="WEBINARS">
-                        <Carousel aria-label="Webinars carousel">
-                            <Slide key="header-carousel-tour-2">
-                                <ImageWrapper>
-                                    <StaticImage
-                                        src="../../../images/webinar101.png"
-                                        alt="Estuary 101 Webinar"
-                                    />
-                                </ImageWrapper>
-                                <OutboundLinkOutlined
-                                    target="_blank"
-                                    href={webinarsUrl}
-                                    theme="dark"
-                                    fullWidth
-                                >
-                                    Watch Estuary 101
-                                </OutboundLinkOutlined>
-                            </Slide>
-                        </Carousel>
-                    </CardItem>
-                </Card>
+                <React.Suspense fallback={null}>
+                    <Card>
+                        <CardItem
+                            title="PRODUCT"
+                            items={products}
+                            onlyContent
+                        />
+                        <CardItem title="COMPARE" items={compare} />
+                        <CardItem className="hide-on-mobile" title="WEBINARS">
+                            <Carousel aria-label="Webinars carousel">
+                                <Slide key="header-carousel-tour-2">
+                                    <ImageWrapper>
+                                        <StaticImage
+                                            src="../../../images/webinar101.png"
+                                            alt="Estuary 101 Webinar"
+                                        />
+                                    </ImageWrapper>
+                                    <OutboundLinkOutlined
+                                        target="_blank"
+                                        href={webinarsUrl}
+                                        theme="dark"
+                                        fullWidth
+                                    >
+                                        Watch Estuary 101
+                                    </OutboundLinkOutlined>
+                                </Slide>
+                            </Carousel>
+                        </CardItem>
+                    </Card>
+                </React.Suspense>
             </MenuAccordionContent>
         </MenuAccordion>
     );
