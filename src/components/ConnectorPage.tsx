@@ -92,7 +92,7 @@ export const ConnectorPage = ({
                             </OutboundLinkFilled>
                             <OpenHubspotModal
                                 buttonLabel="Contact Us"
-                                buttonId="pricing-hero-hubspot__integrations"
+                                buttonId="integrations-hero-hubspot"
                             />
                         </div>
                     </div>
