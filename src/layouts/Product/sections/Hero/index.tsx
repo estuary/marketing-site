@@ -1,5 +1,6 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
+import { webinarsUrl } from '../../../../../shared';
 import { DefaultWrapperDarkBlue } from '../../../../styles/wrappers';
 import Card from './Card';
 import {
@@ -54,6 +55,7 @@ const ProductHero = () => {
                     title="SEE OVERVIEW"
                     description="Learn how to build a pipeline in minutes."
                     isActive
+                    href={webinarsUrl}
                     icon={
                         <StaticImage
                             src="../../../../svgs/product-page/record-outlined.svg"
@@ -64,6 +66,7 @@ const ProductHero = () => {
                 <Card
                     title="QUICKSTART"
                     description="Create a free account and use a tutorial for a pipeline."
+                    href="/why"
                     icon={
                         <StaticImage
                             src="../../../../svgs/product-page/sign-up-outlined.svg"
@@ -74,6 +77,7 @@ const ProductHero = () => {
                 <Card
                     title="JOIN COMMUNITY"
                     description="Connect with others, and ask the experts."
+                    href="https://estuary-dev.slack.com/join/shared_invite/zt-86nal6yr-VPbv~YfZE9Q~6Zl~gmZdFQ#/shared-invite/email"
                     icon={
                         <StaticImage
                             src="../../../../svgs/product-page/slack-outlined.svg"

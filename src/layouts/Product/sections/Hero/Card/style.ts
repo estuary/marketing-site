@@ -1,17 +1,18 @@
 import styled, { css } from 'styled-components';
+import { OutboundLink } from '../../../../../components/OutboundLink';
 
-export const Container: any = styled.div<{ $isActive: boolean }>`
+export const Container = styled(OutboundLink)<{ $isActive: boolean }>`
     display: flex;
     gap: 32px;
     align-items: center;
     width: 100%;
-    background-color: #5072eb33;
+    background-color: #ffffff05;
     color: #ffffff;
     padding: 24px;
     border: 1px solid #5072eb33;
     border-radius: 24px;
 
-    ${({ $isActive }: any) =>
+    ${({ $isActive }) =>
         $isActive &&
         css`
             background-color: #5072eb80;
@@ -33,15 +34,16 @@ export const Description = styled.p`
     margin: 0;
 `;
 
-const iconSize = '80px';
+const iconWrapperSize = '80px';
 
-export const IconWrapper = styled.div`
-    min-width: ${iconSize};
-    min-height: ${iconSize};
-    max-width: ${iconSize};
-    max-height: ${iconSize};
+export const IconWrapper = styled.div<{ $isActive: boolean }>`
+    min-width: ${iconWrapperSize};
+    min-height: ${iconWrapperSize};
+    max-width: ${iconWrapperSize};
+    max-height: ${iconWrapperSize};
     border-radius: 100%;
-    background-color: #ffffff1a;
+    background-color: ${(props) =>
+        props.$isActive ? '#FFFFFF1A' : '#5072EB1A'};
     padding: 16px;
     display: flex;
     align-items: center;
