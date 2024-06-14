@@ -53,9 +53,9 @@ const ConnectorsLink = ({
             }
         }
     `);
-
     const [captureConnectors, materializationConnectors] = useMemo(() => {
         const mapped: ReturnType<typeof normalizeConnector>[] = connectors
+            .filter((connector) => connector.logo !== null)
             .filter(
                 (connector) =>
                     connector?.connectorTagsByConnectorIdList?.length > 0
@@ -69,10 +69,10 @@ const ConnectorsLink = ({
     }, [connectors]);
 
     const [sourceId, setSourceId] = useState<string>(
-        connectorType === 'capture' ? defaultSourceId : ''
+        connectorType === 'capture' ? defaultSourceId ?? '' : ''
     );
     const [destinationId, setDestinationId] = useState<string>(
-        connectorType === 'materialization' ? defaultDestinationId : ''
+        connectorType === 'materialization' ? defaultDestinationId ?? '' : ''
     );
 
     const detailsHref = useMemo(() => {
@@ -98,11 +98,15 @@ const ConnectorsLink = ({
                 >
                     {captureConnectors.map((c) => (
                         <Menu key={c.id} value={c.id}>
-                            <Image
-                                image={c.logo?.childImageSharp?.gatsbyImageData}
-                                alt={`${c.title} Logo`}
-                                loading="eager"
-                            />
+                            {c.logo?.childImageSharp?.gatsbyImageData ? (
+                                <Image
+                                    image={
+                                        c.logo.childImageSharp.gatsbyImageData
+                                    }
+                                    alt={`${c.title} Logo`}
+                                    loading="eager"
+                                />
+                            ) : null}
                             {c.title}
                         </Menu>
                     ))}
@@ -118,11 +122,15 @@ const ConnectorsLink = ({
                 >
                     {materializationConnectors.map((c) => (
                         <Menu key={c.id} value={c.id}>
-                            <Image
-                                image={c.logo?.childImageSharp?.gatsbyImageData}
-                                alt={`${c.title} Logo`}
-                                loading="eager"
-                            />
+                            {c.logo?.childImageSharp?.gatsbyImageData ? (
+                                <Image
+                                    image={
+                                        c.logo.childImageSharp.gatsbyImageData
+                                    }
+                                    alt={`${c.title} Logo`}
+                                    loading="eager"
+                                />
+                            ) : null}
                             {c.title}
                         </Menu>
                     ))}

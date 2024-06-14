@@ -429,11 +429,17 @@ export const createResolvers: GatsbyNode['createResolvers'] = async ({
                 type: 'File',
                 async resolve(node, _, ctx) {
                     const { id } = node;
+
                     const logoNode = await ctx.nodeModel.findOne({
                         type: 'ConnectorLogo',
                         query: { filter: { connectorId: { eq: id } } },
                     });
-                    return logoNode.logo;
+
+                    if (logoNode?.logo) {
+                        return logoNode.logo;
+                    }
+
+                    return null;
                 },
             },
         },
