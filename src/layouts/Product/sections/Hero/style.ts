@@ -4,18 +4,18 @@ import { OutboundLinkFilled } from '../../../../components/OutboundLink';
 import { globalMaxWidth } from '../../../../globalStyles';
 
 export const Container = styled.div`
-    ${globalMaxWidth}
+    ${globalMaxWidth};
+    background-color: #04192b;
+`;
 
+export const Header = styled.div`
     display: flex;
     align-items: center;
-    background-color: #04192b;
     gap: 60px;
     margin-bottom: 60px;
 `;
 
 export const Cards = styled.div`
-    ${globalMaxWidth}
-
     display: flex;
     flex-direction: column;
     margin-top: 40px;

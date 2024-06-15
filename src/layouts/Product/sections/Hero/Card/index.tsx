@@ -29,7 +29,7 @@ const Card = ({
             <Title>{title}</Title>
             <Description>{description}</Description>
         </TextWrapper>
-        <ChevronRightIcon width={32} />
+        <ChevronRightIcon width={32} color="#FFFFFF" />
     </Container>
 );
 
