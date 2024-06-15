@@ -9,7 +9,7 @@ import { Connectors } from '../components/Connectors';
 import ConnectorsImageDesktop from '../components/ConnectorsImageDesktop';
 import ConnectorsImageMobile from '../components/ConnectorsImageMobile';
 import ConnectorsLink from '../components/ConnectorsLink';
-import { OutboundLink } from '../components/OutboundLink';
+import { OutboundLinkFilled } from '../components/OutboundLink';
 import useWindowExistence from '../hooks/useWindowExistence';
 import CareerAvatar from '../svgs/about-careers-avatar-icon.svg';
 import ColoredLogo from '../svgs/colored-logo.svg';
@@ -23,6 +23,7 @@ import FlowLongtailSaas from '../svgs/product-flow-longtail-saas.svg';
 import SectionTwoDataCaptureImg1 from '../svgs/product-flow-section-two-data-capture-image1.svg';
 import { normalizeConnector } from '../utils';
 import Carousel from './Carousel';
+import OpenHubspotModal from './HubSpot/OpenModal';
 
 export interface ConnectorPageProps {
     source_connector: any;
@@ -83,13 +84,16 @@ export const ConnectorPage = ({
                             </span>
                         </div>
                         <div className="connector-try-it-free-button-wrapper">
-                            <OutboundLink
+                            <OutboundLinkFilled
                                 target="_blank"
                                 href="https://dashboard.estuary.dev/register"
-                                className="section-four-try-it-button"
                             >
                                 Try it free
-                            </OutboundLink>
+                            </OutboundLinkFilled>
+                            <OpenHubspotModal
+                                buttonLabel="Contact Us"
+                                buttonId="integrations-hero-hubspot"
+                            />
                         </div>
                     </div>
                     <div className="connector-source-dest-image-wrapper">

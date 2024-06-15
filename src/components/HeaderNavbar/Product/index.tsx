@@ -1,12 +1,10 @@
-import Chevron from '@mui/icons-material/ChevronRight';
 import { useMediaQuery } from '@mui/material';
-import clsx from 'clsx';
-import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { webinarsUrl } from '../../../../shared';
 import Carousel from '../../Carousel';
 import { OutboundLinkOutlined } from '../../OutboundLink';
+import Card from '../Card';
 import CardItem from '../CardItem';
 import {
     ImageWrapper,
@@ -16,8 +14,7 @@ import {
     Slide,
 } from '../styles';
 import { compare, products } from './items';
-
-const Card = React.lazy(() => import('../Card'));
+import ProductLink from './Link';
 
 const HeaderNavbarProduct = ({ active, setActive }) => {
     const isMobile = useMediaQuery('(max-width:1024px)');
@@ -39,45 +36,33 @@ const HeaderNavbarProduct = ({ active, setActive }) => {
     return (
         <MenuAccordion elevation={0} expanded={active}>
             <MenuAccordionButton onClick={onClick} onMouseEnter={onMouseEnter}>
-                <Link
-                    className={clsx('global-header-link', active && 'active')}
-                    to="#"
-                >
-                    Product
-                    <Chevron className="menu-chevron" fontSize="small" />
-                </Link>
+                <ProductLink active={active} />
             </MenuAccordionButton>
             <MenuAccordionContent>
-                <React.Suspense fallback={null}>
-                    <Card>
-                        <CardItem
-                            title="PRODUCT"
-                            items={products}
-                            onlyContent
-                        />
-                        <CardItem title="COMPARE" items={compare} />
-                        <CardItem className="hide-on-mobile" title="WEBINARS">
-                            <Carousel aria-label="Webinars carousel">
-                                <Slide key="header-carousel-tour-2">
-                                    <ImageWrapper>
-                                        <StaticImage
-                                            src="../../../images/webinar101.png"
-                                            alt="Estuary 101 Webinar"
-                                        />
-                                    </ImageWrapper>
-                                    <OutboundLinkOutlined
-                                        target="_blank"
-                                        href={webinarsUrl}
-                                        theme="dark"
-                                        fullWidth
-                                    >
-                                        Watch Estuary 101
-                                    </OutboundLinkOutlined>
-                                </Slide>
-                            </Carousel>
-                        </CardItem>
-                    </Card>
-                </React.Suspense>
+                <Card>
+                    <CardItem title="PRODUCT" items={products} onlyContent />
+                    <CardItem title="COMPARE" items={compare} />
+                    <CardItem className="hide-on-mobile" title="WEBINARS">
+                        <Carousel aria-label="Webinars carousel">
+                            <Slide key="header-carousel-tour-2">
+                                <ImageWrapper>
+                                    <StaticImage
+                                        src="../../../images/webinar101.png"
+                                        alt="Estuary 101 Webinar"
+                                    />
+                                </ImageWrapper>
+                                <OutboundLinkOutlined
+                                    target="_blank"
+                                    href={webinarsUrl}
+                                    theme="dark"
+                                    fullWidth
+                                >
+                                    Watch Estuary 101
+                                </OutboundLinkOutlined>
+                            </Slide>
+                        </Carousel>
+                    </CardItem>
+                </Card>
             </MenuAccordionContent>
         </MenuAccordion>
     );
