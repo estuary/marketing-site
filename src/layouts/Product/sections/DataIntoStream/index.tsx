@@ -1,34 +1,20 @@
 import { StaticImage } from 'gatsby-plugin-image';
-import React, { useState } from 'react';
+import React from 'react';
 import Carousel from '../../../../components/Carousel';
 import { DefaultWrapper } from '../../../../styles/wrappers';
-import HoverContent from './HoverContent';
+import HoverWrapper from './HoverWrapper';
 import {
     Container,
-    FlowStepReplayHoverBlock,
-    FlowStepStoreHoverBlock,
-    FlowStepStreamHoverBlock,
-    FlowStepTransformHoverBlock,
     Slide,
     SlideDescription,
     SlideImageWrapper,
-    SlideImageWrapperRelative,
     SlideTitle,
     Subtitle,
     TextWrapper,
     Title,
 } from './styles';
 
-type FlowStep = 'transform' | 'replay' | 'stream' | 'store' | null;
-
 const DataIntoStream = () => {
-    const [hoveredFlowStep, setHoveredFlowStep] = useState<FlowStep>(null);
-
-    const handleMouseEnter = (flowStep: FlowStep) =>
-        setHoveredFlowStep(flowStep);
-
-    const handleFlowStepsMouseLeave = () => setHoveredFlowStep(null);
-
     return (
         <DefaultWrapper>
             <Container>
@@ -52,7 +38,7 @@ const DataIntoStream = () => {
                             <StaticImage
                                 placeholder="none"
                                 alt="Graphic - Capture"
-                                src="../../../../images/product-page/section-two/frame-1.png"
+                                src="../../../../images/product-page/section-two/slide-1.png"
                                 layout="constrained"
                                 loading="eager"
                             />
@@ -65,33 +51,15 @@ const DataIntoStream = () => {
                         </SlideDescription>
                     </Slide>
                     <Slide>
-                        <SlideImageWrapperRelative>
+                        <HoverWrapper slide={2}>
                             <StaticImage
                                 placeholder="none"
                                 alt="Graphic - Stream, Store, Transform, Replay"
-                                src="../../../../images/product-page/section-two/frame-2.png"
+                                src="../../../../images/product-page/section-two/slide-2.png"
                                 layout="constrained"
+                                loading="lazy"
                             />
-                            <HoverContent hoveredFlowStep={hoveredFlowStep} />
-                            <FlowStepTransformHoverBlock
-                                onMouseEnter={() =>
-                                    handleMouseEnter('transform')
-                                }
-                                onMouseLeave={handleFlowStepsMouseLeave}
-                            />
-                            <FlowStepReplayHoverBlock
-                                onMouseEnter={() => handleMouseEnter('replay')}
-                                onMouseLeave={handleFlowStepsMouseLeave}
-                            />
-                            <FlowStepStreamHoverBlock
-                                onMouseEnter={() => handleMouseEnter('stream')}
-                                onMouseLeave={handleFlowStepsMouseLeave}
-                            />
-                            <FlowStepStoreHoverBlock
-                                onMouseEnter={() => handleMouseEnter('store')}
-                                onMouseLeave={handleFlowStepsMouseLeave}
-                            />
-                        </SlideImageWrapperRelative>
+                        </HoverWrapper>
                         <SlideTitle>
                             Stream, Store, Transform, Replay
                         </SlideTitle>
@@ -108,8 +76,9 @@ const DataIntoStream = () => {
                             <StaticImage
                                 placeholder="none"
                                 alt="Graphic - Materialize"
-                                src="../../../../images/product-page/section-two/frame-3.png"
+                                src="../../../../images/product-page/section-two/slide-3.png"
                                 layout="constrained"
+                                loading="lazy"
                             />
                         </SlideImageWrapper>
                         <SlideTitle>Materialize</SlideTitle>
@@ -121,14 +90,15 @@ const DataIntoStream = () => {
                         </SlideDescription>
                     </Slide>
                     <Slide>
-                        <SlideImageWrapperRelative>
+                        <HoverWrapper slide={4}>
                             <StaticImage
                                 placeholder="none"
                                 alt="Graphic - Materialize"
-                                src="../../../../images/product-page/section-two/frame-4.png"
+                                src="../../../../images/product-page/section-two/slide-4.png"
                                 layout="constrained"
+                                loading="lazy"
                             />
-                        </SlideImageWrapperRelative>
+                        </HoverWrapper>
                         <SlideTitle>Flow</SlideTitle>
                         <SlideDescription>
                             Let Estuary do the rest - deliver data end-to-end
