@@ -58,6 +58,19 @@ export const Slide = styled.div`
 
 export const SlideImageWrapper = styled.div`
     max-width: 1216px;
+
+    @media (max-width: 768px) {
+        display: none;
+    }
+`;
+
+export const SlideImageWrapperRelative = styled(SlideImageWrapper)`
+    position: relative;
+    z-index: 1;
+
+    @media (max-width: 768px) {
+        display: none;
+    }
 `;
 
 export const SlideTitle = styled.h3`
@@ -82,4 +95,42 @@ export const SlideDescription = styled.p`
     @media (max-width: 810px) {
         font-size: 1rem;
     }
+`;
+
+export const FlowStepTransformHoverBlock = styled.div`
+    position: absolute;
+    width: 12%;
+    height: 16%;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 24%;
+    border-radius: 48px;
+`;
+
+export const FlowStepReplayHoverBlock = styled.div`
+    position: absolute;
+    width: 10%;
+    height: 24%;
+    left: 54%;
+    top: 38.5%;
+    border-radius: 48px;
+`;
+
+export const FlowStepStreamHoverBlock = styled.div`
+    position: absolute;
+    width: 10%;
+    height: 24%;
+    right: 54%;
+    top: 38.5%;
+    border-radius: 48px;
+`;
+
+export const FlowStepStoreHoverBlock = styled.div`
+    position: absolute;
+    width: 12%;
+    height: 16%;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 24%;
+    border-radius: 48px;
 `;
