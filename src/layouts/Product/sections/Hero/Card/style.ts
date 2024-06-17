@@ -12,11 +12,26 @@ export const Container = styled(OutboundLink)<{ $isActive: boolean }>`
     border: 1px solid #5072eb33;
     border-radius: 24px;
 
+    &:hover {
+        border-color: #5072eb;
+        background-color: #5072eb33;
+    }
+
+    &:active {
+        border-color: #5072eb80;
+        background-color: #5072eb26;
+    }
+
     ${({ $isActive }) =>
         $isActive &&
         css`
             background-color: #5072eb80;
             border-color: #5072eb40;
+
+            &:hover {
+                border-color: #5072eb;
+                background-color: #5072eb99;
+            }
         `}
 `;
 
