@@ -3,7 +3,6 @@ import { OutboundLink } from '../../../../../components/OutboundLink';
 
 export const Container = styled(OutboundLink)<{ $isActive: boolean }>`
     display: flex;
-    gap: 32px;
     align-items: center;
     width: 100%;
     background-color: #ffffff05;
@@ -11,6 +10,22 @@ export const Container = styled(OutboundLink)<{ $isActive: boolean }>`
     padding: 24px;
     border: 1px solid #5072eb33;
     border-radius: 24px;
+
+    @media (max-width: 1370px) {
+        flex-direction: column;
+        align-items: start;
+    }
+
+    @media (max-width: 670px) {
+        flex-direction: row;
+        align-items: center;
+        padding: 16px;
+    }
+
+    @media (max-width: 360px) {
+        flex-direction: column;
+        align-items: start;
+    }
 
     &:hover {
         border-color: #5072eb;
@@ -35,11 +50,20 @@ export const Container = styled(OutboundLink)<{ $isActive: boolean }>`
         `}
 `;
 
-export const Title = styled.p`
+export const Title = styled.h3`
     font-weight: 700;
     font-size: 1.25rem;
     line-height: 24px;
     margin: 0;
+    color: #ffffff;
+
+    @media (max-width: 1024px) {
+        font-size: 1rem;
+    }
+
+    @media (max-width: 670px) {
+        font-size: 1.25rem;
+    }
 `;
 
 export const Description = styled.p`
@@ -49,13 +73,14 @@ export const Description = styled.p`
     margin: 0;
 `;
 
-const iconWrapperSize = '80px';
+const iconWrapperSizeDesktop = '80px';
+const iconWrapperSizeMobile = '60px';
 
 export const IconWrapper = styled.div<{ $isActive: boolean }>`
-    min-width: ${iconWrapperSize};
-    min-height: ${iconWrapperSize};
-    max-width: ${iconWrapperSize};
-    max-height: ${iconWrapperSize};
+    min-width: ${iconWrapperSizeDesktop};
+    min-height: ${iconWrapperSizeDesktop};
+    max-width: ${iconWrapperSizeDesktop};
+    max-height: ${iconWrapperSizeDesktop};
     border-radius: 100%;
     background-color: ${(props) =>
         props.$isActive ? '#FFFFFF1A' : '#5072EB1A'};
@@ -63,10 +88,44 @@ export const IconWrapper = styled.div<{ $isActive: boolean }>`
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media (max-width: 1024px) {
+        min-width: ${iconWrapperSizeMobile};
+        min-height: ${iconWrapperSizeMobile};
+        max-width: ${iconWrapperSizeMobile};
+        max-height: ${iconWrapperSizeMobile};
+    }
 `;
 
 export const TextWrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 12px;
+    margin: 0 60px 0 32px;
+
+    @media (max-width: 1370px) {
+        margin: 16px 0 30px 0;
+    }
+
+    @media (max-width: 670px) {
+        margin: 0 30px 0 16px;
+    }
+
+    @media (max-width: 360px) {
+        margin: 16px 0 30px 0;
+    }
+`;
+
+export const ChevronIconWrapper = styled.div`
+    @media (max-width: 1370px) {
+        margin-top: auto;
+    }
+
+    @media (max-width: 670px) {
+        margin: auto;
+    }
+
+    @media (max-width: 360px) {
+        margin: 0 auto 0 0;
+    }
 `;

@@ -1,6 +1,7 @@
 import React from 'react';
 import ChevronRightIcon from '../../../../../svgs/chevron-right.svg';
 import {
+    ChevronIconWrapper,
     Container,
     Description,
     IconWrapper,
@@ -29,7 +30,9 @@ const Card = ({
             <Title>{title}</Title>
             <Description>{description}</Description>
         </TextWrapper>
-        <ChevronRightIcon width={32} color="#FFFFFF" />
+        <ChevronIconWrapper>
+            <ChevronRightIcon width={32} color="#FFFFFF" />
+        </ChevronIconWrapper>
     </Container>
 );
 

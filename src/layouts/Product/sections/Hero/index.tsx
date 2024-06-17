@@ -69,7 +69,7 @@ const ProductHero = () => {
                     <Card
                         title="QUICKSTART"
                         description="Create a free account and use a tutorial for a pipeline."
-                        href="/why"
+                        href="https://docs.estuary.dev/getting-started/installation/"
                         icon={
                             <StaticImage
                                 src="../../../../svgs/product-page/section-one/sign-up-outlined.svg"
