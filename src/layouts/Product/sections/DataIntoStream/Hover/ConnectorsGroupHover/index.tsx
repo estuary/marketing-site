@@ -37,7 +37,7 @@ const ConnectorsGroupHover = ({
                             <StaticImage
                                 placeholder="none"
                                 alt="Streaming CDC source connectors"
-                                src="../../../../../../images/product-page/section-two/streaming-cdc-connectors-group.png"
+                                src="../../../../../../images/product-page/section-two/desktop/streaming-cdc-connectors-group.png"
                                 layout="constrained"
                             />
                         </ConnectorsGroupImageWrapper>
@@ -54,7 +54,7 @@ const ConnectorsGroupHover = ({
                             <StaticImage
                                 placeholder="none"
                                 alt="Real-time source connectors"
-                                src="../../../../../../images/product-page/section-two/real-time-connectors-group.png"
+                                src="../../../../../../images/product-page/section-two/desktop/real-time-connectors-group.png"
                                 layout="constrained"
                             />
                         </ConnectorsGroupImageWrapper>
@@ -71,7 +71,7 @@ const ConnectorsGroupHover = ({
                             <StaticImage
                                 placeholder="none"
                                 alt="Batch source connectors"
-                                src="../../../../../../images/product-page/section-two/batch-connectors-group.png"
+                                src="../../../../../../images/product-page/section-two/desktop/batch-connectors-group.png"
                                 layout="constrained"
                             />
                         </ConnectorsGroupImageWrapper>
@@ -88,7 +88,7 @@ const ConnectorsGroupHover = ({
                             <StaticImage
                                 placeholder="none"
                                 alt="SaaS source connectors"
-                                src="../../../../../../images/product-page/section-two/saas-connectors-group.png"
+                                src="../../../../../../images/product-page/section-two/desktop/saas-connectors-group.png"
                                 layout="constrained"
                             />
                         </ConnectorsGroupImageWrapper>
@@ -105,7 +105,7 @@ const ConnectorsGroupHover = ({
                             <StaticImage
                                 placeholder="none"
                                 alt="Analytics destination connectors"
-                                src="../../../../../../images/product-page/section-two/analytics-connectors-group.png"
+                                src="../../../../../../images/product-page/section-two/desktop/analytics-connectors-group.png"
                                 layout="constrained"
                             />
                         </ConnectorsGroupImageWrapper>
@@ -122,7 +122,7 @@ const ConnectorsGroupHover = ({
                             <StaticImage
                                 placeholder="none"
                                 alt="Ops destination connectors"
-                                src="../../../../../../images/product-page/section-two/ops-connectors-group.png"
+                                src="../../../../../../images/product-page/section-two/desktop/ops-connectors-group.png"
                                 layout="constrained"
                             />
                         </ConnectorsGroupImageWrapper>
@@ -139,7 +139,7 @@ const ConnectorsGroupHover = ({
                             <StaticImage
                                 placeholder="none"
                                 alt="AI destination connectors"
-                                src="../../../../../../images/product-page/section-two/ai-connectors-group.png"
+                                src="../../../../../../images/product-page/section-two/desktop/ai-connectors-group.png"
                                 layout="constrained"
                             />
                         </ConnectorsGroupImageWrapper>

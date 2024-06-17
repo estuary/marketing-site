@@ -5,10 +5,13 @@ import { DefaultWrapper } from '../../../../styles/wrappers';
 import Hover from './Hover';
 import {
     Container,
+    DesktopImageWrapper,
+    MobileImageWrapper,
     Slide,
     SlideDescription,
     SlideTitle,
     Subtitle,
+    TabletImageWrapper,
     TextWrapper,
     Title,
 } from './styles';
@@ -33,15 +36,35 @@ const DataIntoStream = () => {
                     arrowColor="#47506D"
                 >
                     <Slide>
-                        <Hover slide={1}>
+                        <DesktopImageWrapper>
+                            <Hover slide={1}>
+                                <StaticImage
+                                    placeholder="none"
+                                    alt="Graphic - Capture"
+                                    src="../../../../images/product-page/section-two/desktop/slide-1.png"
+                                    layout="constrained"
+                                    loading="lazy"
+                                />
+                            </Hover>
+                        </DesktopImageWrapper>
+                        <TabletImageWrapper>
                             <StaticImage
                                 placeholder="none"
                                 alt="Graphic - Capture"
-                                src="../../../../images/product-page/section-two/slide-1.png"
+                                src="../../../../images/product-page/section-two/tablet/slide-1.png"
                                 layout="constrained"
-                                loading="eager"
+                                loading="lazy"
                             />
-                        </Hover>
+                        </TabletImageWrapper>
+                        <MobileImageWrapper>
+                            <StaticImage
+                                placeholder="none"
+                                alt="Graphic - Capture"
+                                src="../../../../images/product-page/section-two/mobile/slide-1.png"
+                                layout="constrained"
+                                loading="lazy"
+                            />
+                        </MobileImageWrapper>
                         <SlideTitle>Capture</SlideTitle>
                         <SlideDescription>
                             Capture change data in real-time from databases
@@ -50,15 +73,35 @@ const DataIntoStream = () => {
                         </SlideDescription>
                     </Slide>
                     <Slide>
-                        <Hover slide={2}>
+                        <DesktopImageWrapper>
+                            <Hover slide={2}>
+                                <StaticImage
+                                    placeholder="none"
+                                    alt="Graphic - Stream, Store, Transform, Replay"
+                                    src="../../../../images/product-page/section-two/desktop/slide-2.png"
+                                    layout="constrained"
+                                    loading="lazy"
+                                />
+                            </Hover>
+                        </DesktopImageWrapper>
+                        <TabletImageWrapper>
                             <StaticImage
                                 placeholder="none"
                                 alt="Graphic - Stream, Store, Transform, Replay"
-                                src="../../../../images/product-page/section-two/slide-2.png"
+                                src="../../../../images/product-page/section-two/tablet/slide-2.png"
                                 layout="constrained"
                                 loading="lazy"
                             />
-                        </Hover>
+                        </TabletImageWrapper>
+                        <MobileImageWrapper>
+                            <StaticImage
+                                placeholder="none"
+                                alt="Graphic - Stream, Store, Transform, Replay"
+                                src="../../../../images/product-page/section-two/mobile/slide-2.png"
+                                layout="constrained"
+                                loading="lazy"
+                            />
+                        </MobileImageWrapper>
                         <SlideTitle>
                             Stream, Store, Transform, Replay
                         </SlideTitle>
@@ -71,15 +114,35 @@ const DataIntoStream = () => {
                         </SlideDescription>
                     </Slide>
                     <Slide>
-                        <Hover slide={3}>
+                        <DesktopImageWrapper>
+                            <Hover slide={3}>
+                                <StaticImage
+                                    placeholder="none"
+                                    alt="Graphic - Materialize"
+                                    src="../../../../images/product-page/section-two/desktop/slide-3.png"
+                                    layout="constrained"
+                                    loading="lazy"
+                                />
+                            </Hover>
+                        </DesktopImageWrapper>
+                        <TabletImageWrapper>
                             <StaticImage
                                 placeholder="none"
                                 alt="Graphic - Materialize"
-                                src="../../../../images/product-page/section-two/slide-3.png"
+                                src="../../../../images/product-page/section-two/tablet/slide-3.png"
                                 layout="constrained"
                                 loading="lazy"
                             />
-                        </Hover>
+                        </TabletImageWrapper>
+                        <MobileImageWrapper>
+                            <StaticImage
+                                placeholder="none"
+                                alt="Graphic - Materialize"
+                                src="../../../../images/product-page/section-two/mobile/slide-3.png"
+                                layout="constrained"
+                                loading="lazy"
+                            />
+                        </MobileImageWrapper>
                         <SlideTitle>Materialize</SlideTitle>
                         <SlideDescription>
                             Write data at any speed, from real-time streaming to
@@ -89,15 +152,35 @@ const DataIntoStream = () => {
                         </SlideDescription>
                     </Slide>
                     <Slide>
-                        <Hover slide={4}>
+                        <DesktopImageWrapper>
+                            <Hover slide={4}>
+                                <StaticImage
+                                    placeholder="none"
+                                    alt="Graphic - Flow"
+                                    src="../../../../images/product-page/section-two/desktop/slide-4.png"
+                                    layout="constrained"
+                                    loading="lazy"
+                                />
+                            </Hover>
+                        </DesktopImageWrapper>
+                        <TabletImageWrapper>
                             <StaticImage
                                 placeholder="none"
-                                alt="Graphic - Materialize"
-                                src="../../../../images/product-page/section-two/slide-4.png"
+                                alt="Graphic - Flow"
+                                src="../../../../images/product-page/section-two/tablet/slide-4.png"
                                 layout="constrained"
                                 loading="lazy"
                             />
-                        </Hover>
+                        </TabletImageWrapper>
+                        <MobileImageWrapper>
+                            <StaticImage
+                                placeholder="none"
+                                alt="Graphic - Flow"
+                                src="../../../../images/product-page/section-two/mobile/slide-4.png"
+                                layout="constrained"
+                                loading="lazy"
+                            />
+                        </MobileImageWrapper>
                         <SlideTitle>Flow</SlideTitle>
                         <SlideDescription>
                             Let Estuary do the rest - deliver data end-to-end

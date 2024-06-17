@@ -32,7 +32,7 @@ const FlowStepsHoverContent = ({
                             <StaticImage
                                 placeholder="none"
                                 alt="Graphic - Flow Step Transform"
-                                src="../../../../../../images/product-page/section-two/slide-2-transform.png"
+                                src="../../../../../../images/product-page/section-two/desktop/slide-2-transform.png"
                                 layout="constrained"
                             />
                         </FlowStepImageWrapper>
@@ -50,7 +50,7 @@ const FlowStepsHoverContent = ({
                             <StaticImage
                                 placeholder="none"
                                 alt="Graphic - Flow Step Elastic Streaming Compute"
-                                src="../../../../../../images/product-page/section-two/slide-4-elastic-streaming-compute.png"
+                                src="../../../../../../images/product-page/section-two/desktop/slide-4-elastic-streaming-compute.png"
                                 layout="constrained"
                             />
                         </FlowStepImageWrapper>
@@ -74,7 +74,7 @@ const FlowStepsHoverContent = ({
                             <StaticImage
                                 placeholder="none"
                                 alt="Graphic - Flow Step Stream"
-                                src="../../../../../../images/product-page/section-two/slide-2-stream.png"
+                                src="../../../../../../images/product-page/section-two/desktop/slide-2-stream.png"
                                 layout="constrained"
                             />
                         </FlowStepImageWrapper>
@@ -92,7 +92,7 @@ const FlowStepsHoverContent = ({
                             <StaticImage
                                 placeholder="none"
                                 alt="Graphic - Flow Step Idempotent Streams"
-                                src="../../../../../../images/product-page/section-two/slide-4-idempotent-streams.png"
+                                src="../../../../../../images/product-page/section-two/desktop/slide-4-idempotent-streams.png"
                                 layout="constrained"
                             />
                         </FlowStepImageWrapper>
@@ -113,7 +113,7 @@ const FlowStepsHoverContent = ({
                             <StaticImage
                                 placeholder="none"
                                 alt="Graphic - Flow Step Replay"
-                                src="../../../../../../images/product-page/section-two/slide-2-replay.png"
+                                src="../../../../../../images/product-page/section-two/desktop/slide-2-replay.png"
                                 layout="constrained"
                             />
                         </FlowStepImageWrapper>
@@ -131,7 +131,7 @@ const FlowStepsHoverContent = ({
                             <StaticImage
                                 placeholder="none"
                                 alt="Graphic - Flow Step Elastic Streaming Compute"
-                                src="../../../../../../images/product-page/section-two/slide-4-elastic-streaming-compute.png"
+                                src="../../../../../../images/product-page/section-two/desktop/slide-4-elastic-streaming-compute.png"
                                 layout="constrained"
                             />
                         </FlowStepImageWrapper>
@@ -155,7 +155,7 @@ const FlowStepsHoverContent = ({
                             <StaticImage
                                 placeholder="none"
                                 alt="Graphic - Flow Step Store"
-                                src="../../../../../../images/product-page/section-two/slide-2-store.png"
+                                src="../../../../../../images/product-page/section-two/desktop/slide-2-store.png"
                                 layout="constrained"
                             />
                         </FlowStepImageWrapper>
@@ -172,7 +172,7 @@ const FlowStepsHoverContent = ({
                         <StaticImage
                             placeholder="none"
                             alt="Graphic - Flow Step Decoupled Stream Storage"
-                            src="../../../../../../images/product-page/section-two/slide-4-storage.png"
+                            src="../../../../../../images/product-page/section-two/desktop/slide-4-storage.png"
                             layout="constrained"
                         />
                     </FlowStepImageWrapper>
@@ -184,7 +184,7 @@ const FlowStepsHoverContent = ({
                         <StaticImage
                             placeholder="none"
                             alt="Graphic - Managed Schema"
-                            src="../../../../../../images/product-page/section-two/slide-4-center.png"
+                            src="../../../../../../images/product-page/section-two/desktop/slide-4-center.png"
                             layout="constrained"
                         />
                     </FlowStepImageWrapper>

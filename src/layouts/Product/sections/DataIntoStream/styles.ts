@@ -12,10 +12,6 @@ export const TextWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    @media (max-width: 810px) {
-        margin: 16px;
-    }
 `;
 
 export const Title = styled.h2`
@@ -77,5 +73,23 @@ export const SlideDescription = styled.p`
 
     @media (max-width: 810px) {
         font-size: 1rem;
+    }
+`;
+
+export const TabletImageWrapper = styled.div`
+    @media (max-width: 425px), (min-width: 769px) {
+        display: none;
+    }
+`;
+
+export const DesktopImageWrapper = styled.div`
+    @media (max-width: 768px) {
+        display: none;
+    }
+`;
+
+export const MobileImageWrapper = styled.div`
+    @media (min-width: 426px) {
+        display: none;
     }
 `;
