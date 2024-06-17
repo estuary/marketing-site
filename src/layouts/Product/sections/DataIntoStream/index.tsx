@@ -2,12 +2,11 @@ import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import Carousel from '../../../../components/Carousel';
 import { DefaultWrapper } from '../../../../styles/wrappers';
-import HoverWrapper from './HoverWrapper';
+import Hover from './Hover';
 import {
     Container,
     Slide,
     SlideDescription,
-    SlideImageWrapper,
     SlideTitle,
     Subtitle,
     TextWrapper,
@@ -34,7 +33,7 @@ const DataIntoStream = () => {
                     arrowColor="#47506D"
                 >
                     <Slide>
-                        <SlideImageWrapper>
+                        <Hover slide={1}>
                             <StaticImage
                                 placeholder="none"
                                 alt="Graphic - Capture"
@@ -42,7 +41,7 @@ const DataIntoStream = () => {
                                 layout="constrained"
                                 loading="eager"
                             />
-                        </SlideImageWrapper>
+                        </Hover>
                         <SlideTitle>Capture</SlideTitle>
                         <SlideDescription>
                             Capture change data in real-time from databases
@@ -51,7 +50,7 @@ const DataIntoStream = () => {
                         </SlideDescription>
                     </Slide>
                     <Slide>
-                        <HoverWrapper slide={2}>
+                        <Hover slide={2}>
                             <StaticImage
                                 placeholder="none"
                                 alt="Graphic - Stream, Store, Transform, Replay"
@@ -59,7 +58,7 @@ const DataIntoStream = () => {
                                 layout="constrained"
                                 loading="lazy"
                             />
-                        </HoverWrapper>
+                        </Hover>
                         <SlideTitle>
                             Stream, Store, Transform, Replay
                         </SlideTitle>
@@ -72,7 +71,7 @@ const DataIntoStream = () => {
                         </SlideDescription>
                     </Slide>
                     <Slide>
-                        <SlideImageWrapper>
+                        <Hover slide={3}>
                             <StaticImage
                                 placeholder="none"
                                 alt="Graphic - Materialize"
@@ -80,7 +79,7 @@ const DataIntoStream = () => {
                                 layout="constrained"
                                 loading="lazy"
                             />
-                        </SlideImageWrapper>
+                        </Hover>
                         <SlideTitle>Materialize</SlideTitle>
                         <SlideDescription>
                             Write data at any speed, from real-time streaming to
@@ -90,7 +89,7 @@ const DataIntoStream = () => {
                         </SlideDescription>
                     </Slide>
                     <Slide>
-                        <HoverWrapper slide={4}>
+                        <Hover slide={4}>
                             <StaticImage
                                 placeholder="none"
                                 alt="Graphic - Materialize"
@@ -98,7 +97,7 @@ const DataIntoStream = () => {
                                 layout="constrained"
                                 loading="lazy"
                             />
-                        </HoverWrapper>
+                        </Hover>
                         <SlideTitle>Flow</SlideTitle>
                         <SlideDescription>
                             Let Estuary do the rest - deliver data end-to-end

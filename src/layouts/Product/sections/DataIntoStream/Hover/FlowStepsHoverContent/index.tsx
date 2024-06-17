@@ -1,6 +1,6 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
-import { FlowStep } from '..';
+import { HoveredFlowStepsBlock } from '..';
 import {
     FlowStepDescription,
     FlowStepImageWrapper,
@@ -12,17 +12,20 @@ import {
     TooltipTop,
 } from './styles';
 
-interface HoverContentProps {
-    hoveredFlowStep: FlowStep;
+interface FlowStepsHoverContentProps {
+    hoveredBlock: HoveredFlowStepsBlock;
     slide: number;
 }
 
-const HoverContent = ({ hoveredFlowStep, slide }: HoverContentProps) => {
-    if (!hoveredFlowStep) return null;
+const FlowStepsHoverContent = ({
+    hoveredBlock,
+    slide,
+}: FlowStepsHoverContentProps) => {
+    if (!hoveredBlock) return null;
 
     return (
         <>
-            {hoveredFlowStep === 'transform' ? (
+            {hoveredBlock === 'transform' ? (
                 slide === 2 ? (
                     <>
                         <FlowStepImageWrapper $slide={slide}>
@@ -64,7 +67,7 @@ const HoverContent = ({ hoveredFlowStep, slide }: HoverContentProps) => {
                     </>
                 )
             ) : null}
-            {hoveredFlowStep === 'stream' ? (
+            {hoveredBlock === 'stream' ? (
                 slide === 2 ? (
                     <>
                         <FlowStepImageWrapper $slide={slide}>
@@ -75,7 +78,7 @@ const HoverContent = ({ hoveredFlowStep, slide }: HoverContentProps) => {
                                 layout="constrained"
                             />
                         </FlowStepImageWrapper>
-                        <TooltipLeft>
+                        <TooltipLeft $slide={2}>
                             <FlowStepTitle>Stream</FlowStepTitle>
                             <FlowStepDescription>
                                 From many sources to many destinations in
@@ -93,7 +96,7 @@ const HoverContent = ({ hoveredFlowStep, slide }: HoverContentProps) => {
                                 layout="constrained"
                             />
                         </FlowStepImageWrapper>
-                        <TooltipLeft>
+                        <TooltipLeft $slide={4}>
                             <FlowStepTitle>Idempotent streams</FlowStepTitle>
                             <FlowStepDescription>
                                 Exactly-once data delivery with sub-100ms
@@ -103,7 +106,7 @@ const HoverContent = ({ hoveredFlowStep, slide }: HoverContentProps) => {
                     </>
                 )
             ) : null}
-            {hoveredFlowStep === 'replay' ? (
+            {hoveredBlock === 'replay' ? (
                 slide === 2 ? (
                     <>
                         <FlowStepImageWrapper $slide={slide}>
@@ -145,7 +148,7 @@ const HoverContent = ({ hoveredFlowStep, slide }: HoverContentProps) => {
                     </>
                 )
             ) : null}
-            {hoveredFlowStep === 'store' ? (
+            {hoveredBlock === 'store' ? (
                 slide === 2 ? (
                     <>
                         <FlowStepImageWrapper $slide={slide}>
@@ -175,7 +178,7 @@ const HoverContent = ({ hoveredFlowStep, slide }: HoverContentProps) => {
                     </FlowStepImageWrapper>
                 )
             ) : null}
-            {hoveredFlowStep === 'center' && slide === 4 ? (
+            {hoveredBlock === 'center' && slide === 4 ? (
                 <>
                     <FlowStepImageWrapper $slide={slide}>
                         <StaticImage
@@ -198,4 +201,4 @@ const HoverContent = ({ hoveredFlowStep, slide }: HoverContentProps) => {
     );
 };
 
-export default HoverContent;
+export default React.memo(FlowStepsHoverContent);

@@ -38,42 +38,6 @@ const baseHoverTitleStyle = `
     line-height: 19.2px;
 `;
 
-export const FlowStepTransformHoverBlock = styled.div`
-    position: absolute;
-    width: 12%;
-    height: 16%;
-    ${centerHorizontally};
-    top: 24%;
-    border-radius: 48px;
-`;
-
-export const FlowStepReplayHoverBlock = styled.div`
-    position: absolute;
-    width: 10%;
-    height: 24%;
-    left: 54%;
-    top: 38.5%;
-    border-radius: 48px;
-`;
-
-export const FlowStepStreamHoverBlock = styled.div`
-    position: absolute;
-    width: 10%;
-    height: 24%;
-    right: 54%;
-    top: 38.5%;
-    border-radius: 48px;
-`;
-
-export const FlowStepStoreHoverBlock = styled.div`
-    position: absolute;
-    width: 12%;
-    height: 16%;
-    ${centerHorizontally};
-    bottom: 24%;
-    border-radius: 48px;
-`;
-
 export const FlowStepImageWrapper = styled.div<{ $slide: number }>`
     position: absolute;
     left: ${(props) => (props.$slide === 2 ? '33%' : '30.06%')};
@@ -95,11 +59,11 @@ export const TooltipTop = styled.div<{ $slide: number }>`
     }
 `;
 
-export const TooltipLeft = styled.div`
+export const TooltipLeft = styled.div<{ $slide: number }>`
     ${baseHoverTextWrapperStyling};
     ${darkBlueColor};
     bottom: 60%;
-    right: 58%;
+    right: ${(props) => (props.$slide === 2 ? '58%' : '60.5%')};
 `;
 
 export const TooltipRight = styled.div`

@@ -56,14 +56,6 @@ export const Slide = styled.div`
     margin: 0;
 `;
 
-export const SlideImageWrapper = styled.div`
-    max-width: 1216px;
-
-    @media (max-width: 768px) {
-        display: none;
-    }
-`;
-
 export const SlideTitle = styled.h3`
     font-size: 1.5rem;
     font-weight: 700;
