@@ -20,7 +20,7 @@ export const Title = styled.h2`
     line-height: 48px;
     text-align: center;
     text-transform: uppercase;
-    margin: 0 48px;
+    margin: 0;
     color: #5072eb;
 
     @media (max-width: 810px) {
