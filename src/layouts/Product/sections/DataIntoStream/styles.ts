@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { globalMaxWidth } from '../../../../globalStyles';
 
-export const Container = styled.section`
+export const Container = styled.div`
     ${globalMaxWidth};
     display: flex;
     flex-direction: column;
@@ -83,6 +83,8 @@ export const TabletImageWrapper = styled.div`
 `;
 
 export const DesktopImageWrapper = styled.div`
+    margin: 0 2px;
+
     @media (max-width: 768px) {
         display: none;
     }

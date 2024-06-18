@@ -1,67 +1,85 @@
-import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
+import { StaticImage } from 'gatsby-plugin-image';
+import FlowDemoVideo from '../../../../components/FlowDemoVideo';
 import { DefaultWrapper } from '../../../../styles/wrappers';
+import Step from './Step';
 import {
-    Button,
-    ContainerContent,
-    ContainerImage,
-    ContainerTopics,
-    PrimaryTextColor,
-    SecondaryTextColor,
+    Container,
+    Steps,
+    Subtitle,
+    TextWrapper,
     Title,
-    Topic,
-    Wrapper,
-} from './style';
+    VideoWrapper,
+} from './styles';
 
 const OurConnectors = () => {
     return (
         <DefaultWrapper>
-            <Wrapper>
-                <ContainerImage>
-                    <StaticImage
-                        className="mobile-image"
-                        placeholder="none"
-                        alt="our connectors"
-                        src="../../../../images/lp-product/our-connectors-mobile.png"
-                        layout="constrained"
-                        width={336}
-                        height={748}
-                        quality={100}
+            <Container>
+                <TextWrapper>
+                    <Title>
+                        CREATE A DATA PIPELINE IN <span>MINUTES</span>
+                    </Title>
+                    <Subtitle>
+                        Build new data pipelines that connect many sources to
+                        many destinations in minutes.
+                    </Subtitle>
+                </TextWrapper>
+                <Steps>
+                    <Step
+                        number={1}
+                        text="Add 100s of sources and destinations using no-code connectors for streaming CDC, real-time, batch, and SaaS."
+                        link={
+                            <a
+                                href="/integrations"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                see connectors
+                            </a>
+                        }
+                        icon={
+                            <StaticImage
+                                placeholder="none"
+                                alt="Create a data pipeline - Step 1"
+                                src="../../../../svgs/product-page/section-four/schema.svg"
+                                layout="constrained"
+                                loading="lazy"
+                            />
+                        }
                     />
-                    <StaticImage
-                        className="desktop-image"
-                        placeholder="none"
-                        alt="our connectors"
-                        src="../../../../images/lp-product/our-connectors-desktop.png"
-                        layout="constrained"
+                    <Step
+                        number={2}
+                        text="Choose any speed for each connection from real-time to hour+ batch; schedule fast updates when you need them to save money."
+                        icon={
+                            <StaticImage
+                                placeholder="none"
+                                alt="Create a data pipeline - Step 2"
+                                src="../../../../svgs/product-page/section-four/real-time-data.svg"
+                                layout="constrained"
+                                loading="lazy"
+                            />
+                        }
                     />
-                </ContainerImage>
-                <ContainerContent>
-                    <div>
-                        <Title>
-                            USE <PrimaryTextColor>OUR</PrimaryTextColor>{' '}
-                            <SecondaryTextColor>CONNECTORS,</SecondaryTextColor>
-                        </Title>
-                        <Title>
-                            ADD <PrimaryTextColor>YOUR</PrimaryTextColor>{' '}
-                            <SecondaryTextColor>CONNECTORS.</SecondaryTextColor>
-                        </Title>
-                    </div>
-                    <ContainerTopics>
-                        <Topic>
-                            Capture using log-based CDC or SaaS systems in
-                            real-time with custom-built Estuary connectors
-                        </Topic>
-                        <Topic>
-                            Bring your own connector through open protocol
-                        </Topic>
-                    </ContainerTopics>
-                    <Button target="_blank" to="/integrations">
-                        View connectors
-                    </Button>
-                </ContainerContent>
-            </Wrapper>
+                    <Step
+                        number={3}
+                        text="Write in-place updates or the full change history into a destination."
+                        icon={
+                            <StaticImage
+                                placeholder="none"
+                                alt="Create a data pipeline - Step 3"
+                                src="../../../../svgs/product-page/section-four/data-computer.svg"
+                                layout="constrained"
+                                loading="lazy"
+                            />
+                        }
+                    />
+                </Steps>
+                <VideoWrapper>
+                    <FlowDemoVideo />
+                </VideoWrapper>
+            </Container>
         </DefaultWrapper>
     );
 };
