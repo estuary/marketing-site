@@ -18,7 +18,6 @@ export const Container = styled.div`
     ${globalMaxWidth};
 
     font-family: 'Inter', sans-serif;
-
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 38px;
@@ -26,6 +25,15 @@ export const Container = styled.div`
     padding-bottom: 60px;
     background-color: #04192b;
     width: 100%;
+
+    @media (max-height: 700px) {
+        overflow: auto;
+        max-height: 85vh;
+    }
+
+    @media (max-height: 425px) {
+        max-height: 60vh;
+    }
 
     @media (max-width: 1023px) {
         grid-template-columns: 1fr 1fr;
@@ -52,10 +60,6 @@ export const Divider = styled.div`
 
     @media (max-width: 1023px) {
         padding: 0;
-    }
-
-    @media (max-height: 1024px) {
-        margin: 12px 0;
     }
 
     @media (max-width: 570px) {
