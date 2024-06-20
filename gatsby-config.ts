@@ -412,6 +412,12 @@ const cfg: GatsbyConfig = {
         },
         'gatsby-transformer-sharp',
         'gatsby-plugin-sharp',
+        {
+            resolve: `gatsby-plugin-canonical-urls`,
+            options: {
+                siteUrl: `https://estuary.dev`,
+            },
+        },
         // {
         //   resolve: `gatsby-plugin-feed`,
         //   options: {
