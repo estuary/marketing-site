@@ -84,11 +84,7 @@ export const TabContent = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 49px 0;
-
-    @media (max-width: 840px) {
-        margin-bottom: 0;
-    }
+    margin-top: 49px;
 `;
 
 export const TabImageWrapper = styled.div`

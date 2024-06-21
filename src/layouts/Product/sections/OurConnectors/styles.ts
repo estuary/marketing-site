@@ -64,6 +64,5 @@ export const VideoWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 20px auto 0 auto;
-    max-width: 780px;
+    margin-top: 20px;
 `;
