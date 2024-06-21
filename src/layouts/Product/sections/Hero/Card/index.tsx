@@ -7,7 +7,7 @@ import {
     IconWrapper,
     TextWrapper,
     Title,
-} from '../Card/style';
+} from './styles';
 
 type CardProps = {
     title: string;

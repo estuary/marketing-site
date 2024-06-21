@@ -14,7 +14,7 @@ import {
     PrimaryButton,
     SecondaryButton,
     Title,
-} from './style';
+} from './styles';
 
 const ProductHero = () => {
     return (

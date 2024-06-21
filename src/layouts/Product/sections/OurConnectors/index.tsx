@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import FlowDemoVideo from '../../../../components/FlowDemoVideo';
 import { DefaultWrapper } from '../../../../styles/wrappers';
@@ -30,15 +31,7 @@ const OurConnectors = () => {
                     <Step
                         number={1}
                         text="Add 100s of sources and destinations using no-code connectors for streaming CDC, real-time, batch, and SaaS."
-                        link={
-                            <a
-                                href="/integrations"
-                                target="_blank"
-                                rel="noreferrer"
-                            >
-                                see connectors
-                            </a>
-                        }
+                        link={<Link to="/integrations">see connectors</Link>}
                         icon={
                             <StaticImage
                                 placeholder="none"

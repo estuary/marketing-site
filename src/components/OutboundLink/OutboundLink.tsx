@@ -1,15 +1,24 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { TextAnchor } from './styles';
 import { handleOutboundLinkClick } from './utils';
 
 const OutboundLink = React.forwardRef<
-    HTMLLinkElement,
-    React.HTMLProps<HTMLLinkElement>
->(({ children, ...props }, ref) => (
-    <a ref={ref} {...props} onClick={(e) => handleOutboundLinkClick(e, props)}>
-        {children}
-    </a>
-));
+    HTMLAnchorElement,
+    React.HTMLProps<HTMLAnchorElement>
+>(({ children, ...props }, ref) => {
+    const Component = typeof children === 'string' ? TextAnchor : 'a';
+
+    return (
+        <Component
+            ref={ref}
+            {...props}
+            onClick={(e) => handleOutboundLinkClick(e, props)}
+        >
+            {children}
+        </Component>
+    );
+});
 
 OutboundLink.propTypes = {
     href: PropTypes.string,
