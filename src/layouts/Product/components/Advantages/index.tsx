@@ -1,12 +1,14 @@
 import React, { ReactNode } from 'react';
+import { LinkFilled } from '../../../../globalStyles';
 import Advantage from './Advantage';
 import {
     AdvantagesList,
+    ButtonWrapper,
     Container,
     IconWrapper,
-    ImageWrapper,
+    LeftColumn,
+    RightColumn,
     Subtitle,
-    TextWrapper,
     Title,
 } from './styles';
 
@@ -19,6 +21,10 @@ type AdvantagesProps = {
         id: number;
         title: ReactNode;
     }[];
+    link?: {
+        title: string;
+        href: string;
+    };
     isDarkTheme?: boolean;
     isImageOnTheLeft?: boolean;
 };
@@ -29,12 +35,13 @@ const Advantages = ({
     subtitle,
     image,
     advantages,
+    link,
     isDarkTheme = false,
     isImageOnTheLeft = false,
 }: AdvantagesProps) => {
     return (
         <Container $isImageOnTheLeft={isImageOnTheLeft}>
-            <TextWrapper>
+            <LeftColumn>
                 <IconWrapper $isDarkTheme={isDarkTheme}>{icon}</IconWrapper>
                 <Title $isDarkTheme={isDarkTheme}>{title}</Title>
                 <Subtitle $isDarkTheme={isDarkTheme}>{subtitle}</Subtitle>
@@ -47,8 +54,15 @@ const Advantages = ({
                         />
                     ))}
                 </AdvantagesList>
-            </TextWrapper>
-            <ImageWrapper>{image}</ImageWrapper>
+                {link ? (
+                    <ButtonWrapper>
+                        <LinkFilled to={link.href} target="_blank">
+                            {link.title}
+                        </LinkFilled>
+                    </ButtonWrapper>
+                ) : null}
+            </LeftColumn>
+            <RightColumn>{image}</RightColumn>
         </Container>
     );
 };

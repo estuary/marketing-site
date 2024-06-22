@@ -40,7 +40,7 @@ export const IconWrapper = styled.div<Theme>`
     }
 `;
 
-export const TextWrapper = styled.div`
+export const LeftColumn = styled.div`
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -85,7 +85,11 @@ export const AdvantagesList = styled.ul`
     margin: 0;
 `;
 
-export const ImageWrapper = styled.div`
+export const RightColumn = styled.div`
     max-width: 536px;
     width: 100%;
+`;
+
+export const ButtonWrapper = styled.div`
+    margin-right: auto;
 `;

@@ -85,6 +85,10 @@ const Pipelines = () => {
                         ),
                     },
                 ]}
+                link={{
+                    title: 'See The Docs',
+                    href: 'https://docs.estuary.dev/',
+                }}
             />
         </DefaultWrapperDarkBlue>
     );
