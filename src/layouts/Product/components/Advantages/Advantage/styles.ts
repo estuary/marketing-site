@@ -10,11 +10,11 @@ export const IconWrapper = styled.div`
     height: 32px;
 `;
 
-export const Title = styled.p`
+export const Title = styled.p<{ $isDarkTheme: boolean }>`
     font-size: 1.25rem;
     font-weight: 400;
     line-height: 30px;
-    color: #47506d;
+    color: ${(props) => (props.$isDarkTheme ? '#FFFFFF' : '#47506d')};
     margin: 0;
 
     @media (max-width: 768px) {

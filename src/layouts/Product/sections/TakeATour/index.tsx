@@ -35,7 +35,7 @@ const TakeATour = () => {
                                 <StaticImage
                                     placeholder="none"
                                     alt="Key feature - No-code connectors"
-                                    src="../../../../images/product-page/section-three/no-code.svg"
+                                    src="../../../../svgs/product-page/section-three/no-code.svg"
                                     layout="constrained"
                                     loading="lazy"
                                 />
@@ -48,7 +48,7 @@ const TakeATour = () => {
                                 <StaticImage
                                     placeholder="none"
                                     alt="Key feature - End-to-end CDC"
-                                    src="../../../../images/product-page/section-three/cdc.svg"
+                                    src="../../../../svgs/product-page/section-three/cdc.svg"
                                     layout="constrained"
                                     loading="lazy"
                                 />
@@ -61,7 +61,7 @@ const TakeATour = () => {
                                 <StaticImage
                                     placeholder="none"
                                     alt="Key feature - Real-time and batch"
-                                    src="../../../../images/product-page/section-three/time.svg"
+                                    src="../../../../svgs/product-page/section-three/time.svg"
                                     layout="constrained"
                                     loading="lazy"
                                 />
@@ -74,7 +74,7 @@ const TakeATour = () => {
                                 <StaticImage
                                     placeholder="none"
                                     alt="Key feature - Private storage"
-                                    src="../../../../images/product-page/section-three/storage.svg"
+                                    src="../../../../svgs/product-page/section-three/storage.svg"
                                     layout="constrained"
                                     loading="lazy"
                                 />
@@ -98,7 +98,7 @@ const TakeATour = () => {
                                 <StaticImage
                                     placeholder="none"
                                     alt="Key feature - Data ops"
-                                    src="../../../../images/product-page/section-three/data-ops.svg"
+                                    src="../../../../svgs/product-page/section-three/data-ops.svg"
                                     layout="constrained"
                                     loading="lazy"
                                 />
@@ -110,7 +110,7 @@ const TakeATour = () => {
                                 <StaticImage
                                     placeholder="none"
                                     alt="Key feature - Many to many"
-                                    src="../../../../images/product-page/section-three/source.svg"
+                                    src="../../../../svgs/product-page/section-three/source.svg"
                                     layout="constrained"
                                     loading="lazy"
                                 />
@@ -122,7 +122,7 @@ const TakeATour = () => {
                                 <StaticImage
                                     placeholder="none"
                                     alt="Key feature - Schema evolution"
-                                    src="../../../../images/product-page/section-three/schema.svg"
+                                    src="../../../../svgs/product-page/section-three/schema.svg"
                                     layout="constrained"
                                     loading="lazy"
                                 />
@@ -134,7 +134,7 @@ const TakeATour = () => {
                                 <StaticImage
                                     placeholder="none"
                                     alt="Key feature - Private storage"
-                                    src="../../../../images/product-page/section-three/replay.svg"
+                                    src="../../../../svgs/product-page/section-three/replay.svg"
                                     layout="constrained"
                                     loading="lazy"
                                 />

@@ -4,15 +4,16 @@ import { Container, IconWrapper, Title } from './styles';
 
 type AdvantageProps = {
     title: ReactNode;
+    isDarkTheme?: boolean;
 };
 
-const Advantage = ({ title }: AdvantageProps) => {
+const Advantage = ({ title, isDarkTheme = false }: AdvantageProps) => {
     return (
         <Container>
             <IconWrapper>
                 <CheckIcon fontSize="large" htmlColor="#5072EB" />
             </IconWrapper>
-            <Title>{title}</Title>
+            <Title $isDarkTheme={isDarkTheme}>{title}</Title>
         </Container>
     );
 };
