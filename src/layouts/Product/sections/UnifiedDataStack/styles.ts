@@ -1,124 +1,85 @@
 import styled from 'styled-components';
 
-import { OutboundLink } from '../../../../components/OutboundLink';
-import { globalMaxWidth } from '../../../../globalStyles';
-
-export const Wrapper = styled.div`
-    ${globalMaxWidth}
-
+export const CaseStudies = styled.div`
     display: flex;
     flex-direction: column;
+    gap: 18px;
+    height: 100%;
+`;
 
-    @media (min-width: 1024px) {
-        flex-direction: row;
-        align-items: center;
+export const IconWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+`;
+
+export const BottomCaseStudies = styled.div`
+    display: flex;
+    gap: 16px;
+
+    @media (max-width: 425px) {
+        flex-direction: column;
     }
 `;
 
-export const ContainerImage = styled.div`
-    position: relative;
-    flex: 1;
-    max-width: 335px;
-    margin: 0 auto;
-    margin-bottom: 40px;
-
-    @media (min-width: 1024px) {
-        max-width: 100%;
-
-        > div {
-            margin-right: 60px;
-        }
-    }
-`;
-
-export const ContainerContent = styled.div`
+export const TopCaseStudy = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    flex: 1;
-`;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    gap: 16px;
+    border: 1px solid #e2e8fb;
+    border-radius: 24px;
+    background-color: #ffffff;
 
-export const Title = styled.p`
-    font-weight: 600;
-    font-size: 36px;
-    line-height: 43px;
-    margin: 0;
-    color: #47506d;
-
-    span {
-        color: #5072eb;
-    }
-
-    @media (min-width: 1280px) {
-        font-size: 60px;
-        line-height: 72px;
-    }
-`;
-
-export const Description = styled.p`
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 30px;
-    color: #47506d;
-    margin: 0;
-
-    @media (min-width: 1280px) {
-        font-size: 24px;
-    }
-`;
-
-export const ContainerTopics = styled.ul`
-    list-style-type: none;
-    margin: 0;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-
-    @media (min-width: 1280px) {
-        gap: 24px;
-    }
-`;
-
-export const Topic = styled.li`
-    padding-left: 40px;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 30px;
-    margin: 0;
-    color: #47506d;
-
-    @media (min-width: 1280px) {
-        font-size: 20px;
-        line-height: 30px;
-    }
-
-    &::before {
-        position: absolute;
-        left: 0;
-        content: '✓';
-        color: #5072eb;
-        font-size: 20px;
+    & > h3 {
+        font-size: 1.5rem;
         font-weight: 700;
+        line-height: 28.8px;
+        color: #5072eb;
+        text-align: center;
+        margin: 0;
+    }
 
-        @media (min-width: 1280px) {
-            font-size: 24px;
-        }
+    & > p {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 30px;
+        color: #47506d;
+        text-align: center;
+        margin: 0;
     }
 `;
 
-export const Button = styled(OutboundLink)`
-    width: 100%;
-    margin-top: 20px;
-    text-align: center;
-    border-radius: 4px;
-    padding: 12px 24px;
-    background-color: #5072eb;
-    color: #fff;
+export const BottomCaseStudy = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    gap: 16px;
+    border: 1px solid #a4b6f4;
+    border-radius: 24px;
+    background-color: #5072eb1a;
+    flex: 1;
 
-    @media (min-width: 1024px) {
-        width: fit-content;
-        padding: 12px 62px;
-        font-size: 16px;
+    & > h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 28.8px;
+        color: #04192b;
+        text-align: center;
+        margin: 0;
+    }
+
+    & > p {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 30px;
+        color: #47506d;
+        text-align: center;
+        margin: 0;
     }
 `;

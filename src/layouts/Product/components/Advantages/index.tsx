@@ -16,7 +16,7 @@ type AdvantagesProps = {
     icon: ReactNode;
     image: ReactNode;
     title: ReactNode;
-    subtitle: string;
+    subtitle?: string;
     advantages: {
         id: number;
         title: ReactNode;
@@ -44,7 +44,9 @@ const Advantages = ({
             <LeftColumn>
                 <IconWrapper $isDarkTheme={isDarkTheme}>{icon}</IconWrapper>
                 <Title $isDarkTheme={isDarkTheme}>{title}</Title>
-                <Subtitle $isDarkTheme={isDarkTheme}>{subtitle}</Subtitle>
+                {subtitle ? (
+                    <Subtitle $isDarkTheme={isDarkTheme}>{subtitle}</Subtitle>
+                ) : null}
                 <AdvantagesList>
                     {advantages.map((advantage) => (
                         <Advantage

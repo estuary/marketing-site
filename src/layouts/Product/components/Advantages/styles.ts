@@ -10,6 +10,7 @@ export const Container = styled.section<{ $isImageOnTheLeft: boolean }>`
 
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 60px;
     flex-direction: ${(props) =>
         props.$isImageOnTheLeft ? 'row-reverse' : 'row'};
@@ -92,4 +93,8 @@ export const RightColumn = styled.div`
 
 export const ButtonWrapper = styled.div`
     margin-right: auto;
+
+    @media (max-width: 425px) {
+        margin-right: 0;
+    }
 `;
