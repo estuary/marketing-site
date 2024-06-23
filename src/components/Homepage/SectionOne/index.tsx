@@ -96,7 +96,7 @@ const SectionOne = () => {
             <MetricCardsList>
                 <MetricCard>
                     <MetricIconWrapper>
-                        <ActiveUsersIcon />
+                        <ActiveUsersIcon color="#FFFFFF" />
                     </MetricIconWrapper>
                     <MetricsWrapper>
                         <MetricValue>3000+</MetricValue>
@@ -105,7 +105,7 @@ const SectionOne = () => {
                 </MetricCard>
                 <MetricCard>
                     <MetricIconWrapper>
-                        <LatencyIcon />
+                        <LatencyIcon color="#FFFFFF" />
                     </MetricIconWrapper>
                     <MetricsWrapper>
                         <MetricValue>&#60;100ms</MetricValue>
