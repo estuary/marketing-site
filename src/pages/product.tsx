@@ -7,6 +7,7 @@ import DataIntoStream from '../layouts/Product/sections/DataIntoStream';
 import Hero from '../layouts/Product/sections/Hero';
 import OurConnectors from '../layouts/Product/sections/OurConnectors';
 import Pipelines from '../layouts/Product/sections/Pipelines';
+import SectionEleven from '../layouts/Product/sections/SectionEleven';
 import SectionNine from '../layouts/Product/sections/SectionNine';
 import SectionTen from '../layouts/Product/sections/SectionTen';
 import TakeATour from '../layouts/Product/sections/TakeATour';
@@ -27,6 +28,7 @@ const Product = () => {
             <UnifiedDataStack />
             <SectionNine />
             <SectionTen />
+            <SectionEleven />
         </Wrapper>
     );
 };

@@ -3,7 +3,7 @@ import React from 'react';
 import { DefaultWrapperDark } from '../../../../styles/wrappers';
 import Advantages from '../../components/Advantages';
 
-const UnifiedDataStack = () => {
+const SectionTen = () => {
     return (
         <DefaultWrapperDark>
             <Advantages
@@ -51,4 +51,4 @@ const UnifiedDataStack = () => {
     );
 };
 
-export default UnifiedDataStack;
+export default SectionTen;
