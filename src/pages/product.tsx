@@ -8,6 +8,7 @@ import Hero from '../layouts/Product/sections/Hero';
 import OurConnectors from '../layouts/Product/sections/OurConnectors';
 import Pipelines from '../layouts/Product/sections/Pipelines';
 import SectionNine from '../layouts/Product/sections/SectionNine';
+import SectionTen from '../layouts/Product/sections/SectionTen';
 import TakeATour from '../layouts/Product/sections/TakeATour';
 import TakeControlBack from '../layouts/Product/sections/TakeControlBack';
 import TheAutomation from '../layouts/Product/sections/TheAutomation';
@@ -25,6 +26,7 @@ const Product = () => {
             <Pipelines />
             <UnifiedDataStack />
             <SectionNine />
+            <SectionTen />
         </Wrapper>
     );
 };

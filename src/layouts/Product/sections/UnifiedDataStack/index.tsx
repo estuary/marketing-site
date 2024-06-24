@@ -16,15 +16,13 @@ const UnifiedDataStack = () => {
         <DefaultWrapperDark>
             <Advantages
                 icon={
-                    <IconWrapper>
-                        <StaticImage
-                            placeholder="none"
-                            alt="Coding optional"
-                            src="../../../../svgs/product-page/section-eight/database-costs.svg"
-                            layout="constrained"
-                            loading="lazy"
-                        />
-                    </IconWrapper>
+                    <StaticImage
+                        placeholder="none"
+                        alt="Maximize efficiency, reduce expenses"
+                        src="../../../../svgs/product-page/section-eight/database-costs.svg"
+                        layout="constrained"
+                        loading="lazy"
+                    />
                 }
                 title={
                     <>
@@ -37,7 +35,7 @@ const UnifiedDataStack = () => {
                             <IconWrapper>
                                 <StaticImage
                                     placeholder="none"
-                                    alt="Coding optional"
+                                    alt="Case study - Connect & Go logo"
                                     src="../../../../images/c&g-logo.png"
                                     layout="constrained"
                                     loading="lazy"
@@ -54,7 +52,7 @@ const UnifiedDataStack = () => {
                                 <IconWrapper>
                                     <StaticImage
                                         placeholder="none"
-                                        alt="Coding optional"
+                                        alt="Case study - True logo"
                                         src="../../../../images/true-logo.png"
                                         layout="constrained"
                                         loading="lazy"
@@ -71,7 +69,7 @@ const UnifiedDataStack = () => {
                                 <IconWrapper>
                                     <StaticImage
                                         placeholder="none"
-                                        alt="Coding optional"
+                                        alt="Case study - Soli & Company logo"
                                         src="../../../../images/soli&company-logo.png"
                                         layout="constrained"
                                         loading="lazy"

@@ -25,7 +25,7 @@ const SectionNine = () => {
                 icon={
                     <StaticImage
                         placeholder="none"
-                        alt="Coding optional"
+                        alt="Real-time data"
                         src="../../../../svgs/product-page/section-nine/real-time-clock.svg"
                         layout="constrained"
                         loading="lazy"
@@ -41,7 +41,7 @@ const SectionNine = () => {
                     <Metrics>
                         <StaticImage
                             placeholder="none"
-                            alt="Estuary metrics"
+                            alt="Estuary performance metrics"
                             src="../../../../images/product-page/section-nine/metrics-background.png"
                             layout="constrained"
                             loading="lazy"
