@@ -127,7 +127,7 @@ const SectionTwo = () => {
                     />
                 )}
                 <OracleLogoWrapper
-                    to="/source/oracle"
+                    to="/source/oracle-flashback"
                     aria-label="Oracle source"
                 />
                 <MySQLLogoWrapper
