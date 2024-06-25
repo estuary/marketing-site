@@ -64,6 +64,7 @@
     --background-color-sharing-button: #ffffff;
     --border-color-sharing-button: #d7dce5;
     --header-link-hover: #5072eb4d;
+    --anchor-color: #5072eb;
 }
 
 /* HTML elements */
@@ -254,10 +255,16 @@ table thead tr th {
 /* Link */
 
 a {
-    color: var(--color-primary);
+    color: var(--anchor-color);
     font-family: 'Inter', sans-serif;
     font-style: normal;
     text-decoration: none;
+
+    &:hover {
+        color: var(--anchor-color);
+        text-underline-offset: 4px;
+        text-decoration: underline;
+    }
 }
 
 button,

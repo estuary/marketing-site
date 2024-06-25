@@ -10,6 +10,7 @@ import Pipelines from '../layouts/Product/sections/Pipelines';
 import SectionEleven from '../layouts/Product/sections/SectionEleven';
 import SectionNine from '../layouts/Product/sections/SectionNine';
 import SectionTen from '../layouts/Product/sections/SectionTen';
+import SectionThirteen from '../layouts/Product/sections/SectionThirteen';
 import SectionTwelve from '../layouts/Product/sections/SectionTwelve';
 import TakeATour from '../layouts/Product/sections/TakeATour';
 import TakeControlBack from '../layouts/Product/sections/TakeControlBack';
@@ -31,6 +32,7 @@ const Product = () => {
             <SectionTen />
             <SectionEleven />
             <SectionTwelve />
+            <SectionThirteen />
         </Wrapper>
     );
 };
