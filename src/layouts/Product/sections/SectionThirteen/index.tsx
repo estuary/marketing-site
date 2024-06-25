@@ -16,7 +16,7 @@ import {
     Title,
 } from './styles';
 
-const SectionTwelve = () => {
+const SectionThirteen = () => {
     return (
         <DefaultWrapperDarkBlue>
             <Form id="newsletter-signup">
@@ -69,4 +69,4 @@ const SectionTwelve = () => {
     );
 };
 
-export default SectionTwelve;
+export default SectionThirteen;

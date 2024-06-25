@@ -8,6 +8,7 @@ import Hero from '../layouts/Product/sections/Hero';
 import OurConnectors from '../layouts/Product/sections/OurConnectors';
 import Pipelines from '../layouts/Product/sections/Pipelines';
 import SectionEleven from '../layouts/Product/sections/SectionEleven';
+import SectionFourteen from '../layouts/Product/sections/SectionFourteen';
 import SectionNine from '../layouts/Product/sections/SectionNine';
 import SectionTen from '../layouts/Product/sections/SectionTen';
 import SectionThirteen from '../layouts/Product/sections/SectionThirteen';
@@ -33,6 +34,7 @@ const Product = () => {
             <SectionEleven />
             <SectionTwelve />
             <SectionThirteen />
+            <SectionFourteen />
         </Wrapper>
     );
 };

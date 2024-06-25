@@ -8,11 +8,17 @@ export const Title = styled.h2`
     margin: 0;
     color: #ffffff;
 
-    @media (max-width: 810px) {
+    @media (max-width: 768px) {
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: 38.4px;
+        margin: 0;
+    }
+
+    @media (max-width: 768px) {
         font-size: 1.75rem;
         font-weight: 700;
         line-height: 33.6px;
-        margin: 0;
     }
 `;
 
@@ -36,6 +42,7 @@ export const Form = styled.form`
 
     @media (max-width: 768px) {
         flex-direction: column;
+        gap: 40px;
     }
 `;
 
@@ -109,9 +116,23 @@ export const IconWrapper = styled.div`
     border-radius: 8px;
     background-color: #ffffff05;
     padding: 20px;
+
+    @media (max-width: 425px) {
+        width: 72px;
+        height: 72px;
+    }
 `;
 
 export const TermsAndConditions = styled.p`
     margin: 0;
     color: #ffffff;
+
+    & > a {
+        color: #5072eb;
+
+        &:hover {
+            text-underline-offset: 4px;
+            text-decoration: underline;
+        }
+    }
 `;
