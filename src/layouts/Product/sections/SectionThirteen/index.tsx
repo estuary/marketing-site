@@ -54,7 +54,11 @@ const SectionThirteen = () => {
                                 loading="lazy"
                             />
                         </InputIconWrapper>
-                        <Input placeholder="Enter your email" type="email" />
+                        <Input
+                            placeholder="Enter your email"
+                            type="email"
+                            required
+                        />
                         <ButtonFilled type="submit">Submit</ButtonFilled>
                     </InputAndButton>
                     <TermsAndConditions>

@@ -55,6 +55,7 @@ const Footer = () => {
                                 className="global-footer-input-email"
                                 placeholder="Email"
                                 type="email"
+                                required
                             />
                             <button
                                 type="submit"
