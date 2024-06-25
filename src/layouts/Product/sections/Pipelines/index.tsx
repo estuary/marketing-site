@@ -59,7 +59,7 @@ const Pipelines = () => {
                             <>
                                 Use built-in pipeline{' '}
                                 <OutboundLink
-                                    href="https://docs.estuary.dev/concepts/flowctl/"
+                                    href="https://docs.estuary.dev/concepts/tests/"
                                     target="_blank"
                                 >
                                     testing
@@ -75,7 +75,7 @@ const Pipelines = () => {
                             <>
                                 Select advanced schema detection and automate{' '}
                                 <OutboundLink
-                                    href="https://docs.estuary.dev/concepts/flowctl/"
+                                    href="https://docs.estuary.dev/concepts/advanced/evolutions/"
                                     target="_blank"
                                 >
                                     schema evolution

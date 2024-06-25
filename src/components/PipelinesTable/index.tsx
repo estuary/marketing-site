@@ -63,7 +63,7 @@ const PipelinesTable = () => {
                     </TableLine>
                     <TableLine>
                         <LineBody>
-                            <span>Power</span>
+                            <span>Scale</span>
                         </LineBody>
                         <LineBody>
                             <Checkmark />
