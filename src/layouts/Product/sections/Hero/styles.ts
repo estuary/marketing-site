@@ -12,7 +12,7 @@ export const Header = styled.div`
     display: flex;
     align-items: center;
     gap: 60px;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
 
     @media (max-width: 1024px) {
         flex-direction: column-reverse;

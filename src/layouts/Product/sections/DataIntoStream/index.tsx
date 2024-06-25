@@ -18,7 +18,7 @@ import {
 
 const DataIntoStream = () => {
     return (
-        <DefaultWrapper>
+        <DefaultWrapper style={{ paddingTop: '60px' }}>
             <Container>
                 <TextWrapper>
                     <Title>HOW IT WORKS</Title>

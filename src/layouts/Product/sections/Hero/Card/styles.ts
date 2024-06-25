@@ -7,11 +7,11 @@ export const Container = styled(OutboundLink)<{ $isActive: boolean }>`
     width: 100%;
     background-color: #ffffff05;
     color: #ffffff;
-    padding: 24px;
+    padding: 16px;
     border: 1px solid #5072eb33;
     border-radius: 24px;
 
-    @media (max-width: 1370px) {
+    @media (max-width: 1160px) {
         flex-direction: column;
         align-items: start;
     }
@@ -57,7 +57,7 @@ export const Title = styled.h3`
     margin: 0;
     color: #ffffff;
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1160px) {
         font-size: 1rem;
     }
 
@@ -89,7 +89,7 @@ export const IconWrapper = styled.div<{ $isActive: boolean }>`
     align-items: center;
     justify-content: center;
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1280px) {
         min-width: ${iconWrapperSizeMobile};
         min-height: ${iconWrapperSizeMobile};
         max-width: ${iconWrapperSizeMobile};
@@ -101,9 +101,9 @@ export const TextWrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 12px;
-    margin: 0 60px 0 32px;
+    margin: 0 30px 0 16px;
 
-    @media (max-width: 1370px) {
+    @media (max-width: 1160px) {
         margin: 16px 0 30px 0;
     }
 
@@ -117,7 +117,7 @@ export const TextWrapper = styled.div`
 `;
 
 export const ChevronIconWrapper = styled.div`
-    @media (max-width: 1370px) {
+    @media (max-width: 1160px) {
         margin-top: auto;
     }
 

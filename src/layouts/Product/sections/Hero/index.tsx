@@ -18,7 +18,7 @@ import {
 
 const ProductHero = () => {
     return (
-        <DefaultWrapperDarkBlue>
+        <DefaultWrapperDarkBlue style={{ padding: '50px 0 60px 0' }}>
             <Container>
                 <Header>
                     <ContainerContent>
@@ -49,6 +49,7 @@ const ProductHero = () => {
                             placeholder="none"
                             loading="eager"
                             layout="constrained"
+                            quality={100}
                         />
                     </ImageContainer>
                 </Header>
