@@ -24,11 +24,10 @@ const ProductHero = () => {
                     <ContainerContent>
                         <Title>ESTUARY FLOW</Title>
                         <Description>
-                            Estuary Flow is the only platform built for change
-                            data capture (CDC) that lets you capture, transform,
-                            and materialize data in real-time and batch for
-                            analytics, ops, and AI - in minutes, with
-                            millisecond latency.
+                            Estuary Flow is the only platform purpose-built for
+                            real-time ETL and ELT data pipelines. Batch-load for
+                            analytics, and stream for ops and AI - all set up in
+                            minutes, with millisecond latency.
                         </Description>
                         <ButtonsContainer>
                             <PrimaryButton
