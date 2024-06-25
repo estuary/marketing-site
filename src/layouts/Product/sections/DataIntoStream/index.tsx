@@ -44,6 +44,7 @@ const DataIntoStream = () => {
                                     src="../../../../images/product-page/section-two/desktop/slide-1.png"
                                     layout="constrained"
                                     loading="lazy"
+                                    quality={100}
                                 />
                             </Hover>
                         </DesktopImageWrapper>
@@ -81,6 +82,7 @@ const DataIntoStream = () => {
                                     src="../../../../images/product-page/section-two/desktop/slide-2.png"
                                     layout="constrained"
                                     loading="lazy"
+                                    quality={100}
                                 />
                             </Hover>
                         </DesktopImageWrapper>
@@ -122,6 +124,7 @@ const DataIntoStream = () => {
                                     src="../../../../images/product-page/section-two/desktop/slide-3.png"
                                     layout="constrained"
                                     loading="lazy"
+                                    quality={100}
                                 />
                             </Hover>
                         </DesktopImageWrapper>
@@ -160,6 +163,7 @@ const DataIntoStream = () => {
                                     src="../../../../images/product-page/section-two/desktop/slide-4.png"
                                     layout="constrained"
                                     loading="lazy"
+                                    quality={100}
                                 />
                             </Hover>
                         </DesktopImageWrapper>

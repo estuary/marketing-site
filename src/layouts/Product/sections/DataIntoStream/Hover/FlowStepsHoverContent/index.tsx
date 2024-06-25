@@ -34,6 +34,7 @@ const FlowStepsHoverContent = ({
                                 alt="Graphic - Flow Step Transform"
                                 src="../../../../../../images/product-page/section-two/desktop/slide-2-transform.png"
                                 layout="constrained"
+                                quality={100}
                             />
                         </FlowStepImageWrapper>
                         <TooltipTop $slide={2}>
@@ -76,6 +77,7 @@ const FlowStepsHoverContent = ({
                                 alt="Graphic - Flow Step Stream"
                                 src="../../../../../../images/product-page/section-two/desktop/slide-2-stream.png"
                                 layout="constrained"
+                                quality={100}
                             />
                         </FlowStepImageWrapper>
                         <TooltipLeft $slide={2}>
@@ -115,6 +117,7 @@ const FlowStepsHoverContent = ({
                                 alt="Graphic - Flow Step Replay"
                                 src="../../../../../../images/product-page/section-two/desktop/slide-2-replay.png"
                                 layout="constrained"
+                                quality={100}
                             />
                         </FlowStepImageWrapper>
                         <TooltipRight>
@@ -157,6 +160,7 @@ const FlowStepsHoverContent = ({
                                 alt="Graphic - Flow Step Store"
                                 src="../../../../../../images/product-page/section-two/desktop/slide-2-store.png"
                                 layout="constrained"
+                                quality={100}
                             />
                         </FlowStepImageWrapper>
                         <TooltipBottom>

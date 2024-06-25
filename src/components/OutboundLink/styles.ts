@@ -16,6 +16,12 @@ type AnchorOutlinedProps = {
 export const AnchorOutlined = styled.a<AnchorOutlinedProps>`
     ${(props) => baseButtonPrimaryStyling(props.theme)};
     width: ${(props) => (props.$fullWidth ? '100%' : 'auto')};
+
+    &:hover {
+        svg {
+            color: #ffffff;
+        }
+    }
 `;
 
 export const TextAnchor = styled.a`

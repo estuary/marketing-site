@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { StaticImage } from 'gatsby-plugin-image';
+import { OutboundLinkOutlined } from '../../../../components/OutboundLink';
 import { LinkOutlined } from '../../../../globalStyles';
 import { DefaultWrapperDark } from '../../../../styles/wrappers';
 import CalendarIcon from '../../../../svgs/product-page/section-fourteen/calendar.svg';
@@ -34,12 +35,12 @@ const SectionFourteen = () => {
                                     pipeline in minutes.
                                 </BoxDescription>
                             </TextWrapper>
-                            <LinkOutlined to="https://dashboard.estuary.dev/register">
+                            <OutboundLinkOutlined href="https://dashboard.estuary.dev/register">
                                 <IconWrapper>
                                     <LoginIcon color="#5072EB" />
                                 </IconWrapper>
                                 Register page
-                            </LinkOutlined>
+                            </OutboundLinkOutlined>
                         </GetStartedBox>
                         <ContactUsBox>
                             <TextWrapper>

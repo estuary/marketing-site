@@ -39,6 +39,7 @@ const ConnectorsGroupHover = ({
                                 alt="Streaming CDC source connectors"
                                 src="../../../../../../images/product-page/section-two/desktop/streaming-cdc-connectors-group.png"
                                 layout="constrained"
+                                quality={100}
                             />
                         </ConnectorsGroupImageWrapper>
                     ) : null}
@@ -56,6 +57,7 @@ const ConnectorsGroupHover = ({
                                 alt="Real-time source connectors"
                                 src="../../../../../../images/product-page/section-two/desktop/real-time-connectors-group.png"
                                 layout="constrained"
+                                quality={100}
                             />
                         </ConnectorsGroupImageWrapper>
                     ) : null}
@@ -73,6 +75,7 @@ const ConnectorsGroupHover = ({
                                 alt="Batch source connectors"
                                 src="../../../../../../images/product-page/section-two/desktop/batch-connectors-group.png"
                                 layout="constrained"
+                                quality={100}
                             />
                         </ConnectorsGroupImageWrapper>
                     ) : null}
@@ -90,6 +93,7 @@ const ConnectorsGroupHover = ({
                                 alt="SaaS source connectors"
                                 src="../../../../../../images/product-page/section-two/desktop/saas-connectors-group.png"
                                 layout="constrained"
+                                quality={100}
                             />
                         </ConnectorsGroupImageWrapper>
                     ) : null}
@@ -107,6 +111,7 @@ const ConnectorsGroupHover = ({
                                 alt="Analytics destination connectors"
                                 src="../../../../../../images/product-page/section-two/desktop/analytics-connectors-group.png"
                                 layout="constrained"
+                                quality={100}
                             />
                         </ConnectorsGroupImageWrapper>
                     ) : null}
@@ -124,6 +129,7 @@ const ConnectorsGroupHover = ({
                                 alt="Ops destination connectors"
                                 src="../../../../../../images/product-page/section-two/desktop/ops-connectors-group.png"
                                 layout="constrained"
+                                quality={100}
                             />
                         </ConnectorsGroupImageWrapper>
                     ) : null}
@@ -141,6 +147,7 @@ const ConnectorsGroupHover = ({
                                 alt="AI destination connectors"
                                 src="../../../../../../images/product-page/section-two/desktop/ai-connectors-group.png"
                                 layout="constrained"
+                                quality={100}
                             />
                         </ConnectorsGroupImageWrapper>
                     ) : null}
