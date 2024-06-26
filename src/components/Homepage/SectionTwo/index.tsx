@@ -50,7 +50,7 @@ const SectionTwo = () => {
                     <span>and </span>
                     <span>transform </span>
                     <span>
-                        data in real-time with the only platform built for
+                        data in real-time with the only platform built for{' '}
                     </span>
                     <span>ops</span>
                     <span>, </span>
