@@ -20,4 +20,15 @@ export const Title = styled.p<{ $isDarkTheme: boolean }>`
     @media (max-width: 768px) {
         font-size: 1rem;
     }
+
+    & > a {
+        color: #5072eb;
+        font-weight: 500;
+
+        &:hover {
+            color: #5072eb;
+            text-underline-offset: 4px;
+            text-decoration: underline;
+        }
+    }
 `;

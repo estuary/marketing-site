@@ -63,6 +63,7 @@ const ProductHero = () => {
                             <StaticImage
                                 src="../../../../svgs/product-page/section-one/record-outlined.svg"
                                 alt="Watch a video to build a pipeline in minutes"
+                                loading="eager"
                             />
                         }
                     />
@@ -74,6 +75,7 @@ const ProductHero = () => {
                             <StaticImage
                                 src="../../../../svgs/product-page/section-one/sign-up-outlined.svg"
                                 alt="Register now and learn how to create a pipeline with our tutorial"
+                                loading="eager"
                             />
                         }
                     />
@@ -86,6 +88,7 @@ const ProductHero = () => {
                                 src="../../../../svgs/product-page/section-one/slack-outlined.svg"
                                 alt="Join the Estuary community and receive support from experts"
                                 style={{ color: '#5072EB' }}
+                                loading="eager"
                             />
                         }
                     />

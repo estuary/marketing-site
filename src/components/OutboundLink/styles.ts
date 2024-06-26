@@ -23,14 +23,3 @@ export const AnchorOutlined = styled.a<AnchorOutlinedProps>`
         }
     }
 `;
-
-export const TextAnchor = styled.a`
-    color: #5072eb;
-    font-weight: 500;
-
-    &:hover {
-        color: #5072eb;
-        text-underline-offset: 4px;
-        text-decoration: underline;
-    }
-`;
