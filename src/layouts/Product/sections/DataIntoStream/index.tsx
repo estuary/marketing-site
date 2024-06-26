@@ -43,7 +43,7 @@ const DataIntoStream = () => {
                                     alt="Graphic - Capture"
                                     src="../../../../images/product-page/section-two/desktop/slide-1.png"
                                     layout="constrained"
-                                    loading="lazy"
+                                    loading="eager"
                                     quality={100}
                                 />
                             </Hover>
@@ -54,7 +54,7 @@ const DataIntoStream = () => {
                                 alt="Graphic - Capture"
                                 src="../../../../images/product-page/section-two/tablet/slide-1.png"
                                 layout="constrained"
-                                loading="lazy"
+                                loading="eager"
                             />
                         </TabletImageWrapper>
                         <MobileImageWrapper>
@@ -63,7 +63,7 @@ const DataIntoStream = () => {
                                 alt="Graphic - Capture"
                                 src="../../../../images/product-page/section-two/mobile/slide-1.png"
                                 layout="constrained"
-                                loading="lazy"
+                                loading="eager"
                             />
                         </MobileImageWrapper>
                         <SlideTitle>Capture</SlideTitle>

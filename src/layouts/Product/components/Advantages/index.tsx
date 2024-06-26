@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { LinkFilled } from '../../../../globalStyles';
+import { OutboundLinkFilled } from '../../../../components/OutboundLink';
 import Advantage from './Advantage';
 import {
     AdvantagesList,
@@ -58,9 +58,9 @@ const Advantages = ({
                 </AdvantagesList>
                 {link ? (
                     <ButtonWrapper>
-                        <LinkFilled to={link.href} target="_blank">
+                        <OutboundLinkFilled href={link.href} target="_blank">
                             {link.title}
-                        </LinkFilled>
+                        </OutboundLinkFilled>
                     </ButtonWrapper>
                 ) : null}
             </LeftColumn>
