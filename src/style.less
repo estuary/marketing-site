@@ -485,7 +485,7 @@ input {
 }
 
 .global-header-link {
-    text-decoration: none;
+    text-decoration: none !important;
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 600;
@@ -869,9 +869,15 @@ input {
 }
 
 .global-footer-right-link {
-    color: #b7c6dd;
+    color: #b7c6dd !important;
     text-decoration: none;
     margin-top: 20px;
+
+    &:hover {
+        color: #5072eb;
+        text-underline-offset: 4px;
+        text-decoration: underline;
+    }
 }
 
 .global-footer-right-link-wrapper {
@@ -899,7 +905,7 @@ input {
 }
 
 .global-footer-copyright-link {
-    color: #b7c6dd;
+    color: #b7c6dd !important;
 }
 
 .global-footer-divider {
