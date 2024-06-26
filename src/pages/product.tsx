@@ -1,44 +1,57 @@
 import React from 'react';
 
-import Header from '../layouts/Product/components/Head';
-import Wrapper from '../layouts/Product/components/Wrapper';
+import Seo from '../components/seo';
 
-import DataIntoStream from '../layouts/Product/sections/DataIntoStream';
-import Hero from '../layouts/Product/sections/Hero';
-import OurConnectors from '../layouts/Product/sections/OurConnectors';
-import Pipelines from '../layouts/Product/sections/Pipelines';
-import SectionEleven from '../layouts/Product/sections/SectionEleven';
-import SectionFourteen from '../layouts/Product/sections/SectionFourteen';
-import SectionNine from '../layouts/Product/sections/SectionNine';
-import SectionTen from '../layouts/Product/sections/SectionTen';
-import SectionThirteen from '../layouts/Product/sections/SectionThirteen';
-import SectionTwelve from '../layouts/Product/sections/SectionTwelve';
-import TakeATour from '../layouts/Product/sections/TakeATour';
-import TakeControlBack from '../layouts/Product/sections/TakeControlBack';
-import TheAutomation from '../layouts/Product/sections/TheAutomation';
-import UnifiedDataStack from '../layouts/Product/sections/UnifiedDataStack';
+import SectionEight from '../components/Product/SectionEight';
+import SectionEleven from '../components/Product/SectionEleven';
+import SectionFive from '../components/Product/SectionFive';
+import SectionFour from '../components/Product/SectionFour';
+import SectionFourteen from '../components/Product/SectionFourteen';
+import SectionNine from '../components/Product/SectionNine';
+import SectionOne from '../components/Product/SectionOne';
+import SectionSeven from '../components/Product/SectionSeven';
+import SectionSix from '../components/Product/SectionSix';
+import SectionTen from '../components/Product/SectionTen';
+import SectionThirteen from '../components/Product/SectionThirteen';
+import SectionThree from '../components/Product/SectionThree';
+import SectionTwelve from '../components/Product/SectionTwelve';
+import SectionTwo from '../components/Product/SectionTwo';
+import Layout from '../components/layout';
 
 const Product = () => {
     return (
-        <Wrapper>
-            <Hero />
-            <DataIntoStream />
-            <TakeATour />
-            <OurConnectors />
-            <TakeControlBack />
-            <TheAutomation />
-            <Pipelines />
-            <UnifiedDataStack />
-            <SectionNine />
-            <SectionTen />
-            <SectionEleven />
-            <SectionTwelve />
-            <SectionThirteen />
-            <SectionFourteen />
-        </Wrapper>
+        <Layout>
+            <article
+                className="product-page"
+                itemScope
+                itemType="http://schema.org/Article"
+            >
+                <SectionOne />
+                <SectionTwo />
+                <SectionThree />
+                <SectionFour />
+                <SectionFive />
+                <SectionSix />
+                <SectionSeven />
+                <SectionEight />
+                <SectionNine />
+                <SectionTen />
+                <SectionEleven />
+                <SectionTwelve />
+                <SectionThirteen />
+                <SectionFourteen />
+            </article>
+        </Layout>
     );
 };
 
-export const Head = Header;
+export const Head = () => {
+    return (
+        <Seo
+            title="Flow"
+            description="Flow is the first real-time Data Operations platform. Set up pipelines with both historical and real-time data in minutes."
+        />
+    );
+};
 
 export default Product;
