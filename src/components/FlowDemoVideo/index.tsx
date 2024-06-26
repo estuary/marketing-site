@@ -2,23 +2,31 @@ import { StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
 import ReactPlayer from 'react-player';
 import { estuaryProductFlowVideoUrl } from '../../../shared';
+import useWindowExistence from '../../hooks/useWindowExistence';
 import PlayIcon from '../../svgs/play.svg';
 import { Button, Container, VideoTextAndButton } from './styles';
 
 const FlowDemoVideo = () => {
-    return (
+    const hasWindow = useWindowExistence();
+
+    const thumbnailComponent = React.useMemo(
+        () => (
+            <StaticImage
+                placeholder="none"
+                alt="estuary flow product end to end demo video"
+                src="../../images/end-to-end-demo-video-thumbnail.png"
+                className="section-five-product-video-thumbnail"
+                layout="constrained"
+                style={{ borderRadius: '12px' }}
+            />
+        ),
+        []
+    );
+
+    return hasWindow ? (
         <Container>
             <ReactPlayer
-                light={
-                    <StaticImage
-                        placeholder="none"
-                        alt="estuary flow product end to end demo video"
-                        src="../../images/end-to-end-demo-video-thumbnail.png"
-                        className="section-five-product-video-thumbnail"
-                        layout="constrained"
-                        style={{ borderRadius: '12px' }}
-                    />
-                }
+                light={thumbnailComponent}
                 url={estuaryProductFlowVideoUrl}
                 width="100%"
                 height="100%"
@@ -33,7 +41,7 @@ const FlowDemoVideo = () => {
                 }
             />
         </Container>
-    );
+    ) : null;
 };
 
 export default FlowDemoVideo;
