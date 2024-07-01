@@ -30,20 +30,6 @@ export const Title = styled.h2`
     }
 `;
 
-export const Subtitle = styled.p`
-    font-size: 1.25rem;
-    font-weight: 400;
-    line-height: 30px;
-    text-align: center;
-    max-width: 900px;
-    margin: 24px 0 0 0;
-    color: #04192b;
-
-    @media (max-width: 810px) {
-        font-size: 1rem;
-    }
-`;
-
 export const Slide = styled.div`
     display: flex;
     align-items: center;
@@ -57,16 +43,8 @@ export const SlideTitle = styled.h3`
     line-height: 28.8px;
     text-align: center;
     text-transform: uppercase;
-    margin: 40px 48px 16px 48px;
+    margin: 2% 48px 16px 48px;
     color: #5072eb;
-
-    @media (max-width: 1450px) {
-        margin-top: 2%;
-    }
-
-    @media (max-width: 1300px) {
-        margin-top: 4.5%;
-    }
 `;
 
 export const SlideDescription = styled.p`

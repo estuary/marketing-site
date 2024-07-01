@@ -79,6 +79,7 @@ export const Description = styled.p`
 export const ButtonsContainer = styled.div`
     display: flex;
     gap: 16px;
+    margin-top: 6px;
 
     & button,
     a {

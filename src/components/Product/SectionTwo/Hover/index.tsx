@@ -87,7 +87,7 @@ type HoverProps = {
 const Hover = ({ slide, children }: HoverProps) => {
     const [hoveredFlowStepBlock, setHoveredFlowStepBlock] =
         useState<HoveredFlowStepsBlock>(null);
-
+    console.log(hoveredFlowStepBlock);
     const handleHoverableFlowStepBlockMouseEnter = useCallback(
         (block: HoveredFlowStepsBlock) => setHoveredFlowStepBlock(block),
         []
@@ -100,7 +100,7 @@ const Hover = ({ slide, children }: HoverProps) => {
 
     return (
         <Container $slide={slide}>
-            {[1, 4].includes(slide) ? (
+            {[1, 2].includes(slide) ? (
                 <ConnectorsGroupsLeftWrapper>
                     <ConnectorsGroup>
                         <Connector to="/source/oracle-flashback">
@@ -248,7 +248,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                         </HtmlTooltip>
                     </ConnectorsGroup>
                     <ConnectorsGroup>
-                        <Connector to="/source/google-cloud-pub-sub">
+                        <Connector to="/source/google-pubsub">
                             <LogoWrapper>
                                 <StaticImage
                                     placeholder="none"
@@ -299,7 +299,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                 </ConnectorsGroupsLeftWrapper>
             ) : null}
             <ImageWrapper $slide={slide}>{children}</ImageWrapper>
-            {[3, 4].includes(slide) ? (
+            {[1, 4].includes(slide) ? (
                 <ConnectorsGroupsRightWrapper>
                     <ConnectorsGroup>
                         <Connector to="/destination/snowflake">
@@ -388,9 +388,8 @@ const Hover = ({ slide, children }: HoverProps) => {
                         <HtmlTooltip
                             title={
                                 <Typography color="inherit">
-                                    Stream in real-time intervals to SQL or
-                                    NoSQL, OLAP, time series, or ElasticSearch
-                                    databases.
+                                    Stream in real-time to SQL or NoSQL, OLAP,
+                                    time series, or ElasticSearch databases.
                                 </Typography>
                             }
                         >
@@ -453,13 +452,13 @@ const Hover = ({ slide, children }: HoverProps) => {
                 </ConnectorsGroupsRightWrapper>
             ) : null}
             <Fade in={hoveredFlowStepBlock === 'transform'}>
-                {slide === 2 ? (
+                {slide === 3 ? (
                     <div>
                         <FlowStepImageWrapper $slide={slide}>
                             <StaticImage
                                 placeholder="none"
                                 alt="Graphic - Flow Step Transform"
-                                src="../../../../images/product-page/section-two/desktop/slide-2-transform.png"
+                                src="../../../../images/product-page/section-two/desktop/slide-3-transform.png"
                                 layout="constrained"
                                 quality={100}
                             />
@@ -478,7 +477,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                             <StaticImage
                                 placeholder="none"
                                 alt="Graphic - Flow Step Elastic Streaming Compute"
-                                src="../../../../images/product-page/section-two/desktop/slide-4-elastic-streaming-compute.png"
+                                src="../../../../images/product-page/section-two/desktop/slide-1-elastic-streaming-compute.png"
                                 layout="constrained"
                             />
                         </FlowStepImageWrapper>
@@ -487,22 +486,22 @@ const Hover = ({ slide, children }: HoverProps) => {
                                 Elastic streaming compute
                             </FlowStepTitle>
                             <FlowStepDescription>
-                                Brokers, transforms, and replay with elastic
-                                scale, distributed load balancing, and active
-                                failover.
+                                Brokers, transforms, and replay built on
+                                decoupled storage-compute with elastic scale,
+                                distributed load balancing, and active failover.
                             </FlowStepDescription>
                         </TooltipTop>
                     </div>
                 )}
             </Fade>
             <Fade in={hoveredFlowStepBlock === 'stream'}>
-                {slide === 2 ? (
+                {slide === 3 ? (
                     <div>
                         <FlowStepImageWrapper $slide={slide}>
                             <StaticImage
                                 placeholder="none"
                                 alt="Graphic - Flow Step Stream"
-                                src="../../../../images/product-page/section-two/desktop/slide-2-stream.png"
+                                src="../../../../images/product-page/section-two/desktop/slide-3-stream.png"
                                 layout="constrained"
                                 quality={100}
                             />
@@ -521,7 +520,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                             <StaticImage
                                 placeholder="none"
                                 alt="Graphic - Flow Step Idempotent Streams"
-                                src="../../../../images/product-page/section-two/desktop/slide-4-idempotent-streams.png"
+                                src="../../../../images/product-page/section-two/desktop/slide-1-idempotent-streams.png"
                                 layout="constrained"
                             />
                         </FlowStepImageWrapper>
@@ -536,13 +535,13 @@ const Hover = ({ slide, children }: HoverProps) => {
                 )}
             </Fade>
             <Fade in={hoveredFlowStepBlock === 'replay'}>
-                {slide === 2 ? (
+                {slide === 3 ? (
                     <div>
                         <FlowStepImageWrapper $slide={slide}>
                             <StaticImage
                                 placeholder="none"
                                 alt="Graphic - Flow Step Replay"
-                                src="../../../../images/product-page/section-two/desktop/slide-2-replay.png"
+                                src="../../../../images/product-page/section-two/desktop/slide-3-replay.png"
                                 layout="constrained"
                                 quality={100}
                             />
@@ -561,7 +560,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                             <StaticImage
                                 placeholder="none"
                                 alt="Graphic - Flow Step Elastic Streaming Compute"
-                                src="../../../../images/product-page/section-two/desktop/slide-4-elastic-streaming-compute.png"
+                                src="../../../../images/product-page/section-two/desktop/slide-1-elastic-streaming-compute.png"
                                 layout="constrained"
                             />
                         </FlowStepImageWrapper>
@@ -570,27 +569,27 @@ const Hover = ({ slide, children }: HoverProps) => {
                                 Elastic streaming compute
                             </FlowStepTitle>
                             <FlowStepDescription>
-                                Brokers, transforms, and replay with elastic
-                                scale, distributed load balancing, and active
-                                failover.
+                                Brokers, transforms, and replay built on
+                                decoupled storage-compute with elastic scale,
+                                distributed load balancing, and active failover.
                             </FlowStepDescription>
                         </TooltipTop>
                     </div>
                 )}
             </Fade>
             <Fade in={hoveredFlowStepBlock === 'store'}>
-                {slide === 2 ? (
+                {slide === 3 ? (
                     <div>
                         <FlowStepImageWrapper $slide={slide}>
                             <StaticImage
                                 placeholder="none"
                                 alt="Graphic - Flow Step Store"
-                                src="../../../../images/product-page/section-two/desktop/slide-2-store.png"
+                                src="../../../../images/product-page/section-two/desktop/slide-3-store.png"
                                 layout="constrained"
                                 quality={100}
                             />
                         </FlowStepImageWrapper>
-                        <TooltipBottom>
+                        <TooltipBottom $slide={3}>
                             <FlowStepTitle>Store</FlowStepTitle>
                             <FlowStepDescription>
                                 As collections in your own private storage in
@@ -599,27 +598,38 @@ const Hover = ({ slide, children }: HoverProps) => {
                         </TooltipBottom>
                     </div>
                 ) : (
-                    <FlowStepImageWrapper
-                        $slide={slide}
-                        style={{ marginTop: '-0.4%' }}
-                    >
-                        <StaticImage
-                            placeholder="none"
-                            alt="Graphic - Flow Step Decoupled Stream Storage"
-                            src="../../../../images/product-page/section-two/desktop/slide-4-storage.png"
-                            layout="constrained"
-                        />
-                    </FlowStepImageWrapper>
+                    <div>
+                        <FlowStepImageWrapper
+                            $slide={slide}
+                            style={{ marginTop: '-0.4%' }}
+                        >
+                            <StaticImage
+                                placeholder="none"
+                                alt="Graphic - Flow Step Decoupled Stream Storage"
+                                src="../../../../images/product-page/section-two/desktop/slide-1-storage.png"
+                                layout="constrained"
+                            />
+                        </FlowStepImageWrapper>
+                        <TooltipBottom $slide={4}>
+                            <FlowStepTitle>
+                                Decoupled stream storage
+                            </FlowStepTitle>
+                            <FlowStepDescription>
+                                All data stored as collections in your private
+                                cloud storage.
+                            </FlowStepDescription>
+                        </TooltipBottom>
+                    </div>
                 )}
             </Fade>
-            {slide === 4 ? (
+            {slide === 1 ? (
                 <Fade in={hoveredFlowStepBlock === 'center'}>
                     <div>
                         <FlowStepImageWrapper $slide={slide}>
                             <StaticImage
                                 placeholder="none"
                                 alt="Graphic - Managed Schema"
-                                src="../../../../images/product-page/section-two/desktop/slide-4-center.png"
+                                src="../../../../images/product-page/section-two/desktop/slide-1-center.png"
                                 layout="constrained"
                             />
                         </FlowStepImageWrapper>
@@ -633,7 +643,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                     </div>
                 </Fade>
             ) : null}
-            {[2, 4].includes(slide) ? (
+            {[1, 3].includes(slide) ? (
                 <>
                     <FlowStepTransformHoverBlock
                         onMouseEnter={() =>
@@ -662,7 +672,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                     />
                 </>
             ) : null}
-            {slide === 4 ? (
+            {slide === 1 ? (
                 <CenterHoverBlock
                     onMouseEnter={() =>
                         handleHoverableFlowStepBlockMouseEnter('center')

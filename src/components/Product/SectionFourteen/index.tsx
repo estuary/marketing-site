@@ -29,7 +29,7 @@ const SectionFourteen = () => {
                     <Boxes>
                         <GetStartedBox>
                             <TextWrapper>
-                                <BoxTitle>GET STARTED</BoxTitle>
+                                <BoxTitle>BUILD A PIPELINE</BoxTitle>
                                 <BoxDescription>
                                     Try out Estuary free, and build a new
                                     pipeline in minutes.
@@ -39,12 +39,12 @@ const SectionFourteen = () => {
                                 <IconWrapper>
                                     <LoginIcon color="#5072EB" />
                                 </IconWrapper>
-                                Register page
+                                GET STARTED
                             </OutboundLinkOutlined>
                         </GetStartedBox>
                         <ContactUsBox>
                             <TextWrapper>
-                                <BoxTitle>CONTACT US</BoxTitle>
+                                <BoxTitle>SET UP AN APPOINTMENT</BoxTitle>
                                 <BoxDescription>
                                     Set up an appointment to get a personalized
                                     overview.
@@ -54,7 +54,7 @@ const SectionFourteen = () => {
                                 <IconWrapper>
                                     <CalendarIcon color="#5072EB" />
                                 </IconWrapper>
-                                Set up an appointment
+                                CONTACT US
                             </LinkOutlined>
                         </ContactUsBox>
                     </Boxes>

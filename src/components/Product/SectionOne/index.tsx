@@ -18,7 +18,7 @@ import {
 
 const SectionOne = () => {
     return (
-        <DefaultWrapperDarkBlue style={{ padding: '50px 0 60px 0' }}>
+        <DefaultWrapperDarkBlue style={{ paddingTop: '50px' }}>
             <Container>
                 <Header>
                     <ContainerContent>

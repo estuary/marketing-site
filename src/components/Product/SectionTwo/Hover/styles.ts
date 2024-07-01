@@ -8,6 +8,10 @@ import OpsIcon from '../../../../svgs/ops.svg';
 import AnalyticsIcon from '../../../../svgs/pie-chart.svg';
 import SaasIcon from '../../../../svgs/saas.svg';
 
+type Slide = {
+    $slide: number;
+};
+
 const centerHorizontally = `
     left: 50%;
     transform: translateX(-50%);
@@ -54,32 +58,23 @@ const centralizeHorizontally = `
 const slideStyles = {
     1: css`
         display: grid;
-        grid-template-columns: 1fr 2.5fr;
+        grid-template-columns: 1fr 1.5fr 1fr;
     `,
     2: css`
-        display: flex;
-
-        margin-top: 2.5%;
-
-        @media (max-width: 1280px) {
-            margin-top: 4%;
-        }
+        display: grid;
+        grid-template-columns: 1fr 2.5fr;
     `,
     3: css`
-        display: grid;
-        grid-template-columns: 2.5fr 1fr;
+        display: flex;
+        margin-top: 1%;
     `,
     4: css`
         display: grid;
-        grid-template-columns: 1fr 1.5fr 1fr;
-
-        @media (max-width: 1280px) {
-            margin-top: 2.5%;
-        }
+        grid-template-columns: 2.5fr 1fr;
     `,
 };
 
-export const Container = styled.div<{ $slide: number }>`
+export const Container = styled.div<Slide>`
     max-width: 1216px;
     ${({ $slide }) => slideStyles[$slide] || null}
     align-items: center;
@@ -97,12 +92,12 @@ const baseBlockStyling = `
     z-index: 3;
 `;
 
-export const FlowStepTransformHoverBlock = styled.div<{ $slide: number }>`
+export const FlowStepTransformHoverBlock = styled.div<Slide>`
     ${baseBlockStyling};
     ${centralizeHorizontally};
-    width: 13%;
+    width: 12%;
     height: 19%;
-    top: 21%;
+    top: 23%;
 `;
 
 export const FlowStepReplayHoverBlock = styled.div`
@@ -132,19 +127,20 @@ export const FlowStepStoreHoverBlock = styled.div`
 export const CenterHoverBlock = styled.div`
     ${baseBlockStyling};
     ${centralizeHorizontally};
-    width: 10%;
-    height: 21%;
-    top: 38%;
-    border-radius: 30%;
+    width: 8.5%;
+    height: 19%;
+    top: 39%;
+    border-radius: 34%;
 `;
 
-export const ImageWrapper = styled.div<{ $slide: number }>`
+export const ImageWrapper = styled.div<Slide>`
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: ${(props) => (props.$slide === 4 ? '8%' : 0)};
+    margin-top: ${(props) => (props.$slide === 1 ? '8%' : 0)};
+    max-width: ${(props) => (props.$slide === 3 ? '1024px' : '100%')};
 `;
 
 export const ConnectorsGroupsLeftWrapper = styled.div`
@@ -178,8 +174,8 @@ export const ConnectorsGroup = styled.div`
     background-color: #fdfdfe;
     z-index: 1;
 
-    @media (max-width: 1124px) {
-        max-width: 460px;
+    @media (max-width: 1280px) {
+        max-width: 320px;
     }
 
     &:not(:first-child) {
@@ -223,7 +219,7 @@ export const LogoWrapper = styled.div`
     min-height: 32px;
     transition: border-color 0.2s ease-in-out;
 
-    @media (max-width: 1300px) {
+    @media (max-width: 1280px) {
         max-width: 42px;
     }
 
@@ -297,7 +293,7 @@ export const AiIconComponent = styled(AiIcon)`
 export const FeatureWrapper = styled.div`
     min-width: 100px;
     width: 100%;
-    max-width: 110px;
+    max-width: 100px;
     height: 100px;
     border: 2px solid #e5e9f5;
     border-radius: 50%;
@@ -306,20 +302,17 @@ export const FeatureWrapper = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin-left: auto;
 
-    @media (max-width: 1300px) {
-        min-width: 90px;
-        height: 90px;
-    }
-
-    @media (max-width: 1124px) {
+    @media (max-width: 1280px) {
         min-width: 70px;
+        max-width: 70px;
         height: 70px;
     }
 
-    @media (max-width: 960px) {
-        min-width: 56px;
-        height: 56px;
+    @media (max-width: 920px) {
+        min-width: 60px;
+        height: 60px;
     }
 
     & > h4 {
@@ -343,21 +336,21 @@ export const FeatureWrapper = styled.div`
     }
 `;
 
-export const FlowStepImageWrapper = styled.div<{ $slide: number }>`
+export const FlowStepImageWrapper = styled.div<Slide>`
     position: absolute;
-    left: ${(props) => (props.$slide === 2 ? '32.96%' : '35.1%')};
+    left: ${(props) => (props.$slide === 3 ? '32.96%' : '35.1%')};
     top: 50%;
     transform: translateY(-50%);
-    width: ${(props) => (props.$slide === 2 ? '33.88%' : '30.3%')};
-    margin-top: ${(props) => (props.$slide === 2 ? '0' : '1.21%')};
+    width: ${(props) => (props.$slide === 3 ? '33.88%' : '30.3%')};
+    margin-top: ${(props) => (props.$slide === 3 ? '0' : '1.21%')};
 `;
 
-export const TooltipTop = styled.div<{ $slide: number }>`
+export const TooltipTop = styled.div<Slide>`
     ${baseHoverTextWrapperStyling};
     ${lightBlueColor};
     ${centerHorizontally};
-    bottom: 81%;
-    max-width: ${(props) => (props.$slide === 2 ? '280px' : '420px')};
+    bottom: ${(props) => (props.$slide === 3 ? '79.2%' : '76%')};
+    max-width: ${(props) => (props.$slide === 3 ? '280px' : '420px')};
     width: 100%;
 
     @media (max-width: 900px) {
@@ -379,11 +372,11 @@ export const TooltipRight = styled.div`
     left: 57.5%;
 `;
 
-export const TooltipBottom = styled.div`
+export const TooltipBottom = styled.div<Slide>`
     ${baseHoverTextWrapperStyling};
     ${lightBlueColor};
     ${centerHorizontally};
-    top: 79%;
+    top: ${(props) => (props.$slide === 3 ? '79%' : '74%')};
 `;
 
 export const TooltipCenter = styled.div`
