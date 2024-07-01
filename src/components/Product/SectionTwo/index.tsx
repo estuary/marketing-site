@@ -1,6 +1,6 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
-import { DefaultWrapper } from '../../../styles/wrappers';
+import { DefaultWrapperGrey } from '../../../styles/wrappers';
 import Carousel from '../../Carousel';
 import Hover from './Hover';
 import {
@@ -18,7 +18,7 @@ import {
 
 const SectionTwo = () => {
     return (
-        <DefaultWrapper style={{ paddingTop: '60px' }}>
+        <DefaultWrapperGrey style={{ paddingTop: '60px' }}>
             <Container>
                 <TextWrapper>
                     <Title>HOW IT WORKS</Title>
@@ -196,7 +196,7 @@ const SectionTwo = () => {
                     </Slide>
                 </Carousel>
             </Container>
-        </DefaultWrapper>
+        </DefaultWrapperGrey>
     );
 };
 

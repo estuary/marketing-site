@@ -30,8 +30,6 @@ export const Viewport = styled.ul`
 export const Slide = styled.li`
     position: relative;
     flex: 0 0 100%;
-    width: 100%;
-    height: 100%;
     counter-increment: item;
     margin: 0 100px;
     scroll-snap-align: center;

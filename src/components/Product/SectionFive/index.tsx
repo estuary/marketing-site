@@ -38,7 +38,7 @@ const SectionFive = () => {
                             <StaticImage
                                 placeholder="none"
                                 alt="Analytics - pie chart"
-                                src="../../../svgs/product-page/section-five/pie-chart.svg"
+                                src="../../../svgs/pie-chart.svg"
                                 layout="constrained"
                                 loading="lazy"
                             />
@@ -47,7 +47,7 @@ const SectionFive = () => {
                             <StaticImage
                                 placeholder="none"
                                 alt="Ops"
-                                src="../../../svgs/product-page/section-five/ops.svg"
+                                src="../../../svgs/ops.svg"
                                 layout="constrained"
                                 loading="lazy"
                             />
@@ -56,7 +56,7 @@ const SectionFive = () => {
                             <StaticImage
                                 placeholder="none"
                                 alt="AI - artificial intelligence"
-                                src="../../../svgs/product-page/section-five/android-brain.svg"
+                                src="../../../svgs/android-brain.svg"
                                 layout="constrained"
                                 loading="lazy"
                             />

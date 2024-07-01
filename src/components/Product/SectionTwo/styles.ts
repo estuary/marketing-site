@@ -5,7 +5,6 @@ export const Container = styled.div`
     ${globalMaxWidth};
     display: flex;
     flex-direction: column;
-    gap: 40px;
 `;
 
 export const TextWrapper = styled.div`
@@ -60,6 +59,14 @@ export const SlideTitle = styled.h3`
     text-transform: uppercase;
     margin: 40px 48px 16px 48px;
     color: #5072eb;
+
+    @media (max-width: 1450px) {
+        margin-top: 2%;
+    }
+
+    @media (max-width: 1300px) {
+        margin-top: 4.5%;
+    }
 `;
 
 export const SlideDescription = styled.p`
@@ -77,14 +84,14 @@ export const SlideDescription = styled.p`
 `;
 
 export const TabletImageWrapper = styled.div`
+    margin-top: 4.5%;
+
     @media (max-width: 425px), (min-width: 769px) {
         display: none;
     }
 `;
 
 export const DesktopImageWrapper = styled.div`
-    margin: 0 2px;
-
     @media (max-width: 768px) {
         display: none;
     }

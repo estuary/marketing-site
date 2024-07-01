@@ -49,7 +49,6 @@ const SectionOne = () => {
                             placeholder="none"
                             loading="eager"
                             layout="constrained"
-                            quality={100}
                         />
                     </ImageContainer>
                 </Header>

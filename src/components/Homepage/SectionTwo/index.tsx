@@ -139,7 +139,7 @@ const SectionTwo = () => {
                     aria-label="Postgres source"
                 />
                 <AmazonS3LogoWrapper
-                    to="/source/s"
+                    to="/source/s3"
                     aria-label="Amazon S3 source"
                 />
                 <GoogleStorageLogoWrapper
