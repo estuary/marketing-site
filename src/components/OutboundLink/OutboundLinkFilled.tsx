@@ -4,8 +4,8 @@ import { AnchorFilled } from './styles';
 import { handleOutboundLinkClick } from './utils';
 
 const OutboundLinkFilled = React.forwardRef<
-    HTMLLinkElement,
-    React.HTMLProps<HTMLLinkElement>
+    HTMLAnchorElement,
+    React.HTMLProps<HTMLAnchorElement>
 >(({ children, ...props }, ref) => (
     <AnchorFilled
         ref={ref}

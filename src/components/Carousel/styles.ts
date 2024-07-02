@@ -30,8 +30,6 @@ export const Viewport = styled.ul`
 export const Slide = styled.li`
     position: relative;
     flex: 0 0 100%;
-    width: 100%;
-    height: 100%;
     counter-increment: item;
     margin: 0 100px;
     scroll-snap-align: center;
@@ -40,10 +38,14 @@ export const Slide = styled.li`
 export const Navigation = styled.div`
     text-align: center;
     display: flex;
-    gap: 24px;
+    gap: 40px;
     align-items: center;
     justify-content: center;
     margin-top: 24px;
+
+    @media (max-width: 768px) {
+        gap: 24px;
+    }
 `;
 
 export const Dots = styled.ul`
@@ -56,16 +58,23 @@ export const Dots = styled.ul`
     margin: 0;
 `;
 
-export const DotWrapper = styled.li`
+export const DotWrapper = styled.li<{ $isActive: boolean }>`
     display: flex;
     align-items: center;
     justify-content: center;
     list-style: none;
     margin: 0;
+    background-color: ${(props) => (props.$isActive ? '#5072EB' : '#FFFFFF')};
+    color: ${(props) => (props.$isActive ? '#5072EB' : '#FFFFFF')};
+    border-radius: 50%;
+    border: 1px solid;
+    border-color: ${(props) => (props.$isActive ? '#5072EB' : '#47506D')};
 `;
 
 export const Dot = styled(CircleIcon)`
     cursor: pointer;
+    max-width: 20px;
+    max-height: 20px;
 `;
 
 export const Arrow = styled.button`

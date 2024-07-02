@@ -73,13 +73,16 @@ export const Observation = styled.p`
     font-size: 16px;
     color: #47506d;
     line-height: 30px;
-    text-underline-offset: 5px;
     margin: 0;
 
     a {
         color: #5072eb;
         font-weight: 500;
-        text-decoration: underline;
+
+        &:hover {
+            text-underline-offset: 4px;
+            text-decoration: underline;
+        }
     }
 
     @media (min-width: 425px) {

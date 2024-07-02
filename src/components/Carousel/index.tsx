@@ -17,6 +17,7 @@ type CarouselProps = React.HTMLAttributes<HTMLDivElement> & {
     hasArrow?: boolean;
     dotColor?: string;
     activeDotColor?: string;
+    arrowColor?: string;
 };
 
 const Carousel = ({
@@ -24,6 +25,7 @@ const Carousel = ({
     hasArrow = false,
     dotColor,
     activeDotColor,
+    arrowColor,
     ...rest
 }: CarouselProps) => {
     const [currentSlide, setCurrentSlide] = React.useState(0);
@@ -129,23 +131,17 @@ const Carousel = ({
                         disabled={isLeftArrowDisabled}
                         aria-label="previous testimonial"
                     >
-                        <ChevronLeftIcon />
+                        <ChevronLeftIcon color={arrowColor ?? '#FFFFFF'} />
                     </Arrow>
                 ) : null}
                 {React.Children.count(children) > 1 ? (
                     <Dots>
                         {React.Children.map(children, (_, index) => (
                             <DotWrapper
+                                $isActive={currentSlide === index}
                                 key={`${rest['aria-label']}-dot-${index}}`}
                             >
-                                <Dot
-                                    htmlColor={
-                                        currentSlide === index
-                                            ? activeDotColor ?? '#5072EB'
-                                            : dotColor ?? '#FFFFFF'
-                                    }
-                                    onClick={() => handleDotClick(index)}
-                                />
+                                <Dot onClick={() => handleDotClick(index)} />
                             </DotWrapper>
                         ))}
                     </Dots>
@@ -156,7 +152,7 @@ const Carousel = ({
                         disabled={isRightArrowDisabled}
                         aria-label="next testimonial"
                     >
-                        <ChevronRightIcon />
+                        <ChevronRightIcon color={arrowColor ?? '#FFFFFF'} />
                     </Arrow>
                 ) : null}
             </Navigation>
