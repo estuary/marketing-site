@@ -60,7 +60,7 @@ const HtmlTooltip = styled(({ className, ...props }: TooltipProps) => (
         classes={{ popper: className }}
         placement="top"
         TransitionComponent={Fade}
-        TransitionProps={{ timeout: 200 }}
+        TransitionProps={{ timeout: 100 }}
         disableInteractive
         arrow
     />
@@ -87,11 +87,10 @@ type HoverProps = {
 const Hover = ({ slide, children }: HoverProps) => {
     const [hoveredFlowStepBlock, setHoveredFlowStepBlock] =
         useState<HoveredFlowStepsBlock>(null);
-    console.log(hoveredFlowStepBlock);
-    const handleHoverableFlowStepBlockMouseEnter = useCallback(
-        (block: HoveredFlowStepsBlock) => setHoveredFlowStepBlock(block),
-        []
-    );
+
+    const handleHoverableFlowStepBlockMouseEnter = (
+        block: HoveredFlowStepsBlock
+    ) => setHoveredFlowStepBlock(block);
 
     const handleHoveredFlowStepBlockMouseLeave = useCallback(
         () => setHoveredFlowStepBlock(null),
@@ -363,27 +362,27 @@ const Hover = ({ slide, children }: HoverProps) => {
                             </LogoWrapper>
                             <HiddenLogoTitle>Elastic</HiddenLogoTitle>
                         </Connector>
-                        <Connector to="/destination/timescaledb">
+                        <Connector to="/destination/mongodb">
                             <LogoWrapper>
                                 <StaticImage
                                     placeholder="none"
-                                    alt="Timescale DB logo"
-                                    src="../../../../images/logos/timescale-db.png"
+                                    alt="MongoDB logo"
+                                    src="../../../../images/logos/mongo-db.png"
                                     layout="constrained"
                                 />
                             </LogoWrapper>
-                            <HiddenLogoTitle>Timescale</HiddenLogoTitle>
+                            <HiddenLogoTitle>MongoDB</HiddenLogoTitle>
                         </Connector>
-                        <Connector to="/destination/rockset">
+                        <Connector to="/destination/dynamodb">
                             <LogoWrapper>
                                 <StaticImage
                                     placeholder="none"
-                                    alt="Rockset logo"
-                                    src="../../../../images/logos/rockset.png"
+                                    alt="Amazon DynamoDB logo"
+                                    src="../../../../images/logos/dynamo-db.png"
                                     layout="constrained"
                                 />
                             </LogoWrapper>
-                            <HiddenLogoTitle>Rockset</HiddenLogoTitle>
+                            <HiddenLogoTitle>Amazon DynamoDB</HiddenLogoTitle>
                         </Connector>
                         <HtmlTooltip
                             title={

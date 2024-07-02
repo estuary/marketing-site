@@ -10,13 +10,14 @@ import {
     Container,
     DatabricksAILogoWrapper,
     DatabricksLogoWrapper,
+    DynamoDBLogoWrapper,
     ElasticLogoWrapper,
     GoogleBigQueryLogoWrapper,
     IconWrapper,
     IconsWrapper,
+    MongoDBLogoWrapper,
     OpenAiLogoWrapper,
     PineconeLogoWrapper,
-    RocksetLogoWrapper,
     SnowflakeLogoWrapper,
     Subtitle,
     TabContent,
@@ -24,7 +25,6 @@ import {
     TabImageWrapper,
     TabsWrapper,
     TextWrapper,
-    TimescaleLogoWrapper,
     Title,
 } from './styles';
 
@@ -127,18 +127,19 @@ const SectionFive = () => {
                                                     layout="constrained"
                                                     loading="lazy"
                                                     height={128}
+                                                    quality={100}
                                                 />
                                                 <ElasticLogoWrapper
                                                     to="/destination/elasticsearch"
                                                     aria-label="Elastic destination"
                                                 />
-                                                <TimescaleLogoWrapper
-                                                    to="/destination/timescaledb"
-                                                    aria-label="Timescale destination"
+                                                <MongoDBLogoWrapper
+                                                    to="/destination/mongodb"
+                                                    aria-label="MongoDB destination"
                                                 />
-                                                <RocksetLogoWrapper
-                                                    to="/destination/rockset"
-                                                    aria-label="Rockset destination"
+                                                <DynamoDBLogoWrapper
+                                                    to="/destination/dynamodb"
+                                                    aria-label="Amazon DynamoDB destination"
                                                 />
                                             </Connectors>
                                         </TabImageWrapper>

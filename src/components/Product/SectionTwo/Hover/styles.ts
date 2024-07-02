@@ -148,7 +148,7 @@ export const ConnectorsGroupsLeftWrapper = styled.div`
     flex-direction: column;
     align-items: flex-end;
     justify-content: right;
-    margin-right: -30%;
+    margin-right: -24%;
 `;
 
 export const ConnectorsGroupsRightWrapper = styled.div`
@@ -156,7 +156,7 @@ export const ConnectorsGroupsRightWrapper = styled.div`
     flex-direction: column;
     align-items: flex-start;
     justify-content: left;
-    margin-left: -30%;
+    margin-left: -24%;
 `;
 
 export const ConnectorsGroup = styled.div`
@@ -230,7 +230,7 @@ export const LogoWrapper = styled.div`
 
 export const HiddenLogoTitle = styled.span`
     color: #47506d;
-    font-size: 1rem;
+    font-size: 0.875rem;
     font-weight: 400;
     line-height: 120%;
     text-align: center;
@@ -243,7 +243,7 @@ export const HiddenLogoTitle = styled.span`
         font-size: 0.75rem;
     }
 
-    @media (max-width: 1024px) {
+    @media (max-width: 940px) {
         font-size: 0.5rem;
     }
 `;
@@ -291,10 +291,10 @@ export const AiIconComponent = styled(AiIcon)`
 `;
 
 export const FeatureWrapper = styled.div`
-    min-width: 100px;
+    min-width: 90px;
     width: 100%;
-    max-width: 100px;
-    height: 100px;
+    max-width: 90px;
+    height: 90px;
     border: 2px solid #e5e9f5;
     border-radius: 50%;
     padding: 3%;

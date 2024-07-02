@@ -11,17 +11,14 @@ import {
     SlideDescription,
     SlideTitle,
     TabletImageWrapper,
-    TextWrapper,
     Title,
 } from './styles';
 
 const SectionTwo = () => {
     return (
-        <DefaultWrapperGrey style={{ paddingTop: '60px' }}>
+        <DefaultWrapperGrey style={{ padding: '60px 0' }}>
             <Container>
-                <TextWrapper>
-                    <Title>HOW IT WORKS</Title>
-                </TextWrapper>
+                <Title>HOW IT WORKS</Title>
                 <Carousel
                     hasArrow
                     aria-label="How Estuary Flow works carousel"
