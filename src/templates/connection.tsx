@@ -48,11 +48,10 @@ export const Head = ({
         destination: { connector: destination_connector },
     },
 }) => {
-    const title = `${source_connector.title?.['en-US']} to ${destination_connector.title?.['en-US']}`;
     return (
         <Seo
-            title={title}
-            description={`Estuary helps move data from ${source_connector.title?.['en-US']} to ${destination_connector.title?.['en-US']} in minutes with millisecond latency.`}
+            title={`${source_connector.title?.['en-US']} to ${destination_connector.title?.['en-US']} in Real-Time ETL & CDC`}
+            description={`Move ${source_connector.title?.['en-US']} to ${destination_connector.title?.['en-US']} instantly or in batches with Estuary's real-time ETL & CDC integration. Free, no-code, and easy to set up. Try it now.`}
         />
     );
 };
