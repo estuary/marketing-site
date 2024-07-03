@@ -1,6 +1,7 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { globalMaxWidth } from '../../../globalStyles';
+import { OutboundLink } from '../../OutboundLink';
 
 export const Container = styled.section`
     ${globalMaxWidth};
@@ -19,7 +20,7 @@ export const KeyFeaturesWrapper = styled.div`
         flex-direction: column;
     }
 
-    @media (max-width: 520px) {
+    @media (max-width: 580px) {
         width: 100%;
     }
 `;
@@ -73,7 +74,7 @@ export const Subtitle = styled.p`
     }
 `;
 
-export const baseKeyFeaturesListStyling = `
+export const baseKeyFeaturesListStyling = css`
     display: flex;
     flex-direction: column;
     gap: 62px;
@@ -81,13 +82,14 @@ export const baseKeyFeaturesListStyling = `
 
     @media (max-width: 810px) {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-        gap: 24px; 
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, auto);
+        gap: 24px;
         margin-top: 0;
+        align-items: stretch;
     }
 
-    @media (max-width: 520px) {
+    @media (max-width: 580px) {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;
         width: 100%;
@@ -121,5 +123,15 @@ export const KeyFeaturesListRight = styled.div`
         & > div:last-child {
             margin-left: -48px;
         }
+    }
+`;
+
+export const TooltipLink = styled(OutboundLink)`
+    text-decoration: none;
+    color: #b7c6dd;
+
+    &:hover {
+        text-underline-offset: 4px;
+        text-decoration: underline;
     }
 `;

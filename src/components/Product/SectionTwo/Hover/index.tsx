@@ -1,9 +1,8 @@
 import { Typography } from '@mui/material';
 import Fade from '@mui/material/Fade';
-import Tooltip, { TooltipProps, tooltipClasses } from '@mui/material/Tooltip';
-import { styled } from '@mui/material/styles';
 import { StaticImage } from 'gatsby-plugin-image';
 import React, { ReactNode, useCallback, useState } from 'react';
+import HTMLTooltip from '../../../HTMLTooltip';
 import {
     AiIconComponent,
     AnalyticsIconComponent,
@@ -53,31 +52,6 @@ export type HoveredConnectorsGroupBlock =
     | 'opsConnectors'
     | 'aiConnectors'
     | null;
-
-const HtmlTooltip = styled(({ className, ...props }: TooltipProps) => (
-    <Tooltip
-        {...props}
-        classes={{ popper: className }}
-        placement="top"
-        TransitionComponent={Fade}
-        TransitionProps={{ timeout: 100 }}
-        disableInteractive
-        arrow
-    />
-))(({ theme }) => ({
-    [`& .${tooltipClasses.tooltip}`]: {
-        backgroundColor: '#ffffff',
-        color: '#04192B',
-        maxWidth: 232,
-        fontSize: theme.typography.pxToRem(16),
-        border: '2px solid #5072EB',
-        borderRadius: 8,
-        padding: 8,
-    },
-    [`& .${tooltipClasses.arrow}`]: {
-        color: '#5072EB',
-    },
-}));
 
 type HoverProps = {
     slide: number;
@@ -135,7 +109,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                             </LogoWrapper>
                             <HiddenLogoTitle>Postgre SQL</HiddenLogoTitle>
                         </Connector>
-                        <HtmlTooltip
+                        <HTMLTooltip
                             title={
                                 <Typography color="inherit">
                                     The only real-time log-based data capture
@@ -148,7 +122,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                                 <SingleDataflowIconComponent color="#5072EB" />
                                 <h4>Streaming CDC</h4>
                             </FeatureWrapper>
-                        </HtmlTooltip>
+                        </HTMLTooltip>
                     </ConnectorsGroup>
                     <ConnectorsGroup>
                         <Connector to="/source/s">
@@ -184,7 +158,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                             </LogoWrapper>
                             <HiddenLogoTitle>ABS</HiddenLogoTitle>
                         </Connector>
-                        <HtmlTooltip
+                        <HTMLTooltip
                             title={
                                 <Typography color="inherit">
                                     Real-time support for messaging, APIs,
@@ -196,7 +170,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                                 <RealTimeIconComponent color="#5072EB" />
                                 <h4>Real-time</h4>
                             </FeatureWrapper>
-                        </HtmlTooltip>
+                        </HTMLTooltip>
                     </ConnectorsGroup>
                     <ConnectorsGroup>
                         <Connector to="/source/netsuite-v">
@@ -232,7 +206,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                             </LogoWrapper>
                             <HiddenLogoTitle>Salesforce</HiddenLogoTitle>
                         </Connector>
-                        <HtmlTooltip
+                        <HTMLTooltip
                             title={
                                 <Typography color="inherit">
                                     Extract exactly once from files, apps, and
@@ -244,7 +218,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                                 <BatchIconComponent color="#5072EB" />
                                 <h4>Batch</h4>
                             </FeatureWrapper>
-                        </HtmlTooltip>
+                        </HTMLTooltip>
                     </ConnectorsGroup>
                     <ConnectorsGroup>
                         <Connector to="/source/google-pubsub">
@@ -280,7 +254,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                             </LogoWrapper>
                             <HiddenLogoTitle>Apache Kafka</HiddenLogoTitle>
                         </Connector>
-                        <HtmlTooltip
+                        <HTMLTooltip
                             title={
                                 <Typography color="inherit">
                                     Real-time and batch extraction from leading
@@ -293,7 +267,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                                 <SaasIconComponent color="#5072EB" />
                                 <h4>SaaS</h4>
                             </FeatureWrapper>
-                        </HtmlTooltip>
+                        </HTMLTooltip>
                     </ConnectorsGroup>
                 </ConnectorsGroupsLeftWrapper>
             ) : null}
@@ -334,7 +308,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                             </LogoWrapper>
                             <HiddenLogoTitle>Amazon Redshift</HiddenLogoTitle>
                         </Connector>
-                        <HtmlTooltip
+                        <HTMLTooltip
                             title={
                                 <Typography color="inherit">
                                     Load data at any speed into data warehouses
@@ -348,7 +322,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                                 <AnalyticsIconComponent color="#5072EB" />
                                 <h4>Analytics</h4>
                             </FeatureWrapper>
-                        </HtmlTooltip>
+                        </HTMLTooltip>
                     </ConnectorsGroup>
                     <ConnectorsGroup>
                         <Connector to="/destination/elasticsearch">
@@ -384,7 +358,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                             </LogoWrapper>
                             <HiddenLogoTitle>Amazon DynamoDB</HiddenLogoTitle>
                         </Connector>
-                        <HtmlTooltip
+                        <HTMLTooltip
                             title={
                                 <Typography color="inherit">
                                     Stream in real-time to SQL or NoSQL, OLAP,
@@ -396,7 +370,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                                 <OpsIconComponent color="#5072EB" />
                                 <h4>Ops</h4>
                             </FeatureWrapper>
-                        </HtmlTooltip>
+                        </HTMLTooltip>
                     </ConnectorsGroup>
                     <ConnectorsGroup>
                         <Connector to="/destination/pinecone">
@@ -432,7 +406,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                             </LogoWrapper>
                             <HiddenLogoTitle>Databricks</HiddenLogoTitle>
                         </Connector>
-                        <HtmlTooltip
+                        <HTMLTooltip
                             title={
                                 <Typography color="inherit">
                                     Build AI pipelines that load vector
@@ -446,7 +420,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                                 <AiIconComponent color="#5072EB" />
                                 <h4>AI</h4>
                             </FeatureWrapper>
-                        </HtmlTooltip>
+                        </HTMLTooltip>
                     </ConnectorsGroup>
                 </ConnectorsGroupsRightWrapper>
             ) : null}
