@@ -60,6 +60,8 @@ const SectionOne = () => {
         }
     `);
 
+    const metricIconColor = '#FFFFFF';
+
     return (
         <Container>
             <MainContent>
@@ -96,7 +98,7 @@ const SectionOne = () => {
             <MetricCardsList>
                 <MetricCard>
                     <MetricIconWrapper>
-                        <ActiveUsersIcon color="#FFFFFF" />
+                        <ActiveUsersIcon color={metricIconColor} />
                     </MetricIconWrapper>
                     <MetricsWrapper>
                         <MetricValue>3000+</MetricValue>
@@ -105,7 +107,7 @@ const SectionOne = () => {
                 </MetricCard>
                 <MetricCard>
                     <MetricIconWrapper>
-                        <LatencyIcon color="#FFFFFF" />
+                        <LatencyIcon color={metricIconColor} />
                     </MetricIconWrapper>
                     <MetricsWrapper>
                         <MetricValue>&#60;100ms</MetricValue>
@@ -114,7 +116,7 @@ const SectionOne = () => {
                 </MetricCard>
                 <MetricCard>
                     <MetricIconWrapper>
-                        <SingleDataflowIcon color="#FFFFFF" />
+                        <SingleDataflowIcon color={metricIconColor} />
                     </MetricIconWrapper>
                     <MetricsWrapper>
                         <MetricValue>7+gb/sec</MetricValue>

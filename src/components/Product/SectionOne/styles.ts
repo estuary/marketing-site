@@ -29,11 +29,15 @@ export const Cards = styled.div`
     }
 `;
 
-export const ImageContainer = styled.div`
+export const ImageWrapper = styled.div`
     width: 45%;
 
     @media (max-width: 1024px) {
         width: 100%;
+    }
+
+    @media (max-width: 768px) {
+        display: none;
     }
 `;
 

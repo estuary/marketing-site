@@ -2,8 +2,8 @@ import React from 'react';
 
 import { StaticImage } from 'gatsby-plugin-image';
 import { DefaultWrapperDarkBlue } from '../../../styles/wrappers';
-import { OutboundLink } from '../../OutboundLink';
 import Advantages from '../Advantages';
+import { sectionSevenAdvantages } from '../Advantages/advantages';
 
 const SectionSeven = () => {
     return (
@@ -36,55 +36,7 @@ const SectionSeven = () => {
                         quality={100}
                     />
                 }
-                advantages={[
-                    {
-                        id: 4,
-                        title: (
-                            <>
-                                Automate DataOps and integrate with other
-                                tooling using the{' '}
-                                <OutboundLink
-                                    href="https://docs.estuary.dev/concepts/flowctl/"
-                                    target="_blank"
-                                >
-                                    flowctl
-                                </OutboundLink>{' '}
-                                CLI.
-                            </>
-                        ),
-                    },
-                    {
-                        id: 5,
-                        title: (
-                            <>
-                                Use built-in pipeline{' '}
-                                <OutboundLink
-                                    href="https://docs.estuary.dev/concepts/tests/"
-                                    target="_blank"
-                                >
-                                    testing
-                                </OutboundLink>{' '}
-                                to validate data and pipeline flows
-                                automatically.
-                            </>
-                        ),
-                    },
-                    {
-                        id: 6,
-                        title: (
-                            <>
-                                Select advanced schema detection and automate{' '}
-                                <OutboundLink
-                                    href="https://docs.estuary.dev/concepts/advanced/evolutions/"
-                                    target="_blank"
-                                >
-                                    schema evolution
-                                </OutboundLink>
-                                .
-                            </>
-                        ),
-                    },
-                ]}
+                advantages={sectionSevenAdvantages}
                 link={{
                     title: 'See The Docs',
                     href: 'https://docs.estuary.dev/',

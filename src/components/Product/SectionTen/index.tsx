@@ -2,6 +2,7 @@ import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { DefaultWrapperDark } from '../../../styles/wrappers';
 import Advantages from '../Advantages';
+import { sectionTenAdvantages } from '../Advantages/advantages';
 
 const SectionTen = () => {
     return (
@@ -32,20 +33,7 @@ const SectionTen = () => {
                         quality={100}
                     />
                 }
-                advantages={[
-                    {
-                        id: 14,
-                        title: 'Estuary never stores your data.',
-                    },
-                    {
-                        id: 15,
-                        title: 'GDPR, CCPA and CPRA compliant.',
-                    },
-                    {
-                        id: 16,
-                        title: 'SOC 2 Type II certified.',
-                    },
-                ]}
+                advantages={sectionTenAdvantages}
             />
         </DefaultWrapperDark>
     );

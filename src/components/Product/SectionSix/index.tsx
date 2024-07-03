@@ -3,8 +3,8 @@ import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import { DefaultWrapperDark } from '../../../styles/wrappers';
 
-import { OutboundLink } from '../../OutboundLink';
 import Advantages from '../Advantages';
+import { sectionSixAdvantages } from '../Advantages/advantages';
 
 const SectionSix = () => {
     return (
@@ -34,31 +34,7 @@ const SectionSix = () => {
                         loading="lazy"
                     />
                 }
-                advantages={[
-                    {
-                        id: 1,
-                        title: 'Use 100s of no-code connectors for apps, DBs, DWs, and more.',
-                    },
-                    {
-                        id: 2,
-                        title: (
-                            <>
-                                Use the Flow UI to build without coding, or the{' '}
-                                <OutboundLink
-                                    href="https://docs.estuary.dev/concepts/flowctl/"
-                                    target="_blank"
-                                >
-                                    flowctl
-                                </OutboundLink>{' '}
-                                CLI for development.
-                            </>
-                        ),
-                    },
-                    {
-                        id: 3,
-                        title: 'Transform using Streaming SQL (ETL) and Typescript (ETL) or dbt (ELT) in your warehouse.',
-                    },
-                ]}
+                advantages={sectionSixAdvantages}
             />
         </DefaultWrapperDark>
     );

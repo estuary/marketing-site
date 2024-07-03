@@ -1,8 +1,8 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { DefaultWrapperDark } from '../../../styles/wrappers';
-import { OutboundLink } from '../../OutboundLink';
 import Advantages from '../Advantages';
+import { sectionEightAdvantages } from '../Advantages/advantages';
 import {
     BottomCaseStudies,
     BottomCaseStudy,
@@ -85,33 +85,7 @@ const SectionEight = () => {
                         </BottomCaseStudies>
                     </CaseStudies>
                 }
-                advantages={[
-                    {
-                        id: 7,
-                        title: 'Be 4x more productive and focus more new development, less on troubleshooting.',
-                    },
-                    {
-                        id: 8,
-                        title: (
-                            <>
-                                Spend 2-5x less with low, predictable pricing
-                                (see{' '}
-                                <OutboundLink href="/pricing" target="_blank">
-                                    pricing
-                                </OutboundLink>
-                                .)
-                            </>
-                        ),
-                    },
-                    {
-                        id: 9,
-                        title: 'Minimize source loads and costs by extracting data only once from each source.',
-                    },
-                    {
-                        id: 10,
-                        title: 'Lower destination costs by using real-time extraction with batch loading. Then schedule faster updates only when you need them.',
-                    },
-                ]}
+                advantages={sectionEightAdvantages}
             />
         </DefaultWrapperDark>
     );

@@ -25,7 +25,7 @@ const Carousel = ({
     hasArrow = false,
     dotColor,
     activeDotColor,
-    arrowColor,
+    arrowColor = '#FFFFFF',
     ...rest
 }: CarouselProps) => {
     const [currentSlide, setCurrentSlide] = React.useState(0);
@@ -129,9 +129,9 @@ const Carousel = ({
                     <Arrow
                         onClick={onArrowClick('left')}
                         disabled={isLeftArrowDisabled}
-                        aria-label="previous testimonial"
+                        aria-label="previous slide"
                     >
-                        <ChevronLeftIcon color={arrowColor ?? '#FFFFFF'} />
+                        <ChevronLeftIcon color={arrowColor} />
                     </Arrow>
                 ) : null}
                 {React.Children.count(children) > 1 ? (
@@ -150,9 +150,9 @@ const Carousel = ({
                     <Arrow
                         onClick={onArrowClick('right')}
                         disabled={isRightArrowDisabled}
-                        aria-label="next testimonial"
+                        aria-label="next slide"
                     >
-                        <ChevronRightIcon color={arrowColor ?? '#FFFFFF'} />
+                        <ChevronRightIcon color={arrowColor} />
                     </Arrow>
                 ) : null}
             </Navigation>

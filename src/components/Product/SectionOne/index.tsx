@@ -10,7 +10,7 @@ import {
     ContainerContent,
     Description,
     Header,
-    ImageContainer,
+    ImageWrapper,
     PrimaryButton,
     SecondaryButton,
     Title,
@@ -42,7 +42,7 @@ const SectionOne = () => {
                             />
                         </ButtonsContainer>
                     </ContainerContent>
-                    <ImageContainer>
+                    <ImageWrapper>
                         <StaticImage
                             src="../../../images/real-time-graphic.png"
                             alt="Real-time graphic"
@@ -50,7 +50,7 @@ const SectionOne = () => {
                             loading="eager"
                             layout="constrained"
                         />
-                    </ImageContainer>
+                    </ImageWrapper>
                 </Header>
                 <Cards>
                     <Card

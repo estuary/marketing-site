@@ -35,7 +35,10 @@ const SectionFourteen = () => {
                                     pipeline in minutes.
                                 </BoxDescription>
                             </TextWrapper>
-                            <OutboundLinkOutlined href="https://dashboard.estuary.dev/register">
+                            <OutboundLinkOutlined
+                                href="https://dashboard.estuary.dev/register"
+                                target="_blank"
+                            >
                                 <IconWrapper>
                                     <LoginIcon color="#5072EB" />
                                 </IconWrapper>
