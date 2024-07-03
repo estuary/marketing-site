@@ -105,16 +105,16 @@ export const Head = ({
         switch (connectorType) {
             case 'capture':
                 return [
-                    `Move ${mappedConnector.title} to Any Destination, Real-time ETL & CDC`,
+                    `Move ${mappedConnector?.title} to Any Destination, Real-time ETL & CDC`,
                     `Effortlessly move ${mappedConnector.title} data to any destination in real-time or batch with Estuary's no-code ETL & CDC platform. Free and easy to use. Get started now.`,
                 ];
             default:
                 return [
-                    `Load Data to ${mappedConnector.title} in Real-time ETL & CDC`,
-                    `Stream or batch load data to ${mappedConnector.title} instantly with Estuary's free, no-code ETL & CDC platform. Easy setup, real-time results. Sign up for free today.`,
+                    `Load Data to ${mappedConnector?.title} in Real-time ETL & CDC`,
+                    `Stream or batch load data to ${mappedConnector?.title} instantly with Estuary's free, no-code ETL & CDC platform. Easy setup, real-time results. Sign up for free today.`,
                 ];
         }
-    }, [connectorType, mappedConnector.title]);
+    }, [connectorType, mappedConnector?.title]);
 
     return <Seo title={title} description={description} />;
 };
