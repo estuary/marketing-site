@@ -27,6 +27,8 @@ import {
     VanityLogo,
 } from './styles';
 
+const metricIconColor = '#FFFFFF';
+
 const SectionOne = () => {
     const logos = useStaticQuery(graphql`
         {
@@ -59,8 +61,6 @@ const SectionOne = () => {
             }
         }
     `);
-
-    const metricIconColor = '#FFFFFF';
 
     return (
         <Container>
