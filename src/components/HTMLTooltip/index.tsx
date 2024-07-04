@@ -24,7 +24,7 @@ const HTMLTooltip = styled(
         fontSize,
         borderRadius,
         padding,
-        timeout = 100,
+        timeout = 200,
         placement = 'top',
         arrow = true,
         disableInteractive = true,

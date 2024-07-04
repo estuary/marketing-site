@@ -14,12 +14,6 @@ export const Title = styled.h2`
         line-height: 38.4px;
         margin: 0;
     }
-
-    @media (max-width: 768px) {
-        font-size: 1.75rem;
-        font-weight: 700;
-        line-height: 33.6px;
-    }
 `;
 
 export const Subtitle = styled.p`

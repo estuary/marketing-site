@@ -13,21 +13,23 @@ export const TextWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    &.text {
+        color: #47506d;
+        text-align: center;
+        margin: 0;
+    }
 `;
 
 export const Title = styled.h2`
     font-size: 2.5rem;
     font-weight: 600;
     line-height: 48px;
-    text-align: center;
-    margin: 0;
-    color: #47506d;
 
     @media (max-width: 810px) {
         font-size: 1.75rem;
         font-weight: 700;
         line-height: 33.6px;
-        margin: 0;
     }
 
     & > span {
@@ -39,9 +41,7 @@ export const Subtitle = styled.p`
     font-size: 1.25rem;
     font-weight: 400;
     line-height: 30px;
-    text-align: center;
-    color: #47506d;
-    margin: 24px 0 0 0;
+    margin-top: 24px;
 
     @media (max-width: 810px) {
         font-size: 1rem;

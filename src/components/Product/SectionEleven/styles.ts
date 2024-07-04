@@ -13,43 +13,6 @@ const commonColumnStyles = css`
     }
 `;
 
-const commonH3Styles = css`
-    font-size: 1.5rem;
-    font-weight: 700;
-    line-height: 28.8px;
-    margin: 0;
-`;
-
-const commonPStyles = css`
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 30px;
-    margin: 0;
-    @media (min-width: 1281px) {
-        max-width: 260px;
-    }
-`;
-
-const commonLeftPositionStyles = css`
-    left: 74.6%;
-
-    @media (max-width: 1280px) {
-        left: 74.7%;
-    }
-
-    @media (max-width: 920px) {
-        left: 74.9%;
-    }
-`;
-
-const commonRightPositionStyles = css`
-    right: 74.6%;
-
-    @media (max-width: 1280px) {
-        right: 74.7%;
-    }
-`;
-
 export const Container = styled.div`
     ${globalMaxWidth};
     display: flex;
@@ -121,27 +84,41 @@ export const TextWrapper = styled.div`
     }
 `;
 
-export const StreamingEtlTitle = styled.h3`
-    ${commonH3Styles};
+const BoxTitle = styled.h3`
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 28.8px;
+    margin: 0;
+`;
+
+export const StreamingEtlTitle = styled(BoxTitle)`
     color: #5072eb;
 `;
 
-export const BatchEltTitle = styled.h3`
-    ${commonH3Styles};
+export const BatchEltTitle = styled(BoxTitle)`
     color: #ffffff;
 `;
 
-export const StreamingEtlDescription = styled.p`
-    ${commonPStyles};
+const BoxDescription = styled.p`
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 30px;
+    margin: 0;
+
+    @media (min-width: 1281px) {
+        max-width: 260px;
+    }
+`;
+
+export const StreamingEtlDescription = styled(BoxDescription)`
     color: #ffffff;
 `;
 
-export const BatchEltDescription = styled.p`
-    ${commonPStyles};
+export const BatchEltDescription = styled(BoxDescription)`
     color: #d7dce5;
 `;
 
-export const LogoWrapper = styled(Link)`
+const LogoWrapper = styled(Link)`
     position: absolute;
     width: 18.7%;
     height: 23.5%;
@@ -173,48 +150,60 @@ export const LogoWrapper = styled(Link)`
                 border-box;
         }
     }
+
+    &.left-icon {
+        left: 74.6%;
+
+        @media (max-width: 1280px) {
+            left: 74.7%;
+        }
+
+        @media (max-width: 920px) {
+            left: 74.9%;
+        }
+    }
+
+    &.right-icon {
+        right: 74.6%;
+
+        @media (max-width: 1280px) {
+            right: 74.7%;
+        }
+    }
 `;
 
 export const SnowflakeStreamingEtlLogoWrapper = styled(LogoWrapper)`
     top: 50%;
     transform: translateY(-50%);
-    ${commonLeftPositionStyles};
 `;
 
 export const SnowflakeBatchEltLogoWrapper = styled(LogoWrapper)`
     top: 50.5%;
     transform: translateY(-50%);
-    ${commonLeftPositionStyles};
 `;
 
 export const AmazonRedshiftStreamingEtlLogoWrapper = styled(LogoWrapper)`
     top: 68.5%;
-    ${commonLeftPositionStyles};
 `;
 
 export const ElasticStreamingEtlLogoWrapper = styled(LogoWrapper)`
     top: 8.4%;
-    ${commonLeftPositionStyles};
 `;
 
 export const MySQLStreamingEtlLogoWrapper = styled(LogoWrapper)`
     top: 50%;
     transform: translateY(-50%);
-    ${commonRightPositionStyles};
 `;
 
 export const MySQLBatchElt1LogoWrapper = styled(LogoWrapper)`
     top: 8.6%;
-    ${commonRightPositionStyles};
 `;
 
 export const MySQLBatchElt2LogoWrapper = styled(LogoWrapper)`
     bottom: 8%;
-    ${commonRightPositionStyles};
 `;
 
 export const MySQLBatchElt3LogoWrapper = styled(LogoWrapper)`
     top: 50.5%;
     transform: translateY(-50%);
-    ${commonRightPositionStyles};
 `;

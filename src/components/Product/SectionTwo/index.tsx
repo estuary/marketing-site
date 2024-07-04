@@ -29,7 +29,7 @@ const SectionTwo = () => {
                             <Hover slide={1}>
                                 <StaticImage
                                     placeholder="none"
-                                    alt="Graphic - Flow"
+                                    alt="Flow"
                                     src="../../../images/product-page/section-two/desktop/slide-1.png"
                                     layout="constrained"
                                     loading="lazy"
@@ -40,7 +40,7 @@ const SectionTwo = () => {
                         <TabletImageWrapper>
                             <StaticImage
                                 placeholder="none"
-                                alt="Graphic - Flow"
+                                alt="Flow"
                                 src="../../../images/product-page/section-two/tablet/slide-1.png"
                                 layout="constrained"
                                 loading="lazy"
@@ -49,7 +49,7 @@ const SectionTwo = () => {
                         <MobileImageWrapper>
                             <StaticImage
                                 placeholder="none"
-                                alt="Graphic - Flow"
+                                alt="Flow"
                                 src="../../../images/product-page/section-two/mobile/slide-1.png"
                                 layout="constrained"
                                 loading="lazy"
@@ -70,7 +70,7 @@ const SectionTwo = () => {
                             <Hover slide={2}>
                                 <StaticImage
                                     placeholder="none"
-                                    alt="Graphic - Capture"
+                                    alt="Capture"
                                     src="../../../images/product-page/section-two/desktop/slide-2.png"
                                     layout="constrained"
                                     loading="eager"
@@ -81,7 +81,7 @@ const SectionTwo = () => {
                         <TabletImageWrapper>
                             <StaticImage
                                 placeholder="none"
-                                alt="Graphic - Capture"
+                                alt="Capture"
                                 src="../../../images/product-page/section-two/tablet/slide-2.png"
                                 layout="constrained"
                                 loading="eager"
@@ -90,7 +90,7 @@ const SectionTwo = () => {
                         <MobileImageWrapper>
                             <StaticImage
                                 placeholder="none"
-                                alt="Graphic - Capture"
+                                alt="Capture"
                                 src="../../../images/product-page/section-two/mobile/slide-2.png"
                                 layout="constrained"
                                 loading="eager"
@@ -108,7 +108,7 @@ const SectionTwo = () => {
                             <Hover slide={3}>
                                 <StaticImage
                                     placeholder="none"
-                                    alt="Graphic - Stream, Store, Transform, Replay"
+                                    alt="Stream, Store, Transform, Replay"
                                     src="../../../images/product-page/section-two/desktop/slide-3.png"
                                     layout="constrained"
                                     loading="lazy"
@@ -119,7 +119,7 @@ const SectionTwo = () => {
                         <TabletImageWrapper>
                             <StaticImage
                                 placeholder="none"
-                                alt="Graphic - Stream, Store, Transform, Replay"
+                                alt="Stream, Store, Transform, Replay"
                                 src="../../../images/product-page/section-two/tablet/slide-3.png"
                                 layout="constrained"
                                 loading="lazy"
@@ -128,7 +128,7 @@ const SectionTwo = () => {
                         <MobileImageWrapper>
                             <StaticImage
                                 placeholder="none"
-                                alt="Graphic - Stream, Store, Transform, Replay"
+                                alt="Stream, Store, Transform, Replay"
                                 src="../../../images/product-page/section-two/mobile/slide-3.png"
                                 layout="constrained"
                                 loading="lazy"
@@ -150,7 +150,7 @@ const SectionTwo = () => {
                             <Hover slide={4}>
                                 <StaticImage
                                     placeholder="none"
-                                    alt="Graphic - Materialize"
+                                    alt="Materialize"
                                     src="../../../images/product-page/section-two/desktop/slide-4.png"
                                     layout="constrained"
                                     loading="lazy"
@@ -161,7 +161,7 @@ const SectionTwo = () => {
                         <TabletImageWrapper>
                             <StaticImage
                                 placeholder="none"
-                                alt="Graphic - Materialize"
+                                alt="Materialize"
                                 src="../../../images/product-page/section-two/tablet/slide-4.png"
                                 layout="constrained"
                                 loading="lazy"
@@ -170,7 +170,7 @@ const SectionTwo = () => {
                         <MobileImageWrapper>
                             <StaticImage
                                 placeholder="none"
-                                alt="Graphic - Materialize"
+                                alt="Materialize"
                                 src="../../../images/product-page/section-two/mobile/slide-4.png"
                                 layout="constrained"
                                 loading="lazy"

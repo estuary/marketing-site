@@ -45,18 +45,22 @@ const SectionEleven = () => {
                             <MySQLStreamingEtlLogoWrapper
                                 to="/source/mysql"
                                 aria-label="MySQL source"
+                                className="right-icon"
                             />
                             <ElasticStreamingEtlLogoWrapper
                                 to="/destination/elasticsearch"
                                 aria-label="Elastic destination"
+                                className="left-icon"
                             />
                             <SnowflakeStreamingEtlLogoWrapper
                                 to="/destination/snowflake"
                                 aria-label="Snowflake destination"
+                                className="left-icon"
                             />
                             <AmazonRedshiftStreamingEtlLogoWrapper
                                 to="/destination/redshift"
                                 aria-label="Amazon Redshift destination"
+                                className="left-icon"
                             />
                         </ImageWrapper>
                         <TextWrapper>
@@ -82,26 +86,32 @@ const SectionEleven = () => {
                             <MySQLBatchElt1LogoWrapper
                                 to="/source/mysql"
                                 aria-label="MySQL source"
+                                className="right-icon"
                             />
                             <MySQLBatchElt3LogoWrapper
                                 to="/source/mysql"
                                 aria-label="MySQL source"
+                                className="right-icon"
                             />
                             <MySQLBatchElt2LogoWrapper
                                 to="/source/mysql"
                                 aria-label="MySQL source"
+                                className="right-icon"
                             />
                             <ElasticStreamingEtlLogoWrapper
                                 to="/destination/elasticsearch"
                                 aria-label="Elastic destination"
+                                className="left-icon"
                             />
                             <SnowflakeBatchEltLogoWrapper
                                 to="/destination/snowflake"
                                 aria-label="Snowflake destination"
+                                className="left-icon"
                             />
                             <AmazonRedshiftStreamingEtlLogoWrapper
                                 to="/destination/redshift"
                                 aria-label="Amazon Redshift destination"
+                                className="left-icon"
                             />
                         </ImageWrapper>
                         <TextWrapper>

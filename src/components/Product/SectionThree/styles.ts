@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 import { globalMaxWidth } from '../../../globalStyles';
 import { OutboundLink } from '../../OutboundLink';
@@ -17,11 +17,34 @@ export const KeyFeaturesWrapper = styled.div`
     align-items: center;
 
     @media (max-width: 810px) {
+        display: flex;
         flex-direction: column;
     }
 
     @media (max-width: 580px) {
         width: 100%;
+    }
+
+    .key-features-list {
+        display: flex;
+        flex-direction: column;
+        gap: 62px;
+        margin-top: 40px;
+
+        @media (max-width: 810px) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, auto);
+            gap: 24px;
+            margin-top: 0;
+            align-items: stretch;
+        }
+
+        @media (max-width: 580px) {
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+            width: 100%;
+        }
     }
 `;
 
@@ -74,30 +97,7 @@ export const Subtitle = styled.p`
     }
 `;
 
-export const baseKeyFeaturesListStyling = css`
-    display: flex;
-    flex-direction: column;
-    gap: 62px;
-    margin-top: 40px;
-
-    @media (max-width: 810px) {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, auto);
-        gap: 24px;
-        margin-top: 0;
-        align-items: stretch;
-    }
-
-    @media (max-width: 580px) {
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr;
-        width: 100%;
-    }
-`;
-
 export const KeyFeaturesListLeft = styled.div`
-    ${baseKeyFeaturesListStyling};
     align-items: end;
 
     @media (min-width: 811px) {
@@ -112,7 +112,6 @@ export const KeyFeaturesListLeft = styled.div`
 `;
 
 export const KeyFeaturesListRight = styled.div`
-    ${baseKeyFeaturesListStyling};
     align-items: start;
 
     @media (min-width: 811px) {

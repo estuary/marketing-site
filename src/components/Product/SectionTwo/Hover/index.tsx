@@ -247,7 +247,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                             <LogoWrapper>
                                 <StaticImage
                                     placeholder="none"
-                                    alt="AWS Kinesis logo"
+                                    alt="Apache Kafka logo"
                                     src="../../../../images/logos/apache-kafka.png"
                                     layout="constrained"
                                 />
@@ -430,7 +430,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                         <FlowStepImageWrapper $slide={slide}>
                             <StaticImage
                                 placeholder="none"
-                                alt="Graphic - Flow Step Transform"
+                                alt="Flow Step Transform"
                                 src="../../../../images/product-page/section-two/desktop/slide-3-transform.png"
                                 layout="constrained"
                                 quality={100}
@@ -449,7 +449,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                         <FlowStepImageWrapper $slide={slide}>
                             <StaticImage
                                 placeholder="none"
-                                alt="Graphic - Flow Step Elastic Streaming Compute"
+                                alt="Flow Step Elastic Streaming Compute"
                                 src="../../../../images/product-page/section-two/desktop/slide-1-elastic-streaming-compute.png"
                                 layout="constrained"
                             />
@@ -473,7 +473,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                         <FlowStepImageWrapper $slide={slide}>
                             <StaticImage
                                 placeholder="none"
-                                alt="Graphic - Flow Step Stream"
+                                alt="Flow Step Stream"
                                 src="../../../../images/product-page/section-two/desktop/slide-3-stream.png"
                                 layout="constrained"
                                 quality={100}
@@ -492,7 +492,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                         <FlowStepImageWrapper $slide={slide}>
                             <StaticImage
                                 placeholder="none"
-                                alt="Graphic - Flow Step Idempotent Streams"
+                                alt="Flow Step Idempotent Streams"
                                 src="../../../../images/product-page/section-two/desktop/slide-1-idempotent-streams.png"
                                 layout="constrained"
                             />
@@ -513,7 +513,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                         <FlowStepImageWrapper $slide={slide}>
                             <StaticImage
                                 placeholder="none"
-                                alt="Graphic - Flow Step Replay"
+                                alt="Flow Step Replay"
                                 src="../../../../images/product-page/section-two/desktop/slide-3-replay.png"
                                 layout="constrained"
                                 quality={100}
@@ -532,7 +532,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                         <FlowStepImageWrapper $slide={slide}>
                             <StaticImage
                                 placeholder="none"
-                                alt="Graphic - Flow Step Elastic Streaming Compute"
+                                alt="Flow Step Elastic Streaming Compute"
                                 src="../../../../images/product-page/section-two/desktop/slide-1-elastic-streaming-compute.png"
                                 layout="constrained"
                             />
@@ -556,7 +556,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                         <FlowStepImageWrapper $slide={slide}>
                             <StaticImage
                                 placeholder="none"
-                                alt="Graphic - Flow Step Store"
+                                alt="Flow Step Store"
                                 src="../../../../images/product-page/section-two/desktop/slide-3-store.png"
                                 layout="constrained"
                                 quality={100}
@@ -578,7 +578,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                         >
                             <StaticImage
                                 placeholder="none"
-                                alt="Graphic - Flow Step Decoupled Stream Storage"
+                                alt="Flow Step Decoupled Stream Storage"
                                 src="../../../../images/product-page/section-two/desktop/slide-1-storage.png"
                                 layout="constrained"
                             />
@@ -601,7 +601,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                         <FlowStepImageWrapper $slide={slide}>
                             <StaticImage
                                 placeholder="none"
-                                alt="Graphic - Managed Schema"
+                                alt="Managed Schema"
                                 src="../../../../images/product-page/section-two/desktop/slide-1-center.png"
                                 layout="constrained"
                             />

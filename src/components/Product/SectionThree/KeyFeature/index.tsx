@@ -1,57 +1,28 @@
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { useMediaQuery } from '@mui/material';
-import React, { ReactNode, useState } from 'react';
-import {
-    Accordion,
-    AccordionButton,
-    AccordionContent,
-    ChevronIconWrapper,
-    Container,
-    FeatureDescription,
-    IconWrapper,
-    Title,
-} from './styles';
+import React from 'react';
+import HTMLTooltip from '../../../HTMLTooltip';
+import KeyFeatureContent from '../KeyFeatureContent';
+import { DescriptionWrapper } from './styles';
 
-type KeyFeatureProps = {
-    title: string;
-    description: ReactNode;
-    icon: ReactNode;
-    isReversed?: boolean;
-};
+const KeyFeature = ({ props, feature, icon, isDesktop }) => {
+    const featureDescription = (
+        <DescriptionWrapper>{feature.description}</DescriptionWrapper>
+    );
 
-const KeyFeature = ({
-    title,
-    description,
-    icon,
-    isReversed = false,
-}: KeyFeatureProps) => {
-    const [isAccordionOpen, setIsAccordionOpen] = useState(false);
+    const keyFeatureContent = (
+        <KeyFeatureContent
+            title={feature.title}
+            description={featureDescription}
+            icon={icon}
+            isReversed={props.placement === 'left'}
+        />
+    );
 
-    const isMobile = useMediaQuery('(max-width:810px)');
-
-    const handleAccordionOpen = () => {
-        setIsAccordionOpen(!isAccordionOpen);
-    };
-
-    return (
-        <Accordion elevation={0} expanded={isMobile ? isAccordionOpen : false}>
-            <AccordionButton
-                onClick={handleAccordionOpen}
-                expandIcon={
-                    <ChevronIconWrapper>
-                        <ExpandMoreIcon width={24} htmlColor="#ffffff" />
-                    </ChevronIconWrapper>
-                }
-            >
-                <Container $isReversed={isReversed}>
-                    <IconWrapper>{icon}</IconWrapper>
-                    <Title>{title}</Title>
-                </Container>
-            </AccordionButton>
-            <AccordionContent>
-                <FeatureDescription>{description}</FeatureDescription>
-            </AccordionContent>
-        </Accordion>
+    return isDesktop ? (
+        <HTMLTooltip {...props} title={featureDescription}>
+            {keyFeatureContent}
+        </HTMLTooltip>
+    ) : (
+        <div>{keyFeatureContent}</div>
     );
 };
 

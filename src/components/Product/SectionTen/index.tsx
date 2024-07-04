@@ -22,7 +22,7 @@ const SectionTen = () => {
                         <span>SECURE</span> YOUR DATA
                     </>
                 }
-                subtitle="Estuary Flow is designed and tested to make sure your data and your systems stay secure. "
+                subtitle="Estuary Flow is designed and tested to make sure your data and your systems stay secure."
                 image={
                     <StaticImage
                         placeholder="none"

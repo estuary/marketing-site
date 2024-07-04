@@ -1,6 +1,5 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
-
 import { DefaultWrapperDarkBlue } from '../../../styles/wrappers';
 import Tabs from '../../Tabs';
 import LogoAndPath from './LogoAndPath';
@@ -156,8 +155,8 @@ const SectionFive = () => {
                                 content: (
                                     <TabContent>
                                         <TabImageWrapper>
-                                            <LogoAndPath tab="ops" />
-                                            <Connectors $tab="ops">
+                                            <LogoAndPath tab="ai" />
+                                            <Connectors $tab="ai">
                                                 <StaticImage
                                                     placeholder="none"
                                                     alt="AI Connectors"

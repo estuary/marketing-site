@@ -19,10 +19,10 @@ const SectionFour = () => {
         <DefaultWrapper>
             <Container>
                 <TextWrapper>
-                    <Title>
+                    <Title className="text">
                         CREATE A DATA PIPELINE IN <span>MINUTES</span>
                     </Title>
-                    <Subtitle>
+                    <Subtitle className="text">
                         Build new data pipelines that connect many sources to
                         many destinations in minutes.
                     </Subtitle>
