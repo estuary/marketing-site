@@ -11,15 +11,6 @@ const flexColumnCenter = css`
     flex-direction: column;
 `;
 
-const textStyles = css`
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 30px;
-    color: #47506d;
-    text-align: center;
-    margin: 0;
-`;
-
 export const CaseStudies = styled.div`
     ${flexColumnCenter};
     gap: 18px;
@@ -57,7 +48,12 @@ const CaseStudyBase = styled.div`
     }
 
     & > p {
-        ${textStyles};
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 30px;
+        color: #47506d;
+        text-align: center;
+        margin: 0;
     }
 `;
 

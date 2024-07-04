@@ -48,7 +48,6 @@ const SectionThree = () => {
                         alt="No-code connectors"
                         src="../../../svgs/product-page/section-three/no-code.svg"
                         layout="constrained"
-                        loading="lazy"
                     />
                 ),
             },
@@ -60,7 +59,6 @@ const SectionThree = () => {
                         alt="End-to-end CDC"
                         src="../../../svgs/product-page/section-three/cdc.svg"
                         layout="constrained"
-                        loading="lazy"
                     />
                 ),
             },
@@ -72,7 +70,6 @@ const SectionThree = () => {
                         alt="Real-time and batch"
                         src="../../../svgs/product-page/section-three/time.svg"
                         layout="constrained"
-                        loading="lazy"
                     />
                 ),
             },
@@ -84,7 +81,6 @@ const SectionThree = () => {
                         alt="Private storage"
                         src="../../../svgs/product-page/section-three/storage.svg"
                         layout="constrained"
-                        loading="lazy"
                     />
                 ),
             },
@@ -102,7 +98,6 @@ const SectionThree = () => {
                         alt="Data ops"
                         src="../../../svgs/product-page/section-three/data-ops.svg"
                         layout="constrained"
-                        loading="lazy"
                     />
                 ),
             },
@@ -114,7 +109,6 @@ const SectionThree = () => {
                         alt="Many to many"
                         src="../../../svgs/product-page/section-three/source.svg"
                         layout="constrained"
-                        loading="lazy"
                     />
                 ),
             },
@@ -126,7 +120,6 @@ const SectionThree = () => {
                         alt="Schema evolution"
                         src="../../../svgs/product-page/section-three/schema.svg"
                         layout="constrained"
-                        loading="lazy"
                     />
                 ),
                 props: { ...tooltipRightProps, disableInteractive: false },
@@ -139,7 +132,6 @@ const SectionThree = () => {
                         alt="Backfill and replay"
                         src="../../../svgs/product-page/section-three/replay.svg"
                         layout="constrained"
-                        loading="lazy"
                     />
                 ),
             },
@@ -177,7 +169,6 @@ const SectionThree = () => {
                             alt="Flow"
                             src="../../../images/product-page/section-three/middle-circle.png"
                             layout="constrained"
-                            loading="lazy"
                         />
                     </ImageWrapper>
                     <KeyFeaturesListRight className="key-features-list">

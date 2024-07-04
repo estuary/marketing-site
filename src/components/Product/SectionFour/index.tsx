@@ -38,7 +38,6 @@ const SectionFour = () => {
                                 alt="Create a data pipeline - Step 1"
                                 src="../../../svgs/product-page/section-four/schema.svg"
                                 layout="constrained"
-                                loading="lazy"
                             />
                         }
                     />
@@ -51,7 +50,6 @@ const SectionFour = () => {
                                 alt="Create a data pipeline - Step 2"
                                 src="../../../svgs/product-page/section-four/real-time-data.svg"
                                 layout="constrained"
-                                loading="lazy"
                             />
                         }
                     />
@@ -64,7 +62,6 @@ const SectionFour = () => {
                                 alt="Create a data pipeline - Step 3"
                                 src="../../../svgs/product-page/section-four/data-computer.svg"
                                 layout="constrained"
-                                loading="lazy"
                             />
                         }
                     />

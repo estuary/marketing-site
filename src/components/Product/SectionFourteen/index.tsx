@@ -67,7 +67,6 @@ const SectionFourteen = () => {
                             alt="Rocket image"
                             src="../../../images/product-page/section-fourteen/rocket.png"
                             layout="constrained"
-                            loading="lazy"
                         />
                     </ImageWrapper>
                 </Columns>

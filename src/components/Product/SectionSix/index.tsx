@@ -16,7 +16,6 @@ const SectionSix = () => {
                         alt="Coding optional"
                         src="../../../svgs/product-page/section-six/code.svg"
                         layout="constrained"
-                        loading="lazy"
                     />
                 }
                 title={
@@ -31,7 +30,6 @@ const SectionSix = () => {
                         alt="Coding optional"
                         src="../../../images/product-page/section-six/optional-code.png"
                         layout="constrained"
-                        loading="lazy"
                     />
                 }
                 advantages={sectionSixAdvantages}

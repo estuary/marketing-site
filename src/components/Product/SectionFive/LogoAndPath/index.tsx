@@ -15,7 +15,6 @@ const LogoAndPath = ({ tab }: LogoAndPathProps) => {
                     alt="Estuary logo"
                     src="../../../../images/product-page/section-five/circle-estuary-logo.png"
                     layout="constrained"
-                    loading="lazy"
                 />
             </Cicle>
             <Path $tab={tab}>
@@ -24,7 +23,6 @@ const LogoAndPath = ({ tab }: LogoAndPathProps) => {
                     alt="Flow path with arrow"
                     src="../../../../svgs/product-page/section-five/path-arrow.svg"
                     layout="constrained"
-                    loading="lazy"
                 />
             </Path>
         </>

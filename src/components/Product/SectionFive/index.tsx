@@ -39,7 +39,6 @@ const SectionFive = () => {
                                 alt="Analytics - pie chart"
                                 src="../../../svgs/pie-chart.svg"
                                 layout="constrained"
-                                loading="lazy"
                             />
                         </IconWrapper>
                         <IconWrapper>
@@ -48,7 +47,6 @@ const SectionFive = () => {
                                 alt="Ops"
                                 src="../../../svgs/ops.svg"
                                 layout="constrained"
-                                loading="lazy"
                             />
                         </IconWrapper>
                         <IconWrapper>
@@ -57,7 +55,6 @@ const SectionFive = () => {
                                 alt="AI - artificial intelligence"
                                 src="../../../svgs/android-brain.svg"
                                 layout="constrained"
-                                loading="lazy"
                             />
                         </IconWrapper>
                     </IconsWrapper>
@@ -85,7 +82,6 @@ const SectionFive = () => {
                                                     alt="Analytics Connectors"
                                                     src="../../../images/product-page/section-five/analytics-connectors.png"
                                                     layout="constrained"
-                                                    loading="lazy"
                                                 />
                                                 <GoogleBigQueryLogoWrapper
                                                     to="/destination/bigquery"
@@ -124,7 +120,6 @@ const SectionFive = () => {
                                                     alt="Ops Connectors"
                                                     src="../../../images/product-page/section-five/ops-connectors.png"
                                                     layout="constrained"
-                                                    loading="lazy"
                                                     height={128}
                                                     quality={100}
                                                 />
@@ -162,7 +157,6 @@ const SectionFive = () => {
                                                     alt="AI Connectors"
                                                     src="../../../images/product-page/section-five/ai-connectors.png"
                                                     layout="constrained"
-                                                    loading="lazy"
                                                     height={128}
                                                 />
                                                 <PineconeLogoWrapper

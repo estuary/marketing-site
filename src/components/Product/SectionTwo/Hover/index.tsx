@@ -83,6 +83,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                                     alt="Oracle logo"
                                     src="../../../../images/logos/oracle.png"
                                     layout="constrained"
+                                    loading="eager"
                                 />
                             </LogoWrapper>
                             <HiddenLogoTitle>Oracle</HiddenLogoTitle>
@@ -94,6 +95,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                                     alt="MySQL logo"
                                     src="../../../../images/logos/my-sql.png"
                                     layout="constrained"
+                                    loading="eager"
                                 />
                             </LogoWrapper>
                             <HiddenLogoTitle>MySQL</HiddenLogoTitle>
@@ -105,6 +107,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                                     alt="Postgre SQL logo"
                                     src="../../../../images/logos/postgre-sql.png"
                                     layout="constrained"
+                                    loading="eager"
                                 />
                             </LogoWrapper>
                             <HiddenLogoTitle>Postgre SQL</HiddenLogoTitle>
@@ -132,6 +135,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                                     alt="Amazon S3 logo"
                                     src="../../../../images/logos/amazon-s3.png"
                                     layout="constrained"
+                                    loading="eager"
                                 />
                             </LogoWrapper>
                             <HiddenLogoTitle>Amazon S3</HiddenLogoTitle>
@@ -143,6 +147,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                                     alt="Google Cloud Storage logo"
                                     src="../../../../images/logos/google-cloud-storage.png"
                                     layout="constrained"
+                                    loading="eager"
                                 />
                             </LogoWrapper>
                             <HiddenLogoTitle>GCS</HiddenLogoTitle>
@@ -154,6 +159,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                                     alt="Azure Blob Storage logo"
                                     src="../../../../images/logos/azure-blob-storage.png"
                                     layout="constrained"
+                                    loading="eager"
                                 />
                             </LogoWrapper>
                             <HiddenLogoTitle>ABS</HiddenLogoTitle>
@@ -180,6 +186,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                                     alt="Netsuite logo"
                                     src="../../../../images/logos/netsuite.png"
                                     layout="constrained"
+                                    loading="eager"
                                 />
                             </LogoWrapper>
                             <HiddenLogoTitle>Netsuite</HiddenLogoTitle>
@@ -191,6 +198,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                                     alt="Hubspot logo"
                                     src="../../../../images/logos/hubspot.png"
                                     layout="constrained"
+                                    loading="eager"
                                 />
                             </LogoWrapper>
                             <HiddenLogoTitle>HubSpot</HiddenLogoTitle>
@@ -202,6 +210,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                                     alt="Salesforce logo"
                                     src="../../../../images/logos/salesforce.png"
                                     layout="constrained"
+                                    loading="eager"
                                 />
                             </LogoWrapper>
                             <HiddenLogoTitle>Salesforce</HiddenLogoTitle>
@@ -228,6 +237,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                                     alt="Google Cloud Pub Sub logo"
                                     src="../../../../images/logos/google-cloud-pub-sub.png"
                                     layout="constrained"
+                                    loading="eager"
                                 />
                             </LogoWrapper>
                             <HiddenLogoTitle>Google PubSub</HiddenLogoTitle>
@@ -239,6 +249,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                                     alt="AWS Kinesis logo"
                                     src="../../../../images/logos/aws-kinesis.png"
                                     layout="constrained"
+                                    loading="eager"
                                 />
                             </LogoWrapper>
                             <HiddenLogoTitle>Amazon Kinesis</HiddenLogoTitle>
@@ -250,6 +261,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                                     alt="Apache Kafka logo"
                                     src="../../../../images/logos/apache-kafka.png"
                                     layout="constrained"
+                                    loading="eager"
                                 />
                             </LogoWrapper>
                             <HiddenLogoTitle>Apache Kafka</HiddenLogoTitle>
@@ -282,6 +294,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                                     alt="Snowflake logo"
                                     src="../../../../images/logos/snowflake.png"
                                     layout="constrained"
+                                    loading="eager"
                                 />
                             </LogoWrapper>
                             <HiddenLogoTitle>Snowflake</HiddenLogoTitle>
@@ -293,6 +306,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                                     alt="Google BigQuery logo"
                                     src="../../../../images/logos/bigquery.png"
                                     layout="constrained"
+                                    loading="eager"
                                 />
                             </LogoWrapper>
                             <HiddenLogoTitle>Google Bigquery</HiddenLogoTitle>
@@ -304,6 +318,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                                     alt="Redshift logo"
                                     src="../../../../images/logos/redshift.png"
                                     layout="constrained"
+                                    loading="eager"
                                 />
                             </LogoWrapper>
                             <HiddenLogoTitle>Amazon Redshift</HiddenLogoTitle>
@@ -332,6 +347,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                                     alt="ElasticSearch logo"
                                     src="../../../../images/logos/elastic-search.png"
                                     layout="constrained"
+                                    loading="eager"
                                 />
                             </LogoWrapper>
                             <HiddenLogoTitle>Elastic</HiddenLogoTitle>
@@ -343,6 +359,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                                     alt="MongoDB logo"
                                     src="../../../../images/logos/mongo-db.png"
                                     layout="constrained"
+                                    loading="eager"
                                 />
                             </LogoWrapper>
                             <HiddenLogoTitle>MongoDB</HiddenLogoTitle>
@@ -354,6 +371,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                                     alt="Amazon DynamoDB logo"
                                     src="../../../../images/logos/dynamo-db.png"
                                     layout="constrained"
+                                    loading="eager"
                                 />
                             </LogoWrapper>
                             <HiddenLogoTitle>Amazon DynamoDB</HiddenLogoTitle>
@@ -380,6 +398,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                                     alt="Pinecone logo"
                                     src="../../../../images/logos/pinecone.png"
                                     layout="constrained"
+                                    loading="eager"
                                 />
                             </LogoWrapper>
                             <HiddenLogoTitle>Pinecone</HiddenLogoTitle>
@@ -391,6 +410,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                                     alt="Open AI logo"
                                     src="../../../../images/logos/openai.png"
                                     layout="constrained"
+                                    loading="eager"
                                 />
                             </LogoWrapper>
                             <HiddenLogoTitle>Open AI</HiddenLogoTitle>
@@ -402,6 +422,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                                     alt="Databricks logo"
                                     src="../../../../images/logos/databricks.png"
                                     layout="constrained"
+                                    loading="eager"
                                 />
                             </LogoWrapper>
                             <HiddenLogoTitle>Databricks</HiddenLogoTitle>

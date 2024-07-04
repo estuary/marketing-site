@@ -17,7 +17,6 @@ const SectionSeven = () => {
                         alt="Boost Efficiency with flowctl: Automate DataOps, Integrate Tooling, and Streamline Schema Evolution"
                         src="../../../svgs/product-page/section-seven/use-modern-dataops.svg"
                         layout="constrained"
-                        loading="lazy"
                     />
                 }
                 title={
@@ -32,7 +31,6 @@ const SectionSeven = () => {
                         alt="Schema evolution options"
                         src="../../../images/product-page/section-seven/schema-evolution-options.png"
                         layout="constrained"
-                        loading="lazy"
                         quality={100}
                     />
                 }

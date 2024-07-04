@@ -39,7 +39,6 @@ const SectionEleven = () => {
                                 alt="Key feature - Real-time and batch"
                                 src="../../../images/product-page/section-eleven/streaming-etl.png"
                                 layout="constrained"
-                                loading="lazy"
                                 quality={100}
                             />
                             <MySQLStreamingEtlLogoWrapper
@@ -80,7 +79,6 @@ const SectionEleven = () => {
                                 alt="Key feature - Real-time and batch"
                                 src="../../../images/product-page/section-eleven/batch-elt.png"
                                 layout="constrained"
-                                loading="lazy"
                                 quality={100}
                             />
                             <MySQLBatchElt1LogoWrapper
