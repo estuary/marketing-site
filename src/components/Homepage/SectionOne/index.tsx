@@ -67,14 +67,14 @@ const SectionOne = () => {
             <MainContent>
                 <HomepageHeader>
                     <HomepageTitle>
-                        <span>Meet</span> <span>the fastest</span>
-                        <span>,</span> <span>most reliable</span>{' '}
-                        <span>CDC</span>
+                        <span>MEET</span> <span>THE FASTEST</span>
+                        <span>,</span> <span>MOST RELIABLE</span>{' '}
+                        <span>ETL</span>
                     </HomepageTitle>
                     <HomepageDescription>
-                        The only platform built from the ground up to deliver
-                        the most real-time and reliable CDC, streaming, and
-                        batch data.
+                        The only platform built from the ground up for truly
+                        real-time ETL and ELT data integration, set up in
+                        minutes.
                     </HomepageDescription>
                     <HomepageHeadingButtons>
                         <PrimaryButton

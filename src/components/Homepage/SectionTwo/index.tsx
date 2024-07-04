@@ -49,7 +49,9 @@ const SectionTwo = () => {
                     <span>Move </span>
                     <span>and </span>
                     <span>transform </span>
-                    <span>data with the only CDC platform built for </span>
+                    <span>
+                        data in real-time with the only platform built for{' '}
+                    </span>
                     <span>ops</span>
                     <span>, </span>
                     <span>analytics</span>
@@ -57,9 +59,9 @@ const SectionTwo = () => {
                     <span>AI</span>
                 </Title>
                 <Subtitle>
-                    Capture, transform, and materialize in real-time for an
-                    exact view of your data and every change that powers
-                    analytics and operations.
+                    Capture, transform, and materialize with millisecond latency
+                    using ETL and ELT data integration, for an exact view of
+                    your data that powers analytics and operations.
                 </Subtitle>
             </Header>
             <Steps>

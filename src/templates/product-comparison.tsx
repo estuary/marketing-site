@@ -241,7 +241,30 @@ export const Head = ({
     },
 }) => {
     const title = `Estuary Vs ${their_name}`;
-    return <Seo title={title} description={estuaryAllowsEnterprises} />;
+
+    // This can be removed once https://github.com/estuary/strapi-admin/pull/13 is merged and
+    //  we switch to using the MetaDescription coming from Strapi. Should still leave the fallback
+    //  of estuaryAllowsEnterprises just to be safe
+    const description = React.useMemo(() => {
+        switch (their_name) {
+            case 'Fivetran':
+                return `Compare Estuary and Fivetran to optimize your data pipeline effectively. Assess Estuary's strengths in integration and flexibility against Fivetran's offerings.`;
+
+            case 'Airbyte':
+                return `Discover why Estuary excels compared to Airbyte in data integration. Explore features, scalability, and reliability to streamline your data management effortlessly.`;
+
+            case 'Confluent':
+                return `Discover why Estuary stands out compared to Confluent. Compare features, scalability, and ecosystem support to find the ideal streaming data platform for your needs.`;
+
+            case 'Debezium':
+                return `Discover why Estuary is the preferred choice over Debezium for change data capture. Compare features, performance, and integration capabilities to optimize your data streaming strategy.`;
+
+            default:
+                return estuaryAllowsEnterprises;
+        }
+    }, [their_name]);
+
+    return <Seo title={title} description={description} />;
 };
 
 export const pageQuery = graphql`
