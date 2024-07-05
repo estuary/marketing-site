@@ -140,6 +140,11 @@
                 "source": "/integrations/s-to-pinecone",
                 "destination": "/integrations/s3-to-pinecone",
                 "type": 301
+            },
+            {
+                "source": "/source/s",
+                "destination": "/source/s3",
+                "type": 301
             }
         ],
         "public": "public",
