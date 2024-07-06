@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import BackgroundImage from '../../../../../images/lp-product/TheAutomation/the-automation-bg.png';
+import BackgroundImage from '../../../../../images/connector-template/the-automation-bg.png';
 
 export const Container = styled.div`
     display: flex;
