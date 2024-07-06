@@ -1,12 +1,5 @@
 import { Link } from 'gatsby';
 import styled, { css } from 'styled-components';
-import AiIcon from '../../../../svgs/android-brain.svg';
-import BatchIcon from '../../../../svgs/batch.svg';
-import LatencyIcon from '../../../../svgs/metric-latency.svg';
-import SingleDataflowIcon from '../../../../svgs/metric-single-dataflow.svg';
-import OpsIcon from '../../../../svgs/ops.svg';
-import AnalyticsIcon from '../../../../svgs/pie-chart.svg';
-import SaasIcon from '../../../../svgs/saas.svg';
 
 type Slide = {
     $slide: number;
@@ -15,24 +8,6 @@ type Slide = {
 const centerHorizontally = `
     left: 50%;
     transform: translateX(-50%);
-`;
-
-const baseHoverTextWrapperStyling = `
-    position: absolute;
-    border: 2px solid;
-    border-radius: 100px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    padding: 16px 32px;
-    background-color: #FFFFFF;
-    max-width: 280px;
-    z-index: 1;
-
-    @media (max-width: 1280px) {
-        padding: 8px 24px;
-        gap: 4px;
-    }
 `;
 
 const lightBlueColor = `
@@ -248,48 +223,6 @@ export const HiddenLogoTitle = styled.span`
     }
 `;
 
-const baseIconStyling = `
-    width: 100%;
-    height: 100%;
-    max-width: 32px;
-    max-height: 32px;
-    min-width: 16px;
-    min-height: 16px;
-
-    @media (max-width: 1024px) {
-        max-width: 24px;
-        max-height: 24px;
-    }
-`;
-
-export const SingleDataflowIconComponent = styled(SingleDataflowIcon)`
-    ${baseIconStyling};
-`;
-
-export const RealTimeIconComponent = styled(LatencyIcon)`
-    ${baseIconStyling};
-`;
-
-export const BatchIconComponent = styled(BatchIcon)`
-    ${baseIconStyling};
-`;
-
-export const SaasIconComponent = styled(SaasIcon)`
-    ${baseIconStyling};
-`;
-
-export const AnalyticsIconComponent = styled(AnalyticsIcon)`
-    ${baseIconStyling};
-`;
-
-export const OpsIconComponent = styled(OpsIcon)`
-    ${baseIconStyling};
-`;
-
-export const AiIconComponent = styled(AiIcon)`
-    ${baseIconStyling};
-`;
-
 export const FeatureWrapper = styled.div`
     min-width: 90px;
     width: 100%;
@@ -334,6 +267,20 @@ export const FeatureWrapper = styled.div`
     &:hover {
         border-color: #5072eb;
     }
+
+    .icon {
+        width: 100%;
+        height: 100%;
+        max-width: 32px;
+        max-height: 32px;
+        min-width: 16px;
+        min-height: 16px;
+
+        @media (max-width: 1024px) {
+            max-width: 24px;
+            max-height: 24px;
+        }
+    }
 `;
 
 export const FlowStepImageWrapper = styled.div<Slide>`
@@ -345,8 +292,26 @@ export const FlowStepImageWrapper = styled.div<Slide>`
     margin-top: ${(props) => (props.$slide === 3 ? '0' : '1.21%')};
 `;
 
+export const HoverableBlock = styled.div`
+    .tooltip {
+        position: absolute;
+        border: 2px solid;
+        border-radius: 100px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 16px 32px;
+        background-color: #ffffff;
+        z-index: 1;
+
+        @media (max-width: 1280px) {
+            padding: 8px 24px;
+            gap: 4px;
+        }
+    }
+`;
+
 export const TooltipTop = styled.div<Slide>`
-    ${baseHoverTextWrapperStyling};
     ${lightBlueColor};
     ${centerHorizontally};
     bottom: ${(props) => (props.$slide === 3 ? '79.2%' : '76%')};
@@ -359,28 +324,27 @@ export const TooltipTop = styled.div<Slide>`
 `;
 
 export const TooltipLeft = styled.div`
-    ${baseHoverTextWrapperStyling};
     ${darkBlueColor};
     bottom: 60%;
     right: 58%;
+    max-width: 280px;
 `;
 
 export const TooltipRight = styled.div`
-    ${baseHoverTextWrapperStyling};
     ${darkBlueColor};
     top: 61%;
     left: 57.5%;
+    max-width: 280px;
 `;
 
 export const TooltipBottom = styled.div<Slide>`
-    ${baseHoverTextWrapperStyling};
     ${lightBlueColor};
     ${centerHorizontally};
     top: ${(props) => (props.$slide === 3 ? '79%' : '74%')};
+    max-width: 280px;
 `;
 
 export const TooltipCenter = styled.div`
-    ${baseHoverTextWrapperStyling};
     ${darkBlueColor};
     ${centerHorizontally};
     top: 62%;

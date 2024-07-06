@@ -1,17 +1,6 @@
 import { Link } from 'gatsby';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { globalMaxWidth } from '../../../globalStyles';
-
-const commonColumnStyles = css`
-    display: flex;
-    gap: 16px;
-    padding: 35px 24px;
-    border-radius: 16px;
-    height: 100%;
-    @media (max-width: 1280px) {
-        flex-direction: column;
-    }
-`;
 
 export const Container = styled.div`
     ${globalMaxWidth};
@@ -59,16 +48,25 @@ export const Columns = styled.div`
     @media (max-width: 768px) {
         grid-template-columns: 1fr;
     }
+
+    .column {
+        display: flex;
+        gap: 16px;
+        padding: 35px 24px;
+        border-radius: 16px;
+        height: 100%;
+        @media (max-width: 1280px) {
+            flex-direction: column;
+        }
+    }
 `;
 
 export const StreamingEtlColumn = styled.div`
-    ${commonColumnStyles};
     border: 1px solid #5072eb40;
     background-color: #0a1f38;
 `;
 
 export const BatchEltColumn = styled.div`
-    ${commonColumnStyles};
     border: 1px solid #d7dce540;
     background-color: #04192b;
 `;
@@ -172,38 +170,44 @@ const LogoWrapper = styled(Link)`
     }
 `;
 
-export const SnowflakeStreamingEtlLogoWrapper = styled(LogoWrapper)`
+const CenteredLogoWrapper = styled(LogoWrapper)`
     top: 50%;
     transform: translateY(-50%);
 `;
 
-export const SnowflakeBatchEltLogoWrapper = styled(LogoWrapper)`
+const SlightlyOffsetCenteredLogoWrapper = styled(LogoWrapper)`
     top: 50.5%;
     transform: translateY(-50%);
 `;
+
+const TopLogoWrapper = styled(LogoWrapper)`
+    top: 8.4%;
+`;
+
+const BottomLogoWrapper = styled(LogoWrapper)`
+    bottom: 8%;
+`;
+
+export const SnowflakeStreamingEtlLogoWrapper = styled(CenteredLogoWrapper)``;
+
+export const SnowflakeBatchEltLogoWrapper = styled(
+    SlightlyOffsetCenteredLogoWrapper
+)``;
 
 export const AmazonRedshiftStreamingEtlLogoWrapper = styled(LogoWrapper)`
     top: 68.5%;
 `;
 
-export const ElasticStreamingEtlLogoWrapper = styled(LogoWrapper)`
-    top: 8.4%;
-`;
+export const ElasticStreamingEtlLogoWrapper = styled(TopLogoWrapper)``;
 
-export const MySQLStreamingEtlLogoWrapper = styled(LogoWrapper)`
-    top: 50%;
-    transform: translateY(-50%);
-`;
+export const MySQLStreamingEtlLogoWrapper = styled(CenteredLogoWrapper)``;
 
-export const MySQLBatchElt1LogoWrapper = styled(LogoWrapper)`
+export const MySQLBatchElt1LogoWrapper = styled(TopLogoWrapper)`
     top: 8.6%;
 `;
 
-export const MySQLBatchElt2LogoWrapper = styled(LogoWrapper)`
-    bottom: 8%;
-`;
+export const MySQLBatchElt2LogoWrapper = styled(BottomLogoWrapper)``;
 
-export const MySQLBatchElt3LogoWrapper = styled(LogoWrapper)`
-    top: 50.5%;
-    transform: translateY(-50%);
-`;
+export const MySQLBatchElt3LogoWrapper = styled(
+    SlightlyOffsetCenteredLogoWrapper
+)``;

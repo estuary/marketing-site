@@ -105,6 +105,16 @@ export const Connectors = styled.div<{ $tab: 'analytics' | 'ops' | 'ai' }>`
     @media (max-width: 425px) {
         margin: 6% 0 0 0;
     }
+
+    .trio-group-logo {
+        top: 50.5%;
+        width: 19%;
+
+        @media (max-width: 1024px), (min-width: 425px) {
+            height: 45%;
+            width: 18.5%;
+        }
+    }
 `;
 
 export const LogoWrapper = styled(Link)`
@@ -176,16 +186,6 @@ export const SnowflakeLogoWrapper = styled(LogoWrapper)`
     }
 `;
 
-const trioGroupStyle = `
-    top: 50.5%;
-    width: 19%;
-
-    @media (max-width: 1024px), (min-width: 425px) {
-        height: 45%;
-        width: 18.5%;
-    }
-`;
-
 const trioGroupFirstLogo = `
     right: 67.3%;
 
@@ -195,7 +195,11 @@ const trioGroupFirstLogo = `
 `;
 
 const trioGroupSecondLogo = `
-    right: 41%;
+    right: 40.5%;
+
+    @media (max-width: 840px) {
+        right: 41%;
+    }
 `;
 
 const trioGroupThirdLogo = `
@@ -203,32 +207,26 @@ const trioGroupThirdLogo = `
 `;
 
 export const ElasticLogoWrapper = styled(LogoWrapper)`
-    ${trioGroupStyle};
     ${trioGroupFirstLogo}
 `;
 
 export const MongoDBLogoWrapper = styled(LogoWrapper)`
-    ${trioGroupStyle};
     ${trioGroupSecondLogo}
 `;
 
 export const DynamoDBLogoWrapper = styled(LogoWrapper)`
-    ${trioGroupStyle};
     ${trioGroupThirdLogo}
 `;
 
 export const PineconeLogoWrapper = styled(LogoWrapper)`
-    ${trioGroupStyle};
     ${trioGroupFirstLogo}
 `;
 
 export const OpenAiLogoWrapper = styled(LogoWrapper)`
-    ${trioGroupStyle};
     ${trioGroupSecondLogo}
 `;
 
 export const DatabricksAILogoWrapper = styled(LogoWrapper)`
-    ${trioGroupStyle};
     ${trioGroupThirdLogo}
 `;
 

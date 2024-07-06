@@ -1,21 +1,5 @@
 import styled, { css } from 'styled-components';
 
-const sharedMetricStyles = css`
-    position: absolute;
-    border: 1px solid #5072eb4d;
-    border-radius: 24px;
-    display: flex;
-    gap: 24px;
-    align-items: center;
-    padding: 16px;
-
-    @media (min-width: 769px) and (max-width: 1320px), (max-width: 480px) {
-        gap: 16px;
-        padding: 8px;
-        border-radius: 16px;
-    }
-`;
-
 const sharedHeaderStyles = css`
     font-size: 2.25rem;
     font-weight: 700;
@@ -53,10 +37,25 @@ const sharedParagraphStyles = css`
 export const Metrics = styled.div`
     position: relative;
     min-width: 260px;
+
+    .metric {
+        position: absolute;
+        border: 1px solid #5072eb4d;
+        border-radius: 24px;
+        display: flex;
+        gap: 24px;
+        align-items: center;
+        padding: 16px;
+
+        @media (min-width: 769px) and (max-width: 1320px), (max-width: 480px) {
+            gap: 16px;
+            padding: 8px;
+            border-radius: 16px;
+        }
+    }
 `;
 
 export const SingleDataFlowMetric = styled.div`
-    ${sharedMetricStyles}
     left: 50%;
     transform: translateX(-50%);
     top: 20px;
@@ -74,7 +73,6 @@ export const SingleDataFlowMetric = styled.div`
 `;
 
 export const ActiveUsersMetric = styled.div`
-    ${sharedMetricStyles}
     bottom: 96px;
     background-color: #eef1fd;
 
@@ -98,7 +96,6 @@ export const ActiveUsersMetric = styled.div`
 `;
 
 export const LatencyMetric = styled.div`
-    ${sharedMetricStyles}
     bottom: 0;
     right: 0;
     background-color: #eef1fd;

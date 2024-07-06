@@ -32,7 +32,7 @@ const SectionEleven = () => {
                     STREAMING <span>ETL VS. BATCH ELT</span>
                 </Title>
                 <Columns>
-                    <StreamingEtlColumn>
+                    <StreamingEtlColumn className="column">
                         <ImageWrapper>
                             <StaticImage
                                 placeholder="none"
@@ -72,7 +72,7 @@ const SectionEleven = () => {
                             </StreamingEtlDescription>
                         </TextWrapper>
                     </StreamingEtlColumn>
-                    <BatchEltColumn>
+                    <BatchEltColumn className="column">
                         <ImageWrapper>
                             <StaticImage
                                 placeholder="none"

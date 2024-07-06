@@ -126,14 +126,17 @@ const SectionFive = () => {
                                                 <ElasticLogoWrapper
                                                     to="/destination/elasticsearch"
                                                     aria-label="Elastic destination"
+                                                    className="trio-group-logo"
                                                 />
                                                 <MongoDBLogoWrapper
                                                     to="/destination/mongodb"
                                                     aria-label="MongoDB destination"
+                                                    className="trio-group-logo"
                                                 />
                                                 <DynamoDBLogoWrapper
                                                     to="/destination/dynamodb"
                                                     aria-label="Amazon DynamoDB destination"
+                                                    className="trio-group-logo"
                                                 />
                                             </Connectors>
                                         </TabImageWrapper>
@@ -162,14 +165,17 @@ const SectionFive = () => {
                                                 <PineconeLogoWrapper
                                                     to="/destination/pinecone"
                                                     aria-label="Pinecone destination"
+                                                    className="trio-group-logo"
                                                 />
                                                 <OpenAiLogoWrapper
                                                     to="/destination/pinecone"
                                                     aria-label="Pinecone destination"
+                                                    className="trio-group-logo"
                                                 />
                                                 <DatabricksAILogoWrapper
                                                     to="/destination/databricks"
                                                     aria-label="Databricks destination"
+                                                    className="trio-group-logo"
                                                 />
                                             </Connectors>
                                         </TabImageWrapper>

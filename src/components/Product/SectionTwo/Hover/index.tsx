@@ -2,11 +2,16 @@ import { Typography } from '@mui/material';
 import Fade from '@mui/material/Fade';
 import { StaticImage } from 'gatsby-plugin-image';
 import React, { ReactNode, useCallback, useState } from 'react';
+import AiIcon from '../../../../svgs/android-brain.svg';
+import BatchIcon from '../../../../svgs/batch.svg';
+import RealTimeIcon from '../../../../svgs/metric-latency.svg';
+import SingleDataflowIcon from '../../../../svgs/metric-single-dataflow.svg';
+import OpsIcon from '../../../../svgs/ops.svg';
+import AnalyticsIcon from '../../../../svgs/pie-chart.svg';
+import SaasIcon from '../../../../svgs/saas.svg';
 import HTMLTooltip from '../../../HTMLTooltip';
+
 import {
-    AiIconComponent,
-    AnalyticsIconComponent,
-    BatchIconComponent,
     CenterHoverBlock,
     Connector,
     ConnectorsGroup,
@@ -22,12 +27,9 @@ import {
     FlowStepTitle,
     FlowStepTransformHoverBlock,
     HiddenLogoTitle,
+    HoverableBlock,
     ImageWrapper,
     LogoWrapper,
-    OpsIconComponent,
-    RealTimeIconComponent,
-    SaasIconComponent,
-    SingleDataflowIconComponent,
     TooltipBottom,
     TooltipCenter,
     TooltipLeft,
@@ -122,7 +124,10 @@ const Hover = ({ slide, children }: HoverProps) => {
                             }
                         >
                             <FeatureWrapper>
-                                <SingleDataflowIconComponent color="#5072EB" />
+                                <SingleDataflowIcon
+                                    className="icon"
+                                    color="#5072EB"
+                                />
                                 <h4>Streaming CDC</h4>
                             </FeatureWrapper>
                         </HTMLTooltip>
@@ -173,7 +178,10 @@ const Hover = ({ slide, children }: HoverProps) => {
                             }
                         >
                             <FeatureWrapper>
-                                <RealTimeIconComponent color="#5072EB" />
+                                <RealTimeIcon
+                                    className="icon"
+                                    color="#5072EB"
+                                />
                                 <h4>Real-time</h4>
                             </FeatureWrapper>
                         </HTMLTooltip>
@@ -224,7 +232,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                             }
                         >
                             <FeatureWrapper>
-                                <BatchIconComponent color="#5072EB" />
+                                <BatchIcon className="icon" color="#5072EB" />
                                 <h4>Batch</h4>
                             </FeatureWrapper>
                         </HTMLTooltip>
@@ -276,7 +284,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                             }
                         >
                             <FeatureWrapper>
-                                <SaasIconComponent color="#5072EB" />
+                                <SaasIcon className="icon" color="#5072EB" />
                                 <h4>SaaS</h4>
                             </FeatureWrapper>
                         </HTMLTooltip>
@@ -334,7 +342,10 @@ const Hover = ({ slide, children }: HoverProps) => {
                             }
                         >
                             <FeatureWrapper>
-                                <AnalyticsIconComponent color="#5072EB" />
+                                <AnalyticsIcon
+                                    className="icon"
+                                    color="#5072EB"
+                                />
                                 <h4>Analytics</h4>
                             </FeatureWrapper>
                         </HTMLTooltip>
@@ -385,7 +396,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                             }
                         >
                             <FeatureWrapper>
-                                <OpsIconComponent color="#5072EB" />
+                                <OpsIcon className="icon" color="#5072EB" />
                                 <h4>Ops</h4>
                             </FeatureWrapper>
                         </HTMLTooltip>
@@ -438,7 +449,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                             }
                         >
                             <FeatureWrapper>
-                                <AiIconComponent color="#5072EB" />
+                                <AiIcon className="icon" color="#5072EB" />
                                 <h4>AI</h4>
                             </FeatureWrapper>
                         </HTMLTooltip>
@@ -447,7 +458,7 @@ const Hover = ({ slide, children }: HoverProps) => {
             ) : null}
             <Fade in={hoveredFlowStepBlock === 'transform'}>
                 {slide === 3 ? (
-                    <div>
+                    <HoverableBlock>
                         <FlowStepImageWrapper $slide={slide}>
                             <StaticImage
                                 placeholder="none"
@@ -457,16 +468,16 @@ const Hover = ({ slide, children }: HoverProps) => {
                                 quality={100}
                             />
                         </FlowStepImageWrapper>
-                        <TooltipTop $slide={2}>
+                        <TooltipTop className="tooltip" $slide={2}>
                             <FlowStepTitle>Transform</FlowStepTitle>
                             <FlowStepDescription>
                                 Streams dynamically in real-time using SQL or
                                 TypeScript.
                             </FlowStepDescription>
                         </TooltipTop>
-                    </div>
+                    </HoverableBlock>
                 ) : (
-                    <div>
+                    <HoverableBlock>
                         <FlowStepImageWrapper $slide={slide}>
                             <StaticImage
                                 placeholder="none"
@@ -475,7 +486,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                                 layout="constrained"
                             />
                         </FlowStepImageWrapper>
-                        <TooltipTop $slide={4}>
+                        <TooltipTop className="tooltip" $slide={4}>
                             <FlowStepTitle>
                                 Elastic streaming compute
                             </FlowStepTitle>
@@ -485,12 +496,12 @@ const Hover = ({ slide, children }: HoverProps) => {
                                 distributed load balancing, and active failover.
                             </FlowStepDescription>
                         </TooltipTop>
-                    </div>
+                    </HoverableBlock>
                 )}
             </Fade>
             <Fade in={hoveredFlowStepBlock === 'stream'}>
                 {slide === 3 ? (
-                    <div>
+                    <HoverableBlock>
                         <FlowStepImageWrapper $slide={slide}>
                             <StaticImage
                                 placeholder="none"
@@ -500,16 +511,16 @@ const Hover = ({ slide, children }: HoverProps) => {
                                 quality={100}
                             />
                         </FlowStepImageWrapper>
-                        <TooltipLeft>
+                        <TooltipLeft className="tooltip">
                             <FlowStepTitle>Stream</FlowStepTitle>
                             <FlowStepDescription>
                                 From many sources to many destinations in
                                 real-time with exactly-once delivery.
                             </FlowStepDescription>
                         </TooltipLeft>
-                    </div>
+                    </HoverableBlock>
                 ) : (
-                    <div>
+                    <HoverableBlock>
                         <FlowStepImageWrapper $slide={slide}>
                             <StaticImage
                                 placeholder="none"
@@ -518,19 +529,19 @@ const Hover = ({ slide, children }: HoverProps) => {
                                 layout="constrained"
                             />
                         </FlowStepImageWrapper>
-                        <TooltipLeft>
+                        <TooltipLeft className="tooltip">
                             <FlowStepTitle>Idempotent streams</FlowStepTitle>
                             <FlowStepDescription>
                                 Exactly-once data delivery with sub-100ms
                                 end-to-end latency.
                             </FlowStepDescription>
                         </TooltipLeft>
-                    </div>
+                    </HoverableBlock>
                 )}
             </Fade>
             <Fade in={hoveredFlowStepBlock === 'replay'}>
                 {slide === 3 ? (
-                    <div>
+                    <HoverableBlock>
                         <FlowStepImageWrapper $slide={slide}>
                             <StaticImage
                                 placeholder="none"
@@ -540,16 +551,16 @@ const Hover = ({ slide, children }: HoverProps) => {
                                 quality={100}
                             />
                         </FlowStepImageWrapper>
-                        <TooltipRight>
+                        <TooltipRight className="tooltip">
                             <FlowStepTitle>Replay</FlowStepTitle>
                             <FlowStepDescription>
                                 Collections for backfilling, stream processing,
                                 or time travel.
                             </FlowStepDescription>
                         </TooltipRight>
-                    </div>
+                    </HoverableBlock>
                 ) : (
-                    <div>
+                    <HoverableBlock>
                         <FlowStepImageWrapper $slide={slide}>
                             <StaticImage
                                 placeholder="none"
@@ -558,7 +569,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                                 layout="constrained"
                             />
                         </FlowStepImageWrapper>
-                        <TooltipTop $slide={4}>
+                        <TooltipTop className="tooltip" $slide={4}>
                             <FlowStepTitle>
                                 Elastic streaming compute
                             </FlowStepTitle>
@@ -568,12 +579,12 @@ const Hover = ({ slide, children }: HoverProps) => {
                                 distributed load balancing, and active failover.
                             </FlowStepDescription>
                         </TooltipTop>
-                    </div>
+                    </HoverableBlock>
                 )}
             </Fade>
             <Fade in={hoveredFlowStepBlock === 'store'}>
                 {slide === 3 ? (
-                    <div>
+                    <HoverableBlock>
                         <FlowStepImageWrapper $slide={slide}>
                             <StaticImage
                                 placeholder="none"
@@ -583,16 +594,16 @@ const Hover = ({ slide, children }: HoverProps) => {
                                 quality={100}
                             />
                         </FlowStepImageWrapper>
-                        <TooltipBottom $slide={3}>
+                        <TooltipBottom className="tooltip" $slide={3}>
                             <FlowStepTitle>Store</FlowStepTitle>
                             <FlowStepDescription>
                                 As collections in your own private storage in
                                 any region, so you only extract once.
                             </FlowStepDescription>
                         </TooltipBottom>
-                    </div>
+                    </HoverableBlock>
                 ) : (
-                    <div>
+                    <HoverableBlock>
                         <FlowStepImageWrapper
                             $slide={slide}
                             style={{ marginTop: '-0.4%' }}
@@ -604,7 +615,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                                 layout="constrained"
                             />
                         </FlowStepImageWrapper>
-                        <TooltipBottom $slide={4}>
+                        <TooltipBottom className="tooltip" $slide={4}>
                             <FlowStepTitle>
                                 Decoupled stream storage
                             </FlowStepTitle>
@@ -613,12 +624,12 @@ const Hover = ({ slide, children }: HoverProps) => {
                                 cloud storage.
                             </FlowStepDescription>
                         </TooltipBottom>
-                    </div>
+                    </HoverableBlock>
                 )}
             </Fade>
             {slide === 1 ? (
                 <Fade in={hoveredFlowStepBlock === 'center'}>
-                    <div>
+                    <HoverableBlock>
                         <FlowStepImageWrapper $slide={slide}>
                             <StaticImage
                                 placeholder="none"
@@ -627,14 +638,14 @@ const Hover = ({ slide, children }: HoverProps) => {
                                 layout="constrained"
                             />
                         </FlowStepImageWrapper>
-                        <TooltipCenter>
+                        <TooltipCenter className="tooltip">
                             <FlowStepTitle>Managed schema</FlowStepTitle>
                             <FlowStepDescription>
                                 End-to-end schema inference, evolution, and
                                 automation.
                             </FlowStepDescription>
                         </TooltipCenter>
-                    </div>
+                    </HoverableBlock>
                 </Fade>
             ) : null}
             {[1, 3].includes(slide) ? (

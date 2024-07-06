@@ -54,7 +54,7 @@ const SectionNine = () => {
                                 quality={100}
                             />
                         </LogoWrapper>
-                        <SingleDataFlowMetric>
+                        <SingleDataFlowMetric className="metric">
                             <IconWrapper>
                                 <SingleDataflowIcon color="#ffffff" />
                             </IconWrapper>
@@ -63,7 +63,7 @@ const SectionNine = () => {
                                 <p>Single dataflow</p>
                             </TextWrapper>
                         </SingleDataFlowMetric>
-                        <ActiveUsersMetric>
+                        <ActiveUsersMetric className="metric">
                             <IconWrapper>
                                 <ActiveUsersIcon color="#5072EB" />
                             </IconWrapper>
@@ -72,7 +72,7 @@ const SectionNine = () => {
                                 <p>Active users</p>
                             </TextWrapper>
                         </ActiveUsersMetric>
-                        <LatencyMetric>
+                        <LatencyMetric className="metric">
                             <IconWrapper>
                                 <LatencyIcon color="#5072EB" />
                             </IconWrapper>
