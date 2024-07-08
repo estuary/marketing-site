@@ -72,12 +72,12 @@ const SectionSeven = () => {
                             />
                         </Link>
                     </Connector>
-                    <Connector key="section-seven-rockset-logo">
-                        <Link to="/destination/rockset">
+                    <Connector key="section-seven-mongodb-logo">
+                        <Link to="/destination/mongodb">
                             <StaticImage
                                 placeholder="none"
-                                alt="Rockset logo"
-                                src="../../../images/rockset-logo.png"
+                                alt="MongoDB logo"
+                                src="../../../images/mongodb-logo.png"
                                 layout="constrained"
                             />
                         </Link>

@@ -9,6 +9,7 @@ import {
     AzureBlobStorageLogoWrapper,
     Container,
     DatabricksLogoWrapper,
+    DynamoDBLogoWrapper,
     ElasticLogoWrapper,
     FlowImageWrapper,
     GoogleBigQueryLogoWrapper,
@@ -16,13 +17,13 @@ import {
     Header,
     HttpWebhookLogoWrapper,
     HubspotLogoWrapper,
+    MongoDBLogoWrapper,
     MySQLLogoWrapper,
     NetsuiteLogoWrapper,
     OpenAiLogoWrapper,
     OracleLogoWrapper,
     PineconeLogoWrapper,
     PostgresLogoWrapper,
-    RocksetLogoWrapper,
     SalesforceLogoWrapper,
     SnowflakeLogoWrapper,
     Step,
@@ -34,7 +35,6 @@ import {
     StepTwoIcon,
     Steps,
     Subtitle,
-    TimescaleLogoWrapper,
     Title,
 } from './styles';
 
@@ -141,7 +141,7 @@ const SectionTwo = () => {
                     aria-label="Postgres source"
                 />
                 <AmazonS3LogoWrapper
-                    to="/source/s"
+                    to="/source/s3"
                     aria-label="Amazon S3 source"
                 />
                 <GoogleStorageLogoWrapper
@@ -192,13 +192,13 @@ const SectionTwo = () => {
                     to="/destination/elasticsearch"
                     aria-label="Elastic destination"
                 />
-                <TimescaleLogoWrapper
-                    to="/destination/timescaledb"
-                    aria-label="Timescale destination"
+                <MongoDBLogoWrapper
+                    to="/destination/mongodb"
+                    aria-label="MongoDB destination"
                 />
-                <RocksetLogoWrapper
-                    to="/destination/rockset"
-                    aria-label="Rockset destination"
+                <DynamoDBLogoWrapper
+                    to="/destination/dynamodb"
+                    aria-label="DynamoDB destination"
                 />
                 <PineconeLogoWrapper
                     to="/destination/pinecone"

@@ -3,13 +3,13 @@ import * as React from 'react';
 import { OutboundLink } from '../components/OutboundLink';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
+import { estuaryAllowsEnterprises } from '../content/seo';
 import ApplePodcastButton from '../svgs/apple-podcasts.svg';
 import HeroImage from '../svgs/hero-image.svg';
 import SpotifyButton from '../svgs/listen-spotify.svg';
 import SubscribeYoutubeImage from '../svgs/subscribe-image.svg';
 import SubscribeYoutubeButton from '../svgs/subscribe-youtube.svg';
 import WatchYoutubeButton from '../svgs/youtube-watch.svg';
-import { estuaryAllowsEnterprises } from '../content/seo';
 
 const LpPodcats = () => {
     return (
@@ -136,7 +136,11 @@ const LpPodcats = () => {
                                 news and updates
                             </div>
                             <div className="input-wrap">
-                                <input type="email" placeholder="Email" />
+                                <input
+                                    type="email"
+                                    placeholder="Email"
+                                    required
+                                />
                                 <button type="submit">Submit</button>
                             </div>
                         </div>

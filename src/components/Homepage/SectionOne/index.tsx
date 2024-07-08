@@ -27,6 +27,8 @@ import {
     VanityLogo,
 } from './styles';
 
+const metricIconColor = '#FFFFFF';
+
 const SectionOne = () => {
     const logos = useStaticQuery(graphql`
         {
@@ -96,7 +98,7 @@ const SectionOne = () => {
             <MetricCardsList>
                 <MetricCard>
                     <MetricIconWrapper>
-                        <ActiveUsersIcon />
+                        <ActiveUsersIcon color={metricIconColor} />
                     </MetricIconWrapper>
                     <MetricsWrapper>
                         <MetricValue>3000+</MetricValue>
@@ -105,7 +107,7 @@ const SectionOne = () => {
                 </MetricCard>
                 <MetricCard>
                     <MetricIconWrapper>
-                        <LatencyIcon />
+                        <LatencyIcon color={metricIconColor} />
                     </MetricIconWrapper>
                     <MetricsWrapper>
                         <MetricValue>&#60;100ms</MetricValue>
@@ -114,7 +116,7 @@ const SectionOne = () => {
                 </MetricCard>
                 <MetricCard>
                     <MetricIconWrapper>
-                        <SingleDataflowIcon color="#FFFFFF" />
+                        <SingleDataflowIcon color={metricIconColor} />
                     </MetricIconWrapper>
                     <MetricsWrapper>
                         <MetricValue>7+gb/sec</MetricValue>
