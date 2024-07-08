@@ -1,8 +1,9 @@
 import { graphql } from 'gatsby';
 import React from 'react';
-import { ConnectorPage } from '../components/ConnectorPage';
+import { SectionOne } from '../components/Integration';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
+import { normalizeConnector } from '../utils';
 
 export interface ConnectorProps {
     data: {
@@ -25,11 +26,20 @@ const Connector = ({
         destination: { connector: destination_connector },
     },
 }: ConnectorProps) => {
+    const source_mapped = normalizeConnector(source_connector);
+    const dest_mapped = normalizeConnector(destination_connector);
+
     return (
         <Layout>
-            <ConnectorPage
-                source_connector={source_connector}
-                dest_connector={destination_connector}
+            <SectionOne
+                sourceConnector={{
+                    title: source_mapped.title,
+                    logo: source_mapped.logo,
+                }}
+                destConnector={{
+                    title: dest_mapped.title,
+                    logo: dest_mapped.logo,
+                }}
             />
         </Layout>
     );
