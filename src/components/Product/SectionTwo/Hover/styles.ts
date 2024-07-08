@@ -140,10 +140,9 @@ export const ConnectorsGroup = styled.div`
     width: 100%;
     height: 100%;
     max-width: 406px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1.5fr;
+    display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: 4%;
     padding: 3% 3% 3% 9%;
     border: 2px solid #e5e9f5;
@@ -169,6 +168,7 @@ export const Connector = styled(Link)`
     transition: transform 0.2s ease-in-out;
     cursor: pointer;
     margin-bottom: -40px;
+    max-width: 64px;
 
     &:hover {
         transform: translateY(-12px);
