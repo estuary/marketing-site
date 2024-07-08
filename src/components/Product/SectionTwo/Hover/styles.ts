@@ -1,3 +1,4 @@
+import Fade from '@mui/material/Fade';
 import { Link } from 'gatsby';
 import styled, { css } from 'styled-components';
 
@@ -116,6 +117,7 @@ export const ImageWrapper = styled.div<Slide>`
     justify-content: center;
     margin-top: ${(props) => (props.$slide === 1 ? '8%' : 0)};
     max-width: ${(props) => (props.$slide === 3 ? '1024px' : '100%')};
+    z-index: 1;
 `;
 
 export const ConnectorsGroupsLeftWrapper = styled.div`
@@ -147,7 +149,7 @@ export const ConnectorsGroup = styled.div`
     border: 2px solid #e5e9f5;
     border-radius: 100px;
     background-color: #fdfdfe;
-    z-index: 1;
+    z-index: 2;
 
     @media (max-width: 1280px) {
         max-width: 320px;
@@ -377,4 +379,8 @@ export const FlowStepDescription = styled.p`
         font-size: 0.875rem;
         line-height: 16.2px;
     }
+`;
+
+export const FadeTransition = styled(Fade)`
+    z-index: 3;
 `;
