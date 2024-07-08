@@ -1,4 +1,4 @@
-import { ImageDataLike, StaticImage } from 'gatsby-plugin-image';
+import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { DefaultWrapperDarkBlue } from '../../../styles/wrappers';
 import ActiveUsersIcon from '../../../svgs/metric-active-users.svg';
@@ -12,6 +12,7 @@ import {
     ButtonWrapper,
     ButtonsWrapper,
     Description,
+    DestinationLogo,
     Header,
     HelpText,
     IconWrapper,
@@ -22,21 +23,23 @@ import {
     PreTitleWrapper,
     PrimaryButton,
     SecondaryButton,
+    SourceLogo,
     Title,
 } from './styles';
 
 interface SectionOneProps {
     sourceConnector: {
         title: string;
-        logo: ImageDataLike;
+        logo: any;
     };
     destConnector: {
         title: string;
-        logo: ImageDataLike;
+        logo: any;
     };
 }
 
 const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
+    console.log(sourceConnector);
     return (
         <DefaultWrapperDarkBlue>
             <MainContent>
@@ -46,7 +49,7 @@ const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
                             <StaticImage
                                 placeholder="none"
                                 src="../../../svgs/plugs.svg"
-                                alt={`Connection between ${sourceConnector.title} and ${destConnector.title}`}
+                                alt="Integration icon"
                                 layout="constrained"
                             />
                         </IconWrapper>
@@ -84,10 +87,31 @@ const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
                     </ButtonsWrapper>
                 </Header>
                 <ImageWrapper>
+                    <SourceLogo className="connector-logo">
+                        <GatsbyImage
+                            image={
+                                sourceConnector.logo.childImageSharp
+                                    .gatsbyImageData
+                            }
+                            alt={`${sourceConnector.title} connector logo`}
+                            loading="eager"
+                        />
+                    </SourceLogo>
                     <StaticImage
-                        src="../../../images/connectors-bottom.png"
+                        src="../../../images/integration/integration-bg.png"
                         alt={`Connection between ${sourceConnector.title} and ${destConnector.title}`}
+                        loading="eager"
                     />
+                    <DestinationLogo className="connector-logo">
+                        <GatsbyImage
+                            image={
+                                destConnector.logo.childImageSharp
+                                    .gatsbyImageData
+                            }
+                            alt={`${destConnector.title} connector logo`}
+                            loading="eager"
+                        />
+                    </DestinationLogo>
                 </ImageWrapper>
             </MainContent>
             <MetricCardsList>

@@ -114,7 +114,7 @@ export const HelpText = styled.span`
     font-size: 0.875rem;
     line-height: 16.8px;
     font-weight: 300;
-    color: #fff;
+    color: #d7dce5;
 `;
 
 export const PrimaryButton = styled(OutboundLinkFilled)`
@@ -141,11 +141,31 @@ export const SecondaryButton = styled(OpenHubspotModal)`
 `;
 
 export const ImageWrapper = styled.div`
-    max-width: 536px;
+    margin: auto;
+    position: relative;
 
     @media (max-width: 768px) {
         display: none;
     }
+
+    .connector-logo {
+        position: absolute;
+        max-width: 11%;
+        max-height: 11%;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+`;
+
+export const SourceLogo = styled.div`
+    top: 44%;
+    left: 12%;
+`;
+
+export const DestinationLogo = styled.div`
+    top: 42%;
+    right: 12%;
 `;
 
 export const MetricCardsList = styled.ul`
