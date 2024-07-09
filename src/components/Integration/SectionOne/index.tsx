@@ -1,4 +1,4 @@
-import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
+import { GatsbyImage, StaticImage, getImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { DefaultWrapperDarkBlue } from '../../../styles/wrappers';
 import ActiveUsersIcon from '../../../svgs/metric-active-users.svg';
@@ -8,6 +8,7 @@ import SingleDataflowIcon from '../../../svgs/metric-single-dataflow.svg';
 
 import MetricCard from '../../MetricCard';
 import VanityLogosMarquee from '../../VanityLogosMarquee';
+import { Connector } from '../shared';
 import {
     ButtonWrapper,
     ButtonsWrapper,
@@ -26,20 +27,21 @@ import {
     Title,
 } from './styles';
 
-interface SectionOneProps {
-    sourceConnector: {
-        title: string;
-        logo: any;
-    };
-    destConnector: {
-        title: string;
-        logo: any;
-    };
-}
-
 const metricIconColor = '#FFFFFF';
 
+export interface SectionOneProps {
+    sourceConnector: Connector;
+    destConnector: Connector;
+}
+
 const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
+    const sourceConnectorLogo = getImage(
+        sourceConnector.logo.childImageSharp.gatsbyImageData
+    );
+    const destConnectorLogo = getImage(
+        destConnector.logo.childImageSharp.gatsbyImageData
+    );
+
     return (
         <DefaultWrapperDarkBlue>
             <MainContent>
@@ -80,33 +82,29 @@ const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
                         </ButtonWrapper>
                     </ButtonsWrapper>
                 </Header>
-                <ImageWrapper>
-                    <SourceLogo className="connector-logo">
-                        <GatsbyImage
-                            image={
-                                sourceConnector.logo.childImageSharp
-                                    .gatsbyImageData
-                            }
-                            alt={`${sourceConnector.title} connector logo`}
+                {sourceConnectorLogo && destConnectorLogo ? (
+                    <ImageWrapper>
+                        <SourceLogo className="connector-logo">
+                            <GatsbyImage
+                                image={sourceConnectorLogo}
+                                alt={`${sourceConnector.title} connector logo`}
+                                loading="eager"
+                            />
+                        </SourceLogo>
+                        <StaticImage
+                            src="../../../images/integration/integration-bg.png"
+                            alt={`Connection between ${sourceConnector.title} and ${destConnector.title}`}
                             loading="eager"
                         />
-                    </SourceLogo>
-                    <StaticImage
-                        src="../../../images/integration/integration-bg.png"
-                        alt={`Connection between ${sourceConnector.title} and ${destConnector.title}`}
-                        loading="eager"
-                    />
-                    <DestinationLogo className="connector-logo">
-                        <GatsbyImage
-                            image={
-                                destConnector.logo.childImageSharp
-                                    .gatsbyImageData
-                            }
-                            alt={`${destConnector.title} connector logo`}
-                            loading="eager"
-                        />
-                    </DestinationLogo>
-                </ImageWrapper>
+                        <DestinationLogo className="connector-logo">
+                            <GatsbyImage
+                                image={destConnectorLogo}
+                                alt={`${destConnector.title} connector logo`}
+                                loading="eager"
+                            />
+                        </DestinationLogo>
+                    </ImageWrapper>
+                ) : null}
             </MainContent>
             <MetricCardsList>
                 <MetricCard

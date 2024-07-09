@@ -148,6 +148,8 @@ export const MetricCardsList = styled.ul`
 
     margin-top: 0;
     margin-bottom: 0;
+    padding-top: 80px;
+    padding-bottom: 80px;
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
