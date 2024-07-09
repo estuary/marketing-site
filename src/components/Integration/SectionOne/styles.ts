@@ -75,18 +75,6 @@ export const Title = styled.h1`
     }
 `;
 
-export const Description = styled.p`
-    margin-top: 24px;
-    margin-bottom: 0;
-
-    color: #fff;
-    line-height: 30px;
-
-    @media (min-width: 769px) {
-        display: none;
-    }
-`;
-
 export const ButtonsWrapper = styled.div`
     display: flex;
     gap: 24px;

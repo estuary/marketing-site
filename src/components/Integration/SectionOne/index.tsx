@@ -11,7 +11,6 @@ import VanityLogosMarquee from '../../VanityLogosMarquee';
 import {
     ButtonWrapper,
     ButtonsWrapper,
-    Description,
     DestinationLogo,
     Header,
     HelpText,
@@ -59,12 +58,6 @@ const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
                         STREAM DATA FROM {sourceConnector.title} TO{' '}
                         {destConnector.title} IN <span>REAL-TIME OR BATCH</span>
                     </Title>
-                    <Description>
-                        Estuary Flow is the only platform built for change data
-                        capture (CDC) that lets you capture, transform, and
-                        materialize data in real-time and batch for analytics,
-                        ops, and AI - in minutes, with millisecond latency.
-                    </Description>
                     <ButtonsWrapper>
                         <ButtonWrapper>
                             <PrimaryButton
