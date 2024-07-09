@@ -19,6 +19,8 @@ import {
     SecondaryButton,
 } from './styles';
 
+const metricIconColor = '#FFFFFF';
+
 const SectionOne = () => {
     return (
         <Container>
@@ -55,17 +57,17 @@ const SectionOne = () => {
             </MainContent>
             <MetricCardsList>
                 <MetricCard
-                    icon={<ActiveUsersIcon />}
+                    icon={<ActiveUsersIcon color={metricIconColor} />}
                     value="3000+"
                     label="Active users"
                 />
                 <MetricCard
-                    icon={<LatencyIcon />}
+                    icon={<LatencyIcon color={metricIconColor} />}
                     value="&#60;100ms"
                     label="Latency"
                 />
                 <MetricCard
-                    icon={<SingleDataflowIcon color="#FFFFFF" />}
+                    icon={<SingleDataflowIcon color={metricIconColor} />}
                     value="7+gb/sec"
                     label="Single dataflow"
                 />

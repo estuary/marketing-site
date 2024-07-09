@@ -287,15 +287,15 @@ export const LogoWrapper = styled(Link)`
     position: absolute;
     top: 6.95%;
     right: 91.85%;
-    width: 4.4%;
+    width: 4.45%;
     height: 8.7%;
     background-color: transparent;
     cursor: pointer;
 
     @media (max-width: 768px) {
-        width: 14%;
-        height: 3.5%;
-        top: 2.6%;
+        width: 14.5%;
+        height: 3.6%;
+        top: 2.53%;
         right: 74%;
     }
 
@@ -309,7 +309,7 @@ export const LogoWrapper = styled(Link)`
         mask-composite: exclude;
 
         @media (max-width: 1280px) {
-            border-radius: 4px;
+            border-radius: 14%;
         }
     }
 
@@ -324,7 +324,7 @@ export const MySQLLogoWrapper = styled(LogoWrapper)`
     right: 85.25%;
 
     @media (max-width: 768px) {
-        right: 55.5%;
+        right: 55.2%;
     }
 `;
 
@@ -332,7 +332,7 @@ export const PostgresLogoWrapper = styled(LogoWrapper)`
     right: 78.75%;
 
     @media (max-width: 768px) {
-        right: 36.9%;
+        right: 36.6%;
     }
 `;
 
@@ -341,8 +341,8 @@ export const AmazonS3LogoWrapper = styled(LogoWrapper)`
     right: 91.85%;
 
     @media (max-width: 768px) {
-        top: 13.8%;
-        right: 74%;
+        top: 13.7%;
+        right: 73.7%;
     }
 `;
 
@@ -351,8 +351,8 @@ export const GoogleStorageLogoWrapper = styled(LogoWrapper)`
     right: 85.25%;
 
     @media (max-width: 768px) {
-        top: 13.8%;
-        right: 55.5%;
+        top: 13.7%;
+        right: 55.2%;
     }
 `;
 
@@ -361,8 +361,8 @@ export const AzureBlobStorageLogoWrapper = styled(LogoWrapper)`
     right: 78.75%;
 
     @media (max-width: 768px) {
-        top: 13.8%;
-        right: 36.9%;
+        top: 13.7%;
+        right: 36.7%;
     }
 `;
 
@@ -382,7 +382,7 @@ export const HubspotLogoWrapper = styled(LogoWrapper)`
 
     @media (max-width: 768px) {
         top: 24.9%;
-        right: 55.5%;
+        right: 55.2%;
     }
 `;
 
@@ -392,7 +392,7 @@ export const SalesforceLogoWrapper = styled(LogoWrapper)`
 
     @media (max-width: 768px) {
         top: 24.9%;
-        right: 36.9%;
+        right: 36.6%;
     }
 `;
 
@@ -401,8 +401,8 @@ export const HttpWebhookLogoWrapper = styled(LogoWrapper)`
     right: 91.85%;
 
     @media (max-width: 768px) {
-        top: 35.9%;
-        right: 74%;
+        top: 35.8%;
+        right: 73.8%;
     }
 `;
 
@@ -411,8 +411,8 @@ export const AmazonKinesisLogoWrapper = styled(LogoWrapper)`
     right: 85.3%;
 
     @media (max-width: 768px) {
-        top: 35.9%;
-        right: 55.5%;
+        top: 35.8%;
+        right: 55.3%;
     }
 `;
 
@@ -421,8 +421,8 @@ export const ApacheKafkaLogoWrapper = styled(LogoWrapper)`
     right: 78.7%;
 
     @media (max-width: 768px) {
-        top: 35.9%;
-        right: 36.85%;
+        top: 35.85%;
+        right: 36.6%;
     }
 `;
 
@@ -432,7 +432,7 @@ export const SnowflakeLogoWrapper = styled(LogoWrapper)`
 
     @media (max-width: 768px) {
         top: 71.7%;
-        right: 48%;
+        right: 47.8%;
     }
 `;
 
@@ -442,7 +442,7 @@ export const GoogleBigQueryLogoWrapper = styled(LogoWrapper)`
 
     @media (max-width: 768px) {
         top: 71.7%;
-        right: 29.2%;
+        right: 29.1%;
     }
 `;
 
@@ -452,7 +452,7 @@ export const AmazonRedshiftLogoWrapper = styled(LogoWrapper)`
 
     @media (max-width: 768px) {
         top: 71.7%;
-        right: 10.5%;
+        right: 10.48%;
     }
 `;
 
@@ -461,28 +461,28 @@ export const ElasticLogoWrapper = styled(LogoWrapper)`
     right: 16.85%;
 
     @media (max-width: 768px) {
-        top: 82.9%;
-        right: 48%;
+        top: 82.78%;
+        right: 47.8%;
     }
 `;
 
-export const TimescaleLogoWrapper = styled(LogoWrapper)`
+export const MongoDBLogoWrapper = styled(LogoWrapper)`
     top: 45.5%;
     right: 10.25%;
 
     @media (max-width: 768px) {
-        top: 82.9%;
-        right: 29.2%;
+        top: 82.84%;
+        right: 29.1%;
     }
 `;
 
-export const RocksetLogoWrapper = styled(LogoWrapper)`
+export const DynamoDBLogoWrapper = styled(LogoWrapper)`
     top: 45.5%;
     right: 3.7%;
 
     @media (max-width: 768px) {
-        top: 82.9%;
-        right: 10.5%;
+        top: 82.8%;
+        right: 10.48%;
     }
 `;
 
@@ -492,7 +492,7 @@ export const PineconeLogoWrapper = styled(LogoWrapper)`
 
     @media (max-width: 768px) {
         top: 94%;
-        right: 48%;
+        right: 47.8%;
     }
 `;
 
@@ -502,7 +502,7 @@ export const OpenAiLogoWrapper = styled(LogoWrapper)`
 
     @media (max-width: 768px) {
         top: 94%;
-        right: 29.2%;
+        right: 29%;
     }
 `;
 
@@ -512,6 +512,6 @@ export const DatabricksLogoWrapper = styled(LogoWrapper)`
 
     @media (max-width: 768px) {
         top: 94%;
-        right: 10.6%;
+        right: 10.4%;
     }
 `;
