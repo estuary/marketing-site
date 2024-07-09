@@ -23,26 +23,6 @@ export const AnimationBaseStyling = `
       height: 381px;
     }
   }
-
-  @media (max-width: 810px) {
-    margin-left: 0px;
-
-    & > :first-child {
-        overflow: visible;
-        min-height: 14rem;
-        left: unset;
-        object-fit: contain !important;
-
-        & img {
-            object-fit: contain !important;
-            object-position: right center;
-        }
-    }
-
-    & > :not(:first-child) {
-        display: none;
-    }
-  }
 `;
 
 export const Container = styled.section`
@@ -140,19 +120,17 @@ export const HomepageHeadingButtons = styled.div`
         white-space: nowrap;
     }
 
-    @media (max-width: 810px) {
-        margin: 0;
+    .button {
+        @media (max-width: 768px) {
+            width: 50%;
+            padding-left: 0;
+            padding-right: 0;
+        }
     }
 `;
 
 export const PrimaryButton = styled(OutboundLinkFilled)`
     padding: 16px 24px !important;
-
-    @media (max-width: 810px) {
-        width: 50%;
-        padding-left: 0;
-        padding-right: 0;
-    }
 `;
 
 export const SecondaryButton = styled(OpenHubspotModal)`
@@ -160,12 +138,6 @@ export const SecondaryButton = styled(OpenHubspotModal)`
     color: #ffffff;
     border: 2px solid #5072eb;
     padding: 16px 24px;
-
-    @media (max-width: 810px) {
-        width: 50%;
-        padding-left: 0;
-        padding-right: 0;
-    }
 `;
 
 export const FlowAnimationContainer = styled.div`

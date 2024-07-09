@@ -79,13 +79,8 @@ export const ButtonsWrapper = styled.div`
     display: flex;
     gap: 24px;
 
-    & button,
-    a {
-        white-space: nowrap;
-    }
-
-    @media (max-width: 810px) {
-        margin: 0;
+    @media (max-width: 425px) {
+        flex-direction: column;
     }
 `;
 
@@ -93,8 +88,11 @@ export const ButtonWrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 12px;
-    max-width: 269px;
     width: 100%;
+
+    @media (min-width: 426px) {
+        max-width: 269px;
+    }
 `;
 
 export const HelpText = styled.span`
@@ -107,12 +105,6 @@ export const HelpText = styled.span`
 
 export const PrimaryButton = styled(OutboundLinkFilled)`
     padding: 16px 24px !important;
-
-    @media (max-width: 810px) {
-        width: 50%;
-        padding-left: 0;
-        padding-right: 0;
-    }
 `;
 
 export const SecondaryButton = styled(OpenHubspotModal)`
@@ -120,12 +112,6 @@ export const SecondaryButton = styled(OpenHubspotModal)`
     color: #ffffff;
     border: 2px solid #5072eb;
     padding: 16px 24px;
-
-    @media (max-width: 810px) {
-        width: 50%;
-        padding-left: 0;
-        padding-right: 0;
-    }
 `;
 
 export const ImageWrapper = styled.div`

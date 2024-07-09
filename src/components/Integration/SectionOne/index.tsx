@@ -37,8 +37,9 @@ interface SectionOneProps {
     };
 }
 
+const metricIconColor = '#FFFFFF';
+
 const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
-    console.log(sourceConnector);
     return (
         <DefaultWrapperDarkBlue>
             <MainContent>
@@ -109,22 +110,22 @@ const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
             </MainContent>
             <MetricCardsList>
                 <MetricCard
-                    icon={<OfConnectorsIcon />}
+                    icon={<OfConnectorsIcon color={metricIconColor} />}
                     value="100S"
                     label="Of connectors"
                 />
                 <MetricCard
-                    icon={<ActiveUsersIcon />}
+                    icon={<ActiveUsersIcon color={metricIconColor} />}
                     value="3000+"
                     label="Active users"
                 />
                 <MetricCard
-                    icon={<LatencyIcon />}
+                    icon={<LatencyIcon color={metricIconColor} />}
                     value="&#60;100MS"
                     label="End-to-end latency"
                 />
                 <MetricCard
-                    icon={<SingleDataflowIcon color="#FFFFFF" />}
+                    icon={<SingleDataflowIcon color={metricIconColor} />}
                     value="7+GB/SEC"
                     label="Single dataflow"
                 />

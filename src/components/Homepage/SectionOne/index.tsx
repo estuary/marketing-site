@@ -40,12 +40,14 @@ const SectionOne = () => {
                         <PrimaryButton
                             target="_blank"
                             href="https://dashboard.estuary.dev/register"
+                            className="button"
                         >
                             Build a Pipeline
                         </PrimaryButton>
                         <SecondaryButton
                             buttonLabel="Contact Us"
                             buttonId="section-one-hubspot"
+                            className="button"
                         />
                     </HomepageHeadingButtons>
                 </HomepageHeader>
