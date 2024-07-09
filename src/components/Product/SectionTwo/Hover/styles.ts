@@ -60,6 +60,17 @@ export const Container = styled.div<Slide>`
     @media (max-width: 768px) {
         display: none;
     }
+
+    .connectors-groups {
+        max-width: 406px;
+        display: flex;
+        flex-direction: column;
+        z-index: 2;
+
+        @media (max-width: 1280px) {
+            max-width: 320px;
+        }
+    }
 `;
 
 const baseBlockStyling = `
@@ -121,26 +132,19 @@ export const ImageWrapper = styled.div<Slide>`
 `;
 
 export const ConnectorsGroupsLeftWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
     align-items: flex-end;
     justify-content: right;
     margin-right: -24%;
-    z-index: 2;
 `;
 
 export const ConnectorsGroupsRightWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
     align-items: flex-start;
     justify-content: left;
     margin-left: -24%;
-    z-index: 2;
 `;
 
 export const ConnectorsGroup = styled.div`
     width: 100%;
-    max-width: 406px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -149,10 +153,6 @@ export const ConnectorsGroup = styled.div`
     border: 2px solid #e5e9f5;
     border-radius: 100px;
     background-color: #fdfdfe;
-
-    @media (max-width: 1280px) {
-        max-width: 320px;
-    }
 
     &:not(:first-child) {
         margin-top: 2%;
