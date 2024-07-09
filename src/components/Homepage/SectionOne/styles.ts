@@ -120,7 +120,7 @@ export const HomepageHeadingButtons = styled.div`
         white-space: nowrap;
     }
 
-    .button {
+    .homepage-section-one-button {
         @media (max-width: 768px) {
             width: 50%;
             padding-left: 0;
