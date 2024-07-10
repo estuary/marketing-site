@@ -25,6 +25,10 @@
       opacity: 0.8;
     }
   }
+
+  @media (max-width: 768px) {
+    gap: 24px;
+  }
 }
 
 .flowImagesWrapper {
@@ -96,6 +100,7 @@
     font-size: 2rem;
     font-weight: 700;
     line-height: 38.4px;
+    text-align: left;
   }
 
   @media (max-width: 425px) {
@@ -112,4 +117,14 @@
 .sectionTitleLight {
   .sectionTitle();
   color: #FFFFFF;
+}
+
+.titleAndImages {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+  }
 }

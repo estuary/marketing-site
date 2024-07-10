@@ -11,6 +11,7 @@ import {
     flowImagesWrapper,
     sectionTitleLight,
     sourceConnectorImage,
+    titleAndImages,
 } from '../styles.module.less';
 
 const SectionThree = ({
@@ -28,46 +29,48 @@ const SectionThree = ({
     return (
         <DefaultWrapperDarkBlue>
             <div className={connectorDescriptionContainer}>
-                <h2 className={sectionTitleLight}>
-                    TO <span>{title}</span>
-                </h2>
-                {destinationConnectorLogo ? (
-                    <div className={flowImagesWrapper}>
-                        <div className={flowImage}>
-                            <ConnectorBackground
-                                color="#0C223E"
-                                className={connectorBackground}
-                            />
-                            <GatsbyImage
-                                image={destinationConnectorLogo}
-                                alt={`${title} logo`}
-                                className={sourceConnectorImage}
-                            />
+                <div className={titleAndImages}>
+                    <h2 className={sectionTitleLight}>
+                        TO <span>{title}</span>
+                    </h2>
+                    {destinationConnectorLogo ? (
+                        <div className={flowImagesWrapper}>
+                            <div className={flowImage}>
+                                <ConnectorBackground
+                                    color="#0C223E"
+                                    className={connectorBackground}
+                                />
+                                <GatsbyImage
+                                    image={destinationConnectorLogo}
+                                    alt={`${title} logo`}
+                                    className={sourceConnectorImage}
+                                />
+                            </div>
+                            <div className={flowImage}>
+                                <StaticImage
+                                    placeholder="none"
+                                    src="../../../images/integration/section-three/connectors.png"
+                                    alt="Destination connectors"
+                                    layout="constrained"
+                                />
+                            </div>
+                            <div className={flowImage}>
+                                <ConnectorBackground
+                                    color="#0C223E"
+                                    className={connectorBackground}
+                                />
+                                <StaticImage
+                                    placeholder="none"
+                                    src="../../../images/estuary-icon-big.png"
+                                    alt="Estuary logo"
+                                    layout="constrained"
+                                    className={sourceConnectorImage}
+                                    width={46}
+                                />
+                            </div>
                         </div>
-                        <div className={flowImage}>
-                            <StaticImage
-                                placeholder="none"
-                                src="../../../images/integration/section-three/connectors.png"
-                                alt="Destination connectors"
-                                layout="constrained"
-                            />
-                        </div>
-                        <div className={flowImage}>
-                            <ConnectorBackground
-                                color="#0C223E"
-                                className={connectorBackground}
-                            />
-                            <StaticImage
-                                placeholder="none"
-                                src="../../../images/estuary-icon-big.png"
-                                alt="Estuary logo"
-                                layout="constrained"
-                                className={sourceConnectorImage}
-                                width={46}
-                            />
-                        </div>
-                    </div>
-                ) : null}
+                    ) : null}
+                </div>
                 {description ? (
                     <p
                         dangerouslySetInnerHTML={{
