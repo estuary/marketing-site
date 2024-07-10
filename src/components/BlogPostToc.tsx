@@ -55,7 +55,6 @@ const RenderTocItem = ({
                 color: isSelected ? '#47506d' : '#989daf',
             }}
         >
-            <div className="before-item" />
             <Link to={`#${item.id}`} onClick={handleLinkClick}>
                 {item.heading}
             </Link>
@@ -138,7 +137,7 @@ export const RenderToc = ({ items }: { items: TocItem[] }) => {
                     </Typography>
                 </AccordionSummary>
                 <AccordionDetails className="accordion-side-padding">
-                    <ul>
+                    <ol role="list">
                         {items.map((item) => (
                             <RenderTocItem
                                 key={item.id}
@@ -148,7 +147,7 @@ export const RenderToc = ({ items }: { items: TocItem[] }) => {
                                 isSelected={item.id === selectedItem}
                             />
                         ))}
-                    </ul>
+                    </ol>
                 </AccordionDetails>
             </Accordion>
         </div>
