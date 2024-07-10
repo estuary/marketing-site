@@ -1,0 +1,82 @@
+import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image';
+import React from 'react';
+import { DefaultWrapperGrey } from '../../../styles/wrappers';
+import ConnectorBackground from '../../../svgs/integration/connector-bg.svg';
+import { Connector } from '../shared';
+import {
+    connectorBackground,
+    connectorDescriptionContainer,
+    descriptionDark,
+    flowImage,
+    flowImagesWrapper,
+    sectionTitleDark,
+    sourceConnectorImage,
+} from '../styles.module.less';
+
+const SectionTwo = ({
+    title,
+    longDescription,
+    shortDescription,
+    logo,
+}: Connector) => {
+    const description = longDescription ?? shortDescription;
+
+    const sourceConnectorLogo = getImage(logo.childImageSharp.gatsbyImageData);
+
+    return (
+        <DefaultWrapperGrey>
+            <div className={connectorDescriptionContainer}>
+                <h2 className={sectionTitleDark}>
+                    FROM <span>{title}</span>
+                </h2>
+                {sourceConnectorLogo ? (
+                    <div className={flowImagesWrapper}>
+                        <div className={flowImage}>
+                            <ConnectorBackground
+                                color="#EEF1FD"
+                                className={connectorBackground}
+                            />
+                            <GatsbyImage
+                                image={sourceConnectorLogo}
+                                alt={`${title} logo`}
+                                className={sourceConnectorImage}
+                            />
+                        </div>
+                        <div className={flowImage}>
+                            <ConnectorBackground
+                                color="#EEF1FD"
+                                className={connectorBackground}
+                            />
+                            <StaticImage
+                                placeholder="none"
+                                src="../../../images/estuary-icon-big.png"
+                                alt="Estuary logo"
+                                layout="constrained"
+                                className={sourceConnectorImage}
+                                width={46}
+                            />
+                        </div>
+                        <div className={flowImage}>
+                            <StaticImage
+                                placeholder="none"
+                                src="../../../images/integration/section-two/connectors.png"
+                                alt="Destination connectors"
+                                layout="constrained"
+                            />
+                        </div>
+                    </div>
+                ) : null}
+                {description ? (
+                    <p
+                        dangerouslySetInnerHTML={{
+                            __html: description,
+                        }}
+                        className={descriptionDark}
+                    />
+                ) : null}
+            </div>
+        </DefaultWrapperGrey>
+    );
+};
+
+export default SectionTwo;

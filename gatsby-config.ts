@@ -154,7 +154,6 @@ const cfg: GatsbyConfig = {
         'gatsby-transformer-inline-svg',
         'gatsby-plugin-image',
         // `gatsby-plugin-svgr-svgo`,
-        'gatsby-plugin-less',
         {
             resolve: 'gatsby-transformer-rehype',
             options: {

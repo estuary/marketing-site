@@ -1,6 +1,10 @@
 import { graphql } from 'gatsby';
 import React from 'react';
-import { SectionOne } from '../components/Integration';
+import {
+    SectionOne,
+    SectionThree,
+    SectionTwo,
+} from '../components/Integration';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
 import { normalizeConnector } from '../utils';
@@ -40,6 +44,18 @@ const Connector = ({
                     title: dest_mapped.title,
                     logo: dest_mapped.logo,
                 }}
+            />
+            <SectionTwo
+                title={source_mapped.title}
+                logo={source_mapped.logo}
+                longDescription={source_mapped.longDescription}
+                shortDescription={source_mapped.shortDescription}
+            />
+            <SectionThree
+                title={dest_mapped.title}
+                logo={dest_mapped.logo}
+                longDescription={dest_mapped.longDescription}
+                shortDescription={dest_mapped.shortDescription}
             />
         </Layout>
     );

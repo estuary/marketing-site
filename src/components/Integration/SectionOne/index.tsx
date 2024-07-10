@@ -87,19 +87,19 @@ const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
                         <SourceLogo className="connector-logo">
                             <GatsbyImage
                                 image={sourceConnectorLogo}
-                                alt={`${sourceConnector.title} connector logo`}
+                                alt={`${sourceConnector.title} logo`}
                                 loading="eager"
                             />
                         </SourceLogo>
                         <StaticImage
-                            src="../../../images/integration/integration-bg.png"
+                            src="../../../images/integration/section-one/integration-bg.png"
                             alt={`Connection between ${sourceConnector.title} and ${destConnector.title}`}
                             loading="eager"
                         />
                         <DestinationLogo className="connector-logo">
                             <GatsbyImage
                                 image={destConnectorLogo}
-                                alt={`${destConnector.title} connector logo`}
+                                alt={`${destConnector.title} logo`}
                                 loading="eager"
                             />
                         </DestinationLogo>
