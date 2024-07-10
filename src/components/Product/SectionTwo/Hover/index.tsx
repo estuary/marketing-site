@@ -1,5 +1,4 @@
 import { Typography } from '@mui/material';
-import Fade from '@mui/material/Fade';
 import { StaticImage } from 'gatsby-plugin-image';
 import React, { ReactNode, useCallback, useState } from 'react';
 import AiIcon from '../../../../svgs/android-brain.svg';
@@ -18,6 +17,7 @@ import {
     ConnectorsGroupsLeftWrapper,
     ConnectorsGroupsRightWrapper,
     Container,
+    FadeTransition,
     FeatureWrapper,
     FlowStepDescription,
     FlowStepImageWrapper,
@@ -76,7 +76,7 @@ const Hover = ({ slide, children }: HoverProps) => {
     return (
         <Container $slide={slide}>
             {[1, 2].includes(slide) ? (
-                <ConnectorsGroupsLeftWrapper>
+                <ConnectorsGroupsLeftWrapper className="connectors-groups">
                     <ConnectorsGroup>
                         <Connector to="/source/oracle-flashback">
                             <LogoWrapper>
@@ -293,7 +293,7 @@ const Hover = ({ slide, children }: HoverProps) => {
             ) : null}
             <ImageWrapper $slide={slide}>{children}</ImageWrapper>
             {[1, 4].includes(slide) ? (
-                <ConnectorsGroupsRightWrapper>
+                <ConnectorsGroupsRightWrapper className="connectors-groups">
                     <ConnectorsGroup>
                         <Connector to="/destination/snowflake">
                             <LogoWrapper>
@@ -456,7 +456,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                     </ConnectorsGroup>
                 </ConnectorsGroupsRightWrapper>
             ) : null}
-            <Fade in={hoveredFlowStepBlock === 'transform'}>
+            <FadeTransition in={hoveredFlowStepBlock === 'transform'}>
                 {slide === 3 ? (
                     <HoverableBlock>
                         <FlowStepImageWrapper $slide={slide}>
@@ -498,8 +498,8 @@ const Hover = ({ slide, children }: HoverProps) => {
                         </TooltipTop>
                     </HoverableBlock>
                 )}
-            </Fade>
-            <Fade in={hoveredFlowStepBlock === 'stream'}>
+            </FadeTransition>
+            <FadeTransition in={hoveredFlowStepBlock === 'stream'}>
                 {slide === 3 ? (
                     <HoverableBlock>
                         <FlowStepImageWrapper $slide={slide}>
@@ -538,8 +538,8 @@ const Hover = ({ slide, children }: HoverProps) => {
                         </TooltipLeft>
                     </HoverableBlock>
                 )}
-            </Fade>
-            <Fade in={hoveredFlowStepBlock === 'replay'}>
+            </FadeTransition>
+            <FadeTransition in={hoveredFlowStepBlock === 'replay'}>
                 {slide === 3 ? (
                     <HoverableBlock>
                         <FlowStepImageWrapper $slide={slide}>
@@ -581,8 +581,8 @@ const Hover = ({ slide, children }: HoverProps) => {
                         </TooltipTop>
                     </HoverableBlock>
                 )}
-            </Fade>
-            <Fade in={hoveredFlowStepBlock === 'store'}>
+            </FadeTransition>
+            <FadeTransition in={hoveredFlowStepBlock === 'store'}>
                 {slide === 3 ? (
                     <HoverableBlock>
                         <FlowStepImageWrapper $slide={slide}>
@@ -626,9 +626,9 @@ const Hover = ({ slide, children }: HoverProps) => {
                         </TooltipBottom>
                     </HoverableBlock>
                 )}
-            </Fade>
+            </FadeTransition>
             {slide === 1 ? (
-                <Fade in={hoveredFlowStepBlock === 'center'}>
+                <FadeTransition in={hoveredFlowStepBlock === 'center'}>
                     <HoverableBlock>
                         <FlowStepImageWrapper $slide={slide}>
                             <StaticImage
@@ -646,7 +646,7 @@ const Hover = ({ slide, children }: HoverProps) => {
                             </FlowStepDescription>
                         </TooltipCenter>
                     </HoverableBlock>
-                </Fade>
+                </FadeTransition>
             ) : null}
             {[1, 3].includes(slide) ? (
                 <>

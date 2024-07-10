@@ -1,3 +1,4 @@
+import Fade from '@mui/material/Fade';
 import { Link } from 'gatsby';
 import styled, { css } from 'styled-components';
 
@@ -59,6 +60,17 @@ export const Container = styled.div<Slide>`
     @media (max-width: 768px) {
         display: none;
     }
+
+    .connectors-groups {
+        max-width: 406px;
+        display: flex;
+        flex-direction: column;
+        z-index: 2;
+
+        @media (max-width: 1280px) {
+            max-width: 320px;
+        }
+    }
 `;
 
 const baseBlockStyling = `
@@ -116,19 +128,16 @@ export const ImageWrapper = styled.div<Slide>`
     justify-content: center;
     margin-top: ${(props) => (props.$slide === 1 ? '8%' : 0)};
     max-width: ${(props) => (props.$slide === 3 ? '1024px' : '100%')};
+    z-index: 1;
 `;
 
 export const ConnectorsGroupsLeftWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
     align-items: flex-end;
     justify-content: right;
     margin-right: -24%;
 `;
 
 export const ConnectorsGroupsRightWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
     align-items: flex-start;
     justify-content: left;
     margin-left: -24%;
@@ -136,22 +145,14 @@ export const ConnectorsGroupsRightWrapper = styled.div`
 
 export const ConnectorsGroup = styled.div`
     width: 100%;
-    height: 100%;
-    max-width: 406px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1.5fr;
+    display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: 4%;
     padding: 3% 3% 3% 9%;
     border: 2px solid #e5e9f5;
     border-radius: 100px;
     background-color: #fdfdfe;
-    z-index: 1;
-
-    @media (max-width: 1280px) {
-        max-width: 320px;
-    }
 
     &:not(:first-child) {
         margin-top: 2%;
@@ -167,6 +168,7 @@ export const Connector = styled(Link)`
     transition: transform 0.2s ease-in-out;
     cursor: pointer;
     margin-bottom: -40px;
+    max-width: 42px;
 
     &:hover {
         transform: translateY(-12px);
@@ -218,7 +220,7 @@ export const HiddenLogoTitle = styled.span`
         font-size: 0.75rem;
     }
 
-    @media (max-width: 940px) {
+    @media (max-width: 1024px) {
         font-size: 0.5rem;
     }
 `;
@@ -377,4 +379,8 @@ export const FlowStepDescription = styled.p`
         font-size: 0.875rem;
         line-height: 16.2px;
     }
+`;
+
+export const FadeTransition = styled(Fade)`
+    z-index: 3;
 `;

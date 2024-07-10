@@ -58,13 +58,13 @@ export const SlideDescription = styled.p`
 export const TabletImageWrapper = styled.div`
     margin-top: 4.5%;
 
-    @media (max-width: 425px), (min-width: 769px) {
+    @media (max-width: 425px), (min-width: 811px) {
         display: none;
     }
 `;
 
 export const DesktopImageWrapper = styled.div`
-    @media (max-width: 768px) {
+    @media (max-width: 810px) {
         display: none;
     }
 `;

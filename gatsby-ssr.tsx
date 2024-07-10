@@ -94,6 +94,7 @@ export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
             dangerouslySetInnerHTML={{
                 __html: reoDevHTML,
             }}
+            async
         />,
     ]);
 };
