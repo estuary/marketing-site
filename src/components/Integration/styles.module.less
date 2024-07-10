@@ -8,8 +8,9 @@
   gap: 48px;
 
   p {
-    font-size: 1rem;
-    line-height: 140%;
+    font-size: 1.5rem;
+    line-height: 33.6px;
+    font-weight: 300;
     max-width: 1216px;
     display: inline;
     padding-right: 3px;
@@ -22,12 +23,17 @@
     text-underline-offset: 4px;
 
     &:hover {
-      opacity: 0.8;
+      color: #04192B;
     }
   }
 
   @media (max-width: 768px) {
     gap: 24px;
+
+    p {
+      font-size: 1.25rem;
+      line-height: 30px;
+    }
   }
 }
 
