@@ -31,6 +31,10 @@ const BlogPostTemplate = ({ data: { post } }) => {
 
     const authorSocialLink = post?.authors[0]?.link */
 
+    const hasBeenUpdated = post?.updatedAt
+        ? post?.publishedAt !== post?.updatedAt
+        : false;
+
     return (
         <Layout>
             <div className="blog-post-breadcrumbs-wrapper">
@@ -73,7 +77,16 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                     <div className="icon-info-wrapper">
                                         <CalendarTodayOutlined className="icon" />
                                         <span className="blog-post-date">
-                                            {post.publishedAt}
+                                            <span>
+                                                {hasBeenUpdated
+                                                    ? `Published ${post.publishedAt}`
+                                                    : post.publishedAt}
+                                            </span>
+                                            {hasBeenUpdated ? (
+                                                <span>
+                                                    Updated {post.updatedAt}
+                                                </span>
+                                            ) : null}
                                         </span>
                                     </div>
 
@@ -340,6 +353,7 @@ export const Head = ({
                         },
                     },
                     'datePublished': post.machineReadablePublishDate,
+                    'dateModified': post.machineReadableUpdateDate,
                 })}
             </script>
         </>
@@ -358,7 +372,9 @@ export const pageQuery = graphql`
         post: strapiBlogPost(id: { eq: $id }) {
             title: Title
             publishedAt(formatString: "MMMM D, YYYY")
+            updatedAt(formatString: "MMMM D, YYYY")
             machineReadablePublishDate: publishedAt(formatString: "YYYY-MM-DD")
+            machineReadableUpdateDate: updatedAt(formatString: "YYYY-MM-DD")
             description: Description
             slug: Slug
             body: Body {

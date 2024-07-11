@@ -76,7 +76,7 @@ const Hover = ({ slide, children }: HoverProps) => {
     return (
         <Container $slide={slide}>
             {[1, 2].includes(slide) ? (
-                <ConnectorsGroupsLeftWrapper>
+                <ConnectorsGroupsLeftWrapper className="connectors-groups">
                     <ConnectorsGroup>
                         <Connector to="/source/oracle-flashback">
                             <LogoWrapper>
@@ -293,7 +293,7 @@ const Hover = ({ slide, children }: HoverProps) => {
             ) : null}
             <ImageWrapper $slide={slide}>{children}</ImageWrapper>
             {[1, 4].includes(slide) ? (
-                <ConnectorsGroupsRightWrapper>
+                <ConnectorsGroupsRightWrapper className="connectors-groups">
                     <ConnectorsGroup>
                         <Connector to="/destination/snowflake">
                             <LogoWrapper>
