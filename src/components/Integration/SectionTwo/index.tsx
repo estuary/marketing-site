@@ -23,7 +23,7 @@ const SectionTwo = ({
     const description = longDescription ?? shortDescription;
 
     const sourceConnectorLogo =
-        logo.childImageSharp.gatsbyImageData &&
+        logo.childImageSharp?.gatsbyImageData &&
         getImage(logo.childImageSharp.gatsbyImageData);
 
     return (

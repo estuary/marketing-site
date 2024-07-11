@@ -38,10 +38,10 @@ export interface SectionOneProps {
 
 const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
     const sourceConnectorLogo =
-        sourceConnector.logo.childImageSharp.gatsbyImageData &&
+        sourceConnector.logo.childImageSharp?.gatsbyImageData &&
         getImage(sourceConnector.logo.childImageSharp.gatsbyImageData);
     const destConnectorLogo =
-        destConnector.logo.childImageSharp.gatsbyImageData &&
+        destConnector.logo.childImageSharp?.gatsbyImageData &&
         getImage(destConnector.logo.childImageSharp.gatsbyImageData);
 
     return (

@@ -14,8 +14,8 @@ export type ButtonStyleVariants =
     | 'outlinedSecondary';
 
 export type GatsbyImageType = {
-    childImageSharp: {
-        gatsbyImageData: ImageDataLike | null;
+    childImageSharp?: {
+        gatsbyImageData?: ImageDataLike;
     };
 };
 
