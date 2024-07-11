@@ -7,4 +7,4 @@ declare module '*.png' {
     export default string;
 }
 
-declare module '*.less';
+declare module '*.module.less';

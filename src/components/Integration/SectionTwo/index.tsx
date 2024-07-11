@@ -1,6 +1,6 @@
 import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
-import { DefaultWrapperGrey } from '../../../styles/wrappers';
+import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import ConnectorBackground from '../../../svgs/integration/connector-bg.svg';
 import { Connector } from '../shared';
 import {
@@ -25,7 +25,7 @@ const SectionTwo = ({
     const sourceConnectorLogo = getImage(logo.childImageSharp.gatsbyImageData);
 
     return (
-        <DefaultWrapperGrey>
+        <section className={defaultWrapperGrey}>
             <div className={connectorDescriptionContainer}>
                 <div className={titleAndImages}>
                     <h2 className={sectionTitleDark}>
@@ -78,7 +78,7 @@ const SectionTwo = ({
                     />
                 ) : null}
             </div>
-        </DefaultWrapperGrey>
+        </section>
     );
 };
 

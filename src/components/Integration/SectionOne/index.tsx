@@ -1,31 +1,33 @@
 import { GatsbyImage, StaticImage, getImage } from 'gatsby-plugin-image';
 import React from 'react';
-import { DefaultWrapperDarkBlue } from '../../../styles/wrappers';
 import ActiveUsersIcon from '../../../svgs/metric-active-users.svg';
 import LatencyIcon from '../../../svgs/metric-latency.svg';
 import OfConnectorsIcon from '../../../svgs/metric-of-connectors.svg';
 import SingleDataflowIcon from '../../../svgs/metric-single-dataflow.svg';
 
+import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
+import OpenHubspotModal from '../../HubSpot/OpenModal';
 import MetricCard from '../../MetricCard';
+import { OutboundLinkFilled } from '../../OutboundLink';
 import VanityLogosMarquee from '../../VanityLogosMarquee';
 import { Connector } from '../shared';
 import {
-    ButtonWrapper,
-    ButtonsWrapper,
-    DestinationLogo,
-    Header,
-    HelpText,
-    IconWrapper,
-    ImageWrapper,
-    MainContent,
-    MetricCardsList,
-    PreTitle,
-    PreTitleWrapper,
-    PrimaryButton,
-    SecondaryButton,
-    SourceLogo,
-    Title,
-} from './styles';
+    buttonWrapper,
+    buttonsWrapper,
+    destinationLogo,
+    header,
+    helpText,
+    iconWrapper,
+    imageWrapper,
+    mainContent,
+    metricCardsList,
+    preTitle,
+    preTitleWrapper,
+    primaryButton,
+    secondaryButton,
+    sourceLogo,
+    title,
+} from './styles.module.less';
 
 const metricIconColor = '#FFFFFF';
 
@@ -43,70 +45,76 @@ const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
     );
 
     return (
-        <DefaultWrapperDarkBlue>
-            <MainContent>
-                <Header>
-                    <PreTitleWrapper>
-                        <IconWrapper>
+        <section className={defaultWrapperDarkBlue}>
+            <div className={mainContent}>
+                <div className={header}>
+                    <div className={preTitleWrapper}>
+                        <div className={iconWrapper}>
                             <StaticImage
                                 placeholder="none"
                                 src="../../../svgs/plugs.svg"
                                 alt="Integration icon"
                                 layout="constrained"
                             />
-                        </IconWrapper>
-                        <PreTitle>Fastest, Most Reliable CDC and ETL</PreTitle>
-                    </PreTitleWrapper>
-                    <Title>
+                        </div>
+                        <span className={preTitle}>
+                            Fastest, Most Reliable CDC and ETL
+                        </span>
+                    </div>
+                    <h2 className={title}>
                         STREAM DATA FROM {sourceConnector.title} TO{' '}
                         {destConnector.title} IN <span>REAL-TIME OR BATCH</span>
-                    </Title>
-                    <ButtonsWrapper>
-                        <ButtonWrapper>
-                            <PrimaryButton
+                    </h2>
+                    <div className={buttonsWrapper}>
+                        <div className={buttonWrapper}>
+                            <OutboundLinkFilled
                                 target="_blank"
                                 href="https://dashboard.estuary.dev/register"
+                                className={primaryButton}
                             >
                                 Get Started
-                            </PrimaryButton>
-                            <HelpText>
+                            </OutboundLinkFilled>
+                            <span className={helpText}>
                                 Sign up for a Free Estuary Flow Account.
-                            </HelpText>
-                        </ButtonWrapper>
-                        <ButtonWrapper>
-                            <SecondaryButton
+                            </span>
+                        </div>
+                        <div className={buttonWrapper}>
+                            <OpenHubspotModal
                                 buttonLabel="Contact Us"
                                 buttonId="section-one-hubspot"
+                                className={secondaryButton}
                             />
-                            <HelpText>Schedule an appointment.</HelpText>
-                        </ButtonWrapper>
-                    </ButtonsWrapper>
-                </Header>
+                            <span className={helpText}>
+                                Schedule an appointment.
+                            </span>
+                        </div>
+                    </div>
+                </div>
                 {sourceConnectorLogo && destConnectorLogo ? (
-                    <ImageWrapper>
-                        <SourceLogo className="connector-logo">
+                    <div className={imageWrapper}>
+                        <div className={sourceLogo}>
                             <GatsbyImage
                                 image={sourceConnectorLogo}
                                 alt={`${sourceConnector.title} logo`}
                                 loading="eager"
                             />
-                        </SourceLogo>
+                        </div>
                         <StaticImage
                             src="../../../images/integration/section-one/integration-bg.png"
                             alt={`Connection between ${sourceConnector.title} and ${destConnector.title}`}
                             loading="eager"
                         />
-                        <DestinationLogo className="connector-logo">
+                        <div className={destinationLogo}>
                             <GatsbyImage
                                 image={destConnectorLogo}
                                 alt={`${destConnector.title} logo`}
                                 loading="eager"
                             />
-                        </DestinationLogo>
-                    </ImageWrapper>
+                        </div>
+                    </div>
                 ) : null}
-            </MainContent>
-            <MetricCardsList>
+            </div>
+            <div className={metricCardsList}>
                 <MetricCard
                     icon={<OfConnectorsIcon color={metricIconColor} />}
                     value="100S"
@@ -127,9 +135,9 @@ const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
                     value="7+GB/SEC"
                     label="Single dataflow"
                 />
-            </MetricCardsList>
+            </div>
             <VanityLogosMarquee />
-        </DefaultWrapperDarkBlue>
+        </section>
     );
 };
 

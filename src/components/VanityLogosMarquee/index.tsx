@@ -2,7 +2,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import React from 'react';
 import Marquee from 'react-fast-marquee';
-import { Container, VanityLogo } from './styles';
+import './styles.less';
 
 const VanityLogosMarquee = () => {
     const logos = useStaticQuery(graphql`
@@ -38,20 +38,20 @@ const VanityLogosMarquee = () => {
     `);
 
     return (
-        <Container>
+        <div className="container">
             <Marquee autoFill>
                 {logos.allStrapiVanityLogo.nodes?.map((logo) =>
                     logo.logo.localFile.internal.mediaType ===
                     'image/svg+xml' ? (
-                        <VanityLogo key={logo.id}>
+                        <div key={logo.id} className="vanity-logo">
                             <div
                                 dangerouslySetInnerHTML={{
                                     __html: logo.logo.localFile.svg.content,
                                 }}
                             />
-                        </VanityLogo>
+                        </div>
                     ) : (
-                        <VanityLogo key={logo.id}>
+                        <div key={logo.id} className="vanity-logo">
                             <GatsbyImage
                                 alt="logo"
                                 loading="eager"
@@ -60,11 +60,11 @@ const VanityLogosMarquee = () => {
                                         .gatsbyImageData
                                 }
                             />
-                        </VanityLogo>
+                        </div>
                     )
                 )}
             </Marquee>
-        </Container>
+        </div>
     );
 };
 

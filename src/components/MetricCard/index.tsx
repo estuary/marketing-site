@@ -1,11 +1,11 @@
 import React, { ReactNode } from 'react';
 import {
-    Container,
-    MetricIconWrapper,
-    MetricLabel,
-    MetricValue,
-    MetricsWrapper,
-} from './styles';
+    container,
+    metricIconWrapper,
+    metricLabel,
+    metricsWrapper,
+    metricValue,
+} from './styles.module.less';
 
 interface MetricCardProps {
     icon: ReactNode;
@@ -15,13 +15,13 @@ interface MetricCardProps {
 
 const MetricCard = ({ icon, value, label }: MetricCardProps) => {
     return (
-        <Container>
-            <MetricIconWrapper>{icon}</MetricIconWrapper>
-            <MetricsWrapper>
-                <MetricValue>{value}</MetricValue>
-                <MetricLabel>{label}</MetricLabel>
-            </MetricsWrapper>
-        </Container>
+        <li className={container}>
+            <div className={metricIconWrapper}>{icon}</div>
+            <div className={metricsWrapper}>
+                <span className={metricValue}>{value}</span>
+                <span className={metricLabel}>{label}</span>
+            </div>
+        </li>
     );
 };
 
