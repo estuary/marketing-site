@@ -37,12 +37,12 @@ export interface SectionOneProps {
 }
 
 const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
-    const sourceConnectorLogo = getImage(
-        sourceConnector.logo.childImageSharp.gatsbyImageData
-    );
-    const destConnectorLogo = getImage(
-        destConnector.logo.childImageSharp.gatsbyImageData
-    );
+    const sourceConnectorLogo =
+        sourceConnector.logo.childImageSharp.gatsbyImageData &&
+        getImage(sourceConnector.logo.childImageSharp.gatsbyImageData);
+    const destConnectorLogo =
+        destConnector.logo.childImageSharp.gatsbyImageData &&
+        getImage(destConnector.logo.childImageSharp.gatsbyImageData);
 
     return (
         <section className={defaultWrapperDarkBlue}>

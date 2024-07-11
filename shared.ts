@@ -15,7 +15,7 @@ export type ButtonStyleVariants =
 
 export type GatsbyImageType = {
     childImageSharp: {
-        gatsbyImageData: ImageDataLike;
+        gatsbyImageData: ImageDataLike | null;
     };
 };
 
