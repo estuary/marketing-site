@@ -1,0 +1,13 @@
+diff --git a/node_modules/gatsby-background-image/lib/StyleUtils.js b/node_modules/gatsby-background-image/lib/StyleUtils.js
+index 1514d63..fe83fd0 100644
+--- a/node_modules/gatsby-background-image/lib/StyleUtils.js
++++ b/node_modules/gatsby-background-image/lib/StyleUtils.js
+@@ -25,7 +25,7 @@ var fixClassName = function fixClassName(_ref) {
+   var className = _ref.className,
+       props = (0, _objectWithoutPropertiesLoose2.default)(_ref, _excluded);
+   var convertedProps = (0, _HelperUtils.convertProps)(props);
+-  var elementExists = (0, _ClassCache.inComponentClassCache)(className);
++  var elementExists = false; //(0, _ClassCache.inComponentClassCache)(className);
+   var imageData = (0, _ImageUtils.getCurrentSrcData)(convertedProps);
+ 
+   var additionalClassname = _shortUuid.default.generate();

@@ -104,6 +104,7 @@ const cfg: GatsbyConfig = {
     flags: {
         PARALLEL_SOURCING: true,
         DEV_SSR: true,
+        DETECT_NODE_MUTATIONS: true,
     },
     // graphqlTypegen: true,
     plugins: [
@@ -211,8 +212,6 @@ const cfg: GatsbyConfig = {
             resolve: 'gatsby-plugin-styled-components',
             // https://styled-components.com/docs/tooling#babel-plugin
             options: {
-                ssr: false, // We need this to prevent mismatch errors
-                transpileTemplateLiterals: false, // Setting to false just to be safe - think we can remove in future
                 displayName: true, // Good to enable when debugging - but should not be needed for production
                 fileName: true, // We want to use the file in the style name
                 preprocess: false,
