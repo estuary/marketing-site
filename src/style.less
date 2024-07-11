@@ -6172,21 +6172,33 @@ table th {
         }
 
         ol {
-            margin: 0 0 5px 10px;
+            margin: 0;
             padding-bottom: 12px;
-            padding-left: 12px;
 
             li {
-                margin-bottom: 4px;
+                color: #989daf;
+                font-weight: normal;
+                margin-bottom: 8px;
+                list-style: none;
+                display: flex;
+                align-items: center;
+                gap: 8px;
 
                 a {
                     color: inherit;
                     font-size: 1rem;
                     font-style: normal;
+                    line-height: 20px;
 
                     &:hover {
                         text-decoration: underline;
                     }
+                }
+
+                .before-item {
+                    max-width: 24px;
+                    width: 100%;
+                    border: 1px solid #dfdfdf;
                 }
             }
         }

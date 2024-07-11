@@ -14,30 +14,32 @@ type TocItem = {
 
 type RenderTocItemProps = {
     item: TocItem;
+    selectKey: string;
+    selectedItem: string | null;
     depth: number;
     handleItemClick: (id: string) => void;
-    isSelected: boolean;
 };
 
 const RenderTocItem = ({
     item,
     depth,
     handleItemClick,
-    isSelected,
+    selectKey,
+    selectedItem,
 }: RenderTocItemProps) => {
-    if (depth > 1) {
-        return null;
-    }
+    console.log('selectKey', selectKey);
+    console.log('selectedItem', selectedItem);
+    const isSelected = selectKey === selectedItem;
 
     const handleLinkClick = (
         event: React.MouseEvent<HTMLAnchorElement, globalThis.MouseEvent>
     ) => {
         if (!isSelected) {
-            handleItemClick(item.id);
+            handleItemClick(selectKey);
         } else {
             event.preventDefault();
             const yOffset = -120;
-            const element = document.getElementById(item.id);
+            const element = document.getElementById(selectKey);
             if (element) {
                 const y =
                     element.getBoundingClientRect().top +
@@ -48,16 +50,41 @@ const RenderTocItem = ({
         }
     };
 
+    const renderedItems = React.useMemo(
+        () =>
+            depth === 0 && item.items && item.items.length > 0 ? (
+                <ol>
+                    {item.items.map((nestedItem) => (
+                        <RenderTocItem
+                            key={nestedItem.id}
+                            selectKey={nestedItem.id}
+                            item={nestedItem}
+                            depth={1}
+                            handleItemClick={handleItemClick}
+                            selectedItem={selectedItem}
+                        />
+                    ))}
+                </ol>
+            ) : null,
+        [depth, handleItemClick, item.items, selectedItem]
+    );
+
+    if (depth > 1) {
+        return null;
+    }
+
     return (
         <li
             style={{
-                fontWeight: isSelected ? 'bold' : 'normal',
-                color: isSelected ? '#47506d' : '#989daf',
+                fontWeight: isSelected ? 'bold' : undefined,
+                color: isSelected ? '#47506d' : undefined,
             }}
         >
-            <Link to={`#${item.id}`} onClick={handleLinkClick}>
+            <span className="before-item" />
+            <Link to={`#${selectKey}`} onClick={handleLinkClick}>
                 {item.heading}
             </Link>
+            {renderedItems}
         </li>
     );
 };
@@ -121,6 +148,23 @@ export const RenderToc = ({ items }: { items: TocItem[] }) => {
         }, 10);
     };
 
+    console.log('selectedItem', selectedItem);
+
+    const renderedItems = React.useMemo(
+        () =>
+            items.map((item) => (
+                <RenderTocItem
+                    key={item.id}
+                    selectKey={item.id}
+                    item={item}
+                    depth={0}
+                    handleItemClick={handleItemClick}
+                    selectedItem={selectedItem}
+                />
+            )),
+        [items, selectedItem]
+    );
+
     return (
         <div className="table-of-contents">
             <Accordion elevation={0} className="accordion">
@@ -137,17 +181,7 @@ export const RenderToc = ({ items }: { items: TocItem[] }) => {
                     </Typography>
                 </AccordionSummary>
                 <AccordionDetails className="accordion-side-padding">
-                    <ol role="list">
-                        {items.map((item) => (
-                            <RenderTocItem
-                                key={item.id}
-                                item={item}
-                                depth={0}
-                                handleItemClick={handleItemClick}
-                                isSelected={item.id === selectedItem}
-                            />
-                        ))}
-                    </ol>
+                    <ul role="list">{renderedItems}</ul>
                 </AccordionDetails>
             </Accordion>
         </div>
