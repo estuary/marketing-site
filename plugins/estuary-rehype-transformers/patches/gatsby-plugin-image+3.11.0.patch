@@ -1,5 +1,5 @@
 diff --git a/node_modules/gatsby-plugin-image/dist/components/hooks.js b/node_modules/gatsby-plugin-image/dist/components/hooks.js
-index 6148dc4..a3a91bd 100644
+index 6148dc4..52231e2 100644
 --- a/node_modules/gatsby-plugin-image/dist/components/hooks.js
 +++ b/node_modules/gatsby-plugin-image/dist/components/hooks.js
 @@ -148,7 +148,7 @@ function getMainProps(isLoading, isLoaded, images, loading, style) {
@@ -37,7 +37,13 @@ index 6148dc4..a3a91bd 100644
          }
      }
      if (objectFit) {
-@@ -190,9 +190,9 @@ function getPlaceholderProps(placeholder, isLoaded, layout, width, height, backg
+@@ -185,14 +185,14 @@ function getPlaceholderProps(placeholder, isLoaded, layout, width, height, backg
+     if (objectPosition) {
+         wrapperStyle.objectPosition = objectPosition;
+     }
+-    var result = __assign(__assign({}, placeholder), { "aria-hidden": true, "data-placeholder-image": "", style: __assign({ opacity: isLoaded ? 0 : 1, transition: "opacity 500ms linear" }, wrapperStyle) });
++    var result = __assign(__assign({}, placeholder), { "data-estuary-custom-placeholder-patch":"", "aria-hidden": true, "data-placeholder-image": "", style: __assign({ opacity: isLoaded ? 0 : 1, transition: "opacity 500ms linear" }, wrapperStyle) });
+     // fallback when it's not configured in gatsby-config.
      if (!gatsbyImageIsInstalled()) {
          result.style = {
              height: "100%",
