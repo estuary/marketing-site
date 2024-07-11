@@ -37,12 +37,12 @@ export interface SectionOneProps {
 }
 
 const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
-    const sourceConnectorLogo =
-        sourceConnector.logo.childImageSharp?.gatsbyImageData &&
-        getImage(sourceConnector.logo.childImageSharp.gatsbyImageData);
-    const destConnectorLogo =
-        destConnector.logo.childImageSharp?.gatsbyImageData &&
-        getImage(destConnector.logo.childImageSharp.gatsbyImageData);
+    const sourceConnectorLogo = getImage(
+        sourceConnector.logo?.childImageSharp?.gatsbyImageData
+    );
+    const destinationConnectorLogo = getImage(
+        destConnector.logo?.childImageSharp?.gatsbyImageData
+    );
 
     return (
         <section className={defaultWrapperDarkBlue}>
@@ -55,6 +55,7 @@ const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
                                 src="../../../svgs/plugs.svg"
                                 alt="Integration icon"
                                 layout="constrained"
+                                loading="eager"
                             />
                         </div>
                         <span className={preTitle}>
@@ -90,7 +91,7 @@ const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
                         </div>
                     </div>
                 </div>
-                {sourceConnectorLogo && destConnectorLogo ? (
+                {sourceConnectorLogo && destinationConnectorLogo ? (
                     <div className={imageWrapper}>
                         <div className={sourceLogo}>
                             <GatsbyImage
@@ -106,7 +107,7 @@ const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
                         />
                         <div className={destinationLogo}>
                             <GatsbyImage
-                                image={destConnectorLogo}
+                                image={destinationConnectorLogo}
                                 alt={`${destConnector.title} logo`}
                                 loading="eager"
                             />

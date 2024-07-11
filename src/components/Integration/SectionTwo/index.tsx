@@ -22,9 +22,9 @@ const SectionTwo = ({
 }: Connector) => {
     const description = longDescription ?? shortDescription;
 
-    const sourceConnectorLogo =
-        logo.childImageSharp?.gatsbyImageData &&
-        getImage(logo.childImageSharp.gatsbyImageData);
+    const sourceConnectorLogo = getImage(
+        logo?.childImageSharp?.gatsbyImageData
+    );
 
     return (
         <section className={defaultWrapperGrey}>

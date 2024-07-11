@@ -1,5 +1,3 @@
-import { ImageDataLike } from 'gatsby-plugin-image';
-
 export const webinarsUrl =
     'https://try.estuary.dev/webinar-estuary101-ondemand';
 
@@ -12,12 +10,6 @@ export type ButtonStyleVariants =
     | 'filled'
     | 'outlinedPrimary'
     | 'outlinedSecondary';
-
-export type GatsbyImageType = {
-    childImageSharp?: {
-        gatsbyImageData?: ImageDataLike;
-    };
-};
 
 export const GA_MEASUREMENT_ID = 'G-P1PZPE4HHZ';
 export const GA_ORIGIN = 'https://www.googletagmanager.com';

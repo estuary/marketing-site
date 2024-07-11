@@ -1,8 +1,6 @@
-import { GatsbyImageType } from '../../../shared';
-
 export interface Connector {
     title: string;
-    logo: GatsbyImageType;
+    logo: any;
     longDescription?: string;
     shortDescription?: string;
 }
