@@ -37,9 +37,11 @@ const Footer = () => {
                         <h1 className="global-footer-title">Estuary</h1>
                     </Link>
                     <p className="global-footer-subtext">
-                        Managed streaming data pipelines, streaming SQL
-                        transformations and turnkey connectivity to clouds,
-                        databases, and apps.
+                        Estuary provides real-time data integration and ETL for
+                        modern data pipelines. Build scalable, fault-tolerant
+                        streaming data pipelines that seamlessly connect to
+                        virtually any data source for data warehouses, real-time
+                        analytics, operations, machine learning, and AI.
                     </p>
                     <div>
                         <p className="global-footer-subtext-title">
