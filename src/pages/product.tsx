@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { graphql, useStaticQuery } from 'gatsby';
 import Seo from '../components/seo';
 
 import SectionEight from '../components/Product/SectionEight';
@@ -46,10 +47,23 @@ const Product = () => {
 };
 
 export const Head = () => {
+    const { metaImg } = useStaticQuery(graphql`
+        query {
+            metaImg: file(relativePath: { eq: "real-time-graphic.png" }) {
+                childImageSharp {
+                    fixed(width: 400) {
+                        src
+                    }
+                }
+            }
+        }
+    `);
+
     return (
         <Seo
             title="Flow"
             description="Flow is the first real-time Data Operations platform. Set up pipelines with both historical and real-time data in minutes."
+            image={metaImg.childImageSharp.fixed.src}
         />
     );
 };
