@@ -36,17 +36,6 @@ const SectionThree = ({
                     {destinationConnectorLogo ? (
                         <div className={flowImagesWrapper}>
                             <div className={flowImage}>
-                                <ConnectorBackground
-                                    color="#0C223E"
-                                    className={connectorBackground}
-                                />
-                                <GatsbyImage
-                                    image={destinationConnectorLogo}
-                                    alt={`${title} logo`}
-                                    className={sourceConnectorImage}
-                                />
-                            </div>
-                            <div className={flowImage}>
                                 <StaticImage
                                     placeholder="none"
                                     src="../../../images/integration/section-three/connectors.png"
@@ -66,6 +55,17 @@ const SectionThree = ({
                                     layout="constrained"
                                     className={sourceConnectorImage}
                                     width={46}
+                                />
+                            </div>
+                            <div className={flowImage}>
+                                <ConnectorBackground
+                                    color="#0C223E"
+                                    className={connectorBackground}
+                                />
+                                <GatsbyImage
+                                    image={destinationConnectorLogo}
+                                    alt={`${title} logo`}
+                                    className={sourceConnectorImage}
                                 />
                             </div>
                         </div>

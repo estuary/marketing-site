@@ -8,24 +8,33 @@ import SingleDataflowIcon from '../../../svgs/metric-single-dataflow.svg';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import OpenHubspotModal from '../../HubSpot/OpenModal';
 import MetricCard from '../../MetricCard';
-import { OutboundLinkFilled } from '../../OutboundLink';
 import VanityLogosMarquee from '../../VanityLogosMarquee';
 import { Connector } from '../shared';
 import {
+    backgroundImageWraper,
+    bgImage,
+    bgMiddleImageWrapper,
+    bgSideImageWrapper,
     buttonWrapper,
-    buttonsWrapper,
-    destinationLogo,
-    header,
-    helpText,
+    columnLeft,
+    columnRight,
+    contactUsCta,
+    emailInput,
+    formFields,
+    getStartedCta,
     iconWrapper,
     imageWrapper,
+    inputIconWrapper,
     mainContent,
     metricCardsList,
+    middleLine,
     preTitle,
     preTitleWrapper,
     primaryButton,
     secondaryButton,
-    sourceLogo,
+    semiCircleLeftSide,
+    semiCircleMiddle,
+    semiCircleRightSide,
     title,
 } from './styles.module.less';
 
@@ -47,7 +56,7 @@ const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
     return (
         <section className={defaultWrapperDarkBlue}>
             <div className={mainContent}>
-                <div className={header}>
+                <div className={columnLeft}>
                     <div className={preTitleWrapper}>
                         <div className={iconWrapper}>
                             <StaticImage
@@ -64,56 +73,82 @@ const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
                     </div>
                     <h2 className={title}>
                         STREAM DATA FROM {sourceConnector.title} TO{' '}
-                        {destConnector.title} IN <span>REAL-TIME OR BATCH</span>
+                        {destConnector.title}
                     </h2>
-                    <div className={buttonsWrapper}>
-                        <div className={buttonWrapper}>
-                            <OutboundLinkFilled
-                                target="_blank"
-                                href="https://dashboard.estuary.dev/register"
-                                className={primaryButton}
-                            >
+                    <form id="newsletter-signup" className={getStartedCta}>
+                        <label>Enter your company e-mail to register</label>
+                        <div className={formFields}>
+                            <div className={inputIconWrapper}>
+                                <StaticImage
+                                    placeholder="none"
+                                    alt="Email icon"
+                                    src="../../../svgs/product-page/section-thirteen/email-outlined.svg"
+                                    layout="constrained"
+                                />
+                            </div>
+                            <input
+                                placeholder="Email"
+                                type="email"
+                                required
+                                className={emailInput}
+                            />
+                            <button type="submit" className={primaryButton}>
                                 Get Started
-                            </OutboundLinkFilled>
-                            <span className={helpText}>
-                                Sign up for a Free Estuary Flow Account.
-                            </span>
+                            </button>
                         </div>
+                    </form>
+                </div>
+                <div className={columnRight}>
+                    {sourceConnectorLogo && destinationConnectorLogo ? (
+                        <div className={imageWrapper}>
+                            <div className={backgroundImageWraper}>
+                                <div className={semiCircleLeftSide}>
+                                    <div className={bgSideImageWrapper}>
+                                        <GatsbyImage
+                                            image={sourceConnectorLogo}
+                                            alt={`${sourceConnector.title} logo`}
+                                            loading="eager"
+                                            className={bgImage}
+                                        />
+                                    </div>
+                                </div>
+                                <div className={semiCircleMiddle}>
+                                    <div className={bgMiddleImageWrapper}>
+                                        <StaticImage
+                                            placeholder="none"
+                                            src="../../../images/estuary-icon-big.png"
+                                            alt="Estuary logo"
+                                            layout="constrained"
+                                            width={46}
+                                            className={bgImage}
+                                        />
+                                        <div className={middleLine} />
+                                    </div>
+                                </div>
+                                <div className={semiCircleRightSide}>
+                                    <div className={bgSideImageWrapper}>
+                                        <GatsbyImage
+                                            image={destinationConnectorLogo}
+                                            alt={`${destConnector.title} logo`}
+                                            loading="eager"
+                                            className={bgImage}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    ) : null}
+                    <div className={contactUsCta}>
+                        <span>Schedule an appointment</span>
                         <div className={buttonWrapper}>
                             <OpenHubspotModal
                                 buttonLabel="Contact Us"
                                 buttonId="section-one-hubspot"
-                                className={secondaryButton}
+                                buttonClass={secondaryButton}
                             />
-                            <span className={helpText}>
-                                Schedule an appointment.
-                            </span>
                         </div>
                     </div>
                 </div>
-                {sourceConnectorLogo && destinationConnectorLogo ? (
-                    <div className={imageWrapper}>
-                        <div className={sourceLogo}>
-                            <GatsbyImage
-                                image={sourceConnectorLogo}
-                                alt={`${sourceConnector.title} logo`}
-                                loading="eager"
-                            />
-                        </div>
-                        <StaticImage
-                            src="../../../images/integration/section-one/integration-bg.png"
-                            alt={`Connection between ${sourceConnector.title} and ${destConnector.title}`}
-                            loading="eager"
-                        />
-                        <div className={destinationLogo}>
-                            <GatsbyImage
-                                image={destinationConnectorLogo}
-                                alt={`${destConnector.title} logo`}
-                                loading="eager"
-                            />
-                        </div>
-                    </div>
-                ) : null}
             </div>
             <div className={metricCardsList}>
                 <MetricCard
