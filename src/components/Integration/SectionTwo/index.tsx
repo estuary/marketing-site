@@ -1,17 +1,19 @@
+import clsx from 'clsx';
 import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
-import ConnectorBackground from '../../../svgs/integration/connector-bg.svg';
 import { Connector } from '../shared';
 import {
-    connectorBackground,
     connectorDescriptionContainer,
+    connectorsFlowImage,
+    dashedCircle,
     descriptionDark,
     flowImage,
     flowImagesWrapper,
     sectionTitleDark,
     sourceConnectorImage,
     titleAndImages,
+    whiteFilledCircle,
 } from '../styles.module.less';
 
 const SectionTwo = ({
@@ -36,31 +38,32 @@ const SectionTwo = ({
                     {sourceConnectorLogo ? (
                         <div className={flowImagesWrapper}>
                             <div className={flowImage}>
-                                <ConnectorBackground
-                                    color="#EEF1FD"
-                                    className={connectorBackground}
-                                />
-                                <GatsbyImage
-                                    image={sourceConnectorLogo}
-                                    alt={`${title} logo`}
-                                    className={sourceConnectorImage}
-                                />
+                                <div className={dashedCircle}>
+                                    <div className={whiteFilledCircle}>
+                                        <GatsbyImage
+                                            image={sourceConnectorLogo}
+                                            alt={`${title} logo`}
+                                            className={sourceConnectorImage}
+                                        />
+                                    </div>
+                                </div>
                             </div>
                             <div className={flowImage}>
-                                <ConnectorBackground
-                                    color="#EEF1FD"
-                                    className={connectorBackground}
-                                />
-                                <StaticImage
-                                    placeholder="none"
-                                    src="../../../images/estuary-icon-big.png"
-                                    alt="Estuary logo"
-                                    layout="constrained"
-                                    className={sourceConnectorImage}
-                                    width={46}
-                                />
+                                <div className={dashedCircle}>
+                                    <div className={whiteFilledCircle}>
+                                        <StaticImage
+                                            placeholder="none"
+                                            src="../../../images/estuary-icon-big.png"
+                                            alt="Estuary logo"
+                                            layout="constrained"
+                                            className={sourceConnectorImage}
+                                        />
+                                    </div>
+                                </div>
                             </div>
-                            <div className={flowImage}>
+                            <div
+                                className={clsx(flowImage, connectorsFlowImage)}
+                            >
                                 <StaticImage
                                     placeholder="none"
                                     src="../../../images/integration/section-two/connectors.png"
@@ -72,7 +75,7 @@ const SectionTwo = ({
                     ) : null}
                 </div>
                 {description ? (
-                    <p
+                    <div
                         dangerouslySetInnerHTML={{
                             __html: description,
                         }}

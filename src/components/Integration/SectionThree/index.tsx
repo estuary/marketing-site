@@ -1,17 +1,20 @@
+import clsx from 'clsx';
 import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
-import ConnectorBackground from '../../../svgs/integration/connector-bg.svg';
 import { Connector } from '../shared';
 import {
-    connectorBackground,
     connectorDescriptionContainer,
+    connectorsFlowImage,
+    darkenDashedCircle,
+    dashedCircle,
     descriptionLight,
     flowImage,
     flowImagesWrapper,
     sectionTitleLight,
     sourceConnectorImage,
     titleAndImages,
+    whiteFilledCircle,
 } from '../styles.module.less';
 
 const SectionThree = ({
@@ -35,7 +38,9 @@ const SectionThree = ({
                     </h2>
                     {destinationConnectorLogo ? (
                         <div className={flowImagesWrapper}>
-                            <div className={flowImage}>
+                            <div
+                                className={clsx(flowImage, connectorsFlowImage)}
+                            >
                                 <StaticImage
                                     placeholder="none"
                                     src="../../../images/integration/section-three/connectors.png"
@@ -44,35 +49,44 @@ const SectionThree = ({
                                 />
                             </div>
                             <div className={flowImage}>
-                                <ConnectorBackground
-                                    color="#0C223E"
-                                    className={connectorBackground}
-                                />
-                                <StaticImage
-                                    placeholder="none"
-                                    src="../../../images/estuary-icon-big.png"
-                                    alt="Estuary logo"
-                                    layout="constrained"
-                                    className={sourceConnectorImage}
-                                    width={46}
-                                />
+                                <div
+                                    className={clsx(
+                                        dashedCircle,
+                                        darkenDashedCircle
+                                    )}
+                                >
+                                    <div className={whiteFilledCircle}>
+                                        <StaticImage
+                                            placeholder="none"
+                                            src="../../../images/estuary-icon-big.png"
+                                            alt="Estuary logo"
+                                            layout="constrained"
+                                            className={sourceConnectorImage}
+                                        />
+                                    </div>
+                                </div>
                             </div>
                             <div className={flowImage}>
-                                <ConnectorBackground
-                                    color="#0C223E"
-                                    className={connectorBackground}
-                                />
-                                <GatsbyImage
-                                    image={destinationConnectorLogo}
-                                    alt={`${title} logo`}
-                                    className={sourceConnectorImage}
-                                />
+                                <div
+                                    className={clsx(
+                                        dashedCircle,
+                                        darkenDashedCircle
+                                    )}
+                                >
+                                    <div className={whiteFilledCircle}>
+                                        <GatsbyImage
+                                            image={destinationConnectorLogo}
+                                            alt={`${title} logo`}
+                                            className={sourceConnectorImage}
+                                        />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     ) : null}
                 </div>
                 {description ? (
-                    <p
+                    <div
                         dangerouslySetInnerHTML={{
                             __html: description,
                         }}
