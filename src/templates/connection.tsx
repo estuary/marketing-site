@@ -1,6 +1,7 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 import {
+    SectionFive,
     SectionFour,
     SectionOne,
     SectionThree,
@@ -59,6 +60,7 @@ const Connector = ({
                 shortDescription={dest_mapped.shortDescription}
             />
             <SectionFour />
+            <SectionFive />
         </Layout>
     );
 };
