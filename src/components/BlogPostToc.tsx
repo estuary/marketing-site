@@ -3,6 +3,7 @@ import { Typography } from '@mui/material';
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
+import clsx from 'clsx';
 import { Link } from 'gatsby';
 import * as React from 'react';
 
@@ -27,8 +28,6 @@ const RenderTocItem = ({
     selectKey,
     selectedItem,
 }: RenderTocItemProps) => {
-    console.log('selectKey', selectKey);
-    console.log('selectedItem', selectedItem);
     const isSelected = selectKey === selectedItem;
 
     const handleLinkClick = (
@@ -52,14 +51,14 @@ const RenderTocItem = ({
 
     const renderedItems = React.useMemo(
         () =>
-            depth === 0 && item.items && item.items.length > 0 ? (
-                <ol>
+            item.items && item.items.length > 0 ? (
+                <ol role="list" style={{ padding: 0 }}>
                     {item.items.map((nestedItem) => (
                         <RenderTocItem
                             key={nestedItem.id}
                             selectKey={nestedItem.id}
                             item={nestedItem}
-                            depth={1}
+                            depth={depth + 1}
                             handleItemClick={handleItemClick}
                             selectedItem={selectedItem}
                         />
@@ -74,12 +73,7 @@ const RenderTocItem = ({
     }
 
     return (
-        <li
-            style={{
-                fontWeight: isSelected ? 'bold' : undefined,
-                color: isSelected ? '#47506d' : undefined,
-            }}
-        >
+        <li className={clsx('tocItem', isSelected && 'isItemSelected')}>
             <span className="before-item" />
             <Link to={`#${selectKey}`} onClick={handleLinkClick}>
                 {item.heading}
@@ -87,6 +81,24 @@ const RenderTocItem = ({
             {renderedItems}
         </li>
     );
+};
+
+const observeItems = (
+    items: TocItem[],
+    observer: IntersectionObserver,
+    depth: number = 0
+) => {
+    items.forEach((item) => {
+        if (depth <= 1) {
+            const element = document.getElementById(item.id);
+            if (element) {
+                observer.observe(element);
+            }
+        }
+        if (item.items) {
+            observeItems(item.items, observer, depth + 1);
+        }
+    });
 };
 
 export const RenderToc = ({ items }: { items: TocItem[] }) => {
@@ -99,7 +111,7 @@ export const RenderToc = ({ items }: { items: TocItem[] }) => {
     React.useEffect(() => {
         intersectionObserver.current = new IntersectionObserver(
             (entries) => {
-                let lastVisibleId;
+                let lastVisibleId: string | undefined;
                 entries.forEach((entry) => {
                     if (
                         entry.isIntersecting &&
@@ -115,12 +127,7 @@ export const RenderToc = ({ items }: { items: TocItem[] }) => {
             { threshold: 0.5 }
         );
 
-        items.forEach((item) => {
-            const element = document.getElementById(item.id);
-            if (element) {
-                intersectionObserver.current?.observe(element);
-            }
-        });
+        observeItems(items, intersectionObserver.current);
 
         return () => {
             if (intersectionObserver.current) {
@@ -148,8 +155,6 @@ export const RenderToc = ({ items }: { items: TocItem[] }) => {
         }, 10);
     };
 
-    console.log('selectedItem', selectedItem);
-
     const renderedItems = React.useMemo(
         () =>
             items.map((item) => (
@@ -167,7 +172,7 @@ export const RenderToc = ({ items }: { items: TocItem[] }) => {
 
     return (
         <div className="table-of-contents">
-            <Accordion elevation={0} className="accordion">
+            <Accordion elevation={0} className="accordion" defaultExpanded>
                 <AccordionSummary
                     className="accordion-side-padding"
                     expandIcon={
