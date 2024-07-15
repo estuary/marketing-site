@@ -18,7 +18,7 @@ type AdvantagesProps = {
     title: ReactNode;
     subtitle?: string;
     advantages?: {
-        id: number;
+        id?: number;
         title: ReactNode;
     }[];
     link?: {
@@ -49,9 +49,9 @@ const Advantages = ({
                 ) : null}
                 {advantages ? (
                     <AdvantagesList>
-                        {advantages.map((advantage) => (
+                        {advantages.map((advantage, index) => (
                             <Advantage
-                                key={`estuary-flow-advantage-${advantage.id}`}
+                                key={`estuary-flow-advantage-${advantage.id ?? index}`}
                                 title={advantage.title}
                                 isDarkTheme={isDarkTheme}
                             />
