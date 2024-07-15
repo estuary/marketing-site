@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import React from 'react';
 import { outlinedButton } from '../../../globalStyles/buttons.module.less';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
@@ -9,14 +8,12 @@ import {
     buttonsWrapper,
     container,
     description,
-    overlayVectorLeft,
     title,
 } from './styles.module.less';
 
 const SectionFive = () => {
     return (
-        // TODO: Replace this overlay with BackgroundImageWrapper - How to add this new background image file to storage?
-        <section className={clsx(defaultWrapperDarkBlue, overlayVectorLeft)}>
+        <section className={defaultWrapperDarkBlue}>
             <div className={container}>
                 <h2 className={title}>
                     <span>ESTUARY FLOW</span> IN ACTION
