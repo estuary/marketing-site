@@ -10,9 +10,9 @@ import { ButtonFilled } from '../../globalStyles';
 type Theme = { $isDarkTheme: boolean };
 
 export const PricingSlider = muiStyled(Slider)(({
-    isDarkTheme = false,
+    $isDarkTheme = false,
 }: {
-    isDarkTheme?: boolean;
+    $isDarkTheme?: boolean;
 }) => {
     return {
         'color': '#5272EB',
@@ -55,7 +55,7 @@ export const PricingSlider = muiStyled(Slider)(({
             'top': '-32px',
             'fontSize': '1.25rem',
             'fontWeight': 500,
-            'color': isDarkTheme ? '#FFFFFF' : '#47506D',
+            'color': $isDarkTheme ? '#FFFFFF' : '#47506D',
             'fontFamily': 'Inter, sans-serif',
 
             '@media (max-width: 425px)': {

@@ -37,7 +37,7 @@ export const PricingCalculatorSlider = ({ title }: PricingCalculatorProps) => {
                     marks={marks}
                     onChange={handleSliderChange}
                     aria-label="Amount of change data"
-                    isDarkTheme={isDarkTheme}
+                    $isDarkTheme={isDarkTheme}
                 />
             </SliderWrapper>
         </>
