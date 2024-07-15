@@ -1,8 +1,13 @@
 import React from 'react';
-import { webinarsUrl } from '../../../../shared';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
-import { OutboundLinkFilled, OutboundLinkOutlined } from '../../OutboundLink';
-import { buttonsWrapper, container, title } from './styles.module.less';
+import OpenHubspotModal from '../../HubSpot/OpenModal';
+import { OutboundLinkFilled } from '../../OutboundLink';
+import {
+    buttonsWrapper,
+    container,
+    outlinedButton,
+    title,
+} from './styles.module.less';
 
 const SectionTen = () => {
     return (
@@ -18,12 +23,11 @@ const SectionTen = () => {
                     >
                         Try Now
                     </OutboundLinkFilled>
-                    <OutboundLinkOutlined //TODO: move the styles of this button to LESS
-                        target="_blank"
-                        href={webinarsUrl}
-                    >
-                        Let Us Show You
-                    </OutboundLinkOutlined>
+                    <OpenHubspotModal //TODO: move the styles of this button to LESS
+                        buttonLabel="Let Us Show You"
+                        buttonId="integration-section-five-hubspot"
+                        buttonClass={outlinedButton}
+                    />
                 </div>
             </div>
         </section>

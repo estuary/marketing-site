@@ -12,7 +12,7 @@ type Theme = { $isDarkTheme: boolean };
 export const PricingSlider = muiStyled(Slider)(({
     isdarktheme,
 }: {
-    isdarktheme?: string;
+    isdarktheme: 'true' | 'false';
 }) => {
     return {
         'color': '#5272EB',
