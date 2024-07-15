@@ -37,7 +37,7 @@ export const PricingCalculatorSlider = ({ title }: PricingCalculatorProps) => {
                     marks={marks}
                     onChange={handleSliderChange}
                     aria-label="Amount of change data"
-                    $isDarkTheme={isDarkTheme}
+                    isdarktheme={isDarkTheme.toString()} // To write it to DOM, we need to treat the boolean as string for this specific case
                 />
             </SliderWrapper>
         </>

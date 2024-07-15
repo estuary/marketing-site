@@ -10,9 +10,9 @@ import { ButtonFilled } from '../../globalStyles';
 type Theme = { $isDarkTheme: boolean };
 
 export const PricingSlider = muiStyled(Slider)(({
-    $isDarkTheme = false,
+    isdarktheme,
 }: {
-    $isDarkTheme?: boolean;
+    isdarktheme?: string;
 }) => {
     return {
         'color': '#5272EB',
@@ -55,7 +55,7 @@ export const PricingSlider = muiStyled(Slider)(({
             'top': '-32px',
             'fontSize': '1.25rem',
             'fontWeight': 500,
-            'color': $isDarkTheme ? '#FFFFFF' : '#47506D',
+            'color': isdarktheme === 'true' ? '#FFFFFF' : '#47506D', // To write it to DOM, we need to treat the boolean as string for this specific case
             'fontFamily': 'Inter, sans-serif',
 
             '@media (max-width: 425px)': {
