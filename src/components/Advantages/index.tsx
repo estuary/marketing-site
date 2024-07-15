@@ -17,7 +17,7 @@ type AdvantagesProps = {
     image: ReactNode;
     title: ReactNode;
     subtitle?: string;
-    advantages: {
+    advantages?: {
         id: number;
         title: ReactNode;
     }[];
@@ -47,15 +47,17 @@ const Advantages = ({
                 {subtitle ? (
                     <Subtitle $isDarkTheme={isDarkTheme}>{subtitle}</Subtitle>
                 ) : null}
-                <AdvantagesList>
-                    {advantages.map((advantage) => (
-                        <Advantage
-                            key={`product-page-advantage-${advantage.id}`}
-                            title={advantage.title}
-                            isDarkTheme={isDarkTheme}
-                        />
-                    ))}
-                </AdvantagesList>
+                {advantages ? (
+                    <AdvantagesList>
+                        {advantages.map((advantage) => (
+                            <Advantage
+                                key={`product-page-advantage-${advantage.id}`}
+                                title={advantage.title}
+                                isDarkTheme={isDarkTheme}
+                            />
+                        ))}
+                    </AdvantagesList>
+                ) : null}
                 {link ? (
                     <ButtonWrapper>
                         <OutboundLinkFilled href={link.href} target="_blank">

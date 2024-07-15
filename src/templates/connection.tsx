@@ -4,6 +4,7 @@ import {
     SectionFive,
     SectionFour,
     SectionOne,
+    SectionSeven,
     SectionSix,
     SectionThree,
     SectionTwo,
@@ -63,6 +64,7 @@ const Connector = ({
             <SectionFour />
             <SectionFive />
             <SectionSix />
+            <SectionSeven />
         </Layout>
     );
 };

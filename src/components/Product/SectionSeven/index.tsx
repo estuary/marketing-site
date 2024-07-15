@@ -29,7 +29,7 @@ const SectionSeven = () => {
                     <StaticImage
                         placeholder="none"
                         alt="Schema evolution options"
-                        src="../../../images/product-page/section-seven/schema-evolution-options.png"
+                        src="../../../images/schema-evolution-options.png"
                         layout="constrained"
                         quality={100}
                     />
