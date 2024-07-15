@@ -37,7 +37,7 @@ export const Head = () => {
         query {
             metaImg: file(relativePath: { eq: "flow-desktop.png" }) {
                 childImageSharp {
-                    fixed(width: 400) {
+                    fixed(width: 1200) {
                         src
                     }
                 }
