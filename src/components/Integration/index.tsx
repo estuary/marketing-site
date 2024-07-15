@@ -1,6 +1,7 @@
 import SectionEight from './SectionEight';
 import SectionFive from './SectionFive';
 import SectionFour from './SectionFour';
+import SectionNine from './SectionNine';
 import SectionOne from './SectionOne';
 import SectionSeven from './SectionSeven';
 import SectionSix from './SectionSix';
@@ -11,6 +12,7 @@ export {
     SectionEight,
     SectionFive,
     SectionFour,
+    SectionNine,
     SectionOne,
     SectionSeven,
     SectionSix,

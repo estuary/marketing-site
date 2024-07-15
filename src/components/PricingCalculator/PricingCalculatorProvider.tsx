@@ -3,6 +3,7 @@ import { calculatePrice, scale } from '../../utils';
 
 type PricingCalculatorContextProviderProps = {
     children: React.ReactNode;
+    isDarkTheme?: boolean;
 };
 
 type Prices = {
@@ -17,6 +18,7 @@ type PricingCalculatorContextProps = {
     setSelectedGbs: React.Dispatch<React.SetStateAction<number>>;
     selectedConnectors: number;
     setSelectedConnectors: React.Dispatch<React.SetStateAction<number>>;
+    isDarkTheme: boolean;
 };
 
 export const PricingCalculatorContext =
@@ -30,10 +32,12 @@ export const PricingCalculatorContext =
         setSelectedGbs: () => {},
         selectedConnectors: 0,
         setSelectedConnectors: () => {},
+        isDarkTheme: false,
     });
 
 export const PricingCalculatorContextProvider = ({
     children,
+    isDarkTheme = false,
 }: PricingCalculatorContextProviderProps) => {
     const [selectedGbs, setSelectedGbs] = React.useState(1);
     const [selectedConnectors, setSelectedConnectors] = React.useState(2);
@@ -51,6 +55,7 @@ export const PricingCalculatorContextProvider = ({
                 setSelectedGbs,
                 selectedConnectors,
                 setSelectedConnectors,
+                isDarkTheme,
             }}
         >
             {children}

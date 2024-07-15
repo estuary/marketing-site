@@ -14,7 +14,7 @@ import {
 
 type AdvantagesProps = {
     icon: ReactNode;
-    image: ReactNode;
+    image?: ReactNode;
     title: ReactNode;
     subtitle?: string;
     advantages?: {
@@ -51,7 +51,7 @@ const Advantages = ({
                     <AdvantagesList>
                         {advantages.map((advantage) => (
                             <Advantage
-                                key={`product-page-advantage-${advantage.id}`}
+                                key={`estuary-flow-advantage-${advantage.id}`}
                                 title={advantage.title}
                                 isDarkTheme={isDarkTheme}
                             />
@@ -66,7 +66,7 @@ const Advantages = ({
                     </ButtonWrapper>
                 ) : null}
             </LeftColumn>
-            <RightColumn>{image}</RightColumn>
+            {image ? <RightColumn>{image}</RightColumn> : null}
         </Container>
     );
 };
