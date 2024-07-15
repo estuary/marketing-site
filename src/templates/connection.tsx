@@ -8,6 +8,7 @@ import {
     SectionOne,
     SectionSeven,
     SectionSix,
+    SectionTen,
     SectionThree,
     SectionTwo,
 } from '../components/Integration';
@@ -69,6 +70,7 @@ const Connector = ({
             <SectionSeven />
             <SectionEight />
             <SectionNine />
+            <SectionTen />
         </Layout>
     );
 };
