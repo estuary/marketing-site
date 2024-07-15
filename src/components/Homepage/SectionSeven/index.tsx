@@ -1,14 +1,6 @@
-import { StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
-import {
-    Connector,
-    ConnectorsList,
-    Container,
-    Description,
-    Link,
-    Title,
-    Wrapper,
-} from './styles';
+import MainConnectors from '../../MainConnectors';
+import { Container, Description, Title, Wrapper } from './styles';
 
 const SectionSeven = () => {
     return (
@@ -21,78 +13,7 @@ const SectionSeven = () => {
                     analytics, apps, and AI, and add or change systems, all
                     without impacting others.
                 </Description>
-                <ConnectorsList>
-                    <Connector key="section-seven-amazon-redshift-logo">
-                        <Link to="/destination/redshift">
-                            <StaticImage
-                                placeholder="none"
-                                alt="Amazon Redshift logo"
-                                src="../../../images/amazon-redshift-logo.png"
-                                layout="constrained"
-                            />
-                        </Link>
-                    </Connector>
-                    <Connector key="section-seven-databricks-logo">
-                        <Link to="/destination/databricks">
-                            <StaticImage
-                                placeholder="none"
-                                alt="Databricks logo"
-                                src="../../../images/databricks-logo.png"
-                                layout="constrained"
-                            />
-                        </Link>
-                    </Connector>
-                    <Connector key="section-seven-elastic-logo">
-                        <Link to="/destination/elasticsearch">
-                            <StaticImage
-                                placeholder="none"
-                                alt="Elastic logo"
-                                src="../../../images/elastic-logo.png"
-                                layout="constrained"
-                            />
-                        </Link>
-                    </Connector>
-                    <Connector key="section-seven-google-storage-logo">
-                        <Link to="/source/gcs">
-                            <StaticImage
-                                placeholder="none"
-                                alt="Google Storage logo"
-                                src="../../../images/google-storage-logo.png"
-                                layout="constrained"
-                            />
-                        </Link>
-                    </Connector>
-                    <Connector key="section-seven-openai-logo">
-                        <Link to="/destination/pinecone">
-                            <StaticImage
-                                placeholder="none"
-                                alt="OpenAI logo"
-                                src="../../../images/openai-logo.png"
-                                layout="constrained"
-                            />
-                        </Link>
-                    </Connector>
-                    <Connector key="section-seven-mongodb-logo">
-                        <Link to="/destination/mongodb">
-                            <StaticImage
-                                placeholder="none"
-                                alt="MongoDB logo"
-                                src="../../../images/mongodb-logo.png"
-                                layout="constrained"
-                            />
-                        </Link>
-                    </Connector>
-                    <Connector key="section-seven-pinecone-logo">
-                        <Link to="/destination/pinecone">
-                            <StaticImage
-                                placeholder="none"
-                                alt="Pinecone logo"
-                                src="../../../images/pinecone-logo.png"
-                                layout="constrained"
-                            />
-                        </Link>
-                    </Connector>
-                </ConnectorsList>
+                <MainConnectors />
             </Wrapper>
         </Container>
     );

@@ -1,6 +1,7 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 import {
+    SectionEight,
     SectionFive,
     SectionFour,
     SectionOne,
@@ -65,6 +66,7 @@ const Connector = ({
             <SectionFive />
             <SectionSix />
             <SectionSeven />
+            <SectionEight />
         </Layout>
     );
 };

@@ -1,3 +1,4 @@
+import SectionEight from './SectionEight';
 import SectionFive from './SectionFive';
 import SectionFour from './SectionFour';
 import SectionOne from './SectionOne';
@@ -7,6 +8,7 @@ import SectionThree from './SectionThree';
 import SectionTwo from './SectionTwo';
 
 export {
+    SectionEight,
     SectionFive,
     SectionFour,
     SectionOne,
