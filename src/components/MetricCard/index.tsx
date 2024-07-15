@@ -15,7 +15,7 @@ interface MetricCardProps {
 
 const MetricCard = ({ icon, value, label }: MetricCardProps) => {
     return (
-        <li className={container}>
+        <li key={label} className={container}>
             <div className={metricIconWrapper}>{icon}</div>
             <div className={metricsWrapper}>
                 <span className={metricValue}>{value}</span>

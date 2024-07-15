@@ -167,7 +167,7 @@ const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
                     </div>
                 </div>
             </div>
-            <div className={metricCardsList}>
+            <ul className={metricCardsList}>
                 <MetricCard
                     icon={<OfConnectorsIcon color={metricIconColor} />}
                     value="100S"
@@ -188,7 +188,7 @@ const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
                     value="7+GB/SEC"
                     label="Single dataflow"
                 />
-            </div>
+            </ul>
             <VanityLogosMarquee />
         </section>
     );
