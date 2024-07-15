@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { globalMaxWidth } from '../../../globalStyles';
+import { globalMaxWidth } from '../../globalStyles';
 
 type Theme = {
     $isDarkTheme: boolean;

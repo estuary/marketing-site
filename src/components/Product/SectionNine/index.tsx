@@ -5,8 +5,8 @@ import { DefaultWrapperDarkBlue } from '../../../styles/wrappers';
 import ActiveUsersIcon from '../../../svgs/metric-active-users.svg';
 import LatencyIcon from '../../../svgs/metric-latency.svg';
 import SingleDataflowIcon from '../../../svgs/metric-single-dataflow.svg';
-import Advantages from '../Advantages';
-import { sectionNineAdvantages } from '../Advantages/advantages';
+import Advantages from '../../Advantages';
+import { sectionNineAdvantages } from '../advantages';
 import {
     ActiveUsersMetric,
     IconWrapper,

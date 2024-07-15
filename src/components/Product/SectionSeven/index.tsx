@@ -2,8 +2,8 @@ import React from 'react';
 
 import { StaticImage } from 'gatsby-plugin-image';
 import { DefaultWrapperDarkBlue } from '../../../styles/wrappers';
-import Advantages from '../Advantages';
-import { sectionSevenAdvantages } from '../Advantages/advantages';
+import Advantages from '../../Advantages';
+import { sectionSevenAdvantages } from '../advantages';
 
 const SectionSeven = () => {
     return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import { OutboundLink } from '../../OutboundLink';
+import { OutboundLink } from '../OutboundLink';
 
 export const sectionSixAdvantages = [
     {

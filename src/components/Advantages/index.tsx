@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { OutboundLinkFilled } from '../../OutboundLink';
+import { OutboundLinkFilled } from '../OutboundLink';
 import Advantage from './Advantage';
 import {
     AdvantagesList,
