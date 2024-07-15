@@ -1,5 +1,5 @@
 import { GatsbyImage, StaticImage, getImage } from 'gatsby-plugin-image';
-import React from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import ActiveUsersIcon from '../../../svgs/metric-active-users.svg';
 import LatencyIcon from '../../../svgs/metric-latency.svg';
 import OfConnectorsIcon from '../../../svgs/metric-of-connectors.svg';
@@ -47,6 +47,12 @@ export interface SectionOneProps {
 }
 
 const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
+    const [email, setEmail] = useState('');
+
+    const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
+        setEmail(event.target.value);
+    };
+
     const sourceConnectorLogo = getImage(
         sourceConnector.logo?.childImageSharp?.gatsbyImageData
     );
@@ -56,7 +62,8 @@ const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
 
     const handleFormSubmission = (ev: { preventDefault: () => void }) => {
         ev.preventDefault();
-        window.location.href = 'https://dashboard.estuary.dev/register';
+        window.open('https://dashboard.estuary.dev/register');
+        setEmail('');
     };
 
     return (
@@ -101,6 +108,8 @@ const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
                                 type="email"
                                 required
                                 className={emailInput}
+                                value={email}
+                                onChange={handleEmailChange}
                             />
                             {/* TODO: Move this button style to LESS */}
                             <ButtonFilled
