@@ -7,6 +7,7 @@ import SingleDataflowIcon from '../../../svgs/metric-single-dataflow.svg';
 
 import { ButtonFilled } from '../../../globalStyles';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
+import EstuaryLogo from '../../../svgs/colored-logo.svg';
 import OpenHubspotModal from '../../HubSpot/OpenModal';
 import MetricCard from '../../MetricCard';
 import VanityLogosMarquee from '../../VanityLogosMarquee';
@@ -137,14 +138,7 @@ const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
                                 </div>
                                 <div className={semiCircleMiddle}>
                                     <div className={bgMiddleImageWrapper}>
-                                        <StaticImage
-                                            placeholder="none"
-                                            src="../../../images/estuary-icon-big.png"
-                                            alt="Estuary logo"
-                                            layout="constrained"
-                                            width={46}
-                                            className={bgImage}
-                                        />
+                                        <EstuaryLogo width={46} />
                                         <div className={middleLine} />
                                     </div>
                                 </div>

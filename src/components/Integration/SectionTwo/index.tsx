@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
+import EstuaryLogo from '../../../svgs/colored-logo.svg';
 import { Connector } from '../shared';
 import {
     connectorDescriptionContainer,
@@ -51,11 +52,7 @@ const SectionTwo = ({
                             <div className={flowImage}>
                                 <div className={dashedCircle}>
                                     <div className={whiteFilledCircle}>
-                                        <StaticImage
-                                            placeholder="none"
-                                            src="../../../images/estuary-icon-big.png"
-                                            alt="Estuary logo"
-                                            layout="constrained"
+                                        <EstuaryLogo
                                             className={sourceConnectorImage}
                                         />
                                     </div>
