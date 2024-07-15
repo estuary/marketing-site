@@ -5,6 +5,7 @@ import LatencyIcon from '../../../svgs/metric-latency.svg';
 import OfConnectorsIcon from '../../../svgs/metric-of-connectors.svg';
 import SingleDataflowIcon from '../../../svgs/metric-single-dataflow.svg';
 
+import { ButtonFilled } from '../../../globalStyles';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import OpenHubspotModal from '../../HubSpot/OpenModal';
 import MetricCard from '../../MetricCard';
@@ -53,6 +54,11 @@ const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
         destConnector.logo?.childImageSharp?.gatsbyImageData
     );
 
+    const handleFormSubmission = (ev: { preventDefault: () => void }) => {
+        ev.preventDefault();
+        window.location.href = 'https://dashboard.estuary.dev/register';
+    };
+
     return (
         <section className={defaultWrapperDarkBlue}>
             <div className={mainContent}>
@@ -75,7 +81,11 @@ const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
                         STREAM DATA FROM {sourceConnector.title} TO{' '}
                         {destConnector.title}
                     </h2>
-                    <form id="newsletter-signup" className={getStartedCta}>
+                    <form
+                        id="newsletter-signup"
+                        className={getStartedCta}
+                        onSubmit={handleFormSubmission}
+                    >
                         <label>Enter your company e-mail to register</label>
                         <div className={formFields}>
                             <div className={inputIconWrapper}>
@@ -92,9 +102,13 @@ const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
                                 required
                                 className={emailInput}
                             />
-                            <button type="submit" className={primaryButton}>
+                            {/* TODO: Move this button style to LESS */}
+                            <ButtonFilled
+                                type="submit"
+                                className={primaryButton}
+                            >
                                 Get Started
-                            </button>
+                            </ButtonFilled>
                         </div>
                     </form>
                 </div>
