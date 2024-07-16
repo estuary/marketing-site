@@ -1,8 +1,8 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { DefaultWrapperDark } from '../../../styles/wrappers';
-import Advantages from '../Advantages';
-import { sectionEightAdvantages } from '../Advantages/advantages';
+import Advantages from '../../Advantages';
+import { sectionEightAdvantages } from '../advantages';
 import {
     BottomCaseStudies,
     BottomCaseStudy,

@@ -1,0 +1,220 @@
+@import '../../globalStyles/sections.module.less';
+
+.description {
+  font-size: 1.5rem;
+  line-height: 33.6px;
+  font-weight: 300;
+  max-width: 1216px;
+  display: inline;
+  margin: 0;
+  text-align: justify;
+}
+
+.connectorDescriptionContainer {
+  .globalMaxWidth;
+
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+
+  p {
+    .description;
+    padding-right: 3px;
+  }
+
+  a {
+    .description;
+
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  @media (max-width: 768px) {
+    gap: 24px;
+
+    p {
+      font-size: 1.25rem;
+      line-height: 30px;
+    }
+  }
+}
+
+.flowImagesWrapper {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+
+  @media (min-width: 426px) {
+    gap: 24px;
+  }
+}
+
+.littlePlanet {
+  content: "";
+  position: absolute;
+  width: 6.5%;
+  height: 6.5%;
+  border-radius: 50%;
+  background-color: #5072EB;
+  z-index: 1;
+}
+
+.flowImage {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 21%;
+  max-height: 21%;
+  border: 1px solid #5072EB;
+  border-radius: 50%;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  padding: 4%;
+
+  @media (max-width: 768px) {
+    max-width: 28%;
+    max-height: 28%;
+    padding: 6%;
+  }
+
+  @media (max-width: 425px) {
+    max-width: 33%;
+    max-height: 33%;
+  }
+
+  &::before {
+    .littlePlanet;
+    top: 0;
+    left: 28%;
+  }
+
+  &::after {
+    .littlePlanet;
+    bottom: 0;
+    right: 28%;
+  }
+}
+
+.connectorsFlowImage {
+  padding: 1.5%;
+}
+
+.sourceConnectorImage {
+  max-width: 55%;
+
+  @media (max-width: 768px) {
+    max-width: 40%;
+  }
+}
+
+.dashedCircle {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  border: 1px #5072EB;
+  border-style: dashed;
+  background-color: #EEF1FD;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 12%;
+}
+
+.darkenDashedCircle {
+  background-color: #0C223E;
+}
+
+.whiteFilledCircle {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  border: 1px solid #B8C7F7;
+  background-color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.descriptionLight {
+  .description;
+  color: #FFFFFF;
+
+  p {
+    color: #FFFFFF;
+  }
+
+  a {
+    color: #FFFFFF;
+
+    &:hover {
+      color: #FFFFFFcc;
+    }
+  }
+}
+
+.descriptionDark {
+  .description;
+  color: #47506D;
+
+  p {
+    color: #47506D;
+  }
+
+  a {
+    color: #47506D;
+
+    &:hover {
+      color: #04192B;
+    }
+  }
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 48px;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0;
+
+  span {
+    color: #5072EB;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 38.4px;
+    text-align: left;
+  }
+
+  @media (max-width: 425px) {
+    font-size: 1.75rem;
+    line-height: 33.6px;
+  }
+}
+
+.sectionTitleDark {
+  .sectionTitle;
+  color: #47506D;
+}
+
+.sectionTitleLight {
+  .sectionTitle;
+  color: #FFFFFF;
+}
+
+.titleAndImages {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+  }
+}
