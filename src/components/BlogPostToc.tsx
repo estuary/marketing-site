@@ -182,7 +182,7 @@ export const RenderToc = ({ items }: { items: TocItem[] }) => {
                     }
                 >
                     <Typography className="accordion-title">
-                        In this article
+                        Table of Contents
                     </Typography>
                 </AccordionSummary>
                 <AccordionDetails className="accordion-side-padding">
