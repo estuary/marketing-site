@@ -5570,27 +5570,39 @@ table th {
             line-height: 24px;
         }
 
-        ul {
+        a {
+            color: inherit;
+            font-size: 1rem;
+            font-style: normal;
+            line-height: 20px;
+
+            &:hover {
+                text-decoration: underline;
+                text-underline-offset: 4px;
+            }
+        }
+
+        .MuiAccordionSummary-content {
+            min-height: 0 !important;
+            margin: 12px 0 !important;
+            height: 32px;
+        }
+
+        .MuiAccordionSummary-root {
+            min-height: 0 !important;
+        }
+
+        ol {
             margin: 0;
             padding-bottom: 12px;
 
             li {
+                color: #989daf;
+                font-weight: normal;
                 margin-bottom: 8px;
-                list-style: none;
                 display: flex;
                 align-items: center;
                 gap: 8px;
-
-                a {
-                    color: inherit;
-                    font-size: 1rem;
-                    font-style: normal;
-                    line-height: 20px;
-
-                    &:hover {
-                        text-decoration: underline;
-                    }
-                }
 
                 .before-item {
                     max-width: 24px;
@@ -5619,6 +5631,21 @@ table th {
 
         @media (max-width: 1150px) {
             margin-top: 0;
+        }
+
+        .tocItem {
+            list-style-type: decimal;
+            line-height: 20px;
+            margin: 12px 0;
+
+            &::marker {
+                color: #47506d;
+            }
+        }
+
+        .isItemSelected {
+            font-weight: bold;
+            color: #47506d;
         }
     }
 
