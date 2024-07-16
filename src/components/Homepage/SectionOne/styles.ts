@@ -23,26 +23,6 @@ export const AnimationBaseStyling = `
       height: 381px;
     }
   }
-
-  @media (max-width: 810px) {
-    margin-left: 0px;
-
-    & > :first-child {
-        overflow: visible;
-        min-height: 14rem;
-        left: unset;
-        object-fit: contain !important;
-
-        & img {
-            object-fit: contain !important;
-            object-position: right center;
-        }
-    }
-
-    & > :not(:first-child) {
-        display: none;
-    }
-  }
 `;
 
 export const Container = styled.section`
@@ -80,67 +60,6 @@ export const MainContent = styled.div`
     @media (max-width: 1024px) {
         ${globalMaxWidth}
         flex-direction: column-reverse;
-    }
-`;
-export const MarqueeWrapper = styled.div`
-    height: 74px;
-    width: 100%;
-    display: flex;
-    overflow-y: hidden;
-
-    @media (max-width: 425px) {
-        padding: 0;
-        margin-top: 48px;
-        margin-bottom: 40px;
-    }
-
-    .slick-slider {
-        @media (min-width: 801px) {
-            padding-right: 100px;
-        }
-        @media (max-width: 800px) {
-            padding-right: 20px;
-        }
-    }
-    .slick-slide {
-        margin: 0px 10px;
-        overflow: visible !important;
-        max-width: 190px !important;
-    }
-    .slick-track {
-        overflow: visible !important;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .slick-list {
-        height: 80px;
-    }
-    .gatsby-image-wrapper {
-        height: 60px !important;
-        display: flex !important;
-        align-items: center;
-        justify-content: space-between;
-    }
-    .rfm-marquee,
-    .rfm-initial-child-container {
-        display: flex;
-        align-items: center;
-        gap: 120px;
-        overflow-y: hidden;
-
-        @media (max-width: 810px) {
-            gap: 42px;
-        }
-    }
-    .rfm-marquee-container {
-        overflow-y: hidden;
-    }
-    .rfm-marquee:first-child {
-        margin-right: 100px;
-    }
-    .rfm-initial-child-container {
-        padding-right: 60px;
     }
 `;
 
@@ -201,19 +120,17 @@ export const HomepageHeadingButtons = styled.div`
         white-space: nowrap;
     }
 
-    @media (max-width: 810px) {
-        margin: 0;
+    .homepage-section-one-button {
+        @media (max-width: 768px) {
+            width: 50%;
+            padding-left: 0;
+            padding-right: 0;
+        }
     }
 `;
 
 export const PrimaryButton = styled(OutboundLinkFilled)`
     padding: 16px 24px !important;
-
-    @media (max-width: 810px) {
-        width: 50%;
-        padding-left: 0;
-        padding-right: 0;
-    }
 `;
 
 export const SecondaryButton = styled(OpenHubspotModal)`
@@ -221,12 +138,6 @@ export const SecondaryButton = styled(OpenHubspotModal)`
     color: #ffffff;
     border: 2px solid #5072eb;
     padding: 16px 24px;
-
-    @media (max-width: 810px) {
-        width: 50%;
-        padding-left: 0;
-        padding-right: 0;
-    }
 `;
 
 export const FlowAnimationContainer = styled.div`
@@ -245,30 +156,6 @@ export const FlowAnimationContainer = styled.div`
     }
 `;
 
-export const VanityLogo = styled.div`
-    display: flex !important;
-    align-items: center;
-    justify-content: space-between;
-
-    div {
-        height: 60px;
-    }
-
-    img,
-    svg {
-        width: 100%;
-        max-width: 140px;
-        height: 60px;
-        opacity: 1;
-        visibility: visible;
-        object-fit: contain !important;
-    }
-
-    .slick-slide {
-        width: 130px !important;
-    }
-`;
-
 export const FlowAnimationPlaceholderContainer = styled.div`
     ${AnimationBaseStyling}
 `;
@@ -277,7 +164,7 @@ export const MetricCardsList = styled.ul`
     ${globalMaxWidth}
     ${sectionTopBottomPadding}
 
-  margin-top: 0;
+    margin-top: 0;
     margin-bottom: 0;
     width: 100%;
     display: flex;
@@ -286,67 +173,4 @@ export const MetricCardsList = styled.ul`
     @media (max-width: 1116px) {
         flex-direction: column;
     }
-`;
-
-export const MetricCard = styled.li`
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 32px;
-    padding: 24px;
-    border: 1px solid #5072eb4d;
-    border-radius: 24px;
-    background-color: #0e2443;
-    margin-bottom: 0;
-
-    @media (max-width: 1116px) {
-        flex-direction: row;
-        justify-content: left;
-    }
-
-    @media (max-width: 345px) {
-        flex-direction: column;
-        justify-content: center;
-    }
-`;
-
-export const MetricIconWrapper = styled.div`
-    border: 2px solid #2a4589;
-    border-radius: 100%;
-    padding: 12px;
-    height: 80px;
-    max-width: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-`;
-
-export const MetricsWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    align-items: flex-start;
-
-    @media (max-width: 1116px) {
-        align-items: flex-start;
-    }
-
-    @media (max-width: 345px) {
-        align-items: center;
-    }
-`;
-
-export const MetricValue = styled.span`
-    color: #625eff;
-    font-size: 2rem;
-    font-weight: 700;
-    line-height: 43.2px;
-`;
-
-export const MetricLabel = styled.span`
-    color: #ffffff;
-    font-size: 1.25rem;
-    font-weight: 400;
-    line-height: 30px;
 `;

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { currencyFormatter } from '../../utils';
+import { usePricingCalculator } from './PricingCalculatorProvider';
 import { BrandName, BrandPrice, BrandWrapper } from './styles';
 
 type BrandCardProps = {
@@ -8,10 +9,12 @@ type BrandCardProps = {
 };
 
 const BrandCard = ({ title, price }: BrandCardProps) => {
+    const { isDarkTheme } = usePricingCalculator();
+
     return (
-        <BrandWrapper>
-            <BrandName>{title}</BrandName>
-            <BrandPrice>
+        <BrandWrapper $isDarkTheme={isDarkTheme}>
+            <BrandName $isDarkTheme={isDarkTheme}>{title}</BrandName>
+            <BrandPrice $isDarkTheme={isDarkTheme}>
                 <span>{currencyFormatter.format(price)}</span> / month
             </BrandPrice>
         </BrandWrapper>

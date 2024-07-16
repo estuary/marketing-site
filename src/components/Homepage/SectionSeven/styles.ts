@@ -1,4 +1,3 @@
-import { Link as LinkGatsby } from 'gatsby';
 import styled from 'styled-components';
 import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
 import overlayVectorRight from '../../../images/overlay-vector-right.png';
@@ -15,7 +14,7 @@ export const Wrapper = styled.div`
     ${globalMaxWidth}
     ${sectionTopBottomPadding}
 
-  padding-right: 0;
+    padding-right: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -70,70 +69,7 @@ export const Description = styled.p`
     @media (max-width: 425px) {
         padding-left: 0;
         padding-right: 20px;
-        font-size: 1rem;
         line-height: 30px;
         margin: 16px 0 40px 0;
     }
-`;
-
-export const ConnectorsList = styled.ul`
-    display: flex;
-    align-items: center;
-    gap: 60px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    max-width: 100%;
-    margin: 0;
-    padding-bottom: 10px;
-
-    @media (max-width: 768px) {
-        gap: 24px;
-    }
-
-    @media (max-width: 1350px) {
-        padding-right: 20px;
-    }
-
-    @media (min-width: 1350px) {
-        margin-right: 100px;
-    }
-
-    @media (min-width: 1500px) {
-        margin-right: 160px;
-    }
-`;
-
-export const Connector = styled.li`
-    list-style: none;
-
-    min-width: 124px;
-    min-height: 124px;
-    background: linear-gradient(to bottom, #5072eb7a, #5072eb3d);
-    border-radius: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-bottom: 2px;
-
-    &:hover {
-        background: linear-gradient(to bottom, #6ed5d6, #7284ff);
-    }
-
-    &:active {
-        border-color: none;
-        background: linear-gradient(to bottom, #6ed5d680, #7284ff80);
-    }
-`;
-
-export const Link = styled(LinkGatsby)`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 28px;
-    border-radius: 22px;
-    background-color: #0e2443;
-    min-width: 120px;
-    width: 120px;
-    height: 120px;
-    margin: auto;
 `;

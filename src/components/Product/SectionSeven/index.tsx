@@ -2,8 +2,8 @@ import React from 'react';
 
 import { StaticImage } from 'gatsby-plugin-image';
 import { DefaultWrapperDarkBlue } from '../../../styles/wrappers';
-import Advantages from '../Advantages';
-import { sectionSevenAdvantages } from '../Advantages/advantages';
+import Advantages from '../../Advantages';
+import { sectionSevenAdvantages } from '../advantages';
 
 const SectionSeven = () => {
     return (
@@ -29,7 +29,7 @@ const SectionSeven = () => {
                     <StaticImage
                         placeholder="none"
                         alt="Schema evolution options"
-                        src="../../../images/product-page/section-seven/schema-evolution-options.png"
+                        src="../../../images/schema-evolution-options.png"
                         layout="constrained"
                         quality={100}
                     />
