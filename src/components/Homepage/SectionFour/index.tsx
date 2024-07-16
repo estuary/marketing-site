@@ -39,11 +39,7 @@ const SectionFour = () => {
                         <Advantage title="Most versatile writes that maintain a current view or all change history" />
                         <Advantage title="Most scalable pipelines, with true elastic scaling" />
                     </AdvantagesList>
-                    <Link
-                        to="/integrations"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
+                    <Link to="/integrations" target="_blank" rel="noopener">
                         View Connectors
                     </Link>
                 </LeftColumn>
