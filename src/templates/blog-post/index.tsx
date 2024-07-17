@@ -133,20 +133,22 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                     body={post.body.data.childHtmlRehype.html}
                                 />
 
-                                <BuildPipeLineBannerBackground>
-                                    <div className="build-pipeline-banner">
-                                        <h3>
-                                            Start streaming your data{' '}
-                                            <span>for free</span>
-                                        </h3>
-                                        <OutboundLink
-                                            href="https://dashboard.estuary.dev/register"
-                                            className="pipeline-link"
-                                        >
-                                            Build a Pipeline
-                                        </OutboundLink>
-                                    </div>
-                                </BuildPipeLineBannerBackground>
+                                <div className="build-pipeline-banner-wrapper">
+                                    <BuildPipeLineBannerBackground>
+                                        <div className="build-pipeline-banner">
+                                            <h3>
+                                                Start streaming your data{' '}
+                                                <span>for free</span>
+                                            </h3>
+                                            <OutboundLink
+                                                href="https://dashboard.estuary.dev/register"
+                                                className="pipeline-link"
+                                            >
+                                                Build a Pipeline
+                                            </OutboundLink>
+                                        </div>
+                                    </BuildPipeLineBannerBackground>
+                                </div>
                             </div>
 
                             <div className="post-sidebar">
@@ -167,7 +169,7 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                 <div className="sidebar-right">
                                     <div className="banner">
                                         <span>
-                                            Build <span>Pipeline</span>
+                                            Build a <span>Pipeline</span>
                                         </span>
                                     </div>
                                     <h3>
@@ -178,7 +180,7 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                         href="https://dashboard.estuary.dev/register"
                                         className="pipeline-link"
                                     >
-                                        Build pipeline
+                                        Build a Pipeline
                                     </OutboundLink>
                                 </div>
                             </div>
@@ -236,8 +238,8 @@ const BlogPostTemplate = ({ data: { post } }) => {
                         <div className="big-build-pipeline-banner-container_layout">
                             <div className="left-column-container">
                                 <h5>Streaming Pipelines.</h5>
-                                <h5>Simple to deploy.</h5>
-                                <h5>Simply priced.</h5>
+                                <h5>Simple to Deploy.</h5>
+                                <h5>Simply Priced.</h5>
                             </div>
                             <div className="right-column-container">
                                 <div>
@@ -277,13 +279,13 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                 href="https://dashboard.estuary.dev/register"
                                 className="pipeline-link"
                             >
-                                Build a pipeline
+                                Build a Pipeline
                             </OutboundLink>
                             <OutboundLink
                                 href="https://estuary.dev/pricing"
                                 className="pricing-link"
                             >
-                                More on our Pricing
+                                See Pricing
                             </OutboundLink>
                         </div>
                     </BuildPipeLineBannerBackground>

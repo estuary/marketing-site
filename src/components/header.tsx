@@ -212,7 +212,7 @@ const Header = ({ fixedHeader }: HeaderProps) => {
                                 href="https://dashboard.estuary.dev/register"
                                 className="global-header-try-it-button"
                             >
-                                Try it free
+                                Try it Free
                             </OutboundLinkFilled>
                         </div>
                     </div>
