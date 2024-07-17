@@ -1,6 +1,7 @@
 @import '../../globalStyles/sections.module.less';
 
 .description {
+  font-family: 'Inter', sans-serif;
   font-size: 1.5rem;
   line-height: 33.6px;
   font-weight: 300;
@@ -8,6 +9,10 @@
   display: inline;
   margin: 0;
   text-align: justify;
+
+  @media (max-width: 768px) {
+    text-align: left;
+  }
 }
 
 .connectorDescriptionContainer {
