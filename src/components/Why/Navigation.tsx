@@ -13,7 +13,7 @@ const Navigation = ({ activePage, setActivePage }) => (
                         className="global-header-logo"
                         style={{ width: 27, height: 35 }}
                     />
-                    <h1 className="global-header-title">Estuary</h1>
+                    <strong className="global-header-title">Estuary</strong>
                 </Link>
             </div>
             <div className="sidebar-nav">

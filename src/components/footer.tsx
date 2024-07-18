@@ -34,7 +34,7 @@ const Footer = () => {
                             layout="fixed"
                             placeholder="none"
                         />
-                        <h1 className="global-footer-title">Estuary</h1>
+                        <strong className="global-footer-title">Estuary</strong>
                     </Link>
                     <p className="global-footer-subtext">
                         Estuary provides real-time data integration and ETL for
