@@ -179,7 +179,7 @@ const cfg: GatsbyConfig = {
                 // Plugins configs (optional but most likely you need one)
                 plugins: [
                     {
-                        resolve: `gatsby-rehype-inline-images`,
+                        resolve: '@draftbox-co/gatsby-rehype-inline-images',
                         // all options are optional and can be omitted
                         options: {
                             // all images larger are scaled down to maxWidth (default: maxWidth = imageWidth)
