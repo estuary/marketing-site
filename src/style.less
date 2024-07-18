@@ -295,6 +295,11 @@ span {
     height: 116px;
     top: 0;
 
+    @media (max-width: 1536px) {
+        padding-left: ~'calc(min(2vw,160px))';
+        padding-right: ~'calc(min(2vw,160px))';
+    }
+
     @media (max-width: 768px) {
         justify-content: space-between;
 
@@ -308,6 +313,12 @@ span {
         gap: 12px;
         padding-left: 7%;
         padding-right: 28px;
+
+        @media (max-width: 1280px) {
+            padding-left: 4%;
+            padding-right: 0;
+            gap: 0;
+        }
 
         .global-header-link {
             display: flex;
