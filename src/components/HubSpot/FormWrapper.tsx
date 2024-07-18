@@ -5,12 +5,8 @@ import HubspotForm from 'react-hubspot-form';
 function HubSpotFormWrapper() {
     const handleSubmit = (event) => {
         window.dataLayer?.push({
-            'event': 'form_submit',
+            'event': 'hubspot_modal_form',
             'hs-form-guid': event.formId,
-            'eventModel': {
-                form_id: 'hubspot_modal_form',
-                form_destination: window.location.href,
-            },
         });
     };
 
