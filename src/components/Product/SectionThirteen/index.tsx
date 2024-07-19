@@ -1,17 +1,14 @@
 import React from 'react';
 
 import { StaticImage } from 'gatsby-plugin-image';
-import { ButtonFilled } from '../../../globalStyles';
 import { DefaultWrapperDarkBlue } from '../../../styles/wrappers';
+import NewsletterSignupForm from '../../NewsletterSignupForm';
 import {
-    Form,
     FormFields,
+    FormLabel,
+    FormWrapper,
     IconWrapper,
     ImageWrapper,
-    Input,
-    InputAndButton,
-    InputIconWrapper,
-    Subtitle,
     TermsAndConditions,
     Title,
 } from './styles';
@@ -19,7 +16,7 @@ import {
 const SectionThirteen = () => {
     return (
         <DefaultWrapperDarkBlue>
-            <Form id="newsletter-signup">
+            <FormWrapper>
                 <ImageWrapper>
                     <StaticImage
                         placeholder="none"
@@ -38,26 +35,11 @@ const SectionThirteen = () => {
                         />
                     </IconWrapper>
                     <Title>DON&apos;T MISS A THING</Title>
-                    <Subtitle>
+                    <FormLabel htmlFor="newsletter-signup">
                         Join our newsletter to get best practices, events, and
                         news.
-                    </Subtitle>
-                    <InputAndButton>
-                        <InputIconWrapper>
-                            <StaticImage
-                                placeholder="none"
-                                alt="Email icon"
-                                src="../../../svgs/product-page/section-thirteen/email-outlined.svg"
-                                layout="constrained"
-                            />
-                        </InputIconWrapper>
-                        <Input
-                            placeholder="Enter your email"
-                            type="email"
-                            required
-                        />
-                        <ButtonFilled type="submit">Submit</ButtonFilled>
-                    </InputAndButton>
+                    </FormLabel>
+                    <NewsletterSignupForm inputPlaceholder="Enter your email" />
                     <TermsAndConditions>
                         By subscribing I agree with{' '}
                         <a href="/terms" target="_blank">
@@ -65,7 +47,7 @@ const SectionThirteen = () => {
                         </a>
                     </TermsAndConditions>
                 </FormFields>
-            </Form>
+            </FormWrapper>
         </DefaultWrapperDarkBlue>
     );
 };
