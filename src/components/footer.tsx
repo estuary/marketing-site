@@ -6,6 +6,7 @@ import GithubIcon from '../svgs/github-outline.svg';
 import LinkedinIcon from '../svgs/linkedin-outline.svg';
 import SlackIcon from '../svgs/slack-outline.svg';
 import TwitterIcon from '../svgs/twitter-outline.svg';
+import NewsletterSignupForm from './NewsletterSignupForm';
 
 const openCookiePreferences = () => {
     try {
@@ -51,22 +52,7 @@ const Footer = () => {
                             Subscribe now to get the latest news and updates.
                         </p>
                     </div>
-                    <div className="global-footer-subscribe">
-                        <form id="newsletter-signup" className="email-form">
-                            <input
-                                className="global-footer-input-email"
-                                placeholder="Email"
-                                type="email"
-                                required
-                            />
-                            <button
-                                type="submit"
-                                className="global-footer-button global-footer-input-button-submit"
-                            >
-                                Submit
-                            </button>
-                        </form>
-                    </div>
+                    <NewsletterSignupForm />
                 </div>
                 <div className="global-footer-right">
                     <div className="global-footer-right-link-wrapper">

@@ -1,15 +1,15 @@
 import { GatsbyImage, StaticImage, getImage } from 'gatsby-plugin-image';
-import React, { ChangeEvent, useState } from 'react';
+import React from 'react';
 import ActiveUsersIcon from '../../../svgs/metric-active-users.svg';
 import LatencyIcon from '../../../svgs/metric-latency.svg';
 import OfConnectorsIcon from '../../../svgs/metric-of-connectors.svg';
 import SingleDataflowIcon from '../../../svgs/metric-single-dataflow.svg';
 
-import { ButtonFilled } from '../../../globalStyles';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import EstuaryLogo from '../../../svgs/colored-logo.svg';
 import OpenHubspotModal from '../../HubSpot/OpenModal';
 import MetricCard from '../../MetricCard';
+import NewsletterSignupForm from '../../NewsletterSignupForm';
 import VanityLogosMarquee from '../../VanityLogosMarquee';
 import { Connector } from '../shared';
 import {
@@ -21,18 +21,13 @@ import {
     columnLeft,
     columnRight,
     contactUsCta,
-    emailInput,
-    formFields,
-    getStartedCta,
     iconWrapper,
     imageWrapper,
-    inputIconWrapper,
     mainContent,
     metricCardsList,
     middleLine,
     preTitle,
     preTitleWrapper,
-    primaryButton,
     secondaryButton,
     semiCircleLeftSide,
     semiCircleMiddle,
@@ -48,24 +43,12 @@ export interface SectionOneProps {
 }
 
 const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
-    const [email, setEmail] = useState('');
-
-    const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
-        setEmail(event.target.value);
-    };
-
     const sourceConnectorLogo = getImage(
         sourceConnector.logo?.childImageSharp?.gatsbyImageData
     );
     const destinationConnectorLogo = getImage(
         destConnector.logo?.childImageSharp?.gatsbyImageData
     );
-
-    const handleFormSubmission = (ev: { preventDefault: () => void }) => {
-        ev.preventDefault();
-        window.open('https://dashboard.estuary.dev/register');
-        setEmail('');
-    };
 
     return (
         <section className={defaultWrapperDarkBlue}>
@@ -89,38 +72,14 @@ const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
                         STREAM DATA FROM {sourceConnector.title} TO{' '}
                         {destConnector.title}
                     </h2>
-                    <form
-                        id="newsletter-signup"
-                        className={getStartedCta}
-                        onSubmit={handleFormSubmission}
-                    >
-                        <label>Enter your company e-mail to register</label>
-                        <div className={formFields}>
-                            <div className={inputIconWrapper}>
-                                <StaticImage
-                                    placeholder="none"
-                                    alt="Email icon"
-                                    src="../../../svgs/product-page/section-thirteen/email-outlined.svg"
-                                    layout="constrained"
-                                />
-                            </div>
-                            <input
-                                placeholder="Email"
-                                type="email"
-                                required
-                                className={emailInput}
-                                value={email}
-                                onChange={handleEmailChange}
-                            />
-                            {/* TODO: Move this button style to LESS */}
-                            <ButtonFilled
-                                type="submit"
-                                className={primaryButton}
-                            >
-                                Get Started
-                            </ButtonFilled>
-                        </div>
-                    </form>
+                    <label htmlFor="newsletter-signup" className="label">
+                        Enter your company e-mail to register
+                    </label>
+                    <NewsletterSignupForm
+                        inputPlaceholder="Email"
+                        buttonTitle="Get Started"
+                        redirectUrl="https://dashboard.estuary.dev/register"
+                    />
                 </div>
                 <div className={columnRight}>
                     {sourceConnectorLogo && destinationConnectorLogo ? (

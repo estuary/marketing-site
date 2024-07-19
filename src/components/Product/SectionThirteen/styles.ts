@@ -16,7 +16,7 @@ export const Title = styled.h2`
     }
 `;
 
-export const Subtitle = styled.p`
+export const FormLabel = styled.label`
     font-size: 1.25rem;
     font-weight: 400;
     line-height: 30px;
@@ -28,7 +28,7 @@ export const Subtitle = styled.p`
     }
 `;
 
-export const Form = styled.form`
+export const FormWrapper = styled.div`
     ${globalMaxWidth};
     display: flex;
     align-items: center;
@@ -50,54 +50,6 @@ export const FormFields = styled.div`
 export const ImageWrapper = styled.div`
     max-width: 536px;
     width: 100%;
-`;
-
-export const InputAndButton = styled.div`
-    display: flex;
-    gap: 24px;
-    position: relative;
-
-    @media (max-width: 425px) {
-        flex-direction: column;
-    }
-`;
-
-export const Input = styled.input`
-    max-width: 492px;
-    min-width: 205px;
-    width: 100%;
-    height: 56px;
-    border: 1px solid #d7dce5;
-    border-radius: 4px;
-    text-indent: 24px;
-    padding-left: 24px;
-
-    &::placeholder {
-        color: #47506d;
-        line-height: 20px;
-    }
-
-    &:focus {
-        outline: none;
-    }
-`;
-
-export const InputIconWrapper = styled.div`
-    width: 21px;
-    height: 21px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    z-index: 1;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 16px;
-    padding: 1px;
-
-    @media (max-width: 425px) {
-        top: 20.5%;
-    }
 `;
 
 export const IconWrapper = styled.div`

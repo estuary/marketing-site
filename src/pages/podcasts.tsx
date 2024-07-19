@@ -1,5 +1,6 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
+import NewsletterSignupForm from '../components/NewsletterSignupForm';
 import { OutboundLink } from '../components/OutboundLink';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
@@ -135,14 +136,7 @@ const LpPodcats = () => {
                                 Subscribe to our newsletter to get the latest
                                 news and updates
                             </div>
-                            <div className="input-wrap">
-                                <input
-                                    type="email"
-                                    placeholder="Email"
-                                    required
-                                />
-                                <button type="submit">Submit</button>
-                            </div>
+                            <NewsletterSignupForm />
                         </div>
                         <div className="subscribe-right">
                             <SubscribeYoutubeImage />
