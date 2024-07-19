@@ -300,12 +300,22 @@ span {
         padding-right: ~'calc(min(2vw,160px))';
     }
 
+    @media (max-width: 1024px) {
+        padding-left: ~'calc(min(10vw,160px))';
+        padding-right: ~'calc(min(10vw,160px))';
+    }
+
     @media (max-width: 768px) {
         justify-content: space-between;
 
         .hide-on-mobile {
             display: none;
         }
+    }
+
+    @media (max-width: 425px) {
+        padding-left: ~'calc(min(10vw, 20px))';
+        padding-right: ~'calc(min(10vw, 20px))';
     }
 
     .global-header-links {
