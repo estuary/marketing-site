@@ -6,6 +6,7 @@ import HubSpotFormWrapper from '../components/HubSpot/FormWrapper';
 import Layout from '../components/layout';
 import { OutboundLink } from '../components/OutboundLink';
 import Seo from '../components/seo';
+import { estuaryHelpsYourTeam } from '../content/seo';
 import CareerAvatar from '../svgs/about-careers-avatar-icon.svg';
 import BenefitsIcon from '../svgs/about-careers-benefits-icon.svg';
 import BuildingsIcon from '../svgs/about-careers-building.svg';
@@ -14,7 +15,6 @@ import CultureIcon from '../svgs/about-careers-culture-icon.svg';
 import EstuaryLogoSmall from '../svgs/estuary-logo-small.svg';
 import FlowLogo from '../svgs/flow-logo.svg';
 import LinkIcon from '../svgs/link-icon.svg';
-import { estuaryHelpsYourTeam } from '../content/seo';
 
 // const jobs = [
 //     {
@@ -138,8 +138,6 @@ const AboutPage = () => {
             }
         }
     `);
-
-    console.log('employees', employees);
 
     return (
         <Layout>
@@ -331,24 +329,39 @@ const AboutPage = () => {
                     say hello
                 </p>
                 <h2 className="about-section-header-top">Meet Our Team</h2>
-                <div className="team-wrap">
-                    {employees.map((employee, index) => (
-                        <div className="team-item employee-list" key={index}>
-                            <GatsbyImage
-                                image={
-                                    employee.ProfilePic.localFile
-                                        .childImageSharp.gatsbyImageData
-                                }
-                                alt="debezium alternatives"
-                                className="employee-img"
-                            />
-                            <div className="item-name">{employee.name}</div>
-                            <div className="item-position">
-                                {employee.title}
+                <ul className="team-wrap">
+                    {employees.map((employee, index) => {
+                        const employeeDetails = {
+                            'Dave Yaffe':
+                                'Dave Yaffe - CEO & Co-founder at Estuary',
+                            'Johnny Graettinger':
+                                'Johnny Graettinger - CTO & Co-founder at Estuary',
+                        };
+
+                        return (
+                            <div
+                                className="team-item employee-list"
+                                key={index}
+                            >
+                                <GatsbyImage
+                                    image={
+                                        employee.ProfilePic.localFile
+                                            .childImageSharp.gatsbyImageData
+                                    }
+                                    alt={
+                                        employeeDetails[employee.name] ||
+                                        employee.name
+                                    }
+                                    className="employee-img"
+                                />
+                                <div className="item-name">{employee.name}</div>
+                                <div className="item-position">
+                                    {employee.title}
+                                </div>
                             </div>
-                        </div>
-                    ))}
-                </div>
+                        );
+                    })}
+                </ul>
             </section>
             <section className="investors">
                 <h2 className="investors-heading">Our Investors</h2>
