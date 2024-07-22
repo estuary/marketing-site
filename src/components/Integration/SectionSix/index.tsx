@@ -20,7 +20,7 @@ const SectionSix = () => {
                 image={
                     <StaticImage
                         src="../../../images/real-time-graphic.png"
-                        alt="Real-time graphic"
+                        alt="Real-time ETL with Estuary Flow: Seamlessly move data from source to destination for immediate analysis and actionable insights."
                         placeholder="none"
                         loading="lazy"
                         layout="constrained"

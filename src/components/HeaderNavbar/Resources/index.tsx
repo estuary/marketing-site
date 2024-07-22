@@ -5,6 +5,7 @@ import { webinarsUrl } from '../../../../shared';
 import { LinkOutlined } from '../../../globalStyles';
 import Carousel from '../../Carousel';
 import { OutboundLinkOutlined } from '../../OutboundLink';
+import Card from '../Card';
 import CardItem from '../CardItem';
 import {
     ColumnWithTwoRows,
@@ -14,7 +15,6 @@ import {
     MenuAccordionContent,
     Slide,
 } from '../styles';
-import Card from '../Card';
 import { caseStudies, listen, read } from './items';
 import ResourcesLink from './Link';
 
@@ -69,7 +69,7 @@ const HeaderNavbarResources = ({ active, setActive }) => {
                                 <ImageWrapper>
                                     <StaticImage
                                         src="../../../images/product-tour-2min.png"
-                                        alt="Product tour - 2 minutes"
+                                        alt="Estuary Flow Product tour - 2 minutes"
                                     />
                                 </ImageWrapper>
                                 <LinkOutlined
@@ -85,7 +85,7 @@ const HeaderNavbarResources = ({ active, setActive }) => {
                                 <ImageWrapper>
                                     <StaticImage
                                         src="../../../images/real-time-101-30min.png"
-                                        alt="Product tour - 2 minutes"
+                                        alt="Deploy CDC and Streaming ETL in Minutes Using Estuary Flow"
                                     />
                                 </ImageWrapper>
                                 <OutboundLinkOutlined
