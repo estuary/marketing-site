@@ -330,37 +330,22 @@ const AboutPage = () => {
                 </p>
                 <h2 className="about-section-header-top">Meet Our Team</h2>
                 <ul className="team-wrap">
-                    {employees.map((employee, index) => {
-                        const employeeDetails = {
-                            'Dave Yaffe':
-                                'Dave Yaffe - CEO & Co-founder at Estuary',
-                            'Johnny Graettinger':
-                                'Johnny Graettinger - CTO & Co-founder at Estuary',
-                        };
-
-                        return (
-                            <div
-                                className="team-item employee-list"
-                                key={index}
-                            >
-                                <GatsbyImage
-                                    image={
-                                        employee.ProfilePic.localFile
-                                            .childImageSharp.gatsbyImageData
-                                    }
-                                    alt={
-                                        employeeDetails[employee.name] ||
-                                        employee.name
-                                    }
-                                    className="employee-img"
-                                />
-                                <div className="item-name">{employee.name}</div>
-                                <div className="item-position">
-                                    {employee.title}
-                                </div>
+                    {employees.map((employee, index) => (
+                        <div className="team-item employee-list" key={index}>
+                            <GatsbyImage
+                                image={
+                                    employee.ProfilePic.localFile
+                                        .childImageSharp.gatsbyImageData
+                                }
+                                alt={`${employee.name} - ${employee.title}`}
+                                className="employee-img"
+                            />
+                            <div className="item-name">{employee.name}</div>
+                            <div className="item-position">
+                                {employee.title}
                             </div>
-                        );
-                    })}
+                        </div>
+                    ))}
                 </ul>
             </section>
             <section className="investors">

@@ -89,7 +89,6 @@ const ComparisonPageTemplate = ({
         allPages: { nodes: allPages },
     },
 }) => {
-    console.log(allPages);
     return (
         <Layout>
             <div className="lp-comparison-wrap">
