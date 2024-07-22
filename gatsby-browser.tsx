@@ -1,6 +1,3 @@
-// custom typefaces
-import '@fontsource/merriweather';
-import '@fontsource/montserrat/variable.css';
 import * as React from 'react';
 // normalize CSS across browsers
 import './src/normalize.css';

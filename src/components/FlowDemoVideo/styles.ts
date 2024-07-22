@@ -32,7 +32,6 @@ export const Container = styled.div`
 `;
 
 export const VideoTextAndButton = styled.div`
-    font-family: 'Inter', sans-serif;
     position: absolute;
     font-size: 1.5rem;
     line-height: 30px;

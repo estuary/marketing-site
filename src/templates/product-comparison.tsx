@@ -13,7 +13,6 @@ import EstuaryLogo from '../svgs/colored-logo.svg';
 export const AboutUsWrapper = styled.div`
     ${globalMaxWidth}
     ${sectionTopBottomPadding}
-    font-family: 'Inter', sans-serif;
     font-style: normal;
     display: flex;
     justify-content: space-between;

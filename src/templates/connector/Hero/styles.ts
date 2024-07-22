@@ -57,7 +57,6 @@ export const logoImageStyle: CSSProperties = {
 };
 
 const TextBaseStyling = styled.span`
-    font-family: 'Inter', sans-serif;
     text-transform: uppercase;
     font-size: 1rem;
     font-weight: 600;

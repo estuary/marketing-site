@@ -108,6 +108,30 @@ const cfg: GatsbyConfig = {
     // graphqlTypegen: true,
     plugins: [
         {
+            resolve: `gatsby-plugin-webfonts`,
+            options: {
+                fonts: {
+                    google: [
+                        {
+                            family: `Inter`,
+                            variants: [
+                                `200`,
+                                `300`,
+                                `400`,
+                                `500`,
+                                `600`,
+                                `700`,
+                            ],
+                        },
+                    ],
+                },
+                formats: ['woff2', 'woff'],
+                useMinify: true,
+                usePreload: true,
+                usePreconnect: true,
+            },
+        },
+        {
             resolve: 'gatsby-plugin-preconnect',
             options: {
                 domains: ['https://hs-banner.com', 'https://hs-scripts.com'],
