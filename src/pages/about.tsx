@@ -6,6 +6,7 @@ import HubSpotFormWrapper from '../components/HubSpot/FormWrapper';
 import Layout from '../components/layout';
 import { OutboundLink } from '../components/OutboundLink';
 import Seo from '../components/seo';
+import { estuaryHelpsYourTeam } from '../content/seo';
 import CareerAvatar from '../svgs/about-careers-avatar-icon.svg';
 import BenefitsIcon from '../svgs/about-careers-benefits-icon.svg';
 import BuildingsIcon from '../svgs/about-careers-building.svg';
@@ -14,7 +15,6 @@ import CultureIcon from '../svgs/about-careers-culture-icon.svg';
 import EstuaryLogoSmall from '../svgs/estuary-logo-small.svg';
 import FlowLogo from '../svgs/flow-logo.svg';
 import LinkIcon from '../svgs/link-icon.svg';
-import { estuaryHelpsYourTeam } from '../content/seo';
 
 // const jobs = [
 //     {
@@ -138,8 +138,6 @@ const AboutPage = () => {
             }
         }
     `);
-
-    console.log('employees', employees);
 
     return (
         <Layout>
@@ -331,7 +329,7 @@ const AboutPage = () => {
                     say hello
                 </p>
                 <h2 className="about-section-header-top">Meet Our Team</h2>
-                <div className="team-wrap">
+                <ul className="team-wrap">
                     {employees.map((employee, index) => (
                         <div className="team-item employee-list" key={index}>
                             <GatsbyImage
@@ -339,7 +337,7 @@ const AboutPage = () => {
                                     employee.ProfilePic.localFile
                                         .childImageSharp.gatsbyImageData
                                 }
-                                alt="debezium alternatives"
+                                alt={`${employee.name} - ${employee.title}`}
                                 className="employee-img"
                             />
                             <div className="item-name">{employee.name}</div>
@@ -348,7 +346,7 @@ const AboutPage = () => {
                             </div>
                         </div>
                     ))}
-                </div>
+                </ul>
             </section>
             <section className="investors">
                 <h2 className="investors-heading">Our Investors</h2>

@@ -114,7 +114,7 @@ const SectionTwo = () => {
                 {isMobile ? (
                     <StaticImage
                         placeholder="none"
-                        alt="dataflow graphic"
+                        alt="Estuary Flow streamlines complex data workflows by integrating diverse data sources and destinations"
                         src="../../../images/flow-mobile.png"
                         layout="constrained"
                         quality={100}
@@ -122,7 +122,7 @@ const SectionTwo = () => {
                 ) : (
                     <StaticImage
                         placeholder="none"
-                        alt="dataflow graphic"
+                        alt="Estuary Flow streamlines complex data workflows by integrating diverse data sources and destinations"
                         src="../../../images/flow-desktop.png"
                         layout="constrained"
                         quality={100}

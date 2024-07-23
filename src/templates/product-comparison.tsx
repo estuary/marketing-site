@@ -118,7 +118,7 @@ const ComparisonPageTemplate = ({
                                     DescriptivePicture.localFile.childImageSharp
                                         .gatsbyImageData
                                 }
-                                alt={`${competitorName} logo`}
+                                alt={`ETL Tools Pricing Comparison: Estuary Flow vs. ${competitorName}`}
                                 className="hero-logo competitor"
                                 loading="eager"
                             />
@@ -182,7 +182,7 @@ const ComparisonPageTemplate = ({
                                                     .childImageSharp
                                                     .gatsbyImageData
                                             }
-                                            alt={`${competitorName} logo`}
+                                            alt={`${item.their_name} logo`}
                                             loading="eager"
                                         />
                                     </Link>
