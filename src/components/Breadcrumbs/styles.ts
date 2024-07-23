@@ -7,7 +7,6 @@ export const Container = styled.nav`
 `;
 
 export const Links = styled.ol`
-    font-family: 'Inter', sans-serif;
     font-size: 1rem;
     line-height: 28.8px;
     height: 28.8px;

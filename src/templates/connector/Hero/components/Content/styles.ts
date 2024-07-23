@@ -117,24 +117,28 @@ export const Topic = styled.li`
     color: #47506d;
     display: flex;
     align-items: center;
-    gap: 13px;
+    gap: 6px;
     line-height: 30px;
 
     @media (min-width: 1500px) {
-        font-size: 16px;
+        font-size: 1rem;
     }
 
-    span {
-        color: #5072eb;
-        font-weight: 700;
+    @media (min-width: 375px) {
+        white-space: nowrap;
     }
 
     @media (max-width: 1440px) {
         font-size: 0.875rem;
     }
 
-    @media (max-width: 1300px) {
+    @media (max-width: 1299px) {
         font-size: 1rem;
         line-height: 19.2px;
+    }
+
+    span {
+        color: #5072eb;
+        font-weight: 700;
     }
 `;

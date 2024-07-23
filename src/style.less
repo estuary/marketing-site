@@ -28,14 +28,7 @@
     --spacing-20: 5rem;
     --spacing-24: 6rem;
     --spacing-32: 8rem;
-    --fontFamily-sans: 'Inter', 'MontserratVariable', system-ui, -apple-system,
-        BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-        'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
-    --fontFamily-serif: 'Merriweather', 'Georgia', Cambria, 'Times New Roman',
-        Times, serif;
-    --font-body: var(--fontFamily-serif);
-    --font-heading: var(--fontFamily-sans);
+    --font-family: "Inter", sans-serif;
     --fontWeight-normal: 400;
     --fontWeight-bold: 700;
     --fontWeight-black: 900;
@@ -87,7 +80,7 @@ html {
 }
 
 body {
-    font-family: var(--font-body);
+    font-family: var(--font-family);
     font-size: var(--fontSize-1);
     color: var(--color-text);
     width: 100%;
@@ -119,7 +112,6 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Inter', sans-serif;
     font-style: normal;
     margin-top: var(--spacing-12);
     margin-bottom: var(--spacing-6);
@@ -183,7 +175,6 @@ p {
     line-height: var(--lineHeight-relaxed);
     --baseline-multiplier: 0.179;
     --x-height-multiplier: 0.35;
-    font-family: 'Inter', sans-serif;
     font-style: normal;
 }
 
@@ -219,7 +210,6 @@ li>ul {
 
 li,
 label {
-    font-family: 'Inter', sans-serif;
     font-style: normal;
 }
 
@@ -258,19 +248,16 @@ table thead tr th {
 
 a {
     color: var(--color-primary);
-    font-family: 'Inter', sans-serif;
     font-style: normal;
     text-decoration: none;
 }
 
 button,
 input {
-    font-family: 'Inter', sans-serif;
     font-style: normal;
 }
 
 span {
-    font-family: 'Inter', sans-serif;
     font-style: normal;
 }
 
@@ -454,7 +441,6 @@ span {
     text-transform: uppercase;
     font-size: 33px;
     line-height: 33px;
-    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 600;
     margin: 31px 0;
@@ -490,7 +476,6 @@ span {
 
 .global-header-link {
     text-decoration: none !important;
-    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
@@ -512,7 +497,6 @@ span {
 .global-header-menu-link {
     text-decoration: none;
     color: black;
-    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -564,7 +548,6 @@ span {
     background-color: #04192b;
     color: #9aa8be;
     margin: auto 14px;
-    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -578,7 +561,6 @@ span {
     text-align: center;
     margin-top: auto;
     margin-bottom: auto;
-    font-family: 'Inter', sans-serif;
     font-style: normal;
     text-wrap: nowrap;
 }
@@ -774,7 +756,6 @@ span {
     text-transform: uppercase;
     font-size: 33px;
     line-height: 33px;
-    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 600;
     margin-bottom: 48px;
@@ -783,7 +764,6 @@ span {
 
 .global-footer-subtext {
     color: #b7c6dd;
-    font-family: 'Inter', sans-serif;
     font-style: normal;
     max-width: 400px;
 }
@@ -792,7 +772,6 @@ span {
     color: #ffffff;
     font-weight: 700;
     font-size: 18px;
-    font-family: 'Inter', sans-serif;
     font-style: normal;
     margin-bottom: 8px;
     margin-top: 0;
@@ -933,13 +912,6 @@ span {
     margin-bottom: var(--spacing-4);
 }
 
-.header-link-home {
-    font-weight: var(--fontWeight-bold);
-    font-family: var(--font-heading);
-    text-decoration: none;
-    font-size: var(--fontSize-2);
-}
-
 .global-header-mobile-menu {
     display: none;
 }
@@ -1062,7 +1034,6 @@ span {
 .blog-post header {
     display: flex;
     flex-direction: column;
-    font-family: 'Inter', sans-serif;
 }
 
 .blog-post section img {
@@ -1071,7 +1042,6 @@ span {
 }
 
 .blog-post section {
-    font-family: 'Inter', sans-serif;
     font-style: normal;
     letter-spacing: -0.025em;
 }
@@ -1120,7 +1090,6 @@ nav.blog-post-nav {
 }
 
 table {
-    font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
 }
@@ -1179,7 +1148,6 @@ table th {
 
 .blog-post header p {
     font-size: var(--fontSize-2);
-    font-family: var(--font-heading);
 }
 
 .blog-post-nav ul {
@@ -1241,7 +1209,6 @@ table th {
     height: 60px;
     text-align: center;
     line-height: 40px;
-    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: var(--fontSize-1);
@@ -1818,7 +1785,6 @@ table th {
     height: 60px;
     text-align: center;
     line-height: 40px;
-    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: var(--fontSize-1);
@@ -1834,7 +1800,6 @@ table th {
     height: 60px;
     text-align: center;
     line-height: 40px;
-    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: var(--fontSize-1);
@@ -1954,7 +1919,6 @@ table th {
     width: 240px;
     height: 60px;
     text-align: center;
-    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -2771,7 +2735,6 @@ table th {
         padding: 12px;
         width: 100%;
         height: 44px;
-        font-family: 'Inter', sans-serif;
         font-style: normal;
         font-weight: 400;
         font-size: var(--fontSize-0);
@@ -3031,7 +2994,6 @@ table th {
             }
 
             .hero-heading {
-                font-family: 'Inter', sans-serif;
                 font-weight: 500;
                 font-size: 71px;
                 line-height: 86px;
@@ -3046,7 +3008,6 @@ table th {
             }
 
             .hero-subheading {
-                font-family: 'Inter', sans-serif;
                 font-weight: 400;
                 font-size: 18px;
                 line-height: 30px;
@@ -3083,7 +3044,6 @@ table th {
         .globalMaxWidth;
 
         .episodes-heading {
-            font-family: 'Inter', sans-serif;
             font-weight: 500;
             font-size: 36px;
             line-height: 48px;
@@ -3141,7 +3101,6 @@ table th {
                 }
 
                 .episode-heading {
-                    font-family: 'Inter', sans-serif;
                     font-weight: 700;
                     font-size: 24px;
                     line-height: 30px;
@@ -3155,7 +3114,6 @@ table th {
                 }
 
                 .episode-description {
-                    font-family: 'Inter', sans-serif;
                     font-weight: 400;
                     font-size: 18px;
                     line-height: 30px;
@@ -3231,7 +3189,6 @@ table th {
         }
 
         .subscribe-heading {
-            font-family: 'Inter', sans-serif;
             font-weight: 500;
             font-size: 56px;
             line-height: 68px;
@@ -3252,7 +3209,6 @@ table th {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-family: 'Inter', sans-serif;
             font-weight: 400;
             font-size: 24px;
             line-height: 140%;
@@ -3284,7 +3240,6 @@ table th {
         }
 
         .subscribe-subheading {
-            font-family: 'Inter', sans-serif;
             font-weight: 400;
             font-size: 24px;
             line-height: 140%;
@@ -3322,7 +3277,6 @@ table th {
     }
 
     .signup-heading {
-        font-family: 'Inter', sans-serif;
         font-weight: 500;
         font-size: 56px;
         line-height: 68px;
@@ -3360,7 +3314,6 @@ table th {
             background: #5072eb;
             border-radius: 6px;
             padding: 20px 28px;
-            font-family: 'Inter', sans-serif;
             font-weight: 500;
             font-size: 18px;
             line-height: 20px;
@@ -3420,7 +3373,6 @@ table th {
             }
 
             .hero-heading {
-                font-family: 'Inter', sans-serif;
                 font-weight: 500;
                 font-size: 71px;
                 line-height: 86px;
@@ -3441,7 +3393,6 @@ table th {
             }
 
             .hero-subheading {
-                font-family: 'Inter', sans-serif;
                 font-weight: 400;
                 font-size: 18px;
                 line-height: 30px;
@@ -3460,7 +3411,6 @@ table th {
             position: relative;
             color: #000;
             font-size: 36px;
-            font-family: 'Inter', sans-serif;
             font-weight: 500;
             line-height: 48px;
             letter-spacing: 0.4px;
@@ -3548,7 +3498,6 @@ table th {
         }
 
         .heading-item {
-            font-family: 'Inter', sans-serif;
             font-style: normal;
             font-weight: 700;
             font-size: 18px;
@@ -3585,7 +3534,6 @@ table th {
         .estuary-value,
         .competitor-value,
         .matters-value {
-            font-family: 'Inter', sans-serif;
             font-style: normal;
             font-weight: 400;
             font-size: 16px;
@@ -3617,7 +3565,6 @@ table th {
                 background: #f7f7f7;
                 border-bottom: 1px solid rgba(0, 0, 0, 0.1);
                 padding: 4px 16px;
-                font-family: 'Inter', sans-serif;
                 font-style: normal;
                 font-weight: 700;
                 font-size: 16px;
@@ -3638,7 +3585,6 @@ table th {
 
             div {
                 @media (max-width: 845px) {
-                    font-family: 'Inter', sans-serif;
                     font-style: normal;
                     font-weight: 600;
                     font-size: 14px;
@@ -3662,7 +3608,6 @@ table th {
 
             div {
                 @media (max-width: 845px) {
-                    font-family: 'Inter', sans-serif;
                     font-style: normal;
                     font-weight: 600;
                     font-size: 14px;
@@ -3685,7 +3630,6 @@ table th {
 
             div {
                 @media (max-width: 845px) {
-                    font-family: 'Inter', sans-serif;
                     font-style: normal;
                     font-weight: 600;
                     font-size: 14px;
@@ -3735,7 +3679,6 @@ table th {
             background: #5072eb;
             border-radius: 6px;
             padding: 20px 28px;
-            font-family: 'Inter', sans-serif;
             font-weight: 500;
             font-size: 18px;
             line-height: 20px;
@@ -3760,7 +3703,6 @@ table th {
         }
 
         .comparison-heading {
-            font-family: 'Inter', sans-serif;
             font-style: normal;
             font-weight: 500;
             font-size: 56px;
@@ -3851,7 +3793,6 @@ table th {
         }
 
         .image-heading {
-            font-family: 'Inter', sans-serif;
             font-style: normal;
             font-weight: 700;
             font-size: 18px;
@@ -3979,7 +3920,6 @@ table th {
         }
 
         .item-heading {
-            font-family: 'Inter', sans-serif;
             font-style: normal;
             font-weight: 600;
             font-size: 24px;
@@ -4001,7 +3941,6 @@ table th {
         }
 
         .item-description {
-            font-family: 'Inter', sans-serif;
             font-style: normal;
             font-weight: 400;
             font-size: 18px;
@@ -4059,7 +3998,6 @@ table th {
             }
 
             .item-name {
-                font-family: 'Inter', sans-serif;
                 font-style: normal;
                 font-weight: 600;
                 font-size: 24px;
@@ -4078,7 +4016,6 @@ table th {
             }
 
             .item-position {
-                font-family: 'Inter', sans-serif;
                 font-style: normal;
                 font-weight: 400;
                 font-size: 18px;
@@ -4169,7 +4106,6 @@ table th {
         .sidebar-nav {
             .nav-item {
                 color: #979797;
-                font-family: 'Inter', sans-serif;
                 font-size: 22px;
                 font-style: normal;
                 font-weight: 600;
@@ -4190,7 +4126,6 @@ table th {
 
                 li {
                     color: #979797;
-                    font-family: 'Inter', sans-serif;
                     font-size: 16px;
                     font-style: normal;
                     font-weight: 500;
@@ -4224,7 +4159,6 @@ table th {
                 background: #5072eb;
                 border-radius: 6px;
                 color: #fff;
-                font-family: Inter, sans-serif;
                 font-size: 18px;
                 font-weight: 700;
                 line-height: 20px;
@@ -4237,7 +4171,6 @@ table th {
             .doc-link {
                 color: #fff;
                 text-align: center;
-                font-family: 'Inter', sans-serif;
                 font-size: 18px;
                 font-style: normal;
                 font-weight: 700;
@@ -4469,7 +4402,6 @@ table th {
 
         .tooltip-heading {
             color: #fff;
-            font-family: 'Inter', sans-serif;
             font-size: 24px;
             font-style: normal;
             font-weight: 700;
@@ -4483,7 +4415,6 @@ table th {
 
         .tooltip-description {
             color: #fff;
-            font-family: 'Inter', sans-serif;
             font-size: 16px;
             font-style: normal;
             font-weight: 400;
@@ -4497,7 +4428,6 @@ table th {
 
         .tooltip-action {
             color: #888;
-            font-family: 'Inter', sans-serif;
             font-size: 15px;
             font-style: normal;
             font-weight: 400;
@@ -4510,7 +4440,6 @@ table th {
 
             li {
                 color: #fff;
-                font-family: 'Inter', sans-serif;
                 font-size: 16px;
                 font-style: normal;
                 font-weight: 500;
@@ -4539,7 +4468,6 @@ table th {
         .prev-step,
         .next-step {
             color: #4a4a4a;
-            font-family: 'Inter', sans-serif;
             font-size: 20px;
             font-style: normal;
             font-weight: 400;
@@ -4638,7 +4566,6 @@ table th {
         .step-heading {
             color: #fff;
             text-align: center;
-            font-family: 'Roboto', sans-serif;
             font-size: 32px;
             font-style: normal;
             font-weight: 700;
@@ -4665,7 +4592,6 @@ table th {
         .step-subheading {
             p {
                 color: #fff;
-                font-family: 'Roboto', sans-serif;
                 font-size: 22px;
                 font-style: normal;
                 font-weight: 400;
@@ -4692,7 +4618,6 @@ table th {
             background: #5072eb;
             border-radius: 6px;
             color: #fff;
-            font-family: Inter, sans-serif;
             font-size: 18px;
             font-weight: 700;
             line-height: 20px;
@@ -4899,7 +4824,6 @@ table th {
         .step-heading {
             color: #fff;
             text-align: center;
-            font-family: 'Roboto', sans-serif;
             font-size: 32px;
             font-style: normal;
             font-weight: 700;
@@ -4927,7 +4851,6 @@ table th {
             li {
                 color: #fff;
                 text-align: left;
-                font-family: 'Roboto', sans-serif;
                 font-size: 25px;
                 font-style: normal;
                 font-weight: 400;
@@ -4971,7 +4894,6 @@ table th {
                 background: #5072eb;
                 border-radius: 6px;
                 color: #fff;
-                font-family: Inter, sans-serif;
                 font-size: 18px;
                 font-weight: 700;
                 line-height: 20px;
@@ -4987,7 +4909,6 @@ table th {
             .compare-link {
                 color: #fff;
                 text-align: center;
-                font-family: 'Inter', sans-serif;
                 font-size: 18px;
                 font-style: normal;
                 font-weight: 700;
@@ -5014,7 +4935,6 @@ table th {
         background: #d7dce5;
         box-shadow: 0px 1px 2px 0px rgba(105, 81, 255, 0.05);
         color: #47506d;
-        font-family: 'Inter', sans-serif;
         font-size: 12px;
         font-style: normal;
         font-weight: 500;
@@ -5144,7 +5064,6 @@ table th {
 
             span {
                 color: #04192b !important;
-                font-family: 'Inter', sans-serif !important;
                 font-size: 2.25rem;
                 font-style: normal;
                 font-weight: 600;
@@ -5158,10 +5077,8 @@ table th {
         }
 
         h4 {
-            font-family: 'Inter', sans-serif;
 
             span {
-                font-family: 'Inter', sans-serif !important;
                 font-weight: 500 !important;
 
                 @media (max-width: 767px) {
@@ -5285,7 +5202,6 @@ table th {
         p,
         td {
             color: #47506d;
-            font-family: 'Inter', sans-serif;
             font-size: 18px;
             font-style: normal;
             font-weight: 400;
@@ -5299,7 +5215,6 @@ table th {
             span,
             a {
                 color: #47506d !important;
-                font-family: 'Inter', sans-serif !important;
                 font-size: 18px !important;
                 font-style: normal !important;
                 font-weight: 400 !important;
@@ -5319,7 +5234,6 @@ table th {
             li a,
             li {
                 color: #47506d !important;
-                font-family: 'Inter', sans-serif !important;
                 font-size: 18px !important;
                 font-style: normal !important;
                 font-weight: 400 !important;
@@ -5388,7 +5302,6 @@ table th {
             background: #5072eb;
             border-radius: 4px;
             color: #ffffff;
-            font-family: 'Inter', sans-serif;
             font-size: 1rem;
             font-weight: 400;
             line-height: 20px;
@@ -5408,7 +5321,6 @@ table th {
     .blog-post-nav {
         a {
             color: #47506d !important;
-            font-family: 'Inter', sans-serif !important;
             font-size: 16px !important;
             font-style: normal !important;
             font-weight: 500 !important;
@@ -6066,7 +5978,6 @@ table th {
             background: #5072eb;
             border-radius: 4px;
             color: #ffffff;
-            font-family: 'Inter', sans-serif;
             font-size: 1rem;
             font-weight: 400;
             line-height: 20px;

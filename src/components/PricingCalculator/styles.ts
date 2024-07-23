@@ -56,7 +56,6 @@ export const PricingSlider = muiStyled(Slider)(({
             'fontSize': '1.25rem',
             'fontWeight': 500,
             'color': isdarktheme === 'true' ? '#FFFFFF' : '#47506D', // To write it to DOM, we need to treat the boolean as string for this specific case
-            'fontFamily': 'Inter, sans-serif',
 
             '@media (max-width: 425px)': {
                 fontSize: '0.875rem',
@@ -93,7 +92,6 @@ export const SliderWrapper = styled.div`
 `;
 
 export const ComparisonWrapper = styled.div`
-    font-family: 'Inter', sans-serif;
     display: flex;
     align-items: start;
     justify-content: center;

@@ -17,7 +17,6 @@ export const Wrapper = styled.div`
 export const Container = styled.div`
     ${globalMaxWidth};
 
-    font-family: 'Inter', sans-serif;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 38px;

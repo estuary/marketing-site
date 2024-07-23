@@ -12,7 +12,6 @@ export const Container = styled(Dialog)`
         display: grid;
         grid-template-columns: 0.6fr 0.4fr;
         padding: 0;
-        font-family: 'Inter', sans-serif;
         color: #ffffff;
         margin-top: 124px;
         max-height: calc(100% - 160px);

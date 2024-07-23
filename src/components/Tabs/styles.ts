@@ -20,7 +20,6 @@ export const Tab = styled.div<{ $isActive: boolean }>`
     text-align: center;
 
     & > span {
-        font-family: 'Inter', sans-serif;
         color: ${({ $isActive }) => ($isActive ? '#5072EB' : '#D7DCE5')};
         font-weight: 600;
         font-size: 1.25rem;
