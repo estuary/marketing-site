@@ -8,6 +8,7 @@ import CalendarTodayOutlined from '@mui/icons-material/CalendarTodayOutlined';
 import DoneIcon from '@mui/icons-material/Done';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import BuildPipeLineBannerBackground from '../../components/BackgroundImages/BuildPipelineWrapper';
+import SwoopingLinesBackground from '../../components/BackgroundImages/LightSwoopingLinesRightDirectionBackground';
 import { PopularArticles } from '../../components/BlogPopularArticles';
 import BlogPostPopupModal from '../../components/BlogPostPopupModal';
 import { ProcessedPost } from '../../components/BlogPostProcessor';
@@ -18,7 +19,6 @@ import Bio from '../../components/bio';
 import Layout from '../../components/layout';
 import Seo from '../../components/seo';
 import logoUrl from '../../images/combination-mark__multi-blue.png';
-import { SwoopingLinesBackground } from '../../styles/heros';
 import { costPerGB } from '../../utils';
 import ShareArticle from './ShareArticle';
 

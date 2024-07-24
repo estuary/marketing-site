@@ -4,6 +4,7 @@ import React from 'react';
 import BackgroundImage, {
     IBackgroundImageProps,
 } from 'gatsby-background-image';
+import { commonBackgroundImageProps } from './utils';
 
 type BuildPipeLineBannerBackgroundProps = IBackgroundImageProps & {
     children?: React.ReactNode;
@@ -31,12 +32,11 @@ const BuildPipeLineBannerBackground = ({
 
     return (
         <BackgroundImage
-            Tag="section"
-            fadeIn={false}
-            critical
+            Tag="div"
             className="big-build-pipeline-banner-container"
             fluid={data.background.childImageSharp.fluid}
             backgroundColor="#04192b"
+            {...commonBackgroundImageProps}
             {...rest}
         >
             {children}

@@ -6,7 +6,7 @@ import { Divider } from '@mui/material';
 import clsx from 'clsx';
 import lunr, { type Index } from 'lunr';
 import { useMemo } from 'react';
-import BackgroundImageWrapper from '../components/BackgroundImageWrapper';
+import BigImageBackground from '../components/BackgroundImages/BigImageBackground';
 import { BlogPostCard } from '../components/BlogPostCard';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
@@ -81,7 +81,7 @@ const BlogIndex = ({
 
     return (
         <Layout>
-            <BackgroundImageWrapper>
+            <BigImageBackground>
                 <div className="blogs-index-header-wrapper">
                     <div className="blogs-index-header">
                         <div className="blog-post-header-vectors">
@@ -130,7 +130,7 @@ const BlogIndex = ({
                         <BlogPostCard key={post.Slug} {...post} />
                     ))}
                 </div>
-            </BackgroundImageWrapper>
+            </BigImageBackground>
             {prevPage ?? nextPage ? (
                 <>
                     <Divider />

@@ -1,14 +1,15 @@
 import * as React from 'react';
+import DarkSwoopingLinesLeftDirectionBackground from '../../BackgroundImages/DarkSwoopingLinesLeftDirectionBackground';
 import TestimonialsCarousel from '../../TestimonialsCarousel';
-import { Container, Wrapper } from './styles';
+import { Wrapper } from './styles';
 
 const SectionNine = () => {
     return (
-        <Container>
+        <DarkSwoopingLinesLeftDirectionBackground backgroundColor="#04192b">
             <Wrapper>
                 <TestimonialsCarousel />
             </Wrapper>
-        </Container>
+        </DarkSwoopingLinesLeftDirectionBackground>
     );
 };
 
