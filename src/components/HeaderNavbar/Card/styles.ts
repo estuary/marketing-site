@@ -1,12 +1,24 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { globalMaxWidth } from '../../../globalStyles';
+
+const adaptToHeaderMaxWidth = css`
+    @media (max-width: 1536px) {
+        padding-left: calc(min(2vw, 160px));
+        padding-right: calc(min(2vw, 160px));
+    }
+
+    @media (max-width: 1024px) {
+        padding-left: calc(min(10vw, 160px));
+        padding-right: calc(min(10vw, 160px));
+    }
+`;
 
 export const Wrapper = styled.div`
     width: 100%;
     background-color: #04192b;
     flex-direction: column;
 
-    @media (min-width: 1024px) {
+    @media (min-width: 1025px) {
         position: fixed;
         left: 50%;
         transform: translateX(-50%);
@@ -16,6 +28,7 @@ export const Wrapper = styled.div`
 
 export const Container = styled.div`
     ${globalMaxWidth};
+    ${adaptToHeaderMaxWidth};
 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -34,7 +47,7 @@ export const Container = styled.div`
         max-height: 60vh;
     }
 
-    @media (max-width: 1023px) {
+    @media (max-width: 1024px) {
         grid-template-columns: 1fr 1fr;
         padding: 0 20px;
     }
@@ -47,6 +60,7 @@ export const Container = styled.div`
 
 export const Divider = styled.div`
     ${globalMaxWidth};
+    ${adaptToHeaderMaxWidth};
 
     background-clip: content-box;
     background-color: #1b3465;
@@ -55,9 +69,6 @@ export const Divider = styled.div`
 
     @media (max-width: 1024px) {
         margin: 12px 0;
-    }
-
-    @media (max-width: 1023px) {
         padding: 0;
     }
 
