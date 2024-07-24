@@ -13,7 +13,7 @@ export const ColumnWithTwoRows = styled.div`
     display: flex;
     flex-direction: column;
 
-    @media (min-width: 1024px) {
+    @media (min-width: 1025px) {
         gap: 38px;
     }
 
