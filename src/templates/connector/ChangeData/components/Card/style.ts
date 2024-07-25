@@ -15,6 +15,10 @@ export const Container: any = styled.div`
         padding: 10px 16px;
         max-width: 320px;
     }
+
+    @media (max-width: 425px) {
+        border-radius: 40px;
+    }
 `;
 
 export const ContainerImage = styled.div`
@@ -52,7 +56,6 @@ export const Title = styled.h3`
 export const Description = styled.p`
     font-weight: 400;
     font-size: 14px;
-    line-height: 30px;
     color: #47506d;
     margin: 0;
 
