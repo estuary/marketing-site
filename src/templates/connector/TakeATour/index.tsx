@@ -49,7 +49,7 @@ const TakeATour = () => {
                             light={
                                 <VideoPreviewContainer>
                                     <StaticImage
-                                        quality={100}
+                                        quality={90}
                                         placeholder="none"
                                         alt="estuary flow product video"
                                         src="../../../images/homepage-product-video.svg"

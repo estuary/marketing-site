@@ -11,7 +11,7 @@ export const Container = styled(BackgroundImage)`
     display: flex;
     flex-direction: column;
     gap: 219px;
-    background-size: 60%;
+    background-size: 378px;
 
     @media (min-width: 1024px) {
         flex-direction: column-reverse;

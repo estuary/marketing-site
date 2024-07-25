@@ -16,8 +16,8 @@ export const Container: any = styled.div`
         max-width: 320px;
     }
 
-    @media (max-width: 425px) {
-        border-radius: 40px;
+    @media (max-width: 320px) {
+        padding: 40px;
     }
 `;
 
@@ -28,6 +28,10 @@ export const ContainerImage = styled.div`
     border-radius: 100%;
     border: 1px solid #d7dce5;
     min-width: 56px;
+
+    @media (max-width: 320px) {
+        display: none;
+    }
 `;
 
 export const ContainerContent = styled.div`
