@@ -5,7 +5,9 @@ import BackgroundImage, {
     IBackgroundImageProps,
 } from 'gatsby-background-image';
 
-import { commonSwoopingLinesBackgroundImageProps } from './utils';
+import clsx from 'clsx';
+import { sectionTopBottomPadding } from '../../globalStyles/sections.module.less';
+import { commonBackgroundImageProps } from './utils';
 
 type DarkSwoopingLinesLeftDirectionBackgroundProps = IBackgroundImageProps & {
     children?: React.ReactNode;
@@ -15,6 +17,7 @@ type DarkSwoopingLinesLeftDirectionBackgroundProps = IBackgroundImageProps & {
 const DarkSwoopingLinesLeftDirectionBackground = ({
     children,
     backgroundColor,
+    className,
     ...rest
 }: DarkSwoopingLinesLeftDirectionBackgroundProps) => {
     const swoopingLines = useStaticQuery(graphql`
@@ -34,7 +37,8 @@ const DarkSwoopingLinesLeftDirectionBackground = ({
             Tag="section"
             fluid={swoopingLines.imageData.childImageSharp.fluid}
             backgroundColor={backgroundColor ?? '#f9fafc'}
-            {...commonSwoopingLinesBackgroundImageProps}
+            className={clsx(sectionTopBottomPadding, className)}
+            {...commonBackgroundImageProps}
             {...rest}
         >
             {children}

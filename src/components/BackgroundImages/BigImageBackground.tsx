@@ -21,7 +21,6 @@ const BigImageBackground = ({
 
     return (
         <BackgroundImage
-            Tag="div"
             fadeIn={false}
             critical
             className="background-index-wrapper"

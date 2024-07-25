@@ -7,7 +7,7 @@ import {
 import React from 'react';
 
 import { ConnectorType } from '../../../../shared';
-import SwoopingLinesBackground from '../../../components/BackgroundImages/LightSwoopingLinesRightDirectionBackground';
+import LightSwoopingLinesRightDirectionBackground from '../../../components/BackgroundImages/LightSwoopingLinesRightDirectionBackground';
 import Content from './components/Content';
 
 import {
@@ -33,7 +33,7 @@ const Hero = ({ connector: { title, logo, type } }: HeroProps) => {
     const logoImage = getImage(logo);
 
     return (
-        <SwoopingLinesBackground>
+        <LightSwoopingLinesRightDirectionBackground>
             <Container>
                 <Content
                     connector={{
@@ -89,7 +89,7 @@ const Hero = ({ connector: { title, logo, type } }: HeroProps) => {
                     </ContainerImage>
                 ) : null}
             </Container>
-        </SwoopingLinesBackground>
+        </LightSwoopingLinesRightDirectionBackground>
     );
 };
 

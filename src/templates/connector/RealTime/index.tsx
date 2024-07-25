@@ -13,7 +13,7 @@ import {
 const RealTime = () => {
     return (
         <Wrapper>
-            <Container>
+            <Container className="background">
                 <Content>
                     <Title>
                         Deliver <span>real-time</span> and <span>batch</span>{' '}

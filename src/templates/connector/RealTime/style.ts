@@ -2,24 +2,23 @@ import styled from 'styled-components';
 
 import { OutboundLink } from '../../../components/OutboundLink';
 
+import StraightLinesBackground from '../../../components/BackgroundImages/StraightLinesBackground';
 import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
-import vectorBackgroundImage from '../../../images/lp-connector/real-time/Vector.png';
 
 export const Wrapper = styled.section`
     ${sectionTopBottomPadding}
     ${globalMaxWidth}
+
+    .background {
+        overflow: hidden;
+    }
 `;
 
-export const Container = styled.div`
+export const Container = styled(StraightLinesBackground)`
     padding: 40px 20px;
     display: flex;
     flex-direction: column-reverse;
     border-radius: 24px;
-    background-image: url(${vectorBackgroundImage});
-    background-size: cover;
-    background-position: top right -150px;
-    background-repeat: no-repeat;
-    background-color: #04192b;
 
     @media (min-width: 1024px) {
         flex-direction: row;
@@ -27,16 +26,8 @@ export const Container = styled.div`
         min-height: 400px;
     }
 
-    @media (max-width: 1024px) {
-        background-position: top right -1000px;
-    }
-
     @media (min-width: 1280px) {
         padding: 48px 90px;
-    }
-
-    @media (max-width: 425px) {
-        background-position: top right -1400px;
     }
 `;
 
