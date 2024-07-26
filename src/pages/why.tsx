@@ -67,21 +67,24 @@ const WhyEstuary = () => {
             ? imageMap['flow-images/step4-bg.png']
             : imageMap['flow-images/step6-bg.png'];
 
+    const commonBackgroundImageProps = {
+        fadeIn: false,
+        critical: true,
+    };
+
     return (
         <main className="why-estuary">
             <Navigation activePage={activePage} setActivePage={setActivePage} />
             <BackgroundImage
                 fluid={mainContentWrapperImageFluid}
-                fadeIn={false}
-                critical={true}
                 className="main-content-wrap"
+                {...commonBackgroundImageProps}
             >
                 <BackgroundImage
                     fluid={stepsImageFluid}
-                    fadeIn={false}
-                    critical={true}
                     className="mac-bg"
                     style={{ backgroundSize: '100%' }}
+                    {...commonBackgroundImageProps}
                 >
                     <Step
                         activePage={activePage}
