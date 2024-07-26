@@ -11,61 +11,60 @@ const WhyEstuary = () => {
 
     const images = useStaticQuery(graphql`
         query {
-            steps: allFile(
-                filter: {
-                    relativePath: {
-                        in: [
-                            "welcome-bg.png",
-                            "flow-images/step1-bg.png",
-                            "flow-images/step4-bg.png",
-                            "flow-images/step6-bg.png",
-                            "product-demo-background.png"
-                        ]
+            productDemoBackground: file(
+                relativePath: { eq: "product-demo-background.png" }
+            ) {
+                childImageSharp {
+                    fluid(quality: 90, maxWidth: 1180) {
+                        ...GatsbyImageSharpFluid_withWebp_noBase64
                     }
                 }
-            ) {
-                edges {
-                    node {
-                        relativePath
-                        childImageSharp {
-                            fluid(quality: 90, maxWidth: 1180) {
-                                ...GatsbyImageSharpFluid_withWebp_noBase64
-                            }
-                        }
+            }
+            steps07: file(relativePath: { eq: "welcome-bg.png" }) {
+                childImageSharp {
+                    fluid(quality: 90, maxWidth: 1180) {
+                        ...GatsbyImageSharpFluid_withWebp_noBase64
+                    }
+                }
+            }
+            steps123: file(relativePath: { eq: "flow-images/step1-bg.png" }) {
+                childImageSharp {
+                    fluid(quality: 90, maxWidth: 1180) {
+                        ...GatsbyImageSharpFluid_withWebp_noBase64
+                    }
+                }
+            }
+            steps45: file(relativePath: { eq: "flow-images/step4-bg.png" }) {
+                childImageSharp {
+                    fluid(quality: 90, maxWidth: 1180) {
+                        ...GatsbyImageSharpFluid_withWebp_noBase64
+                    }
+                }
+            }
+            step6: file(relativePath: { eq: "flow-images/step6-bg.png" }) {
+                childImageSharp {
+                    fluid(quality: 90, maxWidth: 1180) {
+                        ...GatsbyImageSharpFluid_withWebp_noBase64
                     }
                 }
             }
         }
     `);
 
-    const imageMap = {
-        'welcome-bg.png': images.steps.edges.find(
-            (edge) => edge.node.relativePath === 'welcome-bg.png'
-        ).node.childImageSharp.fluid,
-        'flow-images/step1-bg.png': images.steps.edges.find(
-            (edge) => edge.node.relativePath === 'flow-images/step1-bg.png'
-        ).node.childImageSharp.fluid,
-        'flow-images/step4-bg.png': images.steps.edges.find(
-            (edge) => edge.node.relativePath === 'flow-images/step4-bg.png'
-        ).node.childImageSharp.fluid,
-        'flow-images/step6-bg.png': images.steps.edges.find(
-            (edge) => edge.node.relativePath === 'flow-images/step6-bg.png'
-        ).node.childImageSharp.fluid,
-        'product-demo-background.png': images.steps.edges.find(
-            (edge) => edge.node.relativePath === 'product-demo-background.png'
-        ).node.childImageSharp.fluid,
-    };
-
     const mainContentWrapperImageFluid =
-        imageMap['product-demo-background.png'];
+        images.productDemoBackground.childImageSharp.fluid;
+    const steps07ImageFluid = images.steps07.childImageSharp.fluid;
+    const steps123ImageFluid = images.steps123.childImageSharp.fluid;
+    const steps45ImageFluid = images.steps45.childImageSharp.fluid;
+    const step6ImageFluid = images.step6.childImageSharp.fluid;
 
     const stepsImageFluid = [0, 7].includes(activePage)
-        ? imageMap['welcome-bg.png']
+        ? steps07ImageFluid
         : [1, 2, 3].includes(activePage)
-            ? imageMap['flow-images/step1-bg.png']
-            : [4, 5].includes(activePage)
-                ? imageMap['flow-images/step4-bg.png']
-                : imageMap['flow-images/step6-bg.png'];
+          ? steps123ImageFluid
+          : [4, 5].includes(activePage)
+            ? steps45ImageFluid
+            : step6ImageFluid;
 
     const commonBackgroundImageProps = {
         fadeIn: false,
