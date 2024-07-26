@@ -4173,25 +4173,15 @@ table th {
     }
 
     .main-content-wrap {
-        background: url(./images/product-demo-background.png) no-repeat top center / cover;
         width: 100%;
-        padding: 132px calc((100% - 1180px - 340px) / 2);
+        padding: 132px 4%;
         height: 100vh;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
 
-        @media (max-width: 1560px) and (min-width: 1200px) {
-            padding: 132px 32px;
-        }
-
-        @media (max-width: 1119px) {
-            padding: 65px 32px;
-        }
-
         @media (min-height: 815px) {
-            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -4201,94 +4191,25 @@ table th {
 
     .mac-bg {
         max-width: 1180px;
-        height: 720px;
+        height: auto;
         width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 123px 45px 47px 254px;
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-
-        &.step-bg-0,
-        &.step-bg-7 {
-            background-image: url(./images/welcome-bg.png);
-        }
-
-        &.step-bg-1 {
-            background-image: url(./images/flow-images/step1-bg.png);
-        }
-
-        &.step-bg-2 {
-            background-image: url(./images/flow-images/step1-bg.png);
-        }
-
-        &.step-bg-3 {
-            background-image: url(./images/flow-images/step1-bg.png);
-        }
-
-        &.step-bg-4 {
-            background-image: url(./images/flow-images/step4-bg.png);
-        }
-
-        &.step-bg-5 {
-            background-image: url(./images/flow-images/step4-bg.png);
-        }
-
-        &.step-bg-6 {
-            background-image: url(./images/flow-images/step6-bg.png);
-        }
-
-        @media (max-width: 1560px) {
-            background-position: top left;
-            background-size: contain;
-            padding: 10% 4% 12% 20%;
-        }
-
-        @media (max-width: 1119px) {
-            padding: 10% 4% 6% 20%;
-        }
-
-        @media (max-width: 1024px) {
-            height: 584px;
-        }
-
-        @media (max-width: 850px) {
-            height: auto;
-        }
+        padding: 7% 4% 4% 13%;
 
         @media (max-height: 747px) {
-            height: 428px;
             width: 85%;
             padding: 10% 12% 26% 19%;
         }
 
         @media (max-height: 563px) {
-            height: 428px;
             width: 85%;
             padding: 10% 12% 26% 19%;
         }
 
-        &.step-bg-0 {
-            @media (max-height: 563px) {
-                padding: 8% 13% 4% 19%;
-            }
-
-            @media (min-height: 564px) and (max-height: 800px) {
-                padding: 10% 13% 4% 19%;
-            }
-        }
-
-        &.step-bg-7 {
-            @media (max-height: 747px) {
-                height: 428px;
-                width: 85%;
-                padding: 8% 6% 10% 18%;
-            }
-
-            .step-7 {
-                padding: 11px;
-            }
+        .step {
+            max-width: 881px;
+            width: 100%;
+            padding: 6% 4% 4% 6%;
+            margin: auto;
         }
     }
 
@@ -4507,38 +4428,9 @@ table th {
     }
 
     .step-0 {
-        max-width: 863px;
-        width: 100%;
-        margin: 0 auto;
+        max-width: 780px !important;
         background: #fff;
-        padding: 59px 73px 112px;
-
-        @media (max-width: 1560px) and (min-width: 1200px) {
-            padding: 30px 35px 35px;
-        }
-
-        @media (max-width: 1119px) {
-            padding: 30px 35px 35px;
-        }
-
-        @media (max-height: 747px) {
-            padding: 0px;
-        }
-
-        @media (max-height: 563px) {
-            padding: 0px;
-        }
-
-        .mac-bg-1 {
-            max-width: 1180px;
-            height: 720px;
-            width: 100%;
-            margin-left: auto;
-            margin-right: auto;
-            background: url(./images/welcome-bg.png) no-repeat center / cover;
-            padding: 123px 45px 47px 254px;
-            //box-shadow: 10px 10px 60px 0px rgba(210, 210, 210, 0.25);
-        }
+        padding: 10% 8% 8% 10% !important;
 
         .step-content {
             background: #111;
@@ -4547,11 +4439,11 @@ table th {
             text-align: center;
 
             @media (max-width: 1360px) and (min-width: 1200px) {
-                padding: 30px 0;
+                padding: 30px 8px;
             }
 
             @media (max-width: 1119px) {
-                padding: 30px 0;
+                padding: 30px 8px;
             }
         }
 
@@ -4784,11 +4676,9 @@ table th {
     }
 
     .step-7 {
-        max-width: 863px;
-        width: 100%;
-        margin: 0 auto;
+        max-width: 780px !important;
         background: #fff;
-        padding: 59px 73px 112px;
+        padding: 10% 8% 8% 10% !important;
 
         @media (max-width: 1560px) and (min-width: 1200px) {
             padding: 30px 35px 35px;

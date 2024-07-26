@@ -73,7 +73,7 @@ function BlogPostPopupModal() {
         }
     `);
 
-    const [openDialog, setOpenDialog] = React.useState(true);
+    const [openDialog, setOpenDialog] = React.useState(false);
 
     const hasOpened = React.useRef(false);
 
