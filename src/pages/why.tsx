@@ -15,10 +15,10 @@ const WhyEstuary = () => {
                 filter: {
                     relativePath: {
                         in: [
-                            "welcome-bg.png"
-                            "flow-images/step1-bg.png"
-                            "flow-images/step4-bg.png"
-                            "flow-images/step6-bg.png"
+                            "welcome-bg.png",
+                            "flow-images/step1-bg.png",
+                            "flow-images/step4-bg.png",
+                            "flow-images/step6-bg.png",
                             "product-demo-background.png"
                         ]
                     }
@@ -62,10 +62,10 @@ const WhyEstuary = () => {
     const stepsImageFluid = [0, 7].includes(activePage)
         ? imageMap['welcome-bg.png']
         : [1, 2, 3].includes(activePage)
-          ? imageMap['flow-images/step1-bg.png']
-          : [4, 5].includes(activePage)
-            ? imageMap['flow-images/step4-bg.png']
-            : imageMap['flow-images/step6-bg.png'];
+            ? imageMap['flow-images/step1-bg.png']
+            : [4, 5].includes(activePage)
+                ? imageMap['flow-images/step4-bg.png']
+                : imageMap['flow-images/step6-bg.png'];
 
     const commonBackgroundImageProps = {
         fadeIn: false,
