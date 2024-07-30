@@ -157,6 +157,8 @@ const PricingPlans = () => {
                         'Customer Success Manager',
                         'Single Sign-On Support',
                         'Private Cloud Support',
+                        'Custom region support',
+                        'PrivateLink and Google Service Connect',
                         '24x7 support available',
                         'Provisioned servers',
                     ]}
