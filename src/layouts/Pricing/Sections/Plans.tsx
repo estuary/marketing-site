@@ -155,6 +155,8 @@ const PricingPlans = () => {
                         'All features of Free + Cloud, plus...',
                         'SOC2 & HIPAA Certificates',
                         'Customer Success Manager',
+                        'Single Sign-On Support',
+                        'Private Cloud Support',
                         '24x7 support available',
                         'Provisioned servers',
                     ]}
