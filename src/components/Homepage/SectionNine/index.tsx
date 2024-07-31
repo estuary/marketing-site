@@ -5,7 +5,7 @@ import { Wrapper } from './styles';
 
 const SectionNine = () => {
     return (
-        <DarkSwoopingLinesLeftDirectionBackground backgroundColor="#04192b">
+        <DarkSwoopingLinesLeftDirectionBackground>
             <Wrapper>
                 <TestimonialsCarousel />
             </Wrapper>

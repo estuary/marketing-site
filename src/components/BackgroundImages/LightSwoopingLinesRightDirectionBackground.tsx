@@ -11,12 +11,10 @@ import { commonBackgroundImageProps } from './utils';
 
 type LightSwoopingLinesRightDirectionBackgroundProps = IBackgroundImageProps & {
     children?: React.ReactNode;
-    backgroundColor?: string;
 } & React.HTMLAttributes<HTMLDivElement>;
 
 const LightSwoopingLinesRightDirectionBackground = ({
     children,
-    backgroundColor,
     className,
     ...rest
 }: LightSwoopingLinesRightDirectionBackgroundProps) => {
@@ -38,7 +36,7 @@ const LightSwoopingLinesRightDirectionBackground = ({
         <BackgroundImage
             Tag="section"
             fluid={swoopingLines.imageData.childImageSharp.fluid}
-            backgroundColor={backgroundColor ?? '#f9fafc'}
+            backgroundColor="#f9fafc"
             className={clsx(sectionTopBottomPadding, className)}
             {...commonBackgroundImageProps}
             {...rest}

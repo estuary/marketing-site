@@ -5,7 +5,7 @@ import { Description, Title, Wrapper } from './styles';
 
 const SectionFive = () => {
     return (
-        <DarkSwoopingLinesLeftDirectionBackground backgroundColor="#04192b">
+        <DarkSwoopingLinesLeftDirectionBackground>
             <Wrapper>
                 <Title>
                     <span>Build </span>

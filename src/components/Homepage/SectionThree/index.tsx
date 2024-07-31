@@ -6,7 +6,7 @@ import { Cards, Title, Wrapper } from './styles';
 
 const SectionThree = () => {
     return (
-        <DarkSwoopingLinesLeftDirectionBackground backgroundColor="#04192b">
+        <DarkSwoopingLinesLeftDirectionBackground>
             <Wrapper>
                 <Title>CASE STUDIES</Title>
                 <Cards>

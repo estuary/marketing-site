@@ -5,7 +5,7 @@ import { Description, Title, Wrapper } from './styles';
 
 const SectionSeven = () => {
     return (
-        <DarkSwoopingLinesLeftDirectionBackground backgroundColor="#04192b">
+        <DarkSwoopingLinesLeftDirectionBackground>
             <Wrapper>
                 <Title>INNOVATE FASTER</Title>
                 <Description>

@@ -11,12 +11,10 @@ import { commonBackgroundImageProps } from './utils';
 
 type DarkSwoopingLinesLeftDirectionBackgroundProps = IBackgroundImageProps & {
     children?: React.ReactNode;
-    backgroundColor?: string;
 } & React.HTMLAttributes<HTMLDivElement>;
 
 const DarkSwoopingLinesLeftDirectionBackground = ({
     children,
-    backgroundColor,
     className,
     ...rest
 }: DarkSwoopingLinesLeftDirectionBackgroundProps) => {
@@ -36,7 +34,7 @@ const DarkSwoopingLinesLeftDirectionBackground = ({
         <BackgroundImage
             Tag="section"
             fluid={swoopingLines.imageData.childImageSharp.fluid}
-            backgroundColor={backgroundColor ?? '#f9fafc'}
+            backgroundColor="#04192b"
             className={clsx(sectionTopBottomPadding, className)}
             {...commonBackgroundImageProps}
             {...rest}

@@ -9,12 +9,10 @@ import { commonBackgroundImageProps } from './utils';
 
 type StraightLinesBackgroundProps = IBackgroundImageProps & {
     children?: React.ReactNode;
-    backgroundColor?: string;
 } & React.HTMLAttributes<HTMLDivElement>;
 
 const StraightLinesBackground = ({
     children,
-    backgroundColor,
     ...rest
 }: StraightLinesBackgroundProps) => {
     const swoopingLines = useStaticQuery(graphql`
@@ -34,7 +32,7 @@ const StraightLinesBackground = ({
     return (
         <BackgroundImage
             fluid={swoopingLines.imageData.childImageSharp.fluid}
-            backgroundColor={backgroundColor ?? '#04192b'}
+            backgroundColor="#04192b"
             {...commonBackgroundImageProps}
             {...rest}
         >
