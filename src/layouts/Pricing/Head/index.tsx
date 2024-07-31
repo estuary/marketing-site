@@ -8,7 +8,7 @@ export const Head = () => {
         query {
             metaImg: file(relativePath: { eq: "pricing/graphic_parent.png" }) {
                 childImageSharp {
-                    fixed(width: 1200) {
+                    fixed(width: 618) {
                         src
                     }
                 }
