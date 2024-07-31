@@ -1,5 +1,4 @@
 import Fade from '@mui/material/Fade';
-import { Link } from 'gatsby';
 import styled, { css } from 'styled-components';
 
 type Slide = {
@@ -38,7 +37,7 @@ const slideStyles = {
     `,
     2: css`
         display: grid;
-        grid-template-columns: 1fr 2.5fr;
+        grid-template-columns: 1fr 2.7fr;
     `,
     3: css`
         display: flex;
@@ -51,7 +50,7 @@ const slideStyles = {
 };
 
 export const Container = styled.div<Slide>`
-    max-width: 1216px;
+    max-width: 1200px;
     ${({ $slide }) => slideStyles[$slide] || null}
     align-items: center;
     justify-content: center;
@@ -66,10 +65,6 @@ export const Container = styled.div<Slide>`
         display: flex;
         flex-direction: column;
         z-index: 2;
-
-        @media (max-width: 1280px) {
-            max-width: 320px;
-        }
     }
 `;
 
@@ -126,163 +121,9 @@ export const ImageWrapper = styled.div<Slide>`
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: ${(props) => (props.$slide === 1 ? '8%' : 0)};
+    margin-top: ${(props) => (props.$slide === 1 ? '4.8%' : 0)};
     max-width: ${(props) => (props.$slide === 3 ? '1024px' : '100%')};
     z-index: 1;
-`;
-
-export const ConnectorsGroupsLeftWrapper = styled.div`
-    align-items: flex-end;
-    justify-content: right;
-    margin-right: -24%;
-`;
-
-export const ConnectorsGroupsRightWrapper = styled.div`
-    align-items: flex-start;
-    justify-content: left;
-    margin-left: -24%;
-`;
-
-export const ConnectorsGroup = styled.div`
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 4%;
-    padding: 3% 3% 3% 9%;
-    border: 2px solid #e5e9f5;
-    border-radius: 100px;
-    background-color: #fdfdfe;
-
-    &:not(:first-child) {
-        margin-top: 2%;
-    }
-`;
-
-export const Connector = styled(Link)`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    transition: transform 0.2s ease-in-out;
-    cursor: pointer;
-    margin-bottom: -40px;
-    max-width: 42px;
-
-    &:hover {
-        transform: translateY(-12px);
-    }
-
-    &:hover > div {
-        border: 2px solid #7284ff;
-    }
-
-    &:hover > span {
-        visibility: visible;
-        opacity: 1;
-    }
-`;
-
-export const LogoWrapper = styled.div`
-    background-color: #ffffff;
-    border: 1px solid #d7dce5;
-    border-radius: 12%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-width: 54px;
-    min-width: 32px;
-    min-height: 32px;
-    transition: border-color 0.2s ease-in-out;
-
-    @media (max-width: 1280px) {
-        max-width: 42px;
-    }
-
-    @media (max-width: 1024px) {
-        max-width: 32px;
-    }
-`;
-
-export const HiddenLogoTitle = styled.span`
-    color: #47506d;
-    font-size: 0.875rem;
-    font-weight: 400;
-    line-height: 120%;
-    text-align: center;
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.2s ease-in-out;
-    min-height: 40px;
-
-    @media (max-width: 1280px) {
-        font-size: 0.75rem;
-    }
-
-    @media (max-width: 1024px) {
-        font-size: 0.5rem;
-    }
-`;
-
-export const FeatureWrapper = styled.div`
-    min-width: 90px;
-    width: 100%;
-    max-width: 90px;
-    height: 90px;
-    border: 2px solid #e5e9f5;
-    border-radius: 50%;
-    padding: 3%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    margin-left: auto;
-
-    @media (max-width: 1280px) {
-        min-width: 70px;
-        max-width: 70px;
-        height: 70px;
-    }
-
-    @media (max-width: 920px) {
-        min-width: 60px;
-        height: 60px;
-    }
-
-    & > h4 {
-        text-align: center;
-        color: #5072eb;
-        font-size: 0.75rem;
-        font-weight: 600;
-        line-height: 120%;
-        margin: 4% 0 0 0;
-        padding: 0 10%;
-
-        @media (max-width: 1024px) {
-            font-size: 0.5rem;
-        }
-    }
-
-    transition: border-color 0.2s ease-in-out;
-
-    &:hover {
-        border-color: #5072eb;
-    }
-
-    .icon {
-        width: 100%;
-        height: 100%;
-        max-width: 32px;
-        max-height: 32px;
-        min-width: 16px;
-        min-height: 16px;
-
-        @media (max-width: 1024px) {
-            max-width: 24px;
-            max-height: 24px;
-        }
-    }
 `;
 
 export const FlowStepImageWrapper = styled.div<Slide>`

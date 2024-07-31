@@ -30,7 +30,7 @@ const SectionTwo = () => {
                                 <StaticImage
                                     placeholder="none"
                                     alt="Flow"
-                                    src="../../../images/product-page/section-two/desktop/slide-1.png"
+                                    src="../../../images/flow-cycle.png"
                                     layout="constrained"
                                     quality={100}
                                     loading="eager"
