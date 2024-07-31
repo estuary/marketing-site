@@ -99,7 +99,7 @@ export const HiddenLogoTitle = styled.span`
     }
 `;
 
-export const FeatureWrapper = styled.div<{ hasTooltips: boolean }>`
+export const FeatureWrapper = styled.div<{ $hasTooltips: boolean }>`
     min-width: 90px;
     width: 100%;
     max-width: 90px;
@@ -140,8 +140,8 @@ export const FeatureWrapper = styled.div<{ hasTooltips: boolean }>`
     transition: border-color 0.2s ease-in-out;
 
     &:hover {
-        border-color: ${({ hasTooltips }) =>
-            hasTooltips ? '#5072eb' : '#e5e9f5'};
+        border-color: ${({ $hasTooltips }) =>
+            $hasTooltips ? '#5072eb' : '#e5e9f5'};
     }
 
     .icon {

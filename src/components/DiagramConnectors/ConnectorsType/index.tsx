@@ -17,7 +17,7 @@ const ConnectorsType = ({
     description,
 }: ConnectorsTypeProps) => {
     const featureContent = (
-        <FeatureWrapper hasTooltips={hasTooltips}>
+        <FeatureWrapper $hasTooltips={hasTooltips}>
             {icon}
             <h4>{title}</h4>
         </FeatureWrapper>
