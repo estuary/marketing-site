@@ -3,6 +3,7 @@ import * as React from 'react';
 
 import DiagramSourceConnectors from '../../DiagramConnectors/DiagramSourceConnectors';
 import DiagramDestinationConnectors from '../../DiagramConnectors/DiagramDestinationConnectors';
+import FlowCycle from '../../../svgs/flow-cycle.svg';
 import {
     Container,
     DesktopDiagramWrapper,
@@ -90,12 +91,10 @@ const SectionTwo = () => {
             </Steps>
             <DesktopDiagramWrapper className="desktop-image">
                 <DiagramSourceConnectors />
-                <StaticImage
-                    placeholder="none"
-                    alt="Estuary Flow streamlines complex data workflows by integrating diverse data sources and destinations"
-                    src="../../../images/flow-cycle.png"
-                    layout="constrained"
-                    quality={100}
+                <FlowCycle
+                    width="100%"
+                    height="100%"
+                    className="flow-cycle-middle-image"
                 />
                 <DiagramDestinationConnectors />
             </DesktopDiagramWrapper>

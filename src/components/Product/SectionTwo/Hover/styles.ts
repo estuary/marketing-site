@@ -37,7 +37,22 @@ const slideStyles = {
     `,
     2: css`
         display: grid;
-        grid-template-columns: 1fr 2.7fr;
+        grid-template-columns: 1fr 1.5fr;
+        margin-right: 7.5vw;
+
+        .connectors-groups {
+            margin-left: 7.5vw;
+            max-width: 25vw;
+
+            @media (min-width: 1666px) {
+                margin-left: 120px;
+                max-width: 406px;
+            }
+        }
+
+        @media (min-width: 1666px) {
+            margin-right: 120px;
+        }
     `,
     3: css`
         display: flex;
@@ -45,13 +60,25 @@ const slideStyles = {
     `,
     4: css`
         display: grid;
-        grid-template-columns: 2.5fr 1fr;
+        grid-template-columns: 1.8fr 1fr;
+        margin-left: 10vw;
+
+        .connectors-groups {
+            max-width: 20vw;
+
+            @media (min-width: 1666px) {
+                max-width: 320px;
+            }
+        }
+
+        @media (min-width: 1666px) {
+            margin-left: 160px;
+        }
     `,
 };
 
 export const Container = styled.div<Slide>`
     max-width: 1200px;
-    ${({ $slide }) => slideStyles[$slide] || null}
     align-items: center;
     justify-content: center;
     position: relative;
@@ -66,6 +93,8 @@ export const Container = styled.div<Slide>`
         flex-direction: column;
         z-index: 2;
     }
+
+    ${({ $slide }) => slideStyles[$slide] || null}
 `;
 
 const baseBlockStyling = `

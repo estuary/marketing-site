@@ -2,6 +2,7 @@ import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { DefaultWrapperGrey } from '../../../styles/wrappers';
 import Carousel from '../../Carousel';
+import FlowCycle from '../../../svgs/flow-cycle.svg';
 import Hover from './Hover';
 import {
     Container,
@@ -27,14 +28,7 @@ const SectionTwo = () => {
                     <Slide>
                         <DesktopImageWrapper>
                             <Hover slide={1}>
-                                <StaticImage
-                                    placeholder="none"
-                                    alt="Flow"
-                                    src="../../../images/flow-cycle.png"
-                                    layout="constrained"
-                                    quality={100}
-                                    loading="eager"
-                                />
+                                <FlowCycle width="100%" height="100%" />
                             </Hover>
                         </DesktopImageWrapper>
                         <TabletImageWrapper>

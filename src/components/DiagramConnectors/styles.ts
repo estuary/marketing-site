@@ -65,14 +65,10 @@ export const LogoWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 54px;
+    max-width: 42px;
     min-width: 32px;
     min-height: 32px;
     transition: border-color 0.2s ease-in-out;
-
-    @media (max-width: 1280px) {
-        max-width: 42px;
-    }
 
     @media (max-width: 1024px) {
         max-width: 32px;
@@ -100,10 +96,10 @@ export const HiddenLogoTitle = styled.span`
 `;
 
 export const FeatureWrapper = styled.div<{ $hasTooltips: boolean }>`
-    min-width: 90px;
     width: 100%;
-    max-width: 90px;
-    height: 90px;
+    min-width: 5vw;
+    max-width: 5vw;
+    height: 5vw;
     border: 2px solid #e5e9f5;
     border-radius: 50%;
     padding: 3%;
@@ -112,15 +108,10 @@ export const FeatureWrapper = styled.div<{ $hasTooltips: boolean }>`
     justify-content: center;
     flex-direction: column;
 
-    @media (max-width: 1280px) {
-        min-width: 70px;
-        max-width: 70px;
-        height: 70px;
-    }
-
-    @media (max-width: 920px) {
-        min-width: 60px;
-        height: 60px;
+    @media (min-width: 1570px) {
+        min-width: 85px;
+        max-width: 85px;
+        height: 85px;
     }
 
     & > h4 {
@@ -132,7 +123,7 @@ export const FeatureWrapper = styled.div<{ $hasTooltips: boolean }>`
         margin: 4% 0 0 0;
         padding: 0 10%;
 
-        @media (max-width: 1024px) {
+        @media (max-width: 1280px) {
             font-size: 0.5rem;
         }
     }
@@ -152,7 +143,7 @@ export const FeatureWrapper = styled.div<{ $hasTooltips: boolean }>`
         min-width: 16px;
         min-height: 16px;
 
-        @media (max-width: 1024px) {
+        @media (max-width: 1280px) {
             max-width: 24px;
             max-height: 24px;
         }

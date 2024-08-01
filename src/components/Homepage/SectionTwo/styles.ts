@@ -14,13 +14,17 @@ export const Container = styled.section`
 
     .desktop-image {
         @media (max-width: 768px) {
-            display: none;
+            display: none !important;
+        }
+
+        .flow-cycle-middle-image {
+            margin-top: 32px;
         }
     }
 
     .mobile-image {
         @media (min-width: 769px) {
-            display: none;
+            display: none !important;
         }
     }
 `;
@@ -150,14 +154,11 @@ export const StepThreeIcon = styled(RealTimeDelivery)`
 
 export const DesktopDiagramWrapper = styled.div`
     display: grid;
-    grid-template-columns: 1fr 1.7fr 1fr;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    padding: 24px;
 
     align-items: center;
     justify-content: center;
-
-    @media (max-width: 900px) {
-        grid-template-columns: 1fr 1.4fr 1fr;
-    }
 
     .connectors-groups {
         display: flex;
