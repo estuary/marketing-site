@@ -1,24 +1,10 @@
 import styled from 'styled-components';
-import {
-    LinkOutlined,
-    globalMaxWidth,
-    sectionTopBottomPadding,
-} from '../../../globalStyles';
-import overlayVectorLeft from '../../../images/overlay-vector-left.png';
-
-export const Container = styled.section`
-    background-color: #04192b;
-    background-image: url(${overlayVectorLeft});
-    background-repeat: no-repeat;
-    background-position: center -680px;
-    width: 100%;
-`;
+import { LinkOutlined, globalMaxWidth } from '../../../globalStyles';
 
 export const Wrapper = styled.div`
     ${globalMaxWidth}
-    ${sectionTopBottomPadding}
-    
-  display: flex;
+
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;

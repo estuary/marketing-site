@@ -1,17 +1,12 @@
+import BackgroundImage from 'gatsby-background-image';
 import styled from 'styled-components';
 
-import BackgroundImage from '../../../../../images/connector-template/the-automation-bg.png';
-
-export const Container = styled.div`
+export const Container = styled(BackgroundImage)`
     display: flex;
     flex-direction: column;
     gap: 250px;
     max-width: 450px;
     flex: 1;
-    background-image: url(${BackgroundImage});
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center center;
 
     @media (min-width: 1024px) {
         max-width: 100%;

@@ -3,11 +3,11 @@ import React from 'react';
 
 import BackgroundImage from 'gatsby-background-image';
 
-const BackgroundImageWrapper = ({
+const BigImageBackground = ({
     children,
     ...rest
 }: React.BaseHTMLAttributes<HTMLDivElement>) => {
-    const data = useStaticQuery(graphql`
+    const imageData = useStaticQuery(graphql`
         query {
             background: file(relativePath: { eq: "blogs-bg.png" }) {
                 childImageSharp {
@@ -19,16 +19,12 @@ const BackgroundImageWrapper = ({
         }
     `);
 
-    // Set ImageData.
-    const imageData = data.background.childImageSharp.fluid;
-
     return (
         <BackgroundImage
-            Tag="div"
             fadeIn={false}
             critical
             className="background-index-wrapper"
-            fluid={imageData}
+            fluid={imageData.background.childImageSharp.fluid}
             {...{ ...{ children, rest }, children: undefined }}
         >
             {children}
@@ -36,4 +32,4 @@ const BackgroundImageWrapper = ({
     );
 };
 
-export default BackgroundImageWrapper;
+export default BigImageBackground;

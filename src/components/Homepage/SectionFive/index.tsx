@@ -1,10 +1,11 @@
 import * as React from 'react';
+import DarkSwoopingLinesLeftDirectionBackground from '../../BackgroundImages/DarkSwoopingLinesLeftDirectionBackground';
 import FlowDemoVideo from '../../FlowDemoVideo';
-import { Container, Description, Title, Wrapper } from './styles';
+import { Description, Title, Wrapper } from './styles';
 
 const SectionFive = () => {
     return (
-        <Container>
+        <DarkSwoopingLinesLeftDirectionBackground>
             <Wrapper>
                 <Title>
                     <span>Build </span>
@@ -16,7 +17,7 @@ const SectionFive = () => {
                 </Description>
                 <FlowDemoVideo />
             </Wrapper>
-        </Container>
+        </DarkSwoopingLinesLeftDirectionBackground>
     );
 };
 

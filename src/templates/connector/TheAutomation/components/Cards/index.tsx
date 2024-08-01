@@ -1,13 +1,32 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
+import { graphql, useStaticQuery } from 'gatsby';
 import Card from '../Card';
 
 import { Container, ContainerCards } from './style';
 
 const TheAutomationCards = () => {
+    const imageData = useStaticQuery(graphql`
+        query {
+            imageData: file(
+                relativePath: { eq: "connector-template/the-automation-bg.png" }
+            ) {
+                childImageSharp {
+                    fluid(quality: 90, maxWidth: 695) {
+                        ...GatsbyImageSharpFluid_withWebp_noBase64
+                    }
+                }
+            }
+        }
+    `);
+
     return (
-        <Container>
+        <Container
+            fluid={imageData.imageData.childImageSharp.fluid}
+            fadeIn={false}
+            critical={true}
+        >
             <ContainerCards>
                 <Card
                     title="Automated Schema Drift"

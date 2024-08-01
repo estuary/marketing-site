@@ -1,10 +1,11 @@
 import * as React from 'react';
+import DarkSwoopingLinesLeftDirectionBackground from '../../BackgroundImages/DarkSwoopingLinesLeftDirectionBackground';
 import MainConnectors from '../../MainConnectors';
-import { Container, Description, Title, Wrapper } from './styles';
+import { Description, Title, Wrapper } from './styles';
 
 const SectionSeven = () => {
     return (
-        <Container>
+        <DarkSwoopingLinesLeftDirectionBackground>
             <Wrapper>
                 <Title>INNOVATE FASTER</Title>
                 <Description>
@@ -15,7 +16,7 @@ const SectionSeven = () => {
                 </Description>
                 <MainConnectors />
             </Wrapper>
-        </Container>
+        </DarkSwoopingLinesLeftDirectionBackground>
     );
 };
 

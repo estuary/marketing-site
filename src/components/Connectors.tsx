@@ -7,7 +7,7 @@ import { useLunr } from 'react-lunr';
 import { ConnectorType } from '../../shared';
 import FlowLogo from '../svgs/flow-logo.svg';
 import { normalizeConnector } from '../utils';
-import BackgroundImageWrapper from './BackgroundImageWrapper';
+import BigImageBackground from './BackgroundImages/BigImageBackground';
 import ConnectorsLink from './ConnectorsLink';
 
 export interface ConnectorsProps {
@@ -193,7 +193,7 @@ export const Connectors = ({
     );
 
     return (
-        <BackgroundImageWrapper>
+        <BigImageBackground>
             <div className="blogs-index-header-wrapper">
                 <div className="connector-index-header">
                     <div style={{ maxWidth: '30rem' }}>
@@ -279,6 +279,6 @@ export const Connectors = ({
                     </div>
                 )}
             </>
-        </BackgroundImageWrapper>
+        </BigImageBackground>
     );
 };
