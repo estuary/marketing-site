@@ -8,9 +8,7 @@ export const Head = () => {
         query {
             metaImg: file(relativePath: { eq: "pricing/graphic_parent.png" }) {
                 childImageSharp {
-                    fixed(width: 618) {
-                        src
-                    }
+                    gatsbyImageData(layout: FIXED, width: 618)
                 }
             }
         }
@@ -20,7 +18,7 @@ export const Head = () => {
         <Seo
             title="Pricing"
             description="Reduce your data costs and latency with managed streaming CDC and ETL pipelines."
-            image={metaImg.childImageSharp.fixed.src}
+            image={metaImg.childImageSharp.gatsbyImageData}
         />
     );
 };

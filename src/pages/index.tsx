@@ -37,9 +37,7 @@ export const Head = () => {
         query {
             metaImg: file(relativePath: { eq: "flow-desktop.png" }) {
                 childImageSharp {
-                    fixed(width: 1200) {
-                        src
-                    }
+                    gatsbyImageData(layout: FIXED, width: 1200)
                 }
             }
         }
@@ -49,7 +47,7 @@ export const Head = () => {
         <Seo
             title="Estuary | Real-Time Data Integration, CDC & ETL Platform"
             description="Estuary Flow is the most reliable real-time data integration platform for ETL, ELT, CDC and streaming pipelines. Build and automate data pipelines. Try it free!"
-            image={metaImg.childImageSharp.fixed.src}
+            image={metaImg.childImageSharp.gatsbyImageData}
         />
     );
 };
