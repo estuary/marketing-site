@@ -7,7 +7,8 @@ import reltime from 'dayjs/plugin/relativeTime';
 import CalendarTodayOutlined from '@mui/icons-material/CalendarTodayOutlined';
 import DoneIcon from '@mui/icons-material/Done';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import BuildPipeLineBannerBackground from '../../components/BackgroundImages/BuildPipelineWrapper';
+import SwoopingLinesBackground from '../../components/BackgroundImages/LightSwoopingLinesRightDirectionBackground';
+import StraightLinesBackground from '../../components/BackgroundImages/StraightLinesBackground';
 import { PopularArticles } from '../../components/BlogPopularArticles';
 import BlogPostPopupModal from '../../components/BlogPostPopupModal';
 import { ProcessedPost } from '../../components/BlogPostProcessor';
@@ -18,7 +19,6 @@ import Bio from '../../components/bio';
 import Layout from '../../components/layout';
 import Seo from '../../components/seo';
 import logoUrl from '../../images/combination-mark__multi-blue.png';
-import { SwoopingLinesBackground } from '../../styles/heros';
 import { costPerGB } from '../../utils';
 import ShareArticle from './ShareArticle';
 
@@ -134,20 +134,22 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                 />
 
                                 <div className="build-pipeline-banner-wrapper">
-                                    <BuildPipeLineBannerBackground>
-                                        <div className="build-pipeline-banner">
-                                            <h3>
-                                                Start streaming your data{' '}
-                                                <span>for free</span>
-                                            </h3>
-                                            <OutboundLink
-                                                href="https://dashboard.estuary.dev/register"
-                                                className="pipeline-link"
-                                            >
-                                                Build a Pipeline
-                                            </OutboundLink>
+                                    <StraightLinesBackground className="background">
+                                        <div className="big-build-pipeline-banner-container">
+                                            <div className="build-pipeline-banner">
+                                                <h3>
+                                                    Start streaming your data{' '}
+                                                    <span>for free</span>
+                                                </h3>
+                                                <OutboundLink
+                                                    href="https://dashboard.estuary.dev/register"
+                                                    className="pipeline-link"
+                                                >
+                                                    Build a Pipeline
+                                                </OutboundLink>
+                                            </div>
                                         </div>
-                                    </BuildPipeLineBannerBackground>
+                                    </StraightLinesBackground>
                                 </div>
                             </div>
 
@@ -234,61 +236,63 @@ const BlogPostTemplate = ({ data: { post } }) => {
                     </div>
                 </section>
                 <section className="big-build-pipeline-banner-section">
-                    <BuildPipeLineBannerBackground>
-                        <div className="big-build-pipeline-banner-container_layout">
-                            <div className="left-column-container">
-                                <h5>Streaming Pipelines.</h5>
-                                <h5>Simple to Deploy.</h5>
-                                <h5>Simply Priced.</h5>
+                    <StraightLinesBackground className="background">
+                        <div className="big-build-pipeline-banner-container">
+                            <div className="big-build-pipeline-banner-container_layout">
+                                <div className="left-column-container">
+                                    <h5>Streaming Pipelines.</h5>
+                                    <h5>Simple to Deploy.</h5>
+                                    <h5>Simply Priced.</h5>
+                                </div>
+                                <div className="right-column-container">
+                                    <div>
+                                        <DoneIcon
+                                            htmlColor="#5072eb"
+                                            fontSize="large"
+                                        />
+                                        <span>
+                                            {costPerGB} of data moved +
+                                            $.14/connector/hour;
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <DoneIcon
+                                            htmlColor="#5072eb"
+                                            fontSize="large"
+                                        />
+                                        <span>
+                                            50% less than competing ETL/ELT
+                                            solutions;
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <DoneIcon
+                                            htmlColor="#5072eb"
+                                            fontSize="large"
+                                        />
+                                        <span>
+                                            {'<'}100ms latency on streaming
+                                            sinks/sources.
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="right-column-container">
-                                <div>
-                                    <DoneIcon
-                                        htmlColor="#5072eb"
-                                        fontSize="large"
-                                    />
-                                    <span>
-                                        {costPerGB} of data moved +
-                                        $.14/connector/hour;
-                                    </span>
-                                </div>
-                                <div>
-                                    <DoneIcon
-                                        htmlColor="#5072eb"
-                                        fontSize="large"
-                                    />
-                                    <span>
-                                        50% less than competing ETL/ELT
-                                        solutions;
-                                    </span>
-                                </div>
-                                <div>
-                                    <DoneIcon
-                                        htmlColor="#5072eb"
-                                        fontSize="large"
-                                    />
-                                    <span>
-                                        {'<'}100ms latency on streaming
-                                        sinks/sources.
-                                    </span>
-                                </div>
+                            <div className="build-pipeline-and-pricing-buttons">
+                                <OutboundLink
+                                    href="https://dashboard.estuary.dev/register"
+                                    className="pipeline-link"
+                                >
+                                    Build a Pipeline
+                                </OutboundLink>
+                                <OutboundLink
+                                    href="https://estuary.dev/pricing"
+                                    className="pricing-link"
+                                >
+                                    See Pricing
+                                </OutboundLink>
                             </div>
                         </div>
-                        <div className="build-pipeline-and-pricing-buttons">
-                            <OutboundLink
-                                href="https://dashboard.estuary.dev/register"
-                                className="pipeline-link"
-                            >
-                                Build a Pipeline
-                            </OutboundLink>
-                            <OutboundLink
-                                href="https://estuary.dev/pricing"
-                                className="pricing-link"
-                            >
-                                See Pricing
-                            </OutboundLink>
-                        </div>
-                    </BuildPipeLineBannerBackground>
+                    </StraightLinesBackground>
                 </section>
             </article>
             <BlogPostPopupModal />

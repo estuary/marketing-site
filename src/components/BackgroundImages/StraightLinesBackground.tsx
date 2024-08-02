@@ -5,20 +5,20 @@ import BackgroundImage, {
     IBackgroundImageProps,
 } from 'gatsby-background-image';
 
-type BuildPipeLineBannerBackgroundProps = IBackgroundImageProps & {
+import { commonBackgroundImageProps } from './utils';
+
+type StraightLinesBackgroundProps = IBackgroundImageProps & {
     children?: React.ReactNode;
 } & React.HTMLAttributes<HTMLDivElement>;
 
-const BuildPipeLineBannerBackground = ({
+const StraightLinesBackground = ({
     children,
     ...rest
-}: BuildPipeLineBannerBackgroundProps) => {
-    const data = useStaticQuery(graphql`
+}: StraightLinesBackgroundProps) => {
+    const swoopingLines = useStaticQuery(graphql`
         query {
-            background: file(
-                relativePath: {
-                    eq: "big-banner-build-pipeline-background-image.png"
-                }
+            imageData: file(
+                relativePath: { eq: "lp-connector/real-time/Vector.png" }
             ) {
                 childImageSharp {
                     fluid(quality: 90, maxWidth: 1356) {
@@ -31,12 +31,9 @@ const BuildPipeLineBannerBackground = ({
 
     return (
         <BackgroundImage
-            Tag="section"
-            fadeIn={false}
-            critical
-            className="big-build-pipeline-banner-container"
-            fluid={data.background.childImageSharp.fluid}
+            fluid={swoopingLines.imageData.childImageSharp.fluid}
             backgroundColor="#04192b"
+            {...commonBackgroundImageProps}
             {...rest}
         >
             {children}
@@ -44,4 +41,4 @@ const BuildPipeLineBannerBackground = ({
     );
 };
 
-export default BuildPipeLineBannerBackground;
+export default StraightLinesBackground;

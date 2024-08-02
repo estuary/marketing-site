@@ -3,7 +3,7 @@ import * as React from 'react';
 
 const Step2 = ({ activePage, setState }) => {
     return (
-        <div className={`step-${activePage}`}>
+        <div className={`step step-${activePage}`}>
             <div className="step-content">
                 <StaticImage
                     placeholder="none"
