@@ -1,5 +1,5 @@
 diff --git a/node_modules/@draftbox-co/gatsby-rehype-inline-images/gatsby-node.js b/node_modules/@draftbox-co/gatsby-rehype-inline-images/gatsby-node.js
-index 320309d..f5d6444 100644
+index 320309d..6a35961 100644
 --- a/node_modules/@draftbox-co/gatsby-rehype-inline-images/gatsby-node.js
 +++ b/node_modules/@draftbox-co/gatsby-rehype-inline-images/gatsby-node.js
 @@ -9,7 +9,7 @@ const {
@@ -31,7 +31,7 @@ index 320309d..f5d6444 100644
    const nodes = [];
    visit(htmlAst, {
      tagName: `img`
-@@ -83,7 +79,7 @@ module.exports = async ({
+@@ -83,11 +79,11 @@ module.exports = async ({
      return node;
    }));
    return htmlAst;
@@ -39,8 +39,21 @@ index 320309d..f5d6444 100644
 +}};
  
  const replaceNewImage = async (node, cache, store, createNode, createNodeId, reporter, options) => {
-   //console.log(node);
-@@ -153,50 +149,24 @@ const generateImagesAndUpdateNode = async function ({
+-  //console.log(node);
+   const url = node.properties.src;
++
+   let imageNode;
+ 
+   try {
+@@ -117,6 +113,7 @@ const replaceNewImage = async (node, cache, store, createNode, createNodeId, rep
+   if (!imageNode) return;
+   let formattedImgTag = {};
+   formattedImgTag.url = url;
++  formattedImgTag.alt = node.properties.alt;
+   formattedImgTag.classList = node.properties.className || []; // formattedImgTag.title = thisImg.attr(`title`)
+   // formattedImgTag.alt = thisImg.attr(`alt`)
+ 
+@@ -153,50 +150,24 @@ const generateImagesAndUpdateNode = async function ({
  
    try {
      await sharp(imageNode.absolutePath).metadata();
