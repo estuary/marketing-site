@@ -441,6 +441,12 @@ const cfg: GatsbyConfig = {
                 siteUrl: `https://estuary.dev`,
             },
         },
+        {
+            resolve: `gatsby-transformer-remark`,
+            options: {
+                plugins: [`gatsby-remark-reading-time`],
+            },
+        },
         // {
         //   resolve: `gatsby-plugin-feed`,
         //   options: {

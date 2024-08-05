@@ -93,7 +93,12 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                     <div className="icon-info-wrapper">
                                         <ReadingTimeIcon color="#47506D" />
                                         <span className="blog-post-date">
-                                            10 min
+                                            {
+                                                post.body.data
+                                                    .childMarkdownRemark
+                                                    .timeToRead
+                                            }{' '}
+                                            min
                                         </span>
                                     </div>
                                 </div>
@@ -388,6 +393,9 @@ export const pageQuery = graphql`
                     childHtmlRehype {
                         html
                         tableOfContents
+                    }
+                    childMarkdownRemark {
+                        timeToRead
                     }
                 }
             }
