@@ -20,6 +20,7 @@ import Layout from '../../components/layout';
 import Seo from '../../components/seo';
 import logoUrl from '../../images/combination-mark__multi-blue.png';
 import { costPerGB } from '../../utils';
+import ReadingTimeIcon from '../../svgs/time.svg';
 import ShareArticle from './ShareArticle';
 
 dayjs.extend(reltime);
@@ -75,7 +76,17 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                 </div>
                                 <div className="date-and-read-wrapper">
                                     <div className="icon-info-wrapper">
-                                        <CalendarTodayOutlined className="icon" />
+                                        <ReadingTimeIcon color="#47506D" />
+                                        <span className="blog-post-date">
+                                            {
+                                                post.body.data
+                                                    .childMarkdownRemark.fields
+                                                    .readingTime.text
+                                            }
+                                        </span>
+                                    </div>
+                                    <div className="icon-info-wrapper">
+                                        <CalendarTodayOutlined fontSize="small" />
                                         <span className="blog-post-date">
                                             <span>
                                                 {hasBeenUpdated
@@ -89,14 +100,6 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                             ) : null}
                                         </span>
                                     </div>
-
-                                    {/* TODO: Add post reading time */}
-                                    {/* <div className="icon-info-wrapper">
-                                    <AccessTime className="icon" />
-                                    <span className="blog-post-date">
-                                        10 min
-                                    </span>
-                                </div> */}
                                 </div>
                             </div>
                             <h1>{post.title}</h1>
@@ -389,6 +392,13 @@ export const pageQuery = graphql`
                     childHtmlRehype {
                         html
                         tableOfContents
+                    }
+                    childMarkdownRemark {
+                        fields {
+                            readingTime {
+                                text
+                            }
+                        }
                     }
                 }
             }
