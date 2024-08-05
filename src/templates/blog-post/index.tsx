@@ -20,6 +20,7 @@ import Layout from '../../components/layout';
 import Seo from '../../components/seo';
 import logoUrl from '../../images/combination-mark__multi-blue.png';
 import { costPerGB } from '../../utils';
+import ReadingTimeIcon from '../../svgs/time.svg';
 import ShareArticle from './ShareArticle';
 
 dayjs.extend(reltime);
@@ -89,14 +90,12 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                             ) : null}
                                         </span>
                                     </div>
-
-                                    {/* TODO: Add post reading time */}
-                                    {/* <div className="icon-info-wrapper">
-                                    <AccessTime className="icon" />
-                                    <span className="blog-post-date">
-                                        10 min
-                                    </span>
-                                </div> */}
+                                    <div className="icon-info-wrapper">
+                                        <ReadingTimeIcon color="#47506D" />
+                                        <span className="blog-post-date">
+                                            10 min
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                             <h1>{post.title}</h1>
