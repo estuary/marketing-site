@@ -31,7 +31,7 @@ index 320309d..2a9fc55 100644
    const nodes = [];
    visit(htmlAst, {
      tagName: `img`
-@@ -83,11 +79,11 @@ module.exports = async ({
+@@ -83,7 +79,7 @@ module.exports = async ({
      return node;
    }));
    return htmlAst;
