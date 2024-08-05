@@ -86,7 +86,7 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                         </span>
                                     </div>
                                     <div className="icon-info-wrapper">
-                                        <CalendarTodayOutlined className="icon" />
+                                        <CalendarTodayOutlined fontSize="small" />
                                         <span className="blog-post-date">
                                             <span>
                                                 {hasBeenUpdated
