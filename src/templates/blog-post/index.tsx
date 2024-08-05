@@ -76,6 +76,16 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                 </div>
                                 <div className="date-and-read-wrapper">
                                     <div className="icon-info-wrapper">
+                                        <ReadingTimeIcon color="#47506D" />
+                                        <span className="blog-post-date">
+                                            {
+                                                post.body.data
+                                                    .childMarkdownRemark.fields
+                                                    .readingTime.text
+                                            }
+                                        </span>
+                                    </div>
+                                    <div className="icon-info-wrapper">
                                         <CalendarTodayOutlined className="icon" />
                                         <span className="blog-post-date">
                                             <span>
@@ -88,17 +98,6 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                                     Updated {post.updatedAt}
                                                 </span>
                                             ) : null}
-                                        </span>
-                                    </div>
-                                    <div className="icon-info-wrapper">
-                                        <ReadingTimeIcon color="#47506D" />
-                                        <span className="blog-post-date">
-                                            {
-                                                post.body.data
-                                                    .childMarkdownRemark
-                                                    .timeToRead
-                                            }{' '}
-                                            min
                                         </span>
                                     </div>
                                 </div>
@@ -395,7 +394,11 @@ export const pageQuery = graphql`
                         tableOfContents
                     }
                     childMarkdownRemark {
-                        timeToRead
+                        fields {
+                            readingTime {
+                                text
+                            }
+                        }
                     }
                 }
             }
