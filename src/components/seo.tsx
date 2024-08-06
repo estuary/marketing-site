@@ -41,16 +41,15 @@ const Seo: React.FC<SeoProps> = ({
                 relativePath: { eq: "estuary-logo-metaimg.png" }
             ) {
                 childImageSharp {
-                    fixed(width: 400) {
-                        src
-                    }
+                    gatsbyImageData(layout: FIXED, width: 400)
                 }
             }
         }
     `);
 
     if (!image) {
-        image = defaultMetaImg.childImageSharp.fixed.src;
+        image =
+            defaultMetaImg.childImageSharp.gatsbyImageData.images.fallback.src;
     }
 
     const metaDescription = description ?? site.siteMetadata.description;

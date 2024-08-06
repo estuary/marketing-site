@@ -39,9 +39,6 @@ export const PopularArticles = () => {
                                         placeholder: BLURRED
                                         quality: 100
                                     )
-                                    fixed(width: 36) {
-                                        src
-                                    }
                                 }
                             }
                         }
