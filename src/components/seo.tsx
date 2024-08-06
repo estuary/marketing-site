@@ -48,7 +48,8 @@ const Seo: React.FC<SeoProps> = ({
     `);
 
     if (!image) {
-        image = defaultMetaImg.childImageSharp.gatsbyImageData;
+        image =
+            defaultMetaImg.childImageSharp.gatsbyImageData.images.fallback.src;
     }
 
     const metaDescription = description ?? site.siteMetadata.description;

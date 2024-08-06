@@ -18,7 +18,7 @@ export const Head = () => {
         <Seo
             title="Pricing"
             description="Reduce your data costs and latency with managed streaming CDC and ETL pipelines."
-            image={metaImg.childImageSharp.gatsbyImageData}
+            image={metaImg.childImageSharp.gatsbyImageData.images.fallback.src}
         />
     );
 };
