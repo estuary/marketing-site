@@ -51,12 +51,13 @@ const Bio = ({ authors }: BioProps) => {
                     const image = getImage(
                         picture?.localFile?.childImageSharp?.gatsbyImageData
                     );
-                    const combined = image && (
+
+                    const combined = (
                         <AvatarWrapper>
                             <Avatar
-                                alt="Image of author"
-                                image={image}
-                                name={name}
+                                alt="Image of blog author"
+                                image={image ? image : undefined}
+                                name={name ? name : ''}
                             />
                             {name ? (
                                 <strong className="author-name">{name}</strong>
