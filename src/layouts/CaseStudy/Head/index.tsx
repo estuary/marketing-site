@@ -20,8 +20,8 @@ const CaseStudyHead = ({
                 url={`${siteUrl}/customers/${caseStudy.Slug}`}
                 image={
                     caseStudy.Logo
-                        ? `${siteUrl}${caseStudy.Logo.localFile.childImageSharp.meta_img.src}`
-                        : null
+                        ? `${siteUrl}${caseStudy.Logo.localFile.childImageSharp.meta_img.gatsbyImageData}`
+                        : undefined
                 }
             />
             <script type="application/ld+json">

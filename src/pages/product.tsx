@@ -51,9 +51,7 @@ export const Head = () => {
         query {
             metaImg: file(relativePath: { eq: "real-time-graphic.png" }) {
                 childImageSharp {
-                    fixed(width: 1072) {
-                        src
-                    }
+                    gatsbyImageData(layout: FIXED, width: 1072)
                 }
             }
         }
@@ -63,7 +61,7 @@ export const Head = () => {
         <Seo
             title="Flow"
             description="Flow is the first real-time Data Operations platform. Set up pipelines with both historical and real-time data in minutes."
-            image={metaImg.childImageSharp.fixed.src}
+            image={metaImg.childImageSharp.gatsbyImageData.images.fallback.src}
         />
     );
 };

@@ -316,7 +316,7 @@ export const Head = ({
         url: author.link,
         image: author.picture && {
             '@type': 'ImageObject',
-            'url': `${siteUrl}/${author.picture.localFile.childImageSharp.fixed.src}`,
+            'url': `${siteUrl}/${author.picture.localFile.childImageSharp.fixedImg.gatsbyImageData}`,
         },
     }));
 
@@ -331,7 +331,7 @@ export const Head = ({
                 url={`${siteUrl}/${post.slug}`}
                 image={
                     post.hero
-                        ? `${siteUrl}${post.hero.localFile.childImageSharp.meta_img.src}`
+                        ? `${siteUrl}${post.hero.localFile.childImageSharp.meta_img.gatsbyImageData}`
                         : undefined
                 }
             />
@@ -347,7 +347,7 @@ export const Head = ({
                     'description': post.description ?? '',
                     'image':
                         post.hero &&
-                        `${siteUrl}${post.hero.localFile.childImageSharp.meta_img.src}`,
+                        `${siteUrl}${post.hero.localFile.childImageSharp.meta_img.gatsbyImageData}`,
                     'author':
                         post.authors.length > 1
                             ? mappedAuthors
@@ -412,9 +412,7 @@ export const pageQuery = graphql`
                                 placeholder: BLURRED
                                 quality: 100
                             )
-                            fixed(width: 60) {
-                                src
-                            }
+                            fixedImg: gatsbyImageData(layout: FIXED, width: 60)
                         }
                     }
                 }
@@ -429,9 +427,7 @@ export const pageQuery = graphql`
                             # aspectRatio: 2
                             formats: [AUTO, WEBP, AVIF]
                         )
-                        meta_img: fixed(width: 500) {
-                            src
-                        }
+                        meta_img: gatsbyImageData(layout: FIXED, width: 500)
                         # Further below in this doc you can learn how to use these response images
                     }
                 }
