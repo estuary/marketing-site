@@ -54,11 +54,11 @@ const Bio = ({ authors }: BioProps) => {
 
                     const combined = (
                         <AvatarWrapper>
-                            {image ? (
+                            {image && name ? (
                                 <Avatar
-                                    alt="Blog author avatar image"
+                                    alt="Image of blog author"
                                     image={image}
-                                    name={name ? name : '?'}
+                                    name={name}
                                 />
                             ) : null}
                             {name ? (
