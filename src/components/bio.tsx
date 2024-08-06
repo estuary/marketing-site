@@ -54,13 +54,11 @@ const Bio = ({ authors }: BioProps) => {
 
                     const combined = (
                         <AvatarWrapper>
-                            {image && name ? (
-                                <Avatar
-                                    alt="Image of blog author"
-                                    image={image}
-                                    name={name}
-                                />
-                            ) : null}
+                            <Avatar
+                                alt="Image of blog author"
+                                image={image ? image : undefined}
+                                name={name ? name : ''}
+                            />
                             {name ? (
                                 <strong className="author-name">{name}</strong>
                             ) : null}
