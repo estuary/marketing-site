@@ -51,11 +51,7 @@ export const Head = () => {
         query {
             metaImg: file(relativePath: { eq: "real-time-graphic.png" }) {
                 childImageSharp {
-<<<<<<< HEAD
-                    gatsbyImageData(layout: FIXED, width: 1200)
-=======
                     gatsbyImageData(layout: FIXED, width: 1072)
->>>>>>> ed8f6b41fd4282f3751541db118811e043e689a7
                 }
             }
         }
