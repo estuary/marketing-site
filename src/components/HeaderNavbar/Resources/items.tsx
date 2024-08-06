@@ -10,13 +10,13 @@ export const read = [
         Image: () => <StaticImage src="../../../svgs/blog.svg" alt="Blog" />,
     },
     {
-        name: 'Documents & Guides',
+        name: 'Docs & Guides',
         to: 'https://docs.estuary.dev',
         hasChevronIcon: true,
         Image: () => (
             <StaticImage
                 src="../../../svgs/docs-and-guides.svg"
-                alt="Documents & Guides"
+                alt="Docs & Guides"
             />
         ),
     },
