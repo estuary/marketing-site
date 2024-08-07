@@ -79,6 +79,10 @@ export const HomepageTitle = styled.h1`
         font-size: 2.25rem;
     }
 
+    @media (max-width: 425px) {
+        font-size: 1.5rem;
+    }
+
     & > .white-text {
         color: #fff;
     }
@@ -86,17 +90,16 @@ export const HomepageTitle = styled.h1`
 
 export const HomepageDescription = styled.p`
     margin-top: 24px;
-    margin-bottom: 0;
-
-    color: #b7c6dd;
-    line-height: 30px;
-
-    @media (min-width: 769px) {
-        font-size: var(--fontSize-2);
-    }
+    font-size: 1.25rem;
+    color: #fff;
+    margin: 20px 0 0 0;
 
     @media (max-width: 768px) {
-        margin: 20px 0;
+        font-size: 1rem;
+    }
+
+    @media (max-width: 425px) {
+        font-size: 0.875rem;
     }
 `;
 
