@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { SectionOne, SectionTwo } from '../components/ContactUs';
+import { SectionOne, SectionTwo, SectionThree } from '../components/ContactUs';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
 
@@ -8,6 +8,7 @@ const ContactUsPage = () => {
         <Layout>
             <SectionOne />
             <SectionTwo />
+            <SectionThree />
         </Layout>
     );
 };
