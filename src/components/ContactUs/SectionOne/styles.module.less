@@ -1,3 +1,31 @@
+@import '../../../globalStyles/sections.module.less';
+@import '../../../globalStyles/wrappers.module.less';
+
+.section {
+  .defaultWrapperGrey;
+
+  background-color: #f9fafc;
+  background-image: url('../../../images/product-flow-vector-left.svg');
+  background-repeat: no-repeat;
+  background-position-y: 480px;
+  background-size: 35%;
+  background-position-y: 60%;
+}
+
+.container {
+  .globalMaxWidth;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &>div:last-child {
+    width: 100%;
+    max-width: 50rem;
+  }
+}
+
 .title {
   font-size: 2.5rem;
   font-weight: 600;
