@@ -70,27 +70,17 @@ export const HomepageHeader = styled.div`
 `;
 
 export const HomepageTitle = styled.h1`
-    color: #ffffff;
+    color: #5072eb;
     margin: 0;
-    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 4.5rem;
 
     @media (max-width: 768px) {
-        font-size: var(--fontSize-8);
+        font-size: 2.25rem;
     }
 
-    & span:nth-child(2n) {
-        color: #5072eb;
-    }
-
-    & span {
-        line-height: 72px;
-        font-weight: 600;
-        font-size: 4.5rem;
-
-        @media (max-width: 768px) {
-            line-height: 43.2px;
-            font-size: 2.25rem;
-        }
+    & > .white-text {
+        color: #fff;
     }
 `;
 
@@ -101,7 +91,7 @@ export const HomepageDescription = styled.p`
     color: #b7c6dd;
     line-height: 30px;
 
-    @media (min-width: 768px) {
+    @media (min-width: 769px) {
         font-size: var(--fontSize-2);
     }
 
