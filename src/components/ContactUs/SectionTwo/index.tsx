@@ -1,6 +1,7 @@
 import React from 'react';
 import BuildingIcon from '@mui/icons-material/Apartment';
 import { sectionTopBottomPadding } from '../../../globalStyles/wrappers.module.less';
+import { estuaryAddress } from '../../../../shared';
 import {
     container,
     iconWrapper,
@@ -11,6 +12,14 @@ import {
 } from './styles.module.less';
 
 const SectionTwo = () => {
+    const {
+        streetAddress,
+        addressLocality,
+        addressRegion,
+        postalCode,
+        addressCountry,
+    } = estuaryAddress;
+
     return (
         <section className={sectionTopBottomPadding}>
             <div className={container}>
@@ -19,9 +28,10 @@ const SectionTwo = () => {
                 </div>
                 <h2 className={title}>OUR OFFICE</h2>
                 <div className={card}>
-                    <h3 className={city}>NEW YORK</h3>
+                    <h3 className={city}>{addressLocality}</h3>
                     <p className={address}>
-                        244 5th Ave, Suite 1277, New York, NY 10001
+                        {streetAddress}, {addressLocality}, {addressRegion},{' '}
+                        {postalCode}, {addressCountry}
                     </p>
                 </div>
             </div>
