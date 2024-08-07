@@ -14,9 +14,8 @@ const ContactUsPage = () => {
 
 export const Head = () => (
     <Seo
-        // TODO: Ask Sourabh title and description
-        title="Estuary | Contact Us"
-        description="Estuary Flow is the most reliable real-time data integration platform for ETL, ELT, CDC and streaming pipelines. Build and automate data pipelines. Try it free!"
+        title="Contact Us - Connect with our Team"
+        description="Get in touch with Estuary for inquiries on support, sales, and partnerships. Learn how we can streamline your data processes today!"
     />
 );
 
