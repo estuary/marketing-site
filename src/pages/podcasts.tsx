@@ -153,7 +153,7 @@ const LpPodcats = () => {
                             <a href="https://dashboard.estuary.dev/register">
                                 Sign up
                             </a>
-                            <a href="https://estuary.dev/about/#contact-us">
+                            <a href="https://estuary.dev/contact-us">
                                 Contact us
                             </a>
                         </div>

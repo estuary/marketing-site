@@ -148,7 +148,7 @@ const PricingPlans = () => {
                     title="Enterprise"
                     price="Custom Pricing"
                     smallPrice
-                    href="/about#contact-us"
+                    href="/contact-us"
                     linkLabel="Contact us"
                     onClick={() => setSelected(3)}
                     items={[
