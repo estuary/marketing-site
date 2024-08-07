@@ -2,7 +2,6 @@ import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
 import { ProcessedPost } from '../components/BlogPostProcessor';
-import HubSpotFormWrapper from '../components/HubSpot/FormWrapper';
 import Layout from '../components/layout';
 import { OutboundLink } from '../components/OutboundLink';
 import Seo from '../components/seo';
@@ -551,16 +550,6 @@ const AboutPage = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className="about-section-five">
-                <h2 className="about-section-five-header" id="contact-us">
-                    Let&apos;s talk about your data
-                </h2>
-                <p className="about-section-five-text">
-                    Have a specific question or comment? Send us a note and a
-                    team member will reach out to you shortly.
-                </p>
-                <HubSpotFormWrapper />
             </div>
         </Layout>
     );
