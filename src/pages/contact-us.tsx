@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { SectionOne } from '../components/ContactUs';
+import { SectionOne, SectionTwo } from '../components/ContactUs';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
 
@@ -7,6 +7,7 @@ const ContactUsPage = () => {
     return (
         <Layout>
             <SectionOne />
+            <SectionTwo />
         </Layout>
     );
 };
