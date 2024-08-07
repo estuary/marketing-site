@@ -1,7 +1,7 @@
 import React from 'react';
 import BuildingIcon from '@mui/icons-material/Apartment';
+import { sectionTopBottomPadding } from '../../../globalStyles/wrappers.module.less';
 import {
-    section,
     container,
     iconWrapper,
     title,
@@ -12,7 +12,7 @@ import {
 
 const SectionTwo = () => {
     return (
-        <section className={section}>
+        <section className={sectionTopBottomPadding}>
             <div className={container}>
                 <div className={iconWrapper}>
                     <BuildingIcon htmlColor="#5072EB" fontSize="large" />
