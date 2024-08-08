@@ -9,6 +9,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import * as React from 'react';
 
 import logoUrl from '../images/combination-mark__multi-blue.png';
+import { estuaryAddress } from '../../shared';
 
 export interface SeoProps {
     title: string;
@@ -105,14 +106,7 @@ const Seo: React.FC<SeoProps> = ({
                         'https://www.youtube.com/channel/UCJ9JIjh7uaUdjcFR6xTkJXQ',
                         'https://www.crunchbase.com/organization/estuary',
                     ],
-                    'address': {
-                        '@type': 'PostalAddress',
-                        'streetAddress': '244 5th Ave, Suite 1277',
-                        'addressLocality': 'New York',
-                        'addressRegion': 'NY',
-                        'postalCode': '10001',
-                        'addressCountry': 'US',
-                    },
+                    'address': estuaryAddress,
                     'knowsAbout': [
                         'https://en.wikipedia.org/wiki/Data_integration',
                         'https://en.wikipedia.org/wiki/Extract,_transform,_load',

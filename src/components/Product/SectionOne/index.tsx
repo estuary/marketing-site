@@ -36,10 +36,9 @@ const SectionOne = () => {
                             >
                                 Build a Pipeline
                             </PrimaryButton>
-                            <SecondaryButton
-                                buttonLabel="Contact Us"
-                                buttonId="product-page-section-one-hubspot"
-                            />
+                            <SecondaryButton to="/contact-us">
+                                Contact Us
+                            </SecondaryButton>
                         </ButtonsContainer>
                     </ContainerContent>
                     <ImageWrapper>

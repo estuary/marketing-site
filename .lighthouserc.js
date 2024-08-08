@@ -11,6 +11,7 @@ module.exports = {
                 'http://localhost:9000/404.html',
                 'http://localhost:9000/product/index.html',
                 'http://localhost:9000/about/index.html',
+                'http://localhost:9000/contact-us/index.html',
                 'http://localhost:9000/pricing/index.html',
                 'http://localhost:9000/integrations/index.html',
                 'http://localhost:9000/source/postgres/index.html',

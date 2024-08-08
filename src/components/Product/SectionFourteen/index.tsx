@@ -53,7 +53,7 @@ const SectionFourteen = () => {
                                     overview.
                                 </BoxDescription>
                             </TextWrapper>
-                            <LinkOutlined to="/about#contact-us">
+                            <LinkOutlined to="/contact-us">
                                 <IconWrapper>
                                     <CalendarIcon color="#5072EB" />
                                 </IconWrapper>

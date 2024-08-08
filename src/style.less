@@ -28,7 +28,6 @@
     --spacing-20: 5rem;
     --spacing-24: 6rem;
     --spacing-32: 8rem;
-    --font-family: "Inter", sans-serif;
     --fontWeight-normal: 400;
     --fontWeight-bold: 700;
     --fontWeight-black: 900;
@@ -80,7 +79,7 @@ html {
 }
 
 body {
-    font-family: var(--font-family);
+    font-family: "Inter", sans-serif;
     font-size: var(--fontSize-1);
     color: var(--color-text);
     width: 100%;
@@ -1815,6 +1814,7 @@ table th {
     text-decoration: none;
     cursor: pointer;
     color: #47506d;
+    text-align: center;
 
     &:hover {
         background-color: #5072eb;
@@ -1830,7 +1830,6 @@ table th {
     padding: 20px 36.5px 20px 36.5px;
     margin-top: 24px;
     width: 240px;
-    height: 60px;
     text-align: center;
     font-style: normal;
     font-weight: 400;
@@ -1896,39 +1895,6 @@ table th {
     width: 100%;
     margin: 40px auto 0 auto;
     border: 1px solid #d7dce5;
-}
-
-.about-section-five {
-    .sectionTopBottomPadding;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #f9fafc;
-    background-image: url('./images/product-flow-vector-left.svg');
-    background-repeat: no-repeat;
-    background-position-y: 480px;
-    background-size: 35%;
-    background-position-y: 60%;
-
-    &>div:last-child {
-        width: 100%;
-        max-width: 50rem;
-    }
-
-    .about-section-five-header {
-        color: #04192b;
-        margin-top: 0;
-    }
-
-    .about-section-five-text {
-        max-width: 670px;
-        margin-left: auto;
-        margin-right: auto;
-        color: #47506d;
-        text-align: center;
-    }
 }
 
 .form-wrapper {
@@ -2651,15 +2617,6 @@ table th {
         font-size: var(--fontSize-0);
     }
 
-    .about-section-five-header {
-        font-size: 1.75rem;
-    }
-
-    .about-section-five-text {
-        font-size: var(--fontSize-1);
-        text-align: center;
-    }
-
     .form-subwrapper-mobile {
         display: flex;
         flex-direction: column;
@@ -2674,11 +2631,6 @@ table th {
     .form-wrapper {
         width: 100%;
         padding: 16px;
-    }
-
-    .about-section-five {
-        background-size: 100%;
-        background-position-y: 80%;
     }
 
     .solutions-banner-wrapper {
@@ -3715,6 +3667,10 @@ table th {
             }
         }
     }
+}
+
+.about-section-five {
+    .globalMaxWidth;
 }
 
 .about-media {

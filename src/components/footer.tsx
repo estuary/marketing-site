@@ -70,10 +70,10 @@ const Footer = () => {
                             Github
                         </OutboundLink>
                         <Link
-                            to="/about#contact-us"
+                            to="/contact-us"
                             className="global-footer-right-link"
                         >
-                            Contact
+                            Contact Us
                         </Link>
                         <OutboundLink
                             target="_blank"

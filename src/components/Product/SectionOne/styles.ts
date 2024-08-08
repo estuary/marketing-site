@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import { globalMaxWidth } from '../../../globalStyles';
-import OpenHubspotModal from '../../HubSpot/OpenModal';
+import { globalMaxWidth, LinkOutlined } from '../../../globalStyles';
 import { OutboundLinkFilled } from '../../OutboundLink';
 
 export const Container = styled.div`
@@ -113,7 +112,7 @@ export const PrimaryButton = styled(OutboundLinkFilled)`
     }
 `;
 
-export const SecondaryButton = styled(OpenHubspotModal)`
+export const SecondaryButton = styled(LinkOutlined)`
     background-color: transparent;
     color: #ffffff;
     border: 2px solid #5072eb;

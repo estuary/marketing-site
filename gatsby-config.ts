@@ -236,7 +236,7 @@ const cfg: GatsbyConfig = {
             options: {
                 ssr: false, // We need this to prevent mismatch errors
                 transpileTemplateLiterals: false, // Setting to false just to be safe - think we can remove in future
-                displayName: true, // Good to enable when debugging - but should not be needed for production
+                displayName: process.env.NODE_ENV !== 'production', // Good to enable when debugging - but should not be needed for production
                 fileName: true, // We want to use the file in the style name
                 preprocess: false,
                 meaninglessFileNames: ['index', 'styles'], // Having these two files names in the class name isn't too valuable

@@ -98,7 +98,7 @@ import { OutboundLink, OutboundLinkFilled } from './OutboundLink';
         },
         {
           title: 'Contact',
-          path: '/about#contact-us',
+          path: 'contact-us',
         },
       ],
     },

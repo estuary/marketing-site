@@ -1,6 +1,9 @@
 import styled from 'styled-components';
-import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
-import OpenHubspotModal from '../../HubSpot/OpenModal';
+import {
+    globalMaxWidth,
+    LinkOutlined,
+    sectionTopBottomPadding,
+} from '../../../globalStyles';
 import { OutboundLinkFilled } from '../../OutboundLink';
 
 export const AnimationBaseStyling = `
@@ -70,43 +73,36 @@ export const HomepageHeader = styled.div`
 `;
 
 export const HomepageTitle = styled.h1`
-    color: #ffffff;
+    color: #5072eb;
     margin: 0;
-    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 4.5rem;
 
     @media (max-width: 768px) {
-        font-size: var(--fontSize-8);
+        font-size: 2.25rem;
     }
 
-    & span:nth-child(2n) {
-        color: #5072eb;
+    @media (max-width: 425px) {
+        font-size: 1.5rem;
     }
 
-    & span {
-        line-height: 72px;
-        font-weight: 600;
-        font-size: 4.5rem;
-
-        @media (max-width: 768px) {
-            line-height: 43.2px;
-            font-size: 2.25rem;
-        }
+    & > .white-text {
+        color: #fff;
     }
 `;
 
 export const HomepageDescription = styled.p`
     margin-top: 24px;
-    margin-bottom: 0;
-
-    color: #b7c6dd;
-    line-height: 30px;
-
-    @media (min-width: 768px) {
-        font-size: var(--fontSize-2);
-    }
+    font-size: 1.25rem;
+    color: #fff;
+    margin: 20px 0 0 0;
 
     @media (max-width: 768px) {
-        margin: 20px 0;
+        font-size: 1rem;
+    }
+
+    @media (max-width: 425px) {
+        font-size: 0.875rem;
     }
 `;
 
@@ -114,6 +110,10 @@ export const HomepageHeadingButtons = styled.div`
     display: flex;
     gap: 24px;
     margin-top: 36px;
+
+    @media (max-width: 320px) {
+        flex-direction: column;
+    }
 
     & button,
     a {
@@ -126,6 +126,10 @@ export const HomepageHeadingButtons = styled.div`
             padding-left: 0;
             padding-right: 0;
         }
+
+        @media (max-width: 320px) {
+            width: 100%;
+        }
     }
 `;
 
@@ -133,11 +137,9 @@ export const PrimaryButton = styled(OutboundLinkFilled)`
     padding: 16px 24px !important;
 `;
 
-export const SecondaryButton = styled(OpenHubspotModal)`
+export const SecondaryButton = styled(LinkOutlined)`
     background-color: transparent;
     color: #ffffff;
-    border: 2px solid #5072eb;
-    padding: 16px 24px;
 `;
 
 export const FlowAnimationContainer = styled.div`

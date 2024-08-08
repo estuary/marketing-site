@@ -27,9 +27,9 @@ const SectionOne = () => {
             <MainContent>
                 <HomepageHeader>
                     <HomepageTitle>
-                        <span>MEET</span> <span>THE FASTEST</span>
-                        <span>,</span> <span>MOST RELIABLE</span>{' '}
-                        <span>ETL</span>
+                        <span className="white-text">MEET</span>{' '}
+                        <span>THE FASTEST, MOST RELIABLE</span>{' '}
+                        <span className="white-text">ETL</span>
                     </HomepageTitle>
                     <HomepageDescription>
                         The only platform built from the ground up for truly
@@ -45,10 +45,11 @@ const SectionOne = () => {
                             Build a Pipeline
                         </PrimaryButton>
                         <SecondaryButton
-                            buttonLabel="Contact Us"
-                            buttonId="section-one-hubspot"
+                            to="/contact-us"
                             className="homepage-section-one-button"
-                        />
+                        >
+                            Contact Us
+                        </SecondaryButton>
                     </HomepageHeadingButtons>
                 </HomepageHeader>
                 <FlowAnimationContainer>
