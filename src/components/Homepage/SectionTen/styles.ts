@@ -1,6 +1,9 @@
 import styled from 'styled-components';
-import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
-import OpenHubspotModal from '../../HubSpot/OpenModal';
+import {
+    globalMaxWidth,
+    LinkOutlined,
+    sectionTopBottomPadding,
+} from '../../../globalStyles';
 import { OutboundLinkFilled } from '../../OutboundLink';
 
 export const Wrapper = styled.section`
@@ -77,6 +80,7 @@ export const ButtonFilled = styled(OutboundLinkFilled)`
     ${BaseButtonStyling}
 `;
 
-export const HubspotButton = styled(OpenHubspotModal)`
+export const HubspotButton = styled(LinkOutlined)`
     ${BaseButtonStyling}
+    border-color: #D0D9F9;
 `;

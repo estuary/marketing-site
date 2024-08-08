@@ -1,9 +1,8 @@
 import React from 'react';
-import { outlinedButton } from '../../../globalStyles/buttons.module.less';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import FlowDemoVideo from '../../FlowDemoVideo';
-import OpenHubspotModal from '../../HubSpot/OpenModal';
 import { OutboundLinkFilled } from '../../OutboundLink';
+import { LinkOutlined } from '../../../globalStyles';
 import {
     buttonsWrapper,
     container,
@@ -30,11 +29,9 @@ const SectionFive = () => {
                     >
                         Try Now
                     </OutboundLinkFilled>
-                    <OpenHubspotModal
-                        buttonLabel="Contact Us"
-                        buttonId="integration-section-five-hubspot"
-                        buttonClass={outlinedButton}
-                    />
+                    <LinkOutlined to="/contact-us" theme="dark">
+                        Contact Us
+                    </LinkOutlined>
                 </div>
             </div>
         </section>

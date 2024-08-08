@@ -1,6 +1,9 @@
 import styled from 'styled-components';
-import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
-import OpenHubspotModal from '../../HubSpot/OpenModal';
+import {
+    globalMaxWidth,
+    LinkOutlined,
+    sectionTopBottomPadding,
+} from '../../../globalStyles';
 import { OutboundLinkFilled } from '../../OutboundLink';
 
 export const AnimationBaseStyling = `
@@ -108,6 +111,10 @@ export const HomepageHeadingButtons = styled.div`
     gap: 24px;
     margin-top: 36px;
 
+    @media (max-width: 320px) {
+        flex-direction: column;
+    }
+
     & button,
     a {
         white-space: nowrap;
@@ -119,6 +126,10 @@ export const HomepageHeadingButtons = styled.div`
             padding-left: 0;
             padding-right: 0;
         }
+
+        @media (max-width: 320px) {
+            width: 100%;
+        }
     }
 `;
 
@@ -126,11 +137,9 @@ export const PrimaryButton = styled(OutboundLinkFilled)`
     padding: 16px 24px !important;
 `;
 
-export const SecondaryButton = styled(OpenHubspotModal)`
+export const SecondaryButton = styled(LinkOutlined)`
     background-color: transparent;
     color: #ffffff;
-    border: 2px solid #5072eb;
-    padding: 16px 24px;
 `;
 
 export const FlowAnimationContainer = styled.div`

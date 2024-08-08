@@ -20,10 +20,7 @@ const SectionTen = () => {
                 <OutboundLinkOutlined href={webinarsUrl} target="_blank">
                     Watch Demo
                 </OutboundLinkOutlined>
-                <HubspotButton
-                    buttonLabel="Contact Us"
-                    buttonId="section-ten-hubspot"
-                />
+                <HubspotButton to="/contact-us">Contact Us</HubspotButton>
             </Buttons>
         </Wrapper>
     );

@@ -45,10 +45,11 @@ const SectionOne = () => {
                             Build a Pipeline
                         </PrimaryButton>
                         <SecondaryButton
-                            buttonLabel="Contact Us"
-                            buttonId="section-one-hubspot"
+                            to="/contact-us"
                             className="homepage-section-one-button"
-                        />
+                        >
+                            Contact Us
+                        </SecondaryButton>
                     </HomepageHeadingButtons>
                 </HomepageHeader>
                 <FlowAnimationContainer>

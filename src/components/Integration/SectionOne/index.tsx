@@ -7,11 +7,11 @@ import SingleDataflowIcon from '../../../svgs/metric-single-dataflow.svg';
 
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import EstuaryLogo from '../../../svgs/colored-logo.svg';
-import OpenHubspotModal from '../../HubSpot/OpenModal';
 import MetricCard from '../../MetricCard';
 import NewsletterSignupForm from '../../NewsletterSignupForm';
 import VanityLogosMarquee from '../../VanityLogosMarquee';
 import { Connector } from '../shared';
+import { LinkOutlined } from '../../../globalStyles';
 import {
     backgroundImageWraper,
     bgImage,
@@ -117,11 +117,12 @@ const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
                     <div className={contactUsCta}>
                         <span>Schedule an appointment</span>
                         <div className={buttonWrapper}>
-                            <OpenHubspotModal
-                                buttonLabel="Contact Us"
-                                buttonId="section-one-hubspot"
-                                buttonClass={secondaryButton}
-                            />
+                            <LinkOutlined
+                                to="/contact-us"
+                                className={secondaryButton}
+                            >
+                                Contact Us
+                            </LinkOutlined>
                         </div>
                     </div>
                 </div>
