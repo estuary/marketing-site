@@ -14,6 +14,7 @@ import CultureIcon from '../svgs/about-careers-culture-icon.svg';
 import EstuaryLogoSmall from '../svgs/estuary-logo-small.svg';
 import FlowLogo from '../svgs/flow-logo.svg';
 import LinkIcon from '../svgs/link-icon.svg';
+import ContactUsForm from '../components/ContactUsForm';
 
 // const jobs = [
 //     {
@@ -551,6 +552,7 @@ const AboutPage = () => {
                     </div>
                 </div>
             </div>
+            <ContactUsForm />
         </Layout>
     );
 };

@@ -1,0 +1,30 @@
+@import '../../globalStyles/sections.module.less';
+
+.container {
+  .globalMaxWidth;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &>div:last-child {
+    width: 100%;
+    max-width: 50rem;
+  }
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #04192b;
+  margin: 0;
+}
+
+.description {
+  font-size: 1rem;
+  text-align: center;
+  color: #47506d;
+  max-width: 670px;
+  margin-bottom: 48px;
+}
