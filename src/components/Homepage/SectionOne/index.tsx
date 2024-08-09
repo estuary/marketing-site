@@ -45,8 +45,9 @@ const SectionOne = () => {
                             Build a Pipeline
                         </PrimaryButton>
                         <SecondaryButton
-                            to="/contact-us"
+                            href="/contact-us"
                             className="homepage-section-one-button"
+                            target="_blank"
                         >
                             Contact Us
                         </SecondaryButton>

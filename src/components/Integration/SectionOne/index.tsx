@@ -118,8 +118,9 @@ const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
                         <span>Schedule an appointment</span>
                         <div className={buttonWrapper}>
                             <LinkOutlined
-                                to="/contact-us"
+                                href="/contact-us"
                                 className={secondaryButton}
+                                target="_blank"
                             >
                                 Contact Us
                             </LinkOutlined>
