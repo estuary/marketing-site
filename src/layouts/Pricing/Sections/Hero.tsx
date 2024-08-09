@@ -22,7 +22,9 @@ const PricingHero = () => {
                     >
                         Build free pipeline
                     </OutboundLink>
-                    <LinkOutlined to="/contact-us">Contact Us</LinkOutlined>
+                    <LinkOutlined href="/contact-us" target="_blank">
+                        Contact Us
+                    </LinkOutlined>
                 </div>
             </div>
             <div className="image-container">

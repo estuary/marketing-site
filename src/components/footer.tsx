@@ -69,12 +69,13 @@ const Footer = () => {
                         >
                             Github
                         </OutboundLink>
-                        <Link
-                            to="/contact-us"
+                        <a
+                            href="/contact-us"
                             className="global-footer-right-link"
+                            target="_blank"
                         >
                             Contact Us
-                        </Link>
+                        </a>
                         <OutboundLink
                             target="_blank"
                             href="https://docs.estuary.dev/"
