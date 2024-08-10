@@ -12,7 +12,7 @@ import {
     SectionThree,
     SectionTwo,
 } from '../components/Integration';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import Seo from '../components/seo';
 import { normalizeConnector } from '../utils';
 

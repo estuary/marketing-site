@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import Seo from '../components/seo';
 import FlowLogo from '../svgs/flow-logo.svg';
 import Image1 from '../svgs/solutions-1.svg';

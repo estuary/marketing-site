@@ -17,7 +17,7 @@ import SectionThirteen from '../components/Product/SectionThirteen';
 import SectionThree from '../components/Product/SectionThree';
 import SectionTwelve from '../components/Product/SectionTwelve';
 import SectionTwo from '../components/Product/SectionTwo';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 
 const Product = () => {
     return (

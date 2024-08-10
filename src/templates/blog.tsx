@@ -8,7 +8,7 @@ import lunr, { type Index } from 'lunr';
 import { useMemo } from 'react';
 import BigImageBackground from '../components/BackgroundImages/BigImageBackground';
 import { BlogPostCard } from '../components/BlogPostCard';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import Seo from '../components/seo';
 import FlowLogo from '../svgs/flow-logo.svg';
 

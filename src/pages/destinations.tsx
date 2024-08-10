@@ -1,6 +1,6 @@
 import React from 'react';
 import { Connectors } from '../components/Connectors';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import Seo from '../components/seo';
 import { estuaryHelpsYourTeam } from '../content/seo';
 
