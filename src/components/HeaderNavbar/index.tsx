@@ -1,22 +1,48 @@
-import React, { useState } from "react"
-import { Link } from "gatsby"
-import { OutboundLink } from "../../components/OutboundLink"
+import { Link } from 'gatsby';
+import React, { useCallback } from 'react';
+import { OutboundLink } from '../OutboundLink';
+import { globalHeaderLink } from '../styles.module.less';
+import LinkProduct from './Product';
+import LinkResources from './Resources';
+import { globalHeaderLinks } from './styles.module.less';
 
-import LinkProduct from "./Product"
-import LinkResources from "./Resources"
+const HeaderNavbar = ({ activeMenu, setActiveMenu }) => {
+    const closeMenus = useCallback(() => setActiveMenu(''), [setActiveMenu]);
 
-const HeaderNavbar = () => {
-  const [current, setCurrent] = useState('')
+    return (
+        <div className={globalHeaderLinks} onMouseLeave={closeMenus}>
+            <LinkProduct
+                active={activeMenu === 'product'}
+                setActive={setActiveMenu}
+            />
+            <Link
+                onMouseEnter={closeMenus}
+                className={globalHeaderLink}
+                to="/pricing"
+            >
+                Pricing
+            </Link>
+            <Link
+                onMouseEnter={closeMenus}
+                className={globalHeaderLink}
+                to="/integrations"
+            >
+                Connectors
+            </Link>
+            <LinkResources
+                active={activeMenu === 'resources'}
+                setActive={setActiveMenu}
+            />
+            <OutboundLink
+                target="_blank"
+                className={globalHeaderLink}
+                href="https://docs.estuary.dev"
+                onMouseEnter={closeMenus}
+            >
+                Docs
+            </OutboundLink>
+        </div>
+    );
+};
 
-  return (
-    <div className="global-header-links">
-      <LinkProduct active={current === 'product'} setActive={setCurrent} />
-      <Link className="global-header-link" to="/pricing">Pricing</Link>
-      <Link className="global-header-link" to="/integrations">Connectors</Link>
-      <LinkResources active={current === 'resources'} setActive={setCurrent} />
-      <OutboundLink className="global-header-link" href="https://docs.estuary.dev">Docs</OutboundLink>
-    </div>
-  )
-}
-
-export default HeaderNavbar
+export default HeaderNavbar;

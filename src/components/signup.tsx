@@ -1,4 +1,4 @@
-import React from "react"
+import React from 'react';
 
 const SignUp = () => {
     return (
@@ -9,13 +9,11 @@ const SignUp = () => {
                 </div>
                 <div className="cta-wrap">
                     <a href="https://dashboard.estuary.dev/register">Sign up</a>
-                    <a href="https://estuary.dev/about/#contact-us">
-                        Contact us
-                    </a>
+                    <a href="https://estuary.dev/contact-us">Contact us</a>
                 </div>
             </div>
         </section>
-    )
-}
+    );
+};
 
-export default SignUp
+export default SignUp;

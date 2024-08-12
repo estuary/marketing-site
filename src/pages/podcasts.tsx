@@ -1,18 +1,20 @@
-import { StaticImage } from "gatsby-plugin-image"
-import * as React from "react"
-import { OutboundLink } from "../components/OutboundLink"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
-import ApplePodcastButton from "../svgs/apple-podcasts.svg"
-import HeroImage from "../svgs/hero-image.svg"
-import SpotifyButton from "../svgs/listen-spotify.svg"
-import SubscribeYoutubeImage from "../svgs/subscribe-image.svg"
-import SubscribeYoutubeButton from "../svgs/subscribe-youtube.svg"
-import WatchYoutubeButton from "../svgs/youtube-watch.svg"
+import { StaticImage } from 'gatsby-plugin-image';
+import * as React from 'react';
+import NewsletterSignupForm from '../components/NewsletterSignupForm';
+import { OutboundLink } from '../components/OutboundLink';
+import Layout from '../components/Layout';
+import Seo from '../components/seo';
+import { estuaryAllowsEnterprises } from '../content/seo';
+import ApplePodcastButton from '../svgs/apple-podcasts.svg';
+import HeroImage from '../svgs/hero-image.svg';
+import SpotifyButton from '../svgs/listen-spotify.svg';
+import SubscribeYoutubeImage from '../svgs/subscribe-image.svg';
+import SubscribeYoutubeButton from '../svgs/subscribe-youtube.svg';
+import WatchYoutubeButton from '../svgs/youtube-watch.svg';
 
 const LpPodcats = () => {
     return (
-        <Layout headerTheme="light">
+        <Layout>
             <div className="lp-podcast-wrap">
                 <section className="podcast-hero">
                     <div className="hero-container">
@@ -134,10 +136,7 @@ const LpPodcats = () => {
                                 Subscribe to our newsletter to get the latest
                                 news and updates
                             </div>
-                            <div className="input-wrap">
-                                <input type="email" placeholder="Email" />
-                                <button type="submit">Submit</button>
-                            </div>
+                            <NewsletterSignupForm />
                         </div>
                         <div className="subscribe-right">
                             <SubscribeYoutubeImage />
@@ -154,7 +153,7 @@ const LpPodcats = () => {
                             <a href="https://dashboard.estuary.dev/register">
                                 Sign up
                             </a>
-                            <a href="https://estuary.dev/about/#contact-us">
+                            <a href="/contact-us" target="_blank">
                                 Contact us
                             </a>
                         </div>
@@ -162,18 +161,11 @@ const LpPodcats = () => {
                 </section>
             </div>
         </Layout>
-    )
-}
+    );
+};
 
 export const Head = () => {
-    return (
-        <Seo
-            title={"Podcasts"}
-            description={
-                "Estuary allows enterprises of any size to deploy true real-time pipelines that scale for high-volume use cases — without making difficult trade-offs or investing in complex infrastructure."
-            }
-        />
-    )
-}
+    return <Seo title="Podcasts" description={estuaryAllowsEnterprises} />;
+};
 
-export default LpPodcats
+export default LpPodcats;

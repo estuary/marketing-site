@@ -1,17 +1,26 @@
-import React from "react"
+import React from 'react';
 
-import Seo from "../../../components/seo"
+import { graphql, useStaticQuery } from 'gatsby';
+import Seo from '../../../components/seo';
 
-export const Head = ({ data: { post } }) => {
+export const Head = () => {
+    const { metaImg } = useStaticQuery(graphql`
+        query {
+            metaImg: file(relativePath: { eq: "pricing/graphic_parent.png" }) {
+                childImageSharp {
+                    gatsbyImageData(layout: FIXED, width: 618)
+                }
+            }
+        }
+    `);
+
     return (
         <Seo
-            title={"Pricing"}
-            description={
-                "Reduce your data costs and latency with managed streaming CDC and ETL pipelines."
-            }
-        >
-        </Seo>
-    )
-}
+            title="Pricing"
+            description="Reduce your data costs and latency with managed streaming CDC and ETL pipelines."
+            image={metaImg.childImageSharp.gatsbyImageData.images.fallback.src}
+        />
+    );
+};
 
-export default Head
+export default Head;

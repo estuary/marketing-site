@@ -1,33 +1,55 @@
-import * as React from "react"
-import Layout from "../components/layout"
-import SectionOne from "../components/SectionOne"
-import { useStaticQuery, graphql } from "gatsby"
-import SectionTwo from "../components/SectionTwo"
-import SectionThree from "../components/SectionThree"
-import SectionFour from "../components/SectionFour"
-import SectionFive from "../components/SectionFive"
-import SectionSix from "../components/SectionSix"
-import Seo from "../components/seo"
+import * as React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
+import {
+    SectionEight,
+    SectionFive,
+    SectionFour,
+    SectionNine,
+    SectionOne,
+    SectionSeven,
+    SectionSix,
+    SectionTen,
+    SectionThree,
+    SectionTwo,
+} from '../components/Homepage';
+import Layout from '../components/Layout';
+import Seo from '../components/seo';
 
 const IndexPage = () => {
     return (
-        //@ts-ignore
-        <Layout headerTheme="dark" showTour>
+        <Layout>
             <SectionOne />
             <SectionTwo />
             <SectionThree />
             <SectionFour />
             <SectionFive />
             <SectionSix />
+            <SectionSeven />
+            <SectionEight />
+            <SectionNine />
+            <SectionTen />
         </Layout>
-    )
-}
+    );
+};
 
-export const Head = ({ data: { post } }) => {
-    return <Seo 
-        title={"Real-time ETL"}
-        description={"Managed streaming data pipelines, streaming SQL & turnkey connectivity to clouds, databases, and apps"}
-    />
-}
+export const Head = () => {
+    const { metaImg } = useStaticQuery(graphql`
+        query {
+            metaImg: file(relativePath: { eq: "flow-desktop.png" }) {
+                childImageSharp {
+                    gatsbyImageData(layout: FIXED, width: 1200)
+                }
+            }
+        }
+    `);
 
-export default IndexPage
+    return (
+        <Seo
+            title="Estuary | Real-Time Data Integration, CDC & ETL Platform"
+            description="Estuary Flow is the most reliable real-time data integration platform for ETL, ELT, CDC and streaming pipelines. Build and automate data pipelines. Try it free!"
+            image={metaImg.childImageSharp.gatsbyImageData.images.fallback.src}
+        />
+    );
+};
+
+export default IndexPage;

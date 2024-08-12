@@ -1,0 +1,26 @@
+import PropTypes from 'prop-types';
+import React from 'react';
+import { AnchorFilled } from './styles';
+import { handleOutboundLinkClick } from './utils';
+
+const OutboundLinkFilled = React.forwardRef<
+    HTMLAnchorElement,
+    React.HTMLProps<HTMLAnchorElement>
+>(({ children, ...props }, ref) => (
+    <AnchorFilled
+        ref={ref}
+        {...props}
+        onClick={(e) => handleOutboundLinkClick(e, props)}
+    >
+        {children}
+    </AnchorFilled>
+));
+
+OutboundLinkFilled.propTypes = {
+    href: PropTypes.string,
+    target: PropTypes.string,
+    onClick: PropTypes.func,
+    children: PropTypes.node.isRequired,
+};
+
+export { OutboundLinkFilled };

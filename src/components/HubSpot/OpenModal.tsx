@@ -1,40 +1,39 @@
-import * as React from "react"
-import {
-    Dialog,
-    DialogContent,
-    DialogTitle,
-    IconButton,
-    LinearProgress,
-} from "@mui/material"
-import CloseIcon from "@mui/icons-material/Close"
-import HubspotForm from "react-hubspot-form"
-import HubSpotFormWrapper from "./FormWrapper"
+import CloseIcon from '@mui/icons-material/Close';
+import { Dialog, DialogContent, DialogTitle, IconButton } from '@mui/material';
+import * as React from 'react';
+import { ButtonOutlinedSecondary } from '../../globalStyles';
+import HubSpotFormWrapper from './FormWrapper';
+
+interface OpenHubspotModalProps
+    extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+    buttonLabel: string;
+    buttonClass?: string;
+    buttonId: string;
+}
 
 function OpenHubspotModal({
     buttonLabel,
     buttonClass,
     buttonId,
-}: {
-    buttonLabel: string
-    buttonClass: string
-    buttonId: string
-}) {
-    const [openDialog, setOpenDialog] = React.useState(false)
+    ...rest
+}: OpenHubspotModalProps) {
+    const [openDialog, setOpenDialog] = React.useState(false);
 
     return (
         <>
-            <button
+            <ButtonOutlinedSecondary
                 id={buttonId}
                 className={buttonClass}
                 onClick={() => {
-                    setOpenDialog(true)
+                    setOpenDialog(true);
                 }}
+                {...rest}
             >
                 {buttonLabel}
-            </button>
+            </ButtonOutlinedSecondary>
             <Dialog open={openDialog} fullWidth style={{ zIndex: 10000 }}>
                 <DialogTitle
-                    style={{ display: "flex", justifyContent: "space-between" }}
+                    style={{ display: 'flex', justifyContent: 'space-between' }}
                 >
                     {buttonLabel}
                     <IconButton onClick={() => setOpenDialog(false)}>
@@ -46,7 +45,7 @@ function OpenHubspotModal({
                 </DialogContent>
             </Dialog>
         </>
-    )
+    );
 }
 
-export default OpenHubspotModal
+export default OpenHubspotModal;

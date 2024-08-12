@@ -2,82 +2,82 @@
     "hosting": {
         "redirects": [
             {
-                "source": "/real-time-data-pros-cons", 
+                "source": "/real-time-data-pros-cons",
                 "destination": "/real-time-data-processing",
                 "type": 301
             },
             {
-                "source": "/how-to-create-data-pipeline-automation", 
+                "source": "/how-to-create-data-pipeline-automation",
                 "destination": "/data-pipeline-automation",
                 "type": 301
             },
             {
-                "source": "/Google-Analytics-4-to-Redshift", 
+                "source": "/Google-Analytics-4-to-Redshift",
                 "destination": "/google-analytics-4-to-redshift",
                 "type": 301
             },
             {
-                "source": "/MariaDB-to-Redshift", 
+                "source": "/MariaDB-to-Redshift",
                 "destination": "/mariadb-to-redshift",
                 "type": 301
             },
             {
-                "source": "/Linkedin-ads-to-redshift", 
+                "source": "/Linkedin-ads-to-redshift",
                 "destination": "/linkedin-ads-to-redshift",
                 "type": 301
             },
             {
-                "source": "/MariaDb-to-Snowflake", 
+                "source": "/MariaDb-to-Snowflake",
                 "destination": "/mariadb-to-snowflake",
                 "type": 301
             },
             {
-                "source": "/Redis-Data-Types", 
+                "source": "/Redis-Data-Types",
                 "destination": "/redis-data-types",
                 "type": 301
             },
             {
-                "source": "/Postgres-Schema", 
+                "source": "/Postgres-Schema",
                 "destination": "/postgres-schema",
                 "type": 301
             },
             {
-                "source": "/Jira-to-Bigquery", 
+                "source": "/Jira-to-Bigquery",
                 "destination": "/jira-to-bigquery",
                 "type": 301
             },
             {
-                "source": "/Jira-to-postgres", 
+                "source": "/Jira-to-postgres",
                 "destination": "/jira-to-postgres",
                 "type": 301
             },
             {
-                "source": "/JSON-to-BigQuery", 
+                "source": "/JSON-to-BigQuery",
                 "destination": "/json-to-bigquery",
                 "type": 301
-            }, 
+            },
             {
-                "source": "/elt-processes-cdc", 
+                "source": "/elt-processes-cdc",
                 "destination": "/streaming-etl-processes-cdc",
                 "type": 301
-            }, 
+            },
             {
-                "source": "/the-complete-change-capture-guide-for-postgresql", 
+                "source": "/the-complete-change-capture-guide-for-postgresql",
                 "destination": "/the-complete-change-data-capture-guide-for-postgresql",
                 "type": 301
             },
             {
-                "source": "/data-lake-architecture ", 
+                "source": "/data-lake-architecture ",
                 "destination": "/data-lake-architecture",
                 "type": 301
             },
             {
-                "source": "/how-to-build-data-pipelines", 
+                "source": "/how-to-build-data-pipelines",
                 "destination": "/build-real-time-data-pipelines",
                 "type": 301
             },
             {
-                "source": "/stream-data-postgres-to-snowflake", 
+                "source": "/stream-data-postgres-to-snowflake",
                 "destination": "/postgres-to-snowflake",
                 "type": 301
             },
@@ -86,7 +86,7 @@
                 "destination": "/cloud-etl-tools",
                 "type": 301
             },
-            {   
+            {
                 "source": "/airbyte-vs-fivetran-vs-estuary",
                 "destination": "/airbyte-vs-fivetran",
                 "type": 301
@@ -134,6 +134,16 @@
             {
                 "source": "/products",
                 "destination": "/product",
+                "type": 301
+            },
+            {
+                "source": "/integrations/s-to-pinecone",
+                "destination": "/integrations/s3-to-pinecone",
+                "type": 301
+            },
+            {
+                "source": "/source/s",
+                "destination": "/source/s3",
                 "type": 301
             }
         ],

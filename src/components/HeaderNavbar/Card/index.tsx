@@ -1,12 +1,13 @@
-import React from "react"
-import clsx from "clsx"
+import React from 'react';
+import { Container, Divider, Wrapper } from './styles';
 
-const HeaderCard = ({ show, children, customRef, ...props }) => {
-  return (
-    <div ref={customRef} className={clsx("header-card", show && "show")} {...props}>
-      {children}
-    </div>
-  )
-}
+const HeaderCard = ({ children, ...props }) => {
+    return (
+        <Wrapper {...props}>
+            <Divider />
+            <Container>{children}</Container>
+        </Wrapper>
+    );
+};
 
-export default HeaderCard
+export default HeaderCard;

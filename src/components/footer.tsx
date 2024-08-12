@@ -1,11 +1,25 @@
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
-import * as React from "react"
-import { OutboundLink } from "../components/OutboundLink"
-import GithubIcon from "../svgs/github-outline.svg"
-import LinkedinIcon from "../svgs/linkedin-outline.svg"
-import SlackIcon from "../svgs/slack-outline.svg"
-import TwitterIcon from "../svgs/twitter-outline.svg"
+import { Link } from 'gatsby';
+import { StaticImage } from 'gatsby-plugin-image';
+import * as React from 'react';
+import { OutboundLink } from '../components/OutboundLink';
+import GithubIcon from '../svgs/github-outline.svg';
+import LinkedinIcon from '../svgs/linkedin-outline.svg';
+import SlackIcon from '../svgs/slack-outline.svg';
+import TwitterIcon from '../svgs/twitter-outline.svg';
+import NewsletterSignupForm from './NewsletterSignupForm';
+
+const openCookiePreferences = () => {
+    try {
+        // @ts-expect-error : This loads through CookieFirst. Once homepage changes are merged we add to the window type
+        window.cookiefirst_show_settings();
+    } catch (e) {
+        // TODO: Treat this error another way replacing the alert()
+        // eslint-disable-next-line no-alert
+        alert(
+            'Failed to open Cookie Preferences. Please ensure CookieFirst loaded.'
+        );
+    }
+};
 
 const Footer = () => {
     return (
@@ -21,36 +35,24 @@ const Footer = () => {
                             layout="fixed"
                             placeholder="none"
                         />
-                        <h1 className="global-footer-title">Estuary</h1>
+                        <strong className="global-footer-title">Estuary</strong>
                     </Link>
                     <p className="global-footer-subtext">
-                        Managed streaming data pipelines, streaming SQL
-                        transformations and turnkey connectivity to clouds,
-                        databases, and apps.
+                        Estuary provides real-time data integration and ETL for
+                        modern data pipelines. Build scalable, fault-tolerant
+                        streaming data pipelines that seamlessly connect to
+                        virtually any data source for data warehouses, real-time
+                        analytics, operations, machine learning, and AI.
                     </p>
                     <div>
                         <p className="global-footer-subtext-title">
-                            Don't miss a thing
+                            Don&apos;t miss a thing
                         </p>
                         <p className="global-footer-subtext">
                             Subscribe now to get the latest news and updates.
                         </p>
                     </div>
-                    <div className="global-footer-subscribe">
-                        <form id="newsletter-signup" className="email-form">
-                            <input
-                                className="global-footer-input-email"
-                                placeholder="Email"
-                                type="email"
-                            ></input>
-                            <button
-                                type="submit"
-                                className="global-footer-input-button-submit"
-                            >
-                                Submit
-                            </button>
-                        </form>
-                    </div>
+                    <NewsletterSignupForm />
                 </div>
                 <div className="global-footer-right">
                     <div className="global-footer-right-link-wrapper">
@@ -67,12 +69,13 @@ const Footer = () => {
                         >
                             Github
                         </OutboundLink>
-                        <Link
-                            to="/about#contact-us"
+                        <a
+                            href="/contact-us"
                             className="global-footer-right-link"
+                            target="_blank"
                         >
-                            Contact
-                        </Link>
+                            Contact Us
+                        </a>
                         <OutboundLink
                             target="_blank"
                             href="https://docs.estuary.dev/"
@@ -95,25 +98,36 @@ const Footer = () => {
                         >
                             Careers
                         </Link>
-                        <Link to="/privacy-policy" className="global-footer-right-link">Privacy</Link>
-                        <Link to="/terms" className="global-footer-right-link">Terms</Link>
+                        <Link
+                            to="/privacy-policy"
+                            className="global-footer-right-link"
+                        >
+                            Privacy
+                        </Link>
+                        <Link to="/terms" className="global-footer-right-link">
+                            Terms
+                        </Link>
                     </div>
                 </div>
             </div>
-
             <div className="global-footer-bottom">
-                <div className="global-footer-divider"></div>
+                <button
+                    className="global-footer-button"
+                    onClick={openCookiePreferences}
+                >
+                    Manage Cookie Preferences
+                </button>
+                <div className="global-footer-divider" />
                 <div className="global-footer-bottom-wrapper">
                     <div className="global-footer-bottom-copyright">
                         <p className="global-footer-bottom-copyright-text">
                             © {new Date().getFullYear()} All Rights Reserved
-                            -&nbsp;
-                            {` `}
+                            -&nbsp;{' '}
                         </p>
 
                         <OutboundLink
                             className="global-footer-copyright-link"
-                            href="https://www.estuary.dev/"
+                            href="https://estuary.dev/"
                         >
                             estuary.dev
                         </OutboundLink>
@@ -125,34 +139,34 @@ const Footer = () => {
                             href="https://estuary-dev.slack.com/join/shared_invite/zt-86nal6yr-VPbv~YfZE9Q~6Zl~gmZdFQ#/shared-invite/email"
                             aria-label="Slack Invite Link"
                         >
-                            <SlackIcon className="social-icon" />
+                            <SlackIcon className="social-icon-footer" />
                         </OutboundLink>
                         <OutboundLink
                             target="_blank"
                             href="https://github.com/estuary/flow"
                             aria-label="Github Repo Link"
                         >
-                            <GithubIcon className="social-icon" />
+                            <GithubIcon className="social-icon-footer" />
                         </OutboundLink>
                         <OutboundLink
                             target="_blank"
-                            href="https://www.linkedin.com/company/65266256/"
+                            href="https://www.linkedin.com/company/estuary-tech/"
                             aria-label="Linkedin Company Link"
                         >
-                            <LinkedinIcon className="social-icon" color="#B7C6DD" />
+                            <LinkedinIcon className="social-icon-footer" />
                         </OutboundLink>
                         <OutboundLink
                             target="_blank"
                             href="https://twitter.com/EstuaryDev"
                             aria-label="Twitter Company Link"
                         >
-                            <TwitterIcon className="social-icon" />
+                            <TwitterIcon className="social-icon-footer" />
                         </OutboundLink>
                     </div>
                 </div>
             </div>
         </footer>
-    )
-}
+    );
+};
 
-export default Footer
+export default Footer;

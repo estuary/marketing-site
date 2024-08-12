@@ -1,77 +1,96 @@
-import { GatsbyImage, ImageDataLike, StaticImage, getImage } from 'gatsby-plugin-image';
+import {
+    GatsbyImage,
+    ImageDataLike,
+    StaticImage,
+    getImage,
+} from 'gatsby-plugin-image';
 import React from 'react';
 
+import { ConnectorType } from '../../../../shared';
+import LightSwoopingLinesRightDirectionBackground from '../../../components/BackgroundImages/LightSwoopingLinesRightDirectionBackground';
 import Content from './components/Content';
 
-import { ConnectorType } from '../../../../shared';
 import {
-  Container,
-  ContainerImage,
-  FlowStepOne,
-  FlowStepThree,
-  FlowStepTwo,
-  FrameContainer,
-  LogoContainer,
-  Wrapper,
-  logoImageStyle
+    Container,
+    ContainerImage,
+    FlowStepOne,
+    FlowStepThree,
+    FlowStepTwo,
+    FrameContainer,
+    LogoContainer,
+    logoImageStyle,
 } from './styles';
 
 type HeroProps = {
-  connector: {
-    title: string;
-    logo: ImageDataLike;
-    type: ConnectorType;
-  }
-}
+    connector: {
+        title: string;
+        logo: ImageDataLike;
+        type: ConnectorType;
+    };
+};
 
 const Hero = ({ connector: { title, logo, type } }: HeroProps) => {
-  const logoImage = getImage(logo);
+    const logoImage = getImage(logo);
 
-  return (
-    <Wrapper>
-      <Container>
-        <Content connector={{
-          title: title,
-          type: type
-        }} />
-        <ContainerImage>
-          <FlowStepOne><span>01.</span> {type === "capture" ? "Move from " + title : "Select a source"}</FlowStepOne>
-          <FlowStepTwo><span>02.</span> Transform in-flight</FlowStepTwo>
-          <FlowStepThree>
-            <span>03.</span> {type === "materialization" ? "Deliver to " + title : "Select a destination"}
-          </FlowStepThree>
-          <LogoContainer $connectorType={type}>
-            <GatsbyImage
-              alt={`${title} logo`}
-              image={logoImage}
-              style={logoImageStyle}
-            />
-          </LogoContainer>
-          <FrameContainer>
-            {type === "capture" ? (
-              <StaticImage
-                placeholder="none"
-                alt="take a tour"
-                src="../../../images/lp-connector/hero/FlowFromSource.png"
-                imgStyle={{
-                  objectFit: 'contain',
-                }}
-              />
-            ) : (
-              <StaticImage
-                placeholder="none"
-                alt="take a tour"
-                src="../../../images/lp-connector/hero/FlowToDestination.png"
-                imgStyle={{
-                  objectFit: 'contain',
-                }}
-              />
-            )}
-          </FrameContainer>
-        </ContainerImage>
-      </Container>
-    </Wrapper>
-  );
+    return (
+        <LightSwoopingLinesRightDirectionBackground>
+            <Container>
+                <Content
+                    connector={{
+                        title,
+                        type,
+                    }}
+                />
+                {logoImage ? (
+                    <ContainerImage>
+                        <FlowStepOne>
+                            <span>01.</span>{' '}
+                            {type === 'capture'
+                                ? `Move from ${title}`
+                                : 'Select a source'}
+                        </FlowStepOne>
+                        <FlowStepTwo>
+                            <span>02.</span> Transform in-flight
+                        </FlowStepTwo>
+                        <FlowStepThree>
+                            <span>03.</span>{' '}
+                            {type === 'materialization'
+                                ? `Deliver to ${title}`
+                                : 'Select a destination'}
+                        </FlowStepThree>
+                        <LogoContainer $connectorType={type}>
+                            <GatsbyImage
+                                alt={`${title} logo`}
+                                image={logoImage}
+                                style={logoImageStyle}
+                            />
+                        </LogoContainer>
+                        <FrameContainer>
+                            {type === 'capture' ? (
+                                <StaticImage
+                                    placeholder="none"
+                                    alt="take a tour"
+                                    src="../../../images/lp-connector/hero/FlowFromSource.png"
+                                    imgStyle={{
+                                        objectFit: 'contain',
+                                    }}
+                                />
+                            ) : (
+                                <StaticImage
+                                    placeholder="none"
+                                    alt="take a tour"
+                                    src="../../../images/lp-connector/hero/FlowToDestination.png"
+                                    imgStyle={{
+                                        objectFit: 'contain',
+                                    }}
+                                />
+                            )}
+                        </FrameContainer>
+                    </ContainerImage>
+                ) : null}
+            </Container>
+        </LightSwoopingLinesRightDirectionBackground>
+    );
 };
 
 export default Hero;

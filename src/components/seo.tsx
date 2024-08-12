@@ -5,17 +5,18 @@
  * See: https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/
  */
 
-import * as React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { graphql, useStaticQuery } from 'gatsby';
+import * as React from 'react';
 
-import logoUrl from "../images/combination-mark__multi-blue.png"
+import logoUrl from '../images/combination-mark__multi-blue.png';
+import { estuaryAddress } from '../../shared';
 
 export interface SeoProps {
-    title: string
-    description?: string
-    image?: string
-    url?: string
-    children?: React.ReactElement
+    title: string;
+    description?: string;
+    image?: string;
+    url?: string;
+    children?: React.ReactElement;
 }
 
 const Seo: React.FC<SeoProps> = ({
@@ -25,36 +26,37 @@ const Seo: React.FC<SeoProps> = ({
     url,
     children,
 }) => {
-    const { site, defaultMetaImg } = useStaticQuery(
-        graphql`
-            query SeoData {
-                site {
-                    siteMetadata {
-                        siteUrl
-                        title
-                        description
-                        social {
-                            twitter
-                        }
-                    }
-                }
-                defaultMetaImg: file(relativePath: { eq: "estuary-logo-metaimg.png" }) {
-                    childImageSharp {
-                        fixed(width: 400) {
-                            src
-                        }
+    const { site, defaultMetaImg } = useStaticQuery(graphql`
+        query SeoData {
+            site {
+                siteMetadata {
+                    siteUrl
+                    title
+                    description
+                    social {
+                        twitter
                     }
                 }
             }
-        `
-    )
+            defaultMetaImg: file(
+                relativePath: { eq: "estuary-logo-metaimg.png" }
+            ) {
+                childImageSharp {
+                    gatsbyImageData(layout: FIXED, width: 400)
+                }
+            }
+        }
+    `);
 
-    if(!image) {
-        image = defaultMetaImg.childImageSharp.fixed.src
+    if (!image) {
+        image =
+            defaultMetaImg.childImageSharp.gatsbyImageData.images.fallback.src;
     }
 
-    const metaDescription = description || site.siteMetadata.description
-    const defaultTitle = site.siteMetadata?.title
+    const metaDescription = description ?? site.siteMetadata.description;
+    const defaultTitle = title.includes('Estuary |')
+        ? ''
+        : site.siteMetadata?.title;
 
     return (
         <>
@@ -74,7 +76,7 @@ const Seo: React.FC<SeoProps> = ({
             <meta name="twitter:card" content="summary" />
             <meta
                 name="twitter:creator"
-                content={site.siteMetadata?.social?.twitter || ``}
+                content={site.siteMetadata?.social?.twitter || ''}
             />
             <meta name="twitter:title" content={title} />
             <meta name="twitter:description" content={metaDescription} />
@@ -86,27 +88,53 @@ const Seo: React.FC<SeoProps> = ({
             {children}
             <script type="application/ld+json">
                 {JSON.stringify({
-                    "@context": "https://schema.org/",
-                    "@type": "Organization",
-                    name: "Estuary",
-                    alternateName: "Estuary Flow",
-                    description: "Estuary helps organizations gain real-time access to their data without having to manage infrastructure. Capture data from SaaS or technology sources, transform it and materialize it back into the same types of systems all with millisecond latency.",
-                    image,
-                    logo: site.siteMetadata?.siteUrl + logoUrl,
-                    url: url || site.siteMetadata?.siteUrl || "https://estuary.dev/",
-                    telephone: "",
-                    sameAs: ["https://twitter.com/EstuaryDev","https://www.linkedin.com/company/estuary-tech/","https://www.youtube.com/channel/UCJ9JIjh7uaUdjcFR6xTkJXQ","https://www.crunchbase.com/organization/estuary"],
-                    address: {
-                        "@type": "PostalAddress",
-                        streetAddress: "244 5th Ave, Suite 1277",
-                        addressLocality: "New York, NY",
-                        postalCode: "10001",
-                        addressCountry: "US"
-                    },
+                    '@context': 'https://schema.org/',
+                    '@type': 'Organization',
+                    'name': 'Estuary',
+                    'alternateName': 'Estuary Flow',
+                    'url':
+                        url ??
+                        (site.siteMetadata?.siteUrl || 'https://estuary.dev/'),
+                    'description':
+                        'Estuary is a real-time data operations (DataOps) platform that simplifies data pipelines. Capture data from any source, transform it with low-latency processing, and materialize it back into your systems for immediate action. Estuary enables data integration, stream processing, and change data capture in a unified platform.',
+                    'logo': site.siteMetadata?.siteUrl + logoUrl,
+                    'image': site.siteMetadata?.siteUrl + logoUrl,
+                    'telephone': '',
+                    'sameAs': [
+                        'https://twitter.com/EstuaryDev',
+                        'https://www.linkedin.com/company/estuary-tech/',
+                        'https://www.youtube.com/channel/UCJ9JIjh7uaUdjcFR6xTkJXQ',
+                        'https://www.crunchbase.com/organization/estuary',
+                    ],
+                    'address': estuaryAddress,
+                    'knowsAbout': [
+                        'https://en.wikipedia.org/wiki/Data_integration',
+                        'https://en.wikipedia.org/wiki/Extract,_transform,_load',
+                        'https://en.wikipedia.org/wiki/Data_pipeline',
+                        'https://en.wikipedia.org/wiki/Real-time_data',
+                        'https://en.wikipedia.org/wiki/Data_warehouse',
+                        'https://en.wikipedia.org/wiki/Change_data_capture',
+                    ],
+                    'numberOfEmployees': '11-50',
+                    'founders': [
+                        {
+                            '@type': 'Person',
+                            'name': 'David Yaffe',
+                            'jobTitle': 'Co-founder',
+                            'description':
+                                'David Yaffe is a co-founder and the CEO of Estuary. He previously served as the COO of LiveRamp and the co-founder / CEO of Arbor which was sold to LiveRamp in 2016. He has an extensive background in product management, serving as head of product for Doubleclick Bid Manager and Invite Media.',
+                            'sameAs': [
+                                'https://www.linkedin.com/in/davidyaffe',
+                                'https://www.crunchbase.com/person/david-yaffe',
+                                'https://twitter.com/dyaffe',
+                                'https://www.producthunt.com/@dyaffe',
+                            ],
+                        },
+                    ],
                 })}
             </script>
         </>
-    )
-}
+    );
+};
 
-export default Seo
+export default Seo;

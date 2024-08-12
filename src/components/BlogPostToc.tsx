@@ -1,61 +1,122 @@
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Typography } from "@mui/material";
+import { Typography } from '@mui/material';
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
-import { Link } from "gatsby";
-import React, { MouseEvent, useEffect, useRef, useState } from "react";
+import clsx from 'clsx';
+import { Link } from 'gatsby';
+import * as React from 'react';
 
 type TocItem = {
-    id: string
-    heading: string
-    items?: TocItem[]
-}
+    id: string;
+    heading: string;
+    items?: TocItem[];
+};
 
 type RenderTocItemProps = {
-    item: TocItem; depth: number;
+    item: TocItem;
+    selectKey: string;
+    selectedItem: string | null;
+    depth: number;
     handleItemClick: (id: string) => void;
-    isSelected: boolean
-}
+};
 
-const RenderTocItem = ({ item, depth, handleItemClick, isSelected }: RenderTocItemProps) => {
-    if (depth > 1) {
-        return null
-    }
+const RenderTocItem = ({
+    item,
+    depth,
+    handleItemClick,
+    selectKey,
+    selectedItem,
+}: RenderTocItemProps) => {
+    const isSelected = selectKey === selectedItem;
 
-    const handleLinkClick = (event: MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    const handleLinkClick = (
+        event: React.MouseEvent<HTMLAnchorElement, globalThis.MouseEvent>
+    ) => {
         if (!isSelected) {
-            handleItemClick(item.id);
+            handleItemClick(selectKey);
         } else {
             event.preventDefault();
             const yOffset = -120;
-            const element = document.getElementById(item.id);
+            const element = document.getElementById(selectKey);
             if (element) {
-                const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                const y =
+                    element.getBoundingClientRect().top +
+                    window.pageYOffset +
+                    yOffset;
                 window.scrollTo({ top: y, behavior: 'smooth' });
             }
         }
     };
 
+    const renderedItems = React.useMemo(
+        () =>
+            item.items && item.items.length > 0 ? (
+                <ol role="list" style={{ padding: 0 }}>
+                    {item.items.map((nestedItem) => (
+                        <RenderTocItem
+                            key={nestedItem.id}
+                            selectKey={nestedItem.id}
+                            item={nestedItem}
+                            depth={depth + 1}
+                            handleItemClick={handleItemClick}
+                            selectedItem={selectedItem}
+                        />
+                    ))}
+                </ol>
+            ) : null,
+        [depth, handleItemClick, item.items, selectedItem]
+    );
+
+    if (depth > 1) {
+        return null;
+    }
+
     return (
-        <li style={{ fontWeight: isSelected ? 'bold' : 'normal', color: isSelected ? "#47506d" : "#989daf" }}>
-            <div className="before-item" />
-            <Link to={`#${item.id}`} onClick={handleLinkClick}>{item.heading}</Link>
+        <li className={clsx('tocItem', isSelected && 'isItemSelected')}>
+            <span className="before-item" />
+            <Link to={`#${selectKey}`} onClick={handleLinkClick}>
+                {item.heading}
+            </Link>
+            {renderedItems}
         </li>
-    )
-}
+    );
+};
+
+const observeItems = (
+    items: TocItem[],
+    observer: IntersectionObserver,
+    depth: number = 0
+) => {
+    items.forEach((item) => {
+        if (depth <= 1) {
+            const element = document.getElementById(item.id);
+            if (element) {
+                observer.observe(element);
+            }
+        }
+        if (item.items) {
+            observeItems(item.items, observer, depth + 1);
+        }
+    });
+};
 
 export const RenderToc = ({ items }: { items: TocItem[] }) => {
-    const [selectedItem, setSelectedItem] = useState<string | null>(null);
-    const intersectionObserver = useRef<IntersectionObserver | null>(null);
-    const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+    const [selectedItem, setSelectedItem] = React.useState<string | null>(null);
+    const intersectionObserver = React.useRef<IntersectionObserver | null>(
+        null
+    );
+    const timeoutRef = React.useRef<NodeJS.Timeout | null>(null);
 
-    useEffect(() => {
+    React.useEffect(() => {
         intersectionObserver.current = new IntersectionObserver(
             (entries) => {
-                let lastVisibleId = null;
+                let lastVisibleId: string | undefined;
                 entries.forEach((entry) => {
-                    if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+                    if (
+                        entry.isIntersecting &&
+                        entry.intersectionRatio >= 0.5
+                    ) {
                         lastVisibleId = entry.target.id;
                     }
                 });
@@ -66,12 +127,7 @@ export const RenderToc = ({ items }: { items: TocItem[] }) => {
             { threshold: 0.5 }
         );
 
-        items.forEach((item) => {
-            const element = document.getElementById(item.id);
-            if (element) {
-                intersectionObserver.current.observe(element);
-            }
-        });
+        observeItems(items, intersectionObserver.current);
 
         return () => {
             if (intersectionObserver.current) {
@@ -81,7 +137,7 @@ export const RenderToc = ({ items }: { items: TocItem[] }) => {
     }, [items]);
 
     const handleItemClick = (id: string) => {
-        clearTimeout(timeoutRef.current);
+        clearTimeout(timeoutRef.current ?? undefined);
         setSelectedItem(id);
         timeoutRef.current = setTimeout(() => {
             timeoutRef.current = null;
@@ -90,26 +146,49 @@ export const RenderToc = ({ items }: { items: TocItem[] }) => {
             const yOffset = -120;
             const element = document.getElementById(id);
             if (element) {
-                const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                const y =
+                    element.getBoundingClientRect().top +
+                    window.pageYOffset +
+                    yOffset;
                 window.scrollTo({ top: y, behavior: 'smooth' });
             }
         }, 10);
     };
 
+    const renderedItems = React.useMemo(
+        () =>
+            items.map((item) => (
+                <RenderTocItem
+                    key={item.id}
+                    selectKey={item.id}
+                    item={item}
+                    depth={0}
+                    handleItemClick={handleItemClick}
+                    selectedItem={selectedItem}
+                />
+            )),
+        [items, selectedItem]
+    );
+
     return (
         <div className="table-of-contents">
-            <Accordion elevation={0} className="accordion">
-                <AccordionSummary className="accordion-side-padding" expandIcon={<ExpandMoreIcon sx={{ color: "#47506d", fontSize: "2rem" }} />}>
-                    <Typography className="accordion-title">In this article</Typography>
+            <Accordion elevation={0} className="accordion" defaultExpanded>
+                <AccordionSummary
+                    className="accordion-side-padding"
+                    expandIcon={
+                        <ExpandMoreIcon
+                            sx={{ color: '#47506d', fontSize: '2rem' }}
+                        />
+                    }
+                >
+                    <Typography className="accordion-title">
+                        Table of Contents
+                    </Typography>
                 </AccordionSummary>
                 <AccordionDetails className="accordion-side-padding">
-                    <ul>
-                        {items.map(item => (
-                            <RenderTocItem key={item.id} item={item} depth={0} handleItemClick={handleItemClick} isSelected={item.id === selectedItem} />
-                        ))}
-                    </ul>
+                    <ul role="list">{renderedItems}</ul>
                 </AccordionDetails>
             </Accordion>
         </div>
-    )
-}
+    );
+};

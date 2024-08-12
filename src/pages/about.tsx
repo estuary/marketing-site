@@ -1,19 +1,20 @@
-import { graphql, Link, useStaticQuery } from "gatsby"
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
-import * as React from "react"
-import { ProcessedPost } from "../components/BlogPostProcessor"
-import HubSpotFormWrapper from "../components/HubSpot/FormWrapper"
-import Layout from "../components/layout"
-import { OutboundLink } from "../components/OutboundLink"
-import Seo from "../components/seo"
-import CareerAvatar from "../svgs/about-careers-avatar-icon.svg"
-import BenefitsIcon from "../svgs/about-careers-benefits-icon.svg"
-import BuildingsIcon from "../svgs/about-careers-building.svg"
-import CommunityIcon from "../svgs/about-careers-community-icon.svg"
-import CultureIcon from "../svgs/about-careers-culture-icon.svg"
-import EstuaryLogoSmall from "../svgs/estuary-logo-small.svg"
-import FlowLogo from "../svgs/flow-logo.svg"
-import LinkIcon from "../svgs/link-icon.svg"
+import { graphql, Link, useStaticQuery } from 'gatsby';
+import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
+import * as React from 'react';
+import { ProcessedPost } from '../components/BlogPostProcessor';
+import Layout from '../components/Layout';
+import { OutboundLink } from '../components/OutboundLink';
+import Seo from '../components/seo';
+import { estuaryHelpsYourTeam } from '../content/seo';
+import CareerAvatar from '../svgs/about-careers-avatar-icon.svg';
+import BenefitsIcon from '../svgs/about-careers-benefits-icon.svg';
+import BuildingsIcon from '../svgs/about-careers-building.svg';
+import CommunityIcon from '../svgs/about-careers-community-icon.svg';
+import CultureIcon from '../svgs/about-careers-culture-icon.svg';
+import EstuaryLogoSmall from '../svgs/estuary-logo-small.svg';
+import FlowLogo from '../svgs/flow-logo.svg';
+import LinkIcon from '../svgs/link-icon.svg';
+import ContactUsForm from '../components/ContactUsForm';
 
 // const jobs = [
 //     {
@@ -81,31 +82,31 @@ const AboutPage = () => {
     } = useStaticQuery<{
         allStrapiJobPosting: {
             nodes: {
-                slug: string
-                title: string
-                location: string
+                slug: string;
+                title: string;
+                location: string;
                 description: {
                     data: {
                         childHtmlRehype: {
-                            html: string
-                        }
-                    }
-                }
-            }[]
-        }
+                            html: string;
+                        };
+                    };
+                };
+            }[];
+        };
         allStrapiEmployee: {
             nodes: {
-                name: string
+                name: string;
                 ProfilePic: {
                     localFile: {
                         childImageSharp: {
-                            gatsbyImageData: any
-                        }
-                    }
-                }
-                title: string
-            }[]
-        }
+                            gatsbyImageData: any;
+                        };
+                    };
+                };
+                title: string;
+            }[];
+        };
     }>(graphql`
         {
             allStrapiJobPosting {
@@ -136,12 +137,10 @@ const AboutPage = () => {
                 }
             }
         }
-    `)
-
-    console.log("employees", employees)
+    `);
 
     return (
-        <Layout headerTheme="light">
+        <Layout>
             <div className="product-flow-section-one-background-image-wrapper">
                 <div className="product-flow-section-one">
                     <div className="product-flow-section-one-left">
@@ -150,32 +149,33 @@ const AboutPage = () => {
                             data integration solutions.
                         </h1>
                         <p className="about-section-one-text">
-                            We're creating a new kind of DataOps platform that{" "}
+                            We&apos;re creating a new kind of DataOps platform
+                            that{' '}
                             <span className="about-text-bold">
                                 empowers engineering teams
-                            </span>{" "}
+                            </span>{' '}
                             to build real-time, data-intensive pipelines and
                             applications at scale, with minimal friction, in a
                             UI or CLI. We aim to make real-time data accessible
                             to the analyst, while bringing power tooling to the
-                            streaming enthusiast. Flow{" "}
+                            streaming enthusiast. Flow{' '}
                             <span className="about-text-bold">unifies</span> a
-                            team's databases, pub/sub systems, and SaaS around
-                            their data,{" "}
+                            team&apos;s databases, pub/sub systems, and SaaS
+                            around their data,{' '}
                             <span className="about-text-bold">
                                 without requiring new investments in
                                 infrastructure
-                            </span>{" "}
+                            </span>{' '}
                             or development.
                         </p>
                         <p className="about-section-one-text">
-                            Estuary{" "}
+                            Estuary{' '}
                             <span className="about-text-bold">
                                 develops in the open
-                            </span>{" "}
+                            </span>{' '}
                             to produce both the runtime for our managed service
                             and an ecosystem of open-source connectors. You can
-                            read more about{" "}
+                            read more about{' '}
                             <Link to="/the-estuary-story-and-guiding-principles/">
                                 our story here.
                             </Link>
@@ -211,15 +211,15 @@ const AboutPage = () => {
                         </p>
                         <h2 className="about-section-header-top">History</h2>
                         <p>
-                            We didn't start at trying to make real-time data
-                            flows more accessible by abstracting away the
+                            We didn&apos;t start at trying to make real-time
+                            data flows more accessible by abstracting away the
                             low-level work… it is just what happened.
                         </p>
                         <p>
                             Our team researched streaming frameworks while
                             working with billions of daily events, and
-                            ultimately realized that we'd have to build our own
-                            (
+                            ultimately realized that we&apos;d have to build our
+                            own (
                             <a href="https://gazette.readthedocs.io/en/latest/">
                                 Gazette
                             </a>
@@ -229,8 +229,8 @@ const AboutPage = () => {
                             could unify both our batch and real-time pipelines.
                         </p>
                         <p>
-                            We've been innovating to make real-time data more
-                            accessible to all ever since.
+                            We&apos;ve been innovating to make real-time data
+                            more accessible to all ever since.
                         </p>
                     </div>
                 </div>
@@ -265,8 +265,8 @@ const AboutPage = () => {
                             </div>
                             <div className="item-description">
                                 Johnny, Dave, and Tobias discuss why we built
-                                Gazette, the growth of streaming, and the rise of
-                                the real-time data lake.
+                                Gazette, the growth of streaming, and the rise
+                                of the real-time data lake.
                             </div>
                         </div>
                         <div className="media-item">
@@ -290,9 +290,9 @@ const AboutPage = () => {
                                 </OutboundLink>
                             </div>
                             <div className="item-description">
-                                Matt Turck of FirstMark announces their $7 million
-                                Series A investment in Estuary to simplify streaming
-                                + batch unification.
+                                Matt Turck of FirstMark announces their $7
+                                million Series A investment in Estuary to
+                                simplify streaming + batch unification.
                             </div>
                         </div>
                         <div className="media-item">
@@ -316,9 +316,9 @@ const AboutPage = () => {
                                 </OutboundLink>
                             </div>
                             <div className="item-description">
-                                LinkedIn post from our Founder Dave Yaffe where he
-                                (and 50+ others) chart out the evolving ecosystem of
-                                real-time data integration players
+                                LinkedIn post from our Founder Dave Yaffe where
+                                he (and 50+ others) chart out the evolving
+                                ecosystem of real-time data integration players
                             </div>
                         </div>
                     </div>
@@ -329,15 +329,15 @@ const AboutPage = () => {
                     say hello
                 </p>
                 <h2 className="about-section-header-top">Meet Our Team</h2>
-                <div className="team-wrap">
-                    {employees?.map((employee, index) => (
+                <ul className="team-wrap">
+                    {employees.map((employee, index) => (
                         <div className="team-item employee-list" key={index}>
                             <GatsbyImage
                                 image={
                                     employee.ProfilePic.localFile
-                                        ?.childImageSharp?.gatsbyImageData
+                                        .childImageSharp.gatsbyImageData
                                 }
-                                alt="debezium alternatives"
+                                alt={`${employee.name} - ${employee.title}`}
                                 className="employee-img"
                             />
                             <div className="item-name">{employee.name}</div>
@@ -346,7 +346,7 @@ const AboutPage = () => {
                             </div>
                         </div>
                     ))}
-                </div>
+                </ul>
             </section>
             <section className="investors">
                 <h2 className="investors-heading">Our Investors</h2>
@@ -389,9 +389,9 @@ const AboutPage = () => {
                             <span className="about-text-bold-regular">
                                 About you
                             </span>
-                            : You’re passionate about the complexities and potential
-                            of our data-driven world, self-motivated, curious, and
-                            adaptable.
+                            : You’re passionate about the complexities and
+                            potential of our data-driven world, self-motivated,
+                            curious, and adaptable.
                         </p>
                     </div>
                     <div className="about-careers-text-wrapper">
@@ -402,12 +402,15 @@ const AboutPage = () => {
                             <span className="about-text-bold-regular">
                                 About us
                             </span>
-                            : We’re a rapidly growing, highly technical team built
-                            by successful repeat founders that’s working to take the
-                            friction out of data engineering.
+                            : We’re a rapidly growing, highly technical team
+                            built by successful repeat founders that’s working
+                            to take the friction out of data engineering.
                         </p>
                     </div>
-                    <Link className="about-current-openings-button" to="#careers">
+                    <Link
+                        className="about-current-openings-button"
+                        to="#careers"
+                    >
                         Current openings
                     </Link>
                 </div>
@@ -415,7 +418,7 @@ const AboutPage = () => {
             <div className="about-section-three">
                 <div className="about-section-three-wrapper">
                     <p className="product-flow-section-two-header-small">
-                        What's it like
+                        What&apos;s it like
                     </p>
                     <div className="about-section-three-top">
                         <h2 className="about-section-header-top">
@@ -431,8 +434,8 @@ const AboutPage = () => {
                             <p className="about-card-title">Location</p>
                             <p className="about-card-text">
                                 We offer offices in both our New York City and
-                                Columbus, Ohio locations, as well as the ability to
-                                work remotely.
+                                Columbus, Ohio locations, as well as the ability
+                                to work remotely.
                             </p>
                         </div>
                         <div className="about-section-three-card">
@@ -453,9 +456,9 @@ const AboutPage = () => {
                             <p className="about-card-title">Culture</p>
                             <p className="about-card-text">
                                 Like the product we build, our culture is
-                                forward-thinking and open. Our team operates on a
-                                foundation of trust, is resourceful, collaborative,
-                                but also independent.
+                                forward-thinking and open. Our team operates on
+                                a foundation of trust, is resourceful,
+                                collaborative, but also independent.
                             </p>
                         </div>
                         <div className="about-section-three-card">
@@ -464,9 +467,10 @@ const AboutPage = () => {
                             </div>
                             <p className="about-card-title">Community</p>
                             <p className="about-card-text">
-                                We offer perks including team happy hours, weekly
-                                lunches, and quarterly off-sites. With our rapid
-                                growth, now’s an exciting time to come aboard.
+                                We offer perks including team happy hours,
+                                weekly lunches, and quarterly off-sites. With
+                                our rapid growth, now’s an exciting time to come
+                                aboard.
                             </p>
                         </div>
                     </div>
@@ -481,18 +485,21 @@ const AboutPage = () => {
                     <p className="product-flow-section-two-header-small">
                         Apply today
                     </p>
-                    <h2 className="about-section-header-top">Current Openings</h2>
+                    <h2 className="about-section-header-top">
+                        Current Openings
+                    </h2>
                     <div className="about-section-current-openings-wrapper">
                         <div className="about-current-openings-list">
                             {jobs.length > 0
-                                ? jobs.map(job => (
-                                    <Link
-                                        to={`#${job.slug}`}
-                                        className="about-current-opening-title"
-                                    >
-                                        {job.title}
-                                    </Link>
-                                ))
+                                ? jobs.map((job) => (
+                                      <Link
+                                          key={`${job.slug}-about-current-openings-list`}
+                                          to={`#${job.slug}`}
+                                          className="about-current-opening-title"
+                                      >
+                                          {job.title}
+                                      </Link>
+                                  ))
                                 : null}
                             <Link
                                 className="about-get-in-touch-button"
@@ -503,67 +510,55 @@ const AboutPage = () => {
                         </div>
                         <div className="about-current-openings-description-wrapper">
                             {jobs.length > 0
-                                ? jobs.map(job => (
-                                    <div id={job.slug}>
-                                        <div className="about-current-openings-title-wrapper">
-                                            <p className="about-opening-title">
-                                                {job.title}
-                                            </p>
-                                            <Link
-                                                to={`#${job.slug}`}
-                                                className="about-link"
-                                            >
-                                                <LinkIcon />
-                                            </Link>
-                                        </div>
-                                        <div className="about-current-openings-location-wrapper">
-                                            <p className="about-opening-text">
-                                                Location: <b>{job.location}</b>
-                                            </p>
-                                        </div>
-                                        <ProcessedPost
-                                            body={
-                                                job.description.data
-                                                    .childHtmlRehype.html
-                                            }
-                                        />
-                                        <Link
-                                            className="about-get-in-touch-button-mobile"
-                                            to="mailto:careers@estuary.dev"
-                                        >
-                                            Get in touch to apply
-                                        </Link>
-                                        <div className="current-openings-divider"></div>
-                                    </div>
-                                ))
+                                ? jobs.map((job) => (
+                                      <div
+                                          id={job.slug}
+                                          key={`${job.slug}-about-current-openings-description-wrapper`}
+                                      >
+                                          <div className="about-current-openings-title-wrapper">
+                                              <p className="about-opening-title">
+                                                  {job.title}
+                                              </p>
+                                              <Link
+                                                  to={`#${job.slug}`}
+                                                  className="about-link"
+                                              >
+                                                  <LinkIcon />
+                                              </Link>
+                                          </div>
+                                          <div className="about-current-openings-location-wrapper">
+                                              <p className="about-opening-text">
+                                                  Location:{' '}
+                                                  <b>{job.location}</b>
+                                              </p>
+                                          </div>
+                                          <ProcessedPost
+                                              body={
+                                                  job.description.data
+                                                      .childHtmlRehype.html
+                                              }
+                                          />
+                                          <Link
+                                              className="about-get-in-touch-button-mobile"
+                                              to="mailto:careers@estuary.dev"
+                                          >
+                                              Get in touch to apply
+                                          </Link>
+                                          <div className="current-openings-divider" />
+                                      </div>
+                                  ))
                                 : null}
                         </div>
                     </div>
                 </div>
             </div>
-            <div className="about-section-five">
-                <h2 className="about-section-five-header" id="contact-us">
-                    Let's talk about your data
-                </h2>
-                <p className="about-section-five-text">
-                    Have a specific question or comment? Send us a note and a
-                    team member will reach out to you shortly.
-                </p>
-                <HubSpotFormWrapper />
-            </div>
+            <ContactUsForm />
         </Layout>
-    )
-}
+    );
+};
 
 export const Head = () => {
-    return (
-        <Seo
-            title={"About"}
-            description={
-                "Estuary helps your team get the most out of the ever-expanding list of valuable databases, warehouses, and other tools so you can focus on insights instead of pipelines."
-            }
-        />
-    )
-}
+    return <Seo title="About" description={estuaryHelpsYourTeam} />;
+};
 
-export default AboutPage
+export default AboutPage;
