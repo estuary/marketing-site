@@ -148,13 +148,17 @@ const PricingPlans = () => {
                     title="Enterprise"
                     price="Custom Pricing"
                     smallPrice
-                    href="/about#contact-us"
+                    href="/contact-us"
                     linkLabel="Contact us"
                     onClick={() => setSelected(3)}
                     items={[
                         'All features of Free + Cloud, plus...',
                         'SOC2 & HIPAA Certificates',
                         'Customer Success Manager',
+                        'Single Sign-On support',
+                        'Private Cloud support',
+                        'Custom Region support',
+                        'PrivateLink and Google Service Connect',
                         '24x7 support available',
                         'Provisioned servers',
                     ]}

@@ -15,9 +15,9 @@ const Card = ({ href, title, description, image }: CardProps) => {
             <CardTitle>{title}</CardTitle>
             <CardDescription>{description}</CardDescription>
             <Button
-                to={href}
+                href={href}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener"
                 theme="dark"
                 aria-label={`Read case study for ${title}`}
             >

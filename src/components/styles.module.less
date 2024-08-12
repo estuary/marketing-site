@@ -1,0 +1,57 @@
+.globalHeaderLink {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  align-self: center;
+  border-radius: 24px;
+  padding: 10px;
+  transition: background-color 150ms;
+  text-wrap: nowrap;
+
+  @media (min-width: 1025px) {
+    &:hover {
+      background-color: var(--header-link-hover);
+    }
+  }
+
+  @media (max-width: 1024px) {
+    padding: 12px 0;
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+.globalHeaderLogoLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.globalHeaderLogo {
+  margin-right: 5px;
+  margin-top: 4px;
+  width: 22px !important;
+  height: 30px !important;
+
+  @media (min-width: 1280px) {
+      width: 27px !important;
+      height: 35px !important;
+  }
+}
+
+.globalHeaderTitle {
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  line-height: 33px;
+  font-style: normal;
+  font-weight: 600;
+  margin: 31px 0;
+  color: #fff;
+
+  @media (min-width: 1280px) {
+      font-size: 2rem;
+  }
+}

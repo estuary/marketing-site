@@ -1,17 +1,12 @@
 import styled from 'styled-components';
-import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
-import overlayVectorRightWhite from '../../../images/overlay-vector-right-white.png';
-import OpenHubspotModal from '../../HubSpot/OpenModal';
+import {
+    globalMaxWidth,
+    LinkOutlined,
+    sectionTopBottomPadding,
+} from '../../../globalStyles';
 import { OutboundLinkFilled } from '../../OutboundLink';
 
-export const Container = styled.section`
-    background-color: #fdfdfe;
-    background-image: url(${overlayVectorRightWhite});
-    background-repeat: no-repeat;
-    background-position: center;
-`;
-
-export const Wrapper = styled.div`
+export const Wrapper = styled.section`
     ${globalMaxWidth}
     ${sectionTopBottomPadding}
     
@@ -85,6 +80,7 @@ export const ButtonFilled = styled(OutboundLinkFilled)`
     ${BaseButtonStyling}
 `;
 
-export const HubspotButton = styled(OpenHubspotModal)`
+export const HubspotButton = styled(LinkOutlined)`
     ${BaseButtonStyling}
+    border-color: #D0D9F9;
 `;

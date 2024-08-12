@@ -110,9 +110,15 @@ export const LinkFilled = styled(Link)`
     ${BaseButtonFilledStyling}
 `;
 
-export const LinkOutlined = styled(Link)<LinkOutlinedProps>`
+export const LinkOutlined = styled.a<LinkOutlinedProps>`
     ${(props) => baseButtonPrimaryStyling(props.theme)}
     width: ${(props) => (props.$fullWidth ? '100%' : 'auto')};
+
+    &:hover {
+        svg {
+            color: #ffffff;
+        }
+    }
 `;
 
 export const ButtonFilled = styled.button`

@@ -14,7 +14,7 @@ import {
 const inputLabel = 'Number of connectors';
 
 export const PricingCalculatorSelector = () => {
-    const { selectedConnectors, setSelectedConnectors } =
+    const { selectedConnectors, setSelectedConnectors, isDarkTheme } =
         usePricingCalculator();
 
     const maxConnectors = 21;
@@ -44,17 +44,23 @@ export const PricingCalculatorSelector = () => {
                 disabled={selectedConnectors === 2}
                 aria-label={`decrease ${inputLabel}`}
             >
-                <MinusSign />
+                <MinusSign color="#FFFFFF" />
             </ButtonMinus>
             <Form variant="outlined">
-                <InputLabel htmlFor="pricing-calculator-selector-input">
+                <InputLabel
+                    htmlFor="pricing-calculator-selector-input"
+                    style={{ color: isDarkTheme ? '#FFFFFF' : '#04192B' }}
+                >
                     {inputLabel}
                 </InputLabel>
                 <CountInput
                     id="pricing-calculator-selector-input"
                     label="Number of connectors"
                     inputProps={{
-                        style: { textAlign: 'center' },
+                        style: {
+                            textAlign: 'center',
+                            color: isDarkTheme ? '#FFFFFF' : '#04192B',
+                        },
                         min: 2,
                         max: maxConnectors,
                     }}

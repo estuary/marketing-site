@@ -1,7 +1,7 @@
 // NOTE: We're assuming that the image name follows the convention of
 // (source|materialization)-name
 // eslint-disable-next-line no-useless-escape
-const CONNECTOR_IMAGE_RE = /(source|materialize)-([a-z\-]+)/;
+const CONNECTOR_IMAGE_RE = /(source|materialize)-([a-z0-9\-]+)/;
 
 export const normalizeConnector = (connector: any) => {
     if (!connector) {

@@ -39,18 +39,14 @@ const SectionFour = () => {
                         <Advantage title="Most versatile writes that maintain a current view or all change history" />
                         <Advantage title="Most scalable pipelines, with true elastic scaling" />
                     </AdvantagesList>
-                    <Link
-                        to="/integrations"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
+                    <Link to="/integrations" target="_blank" rel="noopener">
                         View Connectors
                     </Link>
                 </LeftColumn>
                 <RightColumn>
                     <StaticImage
                         src="../../../images/real-time-graphic.png"
-                        alt="Real-time graphic"
+                        alt="Real-time ETL with Estuary Flow: Seamlessly move data from source to destination for immediate analysis and actionable insights."
                         placeholder="none"
                         loading="lazy"
                         layout="constrained"

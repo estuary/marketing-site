@@ -4,7 +4,7 @@ import { OutboundLink } from '../OutboundLink';
 
 const Step7 = ({ activePage }) => {
     return (
-        <div className={`step-${activePage}`}>
+        <div className={`step step-${activePage}`}>
             <div className="step-content">
                 <div className="step-heading">Predictable Pricing</div>
                 <ul>

@@ -1,7 +1,7 @@
 import CloseIcon from '@mui/icons-material/Close';
 import { Dialog } from '@mui/material';
+import BackgroundImage from 'gatsby-background-image';
 import styled from 'styled-components';
-import VectorImage from '../../images/blog-post-popup-background-image.png';
 
 export const Container = styled(Dialog)`
     & .MuiPaper-root {
@@ -12,7 +12,6 @@ export const Container = styled(Dialog)`
         display: grid;
         grid-template-columns: 0.6fr 0.4fr;
         padding: 0;
-        font-family: 'Inter', sans-serif;
         color: #ffffff;
         margin-top: 124px;
         max-height: calc(100% - 160px);
@@ -29,17 +28,13 @@ export const Container = styled(Dialog)`
     }
 `;
 
-export const LeftColumn = styled.div`
+export const LeftColumn = styled(BackgroundImage)`
     display: grid;
     grid-template-rows: auto 1fr;
     align-items: center;
     justify-content: center;
     padding-bottom: 24px;
     background-color: #5072eb;
-    background-image: url(${VectorImage});
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: cover;
 
     @media (max-width: 1024px) {
         padding-bottom: 32px;

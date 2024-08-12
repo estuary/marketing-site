@@ -2,18 +2,17 @@ import { Link, graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import * as React from 'react';
 import styled from 'styled-components';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import Seo from '../components/seo';
 import SignUp from '../components/signup';
 
-import EstuaryLogo from '../svgs/colored-logo.svg';
 import { estuaryAllowsEnterprises } from '../content/seo';
 import { globalMaxWidth, sectionTopBottomPadding } from '../globalStyles';
+import EstuaryLogo from '../svgs/colored-logo.svg';
 
 export const AboutUsWrapper = styled.div`
     ${globalMaxWidth}
     ${sectionTopBottomPadding}
-    font-family: 'Inter', sans-serif;
     font-style: normal;
     display: flex;
     justify-content: space-between;
@@ -119,7 +118,7 @@ const ComparisonPageTemplate = ({
                                     DescriptivePicture.localFile.childImageSharp
                                         .gatsbyImageData
                                 }
-                                alt={`${competitorName} logo`}
+                                alt={`ETL Tools Pricing Comparison: Estuary Flow vs. ${competitorName}`}
                                 className="hero-logo competitor"
                                 loading="eager"
                             />
@@ -165,7 +164,7 @@ const ComparisonPageTemplate = ({
                 </section>
                 <div className="cta-wrap-single">
                     <a href="https://dashboard.estuary.dev/register">
-                        Build a pipeline
+                        Build a Pipeline
                     </a>
                 </div>
                 <section className="comparison-to-others">
@@ -183,7 +182,7 @@ const ComparisonPageTemplate = ({
                                                     .childImageSharp
                                                     .gatsbyImageData
                                             }
-                                            alt={`${competitorName} logo`}
+                                            alt={`${item.their_name} logo`}
                                             loading="eager"
                                         />
                                     </Link>
@@ -241,7 +240,30 @@ export const Head = ({
     },
 }) => {
     const title = `Estuary Vs ${their_name}`;
-    return <Seo title={title} description={estuaryAllowsEnterprises} />;
+
+    // This can be removed once https://github.com/estuary/strapi-admin/pull/13 is merged and
+    //  we switch to using the MetaDescription coming from Strapi. Should still leave the fallback
+    //  of estuaryAllowsEnterprises just to be safe
+    const description = React.useMemo(() => {
+        switch (their_name) {
+            case 'Fivetran':
+                return `Compare Estuary and Fivetran to optimize your data pipeline effectively. Assess Estuary's strengths in integration and flexibility against Fivetran's offerings.`;
+
+            case 'Airbyte':
+                return `Discover why Estuary excels compared to Airbyte in data integration. Explore features, scalability, and reliability to streamline your data management effortlessly.`;
+
+            case 'Confluent':
+                return `Discover why Estuary stands out compared to Confluent. Compare features, scalability, and ecosystem support to find the ideal streaming data platform for your needs.`;
+
+            case 'Debezium':
+                return `Discover why Estuary is the preferred choice over Debezium for change data capture. Compare features, performance, and integration capabilities to optimize your data streaming strategy.`;
+
+            default:
+                return estuaryAllowsEnterprises;
+        }
+    }, [their_name]);
+
+    return <Seo title={title} description={description} />;
 };
 
 export const pageQuery = graphql`

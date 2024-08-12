@@ -1,7 +1,7 @@
+import BackgroundImage from 'gatsby-background-image';
 import ReactPlayer from 'react-player';
 import styled from 'styled-components';
 import { globalMaxWidth } from '../../../globalStyles';
-import VectorImage from '../../../images/lp-connector/take-a-tour/background.png';
 
 export const Container = styled.div`
     ${globalMaxWidth}
@@ -17,18 +17,15 @@ export const Container = styled.div`
     }
 `;
 
-export const ContainerLeft = styled.div`
+export const ContainerLeft = styled(BackgroundImage)`
     display: flex;
     justify-content: center;
     align-items: center;
-    flex: 1;
-    background-image: url(${VectorImage});
-    background-position: center center;
-    background-repeat: no-repeat;
     max-width: 100%;
     height: auto;
     width: 100%;
     padding: 80px 0;
+    background-size: 520px;
 `;
 
 export const EstuaryProductVideo = styled(ReactPlayer)`

@@ -1,10 +1,10 @@
-@import '../../style';
+@import '../../globalStyles/sections.module.less';
 
 .case-study {
-    .global-max-width();
+    .globalMaxWidth;
 
     .above-the-fold {
-        .section-top-bottom-padding();
+        .sectionTopBottomPadding;
 
         display: flex;
         flex-direction: column-reverse;
@@ -116,6 +116,7 @@
 
                 .content {
                     color: #47506d;
+
                     .title {
                         font-size: 16px;
                         font-weight: 500;
@@ -167,10 +168,6 @@
     }
 
     @media (min-width: 1024px) {
-        background-image: url('../../images/case-study-background.png');
-        background-repeat: no-repeat;
-        background-size: 100% auto;
-
         .above-the-fold {
             flex-direction: row;
             align-items: center;

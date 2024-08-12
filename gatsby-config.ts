@@ -108,6 +108,30 @@ const cfg: GatsbyConfig = {
     // graphqlTypegen: true,
     plugins: [
         {
+            resolve: `gatsby-plugin-webfonts`,
+            options: {
+                fonts: {
+                    google: [
+                        {
+                            family: `Inter`,
+                            variants: [
+                                `200`,
+                                `300`,
+                                `400`,
+                                `500`,
+                                `600`,
+                                `700`,
+                            ],
+                        },
+                    ],
+                },
+                formats: ['woff2', 'woff'],
+                useMinify: true,
+                usePreload: true,
+                usePreconnect: true,
+            },
+        },
+        {
             resolve: 'gatsby-plugin-preconnect',
             options: {
                 domains: ['https://hs-banner.com', 'https://hs-scripts.com'],
@@ -154,7 +178,6 @@ const cfg: GatsbyConfig = {
         'gatsby-transformer-inline-svg',
         'gatsby-plugin-image',
         // `gatsby-plugin-svgr-svgo`,
-        'gatsby-plugin-less',
         {
             resolve: 'gatsby-transformer-rehype',
             options: {
@@ -213,7 +236,7 @@ const cfg: GatsbyConfig = {
             options: {
                 ssr: false, // We need this to prevent mismatch errors
                 transpileTemplateLiterals: false, // Setting to false just to be safe - think we can remove in future
-                displayName: true, // Good to enable when debugging - but should not be needed for production
+                displayName: process.env.NODE_ENV !== 'production', // Good to enable when debugging - but should not be needed for production
                 fileName: true, // We want to use the file in the style name
                 preprocess: false,
                 meaninglessFileNames: ['index', 'styles'], // Having these two files names in the class name isn't too valuable
@@ -412,6 +435,18 @@ const cfg: GatsbyConfig = {
         },
         'gatsby-transformer-sharp',
         'gatsby-plugin-sharp',
+        {
+            resolve: `gatsby-plugin-canonical-urls`,
+            options: {
+                siteUrl: `https://estuary.dev`,
+            },
+        },
+        {
+            resolve: `gatsby-transformer-remark`,
+            options: {
+                plugins: [`gatsby-remark-reading-time`],
+            },
+        },
         // {
         //   resolve: `gatsby-plugin-feed`,
         //   options: {

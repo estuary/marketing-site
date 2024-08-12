@@ -1,10 +1,11 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
+import { graphql, useStaticQuery } from 'gatsby';
 import { estuaryProductFlowVideoUrl } from '../../../../shared';
 import useWindowExistence from '../../../hooks/useWindowExistence';
-import { ContainerIcon } from '../styles';
 import { DefaultWrapperDark } from '../../../styles/wrappers';
+import { ContainerIcon } from '../styles';
 import {
     Container,
     ContainerButton,
@@ -19,18 +20,36 @@ import {
 import TakeATourButtons from './TakeATourButtons';
 
 const TakeATour = () => {
+    const imageData = useStaticQuery(graphql`
+        query {
+            imageData: file(
+                relativePath: { eq: "lp-connector/take-a-tour/background.png" }
+            ) {
+                childImageSharp {
+                    fluid(quality: 90, maxWidth: 547) {
+                        ...GatsbyImageSharpFluid_withWebp_noBase64
+                    }
+                }
+            }
+        }
+    `);
+
     const hasWindow = useWindowExistence();
 
     return (
         <DefaultWrapperDark>
             <Container>
-                <ContainerLeft>
+                <ContainerLeft
+                    fluid={imageData.imageData.childImageSharp.fluid}
+                    fadeIn={false}
+                    critical={true}
+                >
                     {hasWindow ? (
                         <EstuaryProductVideo
                             light={
                                 <VideoPreviewContainer>
                                     <StaticImage
-                                        quality={100}
+                                        quality={90}
                                         placeholder="none"
                                         alt="estuary flow product video"
                                         src="../../../images/homepage-product-video.svg"
