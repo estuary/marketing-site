@@ -2,7 +2,7 @@ import * as React from 'react';
 
 const Step0 = ({ activePage, setState }) => {
     return (
-        <div className={`step-${activePage}`}>
+        <div className={`step step-${activePage}`}>
             <div className="step-content">
                 <div className="step-heading">
                     Estuary is your automated data streaming control center

@@ -1,4 +1,5 @@
 import { IconButton } from '@mui/material';
+import { graphql, useStaticQuery } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
 import { webinarsUrl } from '../../../shared';
@@ -58,6 +59,20 @@ const SETTINGS = {
 const STORAGE_KEY = `@estuary/closeBlogPostPopup${SETTINGS.version}`;
 
 function BlogPostPopupModal() {
+    const imageData = useStaticQuery(graphql`
+        query {
+            imageData: file(
+                relativePath: { eq: "blog-post-popup-background-image.png" }
+            ) {
+                childImageSharp {
+                    fluid(quality: 100, maxWidth: 1385) {
+                        ...GatsbyImageSharpFluid_withWebp_noBase64
+                    }
+                }
+            }
+        }
+    `);
+
     const [openDialog, setOpenDialog] = React.useState(false);
 
     const hasOpened = React.useRef(false);
@@ -91,7 +106,11 @@ function BlogPostPopupModal() {
                     <XIcon fontSize="large" />
                 </IconButton>
             </CloseButtonWrapper>
-            <LeftColumn>
+            <LeftColumn
+                fluid={imageData.imageData.childImageSharp.fluid}
+                fadeIn={false}
+                critical={true}
+            >
                 <TitleWrapper>
                     <span>Webinar:</span>
                     <WebinarTitle>{SETTINGS.title}</WebinarTitle>

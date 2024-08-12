@@ -1,28 +1,30 @@
 import { Link } from 'gatsby';
 import React, { useCallback } from 'react';
 import { OutboundLink } from '../OutboundLink';
+import { globalHeaderLink } from '../styles.module.less';
 import LinkProduct from './Product';
 import LinkResources from './Resources';
+import { globalHeaderLinks } from './styles.module.less';
 
 const HeaderNavbar = ({ activeMenu, setActiveMenu }) => {
     const closeMenus = useCallback(() => setActiveMenu(''), [setActiveMenu]);
 
     return (
-        <div className="global-header-links" onMouseLeave={closeMenus}>
+        <div className={globalHeaderLinks} onMouseLeave={closeMenus}>
             <LinkProduct
                 active={activeMenu === 'product'}
                 setActive={setActiveMenu}
             />
             <Link
                 onMouseEnter={closeMenus}
-                className="global-header-link"
+                className={globalHeaderLink}
                 to="/pricing"
             >
                 Pricing
             </Link>
             <Link
                 onMouseEnter={closeMenus}
-                className="global-header-link"
+                className={globalHeaderLink}
                 to="/integrations"
             >
                 Connectors
@@ -33,7 +35,7 @@ const HeaderNavbar = ({ activeMenu, setActiveMenu }) => {
             />
             <OutboundLink
                 target="_blank"
-                className="global-header-link"
+                className={globalHeaderLink}
                 href="https://docs.estuary.dev"
                 onMouseEnter={closeMenus}
             >

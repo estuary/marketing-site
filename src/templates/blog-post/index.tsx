@@ -7,7 +7,8 @@ import reltime from 'dayjs/plugin/relativeTime';
 import CalendarTodayOutlined from '@mui/icons-material/CalendarTodayOutlined';
 import DoneIcon from '@mui/icons-material/Done';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import BuildPipeLineBannerBackground from '../../components/BackgroundImages/BuildPipelineWrapper';
+import SwoopingLinesBackground from '../../components/BackgroundImages/LightSwoopingLinesRightDirectionBackground';
+import StraightLinesBackground from '../../components/BackgroundImages/StraightLinesBackground';
 import { PopularArticles } from '../../components/BlogPopularArticles';
 import BlogPostPopupModal from '../../components/BlogPostPopupModal';
 import { ProcessedPost } from '../../components/BlogPostProcessor';
@@ -15,11 +16,11 @@ import { RenderToc } from '../../components/BlogPostToc';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import { OutboundLink } from '../../components/OutboundLink';
 import Bio from '../../components/bio';
-import Layout from '../../components/layout';
+import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
 import logoUrl from '../../images/combination-mark__multi-blue.png';
-import { SwoopingLinesBackground } from '../../styles/heros';
 import { costPerGB } from '../../utils';
+import ReadingTimeIcon from '../../svgs/time.svg';
 import ShareArticle from './ShareArticle';
 
 dayjs.extend(reltime);
@@ -30,6 +31,10 @@ const BlogPostTemplate = ({ data: { post } }) => {
     /* const authorImage = post?.authors[0]?.picture && getImage(post.authors[0].picture.localFile.childImageSharp.gatsbyImageData)
 
     const authorSocialLink = post?.authors[0]?.link */
+
+    const hasBeenUpdated = post?.updatedAt
+        ? post?.publishedAt !== post?.updatedAt
+        : false;
 
     return (
         <Layout>
@@ -71,19 +76,30 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                 </div>
                                 <div className="date-and-read-wrapper">
                                     <div className="icon-info-wrapper">
-                                        <CalendarTodayOutlined className="icon" />
+                                        <ReadingTimeIcon color="#47506D" />
                                         <span className="blog-post-date">
-                                            {post.publishedAt}
+                                            {
+                                                post.body.data
+                                                    .childMarkdownRemark.fields
+                                                    .readingTime.text
+                                            }
                                         </span>
                                     </div>
-
-                                    {/* TODO: Add post reading time */}
-                                    {/* <div className="icon-info-wrapper">
-                                    <AccessTime className="icon" />
-                                    <span className="blog-post-date">
-                                        10 min
-                                    </span>
-                                </div> */}
+                                    <div className="icon-info-wrapper">
+                                        <CalendarTodayOutlined fontSize="small" />
+                                        <span className="blog-post-date">
+                                            <span>
+                                                {hasBeenUpdated
+                                                    ? `Published ${post.publishedAt}`
+                                                    : post.publishedAt}
+                                            </span>
+                                            {hasBeenUpdated ? (
+                                                <span>
+                                                    Updated {post.updatedAt}
+                                                </span>
+                                            ) : null}
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                             <h1>{post.title}</h1>
@@ -120,20 +136,24 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                     body={post.body.data.childHtmlRehype.html}
                                 />
 
-                                <BuildPipeLineBannerBackground>
-                                    <div className="build-pipeline-banner">
-                                        <h3>
-                                            Start streaming your data{' '}
-                                            <span>for free</span>
-                                        </h3>
-                                        <OutboundLink
-                                            href="https://dashboard.estuary.dev/register"
-                                            className="pipeline-link"
-                                        >
-                                            Build a Pipeline
-                                        </OutboundLink>
-                                    </div>
-                                </BuildPipeLineBannerBackground>
+                                <div className="build-pipeline-banner-wrapper">
+                                    <StraightLinesBackground className="background">
+                                        <div className="big-build-pipeline-banner-container">
+                                            <div className="build-pipeline-banner">
+                                                <h3>
+                                                    Start streaming your data{' '}
+                                                    <span>for free</span>
+                                                </h3>
+                                                <OutboundLink
+                                                    href="https://dashboard.estuary.dev/register"
+                                                    className="pipeline-link"
+                                                >
+                                                    Build a Pipeline
+                                                </OutboundLink>
+                                            </div>
+                                        </div>
+                                    </StraightLinesBackground>
+                                </div>
                             </div>
 
                             <div className="post-sidebar">
@@ -154,7 +174,7 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                 <div className="sidebar-right">
                                     <div className="banner">
                                         <span>
-                                            Build <span>Pipeline</span>
+                                            Build a <span>Pipeline</span>
                                         </span>
                                     </div>
                                     <h3>
@@ -165,7 +185,7 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                         href="https://dashboard.estuary.dev/register"
                                         className="pipeline-link"
                                     >
-                                        Build pipeline
+                                        Build a Pipeline
                                     </OutboundLink>
                                 </div>
                             </div>
@@ -219,61 +239,63 @@ const BlogPostTemplate = ({ data: { post } }) => {
                     </div>
                 </section>
                 <section className="big-build-pipeline-banner-section">
-                    <BuildPipeLineBannerBackground>
-                        <div className="big-build-pipeline-banner-container_layout">
-                            <div className="left-column-container">
-                                <h5>Streaming Pipelines.</h5>
-                                <h5>Simple to deploy.</h5>
-                                <h5>Simply priced.</h5>
+                    <StraightLinesBackground className="background">
+                        <div className="big-build-pipeline-banner-container">
+                            <div className="big-build-pipeline-banner-container_layout">
+                                <div className="left-column-container">
+                                    <h5>Streaming Pipelines.</h5>
+                                    <h5>Simple to Deploy.</h5>
+                                    <h5>Simply Priced.</h5>
+                                </div>
+                                <div className="right-column-container">
+                                    <div>
+                                        <DoneIcon
+                                            htmlColor="#5072eb"
+                                            fontSize="large"
+                                        />
+                                        <span>
+                                            {costPerGB} of data moved +
+                                            $.14/connector/hour;
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <DoneIcon
+                                            htmlColor="#5072eb"
+                                            fontSize="large"
+                                        />
+                                        <span>
+                                            50% less than competing ETL/ELT
+                                            solutions;
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <DoneIcon
+                                            htmlColor="#5072eb"
+                                            fontSize="large"
+                                        />
+                                        <span>
+                                            {'<'}100ms latency on streaming
+                                            sinks/sources.
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="right-column-container">
-                                <div>
-                                    <DoneIcon
-                                        htmlColor="#5072eb"
-                                        fontSize="large"
-                                    />
-                                    <span>
-                                        {costPerGB} of data moved +
-                                        $.14/connector/hour;
-                                    </span>
-                                </div>
-                                <div>
-                                    <DoneIcon
-                                        htmlColor="#5072eb"
-                                        fontSize="large"
-                                    />
-                                    <span>
-                                        50% less than competing ETL/ELT
-                                        solutions;
-                                    </span>
-                                </div>
-                                <div>
-                                    <DoneIcon
-                                        htmlColor="#5072eb"
-                                        fontSize="large"
-                                    />
-                                    <span>
-                                        {'<'}100ms latency on streaming
-                                        sinks/sources.
-                                    </span>
-                                </div>
+                            <div className="build-pipeline-and-pricing-buttons">
+                                <OutboundLink
+                                    href="https://dashboard.estuary.dev/register"
+                                    className="pipeline-link"
+                                >
+                                    Build a Pipeline
+                                </OutboundLink>
+                                <OutboundLink
+                                    href="https://estuary.dev/pricing"
+                                    className="pricing-link"
+                                >
+                                    See Pricing
+                                </OutboundLink>
                             </div>
                         </div>
-                        <div className="build-pipeline-and-pricing-buttons">
-                            <OutboundLink
-                                href="https://dashboard.estuary.dev/register"
-                                className="pipeline-link"
-                            >
-                                Build a pipeline
-                            </OutboundLink>
-                            <OutboundLink
-                                href="https://estuary.dev/pricing"
-                                className="pricing-link"
-                            >
-                                More on our Pricing
-                            </OutboundLink>
-                        </div>
-                    </BuildPipeLineBannerBackground>
+                    </StraightLinesBackground>
                 </section>
             </article>
             <BlogPostPopupModal />
@@ -294,7 +316,7 @@ export const Head = ({
         url: author.link,
         image: author.picture && {
             '@type': 'ImageObject',
-            'url': `${siteUrl}/${author.picture.localFile.childImageSharp.fixed.src}`,
+            'url': `${siteUrl}/${author.picture.localFile.childImageSharp.fixedImg.gatsbyImageData}`,
         },
     }));
 
@@ -309,7 +331,7 @@ export const Head = ({
                 url={`${siteUrl}/${post.slug}`}
                 image={
                     post.hero
-                        ? `${siteUrl}${post.hero.localFile.childImageSharp.meta_img.src}`
+                        ? `${siteUrl}${post.hero.localFile.childImageSharp.meta_img.gatsbyImageData}`
                         : undefined
                 }
             />
@@ -325,7 +347,7 @@ export const Head = ({
                     'description': post.description ?? '',
                     'image':
                         post.hero &&
-                        `${siteUrl}${post.hero.localFile.childImageSharp.meta_img.src}`,
+                        `${siteUrl}${post.hero.localFile.childImageSharp.meta_img.gatsbyImageData}`,
                     'author':
                         post.authors.length > 1
                             ? mappedAuthors
@@ -340,6 +362,7 @@ export const Head = ({
                         },
                     },
                     'datePublished': post.machineReadablePublishDate,
+                    'dateModified': post.machineReadableUpdateDate,
                 })}
             </script>
         </>
@@ -358,7 +381,9 @@ export const pageQuery = graphql`
         post: strapiBlogPost(id: { eq: $id }) {
             title: Title
             publishedAt(formatString: "MMMM D, YYYY")
+            updatedAt(formatString: "MMMM D, YYYY")
             machineReadablePublishDate: publishedAt(formatString: "YYYY-MM-DD")
+            machineReadableUpdateDate: updatedAt(formatString: "YYYY-MM-DD")
             description: Description
             slug: Slug
             body: Body {
@@ -367,6 +392,13 @@ export const pageQuery = graphql`
                     childHtmlRehype {
                         html
                         tableOfContents
+                    }
+                    childMarkdownRemark {
+                        fields {
+                            readingTime {
+                                text
+                            }
+                        }
                     }
                 }
             }
@@ -380,9 +412,7 @@ export const pageQuery = graphql`
                                 placeholder: BLURRED
                                 quality: 100
                             )
-                            fixed(width: 60) {
-                                src
-                            }
+                            fixedImg: gatsbyImageData(layout: FIXED, width: 60)
                         }
                     }
                 }
@@ -397,9 +427,7 @@ export const pageQuery = graphql`
                             # aspectRatio: 2
                             formats: [AUTO, WEBP, AVIF]
                         )
-                        meta_img: fixed(width: 500) {
-                            src
-                        }
+                        meta_img: gatsbyImageData(layout: FIXED, width: 500)
                         # Further below in this doc you can learn how to use these response images
                     }
                 }

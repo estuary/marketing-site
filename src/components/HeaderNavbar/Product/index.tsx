@@ -13,6 +13,7 @@ import {
     MenuAccordionContent,
     Slide,
 } from '../styles';
+import { hideOnMobile } from '../styles.module.less';
 import { compare, products } from './items';
 import ProductLink from './Link';
 
@@ -42,7 +43,7 @@ const HeaderNavbarProduct = ({ active, setActive }) => {
                 <Card>
                     <CardItem title="PRODUCT" items={products} onlyContent />
                     <CardItem title="COMPARE" items={compare} />
-                    <CardItem className="hide-on-mobile" title="WEBINARS">
+                    <CardItem className={hideOnMobile} title="WEBINARS">
                         <Carousel aria-label="Webinars carousel">
                             <Slide key="header-carousel-tour-2">
                                 <ImageWrapper>

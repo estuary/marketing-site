@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import styled from 'styled-components';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import Seo from '../components/seo';
 
 import { globalMaxWidth } from '../globalStyles';
@@ -12,7 +12,7 @@ const Container = styled.div`
 
 const NotFoundPage = () => {
     return (
-        <Layout headerTheme="dark">
+        <Layout>
             <Container>
                 <h1>404: Not Found</h1>
                 <p>

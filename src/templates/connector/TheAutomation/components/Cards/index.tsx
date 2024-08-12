@@ -1,13 +1,32 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
+import { graphql, useStaticQuery } from 'gatsby';
 import Card from '../Card';
 
 import { Container, ContainerCards } from './style';
 
 const TheAutomationCards = () => {
+    const imageData = useStaticQuery(graphql`
+        query {
+            imageData: file(
+                relativePath: { eq: "connector-template/the-automation-bg.png" }
+            ) {
+                childImageSharp {
+                    fluid(quality: 90, maxWidth: 695) {
+                        ...GatsbyImageSharpFluid_withWebp_noBase64
+                    }
+                }
+            }
+        }
+    `);
+
     return (
-        <Container>
+        <Container
+            fluid={imageData.imageData.childImageSharp.fluid}
+            fadeIn={false}
+            critical={true}
+        >
             <ContainerCards>
                 <Card
                     title="Automated Schema Drift"
@@ -16,7 +35,7 @@ const TheAutomationCards = () => {
                 >
                     <StaticImage
                         alt="icon-1"
-                        src="../../../../../images/lp-product/TheAutomation/icon-1.png"
+                        src="../../../../../images/connector-template/icon-1.png"
                         layout="constrained"
                     />
                 </Card>
@@ -26,7 +45,7 @@ const TheAutomationCards = () => {
                 >
                     <StaticImage
                         alt="icon-2"
-                        src="../../../../../images/lp-product/TheAutomation/icon-2.png"
+                        src="../../../../../images/connector-template/icon-2.png"
                         layout="constrained"
                     />
                 </Card>
@@ -37,7 +56,7 @@ const TheAutomationCards = () => {
                 >
                     <StaticImage
                         alt="icon-3"
-                        src="../../../../../images/lp-product/TheAutomation/icon-3.png"
+                        src="../../../../../images/connector-template/icon-3.png"
                         layout="constrained"
                     />
                 </Card>
@@ -51,7 +70,7 @@ const TheAutomationCards = () => {
                 >
                     <StaticImage
                         alt="icon-4"
-                        src="../../../../../images/lp-product/TheAutomation/icon-4.png"
+                        src="../../../../../images/connector-template/icon-4.png"
                         layout="constrained"
                     />
                 </Card>
@@ -62,7 +81,7 @@ const TheAutomationCards = () => {
                 >
                     <StaticImage
                         alt="icon-5"
-                        src="../../../../../images/lp-product/TheAutomation/icon-5.png"
+                        src="../../../../../images/connector-template/icon-5.png"
                         layout="constrained"
                     />
                 </Card>
@@ -74,7 +93,7 @@ const TheAutomationCards = () => {
                 >
                     <StaticImage
                         alt="icon-6"
-                        src="../../../../../images/lp-product/TheAutomation/icon-6.png"
+                        src="../../../../../images/connector-template/icon-6.png"
                         layout="constrained"
                     />
                 </Card>

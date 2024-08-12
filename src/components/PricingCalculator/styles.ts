@@ -7,65 +7,73 @@ import {
 import styled from 'styled-components';
 import { ButtonFilled } from '../../globalStyles';
 
-export const PricingSlider = muiStyled(Slider)({
-    'color': '#5272EB',
-    'width': '100%',
-    'paddingTop': '18px !important',
-    'borderRadius': 3,
-    'boxSizing': 'border-box',
+type Theme = { $isDarkTheme: boolean };
 
-    '& .MuiSlider-thumb': {
-        'height': 28,
-        'width': 28,
-        'backgroundColor': '#5272EB',
-        'boxShadow': '0px 2px 7px rgba(0, 0, 0, 0.25)',
-        '&:focus, &:hover, &.Mui-active, &.Mui-focusVisible': {
-            boxShadow: '0px 2px 7px rgba(0, 0, 0, 0.25)',
-        },
-        '&:before': {
-            display: 'none',
-        },
-    },
-    '& .MuiSlider-track': {
-        height: 8,
-    },
-    '& .MuiSlider-rail': {
-        color: '#B9C7F7',
-        opacity: 1,
-        height: 8,
-        width: '101%',
-        borderRadius: 3,
-        left: 0,
-    },
-    '& .MuiSlider-mark': {
-        color: '#D9D9D9',
-        backgroundColor: '#D9D9D9 !important',
-        height: '15px',
-        width: '3px',
-        top: '6%',
-    },
-    '& .MuiSlider-markLabel': {
-        'top': '-32px',
-        'fontSize': '1.25rem',
-        'fontWeight': 500,
-        'color': '#47506D',
-        'fontFamily': 'Inter, sans-serif',
+export const PricingSlider = muiStyled(Slider)(({
+    isdarktheme,
+}: {
+    isdarktheme: 'true' | 'false';
+}) => {
+    return {
+        'color': '#5272EB',
+        'width': '100%',
+        'paddingTop': '18px !important',
+        'borderRadius': 3,
+        'boxSizing': 'border-box',
 
-        '@media (max-width: 425px)': {
-            fontSize: '0.875rem',
+        '& .MuiSlider-thumb': {
+            'height': 28,
+            'width': 28,
+            'backgroundColor': '#5272EB',
+            'boxShadow': '0px 2px 7px rgba(0, 0, 0, 0.25)',
+            '&:focus, &:hover, &.Mui-active, &.Mui-focusVisible': {
+                boxShadow: '0px 2px 7px rgba(0, 0, 0, 0.25)',
+            },
+            '&:before': {
+                display: 'none',
+            },
         },
-    },
+        '& .MuiSlider-track': {
+            height: 8,
+        },
+        '& .MuiSlider-rail': {
+            color: '#B9C7F7',
+            opacity: 1,
+            height: 8,
+            width: '101%',
+            borderRadius: 3,
+            left: 0,
+        },
+        '& .MuiSlider-mark': {
+            color: '#D9D9D9',
+            backgroundColor: '#D9D9D9 !important',
+            height: '15px',
+            width: '3px',
+            top: '6%',
+        },
+        '& .MuiSlider-markLabel': {
+            'top': '-32px',
+            'fontSize': '1.25rem',
+            'fontWeight': 500,
+            'color': isdarktheme === 'true' ? '#FFFFFF' : '#47506D', // To write it to DOM, we need to treat the boolean as string for this specific case
+
+            '@media (max-width: 425px)': {
+                fontSize: '0.875rem',
+            },
+        },
+    };
 });
 
 export const CalculatorTitle = styled.h3`
     color: #5072eb;
     font-size: 2rem;
     font-weight: 700;
+    text-align: center;
     margin: 0;
 `;
 
-export const CalculatorSubtitle = styled.p`
-    color: #47506d;
+export const CalculatorSubtitle = styled.p<Theme>`
+    color: ${(props) => (props.$isDarkTheme ? '#FFFFFF' : '#47506d')};
     margin: 0;
     padding: 8px 0 60px 0;
     font-size: 1rem;
@@ -76,6 +84,7 @@ export const CalculatorSubtitle = styled.p`
 
 export const SliderWrapper = styled.div`
     width: 100%;
+    min-width: 280px;
 
     @media (max-width: 525px) {
         padding: 0 20px;
@@ -83,15 +92,17 @@ export const SliderWrapper = styled.div`
 `;
 
 export const ComparisonWrapper = styled.div`
-    font-family: 'Inter', sans-serif;
     display: flex;
     align-items: start;
     justify-content: center;
     width: 100%;
     margin-top: 32px;
     gap: 24px;
-    flex-wrap: wrap;
     min-height: 169px;
+
+    @media (max-width: 1024px) {
+        flex-wrap: wrap;
+    }
 
     @media (max-width: 525px) {
         gap: 32px;
@@ -104,7 +115,7 @@ export const ComparisonWrapper = styled.div`
     }
 `;
 
-export const BrandWrapper = styled.div`
+export const BrandWrapper = styled.div<Theme>`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -121,7 +132,7 @@ export const BrandWrapper = styled.div`
         color: #5072eb;
 
         span {
-            color: #04192b;
+            color: ${(props) => (props.$isDarkTheme ? '#FFFFFF' : '#04192b')};
 
             &:first-child {
                 font-size: 1.5rem;
@@ -136,11 +147,12 @@ export const BrandWrapper = styled.div`
 
     @media (max-width: 525px) {
         gap: 4px;
+        max-width: 100%;
     }
 `;
 
-export const BrandName = styled.h4`
-    color: #04192b;
+export const BrandName = styled.h4<Theme>`
+    color: ${(props) => (props.$isDarkTheme ? '#FFFFFF' : '#04192b')};
     font-weight: 700;
     line-height: 22px;
     font-size: 1rem;
@@ -151,8 +163,8 @@ export const BrandName = styled.h4`
     }
 `;
 
-export const BrandPrice = styled.span`
-    color: #47506d;
+export const BrandPrice = styled.span<Theme>`
+    color: ${(props) => (props.$isDarkTheme ? '#FFFFFF' : '#47506d')};
     font-size: 1rem;
     font-weight: 400;
     line-height: 22px;
@@ -162,7 +174,7 @@ export const BrandPrice = styled.span`
 
     span {
         font-weight: 700;
-        color: #04192b;
+        color: ${(props) => (props.$isDarkTheme ? '#FFFFFF' : '#04192b')};
     }
 
     @media (max-width: 425px) {

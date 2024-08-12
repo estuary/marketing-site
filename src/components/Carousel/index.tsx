@@ -17,6 +17,7 @@ type CarouselProps = React.HTMLAttributes<HTMLDivElement> & {
     hasArrow?: boolean;
     dotColor?: string;
     activeDotColor?: string;
+    arrowColor?: string;
 };
 
 const Carousel = ({
@@ -24,6 +25,7 @@ const Carousel = ({
     hasArrow = false,
     dotColor,
     activeDotColor,
+    arrowColor = '#FFFFFF',
     ...rest
 }: CarouselProps) => {
     const [currentSlide, setCurrentSlide] = React.useState(0);
@@ -127,25 +129,19 @@ const Carousel = ({
                     <Arrow
                         onClick={onArrowClick('left')}
                         disabled={isLeftArrowDisabled}
-                        aria-label="previous testimonial"
+                        aria-label="previous slide"
                     >
-                        <ChevronLeftIcon />
+                        <ChevronLeftIcon color={arrowColor} />
                     </Arrow>
                 ) : null}
                 {React.Children.count(children) > 1 ? (
                     <Dots>
                         {React.Children.map(children, (_, index) => (
                             <DotWrapper
+                                $isActive={currentSlide === index}
                                 key={`${rest['aria-label']}-dot-${index}}`}
                             >
-                                <Dot
-                                    htmlColor={
-                                        currentSlide === index
-                                            ? activeDotColor ?? '#5072EB'
-                                            : dotColor ?? '#FFFFFF'
-                                    }
-                                    onClick={() => handleDotClick(index)}
-                                />
+                                <Dot onClick={() => handleDotClick(index)} />
                             </DotWrapper>
                         ))}
                     </Dots>
@@ -154,9 +150,9 @@ const Carousel = ({
                     <Arrow
                         onClick={onArrowClick('right')}
                         disabled={isRightArrowDisabled}
-                        aria-label="next testimonial"
+                        aria-label="next slide"
                     >
-                        <ChevronRightIcon />
+                        <ChevronRightIcon color={arrowColor} />
                     </Arrow>
                 ) : null}
             </Navigation>

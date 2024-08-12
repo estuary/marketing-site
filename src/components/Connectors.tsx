@@ -7,7 +7,7 @@ import { useLunr } from 'react-lunr';
 import { ConnectorType } from '../../shared';
 import FlowLogo from '../svgs/flow-logo.svg';
 import { normalizeConnector } from '../utils';
-import BackgroundImageWrapper from './BackgroundImageWrapper';
+import BigImageBackground from './BackgroundImages/BigImageBackground';
 import ConnectorsLink from './ConnectorsLink';
 
 export interface ConnectorsProps {
@@ -16,7 +16,6 @@ export interface ConnectorsProps {
     description?: string;
     bottomTitle?: string;
     bottomDescription?: string;
-    onlyCards?: boolean;
     showAllConnectors?: boolean;
 }
 
@@ -95,7 +94,6 @@ export const Connectors = ({
     description,
     bottomTitle,
     bottomDescription,
-    onlyCards = false,
     showAllConnectors = false,
 }: ConnectorsProps) => {
     const {
@@ -195,45 +193,38 @@ export const Connectors = ({
     );
 
     return (
-        <BackgroundImageWrapper>
+        <BigImageBackground>
             <div className="blogs-index-header-wrapper">
-                {!onlyCards ? (
-                    <div className="connector-index-header">
-                        <div style={{ maxWidth: '30rem' }}>
-                            <h2>{title}</h2>
-                            <p>{description}</p>
-                        </div>
+                <div className="connector-index-header">
+                    <div style={{ maxWidth: '30rem' }}>
+                        <h2>{title}</h2>
+                        <p>{description}</p>
+                    </div>
+                    <div
+                        style={{ display: 'block' }}
+                        className="blog-post-header-vectors"
+                    >
+                        <FlowLogo className="product-flow-section-one-image" />
+                    </div>
+                </div>
+                <div className="connectors-search">
+                    <div className="connectors-search-body">
                         <div
-                            style={{ display: 'block' }}
-                            className="blog-post-header-vectors"
+                            className="blogs-index-search"
+                            style={{ marginBottom: 0 }}
                         >
-                            <FlowLogo className="product-flow-section-one-image" />
+                            <SearchIcon className="blogs-index-input-adornment" />
+                            <input
+                                style={{ border: '1px solid #D7DCE5' }}
+                                placeholder={`Search ${title}`}
+                                type="text"
+                                value={query}
+                                onChange={(evt) => setQuery(evt.target.value)}
+                            />
                         </div>
+                        <ConnectorsLink />
                     </div>
-                ) : null}
-                {!onlyCards ? (
-                    <div className="connectors-search">
-                        <div className="connectors-search-body">
-                            <div
-                                className="blogs-index-search"
-                                style={{ marginBottom: 0 }}
-                            >
-                                <SearchIcon className="blogs-index-input-adornment" />
-                                <input
-                                    style={{ border: '1px solid #D7DCE5' }}
-                                    placeholder={`Search ${title}`}
-                                    type="text"
-                                    value={query}
-                                    onChange={(evt) =>
-                                        setQuery(evt.target.value)
-                                    }
-                                />
-                            </div>
-                            <ConnectorsLink />
-                        </div>
-                    </div>
-                ) : null}
-
+                </div>
                 <div className="connector-cards">
                     {(query.length > 0 ? results : mappedConnectors).map(
                         (connector) => (
@@ -247,51 +238,47 @@ export const Connectors = ({
                     )}
                 </div>
             </div>
+            <>
+                <div className="connector-onlycards-background-image">
+                    <div className="connector-onlycards">
+                        <h2>All your data, </h2>
+                        <h2>where you need it</h2>
+                        <p>
+                            Consolidate your data into the leading warehouses,
+                            then integrate with your tools of choice.
+                        </p>
+                    </div>
+                </div>
 
-            {!onlyCards ? (
-                <>
-                    <div className="connector-onlycards-background-image">
-                        <div className="connector-onlycards">
-                            <h2>All your data, </h2>
-                            <h2>where you need it</h2>
-                            <p>
-                                Consolidate your data into the leading
-                                warehouses, then integrate with your tools of
-                                choice.
-                            </p>
+                {showAllConnectors ? null : (
+                    <div className="connector-bottom-link">
+                        <div style={{ maxWidth: '30rem' }}>
+                            <h2>{bottomTitle}</h2>
+                            <p>{bottomDescription}</p>
+                            <Link
+                                to={`/${bottomTitle?.toLowerCase()}`}
+                                className="connector-bottom-button"
+                            >
+                                See all {bottomTitle?.toLowerCase()}
+                            </Link>
+                        </div>
+                        <div
+                            style={{ display: 'block' }}
+                            className="connector-bottom-vector"
+                        >
+                            <FlowLogo className="connector-bottom-flow" />
+                            <StaticImage
+                                src="../images/connectors-bottom.png"
+                                alt={
+                                    bottomTitle ??
+                                    'Connectors logos background image'
+                                }
+                                width={500}
+                            />
                         </div>
                     </div>
-
-                    {showAllConnectors ? null : (
-                        <div className="connector-bottom-link">
-                            <div style={{ maxWidth: '30rem' }}>
-                                <h2>{bottomTitle}</h2>
-                                <p>{bottomDescription}</p>
-                                <Link
-                                    to={`/${bottomTitle?.toLowerCase()}`}
-                                    className="connector-bottom-button"
-                                >
-                                    See all {bottomTitle?.toLowerCase()}
-                                </Link>
-                            </div>
-                            <div
-                                style={{ display: 'block' }}
-                                className="connector-bottom-vector"
-                            >
-                                <FlowLogo className="connector-bottom-flow" />
-                                <StaticImage
-                                    src="../images/connectors-bottom.png"
-                                    alt={
-                                        bottomTitle ??
-                                        'Connectors logos background image'
-                                    }
-                                    width={500}
-                                />
-                            </div>
-                        </div>
-                    )}
-                </>
-            ) : null}
-        </BackgroundImageWrapper>
+                )}
+            </>
+        </BigImageBackground>
     );
 };

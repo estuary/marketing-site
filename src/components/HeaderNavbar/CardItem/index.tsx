@@ -1,8 +1,8 @@
 import Chevron from '@mui/icons-material/ChevronRight';
-import clsx from 'clsx';
 import { Link } from 'gatsby';
 import * as React from 'react';
 import { OutboundLink } from '../../OutboundLink';
+import { hideOnMobile } from '../styles.module.less';
 import {
     CardItem,
     CardTitle,
@@ -30,7 +30,7 @@ const ItemLink = ({ name, description, Image, to, hasChevronIcon }) => {
                     <TextWrapper>
                         <Title>{name}</Title>
                         {description ? (
-                            <Description className="hide-on-mobile">
+                            <Description className={hideOnMobile}>
                                 {description}
                             </Description>
                         ) : null}
@@ -47,8 +47,6 @@ const ItemLink = ({ name, description, Image, to, hasChevronIcon }) => {
     );
 };
 
-// Always show the title on desktop
-// Hide the title on mobile if onlyContent is true
 const HeaderCardItem = ({
     title,
     items = [],
@@ -58,11 +56,7 @@ const HeaderCardItem = ({
 }: any) => {
     return (
         <div {...props}>
-            <CardTitle
-                className={clsx({
-                    'hide-on-mobile': onlyContent,
-                })}
-            >
+            <CardTitle className={onlyContent ? hideOnMobile : null}>
                 {title}
             </CardTitle>
             <Content>

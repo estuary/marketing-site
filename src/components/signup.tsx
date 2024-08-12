@@ -9,9 +9,7 @@ const SignUp = () => {
                 </div>
                 <div className="cta-wrap">
                     <a href="https://dashboard.estuary.dev/register">Sign up</a>
-                    <a href="https://estuary.dev/about/#contact-us">
-                        Contact us
-                    </a>
+                    <a href="https://estuary.dev/contact-us">Contact us</a>
                 </div>
             </div>
         </section>

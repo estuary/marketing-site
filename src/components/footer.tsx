@@ -6,6 +6,7 @@ import GithubIcon from '../svgs/github-outline.svg';
 import LinkedinIcon from '../svgs/linkedin-outline.svg';
 import SlackIcon from '../svgs/slack-outline.svg';
 import TwitterIcon from '../svgs/twitter-outline.svg';
+import NewsletterSignupForm from './NewsletterSignupForm';
 
 const openCookiePreferences = () => {
     try {
@@ -34,12 +35,14 @@ const Footer = () => {
                             layout="fixed"
                             placeholder="none"
                         />
-                        <h1 className="global-footer-title">Estuary</h1>
+                        <strong className="global-footer-title">Estuary</strong>
                     </Link>
                     <p className="global-footer-subtext">
-                        Managed streaming data pipelines, streaming SQL
-                        transformations and turnkey connectivity to clouds,
-                        databases, and apps.
+                        Estuary provides real-time data integration and ETL for
+                        modern data pipelines. Build scalable, fault-tolerant
+                        streaming data pipelines that seamlessly connect to
+                        virtually any data source for data warehouses, real-time
+                        analytics, operations, machine learning, and AI.
                     </p>
                     <div>
                         <p className="global-footer-subtext-title">
@@ -49,21 +52,7 @@ const Footer = () => {
                             Subscribe now to get the latest news and updates.
                         </p>
                     </div>
-                    <div className="global-footer-subscribe">
-                        <form id="newsletter-signup" className="email-form">
-                            <input
-                                className="global-footer-input-email"
-                                placeholder="Email"
-                                type="email"
-                            />
-                            <button
-                                type="submit"
-                                className="global-footer-button global-footer-input-button-submit"
-                            >
-                                Submit
-                            </button>
-                        </form>
-                    </div>
+                    <NewsletterSignupForm />
                 </div>
                 <div className="global-footer-right">
                     <div className="global-footer-right-link-wrapper">
@@ -80,12 +69,13 @@ const Footer = () => {
                         >
                             Github
                         </OutboundLink>
-                        <Link
-                            to="/about#contact-us"
+                        <a
+                            href="/contact-us"
                             className="global-footer-right-link"
+                            target="_blank"
                         >
-                            Contact
-                        </Link>
+                            Contact Us
+                        </a>
                         <OutboundLink
                             target="_blank"
                             href="https://docs.estuary.dev/"

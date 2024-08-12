@@ -13,7 +13,7 @@ type PricingCalculatorProps = {
 };
 
 export const PricingCalculatorSlider = ({ title }: PricingCalculatorProps) => {
-    const { selectedGbs, setSelectedGbs } = React.useContext(
+    const { selectedGbs, setSelectedGbs, isDarkTheme } = React.useContext(
         PricingCalculatorContext
     );
 
@@ -22,7 +22,7 @@ export const PricingCalculatorSlider = ({ title }: PricingCalculatorProps) => {
     return (
         <>
             <CalculatorTitle>{title}</CalculatorTitle>
-            <CalculatorSubtitle>
+            <CalculatorSubtitle $isDarkTheme={isDarkTheme}>
                 <span>{gByteLabel(scale(selectedGbs))} </span>
                 of Change data
             </CalculatorSubtitle>
@@ -37,6 +37,7 @@ export const PricingCalculatorSlider = ({ title }: PricingCalculatorProps) => {
                     marks={marks}
                     onChange={handleSliderChange}
                     aria-label="Amount of change data"
+                    isdarktheme={isDarkTheme ? 'true' : 'false'} // To write it to DOM, we need to treat the boolean as string for this specific case
                 />
             </SliderWrapper>
         </>

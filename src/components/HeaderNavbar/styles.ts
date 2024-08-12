@@ -13,7 +13,7 @@ export const ColumnWithTwoRows = styled.div`
     display: flex;
     flex-direction: column;
 
-    @media (min-width: 1024px) {
+    @media (min-width: 1025px) {
         gap: 38px;
     }
 
@@ -68,5 +68,5 @@ export const MenuBackground = styled.div`
     height: 100vh;
     display: flex;
     background-color: rgba(0, 0, 0, 0.6);
-    z-index: 2;
+    z-index: 3;
 `;

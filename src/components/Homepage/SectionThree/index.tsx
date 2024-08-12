@@ -1,11 +1,12 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
+import DarkSwoopingLinesLeftDirectionBackground from '../../BackgroundImages/DarkSwoopingLinesLeftDirectionBackground';
 import Card from './Card';
-import { Cards, Container, Title, Wrapper } from './styles';
+import { Cards, Title, Wrapper } from './styles';
 
 const SectionThree = () => {
     return (
-        <Container>
+        <DarkSwoopingLinesLeftDirectionBackground>
             <Wrapper>
                 <Title>CASE STUDIES</Title>
                 <Cards>
@@ -50,7 +51,7 @@ const SectionThree = () => {
                     />
                 </Cards>
             </Wrapper>
-        </Container>
+        </DarkSwoopingLinesLeftDirectionBackground>
     );
 };
 
