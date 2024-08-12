@@ -2,12 +2,14 @@ import Chevron from '@mui/icons-material/ChevronRight';
 import clsx from 'clsx';
 import { Link } from 'gatsby';
 import React from 'react';
+import { globalHeaderLink } from '../../styles.module.less';
+import { menuChevron, isActive } from '../styles.module.less';
 
 function ProductLink({ active }) {
     return (
-        <Link className={clsx('global-header-link', active && 'active')} to="#">
+        <Link className={clsx(globalHeaderLink, active && isActive)} to="#">
             Product
-            <Chevron className="menu-chevron" fontSize="small" />
+            <Chevron className={menuChevron} fontSize="small" />
         </Link>
     );
 }

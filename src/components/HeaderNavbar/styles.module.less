@@ -1,0 +1,41 @@
+.globalHeaderLinks {
+  display: flex;
+  gap: 12px;
+  padding-left: 7%;
+  padding-right: 28px;
+  background-color: #04192b;
+
+  @media (max-width: 1280px) {
+    padding-left: 4%;
+    padding-right: 0;
+    gap: 0;
+  }
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    padding: 24px 0px;
+    gap: 0;
+    width: 100%;
+  }
+}
+
+.menuChevron {
+  transition: transform 150ms;
+  transform: rotate(90deg);
+}
+
+.isActive {
+  .menuChevron {
+    transform: rotate(-90deg);
+  }
+
+  @media(min-width: 1025px) {
+    background-color: var(--header-link-hover);
+  }
+}
+
+.hideOnMobile {
+  @media(max-width: 768px) {
+    display: none;
+  }
+}

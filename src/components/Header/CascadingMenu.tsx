@@ -15,6 +15,12 @@ import {
     usePopupState,
 } from 'material-ui-popup-state/hooks';
 import * as React from 'react';
+import {
+    globalHeaderLink,
+    globalHeaderMenuLink,
+    globalHeaderMenuChevron,
+    globalHeaderMenuChevronDown,
+} from './styles.module.less';
 
 const CascadingContext = React.createContext<{
     parentPopupState: any;
@@ -62,14 +68,13 @@ export function CascadingSubmenu({
                 {...bindHover(popupState)}
                 {...bindFocus(popupState)}
             >
-                <span className="global-header-menu-title">{title}</span>
-                <Chevron className="global-header-menu-chevron" />
+                <span>{title}</span>
+                <Chevron className={globalHeaderMenuChevron} />
             </MenuItem>
             <CascadingMenu
                 {...props}
                 classes={{
                     ...props.classes,
-                    paper: 'global-header-menu-submenu',
                 }}
                 anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
                 transformOrigin={{ vertical: 'top', horizontal: 'left' }}
@@ -127,7 +132,7 @@ export const NavMenuItem = ({ item }: { item: NavItem }) => {
         );
         if (item.path) {
             submenu = (
-                <Link className="global-header-menu-link" to={item.path}>
+                <Link className={globalHeaderMenuLink} to={item.path}>
                     {submenu}
                 </Link>
             );
@@ -135,13 +140,14 @@ export const NavMenuItem = ({ item }: { item: NavItem }) => {
         return submenu;
     } else {
         return (
-            <Link className="global-header-menu-link" to={item.path}>
+            <Link className={globalHeaderMenuLink} to={item.path}>
                 <CascadingMenuItem>{item.title}</CascadingMenuItem>
             </Link>
         );
     }
 };
 
+// TODO: This component seems to not being used anywhere. Check this later.
 export const NavMenuTopLevel = ({ item }: { item: NavItem }) => {
     const popupState = usePopupState({
         popupId: `${item.title}-${item.path}`,
@@ -150,14 +156,14 @@ export const NavMenuTopLevel = ({ item }: { item: NavItem }) => {
     return (
         <>
             <Link
-                className="global-header-link"
+                className={globalHeaderLink}
                 to={item.path}
                 {...bindHover(popupState)}
                 {...bindFocus(popupState)}
             >
                 {item.title}
                 {item.children && item.children.length > 0 ? (
-                    <Chevron className="global-header-menu-chevron-down" />
+                    <Chevron className={globalHeaderMenuChevronDown} />
                 ) : null}
             </Link>
             {item.children && item.children.length > 0 ? (
@@ -193,7 +199,7 @@ export const NavMenuList = ({ item }: { item: NavItem }) => {
         >
             <ListItemText
                 primary={
-                    <Link to={item.path} className="global-header-link">
+                    <Link to={item.path} className={globalHeaderLink}>
                         {item.title}
                     </Link>
                 }
@@ -211,12 +217,7 @@ export const NavMenuList = ({ item }: { item: NavItem }) => {
         return (
             <>
                 {button}
-                <Collapse
-                    className="global-header-mobile-menu-borderLeft"
-                    in={open}
-                    timeout="auto"
-                    unmountOnExit
-                >
+                <Collapse in={open} timeout="auto" unmountOnExit>
                     <List component="div" disablePadding>
                         {item.children.map((child) => (
                             <NavMenuList

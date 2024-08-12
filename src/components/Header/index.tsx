@@ -2,12 +2,32 @@ import clsx from 'clsx';
 import { Link } from 'gatsby';
 import * as React from 'react';
 import { useEffect, useRef, useState } from 'react';
-import ColoredLogo from '../svgs/colored-logo.svg';
-import GithubIcon from '../svgs/github-outline.svg';
-import SlackIcon from '../svgs/slack-outline.svg';
-import HeaderNavbar from './HeaderNavbar';
-import HeaderNavBarBackground from './HeaderNavbar/Background';
-import { OutboundLink, OutboundLinkFilled } from './OutboundLink';
+import ColoredLogo from '../../svgs/colored-logo.svg';
+import GithubIcon from '../../svgs/github-outline.svg';
+import SlackIcon from '../../svgs/slack-outline.svg';
+import HeaderNavbar from '../HeaderNavbar';
+import HeaderNavBarBackground from '../HeaderNavbar/Background';
+import { OutboundLink, OutboundLinkFilled } from '../OutboundLink';
+import {
+    globalHeaderLink,
+    globalHeaderLogoLink,
+    globalHeaderLogo,
+    globalHeaderTitle,
+} from '../styles.module.less';
+import {
+    globalHeader,
+    globalHeaderWrapper,
+    globalHeaderFixed,
+    headerBar,
+    globalHeaderLinkWrapper,
+    isOpen,
+    globalHeaderLoginTry,
+    globalHeaderTryItButton,
+    headerSocialIcons,
+    globalHeaderMobileMenuWrapper,
+    globalHeaderMobileMenuButton,
+    headerSocialIcon,
+} from './styles.module.less';
 
 /* const useNavItems = () => {
   const queryResults = useStaticQuery(graphql`
@@ -156,23 +176,22 @@ const Header = ({ fixedHeader }: HeaderProps) => {
                 menuOpen={Boolean(mobileMenuOpen || activeMenu)}
             />
             <header
-                className={clsx('header', fixedHeader && 'global-header-fixed')}
+                className={clsx(headerBar, fixedHeader && globalHeaderFixed)}
                 ref={wrapperRef}
             >
-                <div className="global-header global-header-dark">
-                    <Link className="global-header-logo-link" to="/">
+                <div className={globalHeader}>
+                    <Link className={globalHeaderLogoLink} to="/">
                         <ColoredLogo
-                            className="global-header-logo"
+                            className={globalHeaderLogo}
                             style={{ width: 27, height: 35 }}
                         />
-                        <strong className="global-header-title">Estuary</strong>
+                        <strong className={globalHeaderTitle}>Estuary</strong>
                     </Link>
-                    <div className="global-header-wrapper">
+                    <div className={globalHeaderWrapper}>
                         <div
                             className={clsx(
-                                'global-header-link-wrapper',
-                                Boolean(mobileMenuOpen || activeMenu) &&
-                                    'is-open'
+                                globalHeaderLinkWrapper,
+                                Boolean(mobileMenuOpen || activeMenu) && isOpen
                             )}
                         >
                             <HeaderNavbar
@@ -180,11 +199,11 @@ const Header = ({ fixedHeader }: HeaderProps) => {
                                 setActiveMenu={setActiveMenu}
                             />
                         </div>
-                        <div className="header-social-icons">
+                        <div className={headerSocialIcons}>
                             <OutboundLink
                                 target="_blank"
                                 href="https://estuary-dev.slack.com/join/shared_invite/zt-86nal6yr-VPbv~YfZE9Q~6Zl~gmZdFQ#/shared-invite/email"
-                                className="header-social-icon"
+                                className={headerSocialIcon}
                                 aria-label="Slack Invite Link"
                             >
                                 <SlackIcon className="social-icon" />
@@ -192,16 +211,16 @@ const Header = ({ fixedHeader }: HeaderProps) => {
                             <OutboundLink
                                 target="_blank"
                                 href="https://github.com/estuary/flow"
-                                className="header-social-icon"
+                                className={headerSocialIcon}
                                 aria-label="Github Repo Link"
                             >
                                 <GithubIcon className="social-icon" />
                             </OutboundLink>
                         </div>
-                        <div className="global-header-login-try">
+                        <div className={globalHeaderLoginTry}>
                             <OutboundLink
                                 target="_blank"
-                                className="global-header-link"
+                                className={globalHeaderLink}
                                 href="https://dashboard.estuary.dev"
                                 style={{ marginRight: '1rem' }}
                             >
@@ -210,16 +229,16 @@ const Header = ({ fixedHeader }: HeaderProps) => {
                             <OutboundLinkFilled
                                 target="_blank"
                                 href="https://dashboard.estuary.dev/register"
-                                className="global-header-try-it-button"
+                                className={globalHeaderTryItButton}
                             >
                                 Try it Free
                             </OutboundLinkFilled>
                         </div>
                     </div>
-                    <div className="global-header-mobile-menu-wrapper">
+                    <div className={globalHeaderMobileMenuWrapper}>
                         <button
                             onClick={() => setMobileMenuOpen((open) => !open)}
-                            className="global-header-mobile-menu-button"
+                            className={globalHeaderMobileMenuButton}
                             title="Navigation Menu"
                         >
                             <MenuBarsImage />
