@@ -1,6 +1,6 @@
 import * as React from 'react';
 import LegalWrapper from '../components/LegalWrapper';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import Seo from '../components/seo';
 
 export const Head = () => <Seo title="Terms of Service" />;

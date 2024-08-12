@@ -1,0 +1,155 @@
+@import '../../globalStyles/sections.module.less';
+
+.globalHeader {
+  .globalMaxWidth;
+
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 116px;
+  top: 0;
+  background: #04192b;
+
+  @media (max-width: 1536px) {
+    padding-left: ~'calc(min(2vw,160px))';
+    padding-right: ~'calc(min(2vw,160px))';
+  }
+
+  @media (max-width: 1024px) {
+    padding-left: ~'calc(min(10vw,160px))';
+    padding-right: ~'calc(min(10vw,160px))';
+  }
+
+  @media (max-width: 425px) {
+    padding-left: ~'calc(min(10vw, 20px))';
+    padding-right: ~'calc(min(10vw, 20px))';
+  }
+}
+
+.globalHeaderWrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+}
+
+.globalHeaderFixed {
+  position: fixed;
+  z-index: 9999;
+}
+
+.headerBar {
+  background-color: #04192b;
+  height: 116px;
+  width: 100%;
+}
+
+.globalHeaderLinkWrapper {
+  display: flex;
+  flex-grow: 1;
+  gap: 35px;
+  justify-content: flex-start;
+
+  @media (max-width: 1024px) {
+    .globalMaxWidth;
+
+    display: none;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background-color: #04192b;
+  }
+}
+
+.isOpen {
+  @media (max-width: 1024px) {
+    display: flex;
+  }
+}
+
+// TODO: This class does not seem to do anything. Check this later.
+.globalHeaderMenuLink {
+  text-decoration: none;
+  color: black;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  white-space: nowrap;
+  color: red;
+}
+
+.globalHeaderMenuChevron {
+  margin-left: 8px;
+  margin-right: 5px;
+}
+
+.globalHeaderChevronDown {
+  transform: rotate(90deg);
+}
+
+.globalHeaderLoginTry {
+  display: flex;
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
+}
+
+.globalHeaderTryItButton {
+  height: 40px;
+  margin: auto 0;
+  text-wrap: nowrap;
+}
+
+.headerSocialIcons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 0 1rem 0 2rem;
+}
+
+.globalHeaderMobileMenuWrapper {
+  display: none;
+
+  @media (max-width: 1024px) {
+    display: flex;
+  }
+}
+
+.globalHeaderMobileMenuButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  background-color: #5072eb;
+  border: none;
+  margin: auto 0 auto 20px;
+  padding-top: 4px;
+  padding-right: 6px;
+  padding-left: 6px;
+  padding-bottom: 4px;
+}
+
+.headerSocialIcon {
+  margin: auto 0;
+  min-height: 24px;
+  min-width: 24px;
+  border-radius: 100%;
+  transition: background-color 150ms;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+
+  &:hover {
+      @media (min-width: 1025px) {
+          background-color: var(--header-link-hover);
+      }
+  }
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
+}

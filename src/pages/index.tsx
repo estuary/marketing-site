@@ -12,7 +12,7 @@ import {
     SectionThree,
     SectionTwo,
 } from '../components/Homepage';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import Seo from '../components/seo';
 
 const IndexPage = () => {

@@ -2,18 +2,23 @@ import { Link } from 'gatsby';
 import * as React from 'react';
 import ColoredLogo from '../../svgs/colored-logo.svg';
 import { OutboundLink } from '../OutboundLink';
+import {
+    globalHeaderLogoLink,
+    globalHeaderLogo,
+    globalHeaderTitle,
+} from '../styles.module.less';
 import { navItems } from './utils';
 
 const Navigation = ({ activePage, setActivePage }) => (
     <div className="sidebar-wrap">
         <div>
             <div className="sidebar-logo">
-                <Link className="global-header-logo-link" to="/">
+                <Link className={globalHeaderLogoLink} to="/">
                     <ColoredLogo
-                        className="global-header-logo"
+                        className={globalHeaderLogo}
                         style={{ width: 27, height: 35 }}
                     />
-                    <strong className="global-header-title">Estuary</strong>
+                    <strong className={globalHeaderTitle}>Estuary</strong>
                 </Link>
             </div>
             <div className="sidebar-nav">

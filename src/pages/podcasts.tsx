@@ -2,7 +2,7 @@ import { StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
 import NewsletterSignupForm from '../components/NewsletterSignupForm';
 import { OutboundLink } from '../components/OutboundLink';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import Seo from '../components/seo';
 import { estuaryAllowsEnterprises } from '../content/seo';
 import ApplePodcastButton from '../svgs/apple-podcasts.svg';

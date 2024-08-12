@@ -1,10 +1,10 @@
 import clsx from 'clsx';
 import * as React from 'react';
+import Footer from '../footer';
+import Header from '../Header';
+import { globalWrapper, globalMainFixedHeader } from './styles.module.less';
 
-import Footer from './footer';
-import Header from './header';
-
-const TakeATour = React.lazy(() => import('./TakeATour'));
+const TakeATour = React.lazy(() => import('../TakeATour'));
 
 const Layout = ({
     fixedHeader = true,
@@ -14,12 +14,12 @@ const Layout = ({
     children: React.ReactNode | React.ReactNode[];
 }) => {
     return (
-        <div className="global-wrapper">
+        <div className={globalWrapper}>
             <React.Suspense fallback={null}>
                 <TakeATour />
             </React.Suspense>
             <Header fixedHeader={fixedHeader} />
-            <main className={clsx(fixedHeader && 'global-main-fixed-header')}>
+            <main className={clsx(fixedHeader && globalMainFixedHeader)}>
                 {children}
             </main>
             <Footer />

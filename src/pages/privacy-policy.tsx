@@ -1,7 +1,7 @@
 import * as React from 'react';
 import LegalWrapper from '../components/LegalWrapper';
 import { OutboundLink } from '../components/OutboundLink';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import Seo from '../components/seo';
 
 export const Head = () => <Seo title="Privacy Policy" />;

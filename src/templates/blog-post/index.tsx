@@ -16,7 +16,7 @@ import { RenderToc } from '../../components/BlogPostToc';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import { OutboundLink } from '../../components/OutboundLink';
 import Bio from '../../components/bio';
-import Layout from '../../components/layout';
+import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
 import logoUrl from '../../images/combination-mark__multi-blue.png';
 import { costPerGB } from '../../utils';
