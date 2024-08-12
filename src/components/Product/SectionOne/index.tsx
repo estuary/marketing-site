@@ -36,7 +36,7 @@ const SectionOne = () => {
                             >
                                 Build a Pipeline
                             </PrimaryButton>
-                            <SecondaryButton to="/contact-us">
+                            <SecondaryButton href="/contact-us" target="_blank">
                                 Contact Us
                             </SecondaryButton>
                         </ButtonsContainer>

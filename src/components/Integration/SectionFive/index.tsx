@@ -29,7 +29,7 @@ const SectionFive = () => {
                     >
                         Try Now
                     </OutboundLinkFilled>
-                    <LinkOutlined to="/contact-us" theme="dark">
+                    <LinkOutlined href="/contact-us" theme="dark">
                         Contact Us
                     </LinkOutlined>
                 </div>
