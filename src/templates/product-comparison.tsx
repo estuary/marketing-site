@@ -241,9 +241,6 @@ export const Head = ({
 }) => {
     const title = `Estuary Vs ${their_name}`;
 
-    // This can be removed once https://github.com/estuary/strapi-admin/pull/13 is merged and
-    //  we switch to using the MetaDescription coming from Strapi. Should still leave the fallback
-    //  of estuaryAllowsEnterprises just to be safe
     const description = React.useMemo(() => {
         if (MetaDescription) {
             return MetaDescription;
