@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const CardItem = styled.div`
     display: flex;
+    align-items: center;
     gap: 16px;
     padding: 12px;
     border: 1px solid transparent;
@@ -57,7 +58,6 @@ export const Description = styled.p`
     line-height: 30px;
     color: ${textColor};
     margin: 0;
-    max-width: 280px;
 
     @media (max-width: 1024px) {
         font-size: 0.75rem;
@@ -92,7 +92,7 @@ export const Content = styled.div`
     display: flex;
     gap: 12px;
     flex-direction: column;
-    padding: 12px 0;
+    padding: 12px 0 0 0;
 
     @media (max-width: 768px) {
         padding: 8px 0 0;

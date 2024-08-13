@@ -38,7 +38,7 @@ export const Container = styled.div`
     background-color: #04192b;
     width: 100%;
 
-    @media (max-height: 700px) {
+    @media (max-height: 880px) {
         overflow: auto;
         max-height: 85vh;
     }
