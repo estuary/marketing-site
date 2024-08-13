@@ -2,6 +2,7 @@ import { useMediaQuery } from '@mui/material';
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
+import clsx from 'clsx';
 import { webinarsUrl } from '../../../../shared';
 import { LinkOutlined } from '../../../globalStyles';
 import Carousel from '../../Carousel';
@@ -16,7 +17,7 @@ import {
     MenuAccordionContent,
     Slide,
 } from '../styles';
-import { hideOnMobile } from '../styles.module.less';
+import { hideOnMobile, longLinkList } from '../styles.module.less';
 import { listen, read } from './items';
 import ResourcesLink from './Link';
 
@@ -78,7 +79,7 @@ const HeaderNavbarResources = ({ active, setActive }) => {
             <MenuAccordionContent>
                 <Card>
                     <CardItem
-                        className={hideOnMobile}
+                        className={clsx(hideOnMobile, longLinkList)}
                         title="CASE STUDIES"
                         items={caseStudiesItems}
                         onlyContent

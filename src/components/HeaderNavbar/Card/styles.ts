@@ -31,10 +31,10 @@ export const Container = styled.div`
     ${adaptToHeaderMaxWidth};
 
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 38px;
-    padding-top: 60px;
-    padding-bottom: 60px;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 16px;
+    padding-top: 24px;
+    padding-bottom: 24px;
     background-color: #04192b;
     width: 100%;
 

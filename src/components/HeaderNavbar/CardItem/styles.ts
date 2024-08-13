@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const CardItem = styled.div`
     display: flex;
-    align-items: center;
     gap: 16px;
     padding: 8px;
     border: 1px solid transparent;
