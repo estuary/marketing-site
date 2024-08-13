@@ -1,5 +1,5 @@
 import { useMediaQuery } from '@mui/material';
-import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
+import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { webinarsUrl } from '../../../../shared';
@@ -32,13 +32,6 @@ const HeaderNavbarResources = ({ active, setActive }) => {
                     Title
                     Slug
                     id
-                    Logo {
-                        localFile {
-                            childImageSharp {
-                                gatsbyImageData(height: 28, width: 28)
-                            }
-                        }
-                    }
                 }
             }
         }
@@ -68,9 +61,11 @@ const HeaderNavbarResources = ({ active, setActive }) => {
         description: caseStudy.LinkOneLiner,
         hasCrevronIcon: false,
         Image: () => (
-            <GatsbyImage
-                image={caseStudy.Logo.localFile.childImageSharp.gatsbyImageData}
-                alt={caseStudy.Description}
+            <StaticImage
+                src="../../../svgs/success.svg"
+                width={16}
+                height={16}
+                alt={`${caseStudy.Title} logo`}
             />
         ),
     }));

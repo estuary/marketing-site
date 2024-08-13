@@ -4,7 +4,7 @@ export const CardItem = styled.div`
     display: flex;
     align-items: center;
     gap: 16px;
-    padding: 12px;
+    padding: 8px;
     border: 1px solid transparent;
     border-radius: 16px;
     transition: border 200ms ease-in-out;
@@ -90,7 +90,7 @@ export const Icon = styled.div`
 
 export const Content = styled.div`
     display: flex;
-    gap: 12px;
+    gap: 4px;
     flex-direction: column;
     padding: 12px 0 0 0;
 
