@@ -16,6 +16,7 @@ import {
     MenuAccordionContent,
     Slide,
 } from '../styles';
+import { hideOnMobile } from '../styles.module.less';
 import { listen, read } from './items';
 import ResourcesLink from './Link';
 
@@ -82,22 +83,17 @@ const HeaderNavbarResources = ({ active, setActive }) => {
             <MenuAccordionContent>
                 <Card>
                     <CardItem
-                        className="hide-on-mobile"
+                        className={hideOnMobile}
                         title="CASE STUDIES"
                         items={caseStudiesItems}
                         onlyContent
                     />
                     <ColumnWithTwoRows>
                         <CardItem title="READ" items={read} onlyContent />
-                        <CardItem
-                            className="no-padding"
-                            title="LISTEN"
-                            items={listen}
-                            onlyContent
-                        />
+                        <CardItem title="LISTEN" items={listen} onlyContent />
                     </ColumnWithTwoRows>
                     <CardItem
-                        className="hide-on-mobile"
+                        className={hideOnMobile}
                         title="TOURS"
                         onlyContent
                     >

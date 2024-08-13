@@ -2,7 +2,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import { ConnectorType } from '../../../shared';
 import Breadcrumbs from '../../components/Breadcrumbs';
-import Layout from '../../components/layout';
+import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
 import { normalizeConnector } from '../../utils';
 import ChangeData from './ChangeData';
