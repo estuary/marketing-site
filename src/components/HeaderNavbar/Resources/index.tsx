@@ -58,7 +58,7 @@ const HeaderNavbarResources = ({ active, setActive }) => {
 
     const caseStudiesItems = allCaseStudies.map((caseStudy) => ({
         name: caseStudy.Title.toUpperCase(),
-        to: `customers/${caseStudy.Slug}`,
+        to: `/customers/${caseStudy.Slug}`,
         description: caseStudy.LinkOneLiner,
         hasCrevronIcon: false,
         Image: () => (
