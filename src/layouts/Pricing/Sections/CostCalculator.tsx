@@ -9,6 +9,8 @@ import { ContextToolTip } from '../../../components/ContextTooltip';
 import { PricingCalculator } from '../../../components/PricingCalculator';
 import { PricingCalculatorContext } from '../../../components/PricingCalculator/PricingCalculatorProvider';
 import { currencyFormatter, gByteLabel, scale } from '../../../utils';
+import OpenHubspotModal from '../../../components/HubSpot/OpenModal';
+import { maxConnectors } from '../../../components/PricingCalculator/shared';
 
 const QuestionIcon = createSvgIcon(questionMarkSvg({}), 'Question Mark');
 const QuestionIconWhite = createSvgIcon(
@@ -45,38 +47,54 @@ const PricingCostCalculator = () => {
                 </div>
                 <div className="cost-calculator-results-wrapper">
                     <p className="results-title">Results</p>
-                    <div className="results-text-wrapper">
-                        <p className="results-subtitle">
-                            {currencyFormatter.format(prices.estuary)} / Month
-                        </p>
-                        <ContextToolTip
-                            placement="top-start"
-                            title={
-                                <Typography className="context-tooltip-text">
-                                    &apos;Data moved&apos; is defined as any
-                                    incremental upsert event. You are only
-                                    billed on the bytes of moving that
-                                    particular new event. For example, a single
-                                    database row being backfilled or updated
-                                    will be billed based on the total size of
-                                    the corresponding JSON document. One
-                                    connector can operate on many tables inside
-                                    a DB.
-                                </Typography>
-                            }
-                        >
-                            <QuestionMarkIconWhite
-                                id="change-data"
-                                className="question-mark"
-                            />
-                        </ContextToolTip>
-                    </div>
-                    <p className="results-subtext">
-                        {gByteLabel(scale(selectedGbs))} of data moved
-                    </p>
-                    <p className="results-subtext">
-                        {selectedConnectors} connectors
-                    </p>
+                    {selectedConnectors === maxConnectors ||
+                    selectedGbs === 5 ? (
+                        <OpenHubspotModal
+                            buttonLabel="Need More?"
+                            buttonId="pricing-page-calculator-hubspot-button"
+                            className="need-more-button"
+                        />
+                    ) : (
+                        <>
+                            <div className="results-text-wrapper">
+                                <p className="results-subtitle">
+                                    {currencyFormatter.format(prices.estuary)} /
+                                    Month
+                                </p>
+                                <ContextToolTip
+                                    placement="top-start"
+                                    title={
+                                        <Typography className="context-tooltip-text">
+                                            &apos;Data moved&apos; is defined as
+                                            any incremental upsert event. You
+                                            are only billed on the bytes of
+                                            moving that particular new event.
+                                            For example, a single database row
+                                            being backfilled or updated will be
+                                            billed based on the total size of
+                                            the corresponding JSON document. One
+                                            connector can operate on many tables
+                                            inside a DB.
+                                        </Typography>
+                                    }
+                                >
+                                    <QuestionMarkIconWhite
+                                        id="change-data"
+                                        className="question-mark"
+                                    />
+                                </ContextToolTip>
+                            </div>
+                            <p className="results-subtext">
+                                {gByteLabel(scale(selectedGbs))} of data moved
+                            </p>
+                            <p className="results-subtext">
+                                {selectedConnectors > 12
+                                    ? '+12'
+                                    : selectedConnectors}{' '}
+                                connectors
+                            </p>
+                        </>
+                    )}
                 </div>
                 <div className="cost-calculator-right">
                     <div className="comparisons-wrapper">
