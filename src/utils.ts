@@ -1,5 +1,12 @@
 // NOTE: We're assuming that the image name follows the convention of
 // (source|materialization)-name
+
+import {
+    fullPricingPerConnector,
+    halfPricingPerConnector,
+    halfSelfServiceConnectorLimit,
+} from './components/PricingCalculator/shared';
+
 // eslint-disable-next-line no-useless-escape
 const CONNECTOR_IMAGE_RE = /(source|materialize)-([a-z0-9\-]+)/;
 
@@ -79,7 +86,12 @@ export const currencyFormatter = Intl.NumberFormat('en-US', {
 });
 
 export const calculatePrice = (gb: number, connectors: number) => ({
-    estuary: costPerGB_calc * gb + (connectors <= 6 ? 100 : 50) * connectors,
+    estuary:
+        costPerGB_calc * gb +
+        (connectors <= halfSelfServiceConnectorLimit
+            ? fullPricingPerConnector
+            : halfPricingPerConnector) *
+            connectors,
     fivetran:
         1590 +
         45.7 * gb +
