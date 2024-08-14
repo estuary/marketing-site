@@ -79,7 +79,7 @@ export const currencyFormatter = Intl.NumberFormat('en-US', {
 });
 
 export const calculatePrice = (gb: number, connectors: number) => ({
-    estuary: costPerGB_calc * gb + 100 * connectors,
+    estuary: costPerGB_calc * gb + (connectors <= 6 ? 100 : 50) * connectors,
     fivetran:
         1590 +
         45.7 * gb +
