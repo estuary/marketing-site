@@ -1,9 +1,8 @@
 import * as React from 'react';
 import {
     Button,
-    Container,
+    CardContainer,
     CaseStudyDescription,
-    CaseStudyTitle,
     CaseStudyLogoWrapper,
 } from './styles';
 
@@ -16,10 +15,9 @@ type CardProps = {
 
 const Card = ({ href, title, description, image }: CardProps) => {
     return (
-        <Container>
+        <CardContainer>
             <CaseStudyLogoWrapper>{image}</CaseStudyLogoWrapper>
-            <CaseStudyTitle>{title}</CaseStudyTitle>
-            <CaseStudyDescription>{description}</CaseStudyDescription>
+            <CaseStudyDescription>{description}.</CaseStudyDescription>
             <Button
                 href={href}
                 target="_blank"
@@ -28,7 +26,7 @@ const Card = ({ href, title, description, image }: CardProps) => {
             >
                 Read
             </Button>
-        </Container>
+        </CardContainer>
     );
 };
 

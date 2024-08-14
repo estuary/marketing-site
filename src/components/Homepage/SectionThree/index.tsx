@@ -4,14 +4,14 @@ import { graphql, useStaticQuery } from 'gatsby';
 import DarkSwoopingLinesLeftDirectionBackground from '../../BackgroundImages/DarkSwoopingLinesLeftDirectionBackground';
 import Carousel from '../../Carousel';
 import Card from './Card';
-import { Title, Wrapper } from './styles';
+import { Cards, SectionTitle, Wrapper } from './styles';
 
 const SectionThree = () => {
     const {
         allStrapiCaseStudy: { nodes: allCaseStudies },
     } = useStaticQuery(graphql`
         query GetAllHomepageCaseStudies {
-            allStrapiCaseStudy(limit: 7) {
+            allStrapiCaseStudy(limit: 10) {
                 nodes {
                     LinkOneLiner
                     Description
@@ -33,25 +33,35 @@ const SectionThree = () => {
     return (
         <DarkSwoopingLinesLeftDirectionBackground>
             <Wrapper>
-                <Title>CASE STUDIES</Title>
+                <SectionTitle>CASE STUDIES</SectionTitle>
                 <Carousel hasArrow aria-label="Case studies carousel">
-                    {allCaseStudies.map((caseStudy) => (
-                        <Card
-                            key={caseStudy.id}
-                            title={caseStudy.Title}
-                            description={caseStudy.Description}
-                            href={`/customers/${caseStudy.Slug}`}
-                            image={
-                                <GatsbyImage
-                                    image={
-                                        caseStudy.Logo.localFile.childImageSharp
-                                            .gatsbyImageData
-                                    }
-                                    alt={`${caseStudy.Title} logo`}
-                                />
-                            }
-                        />
-                    ))}
+                    {Array.from(
+                        { length: Math.ceil(allCaseStudies.length / 3) },
+                        (_, index) => (
+                            <Cards key={index}>
+                                {allCaseStudies
+                                    .slice(index * 3, index * 3 + 3)
+                                    .map((caseStudy) => (
+                                        <Card
+                                            key={caseStudy.id}
+                                            title={caseStudy.Title}
+                                            description={caseStudy.Description}
+                                            href={`/customers/${caseStudy.Slug}`}
+                                            image={
+                                                <GatsbyImage
+                                                    image={
+                                                        caseStudy.Logo.localFile
+                                                            .childImageSharp
+                                                            .gatsbyImageData
+                                                    }
+                                                    alt={`${caseStudy.Title} logo`}
+                                                />
+                                            }
+                                        />
+                                    ))}
+                            </Cards>
+                        )
+                    )}
                 </Carousel>
             </Wrapper>
         </DarkSwoopingLinesLeftDirectionBackground>
