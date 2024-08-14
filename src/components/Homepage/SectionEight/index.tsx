@@ -31,7 +31,7 @@ const SectionEight = () => {
                         deliver new projects in days, not months. And they spend
                         2-5x less on Estuary than on batch ELT.
                     </Description>
-                    <Button to="/pricing" target="_blank">
+                    <Button href="/pricing" target="_blank">
                         See Pricing
                     </Button>
                 </LeftColumn>

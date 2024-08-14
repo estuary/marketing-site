@@ -1,4 +1,3 @@
-import { Link } from 'gatsby';
 import styled, { css } from 'styled-components';
 
 /* TODO: Transfer the global styles from style.less to this styled-components file */
@@ -106,7 +105,7 @@ export const BaseButtonSecondaryStyling = `
   color: #5072EB;
 `;
 
-export const LinkFilled = styled(Link)`
+export const LinkFilled = styled.a`
     ${BaseButtonFilledStyling}
 `;
 

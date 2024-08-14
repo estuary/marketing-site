@@ -2,7 +2,7 @@ import Chevron from '@mui/icons-material/ChevronRight';
 import { Link } from 'gatsby';
 import * as React from 'react';
 import { OutboundLink } from '../../OutboundLink';
-import { hideOnMobile } from '../styles.module.less';
+import { hideOnMobile, seeAllButton } from '../styles.module.less';
 import {
     CardItem,
     CardTitle,
@@ -52,17 +52,38 @@ const HeaderCardItem = ({
     items = [],
     children,
     onlyContent,
+    active,
     ...props
 }: any) => {
+    const [showAll, setShowAll] = React.useState(false);
+
+    React.useEffect(() => {
+        setShowAll(false);
+    }, [active]);
+
+    const handleSeeAllButtonClick = () => {
+        setShowAll(!showAll);
+    };
+
     return (
         <div {...props}>
             <CardTitle className={onlyContent ? hideOnMobile : null}>
                 {title}
+                {items.length > 4 ? (
+                    <button
+                        className={seeAllButton}
+                        onClick={handleSeeAllButtonClick}
+                    >
+                        See {showAll ? 'less' : 'more'}
+                    </button>
+                ) : null}
             </CardTitle>
             <Content>
-                {items.map((item, index) => (
-                    <ItemLink key={index} {...item} />
-                ))}
+                {items
+                    .slice(0, showAll ? items.length : 4)
+                    .map((item, index) => (
+                        <ItemLink key={index} {...item} />
+                    ))}
                 {children}
             </Content>
         </div>

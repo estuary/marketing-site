@@ -1,5 +1,10 @@
 import * as React from 'react';
-import { Button, CardContainer, CardDescription, CardTitle } from './styles';
+import {
+    Button,
+    CardContainer,
+    CaseStudyDescription,
+    CaseStudyLogoWrapper,
+} from './styles';
 
 type CardProps = {
     href: string;
@@ -11,14 +16,12 @@ type CardProps = {
 const Card = ({ href, title, description, image }: CardProps) => {
     return (
         <CardContainer>
-            {image}
-            <CardTitle>{title}</CardTitle>
-            <CardDescription>{description}</CardDescription>
+            <CaseStudyLogoWrapper>{image}</CaseStudyLogoWrapper>
+            <CaseStudyDescription>{description}.</CaseStudyDescription>
             <Button
                 href={href}
                 target="_blank"
                 rel="noopener"
-                theme="dark"
                 aria-label={`Read case study for ${title}`}
             >
                 Read

@@ -1,55 +1,68 @@
-import { StaticImage } from 'gatsby-plugin-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import * as React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 import DarkSwoopingLinesLeftDirectionBackground from '../../BackgroundImages/DarkSwoopingLinesLeftDirectionBackground';
+import Carousel from '../../Carousel';
 import Card from './Card';
-import { Cards, Title, Wrapper } from './styles';
+import { Cards, SectionTitle, Wrapper } from './styles';
 
 const SectionThree = () => {
+    const {
+        allStrapiCaseStudy: { nodes: allCaseStudies },
+    } = useStaticQuery(graphql`
+        query GetAllHomepageCaseStudies {
+            allStrapiCaseStudy(limit: 10) {
+                nodes {
+                    LinkOneLiner
+                    Description
+                    Title
+                    Slug
+                    id
+                    Logo {
+                        localFile {
+                            childImageSharp {
+                                gatsbyImageData
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    `);
+
     return (
         <DarkSwoopingLinesLeftDirectionBackground>
             <Wrapper>
-                <Title>CASE STUDIES</Title>
-                <Cards>
-                    <Card
-                        title="CONNECT&GO"
-                        description="Connect&GO lowers MySQL to Snowflake latency up to 180x, improves productivity 4x with Estuary."
-                        href="/customers/connectngo/"
-                        image={
-                            <StaticImage
-                                placeholder="none"
-                                alt="Connect & Go logo"
-                                src="../../../images/c&g-logo.png"
-                                layout="constrained"
-                            />
-                        }
-                    />
-                    <Card
-                        title="TRUE PLATFORM"
-                        description="True Platform reduced its data pipeline spend by &gt;2x and discovered seamless, scalable data movement."
-                        href="/customers/casestudy/trueplatform/"
-                        image={
-                            <StaticImage
-                                placeholder="none"
-                                alt="True Platform logo"
-                                src="../../../images/true-logo.png"
-                                layout="constrained"
-                            />
-                        }
-                    />
-                    <Card
-                        title="SOLI & COMPANY"
-                        description="Soli & Company trusts Estuary’s approachable pricing and quick setup to deliver change data capture solutions."
-                        href="/customers/casestudy/soli_&_company/"
-                        image={
-                            <StaticImage
-                                placeholder="none"
-                                alt="Soli & Company logo"
-                                src="../../../images/soli&company-logo.png"
-                                layout="constrained"
-                            />
-                        }
-                    />
-                </Cards>
+                <SectionTitle>CASE STUDIES</SectionTitle>
+                <Carousel hasArrow aria-label="Case studies carousel">
+                    {Array.from(
+                        { length: Math.ceil(allCaseStudies.length / 3) },
+                        (_, index) => (
+                            <Cards key={index}>
+                                {allCaseStudies
+                                    .slice(index * 3, index * 3 + 3)
+                                    .map((caseStudy) => (
+                                        <Card
+                                            key={caseStudy.id}
+                                            title={caseStudy.Title}
+                                            description={caseStudy.Description}
+                                            href={`/customers/${caseStudy.Slug}`}
+                                            image={
+                                                <GatsbyImage
+                                                    image={
+                                                        caseStudy.Logo.localFile
+                                                            .childImageSharp
+                                                            .gatsbyImageData
+                                                    }
+                                                    alt={`${caseStudy.Title} logo`}
+                                                />
+                                            }
+                                        />
+                                    ))}
+                            </Cards>
+                        )
+                    )}
+                </Carousel>
             </Wrapper>
         </DarkSwoopingLinesLeftDirectionBackground>
     );

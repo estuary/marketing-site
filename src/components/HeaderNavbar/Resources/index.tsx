@@ -1,6 +1,8 @@
 import { useMediaQuery } from '@mui/material';
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
+import clsx from 'clsx';
 import { webinarsUrl } from '../../../../shared';
 import { LinkOutlined } from '../../../globalStyles';
 import Carousel from '../../Carousel';
@@ -15,11 +17,27 @@ import {
     MenuAccordionContent,
     Slide,
 } from '../styles';
-import { hideOnMobile } from '../styles.module.less';
-import { caseStudies, listen, read } from './items';
+import { hideOnMobile, longLinkList } from '../styles.module.less';
+import { listen, read } from './items';
 import ResourcesLink from './Link';
 
 const HeaderNavbarResources = ({ active, setActive }) => {
+    const {
+        allStrapiCaseStudy: { nodes: allCaseStudies },
+    } = useStaticQuery(graphql`
+        query GetAllMenuCaseStudies {
+            allStrapiCaseStudy(limit: 7) {
+                nodes {
+                    LinkOneLiner
+                    Description
+                    Title
+                    Slug
+                    id
+                }
+            }
+        }
+    `);
+
     const isMobile = useMediaQuery('(max-width:1024px)');
 
     const onClick = (ev: { preventDefault: () => void }) => {
@@ -38,6 +56,21 @@ const HeaderNavbarResources = ({ active, setActive }) => {
         }
     };
 
+    const caseStudiesItems = allCaseStudies.map((caseStudy) => ({
+        name: caseStudy.Title.toUpperCase(),
+        to: `/customers/${caseStudy.Slug}`,
+        description: caseStudy.LinkOneLiner,
+        hasCrevronIcon: false,
+        Image: () => (
+            <StaticImage
+                src="../../../svgs/success.svg"
+                width={16}
+                height={16}
+                alt={`${caseStudy.Title} logo`}
+            />
+        ),
+    }));
+
     return (
         <MenuAccordion elevation={0} expanded={active}>
             <MenuAccordionButton onClick={onClick} onMouseEnter={onMouseEnter}>
@@ -46,10 +79,11 @@ const HeaderNavbarResources = ({ active, setActive }) => {
             <MenuAccordionContent>
                 <Card>
                     <CardItem
-                        className={hideOnMobile}
+                        className={clsx(hideOnMobile, longLinkList)}
                         title="CASE STUDIES"
-                        items={caseStudies}
+                        items={caseStudiesItems}
                         onlyContent
+                        active={active}
                     />
                     <ColumnWithTwoRows>
                         <CardItem title="READ" items={read} onlyContent />

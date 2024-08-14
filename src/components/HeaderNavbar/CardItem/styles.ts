@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const CardItem = styled.div`
     display: flex;
     gap: 16px;
-    padding: 12px;
+    padding: 8px;
     border: 1px solid transparent;
     border-radius: 16px;
     transition: border 200ms ease-in-out;
@@ -57,7 +57,6 @@ export const Description = styled.p`
     line-height: 30px;
     color: ${textColor};
     margin: 0;
-    max-width: 280px;
 
     @media (max-width: 1024px) {
         font-size: 0.75rem;
@@ -90,9 +89,9 @@ export const Icon = styled.div`
 
 export const Content = styled.div`
     display: flex;
-    gap: 12px;
+    gap: 4px;
     flex-direction: column;
-    padding: 12px 0;
+    padding: 12px 0 0 0;
 
     @media (max-width: 768px) {
         padding: 8px 0 0;
