@@ -83,6 +83,7 @@ const HeaderNavbarResources = ({ active, setActive }) => {
                         title="CASE STUDIES"
                         items={caseStudiesItems}
                         onlyContent
+                        active={active}
                     />
                     <ColumnWithTwoRows>
                         <CardItem title="READ" items={read} onlyContent />

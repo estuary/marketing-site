@@ -52,18 +52,31 @@ const HeaderCardItem = ({
     items = [],
     children,
     onlyContent,
+    active,
     ...props
 }: any) => {
     const [showAll, setShowAll] = React.useState(false);
 
+    React.useEffect(() => {
+        setShowAll(false);
+    }, [active]);
+
     const handleSeeAllButtonClick = () => {
-        setShowAll(true);
+        setShowAll(!showAll);
     };
 
     return (
         <div {...props}>
             <CardTitle className={onlyContent ? hideOnMobile : null}>
                 {title}
+                {items.length > 4 ? (
+                    <button
+                        className={seeAllButton}
+                        onClick={handleSeeAllButtonClick}
+                    >
+                        See {showAll ? 'less' : 'more'}
+                    </button>
+                ) : null}
             </CardTitle>
             <Content>
                 {items
@@ -73,14 +86,6 @@ const HeaderCardItem = ({
                     ))}
                 {children}
             </Content>
-            {items.length > 4 && !showAll ? (
-                <button
-                    className={seeAllButton}
-                    onClick={handleSeeAllButtonClick}
-                >
-                    See all
-                </button>
-            ) : null}
         </div>
     );
 };
