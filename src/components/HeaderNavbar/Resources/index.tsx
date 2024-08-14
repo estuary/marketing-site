@@ -25,7 +25,7 @@ const HeaderNavbarResources = ({ active, setActive }) => {
     const {
         allStrapiCaseStudy: { nodes: allCaseStudies },
     } = useStaticQuery(graphql`
-        query GetAllCaseStudies {
+        query GetAllMenuCaseStudies {
             allStrapiCaseStudy(limit: 7) {
                 nodes {
                     LinkOneLiner

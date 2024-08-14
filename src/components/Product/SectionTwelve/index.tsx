@@ -17,7 +17,8 @@ const SectionTwelve = () => {
                     <PipelinesTable />
                 </TableWrapper>
                 <LinkFilled
-                    to="/vs-fivetran"
+                    href="/vs-fivetran"
+                    target="_blank"
                     aria-label="Estuary Flow Comparison versus Fivetran"
                 >
                     View Comparisons
