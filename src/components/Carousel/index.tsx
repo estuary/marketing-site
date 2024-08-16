@@ -131,7 +131,10 @@ const Carousel = ({
                         disabled={isLeftArrowDisabled}
                         aria-label="previous slide"
                     >
-                        <ChevronLeftIcon color={arrowColor} />
+                        <ChevronLeftIcon
+                            className="carousel-chevron-icon"
+                            color={arrowColor}
+                        />
                     </Arrow>
                 ) : null}
                 {React.Children.count(children) > 1 ? (
@@ -152,7 +155,10 @@ const Carousel = ({
                         disabled={isRightArrowDisabled}
                         aria-label="next slide"
                     >
-                        <ChevronRightIcon color={arrowColor} />
+                        <ChevronRightIcon
+                            className="carousel-chevron-icon"
+                            color={arrowColor}
+                        />
                     </Arrow>
                 ) : null}
             </Navigation>
