@@ -44,7 +44,7 @@ export const BaseButtonStyling = `
   border-radius: 4px;
   text-align: center;
   cursor: pointer;
-  transition: 150ms ease-in-out;
+  transition: background-color 150ms ease-in-out;
 
   @media (max-width: 425px) {
     font-size: 0.875rem;
