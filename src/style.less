@@ -694,6 +694,7 @@ span {
     font-size: large;
     cursor: pointer;
     text-decoration: none;
+    transition: 100ms ease-in-out;
 
     &:not(:last-child) {
         border-right: 1px solid #d7dce5;
@@ -701,6 +702,14 @@ span {
 
     @media (max-width: 950px) {
         flex: 1 1 auto;
+    }
+
+    &:hover {
+        background-color: #d7dce550;
+    }
+
+    &:active {
+        background-color: #d7dce599;
     }
 }
 
