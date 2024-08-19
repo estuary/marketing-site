@@ -6,6 +6,7 @@ import GithubIcon from '../svgs/github-outline.svg';
 import LinkedinIcon from '../svgs/linkedin-outline.svg';
 import SlackIcon from '../svgs/slack-outline.svg';
 import TwitterIcon from '../svgs/twitter-outline.svg';
+import { ButtonOutlinedPrimary } from '../globalStyles';
 import NewsletterSignupForm from './NewsletterSignupForm';
 
 const openCookiePreferences = () => {
@@ -111,12 +112,12 @@ const Footer = () => {
                 </div>
             </div>
             <div className="global-footer-bottom">
-                <button
-                    className="global-footer-button"
+                <ButtonOutlinedPrimary
                     onClick={openCookiePreferences}
+                    theme="dark"
                 >
                     Manage Cookie Preferences
-                </button>
+                </ButtonOutlinedPrimary>
                 <div className="global-footer-divider" />
                 <div className="global-footer-bottom-wrapper">
                     <div className="global-footer-bottom-copyright">
