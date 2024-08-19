@@ -58,6 +58,7 @@
     --background-color-sharing-button: #ffffff;
     --border-color-sharing-button: #d7dce5;
     --header-link-hover: #5072eb4d;
+    --default-transition: 100ms ease-in-out;
 }
 
 /* HTML elements */
@@ -694,7 +695,7 @@ span {
     font-size: large;
     cursor: pointer;
     text-decoration: none;
-    transition: 100ms ease-in-out;
+    transition: var(--default-transition);
 
     &:not(:last-child) {
         border-right: 1px solid #d7dce5;
@@ -965,6 +966,13 @@ table th {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border: 1px solid transparent;
+    transition: var(--default-transition);
+
+    &:hover {
+        border: 1px solid #5072eb;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    }
 }
 
 .blogs-post-card-tags {
@@ -1690,10 +1698,12 @@ table th {
 .connector-card {
     background: #f7f9fc;
     border: 1px solid transparent;
+    border-radius: 4px;
     padding: 12px;
     height: 100%;
     display: flex;
     flex-direction: column;
+    transition: var(--default-transition);
 
     &:hover {
         border: 1px solid #5072eb;
