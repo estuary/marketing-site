@@ -9,6 +9,7 @@ import SignUp from '../components/signup';
 import { estuaryAllowsEnterprises } from '../content/seo';
 import { globalMaxWidth, sectionTopBottomPadding } from '../globalStyles';
 import EstuaryLogo from '../svgs/colored-logo.svg';
+import { OutboundLinkFilled } from '../components/OutboundLink';
 
 export const AboutUsWrapper = styled.div`
     ${globalMaxWidth}
@@ -161,12 +162,13 @@ const ComparisonPageTemplate = ({
                             );
                         })}
                     </div>
-                </section>
-                <div className="cta-wrap-single">
-                    <a href="https://dashboard.estuary.dev/register">
+                    <OutboundLinkFilled
+                        className="cta-wrap-single"
+                        href="https://dashboard.estuary.dev/register"
+                    >
                         Build a Pipeline
-                    </a>
-                </div>
+                    </OutboundLinkFilled>
+                </section>
                 <section className="comparison-to-others">
                     <div className="comparison-heading">
                         See how Estuary compares to others
