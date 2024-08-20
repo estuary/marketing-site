@@ -1,5 +1,5 @@
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Typography } from '@mui/material';
+import { Typography, useMediaQuery } from '@mui/material';
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -107,6 +107,7 @@ export const RenderToc = ({ items }: { items: TocItem[] }) => {
         null
     );
     const timeoutRef = React.useRef<NodeJS.Timeout | null>(null);
+    const isMobile = useMediaQuery('(max-width:768px)');
 
     React.useEffect(() => {
         intersectionObserver.current = new IntersectionObserver(
@@ -172,7 +173,11 @@ export const RenderToc = ({ items }: { items: TocItem[] }) => {
 
     return (
         <div className="table-of-contents">
-            <Accordion elevation={0} className="accordion" defaultExpanded>
+            <Accordion
+                elevation={0}
+                className="accordion"
+                defaultExpanded={!isMobile}
+            >
                 <AccordionSummary
                     className="accordion-side-padding"
                     expandIcon={
