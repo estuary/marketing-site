@@ -85,13 +85,18 @@ export const currencyFormatter = Intl.NumberFormat('en-US', {
     currency: 'USD',
 });
 
+export const getPricingPerConnectors = (connectors: number): number => {
+    if (connectors <= halfSelfServiceConnectorLimit) {
+        return fullPricingPerConnector * connectors;
+    }
+    const excessConnectors = connectors - 6;
+    return (
+        halfPricingPerConnector * excessConnectors + fullPricingPerConnector * 6
+    );
+};
+
 export const calculatePrice = (gb: number, connectors: number) => ({
-    estuary:
-        costPerGB_calc * gb +
-        (connectors <= halfSelfServiceConnectorLimit
-            ? fullPricingPerConnector
-            : halfPricingPerConnector) *
-            connectors,
+    estuary: costPerGB_calc * gb + getPricingPerConnectors(connectors),
     fivetran:
         1590 +
         45.7 * gb +
