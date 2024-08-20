@@ -77,6 +77,7 @@ const TestimonialsCarousel = ({
                                     width={110}
                                     height={110}
                                     className={avatarSvg}
+                                    loading="lazy"
                                 />
                             ) : (
                                 <GatsbyImage
