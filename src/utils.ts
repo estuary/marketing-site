@@ -95,13 +95,14 @@ export const getPricingPerConnectors = (connectors: number): number => {
     );
 };
 
-export const calculateDataCost = (gb: number, connectors: number) => {
-    return costPerGB_calc * gb * connectors;
+// The cost is doubled because we want to make sure the user knows that we are
+//  going to charge the user for the CDC data coming IN and OUT
+export const calculateDataCost = (gb: number) => {
+    return costPerGB_calc * 2 * gb;
 };
 
 export const calculatePrice = (gb: number, connectors: number) => ({
-    estuary:
-        calculateDataCost(gb, connectors) + getPricingPerConnectors(connectors),
+    estuary: calculateDataCost(gb) + getPricingPerConnectors(connectors),
     fivetran:
         1590 +
         45.7 * gb +
