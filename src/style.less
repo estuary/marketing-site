@@ -4617,6 +4617,21 @@ table th {
         background: #ffffff;
         counter-reset: toc-counter;
         margin-top: 18px;
+        max-height: 45vh;
+        overflow: auto;
+        padding-right: 8px;
+
+        @media (max-height: 1128px) {
+            max-height: 36vh;
+        }
+
+        @media (max-height: 1000px) {
+            max-height: 20vh;
+        }
+
+        @media (max-width: 425px) {
+            max-height: 40vh;
+        }
 
         h3 {
             margin: 0 0 8px;
