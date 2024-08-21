@@ -147,7 +147,10 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                                     Start streaming your data{' '}
                                                     <span>for free</span>
                                                 </h3>
-                                                <OutboundLinkFilled href="https://dashboard.estuary.dev/register">
+                                                <OutboundLinkFilled
+                                                    href="https://dashboard.estuary.dev/register"
+                                                    target="_blank"
+                                                >
                                                     Build a Pipeline
                                                 </OutboundLinkFilled>
                                             </div>

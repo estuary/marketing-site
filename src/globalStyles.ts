@@ -51,14 +51,14 @@ export const BaseButtonStyling = `
   }
 
   &:hover {
-    background-color: #625EFF !important;
-    border-color: #625EFF !important;
-    color: #FFFFFF !important;
+    background-color: #625EFF;
+    border-color: #625EFF;
+    color: #FFFFFF;
   }
 
   &:active {
-    background-color: #5072EB !important;
-    border-color: #5072EB !important;
+    background-color: #5072EB;
+    border-color: #5072EB;
   }
 
   &:disabled {
