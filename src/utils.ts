@@ -95,8 +95,13 @@ export const getPricingPerConnectors = (connectors: number): number => {
     );
 };
 
+export const calculateDataCost = (gb: number, connectors: number) => {
+    return costPerGB_calc * gb * connectors;
+};
+
 export const calculatePrice = (gb: number, connectors: number) => ({
-    estuary: costPerGB_calc * gb + getPricingPerConnectors(connectors),
+    estuary:
+        calculateDataCost(gb, connectors) + getPricingPerConnectors(connectors),
     fivetran:
         1590 +
         45.7 * gb +
