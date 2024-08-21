@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 
 export const ContainerIcon = styled.div`
-    padding: 16px;
+    padding: 4%;
     border: 1px solid #5072eb80;
     border-radius: 8px;
     background-color: #ffffff;
+    display: flex;
+    min-width: 24px;
+    min-height: 24px;
 `;
 
 export const BreadcrumbsWrapper = styled.div`

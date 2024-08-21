@@ -1,17 +1,26 @@
 import React from 'react';
 
 import { webinarsUrl } from '../../../../../shared';
-import { ActionLink, Button } from './style';
+import { OutboundLinkOutlined } from '../../../../components/OutboundLink';
+import { LinkFilled } from '../../../../globalStyles';
 
 const TakeATourButtons = () => {
     return (
         <>
-            <ActionLink target="_blank" to="/why">
+            <LinkFilled
+                className="take-a-tour-button"
+                target="_blank"
+                href="/why"
+            >
                 Self-Guided Tour [1 min]
-            </ActionLink>
-            <Button target="_blank" href={webinarsUrl}>
+            </LinkFilled>
+            <OutboundLinkOutlined
+                className="take-a-tour-button"
+                target="_blank"
+                href={webinarsUrl}
+            >
                 Product Demo [30 min]
-            </Button>
+            </OutboundLinkOutlined>
         </>
     );
 };

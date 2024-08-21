@@ -52,7 +52,7 @@ export const ContainerContent = styled.div`
 export const ContainerIcons = styled.div`
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 8%;
     margin-bottom: 16px;
 
     @media (min-width: 1280px) {
@@ -97,5 +97,17 @@ export const ContainerButton = styled.div`
         gap: 24px;
         flex-direction: row;
         margin-top: 20px;
+    }
+
+    .take-a-tour-button {
+        white-space: nowrap;
+
+        @media (max-width: 1280px) {
+            width: 100%;
+        }
+
+        @media (max-width: 425px) {
+            white-space: wrap;
+        }
     }
 `;

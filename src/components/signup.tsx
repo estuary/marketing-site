@@ -1,4 +1,6 @@
 import React from 'react';
+import { LinkFilled } from '../globalStyles';
+import { OutboundLinkFilled } from './OutboundLink';
 
 const SignUp = () => {
     return (
@@ -8,8 +10,18 @@ const SignUp = () => {
                     <span>See how</span> Estuary can work for you and your data
                 </div>
                 <div className="cta-wrap">
-                    <a href="https://dashboard.estuary.dev/register">Sign up</a>
-                    <a href="https://estuary.dev/contact-us">Contact us</a>
+                    <OutboundLinkFilled
+                        href="https://dashboard.estuary.dev/register"
+                        target="_blank"
+                    >
+                        Sign up
+                    </OutboundLinkFilled>
+                    <LinkFilled
+                        href="https://estuary.dev/contact-us"
+                        target="_blank"
+                    >
+                        Contact us
+                    </LinkFilled>
                 </div>
             </div>
         </section>

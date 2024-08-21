@@ -4,7 +4,14 @@ import React, { useMemo, useState } from 'react';
 import { normalizeConnector } from '../../utils';
 
 import { ConnectorType } from '../../../shared';
-import { Button, ConnectorSelect, Form, Image, Menu, Wrapper } from './style';
+import {
+    DetailsButton,
+    ConnectorSelect,
+    Form,
+    Image,
+    SelectItem,
+    Wrapper,
+} from './style';
 
 type ConnectorsLinkProps = {
     defaultSourceId?: string;
@@ -86,6 +93,10 @@ const ConnectorsLink = ({
         }
     }, [captureConnectors, materializationConnectors, sourceId, destinationId]);
 
+    const selectMenuProps = {
+        slotProps: { paper: { style: { height: '30vh' } } },
+    };
+
     return (
         <Wrapper direction={direction}>
             <Form fullWidth>
@@ -95,9 +106,10 @@ const ConnectorsLink = ({
                     value={sourceId}
                     onChange={(evt: any) => setSourceId(evt.target.value)}
                     variant="outlined"
+                    MenuProps={selectMenuProps}
                 >
                     {captureConnectors.map((c) => (
-                        <Menu key={c.id} value={c.id}>
+                        <SelectItem key={c.id} value={c.id}>
                             {c.logo?.childImageSharp?.gatsbyImageData ? (
                                 <Image
                                     image={
@@ -108,7 +120,7 @@ const ConnectorsLink = ({
                                 />
                             ) : null}
                             {c.title}
-                        </Menu>
+                        </SelectItem>
                     ))}
                 </ConnectorSelect>
             </Form>
@@ -119,9 +131,10 @@ const ConnectorsLink = ({
                     value={destinationId}
                     onChange={(evt: any) => setDestinationId(evt.target.value)}
                     variant="outlined"
+                    MenuProps={selectMenuProps}
                 >
                     {materializationConnectors.map((c) => (
-                        <Menu key={c.id} value={c.id}>
+                        <SelectItem key={c.id} value={c.id}>
                             {c.logo?.childImageSharp?.gatsbyImageData ? (
                                 <Image
                                     image={
@@ -132,11 +145,13 @@ const ConnectorsLink = ({
                                 />
                             ) : null}
                             {c.title}
-                        </Menu>
+                        </SelectItem>
                     ))}
                 </ConnectorSelect>
             </Form>
-            <Button to={detailsHref}>Details</Button>
+            <DetailsButton href={detailsHref} target="_blank">
+                Details
+            </DetailsButton>
         </Wrapper>
     );
 };

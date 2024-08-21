@@ -11,6 +11,7 @@ import SpotifyButton from '../svgs/listen-spotify.svg';
 import SubscribeYoutubeImage from '../svgs/subscribe-image.svg';
 import SubscribeYoutubeButton from '../svgs/subscribe-youtube.svg';
 import WatchYoutubeButton from '../svgs/youtube-watch.svg';
+import SignUp from '../components/signup';
 
 const LpPodcats = () => {
     return (
@@ -143,22 +144,7 @@ const LpPodcats = () => {
                         </div>
                     </div>
                 </section>
-                <section className="signup">
-                    <div className="signup-bg">
-                        <div className="signup-heading">
-                            <span>See how</span> Estuary can work for you and
-                            your data
-                        </div>
-                        <div className="cta-wrap">
-                            <a href="https://dashboard.estuary.dev/register">
-                                Sign up
-                            </a>
-                            <a href="/contact-us" target="_blank">
-                                Contact us
-                            </a>
-                        </div>
-                    </div>
-                </section>
+                <SignUp />
             </div>
         </Layout>
     );

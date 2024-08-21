@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { OutboundLink } from '../../../../../components/OutboundLink';
+import { OutboundLinkFilled } from '../../../../../components/OutboundLink';
 
 export const Container = styled.div`
     display: flex;
@@ -74,7 +74,7 @@ export const Description = styled.h2`
     }
 `;
 
-export const Button = styled(OutboundLink)`
+export const Button = styled(OutboundLinkFilled)`
     width: 100%;
     text-align: center;
     border-radius: 4px;

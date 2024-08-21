@@ -10,6 +10,7 @@ export const Container = styled(OutboundLink)<{ $isActive: boolean }>`
     padding: 16px;
     border: 1px solid #5072eb33;
     border-radius: 24px;
+    transition: 150ms ease-in-out;
 
     @media (max-width: 1160px) {
         flex-direction: column;
