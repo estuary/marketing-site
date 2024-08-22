@@ -10,14 +10,13 @@ import {
     CountInput,
     Form,
 } from './styles';
+import { maxConnectors, selfServiceConnectorLimit } from './shared';
 
 const inputLabel = 'Number of connectors';
 
 export const PricingCalculatorSelector = () => {
     const { selectedConnectors, setSelectedConnectors, isDarkTheme } =
         usePricingCalculator();
-
-    const maxConnectors = 21;
 
     const handleMinusClick = () => {
         setSelectedConnectors((c) => Math.max(2, c - 1));
@@ -65,8 +64,8 @@ export const PricingCalculatorSelector = () => {
                         max: maxConnectors,
                     }}
                     value={
-                        selectedConnectors > 20
-                            ? '+20'
+                        selectedConnectors > selfServiceConnectorLimit
+                            ? `+${selfServiceConnectorLimit}`
                             : selectedConnectors.toString()
                     }
                     onChange={handleCountInputChange}

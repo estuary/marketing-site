@@ -3,13 +3,14 @@ import OpenHubspotModal from '../HubSpot/OpenModal';
 import BrandCard from './BrandCard';
 import { usePricingCalculator } from './PricingCalculatorProvider';
 import { ComparisonWrapper } from './styles';
+import { maxConnectors } from './shared';
 
 export const PricingCalculatorComparison = () => {
     const { selectedConnectors, selectedGbs, prices } = usePricingCalculator();
 
     return (
         <ComparisonWrapper>
-            {selectedConnectors === 21 || selectedGbs === 5 ? (
+            {selectedConnectors === maxConnectors || selectedGbs === 5 ? (
                 <OpenHubspotModal
                     buttonLabel="Need More?"
                     buttonId="section-one-hubspot"

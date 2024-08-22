@@ -1,5 +1,12 @@
 // NOTE: We're assuming that the image name follows the convention of
 // (source|materialization)-name
+
+import {
+    fullPricingPerConnector,
+    halfPricingPerConnector,
+    halfSelfServiceConnectorLimit,
+} from './components/PricingCalculator/shared';
+
 // eslint-disable-next-line no-useless-escape
 const CONNECTOR_IMAGE_RE = /(source|materialize)-([a-z0-9\-]+)/;
 
@@ -78,8 +85,24 @@ export const currencyFormatter = Intl.NumberFormat('en-US', {
     currency: 'USD',
 });
 
+export const getPricingPerConnectors = (connectors: number): number => {
+    if (connectors <= halfSelfServiceConnectorLimit) {
+        return fullPricingPerConnector * connectors;
+    }
+    const excessConnectors = connectors - 6;
+    return (
+        halfPricingPerConnector * excessConnectors + fullPricingPerConnector * 6
+    );
+};
+
+// The cost is doubled because we want to make sure the user knows that we are
+//  going to charge the user for the CDC data coming IN and OUT
+export const calculateDataCost = (gb: number) => {
+    return costPerGB_calc * 2 * gb;
+};
+
 export const calculatePrice = (gb: number, connectors: number) => ({
-    estuary: costPerGB_calc * gb + 100 * connectors,
+    estuary: calculateDataCost(gb) + getPricingPerConnectors(connectors),
     fivetran:
         1590 +
         45.7 * gb +
