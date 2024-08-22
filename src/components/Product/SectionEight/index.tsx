@@ -20,7 +20,6 @@ const SectionEight = () => {
                         placeholder="none"
                         alt="Maximize efficiency, reduce expenses"
                         src="../../../svgs/product-page/section-eight/database-costs.svg"
-                        layout="constrained"
                     />
                 }
                 title={
@@ -36,7 +35,6 @@ const SectionEight = () => {
                                     placeholder="none"
                                     alt="Case study - Connect & Go logo"
                                     src="../../../images/c&g-logo.png"
-                                    layout="constrained"
                                 />
                             </IconWrapper>
                             <h3>CONNECT&GO</h3>
@@ -52,7 +50,6 @@ const SectionEight = () => {
                                         placeholder="none"
                                         alt="Case study - True logo"
                                         src="../../../images/true-logo.png"
-                                        layout="constrained"
                                     />
                                 </IconWrapper>
                                 <h3>TRUE PLATFORM</h3>
@@ -68,7 +65,6 @@ const SectionEight = () => {
                                         placeholder="none"
                                         alt="Case study - Soli & Company logo"
                                         src="../../../images/soli&company-logo.png"
-                                        layout="constrained"
                                     />
                                 </IconWrapper>
                                 <h3>SOLI & COMPANY</h3>

@@ -22,7 +22,6 @@ const SectionThirteen = () => {
                         placeholder="none"
                         alt="Subscribe to our newsletter"
                         src="../../../images/product-page/section-thirteen/news.png"
-                        layout="constrained"
                     />
                 </ImageWrapper>
                 <FormFields>
@@ -31,7 +30,6 @@ const SectionThirteen = () => {
                             placeholder="none"
                             alt="Email icon"
                             src="../../../svgs/product-page/section-thirteen/email-outlined.svg"
-                            layout="constrained"
                         />
                     </IconWrapper>
                     <Title>DON&apos;T MISS A THING</Title>

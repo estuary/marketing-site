@@ -36,7 +36,6 @@ const SectionTwo = () => {
                                 placeholder="none"
                                 alt="Flow"
                                 src="../../../images/product-page/section-two/tablet/slide-1.png"
-                                layout="constrained"
                                 loading="eager"
                             />
                         </TabletImageWrapper>
@@ -45,7 +44,6 @@ const SectionTwo = () => {
                                 placeholder="none"
                                 alt="Flow"
                                 src="../../../images/product-page/section-two/mobile/slide-1.png"
-                                layout="constrained"
                                 loading="eager"
                             />
                         </MobileImageWrapper>
@@ -66,7 +64,6 @@ const SectionTwo = () => {
                                     placeholder="none"
                                     alt="Capture"
                                     src="../../../images/product-page/section-two/desktop/slide-2.png"
-                                    layout="constrained"
                                     quality={100}
                                 />
                             </Hover>
@@ -76,7 +73,6 @@ const SectionTwo = () => {
                                 placeholder="none"
                                 alt="Capture"
                                 src="../../../images/product-page/section-two/tablet/slide-2.png"
-                                layout="constrained"
                             />
                         </TabletImageWrapper>
                         <MobileImageWrapper>
@@ -84,7 +80,6 @@ const SectionTwo = () => {
                                 placeholder="none"
                                 alt="Capture"
                                 src="../../../images/product-page/section-two/mobile/slide-2.png"
-                                layout="constrained"
                             />
                         </MobileImageWrapper>
                         <SlideTitle>Capture</SlideTitle>
@@ -101,7 +96,6 @@ const SectionTwo = () => {
                                     placeholder="none"
                                     alt="Stream, Store, Transform, Replay"
                                     src="../../../images/product-page/section-two/desktop/slide-3.png"
-                                    layout="constrained"
                                     quality={100}
                                 />
                             </Hover>
@@ -111,7 +105,6 @@ const SectionTwo = () => {
                                 placeholder="none"
                                 alt="Stream, Store, Transform, Replay"
                                 src="../../../images/product-page/section-two/tablet/slide-3.png"
-                                layout="constrained"
                             />
                         </TabletImageWrapper>
                         <MobileImageWrapper>
@@ -119,7 +112,6 @@ const SectionTwo = () => {
                                 placeholder="none"
                                 alt="Stream, Store, Transform, Replay"
                                 src="../../../images/product-page/section-two/mobile/slide-3.png"
-                                layout="constrained"
                             />
                         </MobileImageWrapper>
                         <SlideTitle>
@@ -140,7 +132,6 @@ const SectionTwo = () => {
                                     placeholder="none"
                                     alt="Materialize"
                                     src="../../../images/product-page/section-two/desktop/slide-4.png"
-                                    layout="constrained"
                                     quality={100}
                                 />
                             </Hover>
@@ -150,7 +141,6 @@ const SectionTwo = () => {
                                 placeholder="none"
                                 alt="Materialize"
                                 src="../../../images/product-page/section-two/tablet/slide-4.png"
-                                layout="constrained"
                             />
                         </TabletImageWrapper>
                         <MobileImageWrapper>
@@ -158,7 +148,6 @@ const SectionTwo = () => {
                                 placeholder="none"
                                 alt="Materialize"
                                 src="../../../images/product-page/section-two/mobile/slide-4.png"
-                                layout="constrained"
                             />
                         </MobileImageWrapper>
                         <SlideTitle>Materialize</SlideTitle>

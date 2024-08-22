@@ -27,7 +27,6 @@ const MainConnectors = ({ isLightTheme = false }: MainConnectorsProps) => {
                         placeholder="none"
                         alt="Amazon Redshift logo"
                         src="../../images/amazon-redshift-logo.png"
-                        layout="constrained"
                     />
                 </Link>
             </li>
@@ -37,7 +36,6 @@ const MainConnectors = ({ isLightTheme = false }: MainConnectorsProps) => {
                         placeholder="none"
                         alt="Databricks logo"
                         src="../../images/databricks-logo.png"
-                        layout="constrained"
                     />
                 </Link>
             </li>
@@ -47,7 +45,6 @@ const MainConnectors = ({ isLightTheme = false }: MainConnectorsProps) => {
                         placeholder="none"
                         alt="Elastic logo"
                         src="../../images/elastic-logo.png"
-                        layout="constrained"
                     />
                 </Link>
             </li>
@@ -57,7 +54,6 @@ const MainConnectors = ({ isLightTheme = false }: MainConnectorsProps) => {
                         placeholder="none"
                         alt="Google Storage logo"
                         src="../../images/google-storage-logo.png"
-                        layout="constrained"
                     />
                 </Link>
             </li>
@@ -72,7 +68,6 @@ const MainConnectors = ({ isLightTheme = false }: MainConnectorsProps) => {
                         placeholder="none"
                         alt="MongoDB logo"
                         src="../../images/mongodb-logo.png"
-                        layout="constrained"
                     />
                 </Link>
             </li>

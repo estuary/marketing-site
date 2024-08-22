@@ -17,7 +17,6 @@ const ConnectorsImageDesktop = () => {
             alt="Connector logos"
             placeholder="none"
             loading="lazy"
-            layout="constrained"
             quality={90}
         />
     );

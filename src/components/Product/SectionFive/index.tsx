@@ -38,7 +38,6 @@ const SectionFive = () => {
                                 placeholder="none"
                                 alt="Analytics - pie chart"
                                 src="../../../svgs/pie-chart.svg"
-                                layout="constrained"
                             />
                         </IconWrapper>
                         <IconWrapper>
@@ -46,7 +45,6 @@ const SectionFive = () => {
                                 placeholder="none"
                                 alt="Ops"
                                 src="../../../svgs/ops.svg"
-                                layout="constrained"
                             />
                         </IconWrapper>
                         <IconWrapper>
@@ -54,7 +52,6 @@ const SectionFive = () => {
                                 placeholder="none"
                                 alt="AI - artificial intelligence"
                                 src="../../../svgs/android-brain.svg"
-                                layout="constrained"
                             />
                         </IconWrapper>
                     </IconsWrapper>
@@ -81,7 +78,6 @@ const SectionFive = () => {
                                                     placeholder="none"
                                                     alt="Analytics Connectors"
                                                     src="../../../images/product-page/section-five/analytics-connectors.png"
-                                                    layout="constrained"
                                                 />
                                                 <GoogleBigQueryLogoWrapper
                                                     to="/destination/bigquery"
@@ -119,7 +115,6 @@ const SectionFive = () => {
                                                     placeholder="none"
                                                     alt="Ops Connectors"
                                                     src="../../../images/product-page/section-five/ops-connectors.png"
-                                                    layout="constrained"
                                                     height={128}
                                                     quality={100}
                                                 />
@@ -159,7 +154,6 @@ const SectionFive = () => {
                                                     placeholder="none"
                                                     alt="AI Connectors"
                                                     src="../../../images/product-page/section-five/ai-connectors.png"
-                                                    layout="constrained"
                                                     height={128}
                                                 />
                                                 <PineconeLogoWrapper

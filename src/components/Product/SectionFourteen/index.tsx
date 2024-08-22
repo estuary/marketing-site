@@ -66,7 +66,6 @@ const SectionFourteen = () => {
                             placeholder="none"
                             alt="Rocket image"
                             src="../../../images/product-page/section-fourteen/rocket.png"
-                            layout="constrained"
                         />
                     </ImageWrapper>
                 </Columns>

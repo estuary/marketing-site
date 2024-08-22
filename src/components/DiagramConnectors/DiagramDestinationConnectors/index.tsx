@@ -31,7 +31,6 @@ const DiagramDestinationConnectors = ({
                             placeholder="none"
                             alt="Snowflake logo"
                             src="../../../images/logos/snowflake.png"
-                            layout="constrained"
                             loading="eager"
                         />
                     </LogoWrapper>
@@ -43,7 +42,6 @@ const DiagramDestinationConnectors = ({
                             placeholder="none"
                             alt="Google BigQuery logo"
                             src="../../../images/logos/bigquery.png"
-                            layout="constrained"
                             loading="eager"
                         />
                     </LogoWrapper>
@@ -55,7 +53,6 @@ const DiagramDestinationConnectors = ({
                             placeholder="none"
                             alt="Redshift logo"
                             src="../../../images/logos/redshift.png"
-                            layout="constrained"
                             loading="eager"
                         />
                     </LogoWrapper>
@@ -75,7 +72,6 @@ const DiagramDestinationConnectors = ({
                             placeholder="none"
                             alt="ElasticSearch logo"
                             src="../../../images/logos/elastic-search.png"
-                            layout="constrained"
                             loading="eager"
                         />
                     </LogoWrapper>
@@ -87,7 +83,6 @@ const DiagramDestinationConnectors = ({
                             placeholder="none"
                             alt="MongoDB logo"
                             src="../../../images/logos/mongo-db.png"
-                            layout="constrained"
                             loading="eager"
                         />
                     </LogoWrapper>
@@ -99,7 +94,6 @@ const DiagramDestinationConnectors = ({
                             placeholder="none"
                             alt="Amazon DynamoDB logo"
                             src="../../../images/logos/dynamo-db.png"
-                            layout="constrained"
                             loading="eager"
                         />
                     </LogoWrapper>
@@ -119,7 +113,6 @@ const DiagramDestinationConnectors = ({
                             placeholder="none"
                             alt="Pinecone logo"
                             src="../../../images/logos/pinecone.png"
-                            layout="constrained"
                             loading="eager"
                         />
                     </LogoWrapper>
@@ -131,7 +124,6 @@ const DiagramDestinationConnectors = ({
                             placeholder="none"
                             alt="Open AI logo"
                             src="../../../images/logos/openai.png"
-                            layout="constrained"
                             loading="eager"
                         />
                     </LogoWrapper>
@@ -143,7 +135,6 @@ const DiagramDestinationConnectors = ({
                             placeholder="none"
                             alt="Databricks logo"
                             src="../../../images/logos/databricks.png"
-                            layout="constrained"
                             loading="eager"
                         />
                     </LogoWrapper>

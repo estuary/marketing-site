@@ -65,7 +65,6 @@ const SectionTwo = ({
                                     placeholder="none"
                                     src="../../../images/integration/section-two/connectors.png"
                                     alt="Destination connectors"
-                                    layout="constrained"
                                 />
                             </div>
                         </div>

@@ -29,7 +29,6 @@ const Content = ({ connector }: ContentProps) => {
                     placeholder="none"
                     alt="icon"
                     src="../../../../../images/lp-connector/hero/icon.png"
-                    layout="constrained"
                     width={40}
                     height={40}
                     quality={100}

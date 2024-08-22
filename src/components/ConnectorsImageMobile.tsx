@@ -17,7 +17,6 @@ const ConnectorsImageMobile = () => {
             alt="Connector logos"
             placeholder="none"
             loading="lazy"
-            layout="constrained"
             quality={80}
         />
     );

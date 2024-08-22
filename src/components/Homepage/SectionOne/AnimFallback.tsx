@@ -8,7 +8,6 @@ const AnimFallback = () => (
             placeholder="none"
             alt="estuary logo"
             src="../../../images/hero-anim-placeholder.png"
-            layout="constrained"
             loading="eager"
         />
     </FlowAnimationPlaceholderContainer>

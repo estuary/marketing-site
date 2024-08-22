@@ -28,7 +28,6 @@ const SectionNine = () => {
                         placeholder="none"
                         alt="Real-time data"
                         src="../../../svgs/product-page/section-nine/real-time-clock.svg"
-                        layout="constrained"
                     />
                 }
                 title={
@@ -43,14 +42,12 @@ const SectionNine = () => {
                             placeholder="none"
                             alt="Estuary performance metrics"
                             src="../../../images/product-page/section-nine/metrics-background.png"
-                            layout="constrained"
                         />
                         <LogoWrapper>
                             <StaticImage
                                 placeholder="none"
                                 alt="Estuary logo"
                                 src="../../../images/product-page/section-nine/estuary-logo.png"
-                                layout="constrained"
                                 quality={100}
                             />
                         </LogoWrapper>

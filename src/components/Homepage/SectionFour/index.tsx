@@ -49,7 +49,6 @@ const SectionFour = () => {
                         alt="Real-time ETL with Estuary Flow: Seamlessly move data from source to destination for immediate analysis and actionable insights."
                         placeholder="none"
                         loading="lazy"
-                        layout="constrained"
                         quality={100}
                     />
                 </RightColumn>

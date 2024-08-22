@@ -46,7 +46,6 @@ const SectionThree = ({
                                     placeholder="none"
                                     src="../../../images/integration/section-three/connectors.png"
                                     alt="Destination connectors"
-                                    layout="constrained"
                                 />
                             </div>
                             <div className={flowImage}>

@@ -21,7 +21,6 @@ const SectionSeven = () => {
                         placeholder="none"
                         alt="Schema evolution options"
                         src="../../../images/schema-evolution-options.png"
-                        layout="constrained"
                     />
                 }
                 isImageOnTheLeft

@@ -60,7 +60,6 @@ const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
                                 placeholder="none"
                                 src="../../../svgs/plugs.svg"
                                 alt="Integration icon"
-                                layout="constrained"
                                 loading="eager"
                             />
                         </div>

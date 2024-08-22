@@ -50,7 +50,6 @@ const NewsletterSignupForm = ({
                         placeholder="none"
                         alt="Email icon"
                         src="../../svgs/product-page/section-thirteen/email-outlined.svg"
-                        layout="constrained"
                     />
                 </div>
                 <input

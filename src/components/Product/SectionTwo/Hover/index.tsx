@@ -76,7 +76,6 @@ const Hover = ({ slide, children }: HoverProps) => {
                                 placeholder="none"
                                 alt="Flow Step Transform"
                                 src="../../../../images/product-page/section-two/desktop/slide-3-transform.png"
-                                layout="constrained"
                                 quality={100}
                             />
                         </FlowStepImageWrapper>
@@ -95,7 +94,6 @@ const Hover = ({ slide, children }: HoverProps) => {
                                 placeholder="none"
                                 alt="Flow Step Elastic Streaming Compute"
                                 src="../../../../images/product-page/section-two/desktop/slide-1-elastic-streaming-compute.png"
-                                layout="constrained"
                             />
                         </FlowStepImageWrapper>
                         <TooltipTop className="tooltip" $slide={4}>
@@ -119,7 +117,6 @@ const Hover = ({ slide, children }: HoverProps) => {
                                 placeholder="none"
                                 alt="Flow Step Stream"
                                 src="../../../../images/product-page/section-two/desktop/slide-3-stream.png"
-                                layout="constrained"
                                 quality={100}
                             />
                         </FlowStepImageWrapper>
@@ -138,7 +135,6 @@ const Hover = ({ slide, children }: HoverProps) => {
                                 placeholder="none"
                                 alt="Flow Step Idempotent Streams"
                                 src="../../../../images/product-page/section-two/desktop/slide-1-idempotent-streams.png"
-                                layout="constrained"
                             />
                         </FlowStepImageWrapper>
                         <TooltipLeft className="tooltip">
@@ -159,7 +155,6 @@ const Hover = ({ slide, children }: HoverProps) => {
                                 placeholder="none"
                                 alt="Flow Step Replay"
                                 src="../../../../images/product-page/section-two/desktop/slide-3-replay.png"
-                                layout="constrained"
                                 quality={100}
                             />
                         </FlowStepImageWrapper>
@@ -178,7 +173,6 @@ const Hover = ({ slide, children }: HoverProps) => {
                                 placeholder="none"
                                 alt="Flow Step Elastic Streaming Compute"
                                 src="../../../../images/product-page/section-two/desktop/slide-1-elastic-streaming-compute.png"
-                                layout="constrained"
                             />
                         </FlowStepImageWrapper>
                         <TooltipTop className="tooltip" $slide={4}>
@@ -202,7 +196,6 @@ const Hover = ({ slide, children }: HoverProps) => {
                                 placeholder="none"
                                 alt="Flow Step Store"
                                 src="../../../../images/product-page/section-two/desktop/slide-3-store.png"
-                                layout="constrained"
                                 quality={100}
                             />
                         </FlowStepImageWrapper>
@@ -224,7 +217,6 @@ const Hover = ({ slide, children }: HoverProps) => {
                                 placeholder="none"
                                 alt="Flow Step Decoupled Stream Storage"
                                 src="../../../../images/product-page/section-two/desktop/slide-1-storage.png"
-                                layout="constrained"
                             />
                         </FlowStepImageWrapper>
                         <TooltipBottom className="tooltip" $slide={4}>
@@ -247,7 +239,6 @@ const Hover = ({ slide, children }: HoverProps) => {
                                 placeholder="none"
                                 alt="Managed Schema"
                                 src="../../../../images/product-page/section-two/desktop/slide-1-center.png"
-                                layout="constrained"
                             />
                         </FlowStepImageWrapper>
                         <TooltipCenter className="tooltip">

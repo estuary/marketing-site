@@ -36,7 +36,6 @@ const TheAutomationCards = ({ $reverseDesktop = false }) => {
                     <StaticImage
                         alt="icon-2"
                         src="../../../../../images/lp-connector/change-data/icon-02.png"
-                        layout="constrained"
                     />
                 </Card>
                 <Card
@@ -47,7 +46,6 @@ const TheAutomationCards = ({ $reverseDesktop = false }) => {
                     <StaticImage
                         alt="icon-3"
                         src="../../../../../images/lp-connector/change-data/icon-03.png"
-                        layout="constrained"
                     />
                 </Card>
             </ContainerCards>
@@ -63,7 +61,6 @@ const TheAutomationCards = ({ $reverseDesktop = false }) => {
                     <StaticImage
                         alt="icon-1"
                         src="../../../../../images/lp-connector/change-data/icon-01.png"
-                        layout="constrained"
                     />
                 </Card>
             </ContainerCards>

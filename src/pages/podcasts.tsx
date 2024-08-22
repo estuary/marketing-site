@@ -43,7 +43,6 @@ const LpPodcats = () => {
                                     alt="Data Engineering Podcast"
                                     loading="lazy"
                                     src="../images/lp-podcast/episode-image.webp"
-                                    layout="constrained"
                                     width={550}
                                     height={310}
                                     quality={100}
@@ -83,7 +82,6 @@ const LpPodcats = () => {
                                     alt="The Geek Narrator"
                                     loading="lazy"
                                     src="../images/lp-podcast/episode-image1.webp"
-                                    layout="constrained"
                                     width={550}
                                     height={310}
                                     quality={100}

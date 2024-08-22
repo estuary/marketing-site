@@ -36,7 +36,6 @@ const TheAutomationCards = () => {
                     <StaticImage
                         alt="icon-1"
                         src="../../../../../images/connector-template/icon-1.png"
-                        layout="constrained"
                     />
                 </Card>
                 <Card
@@ -46,7 +45,6 @@ const TheAutomationCards = () => {
                     <StaticImage
                         alt="icon-2"
                         src="../../../../../images/connector-template/icon-2.png"
-                        layout="constrained"
                     />
                 </Card>
                 <Card
@@ -57,7 +55,6 @@ const TheAutomationCards = () => {
                     <StaticImage
                         alt="icon-3"
                         src="../../../../../images/connector-template/icon-3.png"
-                        layout="constrained"
                     />
                 </Card>
             </ContainerCards>
@@ -71,7 +68,6 @@ const TheAutomationCards = () => {
                     <StaticImage
                         alt="icon-4"
                         src="../../../../../images/connector-template/icon-4.png"
-                        layout="constrained"
                     />
                 </Card>
                 <Card
@@ -82,7 +78,6 @@ const TheAutomationCards = () => {
                     <StaticImage
                         alt="icon-5"
                         src="../../../../../images/connector-template/icon-5.png"
-                        layout="constrained"
                     />
                 </Card>
                 <Card
@@ -94,7 +89,6 @@ const TheAutomationCards = () => {
                     <StaticImage
                         alt="icon-6"
                         src="../../../../../images/connector-template/icon-6.png"
-                        layout="constrained"
                     />
                 </Card>
             </ContainerCards>

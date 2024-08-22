@@ -198,7 +198,6 @@ const AboutPage = () => {
                                 alt="Estuary history"
                                 loading="lazy"
                                 src="../images/timeline-img.png"
-                                layout="constrained"
                                 width={508}
                                 height={526}
                                 quality={100}
@@ -249,7 +248,6 @@ const AboutPage = () => {
                                 alt="Engineering podcast"
                                 loading="lazy"
                                 src="../images/engineering-podcast.png"
-                                layout="constrained"
                                 width={342}
                                 height={179}
                                 quality={100}
@@ -275,7 +273,6 @@ const AboutPage = () => {
                                 alt="FirstMark invests in Estuary"
                                 loading="lazy"
                                 src="../images/firstmark-estuary.png"
-                                layout="constrained"
                                 width={342}
                                 height={179}
                                 quality={100}
@@ -301,7 +298,6 @@ const AboutPage = () => {
                                 alt="Data landscape"
                                 loading="lazy"
                                 src="../images/data-landscape.png"
-                                layout="constrained"
                                 width={342}
                                 height={179}
                                 quality={100}
@@ -356,7 +352,6 @@ const AboutPage = () => {
                         alt="Firstmark"
                         loading="lazy"
                         src="../images/firstmark-logo.png"
-                        layout="constrained"
                         width={180}
                         height={48}
                         quality={100}
@@ -366,7 +361,6 @@ const AboutPage = () => {
                         alt="Operator"
                         loading="lazy"
                         src="../images/operator-logo.png"
-                        layout="constrained"
                         width={180}
                         height={48}
                         quality={100}

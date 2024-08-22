@@ -26,7 +26,6 @@ const DiagramSourceConnectors = ({
                             placeholder="none"
                             alt="Oracle logo"
                             src="../../../images/logos/oracle.png"
-                            layout="constrained"
                             loading="eager"
                         />
                     </LogoWrapper>
@@ -38,7 +37,6 @@ const DiagramSourceConnectors = ({
                             placeholder="none"
                             alt="MySQL logo"
                             src="../../../images/logos/my-sql.png"
-                            layout="constrained"
                             loading="eager"
                         />
                     </LogoWrapper>
@@ -50,7 +48,6 @@ const DiagramSourceConnectors = ({
                             placeholder="none"
                             alt="Postgre SQL logo"
                             src="../../../images/logos/postgre-sql.png"
-                            layout="constrained"
                             loading="eager"
                         />
                     </LogoWrapper>
@@ -74,7 +71,6 @@ const DiagramSourceConnectors = ({
                             placeholder="none"
                             alt="Amazon S3 logo"
                             src="../../../images/logos/amazon-s3.png"
-                            layout="constrained"
                             loading="eager"
                         />
                     </LogoWrapper>
@@ -86,7 +82,6 @@ const DiagramSourceConnectors = ({
                             placeholder="none"
                             alt="Google Cloud Storage logo"
                             src="../../../images/logos/google-cloud-storage.png"
-                            layout="constrained"
                             loading="eager"
                         />
                     </LogoWrapper>
@@ -98,7 +93,6 @@ const DiagramSourceConnectors = ({
                             placeholder="none"
                             alt="Azure Blob Storage logo"
                             src="../../../images/logos/azure-blob-storage.png"
-                            layout="constrained"
                             loading="eager"
                         />
                     </LogoWrapper>
@@ -119,7 +113,6 @@ const DiagramSourceConnectors = ({
                             placeholder="none"
                             alt="Netsuite logo"
                             src="../../../images/logos/netsuite.png"
-                            layout="constrained"
                             loading="eager"
                         />
                     </LogoWrapper>
@@ -131,7 +124,6 @@ const DiagramSourceConnectors = ({
                             placeholder="none"
                             alt="Hubspot logo"
                             src="../../../images/logos/hubspot.png"
-                            layout="constrained"
                             loading="eager"
                         />
                     </LogoWrapper>
@@ -143,7 +135,6 @@ const DiagramSourceConnectors = ({
                             placeholder="none"
                             alt="Salesforce logo"
                             src="../../../images/logos/salesforce.png"
-                            layout="constrained"
                             loading="eager"
                         />
                     </LogoWrapper>
@@ -164,7 +155,6 @@ const DiagramSourceConnectors = ({
                             placeholder="none"
                             alt="Google Cloud Pub Sub logo"
                             src="../../../images/logos/google-cloud-pub-sub.png"
-                            layout="constrained"
                             loading="eager"
                         />
                     </LogoWrapper>
@@ -176,7 +166,6 @@ const DiagramSourceConnectors = ({
                             placeholder="none"
                             alt="AWS Kinesis logo"
                             src="../../../images/logos/aws-kinesis.png"
-                            layout="constrained"
                             loading="eager"
                         />
                     </LogoWrapper>
@@ -188,7 +177,6 @@ const DiagramSourceConnectors = ({
                             placeholder="none"
                             alt="Apache Kafka logo"
                             src="../../../images/logos/apache-kafka.png"
-                            layout="constrained"
                             loading="eager"
                         />
                     </LogoWrapper>
