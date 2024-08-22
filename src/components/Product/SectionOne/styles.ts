@@ -28,18 +28,6 @@ export const Cards = styled.div`
     }
 `;
 
-export const ImageWrapper = styled.div`
-    width: 45%;
-
-    @media (max-width: 1024px) {
-        width: 100%;
-    }
-
-    @media (max-width: 768px) {
-        display: none;
-    }
-`;
-
 export const ContainerContent = styled.div`
     display: flex;
     flex-direction: column;
@@ -47,10 +35,6 @@ export const ContainerContent = styled.div`
 `;
 
 export const Title = styled.h1`
-    font-weight: 600;
-    font-size: 3.75rem;
-    line-height: 72px;
-    margin: 0;
     color: #5072eb;
 
     @media (max-width: 768px) {
