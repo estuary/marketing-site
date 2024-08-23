@@ -62,7 +62,7 @@ const SectionOne = () => {
             <MetricCardsList>
                 <MetricCard
                     icon={<ActiveUsersIcon color={metricIconColor} />}
-                    value="3000+"
+                    value="5500+"
                     label="Active users"
                 />
                 <MetricCard
