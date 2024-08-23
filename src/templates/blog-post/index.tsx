@@ -14,7 +14,10 @@ import BlogPostPopupModal from '../../components/BlogPostPopupModal';
 import { ProcessedPost } from '../../components/BlogPostProcessor';
 import { RenderToc } from '../../components/BlogPostToc';
 import Breadcrumbs from '../../components/Breadcrumbs';
-import { OutboundLink } from '../../components/OutboundLink';
+import {
+    OutboundLinkFilled,
+    OutboundLinkOutlined,
+} from '../../components/OutboundLink';
 import Bio from '../../components/bio';
 import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
@@ -145,12 +148,12 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                                     Start streaming your data{' '}
                                                     <span>for free</span>
                                                 </h3>
-                                                <OutboundLink
+                                                <OutboundLinkFilled
                                                     href={dashboardRegisterUrl}
-                                                    className="pipeline-link"
+                                                    target="_blank"
                                                 >
                                                     Build a Pipeline
-                                                </OutboundLink>
+                                                </OutboundLinkFilled>
                                             </div>
                                         </div>
                                     </StraightLinesBackground>
@@ -182,12 +185,9 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                         Start streaming your data{' '}
                                         <span>for free</span>
                                     </h3>
-                                    <OutboundLink
-                                        href={dashboardRegisterUrl}
-                                        className="pipeline-link"
-                                    >
+                                    <OutboundLinkFilled href={dashboardRegisterUrl}>
                                         Build a Pipeline
-                                    </OutboundLink>
+                                    </OutboundLinkFilled>
                                 </div>
                             </div>
                         </div>
@@ -282,18 +282,16 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                 </div>
                             </div>
                             <div className="build-pipeline-and-pricing-buttons">
-                                <OutboundLink
-                                    href={dashboardRegisterUrl}
-                                    className="pipeline-link"
-                                >
+                                <OutboundLinkFilled href={dashboardRegisterUrl}>
                                     Build a Pipeline
-                                </OutboundLink>
-                                <OutboundLink
+                                </OutboundLinkFilled>
+                                <OutboundLinkOutlined
                                     href="https://estuary.dev/pricing"
                                     className="pricing-link"
+                                    theme="dark"
                                 >
                                     See Pricing
-                                </OutboundLink>
+                                </OutboundLinkOutlined>
                             </div>
                         </div>
                     </StraightLinesBackground>

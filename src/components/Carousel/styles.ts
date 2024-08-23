@@ -75,6 +75,15 @@ export const Dot = styled(CircleIcon)`
     cursor: pointer;
     max-width: 20px;
     max-height: 20px;
+    transition: all 80ms ease-in-out;
+
+    &:hover {
+        color: #5072eb;
+    }
+
+    &:active {
+        color: #625eff;
+    }
 `;
 
 export const Arrow = styled.button`
@@ -86,6 +95,20 @@ export const Arrow = styled.button`
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    transition: 80ms ease-in-out;
+
+    &:hover:not(:disabled) {
+        background-color: #625eff;
+
+        .carousel-chevron-icon {
+            color: #ffffff !important;
+        }
+    }
+
+    &:active:not(:disabled) {
+        background-color: #5072eb;
+        border-color: #5072eb;
+    }
 
     &:disabled {
         border-color: #5072eb80;
