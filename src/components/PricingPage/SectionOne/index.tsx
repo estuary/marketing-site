@@ -8,6 +8,7 @@ import {
 } from '../../../globalStyles/sections.module.less';
 import { OutboundLinkFilled } from '../../OutboundLink';
 import { LinkOutlined } from '../../../globalStyles';
+import { dashboardRegisterUrl } from '../../../../shared';
 import {
     container,
     title,
@@ -32,7 +33,7 @@ const SectionOne = () => {
                     <div className={buttonsContainer}>
                         <OutboundLinkFilled
                             target="_blank"
-                            href="https://dashboard.estuary.dev/register"
+                            href={dashboardRegisterUrl}
                         >
                             Build Free Pipeline
                         </OutboundLinkFilled>

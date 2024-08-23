@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { calculatePrice, currencyFormatter } from '../../utils';
 import { OutboundLink } from '../OutboundLink';
+import { dashboardRegisterUrl } from '../../../shared';
 
 const Step7 = ({ activePage }) => {
     return (
@@ -29,7 +30,7 @@ const Step7 = ({ activePage }) => {
                 <div className="step-ctas">
                     <OutboundLink
                         target="_blank"
-                        href="https://dashboard.estuary.dev/register"
+                        href={dashboardRegisterUrl}
                         className="pipeline-link"
                     >
                         Build a Pipeline

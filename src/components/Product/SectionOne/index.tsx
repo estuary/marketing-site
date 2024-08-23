@@ -1,6 +1,6 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
-import { webinarsUrl } from '../../../../shared';
+import { dashboardRegisterUrl, webinarsUrl } from '../../../../shared';
 import { DefaultWrapperDarkBlue } from '../../../styles/wrappers';
 import { sectionOneImageWrapper } from '../../../globalStyles/sections.module.less';
 import Card from './Card';
@@ -32,7 +32,7 @@ const SectionOne = () => {
                         <ButtonsContainer>
                             <PrimaryButton
                                 target="_blank"
-                                href="https://dashboard.estuary.dev/register"
+                                href={dashboardRegisterUrl}
                             >
                                 Build a Pipeline
                             </PrimaryButton>

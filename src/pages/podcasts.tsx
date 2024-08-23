@@ -11,6 +11,7 @@ import SpotifyButton from '../svgs/listen-spotify.svg';
 import SubscribeYoutubeImage from '../svgs/subscribe-image.svg';
 import SubscribeYoutubeButton from '../svgs/subscribe-youtube.svg';
 import WatchYoutubeButton from '../svgs/youtube-watch.svg';
+import { dashboardRegisterUrl } from '../../shared';
 
 const LpPodcats = () => {
     return (
@@ -148,9 +149,7 @@ const LpPodcats = () => {
                             your data
                         </div>
                         <div className="cta-wrap">
-                            <a href="https://dashboard.estuary.dev/register">
-                                Sign up
-                            </a>
+                            <a href={dashboardRegisterUrl}>Sign up</a>
                             <a href="/contact-us" target="_blank">
                                 Contact us
                             </a>

@@ -21,6 +21,7 @@ import Seo from '../../components/seo';
 import logoUrl from '../../images/combination-mark__multi-blue.png';
 import { costPerGB } from '../../utils';
 import ReadingTimeIcon from '../../svgs/time.svg';
+import { dashboardRegisterUrl } from '../../../shared';
 import ShareArticle from './ShareArticle';
 
 dayjs.extend(reltime);
@@ -145,7 +146,7 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                                     <span>for free</span>
                                                 </h3>
                                                 <OutboundLink
-                                                    href="https://dashboard.estuary.dev/register"
+                                                    href={dashboardRegisterUrl}
                                                     className="pipeline-link"
                                                 >
                                                     Build a Pipeline
@@ -182,7 +183,7 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                         <span>for free</span>
                                     </h3>
                                     <OutboundLink
-                                        href="https://dashboard.estuary.dev/register"
+                                        href={dashboardRegisterUrl}
                                         className="pipeline-link"
                                     >
                                         Build a Pipeline
@@ -282,7 +283,7 @@ const BlogPostTemplate = ({ data: { post } }) => {
                             </div>
                             <div className="build-pipeline-and-pricing-buttons">
                                 <OutboundLink
-                                    href="https://dashboard.estuary.dev/register"
+                                    href={dashboardRegisterUrl}
                                     className="pipeline-link"
                                 >
                                     Build a Pipeline

@@ -14,6 +14,7 @@ import {
     globalHeaderLogo,
     globalHeaderTitle,
 } from '../styles.module.less';
+import { dashboardRegisterUrl } from '../../../shared';
 import {
     globalHeader,
     globalHeaderWrapper,
@@ -228,7 +229,7 @@ const Header = ({ fixedHeader }: HeaderProps) => {
                             </OutboundLink>
                             <OutboundLinkFilled
                                 target="_blank"
-                                href="https://dashboard.estuary.dev/register"
+                                href={dashboardRegisterUrl}
                                 className={globalHeaderTryItButton}
                             >
                                 Try it Free

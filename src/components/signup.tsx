@@ -1,4 +1,5 @@
 import React from 'react';
+import { dashboardRegisterUrl } from '../../shared';
 
 const SignUp = () => {
     return (
@@ -8,7 +9,7 @@ const SignUp = () => {
                     <span>See how</span> Estuary can work for you and your data
                 </div>
                 <div className="cta-wrap">
-                    <a href="https://dashboard.estuary.dev/register">Sign up</a>
+                    <a href={dashboardRegisterUrl}>Sign up</a>
                     <a href="https://estuary.dev/contact-us">Contact us</a>
                 </div>
             </div>

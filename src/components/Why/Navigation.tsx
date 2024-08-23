@@ -7,6 +7,7 @@ import {
     globalHeaderLogo,
     globalHeaderTitle,
 } from '../styles.module.less';
+import { dashboardRegisterUrl } from '../../../shared';
 import { navItems } from './utils';
 
 const Navigation = ({ activePage, setActivePage }) => (
@@ -50,7 +51,7 @@ const Navigation = ({ activePage, setActivePage }) => (
         <div className="ctas-wrap">
             <OutboundLink
                 target="_blank"
-                href="https://dashboard.estuary.dev/register"
+                href={dashboardRegisterUrl}
                 className="pipeline-link"
             >
                 Build a Pipeline
