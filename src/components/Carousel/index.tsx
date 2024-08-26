@@ -1,162 +1,135 @@
-import * as React from 'react';
+import React from 'react';
+import { EmblaOptionsType } from 'embla-carousel';
+import useEmblaCarousel from 'embla-carousel-react';
+import CircleIcon from '@mui/icons-material/Circle';
+import clsx from 'clsx';
 import ChevronLeftIcon from '../../svgs/chevron-left.svg';
 import ChevronRightIcon from '../../svgs/chevron-right.svg';
+import { useDotButton } from './hooks/useDotButton';
+import { usePrevNextButtons } from './hooks/usePrevNextButtons';
 import {
-    Arrow,
-    Container,
-    Dot,
-    DotWrapper,
-    Dots,
-    Navigation,
-    Slide,
-    Viewport,
-} from './styles';
+    container,
+    threeItemsSlide,
+    viewport,
+    slideWrapper,
+    slide,
+    arrow,
+    dots,
+    dotWrapper,
+    dot,
+    oneContentSlide,
+    navigation,
+} from './styles.module.less';
 
 type CarouselProps = React.HTMLAttributes<HTMLDivElement> & {
     children: React.ReactNode;
+    options?: EmblaOptionsType;
     hasArrow?: boolean;
     dotColor?: string;
     activeDotColor?: string;
     arrowColor?: string;
+    hasFullWidthSlide?: boolean;
+    hasMultipleItemsSlide?: boolean;
 };
 
 const Carousel = ({
     children,
+    options,
     hasArrow = false,
     dotColor,
     activeDotColor,
     arrowColor = '#FFFFFF',
+    hasFullWidthSlide = false,
+    hasMultipleItemsSlide,
     ...rest
 }: CarouselProps) => {
-    const [currentSlide, setCurrentSlide] = React.useState(0);
-    const [isTransitioning, setIsTransitioning] = React.useState(false);
-    const hasMounted = React.useRef(false);
-    const slideRefs = React.useRef<(HTMLLIElement | null)[]>([]);
-    const isDotClick = React.useRef(false);
+    const [emblaRef, emblaApi] = useEmblaCarousel(options);
 
-    const isLeftArrowDisabled = currentSlide === 0;
-    const isRightArrowDisabled = currentSlide === slideRefs.current.length - 1;
+    const { selectedIndex, scrollSnaps, onDotButtonClick } =
+        useDotButton(emblaApi);
 
-    const observeSlides = React.useCallback(
-        (observer: IntersectionObserver) => {
-            slideRefs.current.forEach((slide) => {
-                if (slide) {
-                    observer.observe(slide);
-                }
-            });
-        },
-        []
-    );
-
-    const createIntersectionObserver = React.useCallback(() => {
-        const observerCallback = (entries: IntersectionObserverEntry[]) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
-                    const index = slideRefs.current.indexOf(
-                        entry.target as HTMLLIElement
-                    );
-                    if (index !== -1) {
-                        setCurrentSlide(index);
-                    }
-                }
-            });
-        };
-
-        return new IntersectionObserver(observerCallback, { threshold: 0.5 });
-    }, []);
-
-    React.useEffect(() => {
-        if (hasMounted.current && slideRefs.current[currentSlide]) {
-            slideRefs.current[currentSlide]?.scrollIntoView({
-                behavior: isDotClick.current ? 'instant' : 'smooth',
-                block: 'nearest',
-                inline: 'center',
-            });
-            isDotClick.current = false;
-        }
-    }, [currentSlide]);
-
-    React.useEffect(() => {
-        const observer = createIntersectionObserver();
-        observeSlides(observer);
-
-        hasMounted.current = true;
-
-        return () => {
-            observer.disconnect();
-        };
-    }, [createIntersectionObserver, observeSlides]);
-
-    const onArrowClick = React.useCallback(
-        (direction: 'left' | 'right') => () => {
-            if (!isTransitioning) {
-                setIsTransitioning(true);
-                const nextSlide =
-                    direction === 'left' ? currentSlide - 1 : currentSlide + 1;
-                setCurrentSlide(nextSlide);
-                setTimeout(() => {
-                    setIsTransitioning(false);
-                }, 500);
-            }
-        },
-        [currentSlide, isTransitioning]
-    );
-
-    const handleDotClick = React.useCallback(
-        (index: number) => {
-            setCurrentSlide(index);
-            isDotClick.current = true;
-        },
-        [isDotClick]
-    );
+    const {
+        prevBtnDisabled,
+        nextBtnDisabled,
+        onPrevButtonClick,
+        onNextButtonClick,
+    } = usePrevNextButtons(emblaApi);
 
     return (
-        <Container aria-label={rest['aria-label']} {...rest}>
-            <Viewport>
-                {React.Children.map(children, (child, index) => (
-                    <Slide
-                        key={`${rest['aria-label']}-${index}}`}
-                        ref={(el) => {
-                            slideRefs.current[index] = el;
-                        }}
-                    >
-                        {child}
-                    </Slide>
-                ))}
-            </Viewport>
-            <Navigation>
+        <div
+            className={clsx(
+                container,
+                hasMultipleItemsSlide ? threeItemsSlide : null
+            )}
+        >
+            <div className={viewport} ref={emblaRef}>
+                <div className={slideWrapper}>
+                    {React.Children.map(children, (child, index) => (
+                        <div
+                            className={clsx(
+                                slide,
+                                hasFullWidthSlide ? oneContentSlide : null
+                            )}
+                            key={index}
+                        >
+                            {child}
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            <div className={navigation}>
                 {hasArrow ? (
-                    <Arrow
-                        onClick={onArrowClick('left')}
-                        disabled={isLeftArrowDisabled}
+                    <button
+                        onClick={onPrevButtonClick}
+                        disabled={prevBtnDisabled}
                         aria-label="previous slide"
+                        className={arrow}
                     >
                         <ChevronLeftIcon color={arrowColor} />
-                    </Arrow>
+                    </button>
                 ) : null}
                 {React.Children.count(children) > 1 ? (
-                    <Dots>
-                        {React.Children.map(children, (_, index) => (
-                            <DotWrapper
-                                $isActive={currentSlide === index}
+                    <ul className={dots}>
+                        {scrollSnaps.map((_, index) => (
+                            <li
+                                className={dotWrapper}
                                 key={`${rest['aria-label']}-dot-${index}}`}
+                                style={{
+                                    backgroundColor:
+                                        selectedIndex === index
+                                            ? '#5072EB'
+                                            : '#FFFFFF',
+                                    color:
+                                        selectedIndex === index
+                                            ? '#5072EB'
+                                            : '#FFFFFF',
+                                    borderColor:
+                                        selectedIndex === index
+                                            ? '#5072EB'
+                                            : '#47506D',
+                                }}
                             >
-                                <Dot onClick={() => handleDotClick(index)} />
-                            </DotWrapper>
+                                <CircleIcon
+                                    className={dot}
+                                    onClick={() => onDotButtonClick(index)}
+                                />
+                            </li>
                         ))}
-                    </Dots>
+                    </ul>
                 ) : null}
                 {hasArrow ? (
-                    <Arrow
-                        onClick={onArrowClick('right')}
-                        disabled={isRightArrowDisabled}
+                    <button
+                        onClick={onNextButtonClick}
+                        disabled={nextBtnDisabled}
                         aria-label="next slide"
+                        className={arrow}
                     >
                         <ChevronRightIcon color={arrowColor} />
-                    </Arrow>
+                    </button>
                 ) : null}
-            </Navigation>
-        </Container>
+            </div>
+        </div>
     );
 };
 

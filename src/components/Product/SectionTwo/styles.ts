@@ -27,8 +27,14 @@ export const Title = styled.h2`
 export const Slide = styled.div`
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
     margin: 0;
+    height: 100%;
+
+    @media (max-width: 900px) {
+        padding: 32px 0;
+    }
 `;
 
 export const SlideTitle = styled.h3`

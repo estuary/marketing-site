@@ -21,11 +21,11 @@ export const ConnectorsGroup = styled.div`
     background-color: #fdfdfe;
 
     &.spacing-left {
-        padding-left: 9%;
+        padding-left: 12%;
     }
 
     &.spacing-right {
-        padding-right: 9%;
+        padding-right: 12%;
     }
 
     &:not(:first-child) {
@@ -42,7 +42,11 @@ export const Connector = styled(Link)`
     transition: transform 0.2s ease-in-out;
     cursor: pointer;
     margin-bottom: -40px !important;
-    max-width: 42px;
+    max-width: 56px;
+
+    @media (max-width: 1280px) {
+        max-width: 32px;
+    }
 
     &:hover {
         transform: translateY(-12px);
@@ -70,8 +74,14 @@ export const LogoWrapper = styled.div`
     min-height: 32px;
     transition: border-color 0.2s ease-in-out;
 
-    @media (max-width: 1024px) {
-        max-width: 32px;
+    @media (max-width: 1280px) {
+        max-width: 36px;
+    }
+
+    @media (max-width: 900px) {
+        max-width: 24px;
+        min-width: 24px;
+        min-height: 24px;
     }
 `;
 

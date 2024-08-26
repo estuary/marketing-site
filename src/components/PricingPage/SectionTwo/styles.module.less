@@ -1,0 +1,39 @@
+@import '../../../globalStyles/sections.module.less';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  align-items: center;
+
+  @media (min-width: 1281px) {
+    .globalMaxWidth;
+  }
+
+  @media (min-width: 1024px) and (max-width: 1280px) {
+    padding: 0 24px;
+  }
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 40px;
+  color: #04192B;
+  margin: 0;
+  padding: 0 20px;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 425px) {
+    font-size: 1.75rem;
+  }
+}
+
+.planCardsWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}

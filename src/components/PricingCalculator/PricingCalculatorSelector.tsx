@@ -77,7 +77,7 @@ export const PricingCalculatorSelector = () => {
                 disabled={selectedConnectors === maxConnectors}
                 aria-label={`increase ${inputLabel}`}
             >
-                <PlusSign />
+                <PlusSign color="#fff" />
             </ButtonPlus>
         </ConnectorsCounterWrapper>
     );

@@ -30,17 +30,30 @@ const SectionThree = () => {
         }
     `);
 
+    const cardsPerSlide = 3;
+
     return (
         <DarkSwoopingLinesLeftDirectionBackground>
             <Wrapper>
                 <SectionTitle>CASE STUDIES</SectionTitle>
-                <Carousel hasArrow aria-label="Case studies carousel">
+                <Carousel
+                    hasArrow
+                    aria-label="Case studies carousel"
+                    hasMultipleItemsSlide
+                >
                     {Array.from(
-                        { length: Math.ceil(allCaseStudies.length / 3) },
+                        {
+                            length: Math.ceil(
+                                allCaseStudies.length / cardsPerSlide
+                            ),
+                        },
                         (_, index) => (
                             <Cards key={index}>
                                 {allCaseStudies
-                                    .slice(index * 3, index * 3 + 3)
+                                    .slice(
+                                        index * cardsPerSlide,
+                                        index * cardsPerSlide + cardsPerSlide
+                                    )
                                     .map((caseStudy) => (
                                         <Card
                                             key={caseStudy.id}

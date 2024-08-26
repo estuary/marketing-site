@@ -61,6 +61,8 @@ const TestimonialsCarousel = ({
             hasArrow
             aria-label="Customer testimonials carousel"
             arrowColor={theme === 'light' ? '#ffffff' : '#47506D'}
+            hasFullWidthSlide
+            options={{ loop: true }}
         >
             {testimonials.map(({ id, logo, name, text }: Testimonial) => {
                 const isImageSvg =

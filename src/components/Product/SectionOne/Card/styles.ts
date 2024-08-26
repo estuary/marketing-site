@@ -71,6 +71,7 @@ export const Description = styled.p`
     font-size: 1rem;
     line-height: 30px;
     margin: 0;
+    color: #ffffff;
 `;
 
 const iconWrapperSizeDesktop = '80px';
