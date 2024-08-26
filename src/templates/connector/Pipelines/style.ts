@@ -1,6 +1,6 @@
-import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
+import { AnchorFilled } from '../../../components/OutboundLink/styles';
 
 export const Wrapper = styled.section`
     ${sectionTopBottomPadding}
@@ -58,17 +58,12 @@ export const Description = styled.h3`
         line-height: 30px;
     }
 `;
-export const Button = styled<any>(Link)`
+
+export const Button = styled<any>(AnchorFilled)`
     width: 100%;
-    text-align: center;
-    border-radius: 4px;
-    padding: 12px 24px;
-    background-color: #5072eb;
-    color: #fff;
 
     @media (min-width: 1024px) {
         width: fit-content;
         padding: 12px 62px;
-        font-size: 16px;
     }
 `;

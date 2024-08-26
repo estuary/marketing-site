@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { OutboundLink } from '../../../components/OutboundLink';
+import { OutboundLinkFilled } from '../../../components/OutboundLink';
 
 import StraightLinesBackground from '../../../components/BackgroundImages/StraightLinesBackground';
 import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
@@ -71,18 +71,10 @@ export const Title = styled.h2`
     }
 `;
 
-export const Button = styled(OutboundLink)`
+export const Button = styled(OutboundLinkFilled)`
     width: 100%;
-    font-weight: 500;
-    text-align: center;
-    border-radius: 4px;
-    padding: 12px 24px;
-    border: 2px solid #625eff;
-    background-color: #5072eb;
-    color: #fff;
 
     @media (min-width: 1280px) {
         width: 189px;
-        font-size: 16px;
     }
 `;

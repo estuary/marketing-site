@@ -1,7 +1,7 @@
 import { FormControl, MenuItem, Select } from '@mui/material';
-import { Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
+import { LinkFilled } from '../../globalStyles';
 
 interface WrapperProps {
     direction?: 'row' | 'column';
@@ -38,7 +38,7 @@ export const ConnectorSelect = styled(Select)`
     }
 `;
 
-export const Menu = styled(MenuItem)`
+export const SelectItem = styled(MenuItem)`
     align-items: start;
 `;
 
@@ -48,7 +48,7 @@ export const Image = styled(GatsbyImage)`
     vertical-align: middle;
 `;
 
-export const Button = styled<any>(Link)`
+export const DetailsButton = styled(LinkFilled)`
     display: block;
     width: 100%;
     text-align: center;

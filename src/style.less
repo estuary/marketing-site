@@ -58,6 +58,7 @@
     --background-color-sharing-button: #ffffff;
     --border-color-sharing-button: #d7dce5;
     --header-link-hover: #5072eb4d;
+    --default-transition: 80ms ease-in-out;
 }
 
 /* HTML elements */
@@ -475,16 +476,6 @@ span {
     gap: 12px;
 }
 
-.global-footer-button {
-    background: transparent;
-    border-radius: 4px;
-    border: 1px solid #b7c6dd;
-    box-shadow: 0px 4px 10px rgba(20, 20, 43, 0.04);
-    color: #b7c6dd;
-    cursor: pointer;
-    padding: 10px;
-}
-
 .global-footer-right {
     display: flex;
     justify-content: space-between;
@@ -574,6 +565,7 @@ span {
 
 .social-icon-footer {
     .social-icon;
+    transition: var(--default-transition);
 
     &:hover {
         color: #b7c6dd99;
@@ -698,6 +690,7 @@ span {
     font-size: large;
     cursor: pointer;
     text-decoration: none;
+    transition: var(--default-transition);
 
     &:not(:last-child) {
         border-right: 1px solid #d7dce5;
@@ -705,6 +698,14 @@ span {
 
     @media (max-width: 950px) {
         flex: 1 1 auto;
+    }
+
+    &:hover {
+        background-color: #d7dce550;
+    }
+
+    &:active {
+        background-color: #d7dce599;
     }
 }
 
@@ -960,6 +961,13 @@ table th {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border: 1px solid transparent;
+    transition: var(--default-transition);
+
+    &:hover {
+        border: 1px solid #5072eb;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    }
 }
 
 .blogs-post-card-tags {
@@ -1372,17 +1380,7 @@ table th {
 }
 
 .about-current-openings-button {
-    background-color: #5072eb;
-    color: #ffffff;
-    text-decoration: none;
-    border-radius: 4px;
-    padding: 10px 10px;
-    width: 206px;
     height: 60px;
-    text-align: center;
-    line-height: 40px;
-    font-style: normal;
-    font-weight: 400;
     font-size: var(--fontSize-1);
 }
 
@@ -1499,25 +1497,18 @@ table th {
     cursor: pointer;
     color: #47506d;
     text-align: center;
+    transition: var(--default-transition);
 
     &:hover {
-        background-color: #5072eb;
+        background-color: #625EFF;
         color: white;
     }
 }
 
 .about-get-in-touch-button {
-    background-color: #5072eb;
-    color: #ffffff;
-    text-decoration: none;
-    border-radius: 4px;
-    padding: 20px 36.5px 20px 36.5px;
     margin-top: 24px;
     width: 240px;
-    text-align: center;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
+    font-size: 1.125rem;
 }
 
 .about-current-openings-description-wrapper {
@@ -1685,10 +1676,12 @@ table th {
 .connector-card {
     background: #f7f9fc;
     border: 1px solid transparent;
+    border-radius: 4px;
     padding: 12px;
     height: 100%;
     display: flex;
     flex-direction: column;
+    transition: var(--default-transition);
 
     &:hover {
         border: 1px solid #5072eb;
@@ -2157,15 +2150,8 @@ table th {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: #5072eb;
-        color: #ffffff;
-        text-decoration: none;
-        border-radius: 4px;
-        padding: 12px;
         width: 100%;
         height: 44px;
-        font-style: normal;
-        font-weight: 400;
         font-size: var(--fontSize-0);
     }
 
@@ -2707,35 +2693,25 @@ table th {
 
     .cta-wrap {
         display: flex;
-        justify-content: space-between;
+        gap: 24px;
         align-items: center;
-        max-width: 287px;
-        margin: 0 auto;
-        width: 100%;
+        justify-content: center;
+        padding: 0 20px;
 
-        @media (max-width: 767px) {
-            max-width: 208px;
+        @media (max-width: 425px) {
+            flex-direction: column;
         }
 
         a {
-            background: #5072eb;
-            border-radius: 6px;
-            padding: 20px 28px;
-            font-weight: 500;
-            font-size: 18px;
-            line-height: 20px;
-            text-align: center;
-            color: #ffffff;
-            text-decoration: none;
+            font-size: 1.125rem;
 
             @media (max-width: 767px) {
-                padding: 12px 18px;
-                font-size: 14px;
-                line-height: 20px;
+                font-size: 1rem;
             }
 
-            &:hover {
-                opacity: 0.9;
+            @media (max-width: 425px) {
+                width: 100%;
+                font-size: 0.875rem;
             }
         }
     }
@@ -3074,30 +3050,17 @@ table th {
     }
 
     .cta-wrap-single {
-        text-align: center;
+        padding: 20px 28px;
+        font-size: 1.125rem;
+        margin: auto;
         margin-top: 55px;
-        margin-bottom: 100px;
+        max-width: 262px;
 
-        @media (max-width: 845px) {
+        @media (max-width: 767px) {
             margin-bottom: 55px;
-        }
-
-        a {
-            background: #5072eb;
-            border-radius: 6px;
-            padding: 20px 28px;
-            font-weight: 500;
-            font-size: 18px;
+            font-size: 0.875rem;
+            padding: 12px 18px;
             line-height: 20px;
-            text-align: center;
-            color: #ffffff;
-            text-decoration: none;
-
-            @media (max-width: 767px) {
-                padding: 12px 18px;
-                font-size: 14px;
-                line-height: 20px;
-            }
         }
     }
 
@@ -4596,19 +4559,8 @@ table th {
         }
 
         a {
-            max-width: 300px;
-            background: #5072eb;
-            border-radius: 4px;
-            color: #ffffff;
-            font-size: 1rem;
-            font-weight: 400;
-            line-height: 20px;
-            padding: 16px;
-            text-align: center;
-            text-decoration: none;
             width: 50%;
-            height: fit-content;
-            text-wrap: nowrap;
+            max-width: 300px;
 
             @media (max-width: 767px) {
                 width: 100%;
@@ -5289,20 +5241,6 @@ table th {
             span {
                 color: #5072eb;
             }
-        }
-
-        a {
-            width: 100%;
-            background: #5072eb;
-            border-radius: 4px;
-            color: #ffffff;
-            font-size: 1rem;
-            font-weight: 400;
-            line-height: 20px;
-            padding: 16px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
         }
     }
 }

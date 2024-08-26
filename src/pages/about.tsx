@@ -15,6 +15,7 @@ import EstuaryLogoSmall from '../svgs/estuary-logo-small.svg';
 import FlowLogo from '../svgs/flow-logo.svg';
 import LinkIcon from '../svgs/link-icon.svg';
 import ContactUsForm from '../components/ContactUsForm';
+import { LinkFilled } from '../globalStyles';
 
 // const jobs = [
 //     {
@@ -401,12 +402,12 @@ const AboutPage = () => {
                             to take the friction out of data engineering.
                         </p>
                     </div>
-                    <Link
+                    <LinkFilled
                         className="about-current-openings-button"
-                        to="#careers"
+                        href="#careers"
                     >
                         Current openings
-                    </Link>
+                    </LinkFilled>
                 </div>
             </div>
             <div className="about-section-three">
@@ -495,12 +496,12 @@ const AboutPage = () => {
                                       </Link>
                                   ))
                                 : null}
-                            <Link
+                            <LinkFilled
                                 className="about-get-in-touch-button"
-                                to="mailto:careers@estuary.dev"
+                                href="mailto:careers@estuary.dev"
                             >
                                 Get in touch to apply
-                            </Link>
+                            </LinkFilled>
                         </div>
                         <div className="about-current-openings-description-wrapper">
                             {jobs.length > 0
@@ -532,12 +533,12 @@ const AboutPage = () => {
                                                       .childHtmlRehype.html
                                               }
                                           />
-                                          <Link
+                                          <LinkFilled
                                               className="about-get-in-touch-button-mobile"
-                                              to="mailto:careers@estuary.dev"
+                                              href="mailto:careers@estuary.dev"
                                           >
                                               Get in touch to apply
-                                          </Link>
+                                          </LinkFilled>
                                           <div className="current-openings-divider" />
                                       </div>
                                   ))
