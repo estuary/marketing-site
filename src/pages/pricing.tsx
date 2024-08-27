@@ -6,6 +6,7 @@ import {
     SectionOne,
     SectionTwo,
     SectionThree,
+    SectionFour,
 } from '../components/PricingPage';
 
 const PricingPage = () => {
@@ -14,6 +15,7 @@ const PricingPage = () => {
             <SectionOne />
             <SectionTwo />
             <SectionThree />
+            <SectionFour />
         </Layout>
     );
 };
@@ -21,9 +23,11 @@ const PricingPage = () => {
 export const Head = () => {
     const { metaImg } = useStaticQuery(graphql`
         query {
-            metaImg: file(relativePath: { eq: "pricing/graphic_parent.png" }) {
+            metaImg: file(
+                relativePath: { eq: "pricing/pay-once-for-new-target-data.png" }
+            ) {
                 childImageSharp {
-                    gatsbyImageData(layout: FIXED, width: 618)
+                    gatsbyImageData(layout: FIXED, width: 670)
                 }
             }
         }

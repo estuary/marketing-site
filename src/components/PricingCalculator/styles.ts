@@ -15,6 +15,7 @@ export const Container = styled.div`
     border-radius: 16px;
     padding: 28px;
     background-color: #fff;
+    min-height: 697px;
 
     .sub-section-title {
         font-size: 1rem;
@@ -140,7 +141,7 @@ export const SliderWrapper = styled.div`
     width: 100%;
     max-height: 32px;
     max-width: 90%;
-    margin: auto;
+    margin: 0 auto;
 `;
 
 export const EstuaryPrice = styled.div`

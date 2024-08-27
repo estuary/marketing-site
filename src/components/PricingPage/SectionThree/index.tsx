@@ -18,7 +18,7 @@ const SectionThree = () => {
                     <p className={description}>
                         Use our intuitive pricing calculator to easily estimate
                         your monthly costs. Simply input your requirements, and
-                        we'll provide a clear breakdown of your expenses,
+                        we&apos;ll provide a clear breakdown of your expenses,
                         helping you choose the best plan to fit your budget and
                         needs.
                     </p>
