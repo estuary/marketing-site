@@ -28,6 +28,7 @@
     --spacing-20: 5rem;
     --spacing-24: 6rem;
     --spacing-32: 8rem;
+    --font-family: "Inter", sans-serif;
     --fontWeight-normal: 400;
     --fontWeight-bold: 600;
     --fontWeight-bolder: 700;
@@ -80,7 +81,7 @@ html {
 }
 
 body {
-    font-family: "Inter", sans-serif;
+    font-family: var(--font-family);
     font-size: var(--fontSize-1);
     color: var(--color-text);
     width: 100%;
@@ -140,10 +141,12 @@ h1 {
 h2 {
     font-size: var(--fontSize-5);
     font-weight: var(--fontWeight-white);
+    margin: 0;
 }
 
 h3 {
     font-size: var(--fontSize-4);
+    margin: 0;
 }
 
 h4 {

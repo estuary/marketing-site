@@ -17,11 +17,7 @@ const SectionNine = () => {
                 subtitle="Estuary customers not only do 4x more. They also spend 2-5x less on ETL and ELT. Flow’s unique ability to mix and match streaming and batch loading has also helped customers save as much as 40% on data warehouse compute costs."
                 image={
                     // TODO: Move the pricing calculator's styles from styled-components to LESS
-                    <PricingCalculator.Provider isDarkTheme>
-                        <PricingCalculator.Slider title="Pricing Calculator" />
-                        <PricingCalculator.Selector />
-                        <PricingCalculator.Comparison />
-                    </PricingCalculator.Provider>
+                    <PricingCalculator />
                 }
                 isDarkTheme
                 link={{

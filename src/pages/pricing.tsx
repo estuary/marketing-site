@@ -2,13 +2,18 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/Layout';
 import Seo from '../components/seo';
-import { SectionOne, SectionTwo } from '../components/PricingPage';
+import {
+    SectionOne,
+    SectionTwo,
+    SectionThree,
+} from '../components/PricingPage';
 
 const PricingPage = () => {
     return (
         <Layout>
             <SectionOne />
             <SectionTwo />
+            <SectionThree />
         </Layout>
     );
 };
