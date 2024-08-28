@@ -7,17 +7,38 @@ import {
 import styled from 'styled-components';
 import { ButtonFilled } from '../../globalStyles';
 
-type Theme = { $isDarkTheme: boolean };
+export const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    border: 1px solid #d5ddf8;
+    border-radius: 16px;
+    padding: 28px;
+    background-color: #fff;
+    min-height: 697px;
 
-export const PricingSlider = muiStyled(Slider)(({
-    isdarktheme,
-}: {
-    isdarktheme: 'true' | 'false';
-}) => {
+    .sub-section-title {
+        font-size: 1rem;
+        font-weight: 700;
+        line-height: 19.2px;
+        color: #47506d;
+    }
+
+    .highlighted-card {
+        background-color: #5072eb12;
+        border: 1px solid #5072eb;
+        border-radius: 16px;
+        padding: 16px 32px;
+        color: #5072eb;
+        display: flex;
+        flex-direction: column;
+    }
+`;
+
+export const PricingSlider = muiStyled(Slider)(() => {
     return {
         'color': '#5272EB',
         'width': '100%',
-        'paddingTop': '18px !important',
         'borderRadius': 3,
         'boxSizing': 'border-box',
 
@@ -34,69 +55,105 @@ export const PricingSlider = muiStyled(Slider)(({
             },
         },
         '& .MuiSlider-track': {
-            height: 8,
+            height: 6,
         },
         '& .MuiSlider-rail': {
             color: '#B9C7F7',
             opacity: 1,
-            height: 8,
+            height: 6,
             width: '101%',
             borderRadius: 3,
             left: 0,
         },
-        '& .MuiSlider-mark': {
-            color: '#D9D9D9',
-            backgroundColor: '#D9D9D9 !important',
-            height: '15px',
-            width: '3px',
-            top: '6%',
-        },
         '& .MuiSlider-markLabel': {
-            'top': '-32px',
+            'fontFamily': '"Inter", sans-serif',
+            'top': '-60px',
             'fontSize': '1.25rem',
             'fontWeight': 500,
-            'color': isdarktheme === 'true' ? '#FFFFFF' : '#47506D', // To write it to DOM, we need to treat the boolean as string for this specific case
+            'color': '#47506D',
 
-            '@media (max-width: 425px)': {
+            '@media (max-width: 1200px)': {
+                fontSize: '1rem',
+            },
+
+            '@media (max-width: 540px)': {
                 fontSize: '0.875rem',
             },
+
+            '@media (max-width: 400px)': {
+                fontSize: '0.75rem',
+            },
+        },
+        '& > .MuiSlider-mark': {
+            color: '#5072EB50',
+            backgroundColor: '#5072EB50 !important',
+            height: '15px',
+            width: '2.5px',
+            top: '-12px',
+        },
+        '& > .MuiSlider-mark:nth-of-type(5n + 3)': {
+            height: '24px',
+            top: '-17px',
         },
     };
 });
 
-export const CalculatorTitle = styled.h3`
-    color: #5072eb;
-    font-size: 2rem;
-    font-weight: 700;
-    text-align: center;
-    margin: 0;
+export const Header = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    padding: 8px 0 60px 0;
+
+    @media (max-width: 425px) {
+        flex-direction: column;
+        gap: 16px;
+    }
 `;
 
-export const CalculatorSubtitle = styled.p<Theme>`
-    color: ${(props) => (props.$isDarkTheme ? '#FFFFFF' : '#47506d')};
+export const TextWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 333px;
+`;
+
+export const GbInput = styled(OutlinedInput)`
+    font-family: var(--font-family);
+    color: #47506d;
+    font-weight: 500;
+    height: 52px;
+    max-width: 119px;
+    border: 1px solid #d7dce5;
+    border-radius: 4px;
+
+    @media (max-width: 425px) {
+        max-width: 100%;
+        width: 100%;
+    }
+`;
+
+export const Description = styled.p`
+    color: '#47506d';
     margin: 0;
-    padding: 8px 0 60px 0;
     font-size: 1rem;
     font-weight: 400;
-    line-height: 22px;
-    text-align: center;
+    line-height: 20px;
 `;
 
 export const SliderWrapper = styled.div`
     width: 100%;
-    min-width: 280px;
-
-    @media (max-width: 525px) {
-        padding: 0 20px;
-    }
+    max-height: 32px;
+    max-width: 90%;
+    margin: 0 auto;
 `;
 
-export const ComparisonWrapper = styled.div`
+export const EstuaryPrice = styled.div`
     display: flex;
+    flex-direction: column;
     align-items: start;
     justify-content: center;
     width: 100%;
-    margin-top: 32px;
     gap: 24px;
     min-height: 169px;
 
@@ -115,66 +172,68 @@ export const ComparisonWrapper = styled.div`
     }
 `;
 
-export const BrandWrapper = styled.div<Theme>`
+export const PriceComparisons = styled.div`
     display: flex;
     flex-direction: column;
+    gap: 12px;
+`;
+
+export const Comparisons = styled.div`
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (max-width: 768px) or ((min-width: 1025px) and (max-width: 1400px)) {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+`;
+
+export const BrandWrapper = styled.div`
+    display: flex;
     align-items: center;
     gap: 10px;
     width: 100%;
-    max-width: 180px;
-    margin: auto 0;
-
-    &:first-child {
-        background-color: #5072eb12;
-        border: 1px solid #5072eb;
-        border-radius: 16px;
-        padding: 16px 32px;
-        color: #5072eb;
-
-        span {
-            color: ${(props) => (props.$isDarkTheme ? '#FFFFFF' : '#04192b')};
-
-            &:first-child {
-                font-size: 1.5rem;
-                font-weight: 700;
-            }
-        }
-
-        h4 {
-            color: #5072eb;
-        }
-    }
+    flex-wrap: wrap;
 
     @media (max-width: 525px) {
         gap: 4px;
         max-width: 100%;
     }
+
+    .highlighted-brand-price {
+        font-size: 1.25rem;
+
+        span {
+            font-weight: 600;
+            font-size: 2rem;
+            line-height: 38.4px;
+        }
+    }
 `;
 
-export const BrandName = styled.h4<Theme>`
-    color: ${(props) => (props.$isDarkTheme ? '#FFFFFF' : '#04192b')};
-    font-weight: 700;
-    line-height: 22px;
+export const BrandName = styled.span`
+    color: '#04192b';
+    font-weight: 400;
     font-size: 1rem;
-    margin: 0;
 
     @media (max-width: 425px) {
         font-size: 0.875rem;
     }
 `;
 
-export const BrandPrice = styled.span<Theme>`
-    color: ${(props) => (props.$isDarkTheme ? '#FFFFFF' : '#47506d')};
+export const BrandPrice = styled.span`
+    color: #47506d;
     font-size: 1rem;
-    font-weight: 400;
-    line-height: 22px;
+    font-weight: 500;
+    line-height: 24px;
     display: inline-block;
     white-space: nowrap;
     text-align: center;
 
     span {
-        font-weight: 700;
-        color: ${(props) => (props.$isDarkTheme ? '#FFFFFF' : '#04192b')};
+        color: #04192b;
     }
 
     @media (max-width: 425px) {
@@ -182,11 +241,36 @@ export const BrandPrice = styled.span<Theme>`
     }
 `;
 
-export const ConnectorsCounterWrapper = styled.div`
+export const BrandDetails = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 24px;
+`;
+
+export const Detail = styled.div`
+    font-size: 0.875rem;
+    color: #47506d;
+    line-height: 16.8px;
+
+    span {
+        font-weight: 600;
+    }
+`;
+
+export const ConnectorsCounter = styled.div`
+    display: flex;
+    gap: 28px;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (max-width: 425px) {
+        flex-direction: column;
+    }
+`;
+
+export const Selector = styled.div`
     display: flex;
     gap: 16px;
-    margin-top: 16px;
-    width: 100%;
     align-items: center;
     justify-content: center;
 `;
@@ -199,6 +283,11 @@ const BaseButtonsStyling = `
   width: 52px;
   height: 52px;
   padding: 0;
+
+  @media (max-width: 425px) {
+        min-width: 52px;
+        min-height: 52px;
+    }
 `;
 
 export const ButtonMinus = styled(ButtonFilled)`
@@ -210,19 +299,16 @@ export const ButtonPlus = styled(ButtonFilled)`
 `;
 
 export const Form = styled(FormControl)`
-    max-width: 185px !important;
-    width: 100%;
+    max-width: 85px;
 
-    & > .MuiInputLabel-outlined {
-        color: #04192b;
-        width: 100%;
-        text-align: center;
-        left: 4.5%;
+    @media (max-width: 425px) {
+        max-width: 100%;
     }
 `;
 
 export const CountInput = styled(OutlinedInput)`
-    max-width: 185px;
+    font-family: var(--font-family);
+    max-width: 85px;
     height: 52px;
     border: 0;
     font-size: 1.25rem;
@@ -230,13 +316,17 @@ export const CountInput = styled(OutlinedInput)`
     font-weight: 500;
     box-shadow: none;
 
-    & > .MuiOutlinedInput-notchedOutline {
-        border-color: #d7dce5;
-        text-align: center;
-        padding: 0 8%;
-
-        @media (min-width: 425px) {
-            padding: 0 24px;
-        }
+    @media (max-width: 1280px) {
+        font-size: 1rem;
     }
+
+    @media (max-width: 425px) {
+        max-width: 100%;
+    }
+`;
+
+export const Divider = styled.div`
+    width: 100%;
+    height: 1px;
+    border: 1px solid #d5ddf8;
 `;

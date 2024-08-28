@@ -10,7 +10,6 @@ const Step3 = ({ activePage, setState }) => {
                     alt="Data Engineering Podcast"
                     loading="lazy"
                     src="../../images/flow-images/step3-image.png"
-                    layout="constrained"
                     width={950}
                     height={597}
                     quality={100}

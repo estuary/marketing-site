@@ -4,6 +4,7 @@ import LatencyIcon from '../../../svgs/metric-latency.svg';
 import SingleDataflowIcon from '../../../svgs/metric-single-dataflow.svg';
 import MetricCard from '../../MetricCard';
 import VanityLogosMarquee from '../../VanityLogosMarquee';
+import { dashboardRegisterUrl } from '../../../../shared';
 import AnimFallback from './AnimFallback';
 import AnimatedHero from './AnimatedHero';
 import {
@@ -39,7 +40,7 @@ const SectionOne = () => {
                     <HomepageHeadingButtons>
                         <PrimaryButton
                             target="_blank"
-                            href="https://dashboard.estuary.dev/register"
+                            href={dashboardRegisterUrl}
                             className="homepage-section-one-button"
                         >
                             Build a Pipeline

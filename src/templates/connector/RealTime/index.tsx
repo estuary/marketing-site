@@ -1,6 +1,7 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
+import { dashboardRegisterUrl } from '../../../../shared';
 import {
     Button,
     Container,
@@ -19,10 +20,7 @@ const RealTime = () => {
                         Deliver <span>real-time</span> and <span>batch</span>{' '}
                         data from DBs, SaaS, APIs, and more
                     </Title>
-                    <Button
-                        target="_blank"
-                        href="https://dashboard.estuary.dev/register"
-                    >
+                    <Button target="_blank" href={dashboardRegisterUrl}>
                         Build Free Pipeline
                     </Button>
                 </Content>

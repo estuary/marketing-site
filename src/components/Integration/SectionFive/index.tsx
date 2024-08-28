@@ -3,6 +3,7 @@ import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.le
 import FlowDemoVideo from '../../FlowDemoVideo';
 import { OutboundLinkFilled } from '../../OutboundLink';
 import { LinkOutlined } from '../../../globalStyles';
+import { dashboardRegisterUrl } from '../../../../shared';
 import {
     buttonsWrapper,
     container,
@@ -24,7 +25,7 @@ const SectionFive = () => {
                 <FlowDemoVideo />
                 <div className={buttonsWrapper}>
                     <OutboundLinkFilled //TODO: move the styles of this button to LESS
-                        href="https://dashboard.estuary.dev/register"
+                        href={dashboardRegisterUrl}
                         target="_blank"
                     >
                         Try Now

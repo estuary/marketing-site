@@ -9,6 +9,7 @@ import SignUp from '../components/signup';
 import { estuaryAllowsEnterprises } from '../content/seo';
 import { globalMaxWidth, sectionTopBottomPadding } from '../globalStyles';
 import EstuaryLogo from '../svgs/colored-logo.svg';
+import { dashboardRegisterUrl } from '../../shared';
 import { OutboundLinkFilled } from '../components/OutboundLink';
 
 export const AboutUsWrapper = styled.div`
@@ -164,7 +165,7 @@ const ComparisonPageTemplate = ({
                     </div>
                     <OutboundLinkFilled
                         className="cta-wrap-single"
-                        href="https://dashboard.estuary.dev/register"
+                        href={dashboardRegisterUrl}
                     >
                         Build a Pipeline
                     </OutboundLinkFilled>

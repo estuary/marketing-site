@@ -1,4 +1,5 @@
 import React from 'react';
+import { dashboardRegisterUrl } from '../../shared';
 import { LinkFilled } from '../globalStyles';
 import { OutboundLinkFilled } from './OutboundLink';
 
@@ -11,7 +12,7 @@ const SignUp = () => {
                 </div>
                 <div className="cta-wrap">
                     <OutboundLinkFilled
-                        href="https://dashboard.estuary.dev/register"
+                        href={dashboardRegisterUrl}
                         target="_blank"
                     >
                         Sign up

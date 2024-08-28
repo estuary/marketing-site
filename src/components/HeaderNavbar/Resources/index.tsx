@@ -5,7 +5,6 @@ import { graphql, useStaticQuery } from 'gatsby';
 import clsx from 'clsx';
 import { webinarsUrl } from '../../../../shared';
 import { LinkOutlined } from '../../../globalStyles';
-import Carousel from '../../Carousel';
 import { OutboundLinkOutlined } from '../../OutboundLink';
 import Card from '../Card';
 import CardItem from '../CardItem';
@@ -18,6 +17,7 @@ import {
     Slide,
 } from '../styles';
 import { hideOnMobile, longLinkList } from '../styles.module.less';
+import Carousel from '../../Carousel';
 import { listen, read } from './items';
 import ResourcesLink from './Link';
 
@@ -94,7 +94,7 @@ const HeaderNavbarResources = ({ active, setActive }) => {
                         title="TOURS"
                         onlyContent
                     >
-                        <Carousel aria-label="Tours carousel">
+                        <Carousel aria-label="Tours carousel" hasFullWidthSlide>
                             <Slide key="header-carousel-tour-1">
                                 <ImageWrapper>
                                     <StaticImage

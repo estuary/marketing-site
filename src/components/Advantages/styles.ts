@@ -15,7 +15,7 @@ export const Container = styled.section<{ $isImageOnTheLeft: boolean }>`
     flex-direction: ${(props) =>
         props.$isImageOnTheLeft ? 'row-reverse' : 'row'};
 
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
         flex-direction: column-reverse;
         gap: 40px;
     }
@@ -45,7 +45,11 @@ export const LeftColumn = styled.div`
     display: flex;
     flex-direction: column;
     gap: 24px;
-    max-width: 620px;
+    max-width: 45%;
+
+    @media (max-width: 1024px) {
+        max-width: 100%;
+    }
 `;
 
 export const Title = styled.h2<Theme>`

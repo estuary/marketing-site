@@ -22,7 +22,6 @@ const SectionSix = () => {
                         placeholder="none"
                         alt="Schema evolution options"
                         src="../../../images/schema-evolution-options.png"
-                        layout="constrained"
                     />
                 </LeftColumn>
                 <RightColumn>

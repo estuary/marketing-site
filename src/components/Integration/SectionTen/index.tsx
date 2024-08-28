@@ -2,6 +2,7 @@ import React from 'react';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import OpenHubspotModal from '../../HubSpot/OpenModal';
 import { OutboundLinkFilled } from '../../OutboundLink';
+import { dashboardRegisterUrl } from '../../../../shared';
 import {
     buttonsWrapper,
     container,
@@ -18,7 +19,7 @@ const SectionTen = () => {
                 </h2>
                 <div className={buttonsWrapper}>
                     <OutboundLinkFilled //TODO: move the styles of this button to LESS
-                        href="https://dashboard.estuary.dev/register"
+                        href={dashboardRegisterUrl}
                         target="_blank"
                     >
                         Try Now

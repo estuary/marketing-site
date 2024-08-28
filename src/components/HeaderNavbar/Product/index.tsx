@@ -2,7 +2,6 @@ import { useMediaQuery } from '@mui/material';
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { webinarsUrl } from '../../../../shared';
-import Carousel from '../../Carousel';
 import { OutboundLinkOutlined } from '../../OutboundLink';
 import Card from '../Card';
 import CardItem from '../CardItem';
@@ -14,6 +13,7 @@ import {
     Slide,
 } from '../styles';
 import { hideOnMobile } from '../styles.module.less';
+import Carousel from '../../Carousel';
 import { compare, products } from './items';
 import ProductLink from './Link';
 
@@ -44,7 +44,10 @@ const HeaderNavbarProduct = ({ active, setActive }) => {
                     <CardItem title="PRODUCT" items={products} onlyContent />
                     <CardItem title="COMPARE" items={compare} />
                     <CardItem className={hideOnMobile} title="WEBINARS">
-                        <Carousel aria-label="Webinars carousel">
+                        <Carousel
+                            aria-label="Webinars carousel"
+                            hasFullWidthSlide
+                        >
                             <Slide key="header-carousel-tour-2">
                                 <ImageWrapper>
                                     <StaticImage

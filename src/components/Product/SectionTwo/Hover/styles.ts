@@ -64,9 +64,9 @@ const slideStyles = {
         margin-left: 10vw;
 
         .connectors-groups {
-            max-width: 20vw;
+            max-width: 32vw;
 
-            @media (min-width: 1666px) {
+            @media (min-width: 1024px) {
                 max-width: 320px;
             }
         }

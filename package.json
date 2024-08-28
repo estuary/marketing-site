@@ -20,6 +20,8 @@
     "clsx": "^1.2.1",
     "dayjs": "^1.11.7",
     "dotenv": "^16.0.3",
+    "embla-carousel": "^8.2.0",
+    "embla-carousel-react": "^8.2.0",
     "gatsby": "^5.13.3",
     "gatsby-background-image": "^1.6.0",
     "gatsby-image": "^3.11.0",

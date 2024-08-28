@@ -102,7 +102,6 @@ const SectionTwo = () => {
                 placeholder="none"
                 alt="Estuary Flow streamlines complex data workflows by integrating diverse data sources and destinations"
                 src="../../../images/flow-mobile.png"
-                layout="constrained"
                 quality={100}
                 className="mobile-image"
             />

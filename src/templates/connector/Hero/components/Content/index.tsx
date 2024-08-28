@@ -2,7 +2,7 @@ import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
 import DoneIcon from '@mui/icons-material/Done';
-import { ConnectorType } from '../../../../../../shared';
+import { ConnectorType, dashboardRegisterUrl } from '../../../../../../shared';
 import {
     Button,
     Container,
@@ -29,7 +29,6 @@ const Content = ({ connector }: ContentProps) => {
                     placeholder="none"
                     alt="icon"
                     src="../../../../../images/lp-connector/hero/icon.png"
-                    layout="constrained"
                     width={40}
                     height={40}
                     quality={100}
@@ -69,10 +68,7 @@ const Content = ({ connector }: ContentProps) => {
                     <span>2-5x</span> less than batch ELT
                 </Topic>
             </Topics>
-            <Button
-                target="_blank"
-                href="https://dashboard.estuary.dev/register"
-            >
+            <Button target="_blank" href={dashboardRegisterUrl}>
                 Try it free
             </Button>
         </Container>

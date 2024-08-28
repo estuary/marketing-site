@@ -1,6 +1,7 @@
 import React from 'react';
 import NewsletterSignupForm from '../../NewsletterSignupForm';
 import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
+import { dashboardRegisterUrl } from '../../../../shared';
 import { container, title } from './styles.module.less';
 
 const SectionThree = () => {
@@ -13,7 +14,7 @@ const SectionThree = () => {
                 <NewsletterSignupForm
                     inputPlaceholder="name@company.com"
                     buttonTitle="GET STARTED FOR FREE"
-                    redirectUrl="https://dashboard.estuary.dev/register"
+                    redirectUrl={dashboardRegisterUrl}
                 />
             </div>
         </section>

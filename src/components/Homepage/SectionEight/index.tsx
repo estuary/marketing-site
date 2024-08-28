@@ -36,11 +36,7 @@ const SectionEight = () => {
                     </Button>
                 </LeftColumn>
                 <RightColumn>
-                    <PricingCalculator.Provider>
-                        <PricingCalculator.Slider title="Pricing Calculator" />
-                        <PricingCalculator.Selector />
-                        <PricingCalculator.Comparison />
-                    </PricingCalculator.Provider>
+                    <PricingCalculator />
                 </RightColumn>
             </Wrapper>
         </Container>

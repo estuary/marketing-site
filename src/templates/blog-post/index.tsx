@@ -24,6 +24,7 @@ import Seo from '../../components/seo';
 import logoUrl from '../../images/combination-mark__multi-blue.png';
 import { costPerGB } from '../../utils';
 import ReadingTimeIcon from '../../svgs/time.svg';
+import { dashboardRegisterUrl } from '../../../shared';
 import ShareArticle from './ShareArticle';
 
 dayjs.extend(reltime);
@@ -148,7 +149,7 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                                     <span>for free</span>
                                                 </h3>
                                                 <OutboundLinkFilled
-                                                    href="https://dashboard.estuary.dev/register"
+                                                    href={dashboardRegisterUrl}
                                                     target="_blank"
                                                 >
                                                     Build a Pipeline
@@ -184,7 +185,9 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                         Start streaming your data{' '}
                                         <span>for free</span>
                                     </h3>
-                                    <OutboundLinkFilled href="https://dashboard.estuary.dev/register">
+                                    <OutboundLinkFilled
+                                        href={dashboardRegisterUrl}
+                                    >
                                         Build a Pipeline
                                     </OutboundLinkFilled>
                                 </div>
@@ -281,7 +284,7 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                 </div>
                             </div>
                             <div className="build-pipeline-and-pricing-buttons">
-                                <OutboundLinkFilled href="https://dashboard.estuary.dev/register">
+                                <OutboundLinkFilled href={dashboardRegisterUrl}>
                                     Build a Pipeline
                                 </OutboundLinkFilled>
                                 <OutboundLinkOutlined

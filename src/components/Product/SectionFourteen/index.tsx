@@ -6,6 +6,7 @@ import { DefaultWrapperDark } from '../../../styles/wrappers';
 import CalendarIcon from '../../../svgs/product-page/section-fourteen/calendar.svg';
 import LoginIcon from '../../../svgs/product-page/section-fourteen/login.svg';
 import { OutboundLinkOutlined } from '../../OutboundLink';
+import { dashboardRegisterUrl } from '../../../../shared';
 import {
     BoxDescription,
     BoxTitle,
@@ -36,7 +37,7 @@ const SectionFourteen = () => {
                                 </BoxDescription>
                             </TextWrapper>
                             <OutboundLinkOutlined
-                                href="https://dashboard.estuary.dev/register"
+                                href={dashboardRegisterUrl}
                                 target="_blank"
                             >
                                 <IconWrapper>
@@ -66,7 +67,6 @@ const SectionFourteen = () => {
                             placeholder="none"
                             alt="Rocket image"
                             src="../../../images/product-page/section-fourteen/rocket.png"
-                            layout="constrained"
                         />
                     </ImageWrapper>
                 </Columns>

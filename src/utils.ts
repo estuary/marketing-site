@@ -1,5 +1,13 @@
 // NOTE: We're assuming that the image name follows the convention of
 // (source|materialization)-name
+
+import { Mark } from '@mui/base';
+import {
+    fullPricingPerConnector,
+    halfPricingPerConnector,
+    halfSelfServiceConnectorLimit,
+} from './components/PricingCalculator/shared';
+
 // eslint-disable-next-line no-useless-escape
 const CONNECTOR_IMAGE_RE = /(source|materialize)-([a-z0-9\-]+)/;
 
@@ -48,38 +56,103 @@ export const gByteLabel = (gb: number, maxPrec = 10) => {
     return `${scaledValue.toFixed(Math.min(unitIndex, maxPrec))}${units[unitIndex]}`;
 };
 
-export const scale = (idx) => {
-    const previousMarkIndex = Math.floor(idx - 1);
-    const previousMark = gbPoints[previousMarkIndex];
+export const totalMarks = 21;
 
-    if (idx === previousMarkIndex) {
-        return previousMark;
+export const scale = (idx: number): number => {
+    const segmentLength = (totalMarks - 1) / (gbPoints.length - 1);
+    const segmentIndex = Math.floor((idx - 1) / segmentLength);
+    const segmentStart = segmentIndex * segmentLength + 1;
+    const segmentEnd = (segmentIndex + 1) * segmentLength + 1;
+
+    const startValue = gbPoints[segmentIndex];
+    const endValue = gbPoints[segmentIndex + 1];
+
+    if (segmentIndex >= gbPoints.length - 1) {
+        return startValue;
     }
 
-    const nextMark = gbPoints[previousMarkIndex + 1];
+    const frac = (idx - segmentStart) / (segmentEnd - segmentStart);
 
-    if (!nextMark) {
-        return previousMark;
-    }
-
-    const frac = (idx - 1 - previousMarkIndex) * (nextMark - previousMark);
-
-    return previousMark + frac;
+    return startValue + frac * (endValue - startValue);
 };
 
-export const marks = gbPoints.map((_, index) => ({
-    value: index + 1,
-    label: gByteLabel(scale(index + 1)),
-}));
+export const inverseScale = (gb: number): number => {
+    const segmentLength = (totalMarks - 1) / (gbPoints.length - 1);
+
+    let segmentIndex = 0;
+    for (let i = 0; i < gbPoints.length - 1; i++) {
+        if (gbPoints[i] <= gb && gb <= gbPoints[i + 1]) {
+            segmentIndex = i;
+            break;
+        }
+    }
+
+    const startValue = gbPoints[segmentIndex];
+    const endValue = gbPoints[segmentIndex + 1];
+
+    if (gb === startValue) {
+        return segmentIndex * segmentLength + 1;
+    }
+
+    if (gb === endValue) {
+        return (segmentIndex + 1) * segmentLength + 1;
+    }
+
+    const frac = (gb - startValue) / (endValue - startValue);
+    return segmentIndex * segmentLength + 1 + frac * segmentLength;
+};
+
+const createMarks = (): Mark[] => {
+    const marks: Mark[] = [];
+
+    for (let i = 1; i <= totalMarks; i++) {
+        if ((i - 1) % ((totalMarks - 1) / (gbPoints.length - 1)) === 0) {
+            const gbIndex = Math.floor(
+                (i - 1) / ((totalMarks - 1) / (gbPoints.length - 1))
+            );
+            marks.push({
+                value: i,
+                label: gByteLabel(gbPoints[gbIndex]),
+            });
+        } else {
+            marks.push({
+                value: i,
+                label: '',
+            });
+        }
+    }
+
+    return marks;
+};
+
+export const marks = createMarks();
 
 // eslint-disable-next-line new-cap
 export const currencyFormatter = Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
 });
 
+export const getPricingPerConnectors = (connectors: number): number => {
+    if (connectors <= halfSelfServiceConnectorLimit) {
+        return fullPricingPerConnector * connectors;
+    }
+    const excessConnectors = connectors - 6;
+    return (
+        halfPricingPerConnector * excessConnectors + fullPricingPerConnector * 6
+    );
+};
+
+// The cost is doubled because we want to make sure the user knows that we are
+//  going to charge the user for the CDC data coming IN and OUT
+export const calculateDataCost = (gb: number) => {
+    return costPerGB_calc * 2 * gb;
+};
+
 export const calculatePrice = (gb: number, connectors: number) => ({
-    estuary: costPerGB_calc * gb + 100 * connectors,
+    estuary: calculateDataCost(gb) + getPricingPerConnectors(connectors),
     fivetran:
         1590 +
         45.7 * gb +

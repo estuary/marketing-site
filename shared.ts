@@ -1,6 +1,8 @@
 export const webinarsUrl =
     'https://try.estuary.dev/webinar-estuary101-ondemand';
 
+export const dashboardRegisterUrl = 'https://dashboard.estuary.dev/register';
+
 export const estuaryProductFlowVideoUrl =
     'https://www.youtube.com/embed/hlCh81ZbBik';
 

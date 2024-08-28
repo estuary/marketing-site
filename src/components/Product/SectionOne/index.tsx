@@ -1,7 +1,8 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
-import { webinarsUrl } from '../../../../shared';
+import { dashboardRegisterUrl, webinarsUrl } from '../../../../shared';
 import { DefaultWrapperDarkBlue } from '../../../styles/wrappers';
+import { sectionOneImageWrapper } from '../../../globalStyles/sections.module.less';
 import Card from './Card';
 import {
     ButtonsContainer,
@@ -10,7 +11,6 @@ import {
     ContainerContent,
     Description,
     Header,
-    ImageWrapper,
     PrimaryButton,
     SecondaryButton,
     Title,
@@ -32,7 +32,7 @@ const SectionOne = () => {
                         <ButtonsContainer>
                             <PrimaryButton
                                 target="_blank"
-                                href="https://dashboard.estuary.dev/register"
+                                href={dashboardRegisterUrl}
                             >
                                 Build a Pipeline
                             </PrimaryButton>
@@ -41,15 +41,14 @@ const SectionOne = () => {
                             </SecondaryButton>
                         </ButtonsContainer>
                     </ContainerContent>
-                    <ImageWrapper>
+                    <div className={sectionOneImageWrapper}>
                         <StaticImage
                             src="../../../images/real-time-graphic.png"
                             alt="Real-time ETL with Estuary Flow: Seamlessly move data from source to destination for immediate analysis and actionable insights."
                             placeholder="none"
                             loading="eager"
-                            layout="constrained"
                         />
-                    </ImageWrapper>
+                    </div>
                 </Header>
                 <Cards>
                     <Card

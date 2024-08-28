@@ -12,6 +12,7 @@ import NewsletterSignupForm from '../../NewsletterSignupForm';
 import VanityLogosMarquee from '../../VanityLogosMarquee';
 import { Connector } from '../shared';
 import { LinkOutlined } from '../../../globalStyles';
+import { dashboardRegisterUrl } from '../../../../shared';
 import {
     backgroundImageWraper,
     bgImage,
@@ -60,7 +61,6 @@ const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
                                 placeholder="none"
                                 src="../../../svgs/plugs.svg"
                                 alt="Integration icon"
-                                layout="constrained"
                                 loading="eager"
                             />
                         </div>
@@ -78,7 +78,7 @@ const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
                     <NewsletterSignupForm
                         inputPlaceholder="Email"
                         buttonTitle="Get Started"
-                        redirectUrl="https://dashboard.estuary.dev/register"
+                        redirectUrl={dashboardRegisterUrl}
                     />
                 </div>
                 <div className={columnRight}>

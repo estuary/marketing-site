@@ -53,7 +53,6 @@ const TakeATour = () => {
                                         placeholder="none"
                                         alt="estuary flow product video"
                                         src="../../../images/homepage-product-video.svg"
-                                        layout="constrained"
                                         className="estuary-product-video-thumbnail"
                                     />
                                 </VideoPreviewContainer>
