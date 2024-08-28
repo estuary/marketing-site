@@ -47,7 +47,7 @@ interface PricingCalculatorProps {
 }
 
 const getClampedGBValue = (currentValue: number) => {
-    if (Number.isSafeInteger(currentValue)) {
+    if (!Number.isSafeInteger(currentValue)) {
         return 2;
     }
 
