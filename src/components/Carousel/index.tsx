@@ -19,6 +19,7 @@ import {
     dot,
     oneContentSlide,
     navigation,
+    dotSelected,
 } from './styles.module.less';
 
 type CarouselProps = React.HTMLAttributes<HTMLDivElement> & {
@@ -93,22 +94,11 @@ const Carousel = ({
                     <ul className={dots}>
                         {scrollSnaps.map((_, index) => (
                             <li
-                                className={dotWrapper}
+                                className={clsx(
+                                    dotWrapper,
+                                    selectedIndex === index ? dotSelected : null
+                                )}
                                 key={`${rest['aria-label']}-dot-${index}}`}
-                                style={{
-                                    backgroundColor:
-                                        selectedIndex === index
-                                            ? '#5072EB'
-                                            : '#FFFFFF',
-                                    color:
-                                        selectedIndex === index
-                                            ? '#5072EB'
-                                            : '#FFFFFF',
-                                    borderColor:
-                                        selectedIndex === index
-                                            ? '#5072EB'
-                                            : '#47506D',
-                                }}
                             >
                                 <CircleIcon
                                     className={dot}

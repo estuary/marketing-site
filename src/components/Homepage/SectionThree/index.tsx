@@ -6,6 +6,8 @@ import Carousel from '../../Carousel';
 import Card from './Card';
 import { Cards, SectionTitle, Wrapper } from './styles';
 
+const cardsPerSlide = 3;
+
 const SectionThree = () => {
     const {
         allStrapiCaseStudy: { nodes: allCaseStudies },
@@ -29,8 +31,6 @@ const SectionThree = () => {
             }
         }
     `);
-
-    const cardsPerSlide = 3;
 
     return (
         <DarkSwoopingLinesLeftDirectionBackground>

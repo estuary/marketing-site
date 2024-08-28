@@ -23,7 +23,7 @@ const SectionTwo = () => {
                         hasArrow
                         arrowColor="#47506D"
                         options={{
-                            startIndex: Math.floor((planCards.length - 1) / 2),
+                            startIndex: 1,
                         }}
                     >
                         {planCards}

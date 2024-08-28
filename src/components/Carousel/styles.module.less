@@ -2,6 +2,7 @@
   max-width: 100vw;
   --slide-spacing: 1rem;
   --slide-size: 60%;
+  --active-color: #5072EB;
 }
 
 .threeItemsSlide {
@@ -51,7 +52,7 @@
 
 .arrow {
   background-color: transparent;
-  border: 2px solid #5072eb;
+  border: 2px solid var(--active-color);
   border-radius: 4px;
   padding: 8px 12px;
   display: flex;
@@ -80,6 +81,15 @@
   justify-content: center;
   border: 1px solid;
   border-radius: 50%;
+  background-color: #fff;
+  color: #fff;
+  border-color: #47506D;
+}
+
+.dotSelected {
+  background-color: var(--active-color);
+  color: var(--active-color);
+  border-color: var(--active-color);
 }
 
 .dot {

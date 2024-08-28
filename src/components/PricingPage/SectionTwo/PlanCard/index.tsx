@@ -12,20 +12,14 @@ import {
     divider,
     benefitsList,
     centralizedText,
-    benefitWrapper,
-    benefitIconWrapper,
     price,
     pricingWrapper,
     unit,
-    planTitleStyle,
     planDescriptionStyle,
     highlightedBorder,
     pricePerConnectorWrapper,
-    freeTrialTag,
-    benefitText,
     plusSign,
     benefitsTitle,
-    planTitleWrapper,
 } from './styles.module.less';
 
 interface PlanCardProps {
@@ -54,6 +48,12 @@ const PlanCard = ({
     benefits,
     isFreePlan,
 }: PlanCardProps) => {
+    const LinkComponent = isHighlighted
+        ? OutboundLinkFilled
+        : isFreePlan
+          ? OutboundLinkOutlined
+          : LinkOutlined;
+
     return (
         <div
             className={clsx(
@@ -62,13 +62,11 @@ const PlanCard = ({
             )}
         >
             <div className={header}>
-                <div className={planTitleWrapper}>
+                <div>
                     {icon}
-                    <h3 className={planTitleStyle}>{title}</h3>
+                    <h3>{title}</h3>
                 </div>
-                {isHighlighted ? (
-                    <span className={freeTrialTag}>30-DAY FREE TRIAL</span>
-                ) : null}
+                {isHighlighted ? <span>30-DAY FREE TRIAL</span> : null}
             </div>
             <div className={pricingWrapper}>
                 <span
@@ -98,20 +96,10 @@ const PlanCard = ({
                 ) : null}
             </div>
             <p className={planDescriptionStyle}>{description}</p>
-            <div className={divider} />
-            {isHighlighted ? (
-                <OutboundLinkFilled href={button.href} target="_blank">
-                    {button.title}
-                </OutboundLinkFilled>
-            ) : isFreePlan ? (
-                <OutboundLinkOutlined href={button.href} target="_blank">
-                    {button.title}
-                </OutboundLinkOutlined>
-            ) : (
-                <LinkOutlined href={button.href} target="_blank">
-                    {button.title}
-                </LinkOutlined>
-            )}
+            <hr className={divider} />
+            <LinkComponent href={button.href} target="_blank">
+                {button.title}
+            </LinkComponent>
             {!isFreePlan ? (
                 <span className={benefitsTitle}>
                     Everything in {isHighlighted ? 'Free' : 'Cloud'}, plus:
@@ -119,15 +107,15 @@ const PlanCard = ({
             ) : null}
             <ul className={benefitsList}>
                 {benefits.map((benefit, index) => (
-                    <li key={index} className={benefitWrapper}>
-                        <div className={benefitIconWrapper}>
+                    <li key={index}>
+                        <div>
                             <CheckSvgIcon
                                 color="#00A99D"
                                 width={10}
                                 height={10}
                             />
                         </div>
-                        <p className={benefitText}>{benefit}</p>
+                        <p>{benefit}</p>
                     </li>
                 ))}
             </ul>
