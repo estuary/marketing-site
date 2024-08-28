@@ -5,12 +5,12 @@ import FaqAccordion from './FaqAccordion';
 import { faqs } from './faqs';
 
 const SectionFour = () => {
-    const [expanded, setExpanded] = React.useState<string | false>(false);
+    const [expanded, setExpanded] = React.useState<string | null>(null);
 
     const handleChange =
         (panel: string) =>
         (_event: React.SyntheticEvent, isExpanded: boolean) => {
-            setExpanded(isExpanded ? panel : false);
+            setExpanded(isExpanded ? panel : null);
         };
 
     return (
