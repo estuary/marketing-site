@@ -46,6 +46,16 @@ interface PricingCalculatorProps {
     isDarkTheme?: boolean;
 }
 
+const getClampedGBValue = (currentValue: number) => {
+    if (currentValue < 2) {
+        return 2;
+    } else if (currentValue > 2000) {
+        return 2000;
+    }
+
+    return currentValue;
+};
+
 export const PricingCalculator = ({
     isDarkTheme = false,
 }: PricingCalculatorProps) => {
@@ -87,27 +97,15 @@ export const PricingCalculator = ({
         const inputValue = event.target.value;
 
         if (numericStringRegex.test(inputValue)) {
-            let numericValue = Number(inputValue);
+            const numericValue = Number(inputValue);
 
             setGbInputValue(numericValue.toString());
-
-            if (numericValue < 2) {
-                numericValue = 2;
-            } else if (numericValue > 2000) {
-                numericValue = 2000;
-                setGbInputValue(numericValue.toString());
-            }
-
-            setSelectedGbs(inverseScale(numericValue));
+            setSelectedGbs(inverseScale(getClampedGBValue(numericValue)));
         }
     };
 
     const handleGbInputBlur = () => {
-        let numericValue = Number(gbInputValue);
-
-        if (numericValue < 2) {
-            numericValue = 2;
-        }
+        const numericValue = getClampedGBValue(Number(gbInputValue));
 
         setGbInputValue(numericValue.toString());
         setSelectedGbs(inverseScale(numericValue));
@@ -129,6 +127,7 @@ export const PricingCalculator = ({
                     inputProps={{
                         'aria-label': 'Data moved in GB',
                         'inputMode': 'numeric',
+                        'min': '0',
                     }}
                     value={gbInputValue}
                     onChange={handleGbInputValueChange}
