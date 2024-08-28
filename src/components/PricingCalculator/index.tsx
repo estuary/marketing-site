@@ -193,7 +193,7 @@ export const PricingCalculator = ({
             {selectedConnectors === maxConnectors ||
             selectedGbs === totalMarks ? (
                 <OpenHubspotModal
-                    buttonLabel="Need More?"
+                    buttonLabel="Need More? Contact us"
                     buttonId="section-one-hubspot"
                 />
             ) : (
@@ -211,10 +211,10 @@ export const PricingCalculator = ({
                             </BrandPrice>
                             <BrandDetails>
                                 <Detail>
-                                    <span>248 GB</span> of data moved
+                                    <span>{gbInputValue}GB</span> of data moved
                                 </Detail>
                                 <Detail>
-                                    <span>2</span> connectors
+                                    <span>{selectedConnectors}</span> connectors
                                 </Detail>
                             </BrandDetails>
                         </BrandWrapper>

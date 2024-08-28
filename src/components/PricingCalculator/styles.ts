@@ -72,6 +72,10 @@ export const PricingSlider = muiStyled(Slider)(() => {
             'fontWeight': 500,
             'color': '#47506D',
 
+            '@media (max-width: 1200px)': {
+                fontSize: '1rem',
+            },
+
             '@media (max-width: 540px)': {
                 fontSize: '0.875rem',
             },
@@ -179,6 +183,11 @@ export const Comparisons = styled.div`
     gap: 24px;
     align-items: center;
     justify-content: space-between;
+
+    @media (max-width: 768px) or ((min-width: 1025px) and (max-width: 1400px)) {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
 `;
 
 export const BrandWrapper = styled.div`
@@ -306,6 +315,10 @@ export const CountInput = styled(OutlinedInput)`
     font-style: normal;
     font-weight: 500;
     box-shadow: none;
+
+    @media (max-width: 1280px) {
+        font-size: 1rem;
+    }
 
     @media (max-width: 425px) {
         max-width: 100%;
