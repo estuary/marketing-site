@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useMemo, ChangeEvent } from 'react';
 import { InputAdornment } from '@mui/material';
 import {
     calculatePrice,
@@ -40,6 +40,8 @@ import ComparisonCard from './ComparisonCard';
 
 const inputLabel = 'Number of connectors';
 
+const numericStringRegex = /^\d*$/;
+
 interface PricingCalculatorProps {
     isDarkTheme?: boolean;
 }
@@ -47,13 +49,13 @@ interface PricingCalculatorProps {
 export const PricingCalculator = ({
     isDarkTheme = false,
 }: PricingCalculatorProps) => {
-    const [selectedGbs, setSelectedGbs] = React.useState(1);
-    const [selectedConnectors, setSelectedConnectors] = React.useState(2);
-    const [gbInputValue, setGbInputValue] = React.useState(
+    const [selectedGbs, setSelectedGbs] = useState(1);
+    const [selectedConnectors, setSelectedConnectors] = useState(2);
+    const [gbInputValue, setGbInputValue] = useState(
         scale(selectedGbs).toString()
     );
 
-    const prices = React.useMemo(
+    const prices = useMemo(
         () => calculatePrice(scale(selectedGbs), selectedConnectors),
         [selectedGbs, selectedConnectors]
     );
@@ -66,7 +68,7 @@ export const PricingCalculator = ({
         setSelectedConnectors((c) => Math.max(0, c + 1));
 
     const handleCountInputChange = (
-        evt: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+        evt: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
     ) => {
         const value = parseInt(evt.target.value, 10);
 
@@ -81,13 +83,22 @@ export const PricingCalculator = ({
         setGbInputValue(scale(val).toFixed());
     };
 
-    const handleGbInputValueChange = (
-        event: React.ChangeEvent<HTMLInputElement>
-    ) => {
+    const handleGbInputValueChange = (event: ChangeEvent<HTMLInputElement>) => {
         const inputValue = event.target.value;
 
-        if (/^\d*$/.test(inputValue)) {
-            setGbInputValue(inputValue);
+        if (numericStringRegex.test(inputValue)) {
+            let numericValue = Number(inputValue);
+
+            setGbInputValue(numericValue.toString());
+
+            if (numericValue < 2) {
+                numericValue = 2;
+            } else if (numericValue > 2000) {
+                numericValue = 2000;
+                setGbInputValue(numericValue.toString());
+            }
+
+            setSelectedGbs(inverseScale(numericValue));
         }
     };
 
@@ -96,8 +107,6 @@ export const PricingCalculator = ({
 
         if (numericValue < 2) {
             numericValue = 2;
-        } else if (numericValue > 2000) {
-            numericValue = 2000;
         }
 
         setGbInputValue(numericValue.toString());
@@ -131,7 +140,7 @@ export const PricingCalculator = ({
                     value={selectedGbs}
                     min={1}
                     max={totalMarks}
-                    step={0.0001}
+                    step={0.1}
                     valueLabelFormat={(val) => gByteLabel(scale(val))}
                     valueLabelDisplay="auto"
                     marks={marks}
