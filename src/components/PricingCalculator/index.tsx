@@ -210,7 +210,15 @@ export const PricingCalculator = ({
                             </BrandPrice>
                             <BrandDetails>
                                 <Detail>
-                                    <span>{gbInputValue}GB</span> of data moved
+                                    <span>
+                                        {/*This is hacky but works. We only reset the input on blur so while typing they could see incorrect info without this override*/}
+                                        {gbInputValue === '0' ||
+                                        gbInputValue === '1'
+                                            ? '2'
+                                            : gbInputValue}
+                                        GB
+                                    </span>{' '}
+                                    of data moved
                                 </Detail>
                                 <Detail>
                                     <span>{selectedConnectors}</span> connectors
