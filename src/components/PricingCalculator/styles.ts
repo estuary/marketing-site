@@ -32,6 +32,7 @@ export const Container = styled.div`
         color: #5072eb;
         display: flex;
         flex-direction: column;
+        min-height: 99.2px;
     }
 `;
 
@@ -193,6 +194,7 @@ export const Comparisons = styled.div`
 export const BrandWrapper = styled.div`
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     width: 100%;
     flex-wrap: wrap;

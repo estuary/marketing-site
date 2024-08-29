@@ -48,7 +48,7 @@ interface PricingCalculatorProps {
 
 const getClampedGBValue = (currentValue: number) => {
     if (!Number.isSafeInteger(currentValue)) {
-        return 2;
+        return 2000;
     }
 
     if (currentValue < 2) {
@@ -70,6 +70,9 @@ export const PricingCalculator = ({
     const [gbInputValue, setGbInputValue] = useState(
         scale(selectedGbs).toString()
     );
+
+    const estuaryFreeTier =
+        Number(gbInputValue) <= 10 && selectedConnectors <= 2;
 
     const prices = useMemo(
         () => calculatePrice(scale(selectedGbs), selectedConnectors),
@@ -123,7 +126,7 @@ export const PricingCalculator = ({
                 <TextWrapper>
                     <h3 className="sub-section-title">Data moved</h3>
                     <Description>
-                        Choose the amount of data you are going to move.
+                        It&apos;s free up to 10 GB/month and 2 connectors.
                     </Description>
                 </TextWrapper>
                 <GbInput
@@ -209,10 +212,18 @@ export const PricingCalculator = ({
                         </h3>
                         <BrandWrapper className="highlighted-card">
                             <BrandPrice className="highlighted-brand-price">
-                                <span>
-                                    {currencyFormatter.format(prices.estuary)}
-                                </span>{' '}
-                                / month
+                                {estuaryFreeTier ? (
+                                    <span>Free</span>
+                                ) : (
+                                    <>
+                                        <span>
+                                            {currencyFormatter.format(
+                                                prices.estuary
+                                            )}
+                                        </span>{' '}
+                                        / month
+                                    </>
+                                )}
                             </BrandPrice>
                             <BrandDetails>
                                 <Detail>
