@@ -259,8 +259,7 @@ const cfg: GatsbyConfig = {
                 // Note: Only the flexsearch engine supports options.
                 // engineOptions: "default",
 
-                // GraphQL query used to fetch all data for the search index. This is
-                // required.
+                // GraphQL query used to fetch all data for the search index. This is required.
                 query: `
                 {
                     allStrapiBlogPost{
