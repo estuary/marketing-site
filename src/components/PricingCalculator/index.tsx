@@ -48,7 +48,7 @@ interface PricingCalculatorProps {
 
 const getClampedGBValue = (currentValue: number) => {
     if (!Number.isSafeInteger(currentValue)) {
-        return 2;
+        return 2000;
     }
 
     if (currentValue < 2) {
