@@ -22,12 +22,14 @@ export const faqs = [
                     Sourced, Transformed, and Delivered.
                 </p>
                 <p>
-                    <span>2. Connector Fees:</span> First 6 connectors cost
-                    $100/month each, additional connectors are $50/month each.{' '}
-                    <br />
+                    <span>2. Task Usage:</span> A task can be either a capture
+                    or a materialization. First 6 tasks cost $100/month each,
+                    additional tasks are $50/month each.
+                </p>
+                <p>
                     The free tier allows indefinite use with a 10 GB/month limit
-                    for up to 2 connectors. Cloud Plan customers can request a
-                    30-day free trial.
+                    for up to 2 tasks. Cloud Plan customers can request a 30-day
+                    free trial.
                 </p>
             </>
         ),
@@ -49,8 +51,8 @@ export const faqs = [
             <p>
                 For new users or those not wanting to commit to specific data
                 volumes, pay monthly based on actual data usage and active
-                connectors. Payments are processed via Stripe and a credit card
-                can be added.
+                tasks. Payments are processed via Stripe and a credit card can
+                be added.
             </p>
         ),
     },
@@ -79,9 +81,9 @@ export const faqs = [
                             Capture data from any source once. Estuary stores it
                             all in your cloud storage. You&apos;re only billed
                             once for each source, target, and the data you move
-                            at $0.50/GB, with the first 6 connectors at
-                            $100/month per connector, and additional connectors
-                            at $50/month per connector &#40;prorated&#41;.
+                            at $0.50/GB, with the first 6 tasks at $100/month
+                            per task, and additional tasks at $50/month each
+                            &#40;prorated&#41;.
                         </p>
                     </div>
                     <div className={pricingExamplesImageWrapper}>
@@ -125,7 +127,7 @@ export const faqs = [
                 the features of our Cloud Plan. At the end of the trial period,
                 you have the option to upgrade to a paid plan or continue with
                 the Free Plan, which includes a 10GB/month limit for up to 2
-                connectors. No credit card is required to start the free trial.
+                tasks. No credit card is required to start the free trial.
             </p>
         ),
     },

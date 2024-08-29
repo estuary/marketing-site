@@ -38,7 +38,7 @@ import {
 } from './styles';
 import ComparisonCard from './ComparisonCard';
 
-const inputLabel = 'Number of connectors';
+const inputLabel = 'Number of tasks';
 
 const numericStringRegex = /^\d*$/;
 
@@ -126,7 +126,7 @@ export const PricingCalculator = ({
                 <TextWrapper>
                     <h3 className="sub-section-title">Data moved</h3>
                     <Description>
-                        It&apos;s free up to 10 GB/month and 2 connectors.
+                        It&apos;s free up to 10 GB/month and 2 tasks.
                     </Description>
                 </TextWrapper>
                 <GbInput
@@ -159,7 +159,7 @@ export const PricingCalculator = ({
             <Divider />
             <ConnectorsCounter>
                 <h3 className="sub-section-title">
-                    Choose number of connectors
+                    Choose number of sources and destinations.
                 </h3>
                 <Selector>
                     <ButtonMinus
@@ -238,7 +238,7 @@ export const PricingCalculator = ({
                                     of data moved
                                 </Detail>
                                 <Detail>
-                                    <span>{selectedConnectors}</span> connectors
+                                    <span>{selectedConnectors}</span> tasks
                                 </Detail>
                             </BrandDetails>
                         </BrandWrapper>

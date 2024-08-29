@@ -28,7 +28,9 @@ const SectionOne = () => {
                         &apos;monthly active rows.&apos; Get instant back-fills
                         without instant bad-bills. We price predictably, on {''}
                         <span>GB of change data</span> moved per month and {''}
-                        <span>active connectors.</span>
+                        <span>active tasks</span>, which can be either a capture{' '}
+                        {''}
+                        or a materialization.
                     </p>
                     <div className={buttonsContainer}>
                         <OutboundLinkFilled

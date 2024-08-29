@@ -18,7 +18,7 @@ export const plans = [
         },
         isFreePlan: true,
         benefits: [
-            '10GB/month (2 Connectors)',
+            '10GB/month (2 Tasks)',
             'Millisecond Latency',
             'UI & CLI for Editing Pipelines',
             'Incremental Syncing',
@@ -38,7 +38,7 @@ export const plans = [
         },
         isHighlighted: true,
         benefits: [
-            'Up to 12 Connectors',
+            'Up to 12 Tasks',
             'Data Stored in your Cloud',
             '99.9% Uptime SLA',
             'Standard Support (9x5) via Slack/Email',
