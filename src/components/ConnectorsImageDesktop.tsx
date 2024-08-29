@@ -16,7 +16,6 @@ const ConnectorsImageDesktop = () => {
             src="../images/connector-page-icons-desktop.png"
             alt="Connector logos"
             placeholder="none"
-            loading="lazy"
             quality={90}
         />
     );

@@ -8,7 +8,6 @@ const Step1 = ({ activePage, setState }) => {
                 <StaticImage
                     placeholder="none"
                     alt="Data Engineering Podcast"
-                    loading="lazy"
                     src="../../images/flow-images/step1-image.png"
                     width={950}
                     height={597}

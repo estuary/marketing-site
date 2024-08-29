@@ -197,7 +197,6 @@ const AboutPage = () => {
                             <StaticImage
                                 placeholder="none"
                                 alt="Estuary history"
-                                loading="lazy"
                                 src="../images/timeline-img.png"
                                 width={508}
                                 height={526}
@@ -247,7 +246,6 @@ const AboutPage = () => {
                             <StaticImage
                                 placeholder="none"
                                 alt="Engineering podcast"
-                                loading="lazy"
                                 src="../images/engineering-podcast.png"
                                 width={342}
                                 height={179}
@@ -272,7 +270,6 @@ const AboutPage = () => {
                             <StaticImage
                                 placeholder="none"
                                 alt="FirstMark invests in Estuary"
-                                loading="lazy"
                                 src="../images/firstmark-estuary.png"
                                 width={342}
                                 height={179}
@@ -297,7 +294,6 @@ const AboutPage = () => {
                             <StaticImage
                                 placeholder="none"
                                 alt="Data landscape"
-                                loading="lazy"
                                 src="../images/data-landscape.png"
                                 width={342}
                                 height={179}
@@ -351,7 +347,6 @@ const AboutPage = () => {
                     <StaticImage
                         placeholder="none"
                         alt="Firstmark"
-                        loading="lazy"
                         src="../images/firstmark-logo.png"
                         width={180}
                         height={48}
@@ -360,7 +355,6 @@ const AboutPage = () => {
                     <StaticImage
                         placeholder="none"
                         alt="Operator"
-                        loading="lazy"
                         src="../images/operator-logo.png"
                         width={180}
                         height={48}

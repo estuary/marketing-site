@@ -10,7 +10,6 @@ const Topic = ({ Title, Description, Icon }) => {
                 <GatsbyImage
                     alt={Title}
                     image={Icon.localFile.childImageSharp.gatsbyImageData}
-                    loading="lazy"
                 />
             </div>
             <div className="content">

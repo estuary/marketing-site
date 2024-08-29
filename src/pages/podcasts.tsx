@@ -42,7 +42,6 @@ const LpPodcats = () => {
                                 <StaticImage
                                     placeholder="none"
                                     alt="Data Engineering Podcast"
-                                    loading="lazy"
                                     src="../images/lp-podcast/episode-image.webp"
                                     width={550}
                                     height={310}
@@ -81,7 +80,6 @@ const LpPodcats = () => {
                                 <StaticImage
                                     placeholder="none"
                                     alt="The Geek Narrator"
-                                    loading="lazy"
                                     src="../images/lp-podcast/episode-image1.webp"
                                     width={550}
                                     height={310}
