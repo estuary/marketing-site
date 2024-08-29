@@ -16,7 +16,6 @@ const ConnectorsImageMobile = () => {
             src="../images/connector-page-icons-mobile.png"
             alt="Connector logos"
             placeholder="none"
-            loading="lazy"
             quality={80}
         />
     );
