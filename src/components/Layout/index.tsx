@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import * as React from 'react';
-import Footer from '../footer';
+import Footer from '../Footer';
 import Header from '../Header';
 import { globalWrapper, globalMainFixedHeader } from './styles.module.less';
 

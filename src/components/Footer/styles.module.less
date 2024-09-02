@@ -1,0 +1,159 @@
+@import '../../globalStyles/sections.module.less';
+
+footer {
+  .sectionTopBottomPadding;
+
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color-primary);
+}
+
+.globalFooterWrapper {
+  .globalMaxWidth;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  width: 100%;
+
+  @media (max-width: 850px) {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+.globalFooterLogoLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 48px;
+}
+
+.globalFooterTitle {
+  color: #ffffff;
+  font-size: 2rem;
+  line-height: 33px;
+  font-weight: 600;
+  margin-bottom: 9px;
+}
+
+.globalFooterSubtext {
+  max-width: 400px;
+}
+
+.globalFooterSubtext,
+.globalFooterRightLink,
+.globalFooterBottomCopyrightText,
+.globalFooterCopyrightLink {
+  font-size: var(--fontSize-1);
+  color: var(--color-text-light);
+}
+
+.globalFooterRightLink {
+  margin-top: 20px;
+
+  &:hover {
+    text-underline-offset: 4px;
+    text-decoration: underline;
+  }
+}
+
+.globalFooterSubtextTitle {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+
+.globalFooterRight {
+  display: flex;
+  justify-content: space-between;
+  gap: 100px;
+
+  @media (max-width: 930px) {
+    gap: 40px;
+  }
+
+  @media (max-width: 850px) {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+.globalFooterRightLinkWrapper {
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 850px) {
+    margin-top: 32px;
+  }
+}
+
+.globalFooterBottom {
+  .globalMaxWidth;
+
+  color: var(--color-text-light);
+  margin-top: 75px;
+  width: 100%;
+
+  @media (max-width: 850px) {
+    margin-top: 25px;
+  }
+}
+
+.globalFooterDivider {
+  margin-top: 80px;
+
+  @media (max-width: 850px) {
+    margin-bottom: 16px;
+    margin-top: 32px;
+  }
+}
+
+.globalFooterBottomWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: 850px) {
+    flex-wrap: wrap-reverse;
+    column-gap: 20px;
+  }
+
+  @media (max-width: 709px) {
+    justify-content: center;
+    gap: 8px;
+  }
+}
+
+.globalFooterBottomCopyright {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  &>a {
+      font-weight: 500;
+
+      &:hover {
+          text-underline-offset: 4px;
+          text-decoration: underline;
+      }
+  }
+}
+
+.globalFooterCopyrightLink {
+  color: var(--color-text-light);
+}
+
+.globalFooterBottomSocial {
+  display: flex;
+  gap: 32px;
+}
+
+.socialIconFooter {
+  transition: var(--default-transition);
+
+  &:hover {
+      color: #b7c6dd99;
+  }
+}
