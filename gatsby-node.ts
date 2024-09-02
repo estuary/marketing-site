@@ -2,6 +2,7 @@
 import pg from 'pg';
 import { GatsbyNode } from 'gatsby';
 import { createRemoteFileNode } from 'gatsby-source-filesystem';
+import FilterWarningsPlugin from 'webpack-filter-warnings-plugin';
 import { SUPABASE_CONNECTION_STRING } from './config';
 import { normalizeConnector } from './src/utils';
 
@@ -443,5 +444,16 @@ export const createResolvers: GatsbyNode['createResolvers'] = async ({
                 },
             },
         },
+    });
+};
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+    actions.setWebpackConfig({
+        plugins: [
+            new FilterWarningsPlugin({
+                exclude:
+                    /mini-css-extract-plugin[^]*Conflicting order. Following module has been added:/,
+            }),
+        ],
     });
 };
