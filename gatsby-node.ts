@@ -447,7 +447,7 @@ export const createResolvers: GatsbyNode['createResolvers'] = async ({
     });
 };
 
-exports.onCreateWebpackConfig = ({ actions }) => {
+export const onCreateWebpackConfig = ({ actions }) => {
     actions.setWebpackConfig({
         plugins: [
             new FilterWarningsPlugin({
