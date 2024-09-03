@@ -10,6 +10,7 @@ import TwitterIcon from '../../svgs/twitter-outline.svg';
 import { ButtonOutlinedPrimary } from '../../globalStyles';
 import NewsletterSignupForm from '../NewsletterSignupForm';
 import {
+    footer,
     globalFooterWrapper,
     globalFooterLogoLink,
     globalFooterTitle,
@@ -45,7 +46,7 @@ const openCookiePreferences = () => {
 
 const Footer = () => {
     return (
-        <footer>
+        <footer className={footer}>
             <div className={globalFooterWrapper}>
                 <div>
                     <Link className={globalFooterLogoLink} to="/">
