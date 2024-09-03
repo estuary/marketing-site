@@ -14,8 +14,8 @@ const SectionOne = () => {
                     target="__blank"
                 >
                     click here
-                </OutboundLink>
-                .
+                </OutboundLink>{' '}
+                to open it in a new tab.
             </p>
         </section>
     );
