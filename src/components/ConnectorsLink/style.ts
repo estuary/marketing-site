@@ -39,7 +39,7 @@ export const ConnectorSelect = styled(Select)`
 `;
 
 export const SelectItem = styled(MenuItem)`
-    align-items: start;
+    align-items: flex-start;
 `;
 
 export const Image = styled(GatsbyImage)`

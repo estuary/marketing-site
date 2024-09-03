@@ -114,7 +114,6 @@ export const Topic = styled.li`
     margin: 0;
     color: #47506d;
     display: flex;
-    align-items: start;
     gap: 20px;
 
     @media (min-width: 1280px) {
