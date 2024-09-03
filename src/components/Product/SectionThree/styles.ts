@@ -98,8 +98,6 @@ export const Subtitle = styled.p`
 `;
 
 export const KeyFeaturesListLeft = styled.div`
-    align-items: end;
-
     @media (min-width: 811px) {
         & > div:first-child {
             margin-right: -48px;
@@ -112,8 +110,6 @@ export const KeyFeaturesListLeft = styled.div`
 `;
 
 export const KeyFeaturesListRight = styled.div`
-    align-items: start;
-
     @media (min-width: 811px) {
         & > div:first-child {
             margin-left: -48px;

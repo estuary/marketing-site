@@ -445,3 +445,16 @@ export const createResolvers: GatsbyNode['createResolvers'] = async ({
         },
     });
 };
+
+export const onCreateWebpackConfig = ({ stage, actions, getConfig }) => {
+    if (['build-javascript', 'develop'].includes(stage)) {
+        const config = getConfig();
+        const miniCssExtractPlugin = config.plugins.find(
+            (plugin) => plugin.constructor.name === 'MiniCssExtractPlugin'
+        );
+        if (miniCssExtractPlugin) {
+            miniCssExtractPlugin.options.ignoreOrder = true;
+        }
+        actions.replaceWebpackConfig(config);
+    }
+};

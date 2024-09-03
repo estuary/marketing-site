@@ -151,7 +151,6 @@ export const SliderWrapper = styled.div`
 export const EstuaryPrice = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: start;
     justify-content: center;
     width: 100%;
     gap: 24px;

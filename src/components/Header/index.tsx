@@ -207,7 +207,7 @@ const Header = ({ fixedHeader }: HeaderProps) => {
                                 className={headerSocialIcon}
                                 aria-label="Slack Invite Link"
                             >
-                                <SlackIcon className="social-icon" />
+                                <SlackIcon className="socialIcon" />
                             </OutboundLink>
                             <OutboundLink
                                 target="_blank"
@@ -215,7 +215,7 @@ const Header = ({ fixedHeader }: HeaderProps) => {
                                 className={headerSocialIcon}
                                 aria-label="Github Repo Link"
                             >
-                                <GithubIcon className="social-icon" />
+                                <GithubIcon className="socialIcon" />
                             </OutboundLink>
                         </div>
                         <div className={globalHeaderLoginTry}>

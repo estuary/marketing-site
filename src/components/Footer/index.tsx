@@ -1,13 +1,35 @@
 import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
-import { OutboundLink } from '../components/OutboundLink';
-import GithubIcon from '../svgs/github-outline.svg';
-import LinkedinIcon from '../svgs/linkedin-outline.svg';
-import SlackIcon from '../svgs/slack-outline.svg';
-import TwitterIcon from '../svgs/twitter-outline.svg';
-import { ButtonOutlinedPrimary } from '../globalStyles';
-import NewsletterSignupForm from './NewsletterSignupForm';
+import clsx from 'clsx';
+import { OutboundLink } from '../OutboundLink';
+import GithubIcon from '../../svgs/github-outline.svg';
+import LinkedinIcon from '../../svgs/linkedin-outline.svg';
+import SlackIcon from '../../svgs/slack-outline.svg';
+import TwitterIcon from '../../svgs/twitter-outline.svg';
+import { ButtonOutlinedPrimary } from '../../globalStyles';
+import NewsletterSignupForm from '../NewsletterSignupForm';
+import {
+    footer,
+    globalFooterWrapper,
+    globalFooterLogoLink,
+    globalFooterTitle,
+    globalFooterSubtext,
+    globalFooterSubtextTitle,
+    globalFooterRight,
+    globalFooterRightLinkWrapper,
+    globalFooterRightLink,
+    globalFooterBottom,
+    globalFooterDivider,
+    globalFooterBottomWrapper,
+    globalFooterBottomCopyright,
+    globalFooterBottomCopyrightText,
+    globalFooterCopyrightLink,
+    globalFooterBottomSocial,
+    socialIconFooter,
+} from './styles.module.less';
+
+const footerSocialIconStyle = clsx(socialIconFooter, 'socialIcon');
 
 const openCookiePreferences = () => {
     try {
@@ -24,21 +46,21 @@ const openCookiePreferences = () => {
 
 const Footer = () => {
     return (
-        <footer className="global-footer">
-            <div className="global-footer-wrapper">
+        <footer className={footer}>
+            <div className={globalFooterWrapper}>
                 <div>
-                    <Link className="global-footer-logo-link" to="/">
+                    <Link className={globalFooterLogoLink} to="/">
                         <StaticImage
-                            src="../images/estuary-icon.png"
-                            alt="estuary logo"
+                            src="../../images/estuary-icon.png"
+                            alt="Estuary logo"
                             width={27}
                             height={35}
                             layout="fixed"
                             placeholder="none"
                         />
-                        <strong className="global-footer-title">Estuary</strong>
+                        <strong className={globalFooterTitle}>ESTUARY</strong>
                     </Link>
-                    <p className="global-footer-subtext">
+                    <p className={globalFooterSubtext}>
                         Estuary provides real-time data integration and ETL for
                         modern data pipelines. Build scalable, fault-tolerant
                         streaming data pipelines that seamlessly connect to
@@ -46,33 +68,31 @@ const Footer = () => {
                         analytics, operations, machine learning, and AI.
                     </p>
                     <div>
-                        <p className="global-footer-subtext-title">
+                        <strong className={globalFooterSubtextTitle}>
                             Don&apos;t miss a thing
-                        </p>
-                        <p className="global-footer-subtext">
+                        </strong>
+                        <p className={globalFooterSubtext}>
                             Subscribe now to get the latest news and updates.
                         </p>
                     </div>
                     <NewsletterSignupForm />
                 </div>
-                <div className="global-footer-right">
-                    <div className="global-footer-right-link-wrapper">
-                        <p className="global-footer-subtext-title">
-                            Quick Links
-                        </p>
-                        <Link to="/blog" className="global-footer-right-link">
+                <div className={globalFooterRight}>
+                    <div className={globalFooterRightLinkWrapper}>
+                        <p className={globalFooterSubtextTitle}>Quick Links</p>
+                        <Link to="/blog" className={globalFooterRightLink}>
                             Blog
                         </Link>
                         <OutboundLink
                             target="_blank"
                             href="https://github.com/estuary/flow"
-                            className="global-footer-right-link"
+                            className={globalFooterRightLink}
                         >
                             Github
                         </OutboundLink>
                         <a
                             href="/contact-us"
-                            className="global-footer-right-link"
+                            className={globalFooterRightLink}
                             target="_blank"
                         >
                             Contact Us
@@ -80,88 +100,84 @@ const Footer = () => {
                         <OutboundLink
                             target="_blank"
                             href="https://docs.estuary.dev/"
-                            className="global-footer-right-link"
+                            className={globalFooterRightLink}
                         >
                             Docs
                         </OutboundLink>
                     </div>
-                    <div className="global-footer-right-link-wrapper">
-                        <p className="global-footer-subtext-title">Services</p>
-                        <Link
-                            to="/product"
-                            className="global-footer-right-link"
-                        >
+                    <div className={globalFooterRightLinkWrapper}>
+                        <p className={globalFooterSubtextTitle}>Services</p>
+                        <Link to="/product" className={globalFooterRightLink}>
                             Product
                         </Link>
                         <Link
                             to="/about#careers"
-                            className="global-footer-right-link"
+                            className={globalFooterRightLink}
                         >
                             Careers
                         </Link>
                         <Link
                             to="/privacy-policy"
-                            className="global-footer-right-link"
+                            className={globalFooterRightLink}
                         >
                             Privacy
                         </Link>
-                        <Link to="/terms" className="global-footer-right-link">
+                        <Link to="/terms" className={globalFooterRightLink}>
                             Terms
                         </Link>
                     </div>
                 </div>
             </div>
-            <div className="global-footer-bottom">
+            <div className={globalFooterBottom}>
                 <ButtonOutlinedPrimary
                     onClick={openCookiePreferences}
                     theme="dark"
                 >
                     Manage Cookie Preferences
                 </ButtonOutlinedPrimary>
-                <div className="global-footer-divider" />
-                <div className="global-footer-bottom-wrapper">
-                    <div className="global-footer-bottom-copyright">
-                        <p className="global-footer-bottom-copyright-text">
+                <hr className={globalFooterDivider} />
+                <div className={globalFooterBottomWrapper}>
+                    <div className={globalFooterBottomCopyright}>
+                        <span className={globalFooterBottomCopyrightText}>
                             © {new Date().getFullYear()} All Rights Reserved
                             -&nbsp;{' '}
-                        </p>
-
+                        </span>
                         <OutboundLink
-                            className="global-footer-copyright-link"
+                            className={globalFooterCopyrightLink}
                             href="https://estuary.dev/"
                         >
                             estuary.dev
                         </OutboundLink>
                     </div>
 
-                    <div className="global-footer-bottom-social">
+                    <div className={globalFooterBottomSocial}>
                         <OutboundLink
                             target="_blank"
                             href="https://estuary-dev.slack.com/join/shared_invite/zt-86nal6yr-VPbv~YfZE9Q~6Zl~gmZdFQ#/shared-invite/email"
                             aria-label="Slack Invite Link"
                         >
-                            <SlackIcon className="social-icon-footer" />
+                            <SlackIcon className={footerSocialIconStyle} />
                         </OutboundLink>
                         <OutboundLink
                             target="_blank"
                             href="https://github.com/estuary/flow"
                             aria-label="Github Repo Link"
                         >
-                            <GithubIcon className="social-icon-footer" />
+                            <GithubIcon className={footerSocialIconStyle} />
                         </OutboundLink>
                         <OutboundLink
                             target="_blank"
                             href="https://www.linkedin.com/company/estuary-tech/"
                             aria-label="Linkedin Company Link"
                         >
-                            <LinkedinIcon className="social-icon-footer" />
+                            <LinkedinIcon className={footerSocialIconStyle} />
                         </OutboundLink>
                         <OutboundLink
                             target="_blank"
                             href="https://twitter.com/EstuaryDev"
                             aria-label="Twitter Company Link"
                         >
-                            <TwitterIcon className="social-icon-footer" />
+                            <TwitterIcon className={footerSocialIconStyle} />
                         </OutboundLink>
                     </div>
                 </div>

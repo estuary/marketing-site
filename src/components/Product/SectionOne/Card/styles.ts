@@ -14,7 +14,7 @@ export const Container = styled(OutboundLink)<{ $isActive: boolean }>`
 
     @media (max-width: 1160px) {
         flex-direction: column;
-        align-items: start;
+        align-items: flex-start;
     }
 
     @media (max-width: 670px) {
@@ -25,7 +25,7 @@ export const Container = styled(OutboundLink)<{ $isActive: boolean }>`
 
     @media (max-width: 360px) {
         flex-direction: column;
-        align-items: start;
+        align-items: flex-start;
     }
 
     &:hover {

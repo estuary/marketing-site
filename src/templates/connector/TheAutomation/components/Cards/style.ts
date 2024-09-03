@@ -15,7 +15,7 @@ export const Container = styled(BackgroundImage)`
         gap: 100px;
 
         > div:first-of-type {
-            align-items: end;
+            align-items: flex-end;
 
             > div:nth-child(2) {
                 margin-right: 60px;
@@ -23,7 +23,7 @@ export const Container = styled(BackgroundImage)`
         }
 
         > div:last-of-type {
-            align-items: start;
+            align-items: flex-start;
 
             > div:nth-child(2) {
                 margin-left: 60px;
@@ -35,7 +35,7 @@ export const Container = styled(BackgroundImage)`
         gap: 120px;
 
         > div:first-of-type {
-            align-items: end;
+            align-items: flex-end;
 
             > div:nth-child(2) {
                 margin-right: 120px;
@@ -43,7 +43,7 @@ export const Container = styled(BackgroundImage)`
         }
 
         > div:last-of-type {
-            align-items: start;
+            align-items: flex-start;
 
             > div:nth-child(2) {
                 margin-left: 120px;
@@ -56,7 +56,7 @@ export const Container = styled(BackgroundImage)`
         gap: 320px;
 
         > div:first-of-type {
-            align-items: end;
+            align-items: flex-end;
 
             > div:nth-child(2) {
                 margin-right: 120px;
@@ -64,7 +64,7 @@ export const Container = styled(BackgroundImage)`
         }
 
         > div:last-of-type {
-            align-items: start;
+            align-items: flex-start;
 
             > div:nth-child(2) {
                 margin-left: 120px;
