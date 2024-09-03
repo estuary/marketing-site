@@ -2,8 +2,6 @@
 import pg from 'pg';
 import { GatsbyNode } from 'gatsby';
 import { createRemoteFileNode } from 'gatsby-source-filesystem';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import FilterWarningsPlugin from 'webpack-filter-warnings-plugin';
 import { SUPABASE_CONNECTION_STRING } from './config';
 import { normalizeConnector } from './src/utils';
 
@@ -448,16 +446,15 @@ export const createResolvers: GatsbyNode['createResolvers'] = async ({
     });
 };
 
-export const onCreateWebpackConfig = ({ actions }) => {
-    actions.setWebpackConfig({
-        plugins: [
-            new MiniCssExtractPlugin({
-                ignoreOrder: true,
-            }),
-            new FilterWarningsPlugin({
-                exclude:
-                    /mini-css-extract-plugin[^]*Conflicting order. Following module has been added:/,
-            }),
-        ],
-    });
+export const onCreateWebpackConfig = ({ stage, actions, getConfig }) => {
+    if (stage === 'develop') {
+        const config = getConfig();
+        const miniCssExtractPlugin = config.plugins.find(
+            (plugin) => plugin.constructor.name === 'MiniCssExtractPlugin'
+        );
+        if (miniCssExtractPlugin) {
+            miniCssExtractPlugin.options.ignoreOrder = true;
+        }
+        actions.replaceWebpackConfig(config);
+    }
 };
