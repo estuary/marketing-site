@@ -6,7 +6,8 @@ import reltime from 'dayjs/plugin/relativeTime';
 
 import CalendarTodayOutlined from '@mui/icons-material/CalendarTodayOutlined';
 import DoneIcon from '@mui/icons-material/Done';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { Divider } from '@mui/material';
 import SwoopingLinesBackground from '../../components/BackgroundImages/LightSwoopingLinesRightDirectionBackground';
 import StraightLinesBackground from '../../components/BackgroundImages/StraightLinesBackground';
 import { PopularArticles } from '../../components/BlogPopularArticles';
@@ -15,6 +16,7 @@ import { ProcessedPost } from '../../components/BlogPostProcessor';
 import { RenderToc } from '../../components/BlogPostToc';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import {
+    OutboundLink,
     OutboundLinkFilled,
     OutboundLinkOutlined,
 } from '../../components/OutboundLink';
@@ -25,6 +27,10 @@ import logoUrl from '../../images/combination-mark__multi-blue.png';
 import { costPerGB } from '../../utils';
 import ReadingTimeIcon from '../../svgs/time.svg';
 import { dashboardRegisterUrl } from '../../../shared';
+import Avatar from '../../components/Avatar';
+import LinkedinIcon from '../../svgs/share-social-icons/linkedin-outlined.svg';
+import TwitterXIcon from '../../svgs/share-social-icons/twitter-x-outlined.svg';
+import FacebookIcon from '../../svgs/share-social-icons/facebook-outlined.svg';
 import ShareArticle from './ShareArticle';
 
 dayjs.extend(reltime);
@@ -32,9 +38,13 @@ dayjs.extend(reltime);
 const BlogPostTemplate = ({ data: { post } }) => {
     const postTags = post?.tags?.filter((tag) => tag.type === 'tag');
 
-    /* const authorImage = post?.authors[0]?.picture && getImage(post.authors[0].picture.localFile.childImageSharp.gatsbyImageData)
+    const authorImage =
+        post?.authors[0]?.picture &&
+        getImage(
+            post.authors[0].picture.localFile.childImageSharp.gatsbyImageData
+        );
 
-    const authorSocialLink = post?.authors[0]?.link */
+    const authorSocialLink = post?.authors[0]?.link;
 
     const hasBeenUpdated = post?.updatedAt
         ? post?.publishedAt !== post?.updatedAt
@@ -195,13 +205,13 @@ const BlogPostTemplate = ({ data: { post } }) => {
                         </div>
                     </section>
                 ) : null}
-                {/* <section className="next-steps-and-about-author-section">
-                    <div className="next-steps">
+                <section className="next-steps-and-about-author-section">
+                    {/* <div className="next-steps">
                         <h3>Next steps</h3>
                         <NextStepsLink href="">Read about Lorem ipsum dolor sit amet, consectetur</NextStepsLink>
                         <NextStepsLink href="">Learn about Lorem ipsum dolor sit amet</NextStepsLink>
                         <NextStepsLink href="">Lorem ipsum dolor sit amet</NextStepsLink>
-                    </div>
+                    </div> */}
                     <div className="about-author">
                         <h3>About the author</h3>
                         <div className="author-info">
@@ -214,28 +224,63 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                     />
                                 </div>
                                 <div className="author-name-and-role">
-                                    <span className="author-name">{post.authors[0].name}</span>
-                                    <span className="author-role">CEO</span>
+                                    <span className="author-name">
+                                        {post.authors[0].name}
+                                    </span>
+                                    <span className="author-role">ROLE</span>
                                 </div>
                             </div>
-                            {authorSocialLink &&
+                            {authorSocialLink ? (
                                 <div className="social-icon-buttons-container">
-                                    <Divider orientation="vertical" variant="middle" flexItem className="author-info-divider" />
-                                    {authorSocialLink?.includes("linkedin.com") &&
-                                        <OutboundLink href={authorSocialLink} target="_blank">
+                                    <Divider
+                                        orientation="vertical"
+                                        variant="middle"
+                                        flexItem
+                                        className="author-info-divider"
+                                    />
+                                    {authorSocialLink?.includes(
+                                        'linkedin.com'
+                                    ) ? (
+                                        <OutboundLink
+                                            href={authorSocialLink}
+                                            target="_blank"
+                                        >
                                             <LinkedinIcon color="#47506D" />
                                         </OutboundLink>
-                                    }
-                                    {authorSocialLink?.includes("twitter.com") &&
-                                        <OutboundLink href={authorSocialLink} target="_blank">
+                                    ) : null}
+                                    {authorSocialLink?.includes(
+                                        'twitter.com'
+                                    ) ? (
+                                        <OutboundLink
+                                            href={authorSocialLink}
+                                            target="_blank"
+                                        >
                                             <TwitterXIcon />
                                         </OutboundLink>
-                                    }
+                                    ) : null}
+                                    {authorSocialLink?.includes(
+                                        'facebook.com'
+                                    ) ? (
+                                        <OutboundLink
+                                            href={authorSocialLink}
+                                            target="_blank"
+                                        >
+                                            <FacebookIcon />
+                                        </OutboundLink>
+                                    ) : null}
                                 </div>
-                            }
+                            ) : null}
                         </div>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed consectetur adipiscing elit. Lorem ipsum
+                            dolor sit amet, consectetur adipiscing elit, sed
+                            consectetur adipiscing elit.Lorem ipsum dolor sit
+                            amet, consectetur adipiscing elit, sed consectetur
+                            adipiscing elit sed consectetur adipiscing.
+                        </p>
                     </div>
-                </section> */}
+                </section>
                 <section className="popular-articles">
                     <div className="popular-articles-wrapper">
                         <PopularArticles />
