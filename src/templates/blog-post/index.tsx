@@ -44,7 +44,7 @@ const BlogPostTemplate = ({ data: { post } }) => {
             post.authors[0].picture.localFile.childImageSharp.gatsbyImageData
         );
 
-    const authorSocialLink = post?.authors[0]?.link;
+    const authorSocialLink = post?.authors[0]?.link; // TODO: Fetch the links separately from Strapi
 
     const hasBeenUpdated = post?.updatedAt
         ? post?.publishedAt !== post?.updatedAt
@@ -205,82 +205,87 @@ const BlogPostTemplate = ({ data: { post } }) => {
                         </div>
                     </section>
                 ) : null}
-                <section className="next-steps-and-about-author-section">
-                    {/* <div className="next-steps">
+                {post.authors[0]?.name ? (
+                    <section className="next-steps-and-about-author-section">
+                        {/* <div className="next-steps">
                         <h3>Next steps</h3>
                         <NextStepsLink href="">Read about Lorem ipsum dolor sit amet, consectetur</NextStepsLink>
                         <NextStepsLink href="">Learn about Lorem ipsum dolor sit amet</NextStepsLink>
                         <NextStepsLink href="">Lorem ipsum dolor sit amet</NextStepsLink>
-                    </div> */}
-                    <div className="about-author">
-                        <h3>About the author</h3>
-                        <div className="author-info">
-                            <div className="author-main-info-container">
-                                <div className="author-avatar-container">
-                                    <Avatar
-                                        image={authorImage}
-                                        alt="Author's Avatar"
-                                        name={post.authors[0].name}
-                                    />
+                        </div> */}
+                        <div className="about-author">
+                            <h3>About the author</h3>
+                            <div className="author-info">
+                                <div className="author-main-info-container">
+                                    <div className="author-avatar-container">
+                                        <Avatar
+                                            image={authorImage}
+                                            alt="Author's Avatar"
+                                            name={post.authors[0].name}
+                                        />
+                                    </div>
+                                    <div className="author-name-and-role">
+                                        <span className="author-name">
+                                            {post.authors[0].name}
+                                        </span>
+                                        <span className="author-role">
+                                            ROLE
+                                        </span>
+                                    </div>
                                 </div>
-                                <div className="author-name-and-role">
-                                    <span className="author-name">
-                                        {post.authors[0].name}
-                                    </span>
-                                    <span className="author-role">ROLE</span>
-                                </div>
+                                {authorSocialLink ? (
+                                    <div className="social-icon-buttons-container">
+                                        <Divider
+                                            orientation="vertical"
+                                            variant="middle"
+                                            flexItem
+                                            className="author-info-divider"
+                                        />
+                                        {authorSocialLink?.includes(
+                                            'linkedin.com'
+                                        ) ? (
+                                            <OutboundLink
+                                                href={authorSocialLink}
+                                                target="_blank"
+                                            >
+                                                <LinkedinIcon color="#47506D" />
+                                            </OutboundLink>
+                                        ) : null}
+                                        {authorSocialLink?.includes(
+                                            'twitter.com'
+                                        ) ? (
+                                            <OutboundLink
+                                                href={authorSocialLink}
+                                                target="_blank"
+                                            >
+                                                <TwitterXIcon />
+                                            </OutboundLink>
+                                        ) : null}
+                                        {authorSocialLink?.includes(
+                                            'facebook.com'
+                                        ) ? (
+                                            <OutboundLink
+                                                href={authorSocialLink}
+                                                target="_blank"
+                                            >
+                                                <FacebookIcon />
+                                            </OutboundLink>
+                                        ) : null}
+                                    </div>
+                                ) : null}
                             </div>
-                            {authorSocialLink ? (
-                                <div className="social-icon-buttons-container">
-                                    <Divider
-                                        orientation="vertical"
-                                        variant="middle"
-                                        flexItem
-                                        className="author-info-divider"
-                                    />
-                                    {authorSocialLink?.includes(
-                                        'linkedin.com'
-                                    ) ? (
-                                        <OutboundLink
-                                            href={authorSocialLink}
-                                            target="_blank"
-                                        >
-                                            <LinkedinIcon color="#47506D" />
-                                        </OutboundLink>
-                                    ) : null}
-                                    {authorSocialLink?.includes(
-                                        'twitter.com'
-                                    ) ? (
-                                        <OutboundLink
-                                            href={authorSocialLink}
-                                            target="_blank"
-                                        >
-                                            <TwitterXIcon />
-                                        </OutboundLink>
-                                    ) : null}
-                                    {authorSocialLink?.includes(
-                                        'facebook.com'
-                                    ) ? (
-                                        <OutboundLink
-                                            href={authorSocialLink}
-                                            target="_blank"
-                                        >
-                                            <FacebookIcon />
-                                        </OutboundLink>
-                                    ) : null}
-                                </div>
-                            ) : null}
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit, sed consectetur adipiscing
+                                elit. Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit, sed consectetur adipiscing
+                                elit.Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit, sed consectetur adipiscing elit
+                                sed consectetur adipiscing.
+                            </p>
                         </div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed consectetur adipiscing elit. Lorem ipsum
-                            dolor sit amet, consectetur adipiscing elit, sed
-                            consectetur adipiscing elit.Lorem ipsum dolor sit
-                            amet, consectetur adipiscing elit, sed consectetur
-                            adipiscing elit sed consectetur adipiscing.
-                        </p>
-                    </div>
-                </section>
+                    </section>
+                ) : null}
                 <section className="popular-articles">
                     <div className="popular-articles-wrapper">
                         <PopularArticles />
