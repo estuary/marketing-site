@@ -8,6 +8,7 @@ import CalendarTodayOutlined from '@mui/icons-material/CalendarTodayOutlined';
 import DoneIcon from '@mui/icons-material/Done';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { Divider } from '@mui/material';
+import WebsiteIcon from '@mui/icons-material/Language';
 import SwoopingLinesBackground from '../../components/BackgroundImages/LightSwoopingLinesRightDirectionBackground';
 import StraightLinesBackground from '../../components/BackgroundImages/StraightLinesBackground';
 import { PopularArticles } from '../../components/BlogPopularArticles';
@@ -30,21 +31,22 @@ import { dashboardRegisterUrl } from '../../../shared';
 import Avatar from '../../components/Avatar';
 import LinkedinIcon from '../../svgs/share-social-icons/linkedin-outlined.svg';
 import TwitterXIcon from '../../svgs/share-social-icons/twitter-x-outlined.svg';
-import FacebookIcon from '../../svgs/share-social-icons/facebook-outlined.svg';
 import ShareArticle from './ShareArticle';
 
 dayjs.extend(reltime);
 
+const iconColor = '#47506D';
+
 const BlogPostTemplate = ({ data: { post } }) => {
     const postTags = post?.tags?.filter((tag) => tag.type === 'tag');
 
-    const authorImage =
-        post?.authors[0]?.picture &&
-        getImage(
-            post.authors[0].picture.localFile.childImageSharp.gatsbyImageData
-        );
+    const author = post.authors[0];
 
-    const authorSocialLink = post?.authors[0]?.link; // TODO: Fetch the links separately from Strapi
+    const authorImage =
+        author?.picture &&
+        getImage(author.picture.localFile.childImageSharp.gatsbyImageData);
+
+    const authorSocialLinks = author?.socials;
 
     const hasBeenUpdated = post?.updatedAt
         ? post?.publishedAt !== post?.updatedAt
@@ -90,7 +92,7 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                 </div>
                                 <div className="date-and-read-wrapper">
                                     <div className="icon-info-wrapper">
-                                        <ReadingTimeIcon color="#47506D" />
+                                        <ReadingTimeIcon color={iconColor} />
                                         <span className="blog-post-date">
                                             {
                                                 post.body.data
@@ -205,7 +207,7 @@ const BlogPostTemplate = ({ data: { post } }) => {
                         </div>
                     </section>
                 ) : null}
-                {post.authors[0]?.name ? (
+                {author?.name ? (
                     <section className="next-steps-and-about-author-section">
                         {/* <div className="next-steps">
                         <h3>Next steps</h3>
@@ -221,19 +223,23 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                         <Avatar
                                             image={authorImage}
                                             alt="Author's Avatar"
-                                            name={post.authors[0].name}
+                                            name={author.name}
+                                            loading="lazy"
+                                            width="60px"
                                         />
                                     </div>
                                     <div className="author-name-and-role">
                                         <span className="author-name">
-                                            {post.authors[0].name}
+                                            {author.name}
                                         </span>
-                                        <span className="author-role">
-                                            ROLE
-                                        </span>
+                                        {author?.role ? (
+                                            <span className="author-role">
+                                                {author.role}
+                                            </span>
+                                        ) : null}
                                     </div>
                                 </div>
-                                {authorSocialLink ? (
+                                {authorSocialLinks ? (
                                     <div className="social-icon-buttons-container">
                                         <Divider
                                             orientation="vertical"
@@ -241,48 +247,42 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                             flexItem
                                             className="author-info-divider"
                                         />
-                                        {authorSocialLink?.includes(
-                                            'linkedin.com'
-                                        ) ? (
+                                        {authorSocialLinks?.linked_in ? (
                                             <OutboundLink
-                                                href={authorSocialLink}
+                                                href={
+                                                    authorSocialLinks.linked_in
+                                                }
                                                 target="_blank"
                                             >
-                                                <LinkedinIcon color="#47506D" />
+                                                <LinkedinIcon
+                                                    color={iconColor}
+                                                />
                                             </OutboundLink>
                                         ) : null}
-                                        {authorSocialLink?.includes(
-                                            'twitter.com'
-                                        ) ? (
+                                        {authorSocialLinks?.twitter ? (
                                             <OutboundLink
-                                                href={authorSocialLink}
+                                                href={authorSocialLinks.twitter}
                                                 target="_blank"
                                             >
                                                 <TwitterXIcon />
                                             </OutboundLink>
                                         ) : null}
-                                        {authorSocialLink?.includes(
-                                            'facebook.com'
-                                        ) ? (
+                                        {authorSocialLinks?.other ? (
                                             <OutboundLink
-                                                href={authorSocialLink}
+                                                href={authorSocialLinks.other}
                                                 target="_blank"
                                             >
-                                                <FacebookIcon />
+                                                <WebsiteIcon
+                                                    htmlColor={iconColor}
+                                                />
                                             </OutboundLink>
                                         ) : null}
                                     </div>
                                 ) : null}
                             </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit, sed consectetur adipiscing
-                                elit. Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit, sed consectetur adipiscing
-                                elit.Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit, sed consectetur adipiscing elit
-                                sed consectetur adipiscing.
-                            </p>
+                            {author?.bio.data.bio ? (
+                                <p>{author.bio.data.bio}</p>
+                            ) : null}
                         </div>
                     </section>
                 ) : null}
@@ -467,7 +467,17 @@ export const pageQuery = graphql`
                         }
                     }
                 }
-                link: Link
+                role
+                bio {
+                    data {
+                        bio
+                    }
+                }
+                socials: Socials {
+                    linked_in
+                    twitter
+                    other
+                }
             }
             hero: Hero {
                 localFile {

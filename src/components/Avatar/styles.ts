@@ -1,14 +1,9 @@
 import styled, { css } from 'styled-components';
 
-export const Container = styled.div<{ $hasImage: boolean }>`
-    max-width: 36px;
+export const Container = styled.div<{ $hasImage: boolean; $imgSize?: string }>`
     border-radius: 100%;
     overflow: hidden;
-
     background-color: #02a99e;
-    width: 36px;
-    height: 36px;
-    border-radius: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,4 +19,9 @@ export const Container = styled.div<{ $hasImage: boolean }>`
                 color: #ffffff !important;
             }
         `}
+
+    img {
+        width: ${({ $imgSize }) => $imgSize};
+        height: ${({ $imgSize }) => $imgSize};
+    }
 `;

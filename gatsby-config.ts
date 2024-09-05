@@ -282,7 +282,17 @@ const cfg: GatsbyConfig = {
                                         }
                                     }
                                 }
-                                link: Link
+                                role
+                                bio {
+                                    data {
+                                        bio
+                                    }
+                                }
+                                socials: Socials {
+                                    linked_in
+                                    twitter
+                                    other
+                                }
                             }
                             hero: Hero {
                                 localFile {
