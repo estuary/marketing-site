@@ -57,7 +57,6 @@ jobs:
                   CI: true
             - run: yarn run build --log-pages
               env:
-                  GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: true
                   CI: true
                   STRAPI_API_URL: ${{ secrets.STRAPI_API_URL }}
                   STRAPI_TOKEN: ${{ secrets.STRAPI_TOKEN }}
