@@ -29,6 +29,11 @@ export const Container = styled.div`
         padding: 8px;
         max-height: 220px;
     }
+
+    .section-five-product-video-thumbnail {
+        height: 100%;
+        width: 100%;
+    }
 `;
 
 export const VideoTextAndButton = styled.div`

@@ -6,11 +6,17 @@ import { Divider } from '@mui/material';
 import clsx from 'clsx';
 import lunr, { type Index } from 'lunr';
 import { useMemo } from 'react';
-import BigImageBackground from '../components/BackgroundImages/BigImageBackground';
-import { BlogPostCard } from '../components/BlogPostCard';
-import Layout from '../components/Layout';
-import Seo from '../components/seo';
-import FlowLogo from '../svgs/flow-logo.svg';
+import BigImageBackground from '../../components/BackgroundImages/BigImageBackground';
+import { BlogPostCard } from '../../components/BlogPostCard';
+import Layout from '../../components/Layout';
+import Seo from '../../components/seo';
+import FlowLogo from '../../svgs/flow-logo.svg';
+import {
+    blogsIndexTabBar,
+    blogsIndexTabs,
+    blogsIndexTab,
+    blogsIndexTabActive,
+} from './styles.module.less';
 
 interface BlogIndexProps {
     data: {
@@ -100,16 +106,18 @@ const BlogIndex = ({
                         </p>
                     </div>
                 </div>
-                <div className="blogs-index-tab-bar">
-                    <div className="blogs-index-tabs">
+                <div className={blogsIndexTabBar}>
+                    <div className={blogsIndexTabs}>
                         {tabCategories.map((category) => (
                             <Link
                                 key={category.Slug}
                                 to={`/blog/${category.Slug}`}
-                                className={clsx('blogs-index-tab', {
-                                    'blogs-index-tab-active':
-                                        category.Slug === categorySlug,
-                                })}
+                                className={clsx(
+                                    blogsIndexTab,
+                                    category.Slug === categorySlug
+                                        ? blogsIndexTabActive
+                                        : null
+                                )}
                             >
                                 {category.Name}
                             </Link>

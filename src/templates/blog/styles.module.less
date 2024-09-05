@@ -1,0 +1,62 @@
+@import '../../globalStyles/sections.module.less';
+
+.blogsIndexTabBar {
+  .globalMaxWidth;
+
+  padding-bottom: 0;
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: 950px) {
+      flex-wrap: wrap;
+  }
+}
+
+.blogsIndexTabs {
+  display: flex;
+  background: #f7f9fc;
+  border: 1px solid #d7dce5;
+  border-radius: 4px;
+  overflow-x: auto;
+  white-space: nowrap;
+  margin-right: 2rem;
+
+  @media (max-width: 950px) {
+      width: 100%;
+      margin-bottom: 1rem;
+      margin-right: 0;
+  }
+}
+
+.blogsIndexTab {
+  flex: 0 1 auto;
+  max-width: 15rem;
+  justify-content: center;
+  display: flex;
+  padding: 0.75rem 1rem;
+  color: black;
+  font-size: large;
+  cursor: pointer;
+  text-decoration: none;
+  transition: var(--default-transition);
+
+  &:not(:last-child) {
+      border-right: 1px solid #d7dce5;
+  }
+
+  @media (max-width: 950px) {
+      flex: 1 1 auto;
+  }
+
+  &:hover {
+      background-color: #d7dce550;
+  }
+
+  &:active {
+      background-color: #d7dce599;
+  }
+}
+
+.blogsIndexTabActive {
+  background: #e9eef5;
+}

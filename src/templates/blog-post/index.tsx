@@ -18,7 +18,7 @@ import {
     OutboundLinkFilled,
     OutboundLinkOutlined,
 } from '../../components/OutboundLink';
-import Bio from '../../components/bio';
+import Bio from '../../components/Bio';
 import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
 import logoUrl from '../../images/combination-mark__multi-blue.png';
