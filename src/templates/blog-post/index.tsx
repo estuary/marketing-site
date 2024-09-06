@@ -46,6 +46,8 @@ const BlogPostTemplate = ({ data: { post } }) => {
         author?.picture &&
         getImage(author.picture.localFile.childImageSharp.gatsbyImageData);
 
+    const authorBio = author?.bio.data.bio;
+
     const authorSocialLinks = author?.socials;
 
     const hasBeenUpdated = post?.updatedAt
@@ -216,7 +218,7 @@ const BlogPostTemplate = ({ data: { post } }) => {
                         <NextStepsLink href="">Lorem ipsum dolor sit amet</NextStepsLink>
                         </div> */}
                         <div className="about-author">
-                            <h3>About the author</h3>
+                            <h3>{authorBio ? 'About the author' : 'Author'}</h3>
                             <div className="author-info">
                                 <div className="author-main-info-container">
                                     <div className="author-avatar-container">
@@ -280,9 +282,7 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                     </div>
                                 ) : null}
                             </div>
-                            {author?.bio.data.bio ? (
-                                <p>{author.bio.data.bio}</p>
-                            ) : null}
+                            {authorBio ? <p>{author.bio.data.bio}</p> : null}
                         </div>
                     </section>
                 ) : null}
