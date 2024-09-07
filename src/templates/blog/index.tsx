@@ -16,6 +16,9 @@ import {
     blogsIndexTabs,
     blogsIndexTab,
     blogsIndexTabActive,
+    blogsIndexHeader,
+    blogsIndexBody,
+    blogsNav,
 } from './styles.module.less';
 
 interface BlogIndexProps {
@@ -89,7 +92,7 @@ const BlogIndex = ({
         <Layout>
             <BigImageBackground>
                 <div className="blogs-index-header-wrapper">
-                    <div className="blogs-index-header">
+                    <div className={blogsIndexHeader}>
                         <div className="blog-post-header-vectors">
                             <FlowLogo className="blog-post-header-vector" />
                         </div>
@@ -133,7 +136,7 @@ const BlogIndex = ({
                         />
                     </div>
                 </div>
-                <div className="blogs-index-body">
+                <div className={blogsIndexBody}>
                     {(query.length > 0 ? results : posts).map((post) => (
                         <BlogPostCard key={post.Slug} {...post} />
                     ))}
@@ -142,7 +145,7 @@ const BlogIndex = ({
             {prevPage ?? nextPage ? (
                 <>
                     <Divider />
-                    <div className="blogs-nav">
+                    <div className={blogsNav}>
                         {prevPage ? (
                             <Link to={prevPage}>← Prev Page</Link>
                         ) : null}
