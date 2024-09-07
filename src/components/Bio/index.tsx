@@ -2,7 +2,7 @@ import { getImage } from 'gatsby-plugin-image';
 import * as React from 'react';
 import Avatar from '../Avatar';
 import { OutboundLink } from '../OutboundLink';
-import { avatarWrapper, styledLink } from './styles.module.less';
+import { container, avatarWrapper, styledLink } from './styles.module.less';
 
 export interface BioProps {
     authors: {
@@ -24,7 +24,7 @@ const Bio = ({ authors }: BioProps) => {
     }
 
     return (
-        <>
+        <div className={container}>
             {authors.map(({ picture, name, link }) => {
                 const image = getImage(
                     picture?.localFile?.childImageSharp?.gatsbyImageData
@@ -57,7 +57,7 @@ const Bio = ({ authors }: BioProps) => {
 
                 return <React.Fragment key={name}>{combined}</React.Fragment>;
             })}
-        </>
+        </div>
     );
 };
 
