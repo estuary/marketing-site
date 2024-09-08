@@ -12,6 +12,7 @@ import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
 import FlowLogo from '../../svgs/flow-logo.svg';
 import {
+    container,
     blogsIndexTabBar,
     blogsIndexTabs,
     blogsIndexTab,
@@ -91,7 +92,7 @@ const BlogIndex = ({
     return (
         <Layout>
             <BigImageBackground>
-                <div className="blogs-index-header-wrapper">
+                <div className={container}>
                     <div className={blogsIndexHeader}>
                         <div className="blog-post-header-vectors">
                             <FlowLogo className="blog-post-header-vector" />

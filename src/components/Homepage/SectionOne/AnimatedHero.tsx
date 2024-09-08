@@ -55,7 +55,6 @@ const AnimatedHero = () => {
                         progressiveLoad: true,
                         focusable: false,
                     }}
-                    className="section-one-right-image"
                     style={!showAnimation ? { display: 'none' } : undefined}
                     play={false}
                     ref={lottieRef}
