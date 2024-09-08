@@ -11,7 +11,7 @@ import SpotifyButton from '../../svgs/listen-spotify.svg';
 import SubscribeYoutubeImage from '../../svgs/subscribe-image.svg';
 import SubscribeYoutubeButton from '../../svgs/subscribe-youtube.svg';
 import WatchYoutubeButton from '../../svgs/youtube-watch.svg';
-import SignUp from '../../components/signup';
+import SignUp from '../../components/Signup';
 import {
     container,
     hero,

@@ -4,7 +4,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 import Layout from '../components/Layout';
 import Seo from '../components/seo';
-import SignUp from '../components/signup';
+import SignUp from '../components/Signup';
 
 import { estuaryAllowsEnterprises } from '../content/seo';
 import { globalMaxWidth, sectionTopBottomPadding } from '../globalStyles';
