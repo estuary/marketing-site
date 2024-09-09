@@ -24,7 +24,12 @@ export const read = [
         name: 'Status',
         to: statusPageUrl,
         hasChevronIcon: true,
-        Image: () => <></>,
+        Image: () => (
+            <StaticImage
+                src="../../../svgs/product-flow-live-reporting.svg"
+                alt="Status"
+            />
+        ),
     },
     {
         name: 'About us',
