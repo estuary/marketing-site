@@ -1,81 +1,43 @@
 import { Link, graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import * as React from 'react';
-import styled from 'styled-components';
-import Layout from '../components/Layout';
-import Seo from '../components/seo';
-import SignUp from '../components/Signup';
-
-import { estuaryAllowsEnterprises } from '../content/seo';
-import { globalMaxWidth, sectionTopBottomPadding } from '../globalStyles';
-import EstuaryLogo from '../svgs/colored-logo.svg';
-import { dashboardRegisterUrl } from '../../shared';
-import { OutboundLinkFilled } from '../components/OutboundLink';
-
-export const AboutUsWrapper = styled.div`
-    ${globalMaxWidth}
-    ${sectionTopBottomPadding}
-    font-style: normal;
-    display: flex;
-    justify-content: space-between;
-    gap: 50px;
-    .about-wrap {
-        width: 70%;
-        @media (max-width: 1260px) {
-            width: 100%;
-        }
-    }
-    .about-logo {
-        display: flex;
-        margin: auto;
-        max-width: 150px;
-        width: 30%;
-        @media (max-width: 845px) {
-            display: none;
-            visbility: hidden;
-        }
-    }
-    .about-heading {
-        font-weight: 500;
-        font-size: 36px;
-        line-height: 48px;
-        color: #04192b;
-        margin-bottom: 24px;
-        @media (max-width: 845px) {
-            font-size: 28px;
-            line-height: 36px;
-        }
-    }
-    .about-subheading {
-        font-weight: 700;
-        font-size: 24px;
-        line-height: 36px;
-        color: #04192b;
-        margin-bottom: 12px;
-        @media (max-width: 845px) {
-            font-size: 18px;
-            line-height: 26px;
-        }
-    }
-    .about-content {
-        font-weight: 400;
-        font-size: 20px;
-        line-height: 30px;
-        color: #47506d;
-        margin-bottom: 20px;
-        @media (max-width: 845px) {
-            font-size: 14px;
-            line-height: 22px;
-        }
-        &:last-child {
-            margin-bottom: 0;
-        }
-        a {
-            color: #47506d;
-            text-decoration: underline;
-        }
-    }
-`;
+import clsx from 'clsx';
+import Layout from '../../components/Layout';
+import Seo from '../../components/seo';
+import SignUp from '../../components/Signup';
+import { estuaryAllowsEnterprises } from '../../content/seo';
+import EstuaryLogo from '../../svgs/colored-logo.svg';
+import { dashboardRegisterUrl } from '../../../shared';
+import { OutboundLinkFilled } from '../../components/OutboundLink';
+import {
+    heroSection,
+    comparisonTable,
+    ctaWrapSingle,
+    comparisonToOthers,
+    comparisonHeading,
+    comparisonLinks,
+    heroContainer,
+    heroLeft,
+    heroHeading,
+    heroRight,
+    heroImageWrap,
+    heroLogo,
+    tableHeading,
+    tableRow,
+    headingItem,
+    featureName,
+    estuaryValue,
+    competitorValue,
+    mattersValue,
+    estuary,
+    competitor,
+    aboutUsWrapper,
+    aboutWrap,
+    aboutHeading,
+    aboutSubheading,
+    aboutContent,
+    aboutLogo,
+} from './styles.module.less';
 
 const ComparisonPageTemplate = ({
     data: {
@@ -92,69 +54,69 @@ const ComparisonPageTemplate = ({
 }) => {
     return (
         <Layout>
-            <div className="lp-comparison-wrap">
-                <section className="hero-section">
-                    <div className="hero-container">
-                        <div className="hero-left">
-                            <div className="hero-heading">
+            <div>
+                <section className={heroSection}>
+                    <div className={heroContainer}>
+                        <div className={heroLeft}>
+                            <div className={heroHeading}>
                                 Estuary Flow
                                 <br /> vs <br />
                                 {competitorName}
                             </div>
                         </div>
-                        <div className="hero-right">
-                            <EstuaryLogo className="hero-logo estuary" />
+                        <div className={heroRight}>
+                            <EstuaryLogo className={clsx(heroLogo, estuary)} />
                             <span>VS</span>
                             <GatsbyImage
                                 image={logoData.gatsbyImageData}
                                 alt={`${competitorName} logo`}
-                                className="hero-logo competitor"
+                                className={clsx(heroLogo, competitor)}
                                 loading="eager"
                             />
                         </div>
                     </div>
                     {DescriptivePicture ? (
-                        <div className="hero-image-wrap">
+                        <div className={heroImageWrap}>
                             <GatsbyImage
                                 image={
                                     DescriptivePicture.localFile.childImageSharp
                                         .gatsbyImageData
                                 }
                                 alt={`ETL Tools Pricing Comparison: Estuary Flow vs. ${competitorName}`}
-                                className="hero-logo competitor"
+                                className={clsx(heroLogo, competitor)}
                                 loading="eager"
                             />
                         </div>
                     ) : null}
                 </section>
-                <section className="comparison-table">
-                    <div className="table-heading">
-                        <div className="heading-item">FEATURES</div>
-                        <div className="heading-item">ESTUARY</div>
-                        <div className="heading-item">{competitorName}</div>
-                        <div className="heading-item">Why it matters</div>
+                <section className={comparisonTable}>
+                    <div className={tableHeading}>
+                        <div className={headingItem}>FEATURES</div>
+                        <div className={headingItem}>ESTUARY</div>
+                        <div className={headingItem}>{competitorName}</div>
+                        <div className={headingItem}>Why it matters</div>
                     </div>
-                    <div className="table-data">
+                    <div>
                         {comparisons.map((item, index) => {
                             return (
-                                <div className="table-row" key={index}>
-                                    <div className="feature-name">
+                                <div className={tableRow} key={index}>
+                                    <div className={featureName}>
                                         {item.feature_name}
                                     </div>
                                     <div
-                                        className="estuary-value"
+                                        className={estuaryValue}
                                         dangerouslySetInnerHTML={{
                                             __html: `<div>ESTUARY</div>${item.our_feature_desc.data.our_feature_desc}`,
                                         }}
                                     />
                                     <div
-                                        className="competitor-value"
+                                        className={competitorValue}
                                         dangerouslySetInnerHTML={{
                                             __html: `<div>${competitorName}</div>${item.their_feature_desc.data.their_feature_desc}`,
                                         }}
                                     />
                                     <div
-                                        className="matters-value"
+                                        className={mattersValue}
                                         dangerouslySetInnerHTML={{
                                             __html: `<div>WHY IT MATTERS</div>${item.why_it_matters.data.why_it_matters}`,
                                         }}
@@ -164,17 +126,17 @@ const ComparisonPageTemplate = ({
                         })}
                     </div>
                     <OutboundLinkFilled
-                        className="cta-wrap-single"
+                        className={ctaWrapSingle}
                         href={dashboardRegisterUrl}
                     >
                         Build a Pipeline
                     </OutboundLinkFilled>
                 </section>
-                <section className="comparison-to-others">
-                    <div className="comparison-heading">
+                <section className={comparisonToOthers}>
+                    <div className={comparisonHeading}>
                         See how Estuary compares to others
                     </div>
-                    <div className="comparison-links">
+                    <div className={comparisonLinks}>
                         {allPages.map((item, index) => {
                             return (
                                 item.their_name !== competitorName && (
@@ -194,14 +156,14 @@ const ComparisonPageTemplate = ({
                         })}
                     </div>
                 </section>
-                <AboutUsWrapper>
-                    <div className="about-wrap">
-                        <div className="about-heading">About Estuary</div>
-                        <div className="about-subheading">
+                <div className={aboutUsWrapper}>
+                    <div className={aboutWrap}>
+                        <div className={aboutHeading}>About Estuary</div>
+                        <div className={aboutSubheading}>
                             Estuary is building the next generation of real-time
                             data integration solutions.
                         </div>
-                        <p className="about-content">
+                        <p className={aboutContent}>
                             We&apos;re creating a new kind of DataOps platform
                             that
                             <b>empowers data teams</b> to build{' '}
@@ -216,7 +178,7 @@ const ComparisonPageTemplate = ({
                             requiring new investments in infrastructure or
                             development.
                         </p>
-                        <p className="about-content">
+                        <p className={aboutContent}>
                             Estuary <b>develops in the open</b> to produce both
                             the runtime for our managed service and an ecosystem
                             of
@@ -227,10 +189,10 @@ const ComparisonPageTemplate = ({
                             </Link>
                         </p>
                     </div>
-                    <div className="about-logo">
+                    <div className={aboutLogo}>
                         <EstuaryLogo />
                     </div>
-                </AboutUsWrapper>
+                </div>
                 <SignUp />
             </div>
         </Layout>

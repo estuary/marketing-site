@@ -19,7 +19,7 @@ const path = require('path');
 const blogPost = path.resolve('./src/templates/blog-post/index.tsx');
 const blog = path.resolve('./src/templates/blog/index.tsx');
 const comparisonTemplate = path.resolve(
-    './src/templates/product-comparison.tsx'
+    './src/templates/product-comparison/index.tsx'
 );
 const caseStudyTemplate = path.resolve('./src/layouts/CaseStudy/index.tsx');
 
