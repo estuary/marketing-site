@@ -28,6 +28,8 @@ export const read = [
             <StaticImage
                 src="../../../svgs/product-flow-live-reporting.svg"
                 alt="Status"
+                height={18}
+                width={18}
             />
         ),
     },
