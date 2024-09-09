@@ -1,6 +1,6 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
-import { webinarsUrl } from '../../../../shared';
+import { statusPageUrl, webinarsUrl } from '../../../../shared';
 
 export const read = [
     {
@@ -17,6 +17,19 @@ export const read = [
             <StaticImage
                 src="../../../svgs/docs-and-guides.svg"
                 alt="Docs & Guides"
+            />
+        ),
+    },
+    {
+        name: 'Status',
+        to: statusPageUrl,
+        hasChevronIcon: true,
+        Image: () => (
+            <StaticImage
+                src="../../../svgs/product-flow-live-reporting.svg"
+                alt="Status"
+                height={18}
+                width={18}
             />
         ),
     },
