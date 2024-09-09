@@ -1,10 +1,21 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
+import clsx from 'clsx';
+import {
+    zoomInOutCircle,
+    step,
+    step6,
+    stepContent,
+    buttonTooltip,
+    right,
+    tooltipHeading,
+    tooltipDescription,
+} from './styles.module.less';
 
 const Step6 = ({ activePage, setState }) => {
     return (
-        <div className={`step step-${activePage}`}>
-            <div className="step-content">
+        <div className={clsx(step, step6)}>
+            <div className={stepContent}>
                 <StaticImage
                     placeholder="none"
                     alt="Data Engineering Podcast"
@@ -14,12 +25,12 @@ const Step6 = ({ activePage, setState }) => {
                     quality={100}
                 />
                 <div
-                    className="zoom-in-out-circle"
+                    className={zoomInOutCircle}
                     onClick={() => setState(activePage + 1)}
                 />
-                <div className="button-tooltip right">
-                    <div className="tooltip-heading">Materialize Data</div>
-                    <div className="tooltip-description">
+                <div className={clsx(buttonTooltip, right)}>
+                    <div className={tooltipHeading}>Materialize Data</div>
+                    <div className={tooltipDescription}>
                         Stream collections to your destinations with sub-second
                         latency and exactly-once processing guarantees.
                     </div>

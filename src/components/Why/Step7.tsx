@@ -1,13 +1,23 @@
 import * as React from 'react';
+import clsx from 'clsx';
 import { calculatePrice, currencyFormatter } from '../../utils';
 import { OutboundLink } from '../OutboundLink';
 import { dashboardRegisterUrl } from '../../../shared';
+import {
+    step,
+    step7,
+    pipelineLink,
+    stepContent,
+    stepHeading,
+    stepCtas,
+    compareLink,
+} from './styles.module.less';
 
-const Step7 = ({ activePage }) => {
+const Step7 = () => {
     return (
-        <div className={`step step-${activePage}`}>
-            <div className="step-content">
-                <div className="step-heading">Predictable Pricing</div>
+        <div className={clsx(step, step7)}>
+            <div className={stepContent}>
+                <div className={stepHeading}>Predictable Pricing</div>
                 <ul>
                     <li>
                         <b>
@@ -27,18 +37,18 @@ const Step7 = ({ activePage }) => {
                     </li>
                     <li>Free for up to two tasks and 10 GB/month</li>
                 </ul>
-                <div className="step-ctas">
+                <div className={stepCtas}>
                     <OutboundLink
                         target="_blank"
                         href={dashboardRegisterUrl}
-                        className="pipeline-link"
+                        className={pipelineLink}
                     >
                         Build a Pipeline
                     </OutboundLink>
                     <OutboundLink
                         target="_blank"
                         href="https://estuary.dev/vs-fivetran/"
-                        className="compare-link"
+                        className={compareLink}
                     >
                         Compare to Fivetran
                     </OutboundLink>

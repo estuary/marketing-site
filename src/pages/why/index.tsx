@@ -1,8 +1,16 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import BackgroundImage from 'gatsby-background-image';
 import * as React from 'react';
-import { Navigation, Step } from '../components/Why';
-import Seo from '../components/seo';
+import { Navigation, Step } from '../../components/Why';
+import Seo from '../../components/seo';
+import {
+    container,
+    mainContentWrap,
+    macBg,
+    stepsControls,
+    prevStep,
+    nextStep,
+} from './styles.module.less';
 
 export const Head = () => <Seo title="Automate Data Streaming" />;
 
@@ -72,16 +80,16 @@ const WhyEstuary = () => {
     };
 
     return (
-        <main className="why-estuary">
+        <main className={container}>
             <Navigation activePage={activePage} setActivePage={setActivePage} />
             <BackgroundImage
                 fluid={mainContentWrapperImageFluid}
-                className="main-content-wrap"
+                className={mainContentWrap}
                 {...commonBackgroundImageProps}
             >
                 <BackgroundImage
                     fluid={stepsImageFluid}
-                    className="mac-bg"
+                    className={macBg}
                     style={{ backgroundSize: '100%' }}
                     {...commonBackgroundImageProps}
                 >
@@ -90,9 +98,9 @@ const WhyEstuary = () => {
                         setActivePage={setActivePage}
                     />
                 </BackgroundImage>
-                <div className="steps-controls">
+                <div className={stepsControls}>
                     <button
-                        className="prev-step"
+                        className={prevStep}
                         onClick={() =>
                             setActivePage(Math.max(activePage - 1, 0))
                         }
@@ -101,7 +109,7 @@ const WhyEstuary = () => {
                         <span>Previous</span>
                     </button>
                     <button
-                        className="next-step"
+                        className={nextStep}
                         onClick={() =>
                             setActivePage(Math.min(activePage + 1, 7))
                         }

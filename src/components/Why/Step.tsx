@@ -30,7 +30,7 @@ const Step = React.memo(({ activePage, setActivePage }: StepProps) => {
         case 6:
             return <Step6 activePage={activePage} setState={setActivePage} />;
         case 7:
-            return <Step7 activePage={activePage} />;
+            return <Step7 />;
         default:
             return null;
     }

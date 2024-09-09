@@ -1,10 +1,21 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
+import clsx from 'clsx';
+import {
+    zoomInOutCircle,
+    step,
+    step2,
+    stepContent,
+    buttonTooltip,
+    top,
+    tooltipHeading,
+    tooltipDescription,
+} from './styles.module.less';
 
 const Step2 = ({ activePage, setState }) => {
     return (
-        <div className={`step step-${activePage}`}>
-            <div className="step-content">
+        <div className={clsx(step, step2)}>
+            <div className={stepContent}>
                 <StaticImage
                     placeholder="none"
                     alt="Data Engineering Podcast"
@@ -14,16 +25,16 @@ const Step2 = ({ activePage, setState }) => {
                     quality={100}
                 />
                 <div
-                    className="zoom-in-out-circle"
+                    className={zoomInOutCircle}
                     onClick={() => setState(activePage + 1)}
                 />
-                <div className="button-tooltip top">
-                    <div className="tooltip-heading">Automated Schema</div>
-                    <div className="tooltip-description">
+                <div className={clsx(buttonTooltip, top)}>
+                    <div className={tooltipHeading}>Automated Schema</div>
+                    <div className={tooltipDescription}>
                         Flow infers and automatically evolves the best schemas
                         for your source data tables, streams, or API objects.
                     </div>
-                    <div className="tooltip-description">
+                    <div className={tooltipDescription}>
                         You&apos;re free to make changes, but you&apos;ll rarely
                         want to.
                     </div>
