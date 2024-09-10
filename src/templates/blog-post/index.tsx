@@ -9,6 +9,7 @@ import DoneIcon from '@mui/icons-material/Done';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { Divider } from '@mui/material';
 import GithubIcon from '@mui/icons-material/GitHub';
+import YoutubeIcon from '@mui/icons-material/YouTube';
 import SwoopingLinesBackground from '../../components/BackgroundImages/LightSwoopingLinesRightDirectionBackground';
 import StraightLinesBackground from '../../components/BackgroundImages/StraightLinesBackground';
 import { PopularArticles } from '../../components/BlogPopularArticles';
@@ -355,9 +356,17 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                                         target="_blank"
                                                     >
                                                         {authorSocialLinks.other.includes(
-                                                            'https://github.com'
+                                                            'github.com'
                                                         ) ? (
                                                             <GithubIcon
+                                                                htmlColor={
+                                                                    iconColor
+                                                                }
+                                                            />
+                                                        ) : authorSocialLinks.other.includes(
+                                                              'youtube.com'
+                                                          ) ? (
+                                                            <YoutubeIcon
                                                                 htmlColor={
                                                                     iconColor
                                                                 }
