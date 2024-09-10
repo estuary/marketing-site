@@ -8,7 +8,6 @@ import CalendarTodayOutlined from '@mui/icons-material/CalendarTodayOutlined';
 import DoneIcon from '@mui/icons-material/Done';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { Divider } from '@mui/material';
-import WebsiteIcon from '@mui/icons-material/Language';
 import SwoopingLinesBackground from '../../components/BackgroundImages/LightSwoopingLinesRightDirectionBackground';
 import StraightLinesBackground from '../../components/BackgroundImages/StraightLinesBackground';
 import { PopularArticles } from '../../components/BlogPopularArticles';
@@ -40,19 +39,13 @@ const iconColor = '#47506D';
 const BlogPostTemplate = ({ data: { post } }) => {
     const postTags = post?.tags?.filter((tag) => tag.type === 'tag');
 
-    const author = post.authors[0];
-
-    const authorImage =
-        author?.picture &&
-        getImage(author.picture.localFile.childImageSharp.gatsbyImageData);
-
-    const authorBio = author?.bio.data.bio;
-
-    const authorSocialLinks = author?.socials;
-
     const hasBeenUpdated = post?.updatedAt
         ? post?.publishedAt !== post?.updatedAt
         : false;
+
+    const hasAtLeastOneBio = post?.authors.some(
+        (author) => author?.bio?.data?.bio
+    );
 
     return (
         <Layout>
@@ -209,83 +202,118 @@ const BlogPostTemplate = ({ data: { post } }) => {
                         </div>
                     </section>
                 ) : null}
-                {author?.name ? (
-                    <section className="next-steps-and-about-author-section">
-                        {/* <div className="next-steps">
+                <section className="next-steps-and-about-author-section">
+                    {/* <div className="next-steps">
                         <h3>Next steps</h3>
                         <NextStepsLink href="">Read about Lorem ipsum dolor sit amet, consectetur</NextStepsLink>
                         <NextStepsLink href="">Learn about Lorem ipsum dolor sit amet</NextStepsLink>
                         <NextStepsLink href="">Lorem ipsum dolor sit amet</NextStepsLink>
                         </div> */}
-                        <div className="about-author">
-                            <h3>{authorBio ? 'About the author' : 'Author'}</h3>
-                            <div className="author-info">
-                                <div className="author-main-info-container">
-                                    <div className="author-avatar-container">
-                                        <Avatar
-                                            image={authorImage}
-                                            alt="Author's Avatar"
-                                            name={author.name}
-                                            loading="lazy"
-                                            width="60px"
-                                        />
-                                    </div>
-                                    <div className="author-name-and-role">
-                                        <span className="author-name">
-                                            {author.name}
-                                        </span>
-                                        {author?.role ? (
-                                            <span className="author-role">
-                                                {author.role}
-                                            </span>
-                                        ) : null}
-                                    </div>
-                                </div>
-                                {authorSocialLinks ? (
-                                    <div className="social-icon-buttons-container">
-                                        <Divider
-                                            orientation="vertical"
-                                            variant="middle"
-                                            flexItem
-                                            className="author-info-divider"
-                                        />
-                                        {authorSocialLinks?.linked_in ? (
-                                            <OutboundLink
-                                                href={
-                                                    authorSocialLinks.linked_in
-                                                }
-                                                target="_blank"
-                                            >
-                                                <LinkedinIcon
-                                                    color={iconColor}
+
+                    <div className="about-author">
+                        <h3>
+                            {post?.authors.length === 1
+                                ? hasAtLeastOneBio
+                                    ? 'About the author'
+                                    : 'Author'
+                                : hasAtLeastOneBio
+                                  ? 'About the authors'
+                                  : 'Authors'}
+                        </h3>
+                        {post?.authors?.map((author) => {
+                            const authorImage =
+                                author?.picture &&
+                                getImage(
+                                    author.picture.localFile.childImageSharp
+                                        .gatsbyImageData
+                                );
+
+                            const authorBio = author?.bio.data.bio;
+
+                            const authorSocialLinks = author?.socials;
+
+                            return (
+                                <>
+                                    <div className="author-info">
+                                        <div className="author-main-info-container">
+                                            <div className="author-avatar-container">
+                                                <Avatar
+                                                    image={authorImage}
+                                                    alt="Author's Avatar"
+                                                    name={author.name}
+                                                    loading="lazy"
+                                                    width="60px"
                                                 />
-                                            </OutboundLink>
-                                        ) : null}
-                                        {authorSocialLinks?.twitter ? (
-                                            <OutboundLink
-                                                href={authorSocialLinks.twitter}
-                                                target="_blank"
-                                            >
-                                                <TwitterXIcon />
-                                            </OutboundLink>
-                                        ) : null}
-                                        {authorSocialLinks?.other ? (
-                                            <OutboundLink
-                                                href={authorSocialLinks.other}
-                                                target="_blank"
-                                            >
-                                                <WebsiteIcon
-                                                    htmlColor={iconColor}
+                                            </div>
+                                            <div className="author-name-and-role">
+                                                {author?.name ? (
+                                                    <span className="author-name">
+                                                        {author.name}
+                                                    </span>
+                                                ) : null}
+                                                {author?.role ? (
+                                                    <span className="author-role">
+                                                        {author.role}
+                                                    </span>
+                                                ) : null}
+                                            </div>
+                                        </div>
+                                        {authorSocialLinks ? (
+                                            <div className="social-icon-buttons-container">
+                                                <Divider
+                                                    orientation="vertical"
+                                                    variant="middle"
+                                                    flexItem
+                                                    className="author-info-divider"
                                                 />
-                                            </OutboundLink>
+                                                {authorSocialLinks?.linked_in ? (
+                                                    <OutboundLink
+                                                        href={
+                                                            authorSocialLinks.linked_in
+                                                        }
+                                                        target="_blank"
+                                                    >
+                                                        <LinkedinIcon
+                                                            color={iconColor}
+                                                        />
+                                                    </OutboundLink>
+                                                ) : null}
+                                                {authorSocialLinks?.twitter ? (
+                                                    <OutboundLink
+                                                        href={
+                                                            authorSocialLinks.twitter
+                                                        }
+                                                        target="_blank"
+                                                    >
+                                                        <TwitterXIcon />
+                                                    </OutboundLink>
+                                                ) : null}
+                                                {/* {authorSocialLinks?.other ? (
+                                                    <OutboundLink
+                                                        href={authorSocialLinks.other}
+                                                        target="_blank"
+                                                    >
+                                                        <WebsiteIcon
+                                                            htmlColor={iconColor}
+                                                        />
+                                                    </OutboundLink>
+                                                ) : null} */}
+                                            </div>
                                         ) : null}
                                     </div>
-                                ) : null}
-                            </div>
-                            {authorBio ? <p>{author.bio.data.bio}</p> : null}
-                        </div>
-                    </section>
-                ) : null}
+                                    {authorBio ? (
+                                        <div
+                                            dangerouslySetInnerHTML={{
+                                                __html: author.bio.data.bio,
+                                            }}
+                                            // TODO: Remove the margin top of this paragraph. Do this after the global css file split to avoid conflicts.
+                                        />
+                                    ) : null}
+                                </>
+                            );
+                        })}
+                    </div>
+                </section>
                 <section className="popular-articles">
                     <div className="popular-articles-wrapper">
                         <PopularArticles />

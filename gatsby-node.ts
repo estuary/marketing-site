@@ -371,16 +371,6 @@ exports.createSchemaCustomization = ({ actions }) => {
         logoUrl: String!
         logo: File!
       }
-
-      type Socials {
-        linked_in: String
-        twitter: String
-        other: String
-      }
-
-      type STRAPI_AUTHOR implements Node {
-        Socials: Socials
-      }
     `;
     createTypes(typeDefs);
 };
