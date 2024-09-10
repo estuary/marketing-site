@@ -1,6 +1,12 @@
 import { Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import React from 'react';
+import {
+    blogPostCardImage,
+    blogsPostCardDetails,
+    blogsPostCardTitle,
+    blogsPostCard,
+} from './styles.module.less';
 
 export interface BlogPostCardProps {
     title: string;
@@ -38,18 +44,18 @@ export const BlogPostCard = ({
     authors,
     publishedAt,
 }: BlogPostCardProps) => (
-    <Link to={`/${slug}`} className="blogs-post-card">
+    <Link to={`/${slug}`} className={blogsPostCard}>
         {hero ? (
             <GatsbyImage
                 alt={title}
                 image={hero.localFile.childImageSharp.gatsbyImageData}
-                className="blog-post-card-image"
+                className={blogPostCardImage}
                 loading="eager"
             />
         ) : null}
-        <p className="blogs-post-card-details">
+        <p className={blogsPostCardDetails}>
             {authors.map((author) => author.name).join(', ')} · {publishedAt}
         </p>
-        <div className="blogs-post-card-title">{title}</div>
+        <div className={blogsPostCardTitle}>{title}</div>
     </Link>
 );

@@ -40,6 +40,11 @@ export const VideoPreviewContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    .estuary-product-video-thumbnail {
+        width: auto;
+        height: 100%;
+    }
 `;
 
 export const ContainerContent = styled.div`

@@ -1,0 +1,114 @@
+.tableOfContents {
+  background: #ffffff;
+  counter-reset: toc-counter;
+  margin-top: 18px;
+  max-height: 45vh;
+  overflow: auto;
+  padding: 0 8px;
+
+  @media (max-height: 1128px) {
+    max-height: 36vh;
+  }
+
+  @media (max-height: 1000px) {
+    max-height: 20vh;
+  }
+
+  @media (max-width: 425px) {
+    max-height: 40vh;
+  }
+
+  h3 {
+    margin: 0 0 8px;
+    color: #04192b;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+  }
+
+  a {
+    color: inherit;
+    font-size: 1rem;
+    font-style: normal;
+    line-height: 20px;
+
+    &:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+  }
+
+  .MuiAccordionSummary-content {
+    min-height: 0 !important;
+    margin: 12px 0 !important;
+    height: 32px;
+  }
+
+  .MuiAccordionSummary-root {
+    min-height: 0 !important;
+  }
+
+  ol {
+    margin: 0;
+    padding-bottom: 12px;
+
+    li {
+      color: #989daf;
+      font-weight: normal;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+  }
+
+  @media (max-width: 1150px) {
+    margin-top: 0;
+  }
+}
+
+.tocItem {
+  list-style-type: decimal;
+  line-height: 20px;
+  margin: 12px 0;
+
+  &::marker {
+    color: #47506d;
+  }
+}
+
+.isItemSelected {
+  font-weight: bold !important;
+  color: #47506d !important;
+}
+
+.accordion {
+  border-top: 1px solid #d7dce5;
+  border-bottom: 1px solid #d7dce5;
+  border-radius: 0;
+}
+
+.accordionSidePadding {
+  padding: 0;
+}
+
+.accordionTitle {
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 30px;
+  color: #04192b;
+}
+
+.tocSubItems {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  hr {
+    max-width: 24px;
+    width: 100%;
+    margin: 0;
+    border: 1px solid #dfdfdf;
+  }
+}

@@ -16,6 +16,7 @@ import FlowLogo from '../svgs/flow-logo.svg';
 import LinkIcon from '../svgs/link-icon.svg';
 import ContactUsForm from '../components/ContactUsForm';
 import { LinkFilled } from '../globalStyles';
+import FlowLogoVector from '../components/FlowLogoVector';
 
 // const jobs = [
 //     {
@@ -182,9 +183,7 @@ const AboutPage = () => {
                             </Link>
                         </p>
                     </div>
-                    <div className="product-flow-section-one-right">
-                        <FlowLogo className="product-flow-section-one-image" />
-                    </div>
+                    <FlowLogoVector />
                 </div>
             </div>
             <section className="about-history">
@@ -368,7 +367,9 @@ const AboutPage = () => {
                         Come work with us
                     </p>
                     <h2 className="about-section-header">Careers</h2>
-                    <FlowLogo className="about-flow-logo product-flow-section-one-image" />
+                    <div className="about-flow-logo">
+                        <FlowLogoVector />
+                    </div>
                     <div className="about-careers-text-wrapper">
                         <div className="icon-wrapper-medium">
                             <CareerAvatar className="product-flow-section-two-gif" />
@@ -413,7 +414,7 @@ const AboutPage = () => {
                         <h2 className="about-section-header-top">
                             Working at Estuary
                         </h2>
-                        <FlowLogo className="product-flow-section-one-image" />
+                        <FlowLogoVector />
                     </div>
                     <div className="about-section-three-card-wrapper">
                         <div className="about-section-three-card">

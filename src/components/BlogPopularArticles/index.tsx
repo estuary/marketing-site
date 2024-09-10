@@ -1,8 +1,16 @@
 import { Link, graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import * as React from 'react';
-import ArrowRight2 from '../svgs/arrow-right-2.svg';
-import Avatar from './Avatar';
+import ArrowRight2 from '../../svgs/arrow-right-2.svg';
+import Avatar from '../Avatar';
+import {
+    popularArticlesImage,
+    articleCardHeader,
+    articleTag,
+    articleDateAndTime,
+    articleCardAuthors,
+    articleCardFooter,
+} from './styles.module.less';
 
 export const PopularArticles = () => {
     const { popularArticles } = useStaticQuery(graphql`
@@ -79,24 +87,22 @@ export const PopularArticles = () => {
                                 <GatsbyImage
                                     image={articleImage}
                                     alt="debezium alternatives"
-                                    className="popular-articles-image"
+                                    className={popularArticlesImage}
                                 />
-                                <div className="article-card-header">
+                                <div className={articleCardHeader}>
                                     {/* TODO: Should we display all the tags here? */}
-                                    <span className="article-tag">
+                                    <span className={articleTag}>
                                         {articleTags[0]?.name}
                                     </span>
-                                    <div className="article-date-and-time">
-                                        <span className="article-card-published-at">
-                                            {article?.updatedAt}
-                                        </span>
-                                        {/* <div className="dot" /> */}
+                                    <div className={articleDateAndTime}>
+                                        <span>{article?.updatedAt}</span>
+                                        {/* <div className={dot} /> */}
                                         {/* TODO: Add post reading time from Strapi */}
                                         {/* <span>10 min</span> */}
                                     </div>
                                 </div>
                                 <h4>{article?.title}</h4>
-                                <div className="article-card-authors">
+                                <div className={articleCardAuthors}>
                                     <Avatar
                                         image={authorImage}
                                         alt="Author's Avatar"
@@ -104,7 +110,7 @@ export const PopularArticles = () => {
                                     />
                                     <span>{article?.authors[0]?.name}</span>
                                 </div>
-                                <div className="article-card-footer">
+                                <div className={articleCardFooter}>
                                     <span>Article</span>
                                     <ArrowRight2 />
                                 </div>

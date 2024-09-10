@@ -1,13 +1,13 @@
 import * as React from 'react';
 import Layout from '../components/Layout';
 import Seo from '../components/seo';
-import FlowLogo from '../svgs/flow-logo.svg';
 import Image1 from '../svgs/solutions-1.svg';
 import Image2 from '../svgs/solutions-2.svg';
 import Image3 from '../svgs/solutions-3.svg';
 import Image4 from '../svgs/solutions-4.svg';
 import SolutionsBanner from '../svgs/solutions-banner.svg';
 import { estuaryAllowsEnterprises } from '../content/seo';
+import FlowLogoVector from '../components/FlowLogoVector';
 
 const SolutionsPage = () => {
     return (
@@ -28,7 +28,7 @@ const SolutionsPage = () => {
                         </p>
                     </div>
                     <div className="product-flow-section-one-right">
-                        <FlowLogo className="product-flow-section-one-image" />
+                        <FlowLogoVector />
                     </div>
                 </div>
             </div>
@@ -63,7 +63,7 @@ const SolutionsPage = () => {
                     // Adjust logo positioning so it doesn't clip the image
                     style={{ marginBottom: 0 }}
                 >
-                    <FlowLogo className="product-flow-section-one-image" />
+                    <FlowLogoVector />
                 </div>
                 <div className="solutions-section-image-wrapper">
                     <Image1 />
@@ -126,7 +126,7 @@ const SolutionsPage = () => {
                 </div>
                 <div className="solutions-section-image-wrapper-right">
                     <div className="solutions-section-logo-right">
-                        <FlowLogo className="product-flow-section-one-image" />
+                        <FlowLogoVector />
                     </div>
                     <div className="solutions-section-image-wrapper">
                         <Image3 />
