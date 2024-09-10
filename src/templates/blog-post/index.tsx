@@ -8,6 +8,7 @@ import CalendarTodayOutlined from '@mui/icons-material/CalendarTodayOutlined';
 import DoneIcon from '@mui/icons-material/Done';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { Divider } from '@mui/material';
+import GithubIcon from '@mui/icons-material/GitHub';
 import SwoopingLinesBackground from '../../components/BackgroundImages/LightSwoopingLinesRightDirectionBackground';
 import StraightLinesBackground from '../../components/BackgroundImages/StraightLinesBackground';
 import { PopularArticles } from '../../components/BlogPopularArticles';
@@ -30,6 +31,7 @@ import { dashboardRegisterUrl } from '../../../shared';
 import Avatar from '../../components/Avatar';
 import LinkedinIcon from '../../svgs/share-social-icons/linkedin-outlined.svg';
 import TwitterXIcon from '../../svgs/share-social-icons/twitter-x-outlined.svg';
+import WebsiteIcon from '../../svgs/share-social-icons/website-outlined.svg';
 import ShareArticle from './ShareArticle';
 import {
     blogPost,
@@ -345,16 +347,30 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                                         <TwitterXIcon />
                                                     </OutboundLink>
                                                 ) : null}
-                                                {/* {authorSocialLinks?.other ? (
+                                                {authorSocialLinks?.other ? (
                                                     <OutboundLink
-                                                        href={authorSocialLinks.other}
+                                                        href={
+                                                            authorSocialLinks.other
+                                                        }
                                                         target="_blank"
                                                     >
-                                                        <WebsiteIcon
-                                                            htmlColor={iconColor}
-                                                        />
+                                                        {authorSocialLinks.other.includes(
+                                                            'https://github.com'
+                                                        ) ? (
+                                                            <GithubIcon
+                                                                htmlColor={
+                                                                    iconColor
+                                                                }
+                                                            />
+                                                        ) : (
+                                                            <WebsiteIcon
+                                                                color={
+                                                                    iconColor
+                                                                }
+                                                            />
+                                                        )}
                                                     </OutboundLink>
-                                                ) : null} */}
+                                                ) : null}
                                             </div>
                                         ) : null}
                                     </div>
