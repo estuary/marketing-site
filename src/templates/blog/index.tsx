@@ -9,8 +9,8 @@ import BigImageBackground from '../../components/BackgroundImages/BigImageBackgr
 import { BlogPostCard } from '../../components/BlogPostCard';
 import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
-import FlowLogo from '../../svgs/flow-logo.svg';
 import SearchInput from '../../components/SearchInput';
+import FlowLogoVector from '../../components/FlowLogoVector';
 import {
     container,
     blogsIndexTabBar,
@@ -20,6 +20,7 @@ import {
     blogsIndexHeader,
     blogsIndexBody,
     blogsNav,
+    flowLogoWrapper,
 } from './styles.module.less';
 
 interface BlogIndexProps {
@@ -96,9 +97,6 @@ const BlogIndex = ({
             <BigImageBackground>
                 <div className={container}>
                     <div className={blogsIndexHeader}>
-                        <div className="blog-post-header-vectors">
-                            <FlowLogo className="blog-post-header-vector" />
-                        </div>
                         <h2>Blog</h2>
                         <p>
                             More about Estuary and related technologies,
@@ -110,6 +108,9 @@ const BlogIndex = ({
                             the business principles that guide our company and
                             allow us to build great solutions for yours.
                         </p>
+                    </div>
+                    <div className={flowLogoWrapper}>
+                        <FlowLogoVector />
                     </div>
                 </div>
                 <div className={blogsIndexTabBar}>

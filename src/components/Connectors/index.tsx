@@ -10,6 +10,7 @@ import { normalizeConnector } from '../../utils';
 import BigImageBackground from '../BackgroundImages/BigImageBackground';
 import ConnectorsLink from '../ConnectorsLink';
 import SearchInput from '../SearchInput';
+import FlowLogoVector from '../FlowLogoVector';
 import {
     container,
     connectorIndexHeader,
@@ -221,12 +222,7 @@ export const Connectors = ({
                         <h2>{title}</h2>
                         <p>{description}</p>
                     </div>
-                    <div
-                        style={{ display: 'block' }}
-                        className="blog-post-header-vectors"
-                    >
-                        <FlowLogo className="product-flow-section-one-image" />
-                    </div>
+                    <FlowLogoVector />
                 </div>
                 <div className={connectorsSearch}>
                     <div className={connectorsSearchBody}>

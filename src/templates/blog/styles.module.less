@@ -3,6 +3,12 @@
 .container {
   .globalMaxWidth;
   .sectionTopBottomPadding;
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 810px) {
+    flex-direction: column-reverse;
+  }
 }
 
 .blogsIndexTabBar {
@@ -67,11 +73,15 @@
 }
 
 .blogsIndexHeader {
-  margin-top: 4rem;
-  margin-bottom: 4rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 
   p {
     max-width: 80%;
+
+    @media (max-width: 810px) {
+      max-width: 100%;
+    }
   }
 }
 
@@ -112,4 +122,9 @@
 
   display: flex;
   justify-content: space-between;
+}
+
+.flowLogoWrapper {
+  margin-left: auto;
+  width: fit-content;
 }
