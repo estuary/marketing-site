@@ -1,7 +1,6 @@
 import { Link, graphql } from 'gatsby';
 import * as React from 'react';
 
-import SearchIcon from '@mui/icons-material/Search';
 import { Divider } from '@mui/material';
 import clsx from 'clsx';
 import lunr, { type Index } from 'lunr';
@@ -11,6 +10,7 @@ import { BlogPostCard } from '../../components/BlogPostCard';
 import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
 import FlowLogo from '../../svgs/flow-logo.svg';
+import SearchInput from '../../components/SearchInput';
 import {
     container,
     blogsIndexTabBar,
@@ -66,6 +66,8 @@ const BlogIndex = ({
     );
 
     const [query, setQuery] = React.useState('');
+
+    const handleQueryChange = (evt) => setQuery(evt.target.value);
 
     const results = useMemo(() => {
         const query_result = index.query((q) => {
@@ -127,15 +129,11 @@ const BlogIndex = ({
                             </Link>
                         ))}
                     </div>
-                    <div className="blogs-index-search">
-                        <SearchIcon className="blogs-index-input-adornment" />
-                        <input
-                            placeholder="Search Blog Posts"
-                            type="text"
-                            value={query}
-                            onChange={(evt) => setQuery(evt.target.value)}
-                        />
-                    </div>
+                    <SearchInput
+                        placeholder="Search Blog Posts"
+                        query={query}
+                        handleQueryChange={handleQueryChange}
+                    />
                 </div>
                 <div className={blogsIndexBody}>
                     {(query.length > 0 ? results : posts).map((post) => (

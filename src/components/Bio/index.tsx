@@ -2,7 +2,12 @@ import { getImage } from 'gatsby-plugin-image';
 import * as React from 'react';
 import Avatar from '../Avatar';
 import { OutboundLink } from '../OutboundLink';
-import { container, avatarWrapper, styledLink } from './styles.module.less';
+import {
+    container,
+    avatarWrapper,
+    styledLink,
+    authorName,
+} from './styles.module.less';
 
 export interface BioProps {
     authors: {
@@ -38,7 +43,7 @@ const Bio = ({ authors }: BioProps) => {
                             name={name ? name : ''}
                         />
                         {name ? (
-                            <strong className="author-name">{name}</strong>
+                            <strong className={authorName}>{name}</strong>
                         ) : null}
                     </div>
                 );

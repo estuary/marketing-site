@@ -1,5 +1,4 @@
 import ChevronRight from '@mui/icons-material/ChevronRight';
-import SearchIcon from '@mui/icons-material/Search';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
 import React, { useMemo, useState } from 'react';
@@ -10,6 +9,7 @@ import FlowLogo from '../../svgs/flow-logo.svg';
 import { normalizeConnector } from '../../utils';
 import BigImageBackground from '../BackgroundImages/BigImageBackground';
 import ConnectorsLink from '../ConnectorsLink';
+import SearchInput from '../SearchInput';
 import {
     container,
     connectorIndexHeader,
@@ -211,6 +211,8 @@ export const Connectors = ({
         showAllConnectors ? true : (res as any).type === connectorType
     );
 
+    const handleQueryChange = (evt) => setQuery(evt.target.value);
+
     return (
         <BigImageBackground>
             <div className={container}>
@@ -228,19 +230,11 @@ export const Connectors = ({
                 </div>
                 <div className={connectorsSearch}>
                     <div className={connectorsSearchBody}>
-                        <div
-                            className="blogs-index-search"
-                            style={{ marginBottom: 0 }}
-                        >
-                            <SearchIcon className="blogs-index-input-adornment" />
-                            <input
-                                style={{ border: '1px solid #D7DCE5' }}
-                                placeholder={`Search ${title}`}
-                                type="text"
-                                value={query}
-                                onChange={(evt) => setQuery(evt.target.value)}
-                            />
-                        </div>
+                        <SearchInput
+                            placeholder={`Search ${title}`}
+                            query={query}
+                            handleQueryChange={handleQueryChange}
+                        />
                         <ConnectorsLink />
                     </div>
                 </div>
