@@ -282,7 +282,6 @@ const cfg: GatsbyConfig = {
                                         }
                                     }
                                 }
-                                link: Link
                             }
                             hero: Hero {
                                 localFile {

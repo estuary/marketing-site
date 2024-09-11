@@ -1,10 +1,22 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
+import clsx from 'clsx';
+import {
+    zoomInOutCircle,
+    step,
+    step3,
+    stepContent,
+    buttonTooltip,
+    left,
+    tooltipHeading,
+    tooltipDescription,
+    tooltipList,
+} from './styles.module.less';
 
 const Step3 = ({ activePage, setState }) => {
     return (
-        <div className={`step step-${activePage}`}>
-            <div className="step-content">
+        <div className={clsx(step, step3)}>
+            <div className={stepContent}>
                 <StaticImage
                     placeholder="none"
                     alt="Data Engineering Podcast"
@@ -14,20 +26,20 @@ const Step3 = ({ activePage, setState }) => {
                     quality={100}
                 />
                 <div
-                    className="zoom-in-out-circle"
+                    className={zoomInOutCircle}
                     onClick={() => setState(activePage + 1)}
                 />
-                <div className="button-tooltip left">
-                    <div className="tooltip-heading">Success!</div>
-                    <div className="tooltip-description">
+                <div className={clsx(buttonTooltip, left)}>
+                    <div className={tooltipHeading}>Success!</div>
+                    <div className={tooltipDescription}>
                         You&apos;ll never have to connect that data source
                         again!
                     </div>
-                    <div className="tooltip-description">
+                    <div className={tooltipDescription}>
                         Whether you need 1-millisecond or 1-hour syncs, building
                         pipelines on our event-driven architecture gives you:
                     </div>
-                    <ul className="tooltip-list">
+                    <ul className={tooltipList}>
                         <li>
                             Greater <b>cost efficiency</b> since only
                             incremental data is processed.

@@ -6,6 +6,15 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import clsx from 'clsx';
 import { Link } from 'gatsby';
 import * as React from 'react';
+import {
+    tableOfContents,
+    accordion,
+    accordionSidePadding,
+    accordionTitle,
+    tocItem,
+    isItemSelected,
+    tocSubItems,
+} from './styles.module.less';
 
 type TocItem = {
     id: string;
@@ -54,14 +63,16 @@ const RenderTocItem = ({
             item.items && item.items.length > 0 ? (
                 <ol role="list" style={{ padding: 0 }}>
                     {item.items.map((nestedItem) => (
-                        <RenderTocItem
-                            key={nestedItem.id}
-                            selectKey={nestedItem.id}
-                            item={nestedItem}
-                            depth={depth + 1}
-                            handleItemClick={handleItemClick}
-                            selectedItem={selectedItem}
-                        />
+                        <div key={nestedItem.id} className={tocSubItems}>
+                            <hr />
+                            <RenderTocItem
+                                selectKey={nestedItem.id}
+                                item={nestedItem}
+                                depth={depth + 1}
+                                handleItemClick={handleItemClick}
+                                selectedItem={selectedItem}
+                            />
+                        </div>
                     ))}
                 </ol>
             ) : null,
@@ -73,8 +84,7 @@ const RenderTocItem = ({
     }
 
     return (
-        <li className={clsx('tocItem', isSelected && 'isItemSelected')}>
-            <span className="before-item" />
+        <li className={clsx(tocItem, isSelected && isItemSelected)}>
             <Link to={`#${selectKey}`} onClick={handleLinkClick}>
                 {item.heading}
             </Link>
@@ -172,25 +182,25 @@ export const RenderToc = ({ items }: { items: TocItem[] }) => {
     );
 
     return (
-        <div className="table-of-contents">
+        <div className={tableOfContents}>
             <Accordion
                 elevation={0}
-                className="accordion"
+                className={accordion}
                 defaultExpanded={!isMobile}
             >
                 <AccordionSummary
-                    className="accordion-side-padding"
+                    className={accordionSidePadding}
                     expandIcon={
                         <ExpandMoreIcon
                             sx={{ color: '#47506d', fontSize: '2rem' }}
                         />
                     }
                 >
-                    <Typography className="accordion-title">
+                    <Typography className={accordionTitle}>
                         Table of Contents
                     </Typography>
                 </AccordionSummary>
-                <AccordionDetails className="accordion-side-padding">
+                <AccordionDetails className={accordionSidePadding}>
                     <ul role="list">{renderedItems}</ul>
                 </AccordionDetails>
             </Accordion>

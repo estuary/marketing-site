@@ -1,10 +1,21 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
+import clsx from 'clsx';
+import {
+    zoomInOutCircle,
+    step,
+    step4,
+    stepContent,
+    buttonTooltip,
+    left,
+    tooltipHeading,
+    tooltipDescription,
+} from './styles.module.less';
 
 const Step4 = ({ activePage, setState }) => {
     return (
-        <div className={`step step-${activePage}`}>
-            <div className="step-content">
+        <div className={clsx(step, step4)}>
+            <div className={stepContent}>
                 <StaticImage
                     placeholder="none"
                     alt="Data Engineering Podcast"
@@ -14,20 +25,20 @@ const Step4 = ({ activePage, setState }) => {
                     quality={100}
                 />
                 <div
-                    className="zoom-in-out-circle"
+                    className={zoomInOutCircle}
                     onClick={() => setState(activePage + 1)}
                 />
-                <div className="button-tooltip left">
-                    <div className="tooltip-heading">
+                <div className={clsx(buttonTooltip, left)}>
+                    <div className={tooltipHeading}>
                         Your Data &apos;Collections&apos;
                     </div>
-                    <div className="tooltip-description">
+                    <div className={tooltipDescription}>
                         Flow stores data from your captures as collections:
                         groups of cleaned, de-duped, and validated, JSON files
                         in your cloud storage. Both your real-time and
                         historical data live here.
                     </div>
-                    <div className="tooltip-description">
+                    <div className={tooltipDescription}>
                         You can stream these collections to destinations with
                         sub-second latency, or add an in-flight transformation
                         step first.

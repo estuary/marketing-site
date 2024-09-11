@@ -6,7 +6,10 @@ import reltime from 'dayjs/plugin/relativeTime';
 
 import CalendarTodayOutlined from '@mui/icons-material/CalendarTodayOutlined';
 import DoneIcon from '@mui/icons-material/Done';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { Divider } from '@mui/material';
+import GithubIcon from '@mui/icons-material/GitHub';
+import YoutubeIcon from '@mui/icons-material/YouTube';
 import SwoopingLinesBackground from '../../components/BackgroundImages/LightSwoopingLinesRightDirectionBackground';
 import StraightLinesBackground from '../../components/BackgroundImages/StraightLinesBackground';
 import { PopularArticles } from '../../components/BlogPopularArticles';
@@ -15,34 +18,83 @@ import { ProcessedPost } from '../../components/BlogPostProcessor';
 import { RenderToc } from '../../components/BlogPostToc';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import {
+    OutboundLink,
     OutboundLinkFilled,
     OutboundLinkOutlined,
 } from '../../components/OutboundLink';
-import Bio from '../../components/bio';
+import Bio from '../../components/Bio';
 import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
 import logoUrl from '../../images/combination-mark__multi-blue.png';
 import { costPerGB } from '../../utils';
 import ReadingTimeIcon from '../../svgs/time.svg';
 import { dashboardRegisterUrl } from '../../../shared';
+import Avatar from '../../components/Avatar';
+import LinkedinIcon from '../../svgs/share-social-icons/linkedin-outlined.svg';
+import TwitterXIcon from '../../svgs/share-social-icons/twitter-x-outlined.svg';
+import WebsiteIcon from '../../svgs/share-social-icons/website-outlined.svg';
 import ShareArticle from './ShareArticle';
+import {
+    blogPost,
+    blogPostHeaderWrapper,
+    headerInfo,
+    postInfo,
+    tagsWrapper,
+    blogsPostCardTags,
+    dateAndReadWrapper,
+    iconInfoWrapper,
+    blogPostDate,
+    heroImage,
+    shareArticleMobile,
+    blogPostContent,
+    blogPostContentWrapper,
+    mainContent,
+    background,
+    bigBuildPipelineBannerContainer,
+    buildPipelineBanner,
+    postSidebar,
+    shareArticleDesktop,
+    sidebarRight,
+    banner,
+    popularArticlesWrapper,
+    bigBuildPipelineBannerSection,
+    bigBuildPipelineBannerContainerLayout,
+    leftColumnContainer,
+    rightColumnContainer,
+    buildPipelineAndPricingButtons,
+    pricingLink,
+    blogPostBreadcrumbsWrapper,
+    nextStepsAndAboutAuthorSection,
+    aboutAuthor,
+    authorInfo,
+    authorMainInfoContainer,
+    authorAvatarContainer,
+    authorNameAndRole,
+    authorName,
+    authorRole,
+    authorInfoDivider,
+    socialIconButtonsContainer,
+} from './styles.module.less';
 
 dayjs.extend(reltime);
 
+const iconColor = '#47506D';
+
 const BlogPostTemplate = ({ data: { post } }) => {
     const postTags = post?.tags?.filter((tag) => tag.type === 'tag');
-
-    /* const authorImage = post?.authors[0]?.picture && getImage(post.authors[0].picture.localFile.childImageSharp.gatsbyImageData)
-
-    const authorSocialLink = post?.authors[0]?.link */
 
     const hasBeenUpdated = post?.updatedAt
         ? post?.publishedAt !== post?.updatedAt
         : false;
 
+    const hasAtLeastOneBio = post?.authors.some(
+        (author) => author?.bio?.data?.bio
+    );
+    const tableOfContents = post.body.data.childHtmlRehype.tableOfContents;
+
     return (
         <Layout>
-            <div className="blog-post-breadcrumbs-wrapper">
+            <div className={blogPostBreadcrumbsWrapper}>
                 <Breadcrumbs
                     breadcrumbs={[
                         {
@@ -60,28 +112,28 @@ const BlogPostTemplate = ({ data: { post } }) => {
                 />
             </div>
             <article
-                className="blog-post"
+                className={blogPost}
                 itemScope
                 itemType="http://schema.org/Article"
             >
                 <SwoopingLinesBackground>
-                    <div className="blog-post-header-wrapper">
-                        <div className="header-info">
-                            <div className="post-info">
-                                <div className="tags-wrapper">
+                    <div className={blogPostHeaderWrapper}>
+                        <div className={headerInfo}>
+                            <div className={postInfo}>
+                                <div className={tagsWrapper}>
                                     {postTags.map((tag) => (
                                         <span
                                             key={tag.name}
-                                            className="blogs-post-card-tags"
+                                            className={blogsPostCardTags}
                                         >
                                             {tag.name}
                                         </span>
                                     ))}
                                 </div>
-                                <div className="date-and-read-wrapper">
-                                    <div className="icon-info-wrapper">
+                                <div className={dateAndReadWrapper}>
+                                    <div className={iconInfoWrapper}>
                                         <ReadingTimeIcon color="#47506D" />
-                                        <span className="blog-post-date">
+                                        <span className={blogPostDate}>
                                             {
                                                 post.body.data
                                                     .childMarkdownRemark.fields
@@ -89,9 +141,9 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                             }
                                         </span>
                                     </div>
-                                    <div className="icon-info-wrapper">
+                                    <div className={iconInfoWrapper}>
                                         <CalendarTodayOutlined fontSize="small" />
-                                        <span className="blog-post-date">
+                                        <span className={blogPostDate}>
                                             <span>
                                                 {hasBeenUpdated
                                                     ? `Published ${post.publishedAt}`
@@ -113,7 +165,7 @@ const BlogPostTemplate = ({ data: { post } }) => {
                         {post.hero ? (
                             <GatsbyImage
                                 alt={post.title}
-                                className="hero-image"
+                                className={heroImage}
                                 image={
                                     post.hero.localFile.childImageSharp
                                         .gatsbyImageData
@@ -121,7 +173,7 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                 loading="eager"
                             />
                         ) : null}
-                        <div className="share-article-mobile">
+                        <div className={shareArticleMobile}>
                             <ShareArticle
                                 article={{
                                     title: post.title,
@@ -133,35 +185,37 @@ const BlogPostTemplate = ({ data: { post } }) => {
                 </SwoopingLinesBackground>
 
                 {post.body ? (
-                    <section className="blog-post-content">
-                        <div className="blog-post-content-wrapper">
-                            <div className="main-content">
+                    <section className={blogPostContent}>
+                        <div className={blogPostContentWrapper}>
+                            <div className={mainContent}>
                                 <ProcessedPost
                                     body={post.body.data.childHtmlRehype.html}
                                 />
 
-                                <div className="build-pipeline-banner-wrapper">
-                                    <StraightLinesBackground className="background">
-                                        <div className="big-build-pipeline-banner-container">
-                                            <div className="build-pipeline-banner">
-                                                <h3>
-                                                    Start streaming your data{' '}
-                                                    <span>for free</span>
-                                                </h3>
-                                                <OutboundLinkFilled
-                                                    href={dashboardRegisterUrl}
-                                                    target="_blank"
-                                                >
-                                                    Build a Pipeline
-                                                </OutboundLinkFilled>
-                                            </div>
+                                <StraightLinesBackground className={background}>
+                                    <div
+                                        className={
+                                            bigBuildPipelineBannerContainer
+                                        }
+                                    >
+                                        <div className={buildPipelineBanner}>
+                                            <h3>
+                                                Start streaming your data{' '}
+                                                <span>for free</span>
+                                            </h3>
+                                            <OutboundLinkFilled
+                                                href={dashboardRegisterUrl}
+                                                target="_blank"
+                                            >
+                                                Build a Pipeline
+                                            </OutboundLinkFilled>
                                         </div>
-                                    </StraightLinesBackground>
-                                </div>
+                                    </div>
+                                </StraightLinesBackground>
                             </div>
 
-                            <div className="post-sidebar">
-                                <div className="share-article-desktop">
+                            <div className={postSidebar}>
+                                <div className={shareArticleDesktop}>
                                     <ShareArticle
                                         article={{
                                             title: post.title,
@@ -169,14 +223,11 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                         }}
                                     />
                                 </div>
-                                <RenderToc
-                                    items={
-                                        post.body.data.childHtmlRehype
-                                            .tableOfContents
-                                    }
-                                />
-                                <div className="sidebar-right">
-                                    <div className="banner">
+                                {tableOfContents.length > 0 ? (
+                                    <RenderToc items={tableOfContents} />
+                                ) : null}
+                                <div className={sidebarRight}>
+                                    <div className={banner}>
                                         <span>
                                             Build a <span>Pipeline</span>
                                         </span>
@@ -195,62 +246,173 @@ const BlogPostTemplate = ({ data: { post } }) => {
                         </div>
                     </section>
                 ) : null}
-                {/* <section className="next-steps-and-about-author-section">
-                    <div className="next-steps">
+                <section className={nextStepsAndAboutAuthorSection}>
+                    {/* <div className={nextSteps}>
                         <h3>Next steps</h3>
                         <NextStepsLink href="">Read about Lorem ipsum dolor sit amet, consectetur</NextStepsLink>
                         <NextStepsLink href="">Learn about Lorem ipsum dolor sit amet</NextStepsLink>
                         <NextStepsLink href="">Lorem ipsum dolor sit amet</NextStepsLink>
-                    </div>
-                    <div className="about-author">
-                        <h3>About the author</h3>
-                        <div className="author-info">
-                            <div className="author-main-info-container">
-                                <div className="author-avatar-container">
-                                    <Avatar
-                                        image={authorImage}
-                                        alt="Author's Avatar"
-                                        name={post.authors[0].name}
-                                    />
-                                </div>
-                                <div className="author-name-and-role">
-                                    <span className="author-name">{post.authors[0].name}</span>
-                                    <span className="author-role">CEO</span>
-                                </div>
-                            </div>
-                            {authorSocialLink &&
-                                <div className="social-icon-buttons-container">
-                                    <Divider orientation="vertical" variant="middle" flexItem className="author-info-divider" />
-                                    {authorSocialLink?.includes("linkedin.com") &&
-                                        <OutboundLink href={authorSocialLink} target="_blank">
-                                            <LinkedinIcon color="#47506D" />
-                                        </OutboundLink>
-                                    }
-                                    {authorSocialLink?.includes("twitter.com") &&
-                                        <OutboundLink href={authorSocialLink} target="_blank">
-                                            <TwitterXIcon />
-                                        </OutboundLink>
-                                    }
-                                </div>
-                            }
-                        </div>
-                    </div>
-                </section> */}
-                <section className="popular-articles">
-                    <div className="popular-articles-wrapper">
-                        <PopularArticles />
+                        </div> */}
+
+                    <div className={aboutAuthor}>
+                        <h3>
+                            {post?.authors.length === 1
+                                ? hasAtLeastOneBio
+                                    ? 'About the author'
+                                    : 'Author'
+                                : hasAtLeastOneBio
+                                  ? 'About the authors'
+                                  : 'Authors'}
+                        </h3>
+                        {post?.authors?.map((author, index) => {
+                            const authorImage =
+                                author?.picture &&
+                                getImage(
+                                    author.picture.localFile.childImageSharp
+                                        .gatsbyImageData
+                                );
+
+                            const authorBio = author?.bio.data.bio;
+
+                            const authorSocialLinks = author?.socials;
+
+                            return (
+                                <>
+                                    <div key={index} className={authorInfo}>
+                                        <div
+                                            className={authorMainInfoContainer}
+                                        >
+                                            <div
+                                                className={
+                                                    authorAvatarContainer
+                                                }
+                                            >
+                                                <Avatar
+                                                    image={authorImage}
+                                                    alt="Author's Avatar"
+                                                    name={author.name}
+                                                    loading="lazy"
+                                                    size="60px"
+                                                />
+                                            </div>
+                                            <div className={authorNameAndRole}>
+                                                {author?.name ? (
+                                                    <span
+                                                        className={authorName}
+                                                    >
+                                                        {author.name}
+                                                    </span>
+                                                ) : null}
+                                                {author?.role ? (
+                                                    <span
+                                                        className={authorRole}
+                                                    >
+                                                        {author.role}
+                                                    </span>
+                                                ) : null}
+                                            </div>
+                                        </div>
+                                        {authorSocialLinks ? (
+                                            <div
+                                                className={
+                                                    socialIconButtonsContainer
+                                                }
+                                            >
+                                                <Divider
+                                                    orientation="vertical"
+                                                    variant="middle"
+                                                    flexItem
+                                                    className={
+                                                        authorInfoDivider
+                                                    }
+                                                />
+                                                {authorSocialLinks?.linked_in ? (
+                                                    <OutboundLink
+                                                        href={
+                                                            authorSocialLinks.linked_in
+                                                        }
+                                                        target="_blank"
+                                                    >
+                                                        <LinkedinIcon
+                                                            color={iconColor}
+                                                        />
+                                                    </OutboundLink>
+                                                ) : null}
+                                                {authorSocialLinks?.twitter ? (
+                                                    <OutboundLink
+                                                        href={
+                                                            authorSocialLinks.twitter
+                                                        }
+                                                        target="_blank"
+                                                    >
+                                                        <TwitterXIcon />
+                                                    </OutboundLink>
+                                                ) : null}
+                                                {authorSocialLinks?.other ? (
+                                                    <OutboundLink
+                                                        href={
+                                                            authorSocialLinks.other
+                                                        }
+                                                        target="_blank"
+                                                    >
+                                                        {authorSocialLinks.other.includes(
+                                                            'github.com'
+                                                        ) ? (
+                                                            <GithubIcon
+                                                                htmlColor={
+                                                                    iconColor
+                                                                }
+                                                            />
+                                                        ) : authorSocialLinks.other.includes(
+                                                              'youtube.com'
+                                                          ) ? (
+                                                            <YoutubeIcon
+                                                                htmlColor={
+                                                                    iconColor
+                                                                }
+                                                            />
+                                                        ) : (
+                                                            <WebsiteIcon
+                                                                color={
+                                                                    iconColor
+                                                                }
+                                                            />
+                                                        )}
+                                                    </OutboundLink>
+                                                ) : null}
+                                            </div>
+                                        ) : null}
+                                    </div>
+                                    {authorBio ? (
+                                        <div
+                                            dangerouslySetInnerHTML={{
+                                                __html: author.bio.data.bio,
+                                            }}
+                                            // TODO: Remove the margin top of this paragraph. Do this after the global css file split to avoid conflicts.
+                                        />
+                                    ) : null}
+                                </>
+                            );
+                        })}
                     </div>
                 </section>
-                <section className="big-build-pipeline-banner-section">
-                    <StraightLinesBackground className="background">
-                        <div className="big-build-pipeline-banner-container">
-                            <div className="big-build-pipeline-banner-container_layout">
-                                <div className="left-column-container">
+                <section className={popularArticlesWrapper}>
+                    <PopularArticles />
+                </section>
+                <section className={bigBuildPipelineBannerSection}>
+                    <StraightLinesBackground className={background}>
+                        <div className={bigBuildPipelineBannerContainer}>
+                            <div
+                                className={
+                                    bigBuildPipelineBannerContainerLayout
+                                }
+                            >
+                                <div className={leftColumnContainer}>
                                     <h5>Streaming Pipelines.</h5>
                                     <h5>Simple to Deploy.</h5>
                                     <h5>Simply Priced.</h5>
                                 </div>
-                                <div className="right-column-container">
+                                <div className={rightColumnContainer}>
                                     <div>
                                         <DoneIcon
                                             htmlColor="#5072eb"
@@ -283,13 +445,13 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="build-pipeline-and-pricing-buttons">
+                            <div className={buildPipelineAndPricingButtons}>
                                 <OutboundLinkFilled href={dashboardRegisterUrl}>
                                     Build a Pipeline
                                 </OutboundLinkFilled>
                                 <OutboundLinkOutlined
                                     href="https://estuary.dev/pricing"
-                                    className="pricing-link"
+                                    className={pricingLink}
                                     theme="dark"
                                 >
                                     See Pricing
@@ -417,7 +579,17 @@ export const pageQuery = graphql`
                         }
                     }
                 }
-                link: Link
+                role
+                bio {
+                    data {
+                        bio
+                    }
+                }
+                socials: Socials {
+                    linked_in
+                    twitter
+                    other
+                }
             }
             hero: Hero {
                 localFile {

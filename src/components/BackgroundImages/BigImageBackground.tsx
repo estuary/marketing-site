@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-
 import BackgroundImage from 'gatsby-background-image';
+import { backgroundIndexWrapper } from './styles.module.less';
 
 const BigImageBackground = ({
     children,
@@ -23,7 +23,7 @@ const BigImageBackground = ({
         <BackgroundImage
             fadeIn={false}
             critical
-            className="background-index-wrapper"
+            className={backgroundIndexWrapper}
             fluid={imageData.background.childImageSharp.fluid}
             {...{ ...{ children, rest }, children: undefined }}
         >

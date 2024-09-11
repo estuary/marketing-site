@@ -17,9 +17,9 @@ const path = require('path');
 
 // Define the template for blog and blog post
 const blogPost = path.resolve('./src/templates/blog-post/index.tsx');
-const blog = path.resolve('./src/templates/blog.tsx');
+const blog = path.resolve('./src/templates/blog/index.tsx');
 const comparisonTemplate = path.resolve(
-    './src/templates/product-comparison.tsx'
+    './src/templates/product-comparison/index.tsx'
 );
 const caseStudyTemplate = path.resolve('./src/layouts/CaseStudy/index.tsx');
 

@@ -1,6 +1,10 @@
 import ChevronRight from '@mui/icons-material/ChevronRight';
 import React from 'react';
-import { OutboundLink } from './OutboundLink';
+import { OutboundLink } from '../OutboundLink';
+import {
+    nextStepsLinkContainer,
+    nextStepsLinkText,
+} from './styles.module.less';
 
 type NextStepsLinkProps = {
     children: string;
@@ -8,8 +12,8 @@ type NextStepsLinkProps = {
 };
 
 const NextStepsLink = ({ children, href }: NextStepsLinkProps) => (
-    <OutboundLink href={href} className="next-steps-link-container">
-        <span className="next-steps-link-text">{children}</span>
+    <OutboundLink href={href} className={nextStepsLinkContainer}>
+        <span className={nextStepsLinkText}>{children}</span>
         <ChevronRight htmlColor="#5072EB" />
     </OutboundLink>
 );

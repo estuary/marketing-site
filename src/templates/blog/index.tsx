@@ -1,16 +1,27 @@
 import { Link, graphql } from 'gatsby';
 import * as React from 'react';
 
-import SearchIcon from '@mui/icons-material/Search';
 import { Divider } from '@mui/material';
 import clsx from 'clsx';
 import lunr, { type Index } from 'lunr';
 import { useMemo } from 'react';
-import BigImageBackground from '../components/BackgroundImages/BigImageBackground';
-import { BlogPostCard } from '../components/BlogPostCard';
-import Layout from '../components/Layout';
-import Seo from '../components/seo';
-import FlowLogo from '../svgs/flow-logo.svg';
+import BigImageBackground from '../../components/BackgroundImages/BigImageBackground';
+import { BlogPostCard } from '../../components/BlogPostCard';
+import Layout from '../../components/Layout';
+import Seo from '../../components/seo';
+import SearchInput from '../../components/SearchInput';
+import FlowLogoVector from '../../components/FlowLogoVector';
+import {
+    container,
+    blogsIndexTabBar,
+    blogsIndexTabs,
+    blogsIndexTab,
+    blogsIndexTabActive,
+    blogsIndexHeader,
+    blogsIndexBody,
+    blogsNav,
+    flowLogoWrapper,
+} from './styles.module.less';
 
 interface BlogIndexProps {
     data: {
@@ -57,6 +68,8 @@ const BlogIndex = ({
 
     const [query, setQuery] = React.useState('');
 
+    const handleQueryChange = (evt) => setQuery(evt.target.value);
+
     const results = useMemo(() => {
         const query_result = index.query((q) => {
             const terms = query.split(' ').filter((term) => term.length > 0);
@@ -82,11 +95,8 @@ const BlogIndex = ({
     return (
         <Layout>
             <BigImageBackground>
-                <div className="blogs-index-header-wrapper">
-                    <div className="blogs-index-header">
-                        <div className="blog-post-header-vectors">
-                            <FlowLogo className="blog-post-header-vector" />
-                        </div>
+                <div className={container}>
+                    <div className={blogsIndexHeader}>
                         <h2>Blog</h2>
                         <p>
                             More about Estuary and related technologies,
@@ -99,33 +109,34 @@ const BlogIndex = ({
                             allow us to build great solutions for yours.
                         </p>
                     </div>
+                    <div className={flowLogoWrapper}>
+                        <FlowLogoVector />
+                    </div>
                 </div>
-                <div className="blogs-index-tab-bar">
-                    <div className="blogs-index-tabs">
+                <div className={blogsIndexTabBar}>
+                    <div className={blogsIndexTabs}>
                         {tabCategories.map((category) => (
                             <Link
                                 key={category.Slug}
                                 to={`/blog/${category.Slug}`}
-                                className={clsx('blogs-index-tab', {
-                                    'blogs-index-tab-active':
-                                        category.Slug === categorySlug,
-                                })}
+                                className={clsx(
+                                    blogsIndexTab,
+                                    category.Slug === categorySlug
+                                        ? blogsIndexTabActive
+                                        : null
+                                )}
                             >
                                 {category.Name}
                             </Link>
                         ))}
                     </div>
-                    <div className="blogs-index-search">
-                        <SearchIcon className="blogs-index-input-adornment" />
-                        <input
-                            placeholder="Search Blog Posts"
-                            type="text"
-                            value={query}
-                            onChange={(evt) => setQuery(evt.target.value)}
-                        />
-                    </div>
+                    <SearchInput
+                        placeholder="Search Blog Posts"
+                        query={query}
+                        handleQueryChange={handleQueryChange}
+                    />
                 </div>
-                <div className="blogs-index-body">
+                <div className={blogsIndexBody}>
                     {(query.length > 0 ? results : posts).map((post) => (
                         <BlogPostCard key={post.Slug} {...post} />
                     ))}
@@ -134,7 +145,7 @@ const BlogIndex = ({
             {prevPage ?? nextPage ? (
                 <>
                     <Divider />
-                    <div className="blogs-nav">
+                    <div className={blogsNav}>
                         {prevPage ? (
                             <Link to={prevPage}>← Prev Page</Link>
                         ) : null}

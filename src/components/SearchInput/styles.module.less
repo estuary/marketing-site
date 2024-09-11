@@ -1,0 +1,37 @@
+.blogsIndexSearch {
+  flex: 1 0 auto;
+
+  display: flex;
+  position: relative;
+  border: 1px solid #d7dce5;
+  border-radius: 4px;
+  overflow: hidden;
+  min-height: 56px;
+  height: fit-content;
+
+  @media (min-width: 1486px) {
+      max-width: 350px;
+  }
+
+  @media (max-width: 425px) {
+      width: 100%;
+  }
+
+  input {
+    padding: 8px 14px;
+    padding-bottom: 6px;
+    padding-left: 40px;
+    outline: none;
+    border: none;
+    width: 100%;
+    border-radius: 2px;
+  }
+}
+
+.blogsIndexInputAdornment {
+  position: absolute;
+  left: 4px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}

@@ -1,10 +1,22 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
+import clsx from 'clsx';
+import {
+    zoomInOutCircle,
+    step,
+    step1,
+    stepContent,
+    buttonTooltip,
+    left,
+    tooltipHeading,
+    tooltipDescription,
+    tooltipAction,
+} from './styles.module.less';
 
 const Step1 = ({ activePage, setState }) => {
     return (
-        <div className={`step step-${activePage}`}>
-            <div className="step-content">
+        <div className={clsx(step, step1)}>
+            <div className={stepContent}>
                 <StaticImage
                     placeholder="none"
                     alt="Data Engineering Podcast"
@@ -14,16 +26,16 @@ const Step1 = ({ activePage, setState }) => {
                     quality={100}
                 />
                 <div
-                    className="zoom-in-out-circle"
+                    className={zoomInOutCircle}
                     onClick={() => setState(activePage + 1)}
                 />
-                <div className="button-tooltip left">
-                    <div className="tooltip-heading">Connect Source</div>
-                    <div className="tooltip-description">
+                <div className={clsx(buttonTooltip, left)}>
+                    <div className={tooltipHeading}>Connect Source</div>
+                    <div className={tooltipDescription}>
                         Choose from databases, SaaS APIs, filestores, pub-sub
                         systems, Vector DB, and more.
                     </div>
-                    <div className="tooltip-action">
+                    <div className={tooltipAction}>
                         Click the dot to continue
                     </div>
                 </div>

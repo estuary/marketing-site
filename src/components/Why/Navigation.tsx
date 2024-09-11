@@ -1,5 +1,6 @@
 import { Link } from 'gatsby';
 import * as React from 'react';
+import clsx from 'clsx';
 import ColoredLogo from '../../svgs/colored-logo.svg';
 import { OutboundLink } from '../OutboundLink';
 import {
@@ -9,11 +10,21 @@ import {
 } from '../styles.module.less';
 import { dashboardRegisterUrl } from '../../../shared';
 import { navItems } from './utils';
+import {
+    sidebarWrap,
+    sidebarLogo,
+    ctasWrap,
+    pipelineLink,
+    docLink,
+    navItem,
+    active,
+    itemSteps,
+} from './styles.module.less';
 
 const Navigation = ({ activePage, setActivePage }) => (
-    <div className="sidebar-wrap">
+    <div className={sidebarWrap}>
         <div>
-            <div className="sidebar-logo">
+            <div className={sidebarLogo}>
                 <Link className={globalHeaderLogoLink} to="/">
                     <ColoredLogo
                         className={globalHeaderLogo}
@@ -22,21 +33,26 @@ const Navigation = ({ activePage, setActivePage }) => (
                     <strong className={globalHeaderTitle}>Estuary</strong>
                 </Link>
             </div>
-            <div className="sidebar-nav">
+            <div>
                 {navItems.map((item, index) => (
                     <React.Fragment key={index}>
                         <div
-                            className={`nav-item ${item.activePages.includes(activePage) ? 'active' : ''}`}
+                            className={clsx(
+                                navItem,
+                                item.activePages.includes(activePage)
+                                    ? active
+                                    : ''
+                            )}
                             onClick={() => setActivePage(item.page)}
                         >
                             {item.label}
                         </div>
                         {item.steps ? (
-                            <ul className="item-steps">
+                            <ul className={itemSteps}>
                                 {item.steps.map((step, stepIndex) => (
                                     <li
                                         key={stepIndex}
-                                        className={`${activePage === step.page ? 'active' : ''}`}
+                                        className={`${activePage === step.page ? active : ''}`}
                                         onClick={() => setActivePage(step.page)}
                                     >
                                         {step.label}
@@ -48,18 +64,18 @@ const Navigation = ({ activePage, setActivePage }) => (
                 ))}
             </div>
         </div>
-        <div className="ctas-wrap">
+        <div className={ctasWrap}>
             <OutboundLink
                 target="_blank"
                 href={dashboardRegisterUrl}
-                className="pipeline-link"
+                className={pipelineLink}
             >
                 Build a Pipeline
             </OutboundLink>
             <OutboundLink
                 target="_blank"
                 href="https://docs.estuary.dev/"
-                className="doc-link"
+                className={docLink}
             >
                 View Docs
             </OutboundLink>

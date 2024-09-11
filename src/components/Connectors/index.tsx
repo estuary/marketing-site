@@ -1,14 +1,34 @@
 import ChevronRight from '@mui/icons-material/ChevronRight';
-import SearchIcon from '@mui/icons-material/Search';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
 import React, { useMemo, useState } from 'react';
 import { useLunr } from 'react-lunr';
-import { ConnectorType } from '../../shared';
-import FlowLogo from '../svgs/flow-logo.svg';
-import { normalizeConnector } from '../utils';
-import BigImageBackground from './BackgroundImages/BigImageBackground';
-import ConnectorsLink from './ConnectorsLink';
+import clsx from 'clsx';
+import { ConnectorType } from '../../../shared';
+import FlowLogo from '../../svgs/flow-logo.svg';
+import { normalizeConnector } from '../../utils';
+import BigImageBackground from '../BackgroundImages/BigImageBackground';
+import ConnectorsLink from '../ConnectorsLink';
+import SearchInput from '../SearchInput';
+import FlowLogoVector from '../FlowLogoVector';
+import {
+    container,
+    connectorIndexHeader,
+    connectorBottomLink,
+    connectorBottomFlow,
+    connectorBottomVector,
+    connectorOnlycards,
+    connectorOnlycardsBackgroundImage,
+    connectorCards,
+    connectorsSearch,
+    connectorsSearchBody,
+    connectorCardTop,
+    connectorPostCardImage,
+    connectorPostCardRecommended,
+    connectorCardReadMore,
+    connectorCard,
+    connectorBottomButton,
+} from './styles.module.less';
 
 export interface ConnectorsProps {
     connectorType?: ConnectorType;
@@ -47,12 +67,12 @@ const ConnectorCard = ({
     showType = false,
 }: ReturnType<typeof normalizeConnector> & { showType?: boolean }) => (
     <Link to={`${slug}`}>
-        <div className="connector-card">
-            <div className="connector-card-top">
+        <div className={connectorCard}>
+            <div className={connectorCardTop}>
                 <GatsbyImage
                     image={logo?.childImageSharp?.gatsbyImageData}
                     alt={`${title} Logo`}
-                    className="connector-post-card-image icon-wrapper"
+                    className={clsx(connectorPostCardImage, 'icon-wrapper')}
                     loading="eager"
                 />
                 {recommended || showType ? (
@@ -60,7 +80,7 @@ const ConnectorCard = ({
                 ) : null}
                 {recommended ? (
                     <div>
-                        <p className="connector-post-card-recommended">
+                        <p className={connectorPostCardRecommended}>
                             RECOMMENDED
                         </p>
                     </div>
@@ -69,7 +89,7 @@ const ConnectorCard = ({
                     <>
                         {recommended ? <div style={{ flexBasis: 4 }} /> : null}
                         <div>
-                            <p className="connector-post-card-recommended">
+                            <p className={connectorPostCardRecommended}>
                                 {type === 'capture' ? 'SOURCE' : 'DESTINATION'}
                             </p>
                         </div>
@@ -81,7 +101,7 @@ const ConnectorCard = ({
                 <p>{truncate(shortDescription || '', 100)}</p>
             ) : null}
             <div style={{ flexGrow: 1 }} />
-            <span className="connector-card-read-more">
+            <span className={connectorCardReadMore}>
                 Read More <ChevronRight />
             </span>
         </div>
@@ -192,40 +212,29 @@ export const Connectors = ({
         showAllConnectors ? true : (res as any).type === connectorType
     );
 
+    const handleQueryChange = (evt) => setQuery(evt.target.value);
+
     return (
         <BigImageBackground>
-            <div className="blogs-index-header-wrapper">
-                <div className="connector-index-header">
+            <div className={container}>
+                <div className={connectorIndexHeader}>
                     <div style={{ maxWidth: '30rem' }}>
                         <h2>{title}</h2>
                         <p>{description}</p>
                     </div>
-                    <div
-                        style={{ display: 'block' }}
-                        className="blog-post-header-vectors"
-                    >
-                        <FlowLogo className="product-flow-section-one-image" />
-                    </div>
+                    <FlowLogoVector />
                 </div>
-                <div className="connectors-search">
-                    <div className="connectors-search-body">
-                        <div
-                            className="blogs-index-search"
-                            style={{ marginBottom: 0 }}
-                        >
-                            <SearchIcon className="blogs-index-input-adornment" />
-                            <input
-                                style={{ border: '1px solid #D7DCE5' }}
-                                placeholder={`Search ${title}`}
-                                type="text"
-                                value={query}
-                                onChange={(evt) => setQuery(evt.target.value)}
-                            />
-                        </div>
+                <div className={connectorsSearch}>
+                    <div className={connectorsSearchBody}>
+                        <SearchInput
+                            placeholder={`Search ${title}`}
+                            query={query}
+                            handleQueryChange={handleQueryChange}
+                        />
                         <ConnectorsLink />
                     </div>
                 </div>
-                <div className="connector-cards">
+                <div className={connectorCards}>
                     {(query.length > 0 ? results : mappedConnectors).map(
                         (connector) => (
                             <ConnectorCard
@@ -239,8 +248,8 @@ export const Connectors = ({
                 </div>
             </div>
             <>
-                <div className="connector-onlycards-background-image">
-                    <div className="connector-onlycards">
+                <div className={connectorOnlycardsBackgroundImage}>
+                    <div className={connectorOnlycards}>
                         <h2>All your data, </h2>
                         <h2>where you need it</h2>
                         <p>
@@ -251,22 +260,22 @@ export const Connectors = ({
                 </div>
 
                 {showAllConnectors ? null : (
-                    <div className="connector-bottom-link">
+                    <div className={connectorBottomLink}>
                         <div style={{ maxWidth: '30rem' }}>
                             <h2>{bottomTitle}</h2>
                             <p>{bottomDescription}</p>
                             <Link
                                 to={`/${bottomTitle?.toLowerCase()}`}
-                                className="connector-bottom-button"
+                                className={connectorBottomButton}
                             >
                                 See all {bottomTitle?.toLowerCase()}
                             </Link>
                         </div>
                         <div
                             style={{ display: 'block' }}
-                            className="connector-bottom-vector"
+                            className={connectorBottomVector}
                         >
-                            <FlowLogo className="connector-bottom-flow" />
+                            <FlowLogo className={connectorBottomFlow} />
                             <StaticImage
                                 src="../images/connectors-bottom.png"
                                 alt={
