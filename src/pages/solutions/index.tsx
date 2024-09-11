@@ -10,13 +10,10 @@ import SolutionsBanner from '../../svgs/solutions-banner.svg';
 import { estuaryAllowsEnterprises } from '../../content/seo';
 import FlowLogoVector from '../../components/FlowLogoVector';
 import {
-    sectionOneH1,
     sectionOne,
     sectionOneBackgroundImageWrapper,
-    sectionOneSubtext,
     sectionOneLeft,
     sectionOneRight,
-    sectionTwoTopicHeader,
     bannerWrapper,
     sectionWrapper,
     subtextBold,
@@ -35,17 +32,15 @@ const SolutionsPage = () => {
             <div className={sectionOneBackgroundImageWrapper}>
                 <div className={sectionOne}>
                     <div className={sectionOneLeft}>
-                        <h1 className={sectionOneH1}>
+                        <h1>
                             Streaming ETL solutions are revolutionizing
                             what&apos;s possible for data pipelines.
                         </h1>
-                        <p className={sectionOneSubtext}>
+                        <p>
                             For too long, enterprises have been forced to choose
                             between batch and streaming processes.
                         </p>
-                        <p className={sectionOneSubtext}>
-                            {estuaryAllowsEnterprises}
-                        </p>
+                        <p>{estuaryAllowsEnterprises}</p>
                     </div>
                     <div className={sectionOneRight}>
                         <FlowLogoVector />
@@ -57,9 +52,7 @@ const SolutionsPage = () => {
             </div>
             <div className={sectionWrapper}>
                 <div className={sectionTextWrapper}>
-                    <h2 className={sectionTwoTopicHeader}>
-                        Real time analytics
-                    </h2>
+                    <h2>Real time analytics</h2>
                     <p className={subtextBold}>
                         Fresh, error free data is the key to real-time business
                         intelligence.
@@ -94,7 +87,7 @@ const SolutionsPage = () => {
                     <Image2 />
                 </div>
                 <div className={sectionTextWrapper}>
-                    <h2 className={sectionTwoTopicHeader}>Customer 360</h2>
+                    <h2>Customer 360</h2>
 
                     <p className={subtextBold}>
                         Building a complete view of customer data is getting
@@ -120,9 +113,7 @@ const SolutionsPage = () => {
 
             <div className={sectionWrapper}>
                 <div className={sectionTextWrapper}>
-                    <h2 className={sectionTwoTopicHeader}>
-                        Database replication using CDC
-                    </h2>
+                    <h2>Database replication using CDC</h2>
                     <p className={subtextBold}>
                         Move your data efficiently without latency and errors
                         using CDC.
@@ -162,9 +153,7 @@ const SolutionsPage = () => {
                     <Image4 />
                 </div>
                 <div className={sectionTextWrapper}>
-                    <h2 className={sectionTwoTopicHeader}>
-                        Database migration
-                    </h2>
+                    <h2>Database migration</h2>
 
                     <p className={subtextBold}>
                         Migrate your data easily, even from legacy databases.

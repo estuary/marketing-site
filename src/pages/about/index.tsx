@@ -25,8 +25,6 @@ import {
     sectionTwoGif,
     iconWrapperMedium,
     iconWrapperMediumGray,
-    sectionOneH1,
-    sectionOneText,
     textBold,
     sectionTwo,
     sectionTwoWrapper,
@@ -209,11 +207,11 @@ const AboutPage = () => {
             <div className={sectionOneBackgroundImageWrapper}>
                 <div className={sectionOne}>
                     <div className={sectionOneLeft}>
-                        <h1 className={sectionOneH1}>
+                        <h1>
                             Estuary is building the next generation of real-time
                             data integration solutions.
                         </h1>
-                        <p className={sectionOneText}>
+                        <p>
                             We&apos;re creating a new kind of DataOps platform
                             that{' '}
                             <span className={textBold}>
@@ -233,7 +231,7 @@ const AboutPage = () => {
                             </span>{' '}
                             or development.
                         </p>
-                        <p className={sectionOneText}>
+                        <p>
                             Estuary{' '}
                             <span className={textBold}>
                                 develops in the open
