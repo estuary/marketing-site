@@ -3,6 +3,7 @@ import * as React from 'react';
 import './src/normalize.css';
 // custom CSS styles
 import './src/highlighting-atom-one-dark.css';
+// global css
 import './src/style.less';
 
 // Highlighting for code blocks

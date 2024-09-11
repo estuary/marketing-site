@@ -1,22 +1,83 @@
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
-import { ProcessedPost } from '../components/BlogPostProcessor';
-import Layout from '../components/Layout';
-import { OutboundLink } from '../components/OutboundLink';
-import Seo from '../components/seo';
-import { estuaryHelpsYourTeam } from '../content/seo';
-import CareerAvatar from '../svgs/about-careers-avatar-icon.svg';
-import BenefitsIcon from '../svgs/about-careers-benefits-icon.svg';
-import BuildingsIcon from '../svgs/about-careers-building.svg';
-import CommunityIcon from '../svgs/about-careers-community-icon.svg';
-import CultureIcon from '../svgs/about-careers-culture-icon.svg';
-import EstuaryLogoSmall from '../svgs/estuary-logo-small.svg';
-import FlowLogo from '../svgs/flow-logo.svg';
-import LinkIcon from '../svgs/link-icon.svg';
-import ContactUsForm from '../components/ContactUsForm';
-import { LinkFilled } from '../globalStyles';
-import FlowLogoVector from '../components/FlowLogoVector';
+import { ProcessedPost } from '../../components/BlogPostProcessor';
+import Layout from '../../components/Layout';
+import { OutboundLink } from '../../components/OutboundLink';
+import Seo from '../../components/seo';
+import { estuaryHelpsYourTeam } from '../../content/seo';
+import CareerAvatar from '../../svgs/about-careers-avatar-icon.svg';
+import BenefitsIcon from '../../svgs/about-careers-benefits-icon.svg';
+import BuildingsIcon from '../../svgs/about-careers-building.svg';
+import CommunityIcon from '../../svgs/about-careers-community-icon.svg';
+import CultureIcon from '../../svgs/about-careers-culture-icon.svg';
+import EstuaryLogoSmall from '../../svgs/estuary-logo-small.svg';
+import FlowLogo from '../../svgs/flow-logo.svg';
+import LinkIcon from '../../svgs/link-icon.svg';
+import ContactUsForm from '../../components/ContactUsForm';
+import { LinkFilled } from '../../globalStyles';
+import FlowLogoVector from '../../components/FlowLogoVector';
+import {
+    sectionOne,
+    sectionOneBackgroundImageWrapper,
+    sectionOneLeft,
+    sectionTwoHeaderSmall,
+    sectionTwoGif,
+    iconWrapperMedium,
+    iconWrapperMediumGray,
+    textBold,
+    sectionTwo,
+    sectionTwoWrapper,
+    flowLogo,
+    sectionHeader,
+    cardText,
+    currentOpeningsButton,
+    careersText,
+    textBoldRegular,
+    careersTextWrapper,
+    sectionThree,
+    sectionThreeWrapper,
+    sectionHeaderTop,
+    sectionThreeTop,
+    sectionThreeCardWapper,
+    sectionThreeCard,
+    cardTitle,
+    referralText,
+    sectionFourCurrentOpenings,
+    sectionFourCurrentOpeningsWrapper,
+    currentOpeningsList,
+    currentOpeningTitle,
+    getInTouchButton,
+    currentOpeningsDescriptionWrapper,
+    currentOpeningsTitleWrapper,
+    sectionCurrentOpeningsWrapper,
+    currentOpeningsLocationWrapper,
+    link,
+    openingTitle,
+    openingText,
+    currentOpeningsDivider,
+    getInTouchButtonMobile,
+    history,
+    historyWrap,
+    imageHeading,
+    historyLeft,
+    historyRight,
+    media,
+    mediaWrapper,
+    mediaLogo,
+    mediaWrap,
+    mediaItem,
+    itemHeading,
+    itemDescription,
+    investors,
+    investorsWrap,
+    meetTheTeam,
+    teamWrap,
+    teamItem,
+    employeeImg,
+    itemName,
+    itemPosition,
+} from './styles.module.less';
 
 // const jobs = [
 //     {
@@ -25,7 +86,7 @@ import FlowLogoVector from '../components/FlowLogoVector';
 //         location: "New York, NY",
 //         workEnvironment: "Hybrid or remote",
 //         description:
-//             "As Estuary’s first Solution Engineer, you will work directly with our founding team to help companies unlock the power of their real-time data. Working at the intersection of engineering, product and customers, your work will have a huge impact on Estuary’s product roadmap and help create a seamless experience for users. We’re looking for individuals with an insatiable curiosity for getting into the weeds of technical challenges and an empathetic approach to teaching others. A strong desire to work within a start-up environment without the constraints of large companies is imperative. You will be given the freedom and opportunity to chart your own path and take your career to the next level.",
+//             "As Estuary&apos;s first Solution Engineer, you will work directly with our founding team to help companies unlock the power of their real-time data. Working at the intersection of engineering, product and customers, your work will have a huge impact on Estuary&apos;s product roadmap and help create a seamless experience for users. We&apos;re looking for individuals with an insatiable curiosity for getting into the weeds of technical challenges and an empathetic approach to teaching others. A strong desire to work within a start-up environment without the constraints of large companies is imperative. You will be given the freedom and opportunity to chart your own path and take your career to the next level.",
 //         responsibilities: [
 //             "Focus on detailed use-cases to create a great end-to-end experience for customers.",
 //             "Take a lead role in understanding user pain points to develop a strategic vision of our product roadmap.",
@@ -37,7 +98,7 @@ import FlowLogoVector from '../components/FlowLogoVector';
 //             "Communicate technical feature requests.",
 //         ],
 //         qualifications: [
-//             "Bachelor’s degree in computer science, data science or related field or equivalent technical & business experience.",
+//             "Bachelor&apos;s degree in computer science, data science or related field or equivalent technical & business experience.",
 //             "Exceptional written and verbal communication.",
 //             "Strong interpersonal and relationship building skills.",
 //             "Understand the value of balancing customer-centric thinking with technical know-how.",
@@ -51,7 +112,7 @@ import FlowLogoVector from '../components/FlowLogoVector';
 //         location: "New York, NY; Columbus, OH",
 //         workEnvironment: "Hybrid or remote",
 //         description:
-//             "As Estuary’s first Solution Engineer, you will work directly with our founding team to help companies unlock the power of their real-time data. Working at the intersection of engineering, product and customers, your work will have a huge impact on Estuary’s product roadmap and help create a seamless experience for users. We’re looking for individuals with an insatiable curiosity for getting into the weeds of technical challenges and an empathetic approach to teaching others. A strong desire to work within a start-up environment without the constraints of large companies is imperative. You will be given the freedom and opportunity to chart your own path and take your career to the next level.",
+//             "As Estuary&apos;s first Solution Engineer, you will work directly with our founding team to help companies unlock the power of their real-time data. Working at the intersection of engineering, product and customers, your work will have a huge impact on Estuary&apos;s product roadmap and help create a seamless experience for users. We&apos;re looking for individuals with an insatiable curiosity for getting into the weeds of technical challenges and an empathetic approach to teaching others. A strong desire to work within a start-up environment without the constraints of large companies is imperative. You will be given the freedom and opportunity to chart your own path and take your career to the next level.",
 //         responsibilities: [
 //             "Focus on detailed use-cases to create a great end-to-end experience for customers.",
 //             "Take a lead role in understanding user pain points to develop a strategic vision of our product roadmap.",
@@ -63,7 +124,7 @@ import FlowLogoVector from '../components/FlowLogoVector';
 //             "Communicate technical feature requests.",
 //         ],
 //         qualifications: [
-//             "Bachelor’s degree in computer science, data science or related field or equivalent technical & business experience.",
+//             "Bachelor&apos;s degree in computer science, data science or related field or equivalent technical & business experience.",
 //             "Exceptional written and verbal communication.",
 //             "Strong interpersonal and relationship building skills.",
 //             "Understand the value of balancing customer-centric thinking with technical know-how.",
@@ -143,17 +204,17 @@ const AboutPage = () => {
 
     return (
         <Layout>
-            <div className="product-flow-section-one-background-image-wrapper">
-                <div className="product-flow-section-one">
-                    <div className="product-flow-section-one-left">
-                        <h1 className="about-section-one-h1">
+            <div className={sectionOneBackgroundImageWrapper}>
+                <div className={sectionOne}>
+                    <div className={sectionOneLeft}>
+                        <h1>
                             Estuary is building the next generation of real-time
                             data integration solutions.
                         </h1>
-                        <p className="about-section-one-text">
+                        <p>
                             We&apos;re creating a new kind of DataOps platform
                             that{' '}
-                            <span className="about-text-bold">
+                            <span className={textBold}>
                                 empowers engineering teams
                             </span>{' '}
                             to build real-time, data-intensive pipelines and
@@ -161,18 +222,18 @@ const AboutPage = () => {
                             UI or CLI. We aim to make real-time data accessible
                             to the analyst, while bringing power tooling to the
                             streaming enthusiast. Flow{' '}
-                            <span className="about-text-bold">unifies</span> a
+                            <span className={textBold}>unifies</span> a
                             team&apos;s databases, pub/sub systems, and SaaS
                             around their data,{' '}
-                            <span className="about-text-bold">
+                            <span className={textBold}>
                                 without requiring new investments in
                                 infrastructure
                             </span>{' '}
                             or development.
                         </p>
-                        <p className="about-section-one-text">
+                        <p>
                             Estuary{' '}
-                            <span className="about-text-bold">
+                            <span className={textBold}>
                                 develops in the open
                             </span>{' '}
                             to produce both the runtime for our managed service
@@ -186,28 +247,24 @@ const AboutPage = () => {
                     <FlowLogoVector />
                 </div>
             </div>
-            <section className="about-history">
-                <div className="history-wrap">
-                    <div className="history-left">
-                        <div className="image-heading">
+            <section className={history}>
+                <div className={historyWrap}>
+                    <div className={historyLeft}>
+                        <div className={imageHeading}>
                             9 years of real-time innovation
                         </div>
-                        <div className="image-wrap">
-                            <StaticImage
-                                placeholder="none"
-                                alt="Estuary history"
-                                src="../images/timeline-img.png"
-                                width={508}
-                                height={526}
-                                quality={100}
-                            />
-                        </div>
+                        <StaticImage
+                            placeholder="none"
+                            alt="Estuary history"
+                            src="../../images/timeline-img.png"
+                            width={508}
+                            height={526}
+                            quality={100}
+                        />
                     </div>
-                    <div className="history-right">
-                        <p className="product-flow-section-two-header-small">
-                            about us
-                        </p>
-                        <h2 className="about-section-header-top">History</h2>
+                    <div className={historyRight}>
+                        <p className={sectionTwoHeaderSmall}>about us</p>
+                        <h2 className={sectionHeaderTop}>History</h2>
                         <p>
                             We didn&apos;t start at trying to make real-time
                             data flows more accessible by abstracting away the
@@ -233,24 +290,24 @@ const AboutPage = () => {
                     </div>
                 </div>
             </section>
-            <section className="about-media">
-                <div className="about-media-wrapper">
-                    <p className="product-flow-section-two-header-small">
-                        what’s happening
+            <section className={media}>
+                <div className={mediaWrapper}>
+                    <p className={sectionTwoHeaderSmall}>
+                        what&apos;s happening
                     </p>
-                    <h2 className="about-section-header-top">In the Media</h2>
-                    <FlowLogo className="media-logo" />
-                    <div className="media-wrap">
-                        <div className="media-item">
+                    <h2 className={sectionHeaderTop}>In the Media</h2>
+                    <FlowLogo className={mediaLogo} />
+                    <div className={mediaWrap}>
+                        <div className={mediaItem}>
                             <StaticImage
                                 placeholder="none"
                                 alt="Engineering podcast"
-                                src="../images/engineering-podcast.png"
+                                src="../../images/engineering-podcast.png"
                                 width={342}
                                 height={179}
                                 quality={100}
                             />
-                            <div className="item-heading">
+                            <div className={itemHeading}>
                                 <OutboundLink
                                     target="_blank"
                                     href="https://podcasts.apple.com/us/podcast/data-engineering-podcast/id1193040557"
@@ -259,22 +316,22 @@ const AboutPage = () => {
                                     Data Engineering Podcast
                                 </OutboundLink>
                             </div>
-                            <div className="item-description">
+                            <div className={itemDescription}>
                                 Johnny, Dave, and Tobias discuss why we built
                                 Gazette, the growth of streaming, and the rise
                                 of the real-time data lake.
                             </div>
                         </div>
-                        <div className="media-item">
+                        <div className={mediaItem}>
                             <StaticImage
                                 placeholder="none"
                                 alt="FirstMark invests in Estuary"
-                                src="../images/firstmark-estuary.png"
+                                src="../../images/firstmark-estuary.png"
                                 width={342}
                                 height={179}
                                 quality={100}
                             />
-                            <div className="item-heading">
+                            <div className={itemHeading}>
                                 <OutboundLink
                                     target="_blank"
                                     href="https://venturebeat.com/business/how-estuary-helps-enterprises-harness-historical-and-real-time-data-pipelines/"
@@ -283,22 +340,22 @@ const AboutPage = () => {
                                     FirstMark invests in Estuary
                                 </OutboundLink>
                             </div>
-                            <div className="item-description">
+                            <div className={itemDescription}>
                                 Matt Turck of FirstMark announces their $7
                                 million Series A investment in Estuary to
                                 simplify streaming + batch unification.
                             </div>
                         </div>
-                        <div className="media-item">
+                        <div className={mediaItem}>
                             <StaticImage
                                 placeholder="none"
                                 alt="Data landscape"
-                                src="../images/data-landscape.png"
+                                src="../../images/data-landscape.png"
                                 width={342}
                                 height={179}
                                 quality={100}
                             />
-                            <div className="item-heading">
+                            <div className={itemHeading}>
                                 <OutboundLink
                                     target="_blank"
                                     href="https://www.linkedin.com/feed/update/urn:li:activity:6980910741046382592/"
@@ -307,7 +364,7 @@ const AboutPage = () => {
                                     Real-Time Data Landscape
                                 </OutboundLink>
                             </div>
-                            <div className="item-description">
+                            <div className={itemDescription}>
                                 LinkedIn post from our Founder Dave Yaffe where
                                 he (and 50+ others) chart out the evolving
                                 ecosystem of real-time data integration players
@@ -316,37 +373,33 @@ const AboutPage = () => {
                     </div>
                 </div>
             </section>
-            <section className="meet-the-team">
-                <p className="product-flow-section-two-header-small">
-                    say hello
-                </p>
-                <h2 className="about-section-header-top">Meet Our Team</h2>
-                <ul className="team-wrap">
+            <section className={meetTheTeam}>
+                <p className={sectionTwoHeaderSmall}>say hello</p>
+                <h2 className={sectionHeaderTop}>Meet Our Team</h2>
+                <ul className={teamWrap}>
                     {employees.map((employee, index) => (
-                        <div className="team-item employee-list" key={index}>
+                        <div className={teamItem} key={index}>
                             <GatsbyImage
                                 image={
                                     employee.ProfilePic.localFile
                                         .childImageSharp.gatsbyImageData
                                 }
                                 alt={`${employee.name} - ${employee.title}`}
-                                className="employee-img"
+                                className={employeeImg}
                             />
-                            <div className="item-name">{employee.name}</div>
-                            <div className="item-position">
-                                {employee.title}
-                            </div>
+                            <div className={itemName}>{employee.name}</div>
+                            <div className={itemPosition}>{employee.title}</div>
                         </div>
                     ))}
                 </ul>
             </section>
-            <section className="investors">
-                <h2 className="investors-heading">Our Investors</h2>
-                <div className="investors-wrap">
+            <section className={investors}>
+                <h2>Our Investors</h2>
+                <div className={investorsWrap}>
                     <StaticImage
                         placeholder="none"
                         alt="Firstmark"
-                        src="../images/firstmark-logo.png"
+                        src="../../images/firstmark-logo.png"
                         width={180}
                         height={48}
                         quality={100}
@@ -354,170 +407,165 @@ const AboutPage = () => {
                     <StaticImage
                         placeholder="none"
                         alt="Operator"
-                        src="../images/operator-logo.png"
+                        src="../../images/operator-logo.png"
                         width={180}
                         height={48}
                         quality={100}
                     />
                 </div>
             </section>
-            <div className="about-section-two">
-                <div className="about-section-two-wrapper">
-                    <p className="product-flow-section-two-header-small">
-                        Come work with us
-                    </p>
-                    <h2 className="about-section-header">Careers</h2>
-                    <div className="about-flow-logo">
+            <div className={sectionTwo}>
+                <div className={sectionTwoWrapper}>
+                    <p className={sectionTwoHeaderSmall}>Come work with us</p>
+                    <h2 className={sectionHeader}>Careers</h2>
+                    <div className={flowLogo}>
                         <FlowLogoVector />
                     </div>
-                    <div className="about-careers-text-wrapper">
-                        <div className="icon-wrapper-medium">
-                            <CareerAvatar className="product-flow-section-two-gif" />
+                    <div className={careersTextWrapper}>
+                        <div className={iconWrapperMedium}>
+                            <CareerAvatar className={sectionTwoGif} />
                         </div>
 
-                        <p className="about-careers-text">
-                            <span className="about-text-bold-regular">
-                                About you
-                            </span>
-                            : You’re passionate about the complexities and
+                        <p className={careersText}>
+                            <span className={textBoldRegular}>About you</span>:
+                            You&apos;re passionate about the complexities and
                             potential of our data-driven world, self-motivated,
                             curious, and adaptable.
                         </p>
                     </div>
-                    <div className="about-careers-text-wrapper">
-                        <div className="icon-wrapper-medium">
-                            <EstuaryLogoSmall className="product-flow-section-two-gif" />
+                    <div className={careersTextWrapper}>
+                        <div className={iconWrapperMedium}>
+                            <EstuaryLogoSmall className={sectionTwoGif} />
                         </div>
-                        <p className="about-careers-text">
-                            <span className="about-text-bold-regular">
-                                About us
-                            </span>
-                            : We’re a rapidly growing, highly technical team
-                            built by successful repeat founders that’s working
-                            to take the friction out of data engineering.
+                        <p className={careersText}>
+                            <span className={textBoldRegular}>About us</span>:
+                            We&apos;re a rapidly growing, highly technical team
+                            built by successful repeat founders that&apos;s
+                            working to take the friction out of data
+                            engineering.
                         </p>
                     </div>
                     <LinkFilled
-                        className="about-current-openings-button"
+                        className={currentOpeningsButton}
                         href="#careers"
                     >
                         Current openings
                     </LinkFilled>
                 </div>
             </div>
-            <div className="about-section-three">
-                <div className="about-section-three-wrapper">
-                    <p className="product-flow-section-two-header-small">
-                        What&apos;s it like
-                    </p>
-                    <div className="about-section-three-top">
-                        <h2 className="about-section-header-top">
-                            Working at Estuary
-                        </h2>
+            <div className={sectionThree}>
+                <div className={sectionThreeWrapper}>
+                    <p className={sectionTwoHeaderSmall}>What&apos;s it like</p>
+                    <div className={sectionThreeTop}>
+                        <h2 className={sectionHeaderTop}>Working at Estuary</h2>
                         <FlowLogoVector />
                     </div>
-                    <div className="about-section-three-card-wrapper">
-                        <div className="about-section-three-card">
-                            <div className="icon-wrapper-medium-gray">
+                    <div className={sectionThreeCardWapper}>
+                        <div className={sectionThreeCard}>
+                            <div className={iconWrapperMediumGray}>
                                 <BuildingsIcon />
                             </div>
-                            <p className="about-card-title">Location</p>
-                            <p className="about-card-text">
+                            <p className={cardTitle}>Location</p>
+                            <p className={cardText}>
                                 We offer offices in both our New York City and
                                 Columbus, Ohio locations, as well as the ability
                                 to work remotely.
                             </p>
                         </div>
-                        <div className="about-section-three-card">
-                            <div className="icon-wrapper-medium-gray">
+                        <div className={sectionThreeCard}>
+                            <div className={iconWrapperMediumGray}>
                                 <BenefitsIcon />
                             </div>
-                            <p className="about-card-title">Benefits</p>
-                            <p className="about-card-text">
+                            <p className={cardTitle}>Benefits</p>
+                            <p className={cardText}>
                                 We provide 100% employee coverage on healthcare,
                                 401k, competitive equity, and unlimited time
                                 vacation leave.
                             </p>
                         </div>
-                        <div className="about-section-three-card">
-                            <div className="icon-wrapper-medium-gray">
+                        <div className={sectionThreeCard}>
+                            <div className={iconWrapperMediumGray}>
                                 <CultureIcon />
                             </div>
-                            <p className="about-card-title">Culture</p>
-                            <p className="about-card-text">
+                            <p className={cardTitle}>Culture</p>
+                            <p className={cardText}>
                                 Like the product we build, our culture is
                                 forward-thinking and open. Our team operates on
                                 a foundation of trust, is resourceful,
                                 collaborative, but also independent.
                             </p>
                         </div>
-                        <div className="about-section-three-card">
-                            <div className="icon-wrapper-medium-gray">
+                        <div className={sectionThreeCard}>
+                            <div className={iconWrapperMediumGray}>
                                 <CommunityIcon />
                             </div>
-                            <p className="about-card-title">Community</p>
-                            <p className="about-card-text">
+                            <p className={cardTitle}>Community</p>
+                            <p className={cardText}>
                                 We offer perks including team happy hours,
                                 weekly lunches, and quarterly off-sites. With
-                                our rapid growth, now’s an exciting time to come
-                                aboard.
+                                our rapid growth, now&apos;s an exciting time to
+                                come aboard.
                             </p>
                         </div>
                     </div>
-                    <p className="about-referral-text">
+                    <p className={referralText}>
                         Know somebody who would be a good fit? We offer a $2,500
                         referral bonus.
                     </p>
                 </div>
             </div>
-            <div className="about-section-four-current-openings" id="careers">
-                <div className="about-section-four-current-openings-wrapper">
-                    <p className="product-flow-section-two-header-small">
-                        Apply today
-                    </p>
-                    <h2 className="about-section-header-top">
-                        Current Openings
-                    </h2>
-                    <div className="about-section-current-openings-wrapper">
-                        <div className="about-current-openings-list">
+            <div className={sectionFourCurrentOpenings} id="careers">
+                <div className={sectionFourCurrentOpeningsWrapper}>
+                    <p className={sectionTwoHeaderSmall}>Apply today</p>
+                    <h2 className={sectionHeaderTop}>Current Openings</h2>
+                    <div className={sectionCurrentOpeningsWrapper}>
+                        <div className={currentOpeningsList}>
                             {jobs.length > 0
                                 ? jobs.map((job) => (
                                       <Link
                                           key={`${job.slug}-about-current-openings-list`}
                                           to={`#${job.slug}`}
-                                          className="about-current-opening-title"
+                                          className={currentOpeningTitle}
                                       >
                                           {job.title}
                                       </Link>
                                   ))
                                 : null}
                             <LinkFilled
-                                className="about-get-in-touch-button"
+                                className={getInTouchButton}
                                 href="mailto:careers@estuary.dev"
                             >
                                 Get in touch to apply
                             </LinkFilled>
                         </div>
-                        <div className="about-current-openings-description-wrapper">
+                        <div className={currentOpeningsDescriptionWrapper}>
                             {jobs.length > 0
                                 ? jobs.map((job) => (
                                       <div
                                           id={job.slug}
                                           key={`${job.slug}-about-current-openings-description-wrapper`}
                                       >
-                                          <div className="about-current-openings-title-wrapper">
-                                              <p className="about-opening-title">
+                                          <div
+                                              className={
+                                                  currentOpeningsTitleWrapper
+                                              }
+                                          >
+                                              <p className={openingTitle}>
                                                   {job.title}
                                               </p>
                                               <Link
                                                   to={`#${job.slug}`}
-                                                  className="about-link"
+                                                  className={link}
                                               >
                                                   <LinkIcon />
                                               </Link>
                                           </div>
-                                          <div className="about-current-openings-location-wrapper">
-                                              <p className="about-opening-text">
+                                          <div
+                                              className={
+                                                  currentOpeningsLocationWrapper
+                                              }
+                                          >
+                                              <p className={openingText}>
                                                   Location:{' '}
                                                   <b>{job.location}</b>
                                               </p>
@@ -529,12 +577,14 @@ const AboutPage = () => {
                                               }
                                           />
                                           <LinkFilled
-                                              className="about-get-in-touch-button-mobile"
+                                              className={getInTouchButtonMobile}
                                               href="mailto:careers@estuary.dev"
                                           >
                                               Get in touch to apply
                                           </LinkFilled>
-                                          <div className="current-openings-divider" />
+                                          <div
+                                              className={currentOpeningsDivider}
+                                          />
                                       </div>
                                   ))
                                 : null}
