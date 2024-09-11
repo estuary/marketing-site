@@ -7,7 +7,7 @@ type Avatar = {
     alt: string;
     name: string;
     loading?: 'eager' | 'lazy';
-    width?: string;
+    size?: string;
 };
 
 const Avatar = ({
@@ -15,10 +15,10 @@ const Avatar = ({
     alt,
     name,
     loading = 'eager',
-    width = '36px',
+    size = '36px',
 }: Avatar) => {
     return (
-        <Container $hasImage={!!image} $imgSize={width}>
+        <Container $hasImage={!!image} $imgSize={size}>
             {image ? (
                 <GatsbyImage image={image} alt={alt} loading={loading} />
             ) : (
