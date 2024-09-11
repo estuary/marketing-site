@@ -40,128 +40,124 @@
   }
 }
 
-// Commented to use once we add the next steps section
-// .nextStepsAndAboutAuthorSection {
-//   background-color: #f9fafc;
-//   padding: 100px 90px;
-//   display: flex;
-//   gap: 80px;
-//   justify-content: space-around;
+.nextStepsAndAboutAuthorSection {
+  .sectionTopBottomPadding;
 
-//   @media (max-width: 767px) {
-//     flex-wrap: wrap;
-//     padding: 40px 20px;
-//     gap: 60px;
-//     justify-content: left;
-//   }
+  background-color: #f9fafc;
+  display: flex;
+  gap: 80px;
+  justify-content: space-around;
 
-//   h3 {
-//     font-size: 1.25rem;
-//     font-weight: 600;
-//     line-height: 30px;
-//     color: #04192b;
-//     margin-bottom: 16px;
-//     margin-top: 0;
-//   }
-// }
+  @media (max-width: 767px) {
+    flex-wrap: wrap;
+    padding: 40px 20px;
+    gap: 60px;
+    justify-content: left;
+  }
 
-// .aboutAuthor {
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   flex-direction: column;
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 30px;
+    color: #04192b;
+    margin-bottom: 16px;
+    margin-top: 0;
+  }
+}
 
-//   .author-info {
-//     display: flex;
-//     align-items: center;
-//     margin-bottom: 16px;
-//     row-gap: 20px;
+.aboutAuthor {
+  .globalMaxWidth;
 
-//     @media (max-width: 767px) {
-//       margin-top: 32px;
-//       margin-bottom: 24px;
-//       flex-direction: column;
-//       align-items: flex-start;
-//     }
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 
-//     .author-main-info-container {
-//       display: flex;
-//       align-items: center;
-//     }
+  p {
+    font-size: 1rem;
+    line-height: 30px;
+    color: #47506d;
+    margin: 0;
+    max-width: 780px;
+  }
+}
 
-//     .author-avatar-container {
-//       display: inline-block;
-//       padding: 4px;
-//       border: 2px solid #5072eb;
-//       border-radius: 100%;
-//       margin-right: 20px;
+.authorInfo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  row-gap: 20px;
 
-//       .author-avatar {
-//         width: 100%;
-//         height: auto;
-//         min-width: 54px;
-//         min-height: 54px;
-//       }
-//     }
+  @media (max-width: 580px) {
+    margin-top: 32px;
+    margin-bottom: 24px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
 
-//     .author-name-and-role {
-//       display: flex;
-//       flex-direction: column;
-//       color: #47506d;
+.authorMainInfoContainer {
+  display: flex;
+  align-items: center;
+}
 
-//       .author-name {
-//         font-size: 1.125rem;
-//         font-weight: 600;
-//         line-height: 27px;
-//         margin: 0;
-//       }
+.authorAvatarContainer {
+  display: inline-block;
+  padding: 4px;
+  border: 2px solid #5072eb;
+  border-radius: 100%;
+  margin-right: 20px;
+}
 
-//       .author-role {
-//         font-size: 1rem;
-//         font-weight: 400;
-//         line-height: 32.4px;
-//       }
-//     }
+.authorNameAndRole {
+  display: flex;
+  flex-direction: column;
+  color: #47506d;
+}
 
-//     .author-info-divider {
-//       height: 57px;
-//       width: 1px;
-//       border-color: #d7dce5;
-//       margin-left: 30px;
+.authorName {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 27px;
+  margin: 0;
+  min-width: 115px;
+}
 
-//       @media (max-width: 767px) {
-//         height: 24px;
-//       }
-//     }
+.authorRole {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 32.4px;
+}
 
-//     .social-icon-buttons-container {
-//       display: flex;
-//       align-items: center;
-//       gap: 30px;
+.nextSteps {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 
-//       a {
-//         height: 24px;
-//       }
-//     }
-//   }
+  @media (max-width: 767px) {
+    gap: 16px;
+  }
+}
 
-//   p {
-//     font-size: 1rem;
-//     line-height: 30px;
-//     color: #47506d;
-//     margin-bottom: 0;
-//   }
-// }
+.authorInfoDivider {
+  min-height: 57px;
+  width: 1px;
+  border-color: #d7dce5;
+  margin-left: 30px;
 
-// .nextSteps {
-//   display: flex;
-//   flex-direction: column;
-//   gap: 20px;
+  @media (max-width: 580px) {
+   display: none;
+  }
+}
 
-//   @media (max-width: 767px) {
-//     gap: 16px;
-//   }
-// }
+.socialIconButtonsContainer {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+
+  a {
+    height: 24px;
+  }
+}
 
 .blogPostHeaderWrapper {
   .globalMaxWidth;
@@ -526,6 +522,7 @@
 }
 
 .popularArticlesWrapper {
+  .sectionTopBottomPadding;
   .globalMaxWidth;
 
   h3 {
@@ -554,10 +551,8 @@
       gap: 48px;
     }
 
-    li {
-      @media (min-width: 1560px) {
-        margin: 0 auto;
-      }
+    @media (min-width: 1579px) {
+      justify-content: space-between;
     }
 
     a {

@@ -9,6 +9,7 @@ import SlackIcon from '../../svgs/slack-outline.svg';
 import TwitterIcon from '../../svgs/twitter-outline.svg';
 import { ButtonOutlinedPrimary } from '../../globalStyles';
 import NewsletterSignupForm from '../NewsletterSignupForm';
+import { statusPageUrl } from '../../../shared';
 import {
     footer,
     globalFooterWrapper,
@@ -103,6 +104,13 @@ const Footer = () => {
                             className={globalFooterRightLink}
                         >
                             Docs
+                        </OutboundLink>
+                        <OutboundLink
+                            target="_blank"
+                            href={statusPageUrl}
+                            className={globalFooterRightLink}
+                        >
+                            Status
                         </OutboundLink>
                     </div>
                     <div className={globalFooterRightLinkWrapper}>
