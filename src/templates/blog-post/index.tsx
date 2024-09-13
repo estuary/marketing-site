@@ -388,7 +388,6 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                             dangerouslySetInnerHTML={{
                                                 __html: author.bio.data.bio,
                                             }}
-                                            // TODO: Remove the margin top of this paragraph. Do this after the global css file split to avoid conflicts.
                                         />
                                     ) : null}
                                 </>
