@@ -30,6 +30,16 @@ export const features: { [key: string]: Features } = {
             </>
         ),
     },
+    kafkaCompatible: {
+        title: 'Kafka compatibility',
+        description: (
+            <p>
+                Use Flow Dekaf to connect any Kafka-compatible destination to
+                Flow as if it were a Kafka cluster via the destination&apos;s
+                existing Kafka consumer API support.
+            </p>
+        ),
+    },
     realTimeAndBatch: {
         title: 'Real-time and batch',
         description: (
@@ -69,6 +79,16 @@ export const features: { [key: string]: Features } = {
                 Move data from many sources to collections, then to many
                 destinations all at once. Share and reuse data across projects,
                 or replace sources and destinations without impacting others.
+            </p>
+        ),
+    },
+    multiCloud: {
+        title: 'Multi-cloud deployment',
+        description: (
+            <p>
+                Deploy each capture, SQL or TypeScript task, and materialization
+                of a single pipeline in the same or different public or private
+                clouds and regions.
             </p>
         ),
     },

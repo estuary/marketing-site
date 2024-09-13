@@ -61,6 +61,16 @@ const SectionThree = () => {
                 ),
             },
             {
+                feature: features.kafkaCompatible,
+                icon: (
+                    <StaticImage
+                        placeholder="none"
+                        alt="Kafka"
+                        src="../../../svgs/product-page/section-three/cdc.svg"
+                    />
+                ),
+            },
+            {
                 feature: features.realTimeAndBatch,
                 icon: (
                     <StaticImage
@@ -107,6 +117,16 @@ const SectionThree = () => {
                 ),
             },
             {
+                feature: features.backfillAndReplay,
+                icon: (
+                    <StaticImage
+                        placeholder="none"
+                        alt="Backfill and replay"
+                        src="../../../svgs/product-page/section-three/replay.svg"
+                    />
+                ),
+            },
+            {
                 feature: features.schemaEvolution,
                 icon: (
                     <StaticImage
@@ -118,12 +138,12 @@ const SectionThree = () => {
                 props: { ...tooltipRightProps, disableInteractive: false },
             },
             {
-                feature: features.backfillAndReplay,
+                feature: features.multiCloud,
                 icon: (
                     <StaticImage
                         placeholder="none"
-                        alt="Backfill and replay"
-                        src="../../../svgs/product-page/section-three/replay.svg"
+                        alt="Multi Cloud"
+                        src="../../../svgs/product-page/section-three/source.svg"
                     />
                 ),
             },
