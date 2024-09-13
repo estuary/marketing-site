@@ -1,64 +1,18 @@
-.popularArticlesImage {
-  border-radius: 8px;
-  margin-bottom: 16px;
-}
+.container {
+  list-style: none;
+  margin: 0;
 
-.articleCardHeader {
   display: flex;
-  justify-content: space-between;
-}
-
-.articleTag {
-  color: #625eff;
-  font-size: 1rem;
-  font-weight: 600;
-  line-height: 30px;
-}
-
-.articleDateAndTime {
-  font-size: 0.875rem;
-  line-height: 16.8px;
-  font-weight: 400;
-  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
   align-items: center;
-  column-gap: 12px;
-  color: #878ea6;
-}
-
-.articleCardAuthors {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-
-  span {
-    font-size: 0.875rem;
-    font-weight: 400;
-    line-height: 16.8px;
-    color: #47506d;
-
-    @media (max-width: 767px) {
-      font-weight: 600;
-    }
-  }
-}
-
-.articleCardFooter {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  margin-top: auto;
+  justify-content: center;
 
   @media (max-width: 767px) {
-    display: none;
+    gap: 48px;
+  }
+
+  @media (min-width: 1579px) {
+    justify-content: space-between;
   }
 }
-
-// .dot {
-//   width: 1px;
-//   height: 1px;
-//   padding: 2px;
-//   margin: 0;
-//   border-radius: 100%;
-//   background-color: #878ea6;
-// }

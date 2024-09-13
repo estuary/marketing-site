@@ -255,7 +255,7 @@ const BlogPostTemplate = ({ data: { post } }) => {
                         </div> */}
 
                     <div className={aboutAuthor}>
-                        <h3>
+                        <h2>
                             {post?.authors.length === 1
                                 ? hasAtLeastOneBio
                                     ? 'About the author'
@@ -263,7 +263,7 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                 : hasAtLeastOneBio
                                   ? 'About the authors'
                                   : 'Authors'}
-                        </h3>
+                        </h2>
                         {post?.authors?.map((author, index) => {
                             const authorImage =
                                 author?.picture &&
@@ -397,6 +397,7 @@ const BlogPostTemplate = ({ data: { post } }) => {
                     </div>
                 </section>
                 <section className={popularArticlesWrapper}>
+                    <h2>Popular Articles</h2>
                     <PopularArticles />
                 </section>
                 <section className={bigBuildPipelineBannerSection}>
