@@ -1,5 +1,6 @@
 import { getImage } from 'gatsby-plugin-image';
 import * as React from 'react';
+import { Link } from 'gatsby';
 import Avatar from '../Avatar';
 import { container, avatarWrapper, authorName } from './styles.module.less';
 
@@ -30,7 +31,10 @@ const Bio = ({ authors }: BioProps) => {
                 );
 
                 const combined = (
-                    <div className={avatarWrapper}>
+                    <Link
+                        to={`/${name.replace(' ', '-').toLowerCase()}`}
+                        className={avatarWrapper}
+                    >
                         <Avatar
                             alt={`Picture of ${name}`}
                             image={image ? image : undefined}
@@ -39,7 +43,7 @@ const Bio = ({ authors }: BioProps) => {
                         {name ? (
                             <strong className={authorName}>{name}</strong>
                         ) : null}
-                    </div>
+                    </Link>
                 );
 
                 return <React.Fragment key={name}>{combined}</React.Fragment>;

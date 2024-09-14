@@ -8,8 +8,6 @@ import CalendarTodayOutlined from '@mui/icons-material/CalendarTodayOutlined';
 import DoneIcon from '@mui/icons-material/Done';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { Divider } from '@mui/material';
-import GithubIcon from '@mui/icons-material/GitHub';
-import YoutubeIcon from '@mui/icons-material/YouTube';
 import SwoopingLinesBackground from '../../components/BackgroundImages/LightSwoopingLinesRightDirectionBackground';
 import StraightLinesBackground from '../../components/BackgroundImages/StraightLinesBackground';
 import { PopularArticles } from '../../components/BlogPopularArticles';
@@ -18,7 +16,6 @@ import { ProcessedPost } from '../../components/BlogPostProcessor';
 import { RenderToc } from '../../components/BlogPostToc';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import {
-    OutboundLink,
     OutboundLinkFilled,
     OutboundLinkOutlined,
 } from '../../components/OutboundLink';
@@ -30,9 +27,7 @@ import { costPerGB } from '../../utils';
 import ReadingTimeIcon from '../../svgs/time.svg';
 import { dashboardRegisterUrl } from '../../../shared';
 import Avatar from '../../components/Avatar';
-import LinkedinIcon from '../../svgs/share-social-icons/linkedin-outlined.svg';
-import TwitterXIcon from '../../svgs/share-social-icons/twitter-x-outlined.svg';
-import WebsiteIcon from '../../svgs/share-social-icons/website-outlined.svg';
+import SocialLinks from '../../components/SocialLinks';
 import ShareArticle from './ShareArticle';
 import {
     blogPost,
@@ -73,12 +68,9 @@ import {
     authorName,
     authorRole,
     authorInfoDivider,
-    socialIconButtonsContainer,
 } from './styles.module.less';
 
 dayjs.extend(reltime);
-
-const iconColor = '#47506D';
 
 const BlogPostTemplate = ({ data: { post } }) => {
     const postTags = post?.tags?.filter((tag) => tag.type === 'tag');
@@ -313,11 +305,7 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                             </div>
                                         </div>
                                         {authorSocialLinks ? (
-                                            <div
-                                                className={
-                                                    socialIconButtonsContainer
-                                                }
-                                            >
+                                            <>
                                                 <Divider
                                                     orientation="vertical"
                                                     variant="middle"
@@ -326,61 +314,12 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                                         authorInfoDivider
                                                     }
                                                 />
-                                                {authorSocialLinks?.linked_in ? (
-                                                    <OutboundLink
-                                                        href={
-                                                            authorSocialLinks.linked_in
-                                                        }
-                                                        target="_blank"
-                                                    >
-                                                        <LinkedinIcon
-                                                            color={iconColor}
-                                                        />
-                                                    </OutboundLink>
-                                                ) : null}
-                                                {authorSocialLinks?.twitter ? (
-                                                    <OutboundLink
-                                                        href={
-                                                            authorSocialLinks.twitter
-                                                        }
-                                                        target="_blank"
-                                                    >
-                                                        <TwitterXIcon />
-                                                    </OutboundLink>
-                                                ) : null}
-                                                {authorSocialLinks?.other ? (
-                                                    <OutboundLink
-                                                        href={
-                                                            authorSocialLinks.other
-                                                        }
-                                                        target="_blank"
-                                                    >
-                                                        {authorSocialLinks.other.includes(
-                                                            'github.com'
-                                                        ) ? (
-                                                            <GithubIcon
-                                                                htmlColor={
-                                                                    iconColor
-                                                                }
-                                                            />
-                                                        ) : authorSocialLinks.other.includes(
-                                                              'youtube.com'
-                                                          ) ? (
-                                                            <YoutubeIcon
-                                                                htmlColor={
-                                                                    iconColor
-                                                                }
-                                                            />
-                                                        ) : (
-                                                            <WebsiteIcon
-                                                                color={
-                                                                    iconColor
-                                                                }
-                                                            />
-                                                        )}
-                                                    </OutboundLink>
-                                                ) : null}
-                                            </div>
+                                                <SocialLinks
+                                                    socialLinks={
+                                                        authorSocialLinks
+                                                    }
+                                                />
+                                            </>
                                         ) : null}
                                     </div>
                                     {authorBio ? (

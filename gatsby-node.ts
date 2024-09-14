@@ -26,6 +26,8 @@ const caseStudyTemplate = path.resolve('./src/layouts/CaseStudy/index.tsx');
 const connector = path.resolve('./src/templates/connector/index.tsx');
 const connection = path.resolve('./src/templates/connection.tsx');
 
+const authorComponent = path.resolve('./src/templates/author/index.tsx');
+
 export const createPages: GatsbyNode['createPages'] = async ({
     graphql,
     actions,
@@ -349,6 +351,33 @@ export const createPages: GatsbyNode['createPages'] = async ({
                     });
                 }
             }
+        }
+    }
+
+    const authors = await graphql<{
+        allStrapiAuthor: {
+            nodes: any[];
+        };
+    }>(`
+        {
+            allStrapiAuthor {
+                nodes {
+                    id
+                    name: Name
+                }
+            }
+        }
+    `);
+
+    if (authors.data?.allStrapiAuthor.nodes) {
+        for (const author of authors.data.allStrapiAuthor.nodes) {
+            createPage({
+                path: author.name.replace(' ', '-').toLowerCase(),
+                component: authorComponent,
+                context: {
+                    id: author.id,
+                },
+            });
         }
     }
 };

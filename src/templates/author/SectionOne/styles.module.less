@@ -1,0 +1,67 @@
+@import '../../../globalStyles/sections.module.less';
+
+.container {
+  .globalMaxWidth;
+
+  display: flex;
+  gap: 60px;
+}
+
+.centralizeContainer {
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.authorPictureWrapper {
+  border: 3px solid #5072EB;
+  border-radius: 100%;
+  padding: 24px;
+  min-width: 254px;
+  min-height: 254px;
+  width: fit-content;
+}
+
+.authorPicture {
+  border-radius: 100%;
+}
+
+.authorInfo {
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 28.8px;
+    color: #5072EB;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  span {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 30px;
+    color: #47506D;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 1.125rem;
+    line-height: 32.4px;
+    color: #04192B;
+    margin: 0 0 20px 0;
+  }
+}
+
+.centralizeAuthorInfo {
+  justify-content: center;
+  text-align: center;
+}
+
+.socialIconsWrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
