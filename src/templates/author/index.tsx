@@ -3,6 +3,7 @@ import React from 'react';
 import Layout from '../../components/Layout';
 import SectionOne from './SectionOne';
 import { Author } from './shared';
+import SectionTwo from './SectionTwo';
 
 interface AuthorPageProps {
     data: {
@@ -12,7 +13,7 @@ interface AuthorPageProps {
 
 const AuthorPage = ({
     data: {
-        author: { name, role, bio, socials, picture },
+        author: { name, role, bio, socials, picture, blogPosts },
     },
 }: AuthorPageProps) => {
     return (
@@ -26,6 +27,7 @@ const AuthorPage = ({
                     picture,
                 }}
             />
+            <SectionTwo authorBlogPosts={blogPosts} />
         </Layout>
     );
 };
@@ -62,14 +64,30 @@ export const pageQuery = graphql`
                 }
             }
             role
-            blog_posts {
+            blogPosts: blog_posts {
                 id
-                Title
-                Slug
+                title: Title
+                slug: Slug
                 tags {
-                    Name
-                    Slug
-                    Type
+                    name: Name
+                    slug: Slug
+                    type: Type
+                }
+                updatedAt(formatString: "MMMM D, YYYY")
+                hero: Hero {
+                    localFile {
+                        childImageSharp {
+                            gatsbyImageData(
+                                layout: CONSTRAINED
+                                width: 400
+                                placeholder: BLURRED
+                                aspectRatio: 1.7
+                                formats: [AUTO, WEBP, AVIF]
+                            )
+                            # Further below in this doc you can learn how to use these response images
+                        }
+                    }
+                    alternativeText
                 }
                 body: Body {
                     data {
@@ -82,8 +100,22 @@ export const pageQuery = graphql`
                         }
                     }
                 }
+                authors {
+                    name: Name
+                    picture: Picture {
+                        localFile {
+                            childImageSharp {
+                                gatsbyImageData(
+                                    layout: CONSTRAINED
+                                    placeholder: BLURRED
+                                    quality: 100
+                                )
+                            }
+                        }
+                    }
+                    link: Link
+                }
             }
-            publishedAt(formatString: "MMMM D, YYYY")
         }
     }
 `;

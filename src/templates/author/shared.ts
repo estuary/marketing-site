@@ -14,6 +14,19 @@ export interface Author {
         };
     };
     role: string;
-    blogPosts: any;
-    publishedAt: string;
+    blogPosts: {
+        id: string;
+        name: string;
+        picture: any;
+        slug: string;
+        tags: {
+            name: string;
+            slug: string;
+            type: string;
+        }[];
+        updatedAt: string;
+        hero: any;
+        body: any;
+        authors: any[];
+    }[];
 }
