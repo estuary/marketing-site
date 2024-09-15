@@ -5,6 +5,11 @@
 
   display: flex;
   gap: 60px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 30px;
+  }
 }
 
 .centralizeContainer {
@@ -17,9 +22,14 @@
   border: 3px solid #5072EB;
   border-radius: 100%;
   padding: 24px;
-  min-width: 254px;
-  min-height: 254px;
+  max-width: 254px;
+  max-height: 254px;
   width: fit-content;
+
+  @media (min-width: 376px) {
+    min-width: 254px;
+    min-height: 254px;
+  }
 }
 
 .authorPicture {

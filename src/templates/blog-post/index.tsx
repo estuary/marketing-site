@@ -1,4 +1,4 @@
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import * as React from 'react';
 
 import dayjs from 'dayjs';
@@ -271,7 +271,8 @@ const BlogPostTemplate = ({ data: { post } }) => {
                             return (
                                 <>
                                     <div key={index} className={authorInfo}>
-                                        <div
+                                        <Link
+                                            to={`/${author?.name.replace(' ', '-').toLowerCase()}`}
                                             className={authorMainInfoContainer}
                                         >
                                             <div
@@ -303,7 +304,7 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                                     </span>
                                                 ) : null}
                                             </div>
-                                        </div>
+                                        </Link>
                                         {authorSocialLinks ? (
                                             <>
                                                 <Divider

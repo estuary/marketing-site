@@ -6,25 +6,6 @@
   border-radius: 16px;
   transition: var(--default-transition);
 
-  @media (max-width: 550px) {
-    border: none;
-    padding: 0;
-  }
-
-  @keyframes bounce {
-    0% {
-      transform: translateX(-100%);
-    }
-
-    50% {
-      transform: translateX(0%);
-    }
-
-    100% {
-      transform: translateX(-100%);
-    }
-  }
-
   &:hover {
     border: 1px solid #5072eb;
   }
@@ -60,13 +41,14 @@
 .articleCardHeader {
   display: flex;
   justify-content: space-between;
+  gap: 8px;
 }
 
 .articleTag {
   color: #625eff;
   font-size: 1rem;
   font-weight: 600;
-  line-height: 30px;
+  line-height: 18px;
 }
 
 .articleDateAndTime {
@@ -74,15 +56,19 @@
   line-height: 16.8px;
   font-weight: 400;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  column-gap: 12px;
+  justify-content: right;
+  column-gap: 8px;
   color: #878ea6;
+  text-align: right;
 }
 
 .articleCardAuthors {
   display: flex;
   gap: 8px;
   align-items: center;
+  margin-bottom: 30px;
 
   span {
     font-size: 0.875rem;
@@ -101,7 +87,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  margin-top: 30px;
+  margin-top: auto;
 
   @media (max-width: 550px) {
     display: none;
