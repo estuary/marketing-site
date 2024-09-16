@@ -6,6 +6,11 @@
   border-radius: 16px;
   transition: var(--default-transition);
 
+  @media (max-width: 375px) {
+    border: none;
+    padding: 0;
+  }
+
   &:hover {
     border: 1px solid #5072eb;
   }
@@ -69,6 +74,13 @@
   gap: 8px;
   align-items: center;
   margin-bottom: 30px;
+}
+
+.authorInfo {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
 
   span {
     font-size: 0.875rem;
@@ -76,9 +88,6 @@
     line-height: 16.8px;
     color: #47506d;
 
-    @media (max-width: 767px) {
-      font-weight: 600;
-    }
   }
 }
 

@@ -118,6 +118,7 @@ export const pageQuery = graphql`
                 }
                 authors {
                     name: Name
+                    role
                     picture: Picture {
                         localFile {
                             childImageSharp {

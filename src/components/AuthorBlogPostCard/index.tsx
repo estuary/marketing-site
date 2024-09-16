@@ -12,6 +12,7 @@ import {
     articleCardAuthors,
     articleCardFooter,
     dot,
+    authorInfo,
 } from './styles.module.less';
 
 interface AuthorBlogPostCardProps {
@@ -32,6 +33,8 @@ const AuthorBlogPostCard = ({ data: blogPost }: AuthorBlogPostCardProps) => {
         );
 
     const authorName = blogPost?.authors[0]?.name;
+
+    const authorRole = blogPost?.authors[0]?.role;
 
     return (
         <Link to={`/${blogPost?.slug}`} className={container}>
@@ -60,7 +63,10 @@ const AuthorBlogPostCard = ({ data: blogPost }: AuthorBlogPostCardProps) => {
                     alt={`Picture of ${authorName}`}
                     name={authorName}
                 />
-                <span>{authorName}</span>
+                <div className={authorInfo}>
+                    <span>{authorName}</span> <div className={dot} />{' '}
+                    <span>{authorRole}</span>
+                </div>
             </div>
             <div className={articleCardFooter}>
                 <span>Article</span>
