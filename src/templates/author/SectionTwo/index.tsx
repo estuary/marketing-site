@@ -5,13 +5,16 @@ import { ButtonFilled } from '../../../globalStyles';
 import { container, blogPostCardList } from './styles.module.less';
 
 interface SectionTwoProps {
-    authorBlogPosts?: Author['blogPosts'];
+    author: {
+        name: string;
+        blogPosts?: Author['blogPosts'];
+    };
 }
 
-const SectionTwo = ({ authorBlogPosts }: SectionTwoProps) => {
+const SectionTwo = ({ author: { name, blogPosts } }: SectionTwoProps) => {
     const [visiblePosts, setVisiblePosts] = useState(9);
 
-    if (!authorBlogPosts) {
+    if (!blogPosts) {
         return null;
     }
 
@@ -21,12 +24,15 @@ const SectionTwo = ({ authorBlogPosts }: SectionTwoProps) => {
 
     return (
         <section className={container}>
+            <h2>
+                CONTENT FROM <span>{name}</span>
+            </h2>
             <div className={blogPostCardList}>
-                {authorBlogPosts.slice(0, visiblePosts).map((blogPost) => (
+                {blogPosts.slice(0, visiblePosts).map((blogPost) => (
                     <AuthorBlogPostCard key={blogPost.id} data={blogPost} />
                 ))}
             </div>
-            {visiblePosts < authorBlogPosts.length ? (
+            {visiblePosts < blogPosts.length ? (
                 <ButtonFilled onClick={handleShowMore}>Show more</ButtonFilled>
             ) : null}
         </section>

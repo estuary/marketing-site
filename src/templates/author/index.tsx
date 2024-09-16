@@ -28,7 +28,12 @@ const AuthorPage = ({
                     picture,
                 }}
             />
-            <SectionTwo authorBlogPosts={blogPosts} />
+            <SectionTwo
+                author={{
+                    name,
+                    blogPosts,
+                }}
+            />
         </Layout>
     );
 };
