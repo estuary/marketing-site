@@ -4,6 +4,7 @@ import { GatsbyNode } from 'gatsby';
 import { createRemoteFileNode } from 'gatsby-source-filesystem';
 import { SUPABASE_CONNECTION_STRING } from './config';
 import { normalizeConnector } from './src/utils';
+import { getAuthorPathBySlug } from './shared';
 
 /**
  * Implement Gatsby's Node APIs in this file.
@@ -372,7 +373,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
     if (authors.data?.allStrapiAuthor.nodes) {
         for (const author of authors.data.allStrapiAuthor.nodes) {
             createPage({
-                path: `/author/${author.slug.toLowerCase()}`,
+                path: getAuthorPathBySlug(author.slug),
                 component: authorComponent,
                 context: {
                     id: author.id,

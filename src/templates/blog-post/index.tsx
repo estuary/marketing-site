@@ -25,7 +25,7 @@ import Seo from '../../components/seo';
 import logoUrl from '../../images/combination-mark__multi-blue.png';
 import { costPerGB } from '../../utils';
 import ReadingTimeIcon from '../../svgs/time.svg';
-import { dashboardRegisterUrl } from '../../../shared';
+import { dashboardRegisterUrl, getAuthorPathBySlug } from '../../../shared';
 import Avatar from '../../components/Avatar';
 import SocialLinks from '../../components/SocialLinks';
 import ShareArticle from './ShareArticle';
@@ -273,7 +273,9 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                 <>
                                     <div key={index} className={authorInfo}>
                                         <Link
-                                            to={`/author/${author?.slug.toLowerCase()}`}
+                                            to={getAuthorPathBySlug(
+                                                author?.slug
+                                            )}
                                             className={authorMainInfoContainer}
                                         >
                                             <div

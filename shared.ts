@@ -26,3 +26,6 @@ export const estuaryAddress = {
     'postalCode': '10001',
     'addressCountry': 'US',
 };
+
+export const getAuthorPathBySlug = (slug: string) =>
+    `/author/${slug.toLowerCase()}`;

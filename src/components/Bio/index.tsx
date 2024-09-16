@@ -2,6 +2,7 @@ import { getImage } from 'gatsby-plugin-image';
 import * as React from 'react';
 import { Link } from 'gatsby';
 import Avatar from '../Avatar';
+import { getAuthorPathBySlug } from '../../../shared';
 import { container, avatarWrapper, authorName } from './styles.module.less';
 
 export interface BioProps {
@@ -33,7 +34,7 @@ const Bio = ({ authors }: BioProps) => {
 
                 const combined = (
                     <Link
-                        to={`/author/${slug.toLowerCase()}`}
+                        to={getAuthorPathBySlug(slug)}
                         className={avatarWrapper}
                     >
                         <Avatar
