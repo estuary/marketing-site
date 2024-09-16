@@ -1,6 +1,7 @@
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { Link } from 'gatsby';
 import React from 'react';
+import { AvatarGroup } from '@mui/material';
 import ArrowRight2 from '../../svgs/arrow-right-2.svg';
 import Avatar from '../Avatar';
 import {
@@ -16,28 +17,46 @@ import {
 } from './styles.module.less';
 
 interface AuthorBlogPostCardProps {
-    data: any;
+    data: {
+        slug: string;
+        title: string;
+        updatedAt: string;
+        body: {
+            data: {
+                childMarkdownRemark: {
+                    fields: { readingTime: { text: string } };
+                };
+            };
+        };
+        tags: { type: string; name: string }[];
+        authors: { id: string; name: string; role?: string; picture?: any }[];
+        hero: { alternativeText: string; localFile: any };
+    };
 }
 
 const AuthorBlogPostCard = ({ data: blogPost }: AuthorBlogPostCardProps) => {
     const blogPostImage =
-        blogPost?.hero?.localFile?.childImageSharp?.gatsbyImageData;
+        blogPost.hero.localFile?.childImageSharp?.gatsbyImageData;
 
     const blogPostTags = blogPost.tags.filter((tag) => tag.type === 'tag');
 
-    const authorImage =
+    const singleAuthorImage =
         blogPost.authors[0].picture &&
         getImage(
             blogPost.authors[0].picture.localFile.childImageSharp
                 .gatsbyImageData
         );
 
-    const authorName = blogPost?.authors[0]?.name;
+    const singleAuthor = blogPost.authors[0];
 
-    const authorRole = blogPost?.authors[0]?.role;
+    const readingTime =
+        blogPost.body.data.childMarkdownRemark.fields.readingTime.text.replace(
+            'read',
+            ''
+        );
 
     return (
-        <Link to={`/${blogPost?.slug}`} className={container}>
+        <Link to={`/${blogPost.slug}`} className={container}>
             <GatsbyImage
                 image={blogPostImage}
                 alt={blogPost.hero.alternativeText}
@@ -46,27 +65,51 @@ const AuthorBlogPostCard = ({ data: blogPost }: AuthorBlogPostCardProps) => {
             <div className={articleCardHeader}>
                 <span className={articleTag}>{blogPostTags[0]?.name}</span>
                 <div className={articleDateAndTime}>
-                    <span>{blogPost?.updatedAt}</span>
+                    <span>{blogPost.updatedAt}</span>
                     <div className={dot} />
-                    <span>
-                        {blogPost?.body.data.childMarkdownRemark.fields.readingTime.text.replace(
-                            'read',
-                            ''
-                        )}
-                    </span>
+                    <span>{readingTime}</span>
                 </div>
             </div>
-            <h3>{blogPost?.title}</h3>
+            <h3>{blogPost.title}</h3>
             <div className={articleCardAuthors}>
-                <Avatar
-                    image={authorImage}
-                    alt={`Picture of ${authorName}`}
-                    name={authorName}
-                />
-                <div className={authorInfo}>
-                    <span>{authorName}</span> <div className={dot} />{' '}
-                    <span>{authorRole}</span>
-                </div>
+                {blogPost.authors.length > 1 ? (
+                    <AvatarGroup max={3}>
+                        {blogPost.authors.map((author) => {
+                            const authorImage =
+                                author.picture &&
+                                getImage(
+                                    author.picture.localFile.childImageSharp
+                                        .gatsbyImageData
+                                );
+
+                            return (
+                                <Avatar
+                                    key={author.id}
+                                    image={authorImage}
+                                    alt={`Picture of ${author.name}`}
+                                    name={author.name}
+                                />
+                            );
+                        })}
+                    </AvatarGroup>
+                ) : (
+                    <>
+                        <Avatar
+                            image={singleAuthorImage}
+                            alt={`Picture of ${singleAuthor.name}`}
+                            name={singleAuthor.name}
+                        />
+                        <div className={authorInfo}>
+                            <span>{singleAuthor.name}</span>
+                            {singleAuthor.role ? (
+                                <>
+                                    <div className={dot} />
+                                    <span>{singleAuthor.role}</span>
+                                </>
+                            ) : null}
+                        </div>
+                    </>
+                )}
             </div>
             <div className={articleCardFooter}>
                 <span>Article</span>

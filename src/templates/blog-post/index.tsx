@@ -282,10 +282,10 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                             >
                                                 <Avatar
                                                     image={authorImage}
-                                                    alt="Author's Avatar"
+                                                    alt={`Picture of ${author?.name}`}
                                                     name={author.name}
                                                     loading="lazy"
-                                                    size="60px"
+                                                    size={60}
                                                 />
                                             </div>
                                             <div className={authorNameAndRole}>
