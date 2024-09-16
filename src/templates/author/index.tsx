@@ -1,6 +1,7 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 import Layout from '../../components/Layout';
+import Seo from '../../components/seo';
 import SectionOne from './SectionOne';
 import { Author } from './shared';
 import SectionTwo from './SectionTwo';
@@ -34,7 +35,22 @@ const AuthorPage = ({
 
 export default AuthorPage;
 
-// TODO: Add the SEO Head here - Review the title and description with Sourabh.
+export const Head = ({
+    data: {
+        author: { name, bio },
+    },
+}) => {
+    return (
+        <Seo
+            title={name}
+            description={
+                bio.data.bio
+                    ? bio.data.bio.replace('<p>', '').replace('</p>', '')
+                    : 'Blog post author.'
+            }
+        />
+    );
+};
 
 export const pageQuery = graphql`
     query AuthorById($id: String!) {
