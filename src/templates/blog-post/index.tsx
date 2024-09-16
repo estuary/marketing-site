@@ -152,7 +152,7 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                 </div>
                             </div>
                             <h1>{post.title}</h1>
-                            <h2>{post.description}</h2>
+                            <p>{post.description}</p>
                             <Bio authors={post.authors} />
                         </div>
                         {post.hero ? (
