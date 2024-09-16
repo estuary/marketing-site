@@ -1,5 +1,6 @@
 import { graphql } from 'gatsby';
 import React from 'react';
+import { htmlToText } from 'html-to-text';
 import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
 import SectionOne from './SectionOne';
@@ -40,8 +41,6 @@ const AuthorPage = ({
 
 export default AuthorPage;
 
-const htmlTagRegex = /<\/?[^>]+(>|$)/g;
-
 export const Head = ({
     data: {
         author: { name, bio },
@@ -52,7 +51,7 @@ export const Head = ({
             title={name}
             description={
                 bio.data.bio
-                    ? bio.data.bio.replace(htmlTagRegex, '')
+                    ? htmlToText(bio.data.bio, { wordwrap: false })
                     : 'Blog post author.'
             }
         />

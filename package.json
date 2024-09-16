@@ -55,6 +55,7 @@
     "gatsby-transformer-rehype": "^2.0.1",
     "gatsby-transformer-remark": "^6.13.1",
     "gatsby-transformer-sharp": "^5.13.1",
+    "html-to-text": "^9.0.5",
     "intersection-observer": "^0.12.2",
     "lunr": "^2.3.9",
     "material-ui-popup-state": "^5.0.5",
