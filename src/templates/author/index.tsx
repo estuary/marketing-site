@@ -40,6 +40,8 @@ const AuthorPage = ({
 
 export default AuthorPage;
 
+const htmlTagRegex = /<\/?[^>]+(>|$)/g;
+
 export const Head = ({
     data: {
         author: { name, bio },
@@ -50,7 +52,7 @@ export const Head = ({
             title={name}
             description={
                 bio.data.bio
-                    ? bio.data.bio.replace('<p>', '').replace('</p>', '')
+                    ? bio.data.bio.replace(htmlTagRegex, '')
                     : 'Blog post author.'
             }
         />
