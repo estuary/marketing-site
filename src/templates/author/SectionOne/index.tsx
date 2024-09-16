@@ -1,6 +1,5 @@
 import React from 'react';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import clsx from 'clsx';
 import { Author } from '../shared';
 import SocialLinks from '../../../components/SocialLinks';
 import LightSwoopingLinesRightDirectionBackground from '../../../components/BackgroundImages/LightSwoopingLinesRightDirectionBackground';
@@ -9,9 +8,7 @@ import {
     authorPicture,
     authorPictureWrapper,
     authorInfo,
-    socialIconsWrapper,
     centralizeContainer,
-    centralizeAuthorInfo,
 } from './styles.module.less';
 
 interface SectionOneProps {
@@ -22,13 +19,10 @@ const SectionOne = ({
     author: { name, picture, role, bio, socials },
 }: SectionOneProps) => {
     return (
-        <LightSwoopingLinesRightDirectionBackground>
-            <div
-                className={clsx(
-                    container,
-                    bio?.data.bio ? null : centralizeContainer
-                )}
-            >
+        <LightSwoopingLinesRightDirectionBackground
+            className={bio?.data.bio ? null : centralizeContainer}
+        >
+            <div className={container}>
                 {picture?.localFile.childImageSharp.gatsbyImageData ? (
                     <div className={authorPictureWrapper}>
                         <GatsbyImage
@@ -42,12 +36,7 @@ const SectionOne = ({
                         />
                     </div>
                 ) : null}
-                <div
-                    className={clsx(
-                        authorInfo,
-                        bio?.data.bio ? null : centralizeAuthorInfo
-                    )}
-                >
+                <div className={authorInfo}>
                     <h1>{name}</h1>
                     {role ? <span>{role}</span> : null}
                     {bio?.data.bio ? (
@@ -55,17 +44,7 @@ const SectionOne = ({
                             dangerouslySetInnerHTML={{ __html: bio.data.bio }}
                         />
                     ) : null}
-                    <div
-                        className={clsx(
-                            socialIconsWrapper,
-                            bio?.data.bio ? null : centralizeAuthorInfo
-                        )}
-                    >
-                        <SocialLinks
-                            socialLinks={socials}
-                            hasHighlightedIcons
-                        />
-                    </div>
+                    <SocialLinks socialLinks={socials} hasHighlightedIcons />
                 </div>
             </div>
         </LightSwoopingLinesRightDirectionBackground>
