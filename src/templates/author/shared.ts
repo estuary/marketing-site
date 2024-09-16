@@ -16,7 +16,7 @@ export interface Author {
     role: string;
     blogPosts: {
         id: string;
-        name: string;
+        title: string;
         picture: any;
         slug: string;
         tags: {

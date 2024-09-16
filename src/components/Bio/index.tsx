@@ -8,6 +8,7 @@ export interface BioProps {
     authors: {
         name: string;
         link: string;
+        slug: string;
         picture?: {
             localFile?: {
                 childImageSharp?: {
@@ -25,14 +26,14 @@ const Bio = ({ authors }: BioProps) => {
 
     return (
         <div className={container}>
-            {authors.map(({ picture, name }) => {
+            {authors.map(({ picture, name, slug }) => {
                 const image = getImage(
                     picture?.localFile?.childImageSharp?.gatsbyImageData
                 );
 
                 const combined = (
                     <Link
-                        to={`/${name.replace(' ', '-').toLowerCase()}`}
+                        to={`/author/${slug.toLowerCase()}`}
                         className={avatarWrapper}
                     >
                         <Avatar

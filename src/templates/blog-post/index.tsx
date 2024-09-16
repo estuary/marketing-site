@@ -7,7 +7,7 @@ import reltime from 'dayjs/plugin/relativeTime';
 import CalendarTodayOutlined from '@mui/icons-material/CalendarTodayOutlined';
 import DoneIcon from '@mui/icons-material/Done';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { Divider } from '@mui/material';
+import { Divider, useTheme } from '@mui/material';
 import SwoopingLinesBackground from '../../components/BackgroundImages/LightSwoopingLinesRightDirectionBackground';
 import StraightLinesBackground from '../../components/BackgroundImages/StraightLinesBackground';
 import { PopularArticles } from '../../components/BlogPopularArticles';
@@ -67,12 +67,13 @@ import {
     authorNameAndRole,
     authorName,
     authorRole,
-    authorInfoDivider,
 } from './styles.module.less';
 
 dayjs.extend(reltime);
 
 const BlogPostTemplate = ({ data: { post } }) => {
+    const theme = useTheme();
+
     const postTags = post?.tags?.filter((tag) => tag.type === 'tag');
 
     const hasBeenUpdated = post?.updatedAt
@@ -272,7 +273,7 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                 <>
                                     <div key={index} className={authorInfo}>
                                         <Link
-                                            to={`/${author?.name.replace(' ', '-').toLowerCase()}`}
+                                            to={`/author/${author?.slug.toLowerCase()}`}
                                             className={authorMainInfoContainer}
                                         >
                                             <div
@@ -311,9 +312,17 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                                     orientation="vertical"
                                                     variant="middle"
                                                     flexItem
-                                                    className={
-                                                        authorInfoDivider
-                                                    }
+                                                    sx={{
+                                                        minHeight: '57px',
+                                                        width: '1px',
+                                                        borderColor: '#d7dce5',
+                                                        margin: '0 30px 0 20px',
+                                                        [theme.breakpoints.down(
+                                                            520
+                                                        )]: {
+                                                            display: 'none',
+                                                        },
+                                                    }}
                                                 />
                                                 <SocialLinks
                                                     socialLinks={
@@ -507,6 +516,7 @@ export const pageQuery = graphql`
             }
             authors {
                 name: Name
+                slug: Slug
                 picture: Picture {
                     localFile {
                         childImageSharp {

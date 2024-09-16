@@ -363,7 +363,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
             allStrapiAuthor {
                 nodes {
                     id
-                    name: Name
+                    slug: Slug
                 }
             }
         }
@@ -372,7 +372,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
     if (authors.data?.allStrapiAuthor.nodes) {
         for (const author of authors.data.allStrapiAuthor.nodes) {
             createPage({
-                path: author.name.replace(' ', '-').toLowerCase(),
+                path: `/author/${author.slug.toLowerCase()}`,
                 component: authorComponent,
                 context: {
                     id: author.id,
