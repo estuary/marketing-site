@@ -9,6 +9,7 @@ export interface BioProps {
     authors: {
         name: string;
         link: string;
+        role?: string;
         slug: string;
         picture?: {
             localFile?: {
@@ -27,7 +28,7 @@ const Bio = ({ authors }: BioProps) => {
 
     return (
         <div className={container}>
-            {authors.map(({ picture, name, slug }) => {
+            {authors.map(({ picture, name, role, slug }) => {
                 const image = getImage(
                     picture?.localFile?.childImageSharp?.gatsbyImageData
                 );
@@ -43,7 +44,10 @@ const Bio = ({ authors }: BioProps) => {
                             name={name ? name : ''}
                         />
                         {name ? (
-                            <strong className={authorName}>{name}</strong>
+                            <div className={authorName}>
+                                <strong>{name}</strong>{' '}
+                                {role ? <span>{role}</span> : ''}
+                            </div>
                         ) : null}
                     </Link>
                 );
