@@ -31,6 +31,10 @@ export const KeyFeaturesWrapper = styled.div`
         gap: 62px;
         margin-top: 40px;
 
+        @media (max-width: 1024px) {
+            gap: 32px;
+        }
+
         @media (max-width: 810px) {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -97,14 +101,21 @@ export const Subtitle = styled.p`
     }
 `;
 
+const keyFeatureOffset = '-84px';
+const middleKeyFeatureOffset = '24px';
+
 export const KeyFeaturesListLeft = styled.div`
     @media (min-width: 811px) {
         & > div:first-child {
-            margin-right: -48px;
+            margin-right: ${keyFeatureOffset};
+        }
+
+        & > div:nth-child(3) {
+            margin-right: ${middleKeyFeatureOffset};
         }
 
         & > div:last-child {
-            margin-right: -48px;
+            margin-right: ${keyFeatureOffset};
         }
     }
 `;
@@ -112,11 +123,15 @@ export const KeyFeaturesListLeft = styled.div`
 export const KeyFeaturesListRight = styled.div`
     @media (min-width: 811px) {
         & > div:first-child {
-            margin-left: -48px;
+            margin-left: ${keyFeatureOffset};
+        }
+
+        & > div:nth-child(3) {
+            margin-left: ${middleKeyFeatureOffset};
         }
 
         & > div:last-child {
-            margin-left: -48px;
+            margin-left: ${keyFeatureOffset};
         }
     }
 `;
