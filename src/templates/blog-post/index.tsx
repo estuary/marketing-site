@@ -1,4 +1,4 @@
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import * as React from 'react';
 
 import dayjs from 'dayjs';
@@ -7,9 +7,7 @@ import reltime from 'dayjs/plugin/relativeTime';
 import CalendarTodayOutlined from '@mui/icons-material/CalendarTodayOutlined';
 import DoneIcon from '@mui/icons-material/Done';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { Divider } from '@mui/material';
-import GithubIcon from '@mui/icons-material/GitHub';
-import YoutubeIcon from '@mui/icons-material/YouTube';
+import { Divider, useTheme } from '@mui/material';
 import SwoopingLinesBackground from '../../components/BackgroundImages/LightSwoopingLinesRightDirectionBackground';
 import StraightLinesBackground from '../../components/BackgroundImages/StraightLinesBackground';
 import { PopularArticles } from '../../components/BlogPopularArticles';
@@ -18,7 +16,6 @@ import { ProcessedPost } from '../../components/BlogPostProcessor';
 import { RenderToc } from '../../components/BlogPostToc';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import {
-    OutboundLink,
     OutboundLinkFilled,
     OutboundLinkOutlined,
 } from '../../components/OutboundLink';
@@ -28,11 +25,9 @@ import Seo from '../../components/seo';
 import logoUrl from '../../images/combination-mark__multi-blue.png';
 import { costPerGB } from '../../utils';
 import ReadingTimeIcon from '../../svgs/time.svg';
-import { dashboardRegisterUrl } from '../../../shared';
+import { dashboardRegisterUrl, getAuthorPathBySlug } from '../../../shared';
 import Avatar from '../../components/Avatar';
-import LinkedinIcon from '../../svgs/share-social-icons/linkedin-outlined.svg';
-import TwitterXIcon from '../../svgs/share-social-icons/twitter-x-outlined.svg';
-import WebsiteIcon from '../../svgs/share-social-icons/website-outlined.svg';
+import SocialLinks from '../../components/SocialLinks';
 import ShareArticle from './ShareArticle';
 import {
     blogPost,
@@ -72,15 +67,13 @@ import {
     authorNameAndRole,
     authorName,
     authorRole,
-    authorInfoDivider,
-    socialIconButtonsContainer,
 } from './styles.module.less';
 
 dayjs.extend(reltime);
 
-const iconColor = '#47506D';
-
 const BlogPostTemplate = ({ data: { post } }) => {
+    const theme = useTheme();
+
     const postTags = post?.tags?.filter((tag) => tag.type === 'tag');
 
     const hasBeenUpdated = post?.updatedAt
@@ -159,7 +152,7 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                 </div>
                             </div>
                             <h1>{post.title}</h1>
-                            <h2>{post.description}</h2>
+                            <p>{post.description}</p>
                             <Bio authors={post.authors} />
                         </div>
                         {post.hero ? (
@@ -255,7 +248,7 @@ const BlogPostTemplate = ({ data: { post } }) => {
                         </div> */}
 
                     <div className={aboutAuthor}>
-                        <h3>
+                        <h2>
                             {post?.authors.length === 1
                                 ? hasAtLeastOneBio
                                     ? 'About the author'
@@ -263,7 +256,7 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                 : hasAtLeastOneBio
                                   ? 'About the authors'
                                   : 'Authors'}
-                        </h3>
+                        </h2>
                         {post?.authors?.map((author, index) => {
                             const authorImage =
                                 author?.picture &&
@@ -279,7 +272,10 @@ const BlogPostTemplate = ({ data: { post } }) => {
                             return (
                                 <>
                                     <div key={index} className={authorInfo}>
-                                        <div
+                                        <Link
+                                            to={getAuthorPathBySlug(
+                                                author?.slug
+                                            )}
                                             className={authorMainInfoContainer}
                                         >
                                             <div
@@ -289,10 +285,10 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                             >
                                                 <Avatar
                                                     image={authorImage}
-                                                    alt="Author's Avatar"
+                                                    alt={`Picture of ${author?.name}`}
                                                     name={author.name}
                                                     loading="lazy"
-                                                    size="60px"
+                                                    size={60}
                                                 />
                                             </div>
                                             <div className={authorNameAndRole}>
@@ -311,76 +307,31 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                                     </span>
                                                 ) : null}
                                             </div>
-                                        </div>
+                                        </Link>
                                         {authorSocialLinks ? (
-                                            <div
-                                                className={
-                                                    socialIconButtonsContainer
-                                                }
-                                            >
+                                            <>
                                                 <Divider
                                                     orientation="vertical"
                                                     variant="middle"
                                                     flexItem
-                                                    className={
-                                                        authorInfoDivider
+                                                    sx={{
+                                                        minHeight: '57px',
+                                                        width: '1px',
+                                                        borderColor: '#d7dce5',
+                                                        margin: '0 30px 0 20px',
+                                                        [theme.breakpoints.down(
+                                                            520
+                                                        )]: {
+                                                            display: 'none',
+                                                        },
+                                                    }}
+                                                />
+                                                <SocialLinks
+                                                    socialLinks={
+                                                        authorSocialLinks
                                                     }
                                                 />
-                                                {authorSocialLinks?.linked_in ? (
-                                                    <OutboundLink
-                                                        href={
-                                                            authorSocialLinks.linked_in
-                                                        }
-                                                        target="_blank"
-                                                    >
-                                                        <LinkedinIcon
-                                                            color={iconColor}
-                                                        />
-                                                    </OutboundLink>
-                                                ) : null}
-                                                {authorSocialLinks?.twitter ? (
-                                                    <OutboundLink
-                                                        href={
-                                                            authorSocialLinks.twitter
-                                                        }
-                                                        target="_blank"
-                                                    >
-                                                        <TwitterXIcon />
-                                                    </OutboundLink>
-                                                ) : null}
-                                                {authorSocialLinks?.other ? (
-                                                    <OutboundLink
-                                                        href={
-                                                            authorSocialLinks.other
-                                                        }
-                                                        target="_blank"
-                                                    >
-                                                        {authorSocialLinks.other.includes(
-                                                            'github.com'
-                                                        ) ? (
-                                                            <GithubIcon
-                                                                htmlColor={
-                                                                    iconColor
-                                                                }
-                                                            />
-                                                        ) : authorSocialLinks.other.includes(
-                                                              'youtube.com'
-                                                          ) ? (
-                                                            <YoutubeIcon
-                                                                htmlColor={
-                                                                    iconColor
-                                                                }
-                                                            />
-                                                        ) : (
-                                                            <WebsiteIcon
-                                                                color={
-                                                                    iconColor
-                                                                }
-                                                            />
-                                                        )}
-                                                    </OutboundLink>
-                                                ) : null}
-                                            </div>
+                                            </>
                                         ) : null}
                                     </div>
                                     {authorBio ? (
@@ -388,7 +339,6 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                             dangerouslySetInnerHTML={{
                                                 __html: author.bio.data.bio,
                                             }}
-                                            // TODO: Remove the margin top of this paragraph. Do this after the global css file split to avoid conflicts.
                                         />
                                     ) : null}
                                 </>
@@ -397,6 +347,7 @@ const BlogPostTemplate = ({ data: { post } }) => {
                     </div>
                 </section>
                 <section className={popularArticlesWrapper}>
+                    <h2>Popular Articles</h2>
                     <PopularArticles />
                 </section>
                 <section className={bigBuildPipelineBannerSection}>
@@ -567,6 +518,7 @@ export const pageQuery = graphql`
             }
             authors {
                 name: Name
+                slug: Slug
                 picture: Picture {
                     localFile {
                         childImageSharp {
