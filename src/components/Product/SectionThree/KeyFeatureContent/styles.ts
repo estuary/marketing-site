@@ -30,7 +30,7 @@ export const Title = styled.h3`
         text-align: center;
     }
 
-    @media (max-width: 810px) {
+    @media (max-width: 1024px) {
         font-size: 1.25rem;
     }
 `;

@@ -66,7 +66,7 @@ const SectionThree = () => {
                     <StaticImage
                         placeholder="none"
                         alt="Kafka"
-                        src="../../../svgs/product-page/section-three/cdc.svg"
+                        src="../../../svgs/product-page/section-three/kafka.svg"
                     />
                 ),
             },
@@ -143,7 +143,7 @@ const SectionThree = () => {
                     <StaticImage
                         placeholder="none"
                         alt="Multi Cloud"
-                        src="../../../svgs/product-page/section-three/source.svg"
+                        src="../../../svgs/product-page/section-three/multi-cloud.svg"
                     />
                 ),
             },
