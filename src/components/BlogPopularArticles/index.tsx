@@ -53,7 +53,6 @@ export const PopularArticles = () => {
                                 }
                             }
                         }
-                        link: Link
                     }
                     title: Title
                     tags {

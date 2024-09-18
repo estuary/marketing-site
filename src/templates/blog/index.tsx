@@ -212,7 +212,6 @@ export const pageQuery = graphql`
                             }
                         }
                     }
-                    link: Link
                 }
                 hero: Hero {
                     localFile {
