@@ -16,15 +16,10 @@ import SignUp from '../../components/Signup';
 import {
     container,
     hero,
-    heroContainer,
     heroLeft,
-    heroHeading,
-    heroSubheading,
     heroRight,
     episodes,
-    episodesWrap,
     episodesHeading,
-    episodeItem,
     episodeLeft,
     episodeRight,
     episodeHeading,
@@ -33,7 +28,6 @@ import {
     subscribe,
     subscribeWrap,
     subscribeLeft,
-    subscribeHeading,
     subscribeYoutube,
     subscribeSubheading,
     subscribeRight,
@@ -77,25 +71,21 @@ const LpPodcats = ({
         <Layout>
             <div className={container}>
                 <section className={hero}>
-                    <div className={heroContainer}>
-                        <div className={heroLeft}>
-                            <div className={heroHeading}>
-                                Tune into Real-Time
-                            </div>
-                            <div className={heroSubheading}>
-                                Join us as we join other thought-leaders in the
-                                data engineering community as we discuss the
-                                current and future state of real-time data.
-                            </div>
-                        </div>
-                        <div className={heroRight}>
-                            <HeroImage />
-                        </div>
+                    <div className={heroLeft}>
+                        <h1>Tune into Real-Time</h1>
+                        <p>
+                            Join us as we join other thought-leaders in the data
+                            engineering community as we discuss the current and
+                            future state of real-time data.
+                        </p>
+                    </div>
+                    <div className={heroRight}>
+                        <HeroImage />
                     </div>
                 </section>
                 <section className={episodes}>
-                    <div className={episodesWrap}>
-                        <div className={episodesHeading}>Episodes</div>
+                    <h2 className={episodesHeading}>Episodes</h2>
+                    <ul>
                         {podcasts.map((podcast) => {
                             const podcastPictureSrc = getImage(
                                 podcast.picture.localFile.childImageSharp
@@ -103,7 +93,7 @@ const LpPodcats = ({
                             );
 
                             return (
-                                <div key={podcast.id} className={episodeItem}>
+                                <li key={podcast.id}>
                                     {podcastPictureSrc ? (
                                         <div className={episodeLeft}>
                                             <GatsbyImage
@@ -173,19 +163,17 @@ const LpPodcats = ({
                                             )}
                                         </div>
                                     </div>
-                                </div>
+                                </li>
                             );
                         })}
-                    </div>
+                    </ul>
                 </section>
                 <section className={subscribe}>
                     <div className={subscribeWrap}>
                         <div className={subscribeLeft}>
-                            <div className={subscribeHeading}>
-                                Stay in the loop
-                            </div>
+                            <h2>Stay in the loop</h2>
                             <div className={subscribeYoutube}>
-                                <span>Subscribe to our Youtube channel</span>
+                                <p>Subscribe to our Youtube channel</p>
                                 <OutboundLink
                                     target="_blank"
                                     href="https://www.youtube.com/@estuarydev"
@@ -193,10 +181,10 @@ const LpPodcats = ({
                                     <SubscribeYoutubeButton />
                                 </OutboundLink>
                             </div>
-                            <div className={subscribeSubheading}>
+                            <p className={subscribeSubheading}>
                                 Subscribe to our newsletter to get the latest
                                 news and updates
-                            </div>
+                            </p>
                             <NewsletterSignupForm />
                         </div>
                         <div className={subscribeRight}>
