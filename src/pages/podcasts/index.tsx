@@ -1,5 +1,6 @@
-import { StaticImage } from 'gatsby-plugin-image';
+import { IGatsbyImageData, GatsbyImage, getImage } from 'gatsby-plugin-image';
 import * as React from 'react';
+import { graphql } from 'gatsby';
 import NewsletterSignupForm from '../../components/NewsletterSignupForm';
 import { OutboundLink } from '../../components/OutboundLink';
 import Layout from '../../components/Layout';
@@ -38,7 +39,40 @@ import {
     subscribeRight,
 } from './styles.module.less';
 
-const LpPodcats = () => {
+interface PodcastProps {
+    id: string;
+    title: string;
+    picture: {
+        localFile: {
+            childImageSharp: {
+                gatsbyImageData: IGatsbyImageData;
+            };
+        };
+    };
+    links: {
+        strapi_json_value: string[];
+    };
+    description: {
+        data: {
+            description: string;
+        };
+    };
+}
+
+interface LpPodcatsProps {
+    data: {
+        allStrapiPodcast: {
+            nodes: PodcastProps[];
+        };
+    };
+}
+
+const LpPodcats = ({
+    data: {
+        allStrapiPodcast: { nodes: podcasts },
+    },
+}: LpPodcatsProps) => {
+    console.log(podcasts.map((podcast) => podcast.links.strapi_json_value));
     return (
         <Layout>
             <div className={container}>
@@ -62,81 +96,86 @@ const LpPodcats = () => {
                 <section className={episodes}>
                     <div className={episodesWrap}>
                         <div className={episodesHeading}>Episodes</div>
-                        <div className={episodeItem}>
-                            <div className={episodeLeft}>
-                                <StaticImage
-                                    placeholder="none"
-                                    alt="Data Engineering Podcast"
-                                    src="../../images/lp-podcast/episode-image.webp"
-                                    width={550}
-                                    height={310}
-                                    quality={100}
-                                />
-                            </div>
-                            <div className={episodeRight}>
-                                <div className={episodeHeading}>
-                                    Data Engineering Podcast
+                        {podcasts.map((podcast) => {
+                            const podcastPictureSrc = getImage(
+                                podcast.picture.localFile.childImageSharp
+                                    .gatsbyImageData
+                            );
+
+                            return (
+                                <div key={podcast.id} className={episodeItem}>
+                                    {podcastPictureSrc ? (
+                                        <div className={episodeLeft}>
+                                            <GatsbyImage
+                                                alt={`${podcast.title} podcast thumbnail`}
+                                                image={podcastPictureSrc}
+                                            />
+                                        </div>
+                                    ) : null}
+                                    <div className={episodeRight}>
+                                        <div className={episodeHeading}>
+                                            {podcast.title}
+                                        </div>
+                                        <div
+                                            className={episodeDescription}
+                                            dangerouslySetInnerHTML={{
+                                                __html: podcast.description.data
+                                                    .description,
+                                            }}
+                                        />
+                                        <div className={linksWrap}>
+                                            {podcast.links.strapi_json_value.map(
+                                                (link) => (
+                                                    <>
+                                                        {link.includes(
+                                                            'youtube.com'
+                                                        ) ||
+                                                        link.includes(
+                                                            'youtu.be'
+                                                        ) ? (
+                                                            <OutboundLink
+                                                                target="_blank"
+                                                                href={link}
+                                                                aria-label="watch youtube"
+                                                                key={`youtube-${link}`}
+                                                            >
+                                                                <WatchYoutubeButton />
+                                                            </OutboundLink>
+                                                        ) : null}
+
+                                                        {link.includes(
+                                                            'podcasts.apple.com'
+                                                        ) ? (
+                                                            <OutboundLink
+                                                                target="_blank"
+                                                                href={link}
+                                                                aria-label="apple podcast"
+                                                                key={`apple-${link}`}
+                                                            >
+                                                                <ApplePodcastButton />
+                                                            </OutboundLink>
+                                                        ) : null}
+
+                                                        {link.includes(
+                                                            'spotify.com'
+                                                        ) ? (
+                                                            <OutboundLink
+                                                                target="_blank"
+                                                                href={link}
+                                                                aria-label="listen spotify"
+                                                                key={`spotify-${link}`}
+                                                            >
+                                                                <SpotifyButton />
+                                                            </OutboundLink>
+                                                        ) : null}
+                                                    </>
+                                                )
+                                            )}
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className={episodeDescription}>
-                                    Johnny, Dave, and Tobias discuss why we
-                                    built Gazette, the growth of streaming, and
-                                    the rise of the real-time data lake.
-                                </div>
-                                <div className={linksWrap}>
-                                    <OutboundLink
-                                        target="_blank"
-                                        href="https://podcasts.apple.com/us/podcast/data-engineering-podcast/id1193040557"
-                                        aria-label="apple podcast"
-                                    >
-                                        <ApplePodcastButton />
-                                    </OutboundLink>
-                                    <OutboundLink
-                                        target="_blank"
-                                        href="https://open.spotify.com/show/2iLvljRGVVIGlJshT5vNDS"
-                                        aria-label="listen spotify"
-                                    >
-                                        <SpotifyButton />
-                                    </OutboundLink>
-                                </div>
-                            </div>
-                        </div>
-                        <div className={episodeItem}>
-                            <div className={episodeLeft}>
-                                <StaticImage
-                                    placeholder="none"
-                                    alt="The Geek Narrator"
-                                    src="../../images/lp-podcast/episode-image1.webp"
-                                    width={550}
-                                    height={310}
-                                    quality={100}
-                                />
-                            </div>
-                            <div className={episodeRight}>
-                                <div className={episodeHeading}>
-                                    The Geek Narrator
-                                </div>
-                                <div className={episodeDescription}>
-                                    Our VP Engineering Phil Fried joins Kaivalya
-                                    Apte to get deep on the nuances of batch vs.
-                                    streaming processing paradigms.
-                                </div>
-                                <div className={linksWrap}>
-                                    <OutboundLink
-                                        target="_blank"
-                                        href="https://www.youtube.com/watch?v=pOqQ-0cRWKU&t=3198s&pp=ygUNZ2VlayBuYXJyYXRvcg%3D%3D"
-                                        aria-label="watch youtube"
-                                    >
-                                        <WatchYoutubeButton />
-                                    </OutboundLink>
-                                    <OutboundLink
-                                        target="_blank"
-                                        href="https://podcasts.apple.com/us/podcast/the-geeknarrator/id1619407689"
-                                    >
-                                        <ApplePodcastButton />
-                                    </OutboundLink>
-                                </div>
-                            </div>
-                        </div>
+                            );
+                        })}
                     </div>
                 </section>
                 <section className={subscribe}>
@@ -176,3 +215,29 @@ export const Head = () => {
 };
 
 export default LpPodcats;
+
+export const pageQuery = graphql`
+    query GetAllPodcasts {
+        allStrapiPodcast {
+            nodes {
+                id
+                title: Title
+                picture: Picture {
+                    localFile {
+                        childImageSharp {
+                            gatsbyImageData(width: 600, placeholder: BLURRED)
+                        }
+                    }
+                }
+                links: Links {
+                    strapi_json_value
+                }
+                description: Description {
+                    data {
+                        description: Description
+                    }
+                }
+            }
+        }
+    }
+`;

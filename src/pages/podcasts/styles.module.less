@@ -120,10 +120,11 @@
 }
 
 .episodeLeft {
-  max-width: 582px;
+  max-width: 600px;
   width: 100%;
   background: #ffffff;
   border: 1px solid #d7dce5;
+  border-radius: 8px;
   padding: 16px;
 
   @media (max-width: 767px) {
@@ -173,13 +174,14 @@
 .linksWrap {
   display: flex;
   flex-direction: column;
+  width: fit-content;
 
   @media (max-width: 767px) {
       align-items: center;
   }
 
   a {
-      margin-bottom: 24px;
+      margin-bottom: 12px;
 
       &:hover {
           opacity: 0.9;
