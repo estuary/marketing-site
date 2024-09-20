@@ -57,6 +57,7 @@ interface PodcastProps {
             description: string;
         };
     };
+    publishedAt: string;
 }
 
 interface LpPodcatsProps {
@@ -72,7 +73,6 @@ const LpPodcats = ({
         allStrapiPodcast: { nodes: podcasts },
     },
 }: LpPodcatsProps) => {
-    console.log(podcasts.map((podcast) => podcast.links.strapi_json_value));
     return (
         <Layout>
             <div className={container}>
@@ -218,7 +218,7 @@ export default LpPodcats;
 
 export const pageQuery = graphql`
     query GetAllPodcasts {
-        allStrapiPodcast {
+        allStrapiPodcast(sort: [{ publishedAt: DESC }]) {
             nodes {
                 id
                 title: Title
@@ -237,6 +237,7 @@ export const pageQuery = graphql`
                         description: Description
                     }
                 }
+                publishedAt(formatString: "MMMM D, YYYY")
             }
         }
     }
