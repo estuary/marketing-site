@@ -22,7 +22,6 @@ import {
     episodesHeading,
     episodeLeft,
     episodeRight,
-    episodeHeading,
     episodeDescription,
     linksWrap,
     subscribe,
@@ -103,9 +102,8 @@ const LpPodcats = ({
                                         </div>
                                     ) : null}
                                     <div className={episodeRight}>
-                                        <div className={episodeHeading}>
-                                            {podcast.title}
-                                        </div>
+                                        <h3>{podcast.title}</h3>
+                                        <span>{podcast.publishedAt}</span>
                                         <div
                                             className={episodeDescription}
                                             dangerouslySetInnerHTML={{
