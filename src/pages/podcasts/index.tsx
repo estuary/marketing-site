@@ -114,49 +114,33 @@ const LpPodcats = ({
                                         <div className={linksWrap}>
                                             {podcast.links.strapi_json_value.map(
                                                 (link) => (
-                                                    <>
+                                                    <OutboundLink
+                                                        key={`podcast-link-${link}`}
+                                                        target="_blank"
+                                                        href={link}
+                                                        aria-label="listen to podcast"
+                                                    >
                                                         {link.includes(
                                                             'youtube.com'
                                                         ) ||
                                                         link.includes(
                                                             'youtu.be'
                                                         ) ? (
-                                                            <OutboundLink
-                                                                target="_blank"
-                                                                href={link}
-                                                                aria-label="watch youtube"
-                                                                key={`youtube-${link}`}
-                                                            >
-                                                                <WatchYoutubeButton />
-                                                            </OutboundLink>
+                                                            <WatchYoutubeButton />
                                                         ) : null}
 
                                                         {link.includes(
                                                             'podcasts.apple.com'
                                                         ) ? (
-                                                            <OutboundLink
-                                                                target="_blank"
-                                                                href={link}
-                                                                aria-label="apple podcast"
-                                                                key={`apple-${link}`}
-                                                            >
-                                                                <ApplePodcastButton />
-                                                            </OutboundLink>
+                                                            <ApplePodcastButton />
                                                         ) : null}
 
                                                         {link.includes(
                                                             'spotify.com'
                                                         ) ? (
-                                                            <OutboundLink
-                                                                target="_blank"
-                                                                href={link}
-                                                                aria-label="listen spotify"
-                                                                key={`spotify-${link}`}
-                                                            >
-                                                                <SpotifyButton />
-                                                            </OutboundLink>
+                                                            <SpotifyButton />
                                                         ) : null}
-                                                    </>
+                                                    </OutboundLink>
                                                 )
                                             )}
                                         </div>
