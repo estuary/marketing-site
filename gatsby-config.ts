@@ -27,6 +27,8 @@ const strapiConfig = {
         'job-posting',
         'product-comparison-page',
         'employee',
+        'comparison',
+        'podcast',
         {
             singularName: 'case-study',
             queryParams: {
