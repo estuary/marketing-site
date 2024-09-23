@@ -50,7 +50,7 @@ interface PodcastProps {
             description: string;
         };
     };
-    publishedAt: string;
+    postedDate: string;
 }
 
 interface LpPodcatsProps {
@@ -103,7 +103,7 @@ const LpPodcats = ({
                                     ) : null}
                                     <div className={episodeRight}>
                                         <h3>{podcast.title}</h3>
-                                        <span>{podcast.publishedAt}</span>
+                                        <span>{podcast.postedDate}</span>
                                         <div
                                             className={episodeDescription}
                                             dangerouslySetInnerHTML={{
@@ -204,7 +204,7 @@ export default LpPodcats;
 
 export const pageQuery = graphql`
     query GetAllPodcasts {
-        allStrapiPodcast(sort: [{ publishedAt: DESC }]) {
+        allStrapiPodcast(sort: [{ PostedDate: DESC }]) {
             nodes {
                 id
                 title: Title
@@ -223,7 +223,7 @@ export const pageQuery = graphql`
                         description: Description
                     }
                 }
-                publishedAt(formatString: "MMMM D, YYYY")
+                postedDate: PostedDate(formatString: "MMMM D, YYYY")
             }
         }
     }
