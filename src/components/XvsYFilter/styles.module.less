@@ -1,0 +1,50 @@
+.columnDirection {
+    flex-direction: column;
+}
+
+.wrapper {
+    display: flex;
+    gap: 16px;
+    flex-direction: row;
+
+    @media (max-width: 1485px) {
+        width: 100%;
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
+}
+
+.formControl {
+    width: 262px;
+    height: 52px;
+
+    @media (max-width: 1485px) {
+        width: 100%;
+    }
+}
+
+.connectorSelect {
+    width: 262px;
+
+    @media (max-width: 1485px) {
+        width: 100%;
+    }
+}
+
+.selectItem {
+    align-items: flex-start;
+}
+
+.itemImage {
+    width: 20px;
+    margin-right: 15px;
+    vertical-align: middle;
+}
+
+.darkTheme {
+    .connectorSelect {
+        background-color: #fff;
+    }
+}

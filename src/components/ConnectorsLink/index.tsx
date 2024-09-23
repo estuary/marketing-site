@@ -1,17 +1,9 @@
-import { InputLabel } from '@mui/material';
 import { graphql, useStaticQuery } from 'gatsby';
 import React, { useMemo, useState } from 'react';
 import { normalizeConnector } from '../../utils';
 
 import { ConnectorType } from '../../../shared';
-import {
-    DetailsButton,
-    ConnectorSelect,
-    Form,
-    Image,
-    SelectItem,
-    Wrapper,
-} from './style';
+import XvsYFilter from '../XvsYFilter';
 
 type ConnectorsLinkProps = {
     defaultSourceId?: string;
@@ -93,66 +85,41 @@ const ConnectorsLink = ({
         }
     }, [captureConnectors, materializationConnectors, sourceId, destinationId]);
 
-    const selectMenuProps = {
-        slotProps: { paper: { style: { height: '30vh' } } },
-    };
+    const handleSourceChange = (value) => setSourceId(value);
+    const handleDestinationChange = (value) => setDestinationId(value);
+
+    const sourceSelectItems = captureConnectors.map((c) => ({
+        id: c.id,
+        image: c.logo.childImageSharp.gatsbyImageData,
+        title: c.title,
+    }));
+
+    const destinationSelectItems = materializationConnectors.map((c) => ({
+        id: c.id,
+        image: c.logo.childImageSharp.gatsbyImageData,
+        title: c.title,
+    }));
 
     return (
-        <Wrapper direction={direction}>
-            <Form fullWidth>
-                <InputLabel>Sources</InputLabel>
-                <ConnectorSelect
-                    label="Sources"
-                    value={sourceId}
-                    onChange={(evt: any) => setSourceId(evt.target.value)}
-                    variant="outlined"
-                    MenuProps={selectMenuProps}
-                >
-                    {captureConnectors.map((c) => (
-                        <SelectItem key={c.id} value={c.id}>
-                            {c.logo?.childImageSharp?.gatsbyImageData ? (
-                                <Image
-                                    image={
-                                        c.logo.childImageSharp.gatsbyImageData
-                                    }
-                                    alt={`${c.title} Logo`}
-                                    loading="eager"
-                                />
-                            ) : null}
-                            {c.title}
-                        </SelectItem>
-                    ))}
-                </ConnectorSelect>
-            </Form>
-            <Form fullWidth>
-                <InputLabel>Destinations</InputLabel>
-                <ConnectorSelect
-                    label="Destinations"
-                    value={destinationId}
-                    onChange={(evt: any) => setDestinationId(evt.target.value)}
-                    variant="outlined"
-                    MenuProps={selectMenuProps}
-                >
-                    {materializationConnectors.map((c) => (
-                        <SelectItem key={c.id} value={c.id}>
-                            {c.logo?.childImageSharp?.gatsbyImageData ? (
-                                <Image
-                                    image={
-                                        c.logo.childImageSharp.gatsbyImageData
-                                    }
-                                    alt={`${c.title} Logo`}
-                                    loading="eager"
-                                />
-                            ) : null}
-                            {c.title}
-                        </SelectItem>
-                    ))}
-                </ConnectorSelect>
-            </Form>
-            <DetailsButton href={detailsHref} target="_blank">
-                Details
-            </DetailsButton>
-        </Wrapper>
+        <XvsYFilter
+            xSelect={{
+                label: 'Sources',
+                value: sourceId,
+                onChange: handleSourceChange,
+                items: sourceSelectItems,
+            }}
+            ySelect={{
+                label: 'Destinations',
+                value: destinationId,
+                onChange: handleDestinationChange,
+                items: destinationSelectItems,
+            }}
+            button={{
+                title: 'Details',
+                href: detailsHref,
+            }}
+            direction={direction}
+        />
     );
 };
 

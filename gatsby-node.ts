@@ -17,17 +17,17 @@ import { getAuthorPathBySlug } from './shared';
 const path = require('path');
 
 // Define the template for blog and blog post
-const blogPost = path.resolve('./src/templates/blog-post/index.tsx');
-const blog = path.resolve('./src/templates/blog/index.tsx');
+const blogPostTemplate = path.resolve('./src/templates/blog-post/index.tsx');
+const blogTemplate = path.resolve('./src/templates/blog/index.tsx');
 const comparisonTemplate = path.resolve(
     './src/templates/product-comparison/index.tsx'
 );
 const caseStudyTemplate = path.resolve('./src/layouts/CaseStudy/index.tsx');
 
-const connector = path.resolve('./src/templates/connector/index.tsx');
-const connection = path.resolve('./src/templates/connection.tsx');
+const connectorTemplate = path.resolve('./src/templates/connector/index.tsx');
+const connectionTemplate = path.resolve('./src/templates/connection.tsx');
 
-const authorComponent = path.resolve('./src/templates/author/index.tsx');
+const authorTemplate = path.resolve('./src/templates/author/index.tsx');
 
 export const createPages: GatsbyNode['createPages'] = async ({
     graphql,
@@ -219,7 +219,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
 
             createPage({
                 path: calculatedPath,
-                component: blog,
+                component: blogTemplate,
                 context: {
                     blogPostIds: pagePostIds,
                     categoryTitle: title,
@@ -275,7 +275,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
 
                     createPage({
                         path: post.Slug,
-                        component: blogPost,
+                        component: blogPostTemplate,
                         context: {
                             id: post.id,
                             previousPostId,
@@ -331,7 +331,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
         } else {
             createPage({
                 path: normalized_connector.slug,
-                component: connector,
+                component: connectorTemplate,
                 context: {
                     id: normalized_connector.id,
                     type: normalized_connector.type,
@@ -344,7 +344,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
                 )) {
                     createPage({
                         path: `/integrations/${normalized_connector.slugified_name}-to-${destination_connector.slugified_name}`,
-                        component: connection,
+                        component: connectionTemplate,
                         context: {
                             source_id: normalized_connector.id,
                             destination_id: destination_connector.id,
@@ -374,7 +374,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
         for (const author of authors.data.allStrapiAuthor.nodes) {
             createPage({
                 path: getAuthorPathBySlug(author.slug),
-                component: authorComponent,
+                component: authorTemplate,
                 context: {
                     id: author.id,
                 },
