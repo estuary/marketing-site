@@ -145,6 +145,11 @@
                 "source": "/source/s",
                 "destination": "/source/s3",
                 "type": 301
+            },
+            {
+                "source": "/source/netsuite-v",
+                "destination": "/source/netsuite-v2",
+                "type": 301
             }
         ],
         "public": "public",
