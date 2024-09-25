@@ -44,7 +44,6 @@ export const Head = () => {
         <Seo
             title="Best ETL, ELT, & CDC Tools Comparison"
             description="Find and compare the leading ETL, ELT, & CDC tools of 2024. Compare features, pricing, and performance to find the right solution for your data integration needs."
-            // TODO: Add image here?
         />
     );
 };
