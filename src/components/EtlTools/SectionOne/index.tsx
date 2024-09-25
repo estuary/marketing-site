@@ -2,17 +2,25 @@ import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import VendorsLink from '../../VendorsLink';
+import { Vendor } from '../../../../shared';
 import { container, leftColumn, rightColumn } from './styles.module.less';
 
-const SectionOne = () => {
+interface SectionThreeProps {
+    vendors: Vendor[];
+    xVendor: Vendor;
+    yVendor: Vendor;
+}
+
+const SectionOne = ({ vendors, xVendor, yVendor }: SectionThreeProps) => {
     return (
         <section className={defaultWrapperDarkBlue}>
             <div className={container}>
                 <div className={leftColumn}>
                     <h1>ETL, ELT and CDC Tools Comparison Center</h1>
                     <VendorsLink
-                        defaultFirstVendor="Airbyte"
-                        defaultSecondVendor="Estuary"
+                        vendors={vendors}
+                        defaultFirstVendor={xVendor}
+                        defaultSecondVendor={yVendor}
                         isDarkTheme
                     />
                 </div>

@@ -1,57 +1,60 @@
-import { graphql, useStaticQuery } from 'gatsby';
-import React, { useState } from 'react';
-
+import React, { useState, useMemo } from 'react';
 import XvsYFilter from '../XvsYFilter';
+import { Vendor } from '../../../shared';
 
 type VendorsLinkProps = {
-    defaultFirstVendor: string;
-    defaultSecondVendor: string;
+    vendors: Vendor[];
+    defaultFirstVendor: Vendor;
+    defaultSecondVendor: Vendor;
     isDarkTheme?: boolean;
 };
 
+const createVendorSelectItems = (vendors: Vendor[], excludeVendor: string) =>
+    vendors
+        .filter((vendor) => vendor.name !== excludeVendor)
+        .map((vendor) => ({
+            id: vendor.id,
+            image: vendor.logo?.localFile.childImageSharp?.gatsbyImageData,
+            title: vendor.name,
+        }));
+
 const VendorsLink = ({
+    vendors,
     defaultFirstVendor,
     defaultSecondVendor,
     isDarkTheme,
 }: VendorsLinkProps) => {
-    const {
-        allStrapiComparison: { nodes: vendors },
-    } = useStaticQuery(graphql`
-        query VendorsLink {
-            allStrapiComparison {
-                nodes {
-                    id
-                    name: Vendor_Name
-                }
-            }
-        }
-    `);
+    const [firstVendor, setFirstVendor] = useState(defaultFirstVendor.name);
+    const [secondVendor, setSecondVendor] = useState(defaultSecondVendor.name);
 
-    const [firstVendor, setFirstVendor] = useState(defaultFirstVendor);
-    const [secondVendor, setSecondVendor] = useState(defaultSecondVendor);
+    const handleVendorChange =
+        (setVendor: React.Dispatch<React.SetStateAction<string>>) =>
+        (value: string) => {
+            setVendor(value);
+        };
 
-    const handleFirstVendorChange = (value: string) => setFirstVendor(value);
-    const handleSecondVendorChange = (value: string) => setSecondVendor(value);
+    const compareButtonHref = `/etl-tools/${vendors.find((v) => v.name === firstVendor)?.slugKey}-vs-${vendors.find((v) => v.name === secondVendor)?.slugKey}`;
 
-    const compareButtonHref = `/comparison/${firstVendor}-vs-${secondVendor}`;
-
-    const vendorSelectItems = vendors?.map((vendor) => ({
-        id: vendor.id,
-        image: vendor.logo?.childImageSharp.gatsbyImageData,
-        title: vendor.name,
-    }));
+    const xVendorSelectItems = useMemo(
+        () => createVendorSelectItems(vendors, secondVendor),
+        [vendors, secondVendor]
+    );
+    const yVendorSelectItems = useMemo(
+        () => createVendorSelectItems(vendors, firstVendor),
+        [vendors, firstVendor]
+    );
 
     return (
         <XvsYFilter
             xSelect={{
                 value: firstVendor,
-                onChange: handleFirstVendorChange,
-                items: vendorSelectItems,
+                onChange: handleVendorChange(setFirstVendor),
+                items: xVendorSelectItems,
             }}
             ySelect={{
                 value: secondVendor,
-                onChange: handleSecondVendorChange,
-                items: vendorSelectItems,
+                onChange: handleVendorChange(setSecondVendor),
+                items: yVendorSelectItems,
             }}
             button={{
                 title: 'Compare',

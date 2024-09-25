@@ -1,6 +1,7 @@
 import React from 'react';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import { container, cardsWrapper } from './styles.module.less';
+import '../styles.module.less';
 import Card from './Card';
 
 const SectionTwo = () => {

@@ -4,7 +4,7 @@ import { GatsbyNode } from 'gatsby';
 import { createRemoteFileNode } from 'gatsby-source-filesystem';
 import { SUPABASE_CONNECTION_STRING } from './config';
 import { normalizeConnector } from './src/utils';
-import { getAuthorPathBySlug } from './shared';
+import { getAuthorPathBySlug, Vendor } from './shared';
 
 /**
  * Implement Gatsby's Node APIs in this file.
@@ -28,6 +28,8 @@ const connectorTemplate = path.resolve('./src/templates/connector/index.tsx');
 const connectionTemplate = path.resolve('./src/templates/connection.tsx');
 
 const authorTemplate = path.resolve('./src/templates/author/index.tsx');
+
+const etlToolsTemplate = path.resolve('./src/templates/etl-tools/index.tsx');
 
 export const createPages: GatsbyNode['createPages'] = async ({
     graphql,
@@ -380,6 +382,40 @@ export const createPages: GatsbyNode['createPages'] = async ({
                 },
             });
         }
+    }
+
+    const comparisonVendors = await graphql<{
+        allStrapiComparison: {
+            nodes: Partial<Vendor>[];
+        };
+    }>(`
+        {
+            allStrapiComparison {
+                nodes {
+                    id
+                    slugKey
+                }
+            }
+        }
+    `);
+
+    const vendors = comparisonVendors.data?.allStrapiComparison.nodes;
+
+    if (vendors) {
+        vendors.forEach((xVendor) => {
+            vendors.forEach((yVendor) => {
+                if (xVendor.id !== yVendor.id) {
+                    createPage({
+                        path: `/etl-tools/${xVendor.slugKey}-vs-${yVendor.slugKey}`,
+                        component: etlToolsTemplate,
+                        context: {
+                            xVendorId: xVendor.id,
+                            yVendorId: yVendor.id,
+                        },
+                    });
+                }
+            });
+        });
     }
 };
 

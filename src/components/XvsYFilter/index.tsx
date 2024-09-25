@@ -1,7 +1,7 @@
 import React from 'react';
 import { InputLabel, FormControl, MenuItem, Select } from '@mui/material';
 import clsx from 'clsx';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import { LinkFilled } from '../../globalStyles';
 import {
     wrapper,
@@ -15,7 +15,7 @@ import {
 
 type Item = {
     id: string;
-    image: any;
+    image?: IGatsbyImageData;
     title: string;
 };
 
@@ -75,13 +75,12 @@ const XvsYFilter = ({
                         <MenuItem
                             className={selectItem}
                             key={item.id}
-                            value={item.id}
+                            value={item.title}
                         >
                             {item.image ? (
                                 <GatsbyImage
                                     image={item.image}
                                     alt={`${item.title} Logo`}
-                                    loading="eager"
                                     className={itemImage}
                                 />
                             ) : null}
@@ -106,13 +105,12 @@ const XvsYFilter = ({
                         <MenuItem
                             className={selectItem}
                             key={item.id}
-                            value={item.id}
+                            value={item.title}
                         >
                             {item.image ? (
                                 <GatsbyImage
                                     image={item.image}
                                     alt={`${item.title} Logo`}
-                                    loading="eager"
                                     className={itemImage}
                                 />
                             ) : null}

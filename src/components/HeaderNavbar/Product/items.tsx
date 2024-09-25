@@ -21,7 +21,7 @@ export const products = [
 export const compare = [
     {
         name: 'Estuary vs. Fivetran',
-        to: '/vs-fivetran',
+        to: '/etl-tools/estuary-vs-fivetran',
         hasChevronIcon: true,
         Image: () => (
             <StaticImage
@@ -34,7 +34,7 @@ export const compare = [
     },
     {
         name: 'Estuary vs. Confluent',
-        to: '/vs-confluent',
+        to: '/etl-tools/estuary-vs-confluent',
         hasChevronIcon: true,
         Image: () => (
             <StaticImage
@@ -47,7 +47,7 @@ export const compare = [
     },
     {
         name: 'Estuary vs. Airbyte',
-        to: '/vs-airbyte',
+        to: '/etl-tools/estuary-vs-airbyte',
         hasChevronIcon: true,
         Image: () => (
             <StaticImage
@@ -60,7 +60,7 @@ export const compare = [
     },
     {
         name: 'Estuary vs. Debezium',
-        to: '/vs-debezium',
+        to: '/etl-tools/estuary-vs-debezium',
         hasChevronIcon: true,
         Image: () => (
             <StaticImage

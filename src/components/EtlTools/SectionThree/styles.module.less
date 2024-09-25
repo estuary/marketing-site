@@ -1,0 +1,46 @@
+@import '../../../globalStyles/sections.module.less';
+
+.container {
+  .globalMaxWidth;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  text-align: center;
+
+  p {
+    margin-top: 0;
+  }
+}
+
+.tabs {
+  div {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+}
+
+.itemImage {
+  max-width: 20px;
+}
+
+.gridCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(286px, 1fr));
+  width: 100%;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.vendorTab {
+  border: 1px solid #5072EB4D;
+  border-radius: 100px;
+  text-transform: none;
+  color: #04192B;
+}
+
+.tabLabel {
+  display: flex;
+  align-items: center;
+}

@@ -29,3 +29,10 @@ export const estuaryAddress = {
 
 export const getAuthorPathBySlug = (slug: string) =>
     `/author/${slug.toLowerCase()}`;
+
+export interface Vendor {
+    id: string;
+    name: string;
+    logo: any;
+    slugKey: string;
+}
