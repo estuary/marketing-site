@@ -32,6 +32,10 @@ export const ContainerContent = styled.div`
     display: flex;
     flex-direction: column;
     flex: 1;
+
+    ul {
+        margin-top: 24px;
+    }
 `;
 
 export const Title = styled.h1`
