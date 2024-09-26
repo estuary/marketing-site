@@ -5,6 +5,7 @@ import SingleDataflowIcon from '../../../svgs/metric-single-dataflow.svg';
 import MetricCard from '../../MetricCard';
 import VanityLogosMarquee from '../../VanityLogosMarquee';
 import { dashboardRegisterUrl } from '../../../../shared';
+import SubscriptionBenefits from '../../SubscriptionBenefits';
 import AnimFallback from './AnimFallback';
 import AnimatedHero from './AnimatedHero';
 import {
@@ -53,6 +54,7 @@ const SectionOne = () => {
                             Contact Us
                         </SecondaryButton>
                     </HomepageHeadingButtons>
+                    <SubscriptionBenefits />
                 </HomepageHeader>
                 <FlowAnimationContainer>
                     <React.Suspense fallback={AnimFallback}>
