@@ -1,3 +1,8 @@
+.divider {
+  background-color: #5072EB26;
+  height: 0.5px;
+}
+
 .container {
   background-color: #5072EB0F;
   border: 1px solid #5072EB4D;
@@ -11,6 +16,20 @@
 
   &:hover {
     border-color: #5072EB;
+    background-color: #E6EBFC;
+    
+    .divider {
+      background-color: #5072EB;
+    }
+  }
+
+  &:active {
+    border-color: #5072EB4D;
+    background-color: #5072EB0F;
+    
+    .divider {
+      background-color: #5072EB26;
+    }
   }
 
   h3 {
@@ -49,8 +68,4 @@
     font-weight: 600;
     color: #625EFF;
   }
-}
-
-.divider {
-  background-color: #5072EB26;
 }
