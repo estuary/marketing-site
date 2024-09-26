@@ -7,6 +7,7 @@ const SectionNine = () => {
     return (
         <DarkSwoopingLinesLeftDirectionBackground>
             <Wrapper>
+                <h2>What Our Customers Are Saying</h2>
                 <TestimonialsCarousel />
             </Wrapper>
         </DarkSwoopingLinesLeftDirectionBackground>
