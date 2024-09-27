@@ -41,7 +41,7 @@ type XvsYFilterProps = {
 };
 
 const selectMenuProps = {
-    slotProps: { paper: { style: { height: '30vh' } } },
+    slotProps: { paper: { style: { maxHeight: '30vh' } } },
 };
 
 const XvsYFilter = ({
