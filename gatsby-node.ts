@@ -19,9 +19,7 @@ const path = require('path');
 // Define the template for blog and blog post
 const blogPostTemplate = path.resolve('./src/templates/blog-post/index.tsx');
 const blogTemplate = path.resolve('./src/templates/blog/index.tsx');
-const comparisonTemplate = path.resolve(
-    './src/templates/product-comparison/index.tsx'
-);
+
 const caseStudyTemplate = path.resolve('./src/layouts/CaseStudy/index.tsx');
 
 const connectorTemplate = path.resolve('./src/templates/connector/index.tsx');
@@ -29,7 +27,7 @@ const connectionTemplate = path.resolve('./src/templates/connection.tsx');
 
 const authorTemplate = path.resolve('./src/templates/author/index.tsx');
 
-const etlToolsTemplate = path.resolve('./src/templates/etl-tools/index.tsx');
+const comparisonTemplate = path.resolve('./src/templates/etl-tools/index.tsx');
 
 export const createPages: GatsbyNode['createPages'] = async ({
     graphql,
@@ -119,25 +117,41 @@ export const createPages: GatsbyNode['createPages'] = async ({
         });
     });
 
-    // Get all strapi comparison pages
-    const comparisonPages = await graphql<{
-        allStrapiProductComparisonPage: {
-            nodes: {
-                Slug: string;
-                id: string;
-            }[];
+    const comparisonVendors = await graphql<{
+        allStrapiComparison: {
+            nodes: Partial<Vendor>[];
         };
     }>(`
         {
-            allStrapiProductComparisonPage {
+            allStrapiComparison {
                 nodes {
                     id
-                    Slug
+                    slugKey
                 }
             }
         }
     `);
-    if (result.errors || comparisonPages.errors || caseStudyPages.errors) {
+
+    const vendors = comparisonVendors.data?.allStrapiComparison.nodes;
+
+    if (vendors) {
+        vendors.forEach((xVendor) => {
+            vendors.forEach((yVendor) => {
+                if (xVendor.id !== yVendor.id) {
+                    createPage({
+                        path: `/etl-tools/${xVendor.slugKey}-vs-${yVendor.slugKey}`,
+                        component: comparisonTemplate,
+                        context: {
+                            xVendorId: xVendor.id,
+                            yVendorId: yVendor.id,
+                        },
+                    });
+                }
+            });
+        });
+    }
+
+    if (result.errors || comparisonVendors.errors || caseStudyPages.errors) {
         reporter.panicOnBuild(
             'There was an error loading your blog posts',
             result.errors
@@ -147,21 +161,8 @@ export const createPages: GatsbyNode['createPages'] = async ({
 
     const allPosts = result.data?.allStrapiBlogPost.nodes ?? [];
 
-    const allComparisonPages =
-        comparisonPages.data?.allStrapiProductComparisonPage.nodes;
-
     validateDataExistence(allPosts, 'Posts');
-    validateDataExistence(allComparisonPages, 'Comparison Pages');
-
-    allComparisonPages?.forEach((node) => {
-        createPage({
-            path: node.Slug,
-            component: comparisonTemplate,
-            context: {
-                id: node.id,
-            },
-        });
-    });
+    validateDataExistence(vendors, 'Comparison Pages');
 
     const categories: {
         [key: string]: {
@@ -382,40 +383,6 @@ export const createPages: GatsbyNode['createPages'] = async ({
                 },
             });
         }
-    }
-
-    const comparisonVendors = await graphql<{
-        allStrapiComparison: {
-            nodes: Partial<Vendor>[];
-        };
-    }>(`
-        {
-            allStrapiComparison {
-                nodes {
-                    id
-                    slugKey
-                }
-            }
-        }
-    `);
-
-    const vendors = comparisonVendors.data?.allStrapiComparison.nodes;
-
-    if (vendors) {
-        vendors.forEach((xVendor) => {
-            vendors.forEach((yVendor) => {
-                if (xVendor.id !== yVendor.id) {
-                    createPage({
-                        path: `/etl-tools/${xVendor.slugKey}-vs-${yVendor.slugKey}`,
-                        component: etlToolsTemplate,
-                        context: {
-                            xVendorId: xVendor.id,
-                            yVendorId: yVendor.id,
-                        },
-                    });
-                }
-            });
-        });
     }
 };
 

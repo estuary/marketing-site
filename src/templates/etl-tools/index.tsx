@@ -1,13 +1,9 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../../components/Layout';
-import {
-    SectionOne,
-    SectionTwo,
-    SectionThree,
-} from '../../components/EtlToolsPage';
 import Seo from '../../components/seo';
 import { Vendor } from '../../../shared';
+import SectionOne from '../../components/EtlToolsXvsYPage/SectionOne';
 
 interface EtlToolsProps {
     data: {
@@ -33,8 +29,6 @@ const EtlTools = ({
     return (
         <Layout>
             <SectionOne vendors={vendors} xVendor={xVendor} yVendor={yVendor} />
-            <SectionTwo />
-            <SectionThree vendors={vendors} xVendor={xVendor} />
         </Layout>
     );
 };
@@ -51,7 +45,7 @@ export const Head = () => {
 export default EtlTools;
 
 export const pageQuery = graphql`
-    query GetAllComparisons($xVendorId: String!, $yVendorId: String!) {
+    query GetComparisons($xVendorId: String!, $yVendorId: String!) {
         xVendor: strapiComparison(id: { eq: $xVendorId }) {
             id
             name: Vendor_Name

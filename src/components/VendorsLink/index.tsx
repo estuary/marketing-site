@@ -1,52 +1,76 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import XvsYFilter from '../XvsYFilter';
 import { Vendor } from '../../../shared';
 import { getComparisonSlug } from '../EtlToolsPage/shared';
 
 type VendorsLinkProps = {
     vendors: Vendor[];
+    xVendor?: Vendor;
+    yVendor?: Vendor;
     isDarkTheme?: boolean;
 };
 
-const createVendorSelectItems = (vendors: Vendor[], excludeVendor: string) =>
+const createVendorSelectItems = (
+    vendors: Vendor[],
+    excludeVendorName: string
+) =>
     vendors
-        .filter((vendor) => vendor.name !== excludeVendor)
+        .filter((vendor) => vendor.name !== excludeVendorName)
         .map((vendor) => ({
             id: vendor.id,
             image: vendor.logo?.localFile.childImageSharp?.gatsbyImageData,
             title: vendor.name,
         }));
 
-const VendorsLink = ({ vendors, isDarkTheme }: VendorsLinkProps) => {
-    const [firstVendorName, setFirstVendorName] = useState('Estuary Flow');
-    const [secondVendorName, setSecondVendorName] = useState('Fivetran');
+const VendorsLink = ({
+    vendors,
+    xVendor,
+    yVendor,
+    isDarkTheme,
+}: VendorsLinkProps) => {
+    const defaultXVendor = xVendor?.name ?? 'Estuary Flow';
+    const defaultYVendor = yVendor?.name ?? 'Fivetran';
 
-    const handleVendorChange =
+    const [firstVendorName, setFirstVendorName] = useState(defaultXVendor);
+    const [secondVendorName, setSecondVendorName] = useState(defaultYVendor);
+
+    const handleVendorChange = useCallback(
         (setVendor: React.Dispatch<React.SetStateAction<string>>) =>
-        (value: string) => {
-            setVendor(value);
-        };
-
-    const firstVendorSlug = useMemo(
-        () => vendors.find((v) => v.name === firstVendorName)?.slugKey ?? '',
-        [vendors, firstVendorName]
+            (value: string) => {
+                setVendor(value);
+            },
+        []
     );
 
-    const secondVendorSlug = useMemo(
-        () => vendors.find((v) => v.name === secondVendorName)?.slugKey ?? '',
-        [vendors, secondVendorName]
+    const getVendorSlugKey = useCallback(
+        (vendorName: string, fallbackVendor?: Vendor) =>
+            fallbackVendor?.slugKey ??
+            vendors.find((v) => v.name === vendorName)?.slugKey ??
+            '',
+        [vendors]
+    );
+
+    const firstVendorSlugKey = useMemo(
+        () => getVendorSlugKey(firstVendorName, xVendor),
+        [getVendorSlugKey, firstVendorName, xVendor]
+    );
+
+    const secondVendorSlugKey = useMemo(
+        () => getVendorSlugKey(secondVendorName, yVendor),
+        [getVendorSlugKey, secondVendorName, yVendor]
     );
 
     const compareButtonHref = useMemo(
         () =>
-            `/etl-tools/${getComparisonSlug(firstVendorSlug, secondVendorSlug)}`,
-        [firstVendorSlug, secondVendorSlug]
+            `/etl-tools/${getComparisonSlug(firstVendorSlugKey, secondVendorSlugKey)}`,
+        [firstVendorSlugKey, secondVendorSlugKey]
     );
 
     const xVendorSelectItems = useMemo(
         () => createVendorSelectItems(vendors, secondVendorName),
         [vendors, secondVendorName]
     );
+
     const yVendorSelectItems = useMemo(
         () => createVendorSelectItems(vendors, firstVendorName),
         [vendors, firstVendorName]
