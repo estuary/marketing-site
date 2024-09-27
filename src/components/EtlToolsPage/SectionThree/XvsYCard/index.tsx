@@ -1,6 +1,8 @@
 import { Divider } from '@mui/material';
-import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import React from 'react';
+import { Vendor } from '../../../../../shared';
+import { getComparisonSlug } from '../../shared';
 import {
     container,
     logoWrapper,
@@ -8,32 +10,40 @@ import {
     divider,
 } from './styles.module.less';
 
-interface Vendor {
-    name: string;
-    logo?: IGatsbyImageData;
-}
-
 interface XvsYCardProps {
     xVendor: Vendor;
     yVendor: Vendor;
 }
 
 const XvsYCard = ({ xVendor, yVendor }: XvsYCardProps) => {
+    const xVendorLogo = getImage(
+        xVendor.logo.localFile.childImageSharp.gatsbyImageData
+    );
+
+    const yVendorLogo = getImage(
+        yVendor.logo.localFile.childImageSharp.gatsbyImageData
+    );
+
     return (
-        <div className={container}>
-            {xVendor.logo && yVendor.logo ? (
+        <a
+            href={getComparisonSlug(xVendor.slugKey, yVendor.slugKey)}
+            target="_blank"
+            rel="noreferrer"
+            className={container}
+        >
+            {xVendorLogo && yVendorLogo ? (
                 <div className={logoVsLogoWrapper}>
                     <div className={logoWrapper}>
                         <GatsbyImage
                             alt={`${xVendor.name} logo`}
-                            image={xVendor.logo}
+                            image={xVendorLogo}
                         />
                     </div>
                     <span>vs</span>
                     <div className={logoWrapper}>
                         <GatsbyImage
                             alt={`${yVendor.name} logo`}
-                            image={yVendor.logo}
+                            image={yVendorLogo}
                         />
                     </div>
                 </div>
@@ -42,7 +52,7 @@ const XvsYCard = ({ xVendor, yVendor }: XvsYCardProps) => {
             <h3>
                 {xVendor.name} vs {yVendor.name}
             </h3>
-        </div>
+        </a>
     );
 };
 

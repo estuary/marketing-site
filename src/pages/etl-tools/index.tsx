@@ -11,30 +11,22 @@ import { Vendor } from '../../../shared';
 
 interface EtlToolsProps {
     data: {
-        xVendor: Vendor;
-        yVendor: Vendor;
         vendors: {
             nodes: Vendor[];
         };
-    };
-    pageContext: {
-        xVendorId: string;
-        yVendorId: string;
     };
 }
 
 const EtlTools = ({
     data: {
-        xVendor,
-        yVendor,
         vendors: { nodes: vendors },
     },
 }: EtlToolsProps) => {
     return (
         <Layout>
-            <SectionOne vendors={vendors} xVendor={xVendor} yVendor={yVendor} />
+            <SectionOne vendors={vendors} />
             <SectionTwo />
-            <SectionThree vendors={vendors} xVendor={xVendor} />
+            <SectionThree vendors={vendors} />
         </Layout>
     );
 };
@@ -51,31 +43,7 @@ export const Head = () => {
 export default EtlTools;
 
 export const pageQuery = graphql`
-    query GetAllComparisons($xVendorId: String!, $yVendorId: String!) {
-        xVendor: strapiComparison(id: { eq: $xVendorId }) {
-            id
-            name: Vendor_Name
-            logo {
-                localFile {
-                    childImageSharp {
-                        gatsbyImageData
-                    }
-                }
-            }
-            slugKey
-        }
-        yVendor: strapiComparison(id: { eq: $yVendorId }) {
-            id
-            name: Vendor_Name
-            logo {
-                localFile {
-                    childImageSharp {
-                        gatsbyImageData
-                    }
-                }
-            }
-            slugKey
-        }
+    query GetAllComparisons {
         vendors: allStrapiComparison(
             sort: { fields: Vendor_Name, order: ASC }
         ) {

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Tab, Tabs } from '@mui/material';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import { Vendor } from '../../../../shared';
 import Checkmark from '../../../svgs/checkmark.svg';
@@ -14,47 +14,36 @@ import {
 } from './styles.module.less';
 import '../styles.module.less';
 import XvsYCard from './XvsYCard';
+import TabPanel from './TabPanel';
+
+const a11yProps = (vendorName: string | number) => ({
+    'id': `vendor-tab-${vendorName}`,
+    'aria-controls': `vendor-tabpanel-${vendorName}`,
+});
 
 interface SectionThreeProps {
     vendors: Vendor[];
-    xVendor: Vendor;
 }
 
-function a11yProps(index: string | number) {
-    return {
-        'id': `simple-tab-${index}`,
-        'aria-controls': `simple-tabpanel-${index}`,
-    };
-}
+const SectionThree = ({ vendors }: SectionThreeProps) => {
+    const [selectedVendorId, setSelectedVendorId] = useState('');
 
-interface TabPanelProps {
-    children: React.ReactNode;
-    value: string | number;
-    index: string | number;
-}
+    useEffect(() => {
+        const estuaryFlowVendor = vendors.find((vendor) => {
+            const vendorName = vendor.name.toLowerCase();
+            return (
+                vendorName.includes('estuary') || vendorName.includes('flow')
+            );
+        });
 
-function TabPanel({ children, value, index, ...other }: TabPanelProps) {
-    return (
-        <div
-            role="tabpanel"
-            hidden={value !== index}
-            id={`tabpanel-${index}`}
-            aria-labelledby={`tab-${index}`}
-            {...other}
-        >
-            {value === index ? <div>{children}</div> : null}
-        </div>
-    );
-}
-
-const SectionThree = ({ vendors, xVendor }: SectionThreeProps) => {
-    const [selectedVendorId, setSelectedVendorId] = React.useState<
-        string | number
-    >(xVendor.id);
+        if (estuaryFlowVendor) {
+            setSelectedVendorId(estuaryFlowVendor.id);
+        }
+    }, [vendors]);
 
     const handleChangeSelectedVendor = (
         event: React.SyntheticEvent,
-        newVendorId: string | number
+        newVendorId: string
     ) => {
         setSelectedVendorId(newVendorId);
     };
@@ -97,7 +86,7 @@ const SectionThree = ({ vendors, xVendor }: SectionThreeProps) => {
                                 </div>
                             }
                             value={id}
-                            {...a11yProps(id)}
+                            {...a11yProps(name)}
                             className={vendorTab}
                             sx={{
                                 '&.Mui-selected': {
@@ -109,7 +98,6 @@ const SectionThree = ({ vendors, xVendor }: SectionThreeProps) => {
                         />
                     ))}
                 </Tabs>
-
                 {vendors.map(({ id }) => (
                     <TabPanel key={id} value={selectedVendorId} index={id}>
                         <div className={gridCards}>
@@ -117,27 +105,15 @@ const SectionThree = ({ vendors, xVendor }: SectionThreeProps) => {
                                 .filter(
                                     (yVendor) => yVendor.id !== selectedVendorId
                                 )
-                                .map((yVendor) => (
-                                    <XvsYCard
-                                        key={yVendor.id}
-                                        xVendor={{
-                                            name: selectedVendor?.name ?? '',
-                                            logo: getImage(
-                                                selectedVendor?.logo.localFile
-                                                    .childImageSharp
-                                                    .gatsbyImageData
-                                            ),
-                                        }}
-                                        yVendor={{
-                                            name: yVendor.name,
-                                            logo: getImage(
-                                                yVendor.logo.localFile
-                                                    .childImageSharp
-                                                    .gatsbyImageData
-                                            ),
-                                        }}
-                                    />
-                                ))}
+                                .map((yVendor) =>
+                                    selectedVendor ? (
+                                        <XvsYCard
+                                            key={yVendor.id}
+                                            xVendor={selectedVendor}
+                                            yVendor={yVendor}
+                                        />
+                                    ) : null
+                                )}
                         </div>
                     </TabPanel>
                 ))}

@@ -12,18 +12,15 @@ const SectionTwo = () => {
                 <div className={cardsWrapper}>
                     <Card
                         title="The Data Engineer's Guide to ELT Alternatives"
-                        // TODO: Add the links once they exist
-                        buttonHref="#"
+                        buttonHref="/ELT-comparison-guide"
                     />
                     <Card
                         title="The Data Engineer's Guide to ETL Alternatives"
-                        // TODO: Add the links once they exist
-                        buttonHref="#"
+                        buttonHref="/ETL-alternatives-guide"
                     />
                     <Card
                         title="The Data Engineer's Guide to CDC for Analytics, Ops, and AI Pipelines"
-                        // TODO: Add the links once they exist
-                        buttonHref="#"
+                        buttonHref="/CDC-comparison-guide"
                     />
                 </div>
             </div>

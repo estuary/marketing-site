@@ -7,22 +7,15 @@ import { container, leftColumn, rightColumn } from './styles.module.less';
 
 interface SectionThreeProps {
     vendors: Vendor[];
-    xVendor: Vendor;
-    yVendor: Vendor;
 }
 
-const SectionOne = ({ vendors, xVendor, yVendor }: SectionThreeProps) => {
+const SectionOne = ({ vendors }: SectionThreeProps) => {
     return (
         <section className={defaultWrapperDarkBlue}>
             <div className={container}>
                 <div className={leftColumn}>
                     <h1>ETL, ELT and CDC Tools Comparison Center</h1>
-                    <VendorsLink
-                        vendors={vendors}
-                        defaultFirstVendor={xVendor}
-                        defaultSecondVendor={yVendor}
-                        isDarkTheme
-                    />
+                    <VendorsLink vendors={vendors} isDarkTheme />
                 </div>
                 <div className={rightColumn}>
                     <StaticImage
