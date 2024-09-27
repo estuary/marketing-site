@@ -3,6 +3,7 @@ import React from 'react';
 import { dashboardRegisterUrl, webinarsUrl } from '../../../../shared';
 import { DefaultWrapperDarkBlue } from '../../../styles/wrappers';
 import { sectionOneImageWrapper } from '../../../globalStyles/sections.module.less';
+import SubscriptionBenefits from '../../SubscriptionBenefits';
 import Card from './Card';
 import {
     ButtonsContainer,
@@ -40,6 +41,7 @@ const SectionOne = () => {
                                 Contact Us
                             </SecondaryButton>
                         </ButtonsContainer>
+                        <SubscriptionBenefits />
                     </ContainerContent>
                     <div className={sectionOneImageWrapper}>
                         <StaticImage

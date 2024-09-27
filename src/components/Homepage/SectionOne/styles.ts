@@ -70,6 +70,10 @@ export const HomepageHeader = styled.div`
     display: flex;
     flex-direction: column;
     margin: auto 0;
+
+    ul {
+        margin-top: 24px;
+    }
 `;
 
 export const HomepageTitle = styled.h1`

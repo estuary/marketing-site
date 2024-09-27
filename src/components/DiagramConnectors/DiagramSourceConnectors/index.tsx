@@ -107,7 +107,7 @@ const DiagramSourceConnectors = ({
                 />
             </ConnectorsGroup>
             <ConnectorsGroup className="spacing-left">
-                <Connector to="/source/netsuite-v">
+                <Connector to="/source/netsuite-v2">
                     <LogoWrapper>
                         <StaticImage
                             placeholder="none"
