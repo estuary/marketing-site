@@ -1,14 +1,13 @@
 import React, { useState, useMemo, useCallback } from 'react';
 import XvsYFilter from '../XvsYFilter';
-import { Vendor } from '../../../shared';
-import { getComparisonSlug } from '../EtlToolsPage/shared';
+import { getComparisonSlug, Vendor } from '../../../shared';
 
-type VendorsLinkProps = {
+interface VendorsLinkProps {
     vendors: Vendor[];
     xVendor?: Vendor;
     yVendor?: Vendor;
     isDarkTheme?: boolean;
-};
+}
 
 const createVendorSelectItems = (
     vendors: Vendor[],
@@ -44,8 +43,8 @@ const VendorsLink = ({
 
     const getVendorSlugKey = useCallback(
         (vendorName: string, fallbackVendor?: Vendor) =>
-            fallbackVendor?.slugKey ??
             vendors.find((v) => v.name === vendorName)?.slugKey ??
+            fallbackVendor?.slugKey ??
             '',
         [vendors]
     );
@@ -61,8 +60,7 @@ const VendorsLink = ({
     );
 
     const compareButtonHref = useMemo(
-        () =>
-            `/etl-tools/${getComparisonSlug(firstVendorSlugKey, secondVendorSlugKey)}`,
+        () => getComparisonSlug(firstVendorSlugKey, secondVendorSlugKey),
         [firstVendorSlugKey, secondVendorSlugKey]
     );
 

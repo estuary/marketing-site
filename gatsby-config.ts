@@ -25,7 +25,6 @@ const strapiConfig = {
         'testimonial',
         'vanity-logo',
         'job-posting',
-        'product-comparison-page',
         'comparison',
         'employee',
         'comparison',

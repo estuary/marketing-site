@@ -5,11 +5,11 @@ import VendorsLink from '../../VendorsLink';
 import { Vendor } from '../../../../shared';
 import { container, leftColumn, rightColumn } from './styles.module.less';
 
-interface SectionThreeProps {
+interface SectionOneProps {
     vendors: Vendor[];
 }
 
-const SectionOne = ({ vendors }: SectionThreeProps) => {
+const SectionOne = ({ vendors }: SectionOneProps) => {
     return (
         <section className={defaultWrapperDarkBlue}>
             <div className={container}>

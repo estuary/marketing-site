@@ -30,6 +30,11 @@ export const estuaryAddress = {
 export const getAuthorPathBySlug = (slug: string) =>
     `/author/${slug.toLowerCase()}`;
 
+export const getComparisonSlug = (
+    xVendorSlugKey: string,
+    yVendorSlugKey: string
+) => `/etl-tools/${xVendorSlugKey}-vs-${yVendorSlugKey}`;
+
 export interface Vendor {
     id: string;
     name: string;

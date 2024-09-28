@@ -1,19 +1,27 @@
 import React from 'react';
-import { StaticImage } from 'gatsby-plugin-image';
+import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
+import clsx from 'clsx';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import VendorsLink from '../../VendorsLink';
 import { Vendor } from '../../../../shared';
 import NewTabLink from '../../NewTabLink';
 import ChevronRightIcon from '../../../svgs/chevron-right.svg';
-import { container, leftColumn, rightColumn } from './styles.module.less';
+import {
+    container,
+    leftColumn,
+    rightColumn,
+    vendorLogo,
+    leftVendorLogo,
+    rightVendorLogo,
+} from './styles.module.less';
 
-interface SectionThreeProps {
+interface SectionOneProps {
     vendors: Vendor[];
     xVendor: Vendor;
     yVendor: Vendor;
 }
 
-const SectionOne = ({ vendors, xVendor, yVendor }: SectionThreeProps) => {
+const SectionOne = ({ vendors, xVendor, yVendor }: SectionOneProps) => {
     return (
         <section className={defaultWrapperDarkBlue}>
             <div className={container}>
@@ -40,11 +48,31 @@ const SectionOne = ({ vendors, xVendor, yVendor }: SectionThreeProps) => {
                     </NewTabLink>
                 </div>
                 <div className={rightColumn}>
+                    <div className={clsx(vendorLogo, leftVendorLogo)}>
+                        <GatsbyImage
+                            alt={`${xVendor.name} logo`}
+                            image={
+                                xVendor.logo.localFile.childImageSharp
+                                    .gatsbyImageData
+                            }
+                            loading="eager"
+                        />
+                    </div>
                     <StaticImage
-                        src="../../../images/lp-comparison/vendor-logos.png"
-                        alt="Vendor logos around Estuary Flow logo"
+                        src="../../../images/lp-comparison/xVendor-vs-yVendor.png"
+                        alt={`Comparison between ${xVendor.name} and ${yVendor.name}`}
                         loading="eager"
                     />
+                    <div className={clsx(vendorLogo, rightVendorLogo)}>
+                        <GatsbyImage
+                            alt={`${yVendor.name} logo`}
+                            image={
+                                yVendor.logo.localFile.childImageSharp
+                                    .gatsbyImageData
+                            }
+                            loading="eager"
+                        />
+                    </div>
                 </div>
             </div>
         </section>

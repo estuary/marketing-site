@@ -4,7 +4,7 @@ import { GatsbyNode } from 'gatsby';
 import { createRemoteFileNode } from 'gatsby-source-filesystem';
 import { SUPABASE_CONNECTION_STRING } from './config';
 import { normalizeConnector } from './src/utils';
-import { getAuthorPathBySlug, Vendor } from './shared';
+import { getAuthorPathBySlug, getComparisonSlug, Vendor } from './shared';
 
 /**
  * Implement Gatsby's Node APIs in this file.
@@ -137,9 +137,16 @@ export const createPages: GatsbyNode['createPages'] = async ({
     if (vendors) {
         vendors.forEach((xVendor) => {
             vendors.forEach((yVendor) => {
-                if (xVendor.id !== yVendor.id) {
+                if (
+                    xVendor.slugKey &&
+                    yVendor.slugKey &&
+                    xVendor.id !== yVendor.id
+                ) {
                     createPage({
-                        path: `/etl-tools/${xVendor.slugKey}-vs-${yVendor.slugKey}`,
+                        path: getComparisonSlug(
+                            xVendor.slugKey,
+                            yVendor.slugKey
+                        ),
                         component: comparisonTemplate,
                         context: {
                             xVendorId: xVendor.id,
