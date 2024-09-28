@@ -47,7 +47,7 @@ const Step7 = () => {
                     </OutboundLink>
                     <OutboundLink
                         target="_blank"
-                        href="https://estuary.dev/vs-fivetran/"
+                        href="https://estuary.dev/etl-tools/estuary-vs-fivetran/"
                         className={compareLink}
                     >
                         Compare to Fivetran
