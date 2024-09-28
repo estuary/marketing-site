@@ -16,7 +16,7 @@ module.exports = {
                 'http://localhost:9000/integrations/index.html',
                 'http://localhost:9000/source/postgres/index.html',
                 'http://localhost:9000/integrations/postgres-to-elasticsearch/index.html',
-                'http://localhost:9000/estuary-vs-fivetran/index.html',
+                'http://localhost:9000/etl-tools/estuary-vs-fivetran/index.html',
                 'http://localhost:9000/blog/index.html',
                 'http://localhost:9000/chatgpt-for-sales/index.html',
                 'http://localhost:9000/customers/connectngo/index.html',

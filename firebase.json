@@ -88,7 +88,7 @@
             },
             {
                 "source": "/airbyte-vs-fivetran-vs-estuary",
-                "destination": "/airbyte-vs-fivetran",
+                "destination": "/etl-tools/airbyte-vs-fivetran",
                 "type": 301
             },
             {
