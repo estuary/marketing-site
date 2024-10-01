@@ -81,6 +81,9 @@ const PlanCard = ({
                                 ${pricePerGb.toFixed(isHighlighted ? 2 : 0)}
                             </span>
                             <span className={unit}> / GB</span>
+                            {isHighlighted ? (
+                                <span className={plusSign}>+</span>
+                            ) : null}
                         </>
                     ) : (
                         "LET'S TALK"
@@ -88,7 +91,6 @@ const PlanCard = ({
                 </span>
                 {isHighlighted ? (
                     <div className={pricePerConnectorWrapper}>
-                        <span className={plusSign}>+</span>
                         {'<='}
                         <span className={price}>${pricePerConnector}</span>
                         {'/connector instance'}
