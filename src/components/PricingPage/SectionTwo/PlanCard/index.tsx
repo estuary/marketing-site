@@ -91,7 +91,7 @@ const PlanCard = ({
                         <span className={plusSign}>+</span>
                         {'<='}
                         <span className={price}>${pricePerConnector}</span>
-                        {'/TASKS'}
+                        {'/connector instance'}
                     </div>
                 ) : null}
             </div>
