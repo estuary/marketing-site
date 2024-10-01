@@ -59,45 +59,50 @@ const SectionTwo = ({ xVendor, yVendor }: SectionTwoProps) => {
                     <h2>Comparison Matrix</h2>
                     <table>
                         <thead>
-                            <th />
-                            <th>
-                                <div className={tableHeaderVendor}>
-                                    <div className={tableLogoWrapper}>
-                                        <GatsbyImage
-                                            alt={`${xVendor.name} logo`}
-                                            image={
-                                                xVendor.logo.localFile
-                                                    .childImageSharp
-                                                    .gatsbyImageData
-                                            }
-                                        />
+                            <tr>
+                                <th />
+                                <th>
+                                    <div className={tableHeaderVendor}>
+                                        <div className={tableLogoWrapper}>
+                                            <GatsbyImage
+                                                alt={`${xVendor.name} logo`}
+                                                image={
+                                                    xVendor.logo.localFile
+                                                        .childImageSharp
+                                                        .gatsbyImageData
+                                                }
+                                            />
+                                        </div>
+                                        <span>{xVendor.name}</span>
                                     </div>
-                                    <span>{xVendor.name}</span>
-                                </div>
-                            </th>
-                            <th>
-                                <div className={tableHeaderVendor}>
-                                    <div className={tableLogoWrapper}>
-                                        <GatsbyImage
-                                            alt={`${yVendor.name} logo`}
-                                            image={
-                                                yVendor.logo.localFile
-                                                    .childImageSharp
-                                                    .gatsbyImageData
-                                            }
-                                        />
+                                </th>
+                                <th>
+                                    <div className={tableHeaderVendor}>
+                                        <div className={tableLogoWrapper}>
+                                            <GatsbyImage
+                                                alt={`${yVendor.name} logo`}
+                                                image={
+                                                    yVendor.logo.localFile
+                                                        .childImageSharp
+                                                        .gatsbyImageData
+                                                }
+                                            />
+                                        </div>
+                                        <span>{yVendor.name}</span>
                                     </div>
-                                    <span>{yVendor.name}</span>
-                                </div>
-                            </th>
-                            <th>
-                                <div className={tableHeaderVendor}>
-                                    <div className={tableLogoWrapper}>
-                                        <EstuaryLogo width={36} height={36} />
+                                </th>
+                                <th>
+                                    <div className={tableHeaderVendor}>
+                                        <div className={tableLogoWrapper}>
+                                            <EstuaryLogo
+                                                width={36}
+                                                height={36}
+                                            />
+                                        </div>
+                                        <span>Estuary</span>
                                     </div>
-                                    <span>Estuary</span>
-                                </div>
-                            </th>
+                                </th>
+                            </tr>
                         </thead>
                         <tbody>
                             <tr>
@@ -443,6 +448,54 @@ const SectionTwo = ({ xVendor, yVendor }: SectionTwoProps) => {
                         </tbody>
                     </table>
                     <BlogBuildPipelineBanner />
+                    <h2>How to choose the best option</h2>
+                    <p>
+                        For the most part, if you are interested in a cloud
+                        option, and the connectivity options exist, you may
+                        choose to evaluate Estuary.
+                    </p>
+                    <p>
+                        <span>Modern data pipeline:</span> Estuary has the
+                        broadest support for schema evolution and modern
+                        DataOps.
+                    </p>
+                    <p>
+                        <span>Lowest latency:</span> If low latency matters,
+                        Estuary will be the best option, especially at scale.
+                    </p>
+                    <p>
+                        <span>Highest data engineering productivity:</span>{' '}
+                        Estuary is among the easiest to use, on par with the
+                        best ELT vendors. But it also has delivered up to 5x
+                        greater productivity than the alternatives.
+                    </p>
+                    <p>
+                        <span>Connectivity:</span> If you&apos;re more concerned
+                        about cloud services, Estuary or another modern ELT
+                        vendor may be your best option. If you need more on
+                        premises connectivity, you might consider more
+                        traditional ETL vendors.
+                    </p>
+                    <p>
+                        <span>Lowest cost:</span> Estuary is the clear low-cost
+                        winner for medium and larger deployments.
+                    </p>
+                    <p>
+                        <span>Streaming support:</span> Estuary has a modern
+                        approach to CDC that is built for reliability and scale,
+                        and great Kafka support as well. It&apos;s real-time CDC
+                        is arguably the best of all the options here. Some ETL
+                        vendors like Informatica and Talend also have real-time
+                        CDC. ELT-only vendors only support batch CDC.
+                    </p>
+                    <p>
+                        Ultimately the best approach for evaluating your options
+                        is to identify your future and current needs for
+                        connectivity, key data integration features, and
+                        performance, scalability, reliability, and security
+                        needs, and use this information to a good short-term and
+                        long-term solution for you.
+                    </p>
                 </div>
             </div>
         </section>

@@ -12,6 +12,15 @@
     font-size: 2.25rem;
   }
 
+  h2:not(:first-of-type) {
+    margin-top: 60px;
+  }
+
+  span {
+    color: #5072EB;
+    font-weight: 600;
+  }
+
   p {
     color: #47506D;
     font-size: 1.25rem;
@@ -19,7 +28,7 @@
   }
 
   table {
-    margin-top: 24px;
+    margin: 24px 0 48px 0;
     border: none;
     font-size: 1rem;
     border-collapse: separate;
@@ -40,15 +49,6 @@
     border: none;
   }
 
-  tr:first-of-type {
-    th {
-      border: 1px solid #EEF1FD;
-      border-bottom: none;
-      border-top-left-radius: 32px;
-      border-top-right-radius: 32px;
-    }
-  }
-
   tr:last-child td:first-child {
     border-bottom-left-radius: 32px;
   }
@@ -60,7 +60,6 @@
   thead {
     th {
       background-color: transparent;
-      border: none;
       color: #47506D;
       font-weight: 600;
       font-size: 1rem;
