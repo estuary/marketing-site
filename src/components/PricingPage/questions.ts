@@ -3,7 +3,7 @@ const frequentlyQuestions = [
         title: 'How is my my bill calculated?',
         description: `There are two components to your monthly bill. Primarily, your bill is  calculated based on the amount of
         data that is Sourced, Transformed, and Delivered by Flow to your destinations. The activity of each of these
-        ‘tasks’ are summed on a monthly basis. Secondarily, there is a charge of $0.14/hour per active connector.
+        ‘connector instances’ are summed on a monthly basis. Secondarily, there is a charge of $0.14/hour per active connector.
         For a given connector running all month, this typically equates to about ~$100/month/connector. in a
         standard 720 hour month.   There is no storage fee as Estuary does not store your data, it will be hosted
         in your own cloud storage. In the free tier, you are given 10GB of data to move at no charge and up t

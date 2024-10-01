@@ -1,179 +1,180 @@
 .container {
-  border: 1px solid #D7DCE5;
-  border-radius: 24px;
-  padding: 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-  height: 100%;
+    border: 1px solid #d7dce5;
+    border-radius: 24px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    height: 100%;
 
-  @media (min-width: 1025px) {
-    max-width: 32vw;
-  }
+    @media (min-width: 1025px) {
+        max-width: 32vw;
+    }
 }
 
 .header {
-  display: flex;
-  gap: 18px;
-  align-items: center;
-
-  @media (max-width: 320px) {
-    flex-direction: column;
-    margin: 0 auto;
-  }
-
-  div {
     display: flex;
+    gap: 18px;
     align-items: center;
-    gap: 8px;
-  }
 
-  h3 {
-    color: #5072EB;
-    font-size: 1.25rem;
-    font-weight: 700;
-    line-height: 24px;
-    margin: 0;
-
-    @media (max-width: 425px) {
-      font-size: 1rem;
+    @media (max-width: 320px) {
+        flex-direction: column;
+        margin: 0 auto;
     }
-  }
 
-  span {
-    font-size: 0.875rem;
-    font-weight: 600;
-    padding: 7px 12px;
-    color: #5072EB;
-    background-color: #625EFF1F;
-    border-radius: 36px;
-    margin-left: auto;
-    text-align: center;
-    white-space: nowrap;
-
-    @media (max-width: 768px) {
-      font-size: 0.75rem;
+    div {
+        display: flex;
+        align-items: center;
+        gap: 8px;
     }
-  }
+
+    h3 {
+        color: #5072eb;
+        font-size: 1.25rem;
+        font-weight: 700;
+        line-height: 24px;
+        margin: 0;
+
+        @media (max-width: 425px) {
+            font-size: 1rem;
+        }
+    }
+
+    span {
+        font-size: 0.875rem;
+        font-weight: 600;
+        padding: 7px 12px;
+        color: #5072eb;
+        background-color: #625eff1f;
+        border-radius: 36px;
+        margin-left: auto;
+        text-align: center;
+        white-space: nowrap;
+
+        @media (max-width: 768px) {
+            font-size: 0.75rem;
+        }
+    }
 }
 
 .benefitsList {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  margin: 0;
-
-  li {
     display: flex;
-    align-items: center;
-    gap: 12px;
+    flex-direction: column;
+    gap: 20px;
     margin: 0;
 
-    div {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      max-width: 20px;
-      max-height: 20px;
-      border: 1px solid #00a99d;
-      border-radius: 100%;
-      padding: 4px;
-    }
+    li {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 0;
 
-    p {
-      font-size: 1rem;
-      line-height: 22.4px;
-      color: #47506d;
-      margin: 0;
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 20px;
+            max-height: 20px;
+            border: 1px solid #00a99d;
+            border-radius: 100%;
+            padding: 4px;
+        }
 
-      @media (max-width: 425px) {
-        font-size: 0.875rem;
-      }
+        p {
+            font-size: 1rem;
+            line-height: 22.4px;
+            color: #47506d;
+            margin: 0;
+
+            @media (max-width: 425px) {
+                font-size: 0.875rem;
+            }
+        }
     }
-  }
 }
 
 .price {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #04192B;
-  line-height: 28.8px;
-  white-space: nowrap;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #04192b;
+    line-height: 28.8px;
+    white-space: nowrap;
 
-  @media (max-width: 320px) {
-    margin: 0 auto;
-  }
+    @media (max-width: 320px) {
+        margin: 0 auto;
+    }
 }
 
 .pricingWrapper {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 1rem;
-  flex-wrap: wrap;
-  min-height: 32.5px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 1rem;
+    flex-wrap: wrap;
+    min-height: 32.5px;
 
-  &>svg {
-    margin: 0 4px;
-  }
+    & > svg {
+        margin: 0 4px;
+    }
 }
 
 .centralizedText {
-  margin-right: auto;
+    margin-right: auto;
 }
 
 .unit {
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 30px;
-  color: #47506D;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 30px;
+    color: #47506d;
 }
 
 .planDescriptionStyle {
-  font-size: 1rem;
-  margin: 0;
-  line-height: 22.4px;
-  min-height: 44.8px;
+    font-size: 1rem;
+    margin: 0;
+    line-height: 22.4px;
+    min-height: 44.8px;
 
-  @media (max-width: 425px) {
-    font-size: 0.875rem;
-  }
+    @media (max-width: 425px) {
+        font-size: 0.875rem;
+    }
 }
 
 .highlightedBorder {
-  border: 3px solid #5072EB;
+    border: 3px solid #5072eb;
 }
 
 .divider {
-  width: 100%;
-  background: #D7DCE5;
+    width: 100%;
+    background: #d7dce5;
 }
 
 .pricePerConnectorWrapper {
-  display: flex;
-  align-items: center;
-  gap: 4px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
 
-  @media (max-width: 320px) {
-    flex-direction: column;
-    margin: 0 auto;
-  }
+    @media (max-width: 320px) {
+        flex-direction: column;
+        margin: 0 auto;
+    }
 }
 
 .plusSign {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #5072EB;
-  line-height: 28.8px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #5072eb;
+    line-height: 28.8px;
+    margin-left: 5px;
 }
 
 .benefitsTitle {
-  font-size: 1rem;
-  line-height: 22.4px;
-  font-weight: 700;
-  color: #47506D;
+    font-size: 1rem;
+    line-height: 22.4px;
+    font-weight: 700;
+    color: #47506d;
 
-  @media (max-width: 425px) {
-    font-size: 0.875rem;
-  }
+    @media (max-width: 425px) {
+        font-size: 0.875rem;
+    }
 }

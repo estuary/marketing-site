@@ -25,12 +25,9 @@ const SectionOne = () => {
                     <h1 className={title}>SIMPLY PRICED, PAY AS YOU GO</h1>
                     <p className={description}>
                         Stop trying to guess your monthly bill based on
-                        &apos;monthly active rows.&apos; Get instant back-fills
-                        without instant bad-bills. We price predictably, on {''}
-                        <span>GB of change data</span> moved per month and {''}
-                        <span>active tasks</span>, which can be either a capture{' '}
-                        {''}
-                        or a materialization.
+                        &apos;monthly active rows.&apos; We price predictably,
+                        based on <span>data moved each month</span> and{' '}
+                        <span>active connector instances</span>.
                     </p>
                     <div className={buttonsContainer}>
                         <OutboundLinkFilled
