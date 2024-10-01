@@ -1,10 +1,14 @@
 import React from 'react';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import { getComparisonSlug, Vendor } from '../../../../shared';
+import {
+    dashboardRegisterUrl,
+    getComparisonSlug,
+    Vendor,
+} from '../../../../shared';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import ShareArticle from '../../../templates/blog-post/ShareArticle';
 import EstuaryLogo from '../../../svgs/estuary-icon.svg';
-import BlogBuildPipelineBanner from '../../BlogBuildPipelineBanner';
+import BlogBanner from '../../BlogBanner';
 import {
     container,
     leftColumn,
@@ -447,7 +451,17 @@ const SectionTwo = ({ xVendor, yVendor }: SectionTwoProps) => {
                             </tr>
                         </tbody>
                     </table>
-                    <BlogBuildPipelineBanner />
+                    <BlogBanner
+                        title={
+                            <h3>
+                                Start streaming your data <span>for free</span>
+                            </h3>
+                        }
+                        button={{
+                            title: 'Build a Pipeline',
+                            href: dashboardRegisterUrl,
+                        }}
+                    />
                     <h2>How to choose the best option</h2>
                     <p>
                         For the most part, if you are interested in a cloud

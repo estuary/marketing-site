@@ -1,4 +1,5 @@
 import React from 'react';
+import { docsPageUrl } from '../../../../shared';
 import { TooltipLink } from './styles';
 
 interface Features {
@@ -100,7 +101,7 @@ export const features: { [key: string]: Features } = {
                     Automatically inferred and managed from source to
                     destination using{' '}
                     <TooltipLink
-                        href="https://docs.estuary.dev/concepts/advanced/evolutions/"
+                        href={`${docsPageUrl}/concepts/advanced/evolutions/`}
                         target="_blank"
                     >
                         schema evolution

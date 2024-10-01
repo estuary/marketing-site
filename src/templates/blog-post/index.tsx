@@ -28,7 +28,7 @@ import ReadingTimeIcon from '../../svgs/time.svg';
 import { dashboardRegisterUrl, getAuthorPathBySlug } from '../../../shared';
 import Avatar from '../../components/Avatar';
 import SocialLinks from '../../components/SocialLinks';
-import BlogBuildPipelineBanner from '../../components/BlogBuildPipelineBanner';
+import BlogBanner from '../../components/BlogBanner';
 import ShareArticle from './ShareArticle';
 import {
     blogPost,
@@ -184,7 +184,18 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                 <ProcessedPost
                                     body={post.body.data.childHtmlRehype.html}
                                 />
-                                <BlogBuildPipelineBanner />
+                                <BlogBanner
+                                    title={
+                                        <h3>
+                                            Start streaming your data{' '}
+                                            <span>for free</span>
+                                        </h3>
+                                    }
+                                    button={{
+                                        title: 'Build a Pipeline',
+                                        href: dashboardRegisterUrl,
+                                    }}
+                                />
                             </div>
 
                             <div className={postSidebar}>

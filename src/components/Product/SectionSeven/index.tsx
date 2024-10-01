@@ -4,6 +4,7 @@ import { StaticImage } from 'gatsby-plugin-image';
 import { DefaultWrapperDarkBlue } from '../../../styles/wrappers';
 import Advantages from '../../Advantages';
 import { sectionSevenAdvantages } from '../advantages';
+import { docsPageUrl } from '../../../../shared';
 
 const SectionSeven = () => {
     return (
@@ -35,7 +36,7 @@ const SectionSeven = () => {
                 advantages={sectionSevenAdvantages}
                 link={{
                     title: 'See The Docs',
-                    href: 'https://docs.estuary.dev/',
+                    href: docsPageUrl,
                 }}
             />
         </DefaultWrapperDarkBlue>

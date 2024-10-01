@@ -3,6 +3,9 @@ export const webinarsUrl =
 
 export const dashboardRegisterUrl = 'https://dashboard.estuary.dev/register';
 export const statusPageUrl = 'https://status.estuary.dev/';
+export const docsPageUrl = 'https://docs.estuary.dev';
+export const slackUrl =
+    'https://estuary-dev.slack.com/join/shared_invite/zt-86nal6yr-VPbv~YfZE9Q~6Zl~gmZdFQ#/shared-invite/email';
 
 export const estuaryProductFlowVideoUrl =
     'https://www.youtube.com/embed/hlCh81ZbBik';

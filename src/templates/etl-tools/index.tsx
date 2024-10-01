@@ -3,7 +3,11 @@ import { graphql } from 'gatsby';
 import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
 import { Vendor } from '../../../shared';
-import { SectionOne, SectionTwo } from '../../components/EtlToolsXvsYPage';
+import {
+    SectionOne,
+    SectionThree,
+    SectionTwo,
+} from '../../components/EtlToolsXvsYPage';
 
 interface EtlToolsProps {
     data: {
@@ -30,6 +34,7 @@ const EtlTools = ({
         <Layout>
             <SectionOne vendors={vendors} xVendor={xVendor} yVendor={yVendor} />
             <SectionTwo xVendor={xVendor} yVendor={yVendor} />
+            <SectionThree />
         </Layout>
     );
 };

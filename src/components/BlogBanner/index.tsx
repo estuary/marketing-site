@@ -1,22 +1,24 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import StraightLinesBackground from '../BackgroundImages/StraightLinesBackground';
 import { OutboundLinkFilled } from '../OutboundLink';
-import { dashboardRegisterUrl } from '../../../shared';
 import { background, container, banner } from './styles.module.less';
 
-const BlogBuildPipelineBanner = () => {
+interface BlogBanner {
+    title: ReactNode;
+    button: {
+        title: string;
+        href: string;
+    };
+}
+
+const BlogBanner = ({ title, button }: BlogBanner) => {
     return (
         <StraightLinesBackground className={background}>
             <div className={container}>
                 <div className={banner}>
-                    <h3>
-                        Start streaming your data <span>for free</span>
-                    </h3>
-                    <OutboundLinkFilled
-                        href={dashboardRegisterUrl}
-                        target="_blank"
-                    >
-                        Build a Pipeline
+                    <h3>{title}</h3>
+                    <OutboundLinkFilled href={button.href} target="_blank">
+                        {button.title}
                     </OutboundLinkFilled>
                 </div>
             </div>
@@ -24,4 +26,4 @@ const BlogBuildPipelineBanner = () => {
     );
 };
 
-export default BlogBuildPipelineBanner;
+export default BlogBanner;
