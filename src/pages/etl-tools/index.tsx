@@ -34,8 +34,8 @@ const EtlTools = ({
 export const Head = () => {
     return (
         <Seo
-            title="Best ETL, ELT, & CDC Tools Comparison"
-            description="Find and compare the leading ETL, ELT, & CDC tools of 2024. Compare features, pricing, and performance to find the right solution for your data integration needs."
+            title="ETL, ELT, AND CDC Tools Comparison Center"
+            description="Learn how different ETL, ELT, and CDC vendors compare across nearly 40 different criteria and 9 different types of data integration projects."
         />
     );
 };

@@ -28,6 +28,7 @@ import ReadingTimeIcon from '../../svgs/time.svg';
 import { dashboardRegisterUrl, getAuthorPathBySlug } from '../../../shared';
 import Avatar from '../../components/Avatar';
 import SocialLinks from '../../components/SocialLinks';
+import BlogBuildPipelineBanner from '../../components/BlogBuildPipelineBanner';
 import ShareArticle from './ShareArticle';
 import {
     blogPost,
@@ -46,7 +47,6 @@ import {
     mainContent,
     background,
     bigBuildPipelineBannerContainer,
-    buildPipelineBanner,
     postSidebar,
     shareArticleDesktop,
     sidebarRight,
@@ -184,27 +184,7 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                 <ProcessedPost
                                     body={post.body.data.childHtmlRehype.html}
                                 />
-
-                                <StraightLinesBackground className={background}>
-                                    <div
-                                        className={
-                                            bigBuildPipelineBannerContainer
-                                        }
-                                    >
-                                        <div className={buildPipelineBanner}>
-                                            <h3>
-                                                Start streaming your data{' '}
-                                                <span>for free</span>
-                                            </h3>
-                                            <OutboundLinkFilled
-                                                href={dashboardRegisterUrl}
-                                                target="_blank"
-                                            >
-                                                Build a Pipeline
-                                            </OutboundLinkFilled>
-                                        </div>
-                                    </div>
-                                </StraightLinesBackground>
+                                <BlogBuildPipelineBanner />
                             </div>
 
                             <div className={postSidebar}>

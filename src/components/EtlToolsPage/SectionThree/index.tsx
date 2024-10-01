@@ -4,6 +4,7 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import { Vendor } from '../../../../shared';
 import Checkmark from '../../../svgs/checkmark.svg';
+import { sectionTitle } from '../styles.module.less';
 import {
     container,
     tabs,
@@ -12,7 +13,6 @@ import {
     vendorTab,
     tabLabel,
 } from './styles.module.less';
-import '../styles.module.less';
 import XvsYCard from './XvsYCard';
 import TabPanel from './TabPanel';
 
@@ -55,7 +55,9 @@ const SectionThree = ({ vendors }: SectionThreeProps) => {
     return (
         <section className={defaultWrapperDark}>
             <div className={container}>
-                <h2>Browse the Complete List of Comparisons</h2>
+                <h2 className={sectionTitle}>
+                    Browse the Complete List of Comparisons
+                </h2>
                 <p>Choose a vendor and see how it compares to the rest.</p>
                 <Tabs
                     value={selectedVendorId}

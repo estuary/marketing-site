@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
 import { Vendor } from '../../../shared';
-import SectionOne from '../../components/EtlToolsXvsYPage/SectionOne';
+import { SectionOne, SectionTwo } from '../../components/EtlToolsXvsYPage';
 
 interface EtlToolsProps {
     data: {
@@ -29,6 +29,7 @@ const EtlTools = ({
     return (
         <Layout>
             <SectionOne vendors={vendors} xVendor={xVendor} yVendor={yVendor} />
+            <SectionTwo xVendor={xVendor} yVendor={yVendor} />
         </Layout>
     );
 };
@@ -36,8 +37,8 @@ const EtlTools = ({
 export const Head = () => {
     return (
         <Seo
-            title="Best ETL, ELT, & CDC Tools Comparison"
-            description="Find and compare the leading ETL, ELT, & CDC tools of 2024. Compare features, pricing, and performance to find the right solution for your data integration needs."
+            title="Data Integration Tools Compared"
+            description="Compare X vs Y. Discover their key differences, ETL/ELT features, and pricing to choose the right data integration platform."
         />
     );
 };

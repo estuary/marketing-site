@@ -1,14 +1,16 @@
 import React from 'react';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
+import { sectionTitle } from '../styles.module.less';
 import { container, cardsWrapper } from './styles.module.less';
-import '../styles.module.less';
 import Card from './Card';
 
 const SectionTwo = () => {
     return (
         <section className={defaultWrapperGrey}>
             <div className={container}>
-                <h2>Learn more about ETL, ELT, and CDC alternatives</h2>
+                <h2 className={sectionTitle}>
+                    Learn more about ETL, ELT, and CDC alternatives
+                </h2>
                 <div className={cardsWrapper}>
                     <Card
                         title="The Data Engineer's Guide to ELT Alternatives"
