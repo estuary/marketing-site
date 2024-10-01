@@ -26,8 +26,8 @@ const SectionOne = () => {
                     <p className={description}>
                         Stop trying to guess your monthly bill based on
                         &apos;monthly active rows.&apos; We price predictably,
-                        based on <b>data moved each month</b> and{' '}
-                        <b>active connector instances</b>.
+                        based on <span>data moved each month</span> and{' '}
+                        <span>active connector instances</span>.
                     </p>
                     <div className={buttonsContainer}>
                         <OutboundLinkFilled
