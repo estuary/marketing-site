@@ -7,7 +7,6 @@ import {
 } from '../../../../shared';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import ShareArticle from '../../../templates/blog-post/ShareArticle';
-import EstuaryLogo from '../../../svgs/estuary-icon.svg';
 import BlogBanner from '../../BlogBanner';
 import {
     container,
@@ -107,9 +106,13 @@ const SectionTwo = ({ xVendor, yVendor, estuaryVendor }: SectionTwoProps) => {
                                 <th>
                                     <div className={tableHeaderVendor}>
                                         <div className={tableLogoWrapper}>
-                                            <EstuaryLogo
-                                                width={36}
-                                                height={36}
+                                            <GatsbyImage
+                                                alt={`${estuaryVendor.name} logo`}
+                                                image={
+                                                    estuaryVendor.logo.localFile
+                                                        .childImageSharp
+                                                        .gatsbyImageData
+                                                }
                                             />
                                         </div>
                                         <span>{estuaryVendor.name}</span>
