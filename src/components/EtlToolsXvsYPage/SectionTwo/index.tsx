@@ -1,5 +1,4 @@
 import React from 'react';
-import { GatsbyImage } from 'gatsby-plugin-image';
 import {
     dashboardRegisterUrl,
     getComparisonSlug,
@@ -8,13 +7,7 @@ import {
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import ShareArticle from '../../../templates/blog-post/ShareArticle';
 import BlogBanner from '../../BlogBanner';
-import {
-    container,
-    leftColumn,
-    bold,
-    tableHeaderVendor,
-    tableLogoWrapper,
-} from './styles.module.less';
+import { container, leftColumn, bold } from './styles.module.less';
 import UseCases from './UseCases';
 import Connectors from './Connectors';
 import CoreFeatures from './CoreFeatures';
@@ -23,6 +16,7 @@ import TheAbilities from './TheAbilities';
 import Security from './Security';
 import Support from './Support';
 import Cost from './Cost';
+import VendorAvatar from './VendorAvatar';
 
 interface SectionTwoProps {
     xVendor: Vendor;
@@ -73,51 +67,9 @@ const SectionTwo = ({ xVendor, yVendor, estuaryVendor }: SectionTwoProps) => {
                         <thead>
                             <tr>
                                 <th />
-                                <th>
-                                    <div className={tableHeaderVendor}>
-                                        <div className={tableLogoWrapper}>
-                                            <GatsbyImage
-                                                alt={`${xVendor.name} logo`}
-                                                image={
-                                                    xVendor.logo.localFile
-                                                        .childImageSharp
-                                                        .gatsbyImageData
-                                                }
-                                            />
-                                        </div>
-                                        <span>{xVendor.name}</span>
-                                    </div>
-                                </th>
-                                <th>
-                                    <div className={tableHeaderVendor}>
-                                        <div className={tableLogoWrapper}>
-                                            <GatsbyImage
-                                                alt={`${yVendor.name} logo`}
-                                                image={
-                                                    yVendor.logo.localFile
-                                                        .childImageSharp
-                                                        .gatsbyImageData
-                                                }
-                                            />
-                                        </div>
-                                        <span>{yVendor.name}</span>
-                                    </div>
-                                </th>
-                                <th>
-                                    <div className={tableHeaderVendor}>
-                                        <div className={tableLogoWrapper}>
-                                            <GatsbyImage
-                                                alt={`${estuaryVendor.name} logo`}
-                                                image={
-                                                    estuaryVendor.logo.localFile
-                                                        .childImageSharp
-                                                        .gatsbyImageData
-                                                }
-                                            />
-                                        </div>
-                                        <span>{estuaryVendor.name}</span>
-                                    </div>
-                                </th>
+                                <VendorAvatar vendor={xVendor} />
+                                <VendorAvatar vendor={yVendor} />
+                                <VendorAvatar vendor={estuaryVendor} />
                             </tr>
                         </thead>
                         <tbody>
