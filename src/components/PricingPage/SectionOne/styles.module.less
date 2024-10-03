@@ -1,66 +1,67 @@
 .container {
-  display: flex;
-  align-items: center;
-  gap: 60px;
+    display: flex;
+    align-items: center;
+    gap: 60px;
 
-  @media (max-width: 1024px) {
-    flex-direction: column-reverse;
-  }
+    @media (max-width: 1024px) {
+        flex-direction: column-reverse;
+    }
 }
 
 .contentContainer {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .title {
-  color: #fff;
-  max-width: 500px;
-  font-weight: 600;
+    color: #fff;
+    max-width: 500px;
+    font-weight: 600;
 
-  @media (max-width: 768px) {
-    font-size: 2.5rem;
-    line-height: 48px;
-  }
+    @media (max-width: 768px) {
+        font-size: 2.5rem;
+        line-height: 48px;
+    }
 
-  @media (max-width: 425px) {
-    font-size: 2.25rem;
-    line-height: 43.2px;
-  }
+    @media (max-width: 425px) {
+        font-size: 2.25rem;
+        line-height: 43.2px;
+    }
 }
 
 .description {
-  font-size: 1.25rem;
-  line-height: 30px;
-  color: #F2F3F5;
-  margin: 24px 0;
-
-  @media (max-width: 768px) {
-    font-size: 1rem;
+    font-size: 1.25rem;
     line-height: 30px;
-  }
+    color: #f2f3f5;
+    margin: 24px 0;
 
-  & > span {
-    color: #625EFF;
-  }
+    @media (max-width: 768px) {
+        font-size: 1rem;
+        line-height: 30px;
+    }
+
+    & > span {
+        color: #625eff;
+        font-weight: 700;
+    }
 }
 
 .buttonsContainer {
-  display: flex;
-  gap: 16px;
-  max-width: 480px;
+    display: flex;
+    gap: 16px;
+    max-width: 480px;
 
-  & > a {
-    white-space: nowrap;
-    width: 100%;
-  }
+    & > a {
+        white-space: nowrap;
+        width: 100%;
+    }
 
-  @media (max-width: 1024px) {
-    margin: 0;
-  }
+    @media (max-width: 1024px) {
+        margin: 0;
+    }
 
-  @media (max-width: 360px) {
-    flex-direction: column;
-  }
+    @media (max-width: 360px) {
+        flex-direction: column;
+    }
 }
