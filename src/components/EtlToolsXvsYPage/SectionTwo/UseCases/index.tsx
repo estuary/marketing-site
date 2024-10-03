@@ -45,18 +45,20 @@ const UseCases = ({ xVendor, yVendor, estuaryVendor }: ComparisonVendors) => {
                             yVendor.useCases[row.key]
                         )}
                     </td>
-                    <td>
-                        {estuaryVendor.useCases[row.key].subText ? (
-                            <FeatureData
-                                icon={estuaryVendor.useCases[row.key]?.icon}
-                                subText={
-                                    estuaryVendor.useCases[row.key].subText
-                                }
-                            />
-                        ) : (
-                            estuaryVendor.useCases[row.key]
-                        )}
-                    </td>
+                    {estuaryVendor ? (
+                        <td>
+                            {estuaryVendor.useCases[row.key].subText ? (
+                                <FeatureData
+                                    icon={estuaryVendor.useCases[row.key]?.icon}
+                                    subText={
+                                        estuaryVendor.useCases[row.key].subText
+                                    }
+                                />
+                            ) : (
+                                estuaryVendor.useCases[row.key]
+                            )}
+                        </td>
+                    ) : null}
                 </tr>
             ))}
         </>

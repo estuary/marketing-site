@@ -48,18 +48,20 @@ const CoreFeatures = ({
                             yVendor.features[row.key]
                         )}
                     </td>
-                    <td>
-                        {estuaryVendor.features[row.key].subText ? (
-                            <FeatureData
-                                icon={estuaryVendor.features[row.key]?.icon}
-                                subText={
-                                    estuaryVendor.features[row.key]?.subText
-                                }
-                            />
-                        ) : (
-                            estuaryVendor.features[row.key]
-                        )}
-                    </td>
+                    {estuaryVendor ? (
+                        <td>
+                            {estuaryVendor.features[row.key].subText ? (
+                                <FeatureData
+                                    icon={estuaryVendor.features[row.key]?.icon}
+                                    subText={
+                                        estuaryVendor.features[row.key]?.subText
+                                    }
+                                />
+                            ) : (
+                                estuaryVendor.features[row.key]
+                            )}
+                        </td>
+                    ) : null}
                 </tr>
             ))}
         </>

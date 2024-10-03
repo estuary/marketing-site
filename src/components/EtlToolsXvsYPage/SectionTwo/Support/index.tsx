@@ -33,20 +33,23 @@ const Support = ({ xVendor, yVendor, estuaryVendor }: ComparisonVendors) => {
                             yVendor.support[row.key]
                         )}
                     </td>
-                    <td>
-                        {estuaryVendor.support[row.key].subText ? (
-                            <FeatureData
-                                cellTitle={
-                                    estuaryVendor.support[row.key]?.cellTitle
-                                }
-                                subText={
-                                    estuaryVendor.support[row.key]?.subText
-                                }
-                            />
-                        ) : (
-                            estuaryVendor.support[row.key]
-                        )}
-                    </td>
+                    {estuaryVendor ? (
+                        <td>
+                            {estuaryVendor.support[row.key].subText ? (
+                                <FeatureData
+                                    cellTitle={
+                                        estuaryVendor.support[row.key]
+                                            ?.cellTitle
+                                    }
+                                    subText={
+                                        estuaryVendor.support[row.key]?.subText
+                                    }
+                                />
+                            ) : (
+                                estuaryVendor.support[row.key]
+                            )}
+                        </td>
+                    ) : null}
                 </tr>
             ))}
         </>

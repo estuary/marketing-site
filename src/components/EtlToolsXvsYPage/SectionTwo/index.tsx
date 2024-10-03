@@ -12,7 +12,6 @@ import {
     container,
     leftColumn,
     bold,
-    introductoryDetailsWrapper,
     tableWrapper,
 } from './styles.module.less';
 import UseCases from './UseCases';
@@ -24,6 +23,7 @@ import Security from './Security';
 import Support from './Support';
 import Cost from './Cost';
 import VendorAvatar from './VendorAvatar';
+import IntroductoryDetails from './IntroductoryDetails';
 
 interface SectionTwoProps {
     xVendor: Vendor;
@@ -35,78 +35,55 @@ const introId = 'intro';
 const comparisonMatrixId = 'comparison-matrix';
 const howToChooseId = 'how-to-choose';
 
+const tableBodyComponents = [
+    UseCases,
+    Connectors,
+    CoreFeatures,
+    DeploymentOptions,
+    TheAbilities,
+    Security,
+    Support,
+    Cost,
+];
+
 const SectionTwo = ({ xVendor, yVendor, estuaryVendor }: SectionTwoProps) => {
-    const tableOfContents = useMemo(
-        () => [
-            {
-                id: introId,
-                heading: 'Introduction',
-            },
-            {
-                id: comparisonMatrixId,
-                heading: 'Comparison Matrix',
-            },
-            {
-                id: estuaryVendor.id,
-                heading: estuaryVendor.name,
-                items: [
-                    {
-                        id: `${estuaryVendor.id}-pros`,
-                        heading: 'Pros',
-                    },
-                    {
-                        id: `${estuaryVendor.id}-cons`,
-                        heading: 'Cons',
-                    },
-                    {
-                        id: `${estuaryVendor.id}-pricing`,
-                        heading: 'Pricing',
-                    },
-                ],
-            },
-            {
-                id: xVendor.id,
-                heading: xVendor.name,
-                items: [
-                    {
-                        id: `${xVendor.id}-pros`,
-                        heading: 'Pros',
-                    },
-                    {
-                        id: `${xVendor.id}-cons`,
-                        heading: 'Cons',
-                    },
-                    {
-                        id: `${xVendor.id}-pricing`,
-                        heading: 'Pricing',
-                    },
-                ],
-            },
-            {
-                id: yVendor.id,
-                heading: yVendor.name,
-                items: [
-                    {
-                        id: `${yVendor.id}-pros`,
-                        heading: 'Pros',
-                    },
-                    {
-                        id: `${yVendor.id}-cons`,
-                        heading: 'Cons',
-                    },
-                    {
-                        id: `${yVendor.id}-pricing`,
-                        heading: 'Pricing',
-                    },
-                ],
-            },
-            {
-                id: howToChooseId,
-                heading: 'How to choose the best option',
-            },
-        ],
-        [xVendor, yVendor, estuaryVendor]
-    );
+    const isThreeVendorComparison = useMemo(() => {
+        return ![xVendor.id, yVendor.id].includes(estuaryVendor.id);
+    }, [xVendor.id, yVendor.id, estuaryVendor.id]);
+
+    const tableOfContents = useMemo(() => {
+        const createVendorItem = (vendor) => ({
+            id: vendor.name.replace(' ', '-'),
+            heading: vendor.name,
+            items: [
+                {
+                    id: `${vendor.name.replace(' ', '-')}-pros`,
+                    heading: 'Pros',
+                },
+                {
+                    id: `${vendor.name.replace(' ', '-')}-cons`,
+                    heading: 'Cons',
+                },
+                {
+                    id: `${vendor.name.replace(' ', '-')}-pricing`,
+                    heading: 'Pricing',
+                },
+            ],
+        });
+
+        const vendors = [xVendor, yVendor].map(createVendorItem);
+
+        if (isThreeVendorComparison) {
+            vendors.unshift(createVendorItem(estuaryVendor));
+        }
+
+        return [
+            { id: introId, heading: 'Introduction' },
+            { id: comparisonMatrixId, heading: 'Comparison Matrix' },
+            ...vendors,
+            { id: howToChooseId, heading: 'How to choose the best option' },
+        ];
+    }, [xVendor, yVendor, estuaryVendor, isThreeVendorComparison]);
 
     return (
         <section className={defaultWrapperGrey}>
@@ -145,50 +122,24 @@ const SectionTwo = ({ xVendor, yVendor, estuaryVendor }: SectionTwoProps) => {
                                     <th />
                                     <VendorAvatar vendor={xVendor} />
                                     <VendorAvatar vendor={yVendor} />
-                                    <VendorAvatar vendor={estuaryVendor} />
+                                    {isThreeVendorComparison ? (
+                                        <VendorAvatar vendor={estuaryVendor} />
+                                    ) : null}
                                 </tr>
                             </thead>
                             <tbody>
-                                <UseCases
-                                    xVendor={xVendor}
-                                    yVendor={yVendor}
-                                    estuaryVendor={estuaryVendor}
-                                />
-                                <Connectors
-                                    xVendor={xVendor}
-                                    yVendor={yVendor}
-                                    estuaryVendor={estuaryVendor}
-                                />
-                                <CoreFeatures
-                                    xVendor={xVendor}
-                                    yVendor={yVendor}
-                                    estuaryVendor={estuaryVendor}
-                                />
-                                <DeploymentOptions
-                                    xVendor={xVendor}
-                                    yVendor={yVendor}
-                                    estuaryVendor={estuaryVendor}
-                                />
-                                <TheAbilities
-                                    xVendor={xVendor}
-                                    yVendor={yVendor}
-                                    estuaryVendor={estuaryVendor}
-                                />
-                                <Security
-                                    xVendor={xVendor}
-                                    yVendor={yVendor}
-                                    estuaryVendor={estuaryVendor}
-                                />
-                                <Support
-                                    xVendor={xVendor}
-                                    yVendor={yVendor}
-                                    estuaryVendor={estuaryVendor}
-                                />
-                                <Cost
-                                    xVendor={xVendor}
-                                    yVendor={yVendor}
-                                    estuaryVendor={estuaryVendor}
-                                />
+                                {tableBodyComponents.map((Component, index) => (
+                                    <Component
+                                        key={index}
+                                        xVendor={xVendor}
+                                        yVendor={yVendor}
+                                        estuaryVendor={
+                                            isThreeVendorComparison
+                                                ? estuaryVendor
+                                                : null
+                                        }
+                                    />
+                                ))}
                             </tbody>
                         </table>
                     </div>
@@ -204,94 +155,12 @@ const SectionTwo = ({ xVendor, yVendor, estuaryVendor }: SectionTwoProps) => {
                         }}
                     />
 
-                    <div className={introductoryDetailsWrapper}>
-                        <h2 id={estuaryVendor.id}>{estuaryVendor.name}</h2>
-                        <div
-                            dangerouslySetInnerHTML={{
-                                __html: estuaryVendor.introductoryDetails
-                                    .introduction.data.introduction,
-                            }}
-                        />
-                        <h3 id={`${estuaryVendor.id}-pros`}>Pros</h3>
-                        <div
-                            dangerouslySetInnerHTML={{
-                                __html: estuaryVendor.introductoryDetails.pros
-                                    .data.pros,
-                            }}
-                        />
-                        <h3 id={`${estuaryVendor.id}-cons`}>Cons</h3>
-                        <div
-                            dangerouslySetInnerHTML={{
-                                __html: estuaryVendor.introductoryDetails.cons
-                                    .data.cons,
-                            }}
-                        />
-                        <h3 id={`${estuaryVendor.id}-pricing`}>Pricing</h3>
-                        <div
-                            dangerouslySetInnerHTML={{
-                                __html: estuaryVendor.introductoryDetails
-                                    .pricing.data.pricing,
-                            }}
-                        />
-
-                        <h2 id={xVendor.id}>{xVendor.name}</h2>
-                        <div
-                            dangerouslySetInnerHTML={{
-                                __html: xVendor.introductoryDetails.introduction
-                                    .data.introduction,
-                            }}
-                        />
-                        <h3 id={`${xVendor.id}-pros`}>Pros</h3>
-                        <div
-                            dangerouslySetInnerHTML={{
-                                __html: xVendor.introductoryDetails.pros.data
-                                    .pros,
-                            }}
-                        />
-                        <h3 id={`${xVendor.id}-cons`}>Cons</h3>
-                        <div
-                            dangerouslySetInnerHTML={{
-                                __html: xVendor.introductoryDetails.cons.data
-                                    .cons,
-                            }}
-                        />
-                        <h3 id={`${xVendor.id}-pricing`}>Pricing</h3>
-                        <div
-                            dangerouslySetInnerHTML={{
-                                __html: xVendor.introductoryDetails.pricing.data
-                                    .pricing,
-                            }}
-                        />
-
-                        <h2 id={yVendor.id}>{yVendor.name}</h2>
-                        <div
-                            dangerouslySetInnerHTML={{
-                                __html: yVendor.introductoryDetails.introduction
-                                    .data.introduction,
-                            }}
-                        />
-                        <h3 id={`${yVendor.id}-pros`}>Pros</h3>
-                        <div
-                            dangerouslySetInnerHTML={{
-                                __html: yVendor.introductoryDetails.pros.data
-                                    .pros,
-                            }}
-                        />
-                        <h3 id={`${yVendor.id}-cons`}>Cons</h3>
-                        <div
-                            dangerouslySetInnerHTML={{
-                                __html: yVendor.introductoryDetails.cons.data
-                                    .cons,
-                            }}
-                        />
-                        <h3 id={`${yVendor.id}-pricing`}>Pricing</h3>
-                        <div
-                            dangerouslySetInnerHTML={{
-                                __html: yVendor.introductoryDetails.pricing.data
-                                    .pricing,
-                            }}
-                        />
-                    </div>
+                    <IntroductoryDetails
+                        isThreeVendorComparison={isThreeVendorComparison}
+                        estuaryVendor={estuaryVendor}
+                        xVendor={xVendor}
+                        yVendor={yVendor}
+                    />
 
                     <h2 id={howToChooseId}>How to choose the best option</h2>
                     <p>

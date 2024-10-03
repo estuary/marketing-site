@@ -39,18 +39,23 @@ const Connectors = ({ xVendor, yVendor, estuaryVendor }: ComparisonVendors) => {
                             yVendor.connectors[row.key]
                         )}
                     </td>
-                    <td>
-                        {estuaryVendor.connectors[row.key].subText ? (
-                            <FeatureData
-                                icon={estuaryVendor.connectors[row.key]?.icon}
-                                subText={
-                                    estuaryVendor.connectors[row.key]?.subText
-                                }
-                            />
-                        ) : (
-                            estuaryVendor.connectors[row.key]
-                        )}
-                    </td>
+                    {estuaryVendor ? (
+                        <td>
+                            {estuaryVendor.connectors[row.key].subText ? (
+                                <FeatureData
+                                    icon={
+                                        estuaryVendor.connectors[row.key]?.icon
+                                    }
+                                    subText={
+                                        estuaryVendor.connectors[row.key]
+                                            ?.subText
+                                    }
+                                />
+                            ) : (
+                                estuaryVendor.connectors[row.key]
+                            )}
+                        </td>
+                    ) : null}
                 </tr>
             ))}
         </>

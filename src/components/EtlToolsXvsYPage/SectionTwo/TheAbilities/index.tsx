@@ -51,22 +51,27 @@ const TheAbilities = ({
                             yVendor.deployment.abilities[row.key]
                         )}
                     </td>
-                    <td>
-                        {estuaryVendor.deployment.abilities[row.key].subText ? (
-                            <FeatureData
-                                icon={
-                                    estuaryVendor.deployment.abilities[row.key]
-                                        ?.icon
-                                }
-                                subText={
-                                    estuaryVendor.deployment.abilities[row.key]
-                                        ?.subText
-                                }
-                            />
-                        ) : (
-                            estuaryVendor.deployment.abilities[row.key]
-                        )}
-                    </td>
+                    {estuaryVendor ? (
+                        <td>
+                            {estuaryVendor.deployment.abilities[row.key]
+                                .subText ? (
+                                <FeatureData
+                                    icon={
+                                        estuaryVendor.deployment.abilities[
+                                            row.key
+                                        ]?.icon
+                                    }
+                                    subText={
+                                        estuaryVendor.deployment.abilities[
+                                            row.key
+                                        ]?.subText
+                                    }
+                                />
+                            ) : (
+                                estuaryVendor.deployment.abilities[row.key]
+                            )}
+                        </td>
+                    ) : null}
                 </tr>
             ))}
         </>

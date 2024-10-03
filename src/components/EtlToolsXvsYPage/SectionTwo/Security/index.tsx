@@ -46,22 +46,27 @@ const Security = ({ xVendor, yVendor, estuaryVendor }: ComparisonVendors) => {
                             yVendor.deployment.security[row.key]
                         )}
                     </td>
-                    <td>
-                        {estuaryVendor.deployment.security[row.key].subText ? (
-                            <FeatureData
-                                icon={
-                                    estuaryVendor.deployment.security[row.key]
-                                        ?.icon
-                                }
-                                subText={
-                                    estuaryVendor.deployment.security[row.key]
-                                        ?.subText
-                                }
-                            />
-                        ) : (
-                            estuaryVendor.deployment.security[row.key]
-                        )}
-                    </td>
+                    {estuaryVendor ? (
+                        <td>
+                            {estuaryVendor.deployment.security[row.key]
+                                .subText ? (
+                                <FeatureData
+                                    icon={
+                                        estuaryVendor.deployment.security[
+                                            row.key
+                                        ]?.icon
+                                    }
+                                    subText={
+                                        estuaryVendor.deployment.security[
+                                            row.key
+                                        ]?.subText
+                                    }
+                                />
+                            ) : (
+                                estuaryVendor.deployment.security[row.key]
+                            )}
+                        </td>
+                    ) : null}
                 </tr>
             ))}
         </>

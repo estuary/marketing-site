@@ -37,18 +37,23 @@ const DeploymentOptions = ({
                             yVendor.deployment[row.key]
                         )}
                     </td>
-                    <td>
-                        {estuaryVendor.deployment[row.key].subText ? (
-                            <FeatureData
-                                icon={estuaryVendor.deployment[row.key]?.icon}
-                                subText={
-                                    estuaryVendor.deployment[row.key]?.subText
-                                }
-                            />
-                        ) : (
-                            estuaryVendor.deployment[row.key]
-                        )}
-                    </td>
+                    {estuaryVendor ? (
+                        <td>
+                            {estuaryVendor.deployment[row.key].subText ? (
+                                <FeatureData
+                                    icon={
+                                        estuaryVendor.deployment[row.key]?.icon
+                                    }
+                                    subText={
+                                        estuaryVendor.deployment[row.key]
+                                            ?.subText
+                                    }
+                                />
+                            ) : (
+                                estuaryVendor.deployment[row.key]
+                            )}
+                        </td>
+                    ) : null}
                 </tr>
             ))}
         </>

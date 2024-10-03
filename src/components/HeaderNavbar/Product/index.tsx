@@ -14,6 +14,8 @@ import {
 } from '../styles';
 import { hideOnMobile } from '../styles.module.less';
 import Carousel from '../../Carousel';
+import NewTabLink from '../../NewTabLink';
+import ChevronRightIcon from '../../../svgs/chevron-right.svg';
 import { compare, products } from './items';
 import ProductLink from './Link';
 
@@ -42,7 +44,16 @@ const HeaderNavbarProduct = ({ active, setActive }) => {
             <MenuAccordionContent>
                 <Card>
                     <CardItem title="PRODUCT" items={products} onlyContent />
-                    <CardItem title="COMPARE" items={compare} />
+                    <CardItem
+                        title="COMPARE"
+                        items={compare}
+                        contentFooterLink={
+                            <NewTabLink href="/etl-tools">
+                                View all comparisons
+                                <ChevronRightIcon color="#5072EB" height={12} />
+                            </NewTabLink>
+                        }
+                    />
                     <CardItem className={hideOnMobile} title="WEBINARS">
                         <Carousel
                             aria-label="Webinars carousel"

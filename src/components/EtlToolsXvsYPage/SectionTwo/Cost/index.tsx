@@ -43,19 +43,23 @@ const Cost = ({ xVendor, yVendor, estuaryVendor }: ComparisonVendors) => {
                             yVendor.cost[row.key]
                         )}
                     </td>
-                    <td>
-                        {estuaryVendor.cost[row.key].subText ? (
-                            <FeatureData
-                                numberOfDollarSigns={
-                                    estuaryVendor.cost[row.key]
-                                        ?.numberOfDollarSigns.array
-                                }
-                                subText={estuaryVendor.cost[row.key]?.subText}
-                            />
-                        ) : (
-                            estuaryVendor.cost[row.key]
-                        )}
-                    </td>
+                    {estuaryVendor ? (
+                        <td>
+                            {estuaryVendor.cost[row.key].subText ? (
+                                <FeatureData
+                                    numberOfDollarSigns={
+                                        estuaryVendor.cost[row.key]
+                                            ?.numberOfDollarSigns.array
+                                    }
+                                    subText={
+                                        estuaryVendor.cost[row.key]?.subText
+                                    }
+                                />
+                            ) : (
+                                estuaryVendor.cost[row.key]
+                            )}
+                        </td>
+                    ) : null}
                 </tr>
             ))}
         </>
