@@ -137,14 +137,6 @@ const SectionTwo = ({ xVendor, yVendor, estuaryVendor }: SectionTwoProps) => {
                         best option for you based on your current and future
                         needs.
                     </p>
-                    <p>
-                        Read through the comparison matrix of {xVendor.name} vs{' '}
-                        {yVendor.name} vs {estuaryVendor.name} across the core
-                        criteria and use cases. You can read a detailed
-                        explanation of each of the criteria here. Then read an
-                        overview of each vendor and recommendations on how to
-                        choose the right vendor for you.
-                    </p>
                     <h2 id={comparisonMatrixId}>Comparison Matrix</h2>
                     <div className={tableWrapper}>
                         <table>
