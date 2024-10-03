@@ -27,7 +27,8 @@
   }
 
   table {
-    margin: 24px 0 48px 0;
+    min-width: 680px;
+    margin: 0;
     border: none;
     font-size: 1rem;
     border-collapse: separate;
@@ -87,7 +88,7 @@
   }
 
   td:first-of-type {
-    min-width: 340px;
+    width: 340px;
     padding: 12px 24px;
     border-left: 1px solid #EEF1FD;
     font-weight: 600;
@@ -121,6 +122,7 @@
   img {
     border-radius: 24px;
     max-width: 912px;
+    width: 100%;
   }
 
   h2 {
@@ -155,5 +157,13 @@
   li {
     list-style: none;
     margin: 16px 0;
+  }
+}
+
+.tableWrapper {
+  margin: 24px 0 48px 0;
+  
+  @media (max-width: 860px) {
+    overflow-x: auto;
   }
 }

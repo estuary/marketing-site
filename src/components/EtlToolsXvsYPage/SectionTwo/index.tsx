@@ -13,6 +13,7 @@ import {
     leftColumn,
     bold,
     introductoryDetailsWrapper,
+    tableWrapper,
 } from './styles.module.less';
 import UseCases from './UseCases';
 import Connectors from './Connectors';
@@ -145,58 +146,60 @@ const SectionTwo = ({ xVendor, yVendor, estuaryVendor }: SectionTwoProps) => {
                         choose the right vendor for you.
                     </p>
                     <h2 id={comparisonMatrixId}>Comparison Matrix</h2>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th />
-                                <VendorAvatar vendor={xVendor} />
-                                <VendorAvatar vendor={yVendor} />
-                                <VendorAvatar vendor={estuaryVendor} />
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <UseCases
-                                xVendor={xVendor}
-                                yVendor={yVendor}
-                                estuaryVendor={estuaryVendor}
-                            />
-                            <Connectors
-                                xVendor={xVendor}
-                                yVendor={yVendor}
-                                estuaryVendor={estuaryVendor}
-                            />
-                            <CoreFeatures
-                                xVendor={xVendor}
-                                yVendor={yVendor}
-                                estuaryVendor={estuaryVendor}
-                            />
-                            <DeploymentOptions
-                                xVendor={xVendor}
-                                yVendor={yVendor}
-                                estuaryVendor={estuaryVendor}
-                            />
-                            <TheAbilities
-                                xVendor={xVendor}
-                                yVendor={yVendor}
-                                estuaryVendor={estuaryVendor}
-                            />
-                            <Security
-                                xVendor={xVendor}
-                                yVendor={yVendor}
-                                estuaryVendor={estuaryVendor}
-                            />
-                            <Support
-                                xVendor={xVendor}
-                                yVendor={yVendor}
-                                estuaryVendor={estuaryVendor}
-                            />
-                            <Cost
-                                xVendor={xVendor}
-                                yVendor={yVendor}
-                                estuaryVendor={estuaryVendor}
-                            />
-                        </tbody>
-                    </table>
+                    <div className={tableWrapper}>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th />
+                                    <VendorAvatar vendor={xVendor} />
+                                    <VendorAvatar vendor={yVendor} />
+                                    <VendorAvatar vendor={estuaryVendor} />
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <UseCases
+                                    xVendor={xVendor}
+                                    yVendor={yVendor}
+                                    estuaryVendor={estuaryVendor}
+                                />
+                                <Connectors
+                                    xVendor={xVendor}
+                                    yVendor={yVendor}
+                                    estuaryVendor={estuaryVendor}
+                                />
+                                <CoreFeatures
+                                    xVendor={xVendor}
+                                    yVendor={yVendor}
+                                    estuaryVendor={estuaryVendor}
+                                />
+                                <DeploymentOptions
+                                    xVendor={xVendor}
+                                    yVendor={yVendor}
+                                    estuaryVendor={estuaryVendor}
+                                />
+                                <TheAbilities
+                                    xVendor={xVendor}
+                                    yVendor={yVendor}
+                                    estuaryVendor={estuaryVendor}
+                                />
+                                <Security
+                                    xVendor={xVendor}
+                                    yVendor={yVendor}
+                                    estuaryVendor={estuaryVendor}
+                                />
+                                <Support
+                                    xVendor={xVendor}
+                                    yVendor={yVendor}
+                                    estuaryVendor={estuaryVendor}
+                                />
+                                <Cost
+                                    xVendor={xVendor}
+                                    yVendor={yVendor}
+                                    estuaryVendor={estuaryVendor}
+                                />
+                            </tbody>
+                        </table>
+                    </div>
                     <BlogBanner
                         title={
                             <h3>
