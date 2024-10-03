@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
     dashboardRegisterUrl,
     getComparisonSlug,
@@ -7,6 +7,7 @@ import {
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import ShareArticle from '../../../templates/blog-post/ShareArticle';
 import BlogBanner from '../../BlogBanner';
+import { RenderToc } from '../../BlogPostToc';
 import {
     container,
     leftColumn,
@@ -29,7 +30,83 @@ interface SectionTwoProps {
     estuaryVendor: Vendor;
 }
 
+const introId = 'intro';
+const comparisonMatrixId = 'comparison-matrix';
+const howToChooseId = 'how-to-choose';
+
 const SectionTwo = ({ xVendor, yVendor, estuaryVendor }: SectionTwoProps) => {
+    const tableOfContents = useMemo(
+        () => [
+            {
+                id: introId,
+                heading: 'Introduction',
+            },
+            {
+                id: comparisonMatrixId,
+                heading: 'Comparison Matrix',
+            },
+            {
+                id: estuaryVendor.id,
+                heading: estuaryVendor.name,
+                items: [
+                    {
+                        id: `${estuaryVendor.id}-pros`,
+                        heading: 'Pros',
+                    },
+                    {
+                        id: `${estuaryVendor.id}-cons`,
+                        heading: 'Cons',
+                    },
+                    {
+                        id: `${estuaryVendor.id}-pricing`,
+                        heading: 'Pricing',
+                    },
+                ],
+            },
+            {
+                id: xVendor.id,
+                heading: xVendor.name,
+                items: [
+                    {
+                        id: `${xVendor.id}-pros`,
+                        heading: 'Pros',
+                    },
+                    {
+                        id: `${xVendor.id}-cons`,
+                        heading: 'Cons',
+                    },
+                    {
+                        id: `${xVendor.id}-pricing`,
+                        heading: 'Pricing',
+                    },
+                ],
+            },
+            {
+                id: yVendor.id,
+                heading: yVendor.name,
+                items: [
+                    {
+                        id: `${yVendor.id}-pros`,
+                        heading: 'Pros',
+                    },
+                    {
+                        id: `${yVendor.id}-cons`,
+                        heading: 'Cons',
+                    },
+                    {
+                        id: `${yVendor.id}-pricing`,
+                        heading: 'Pricing',
+                    },
+                ],
+            },
+            {
+                id: howToChooseId,
+                heading: 'How to choose the best option',
+            },
+        ],
+        [xVendor, yVendor, estuaryVendor]
+    );
+
     return (
         <section className={defaultWrapperGrey}>
             <div className={container}>
@@ -43,10 +120,10 @@ const SectionTwo = ({ xVendor, yVendor, estuaryVendor }: SectionTwoProps) => {
                             ),
                         }}
                     />
-                    {/* <RenderToc items={} /> */}
+                    <RenderToc items={tableOfContents} />
                 </div>
                 <div>
-                    <h2>Introduction</h2>
+                    <h2 id={introId}>Introduction</h2>
                     <p className={bold}>
                         Do you need to load a cloud data warehouse? Synchronize
                         data in real-time across apps or databases? Support
@@ -67,7 +144,7 @@ const SectionTwo = ({ xVendor, yVendor, estuaryVendor }: SectionTwoProps) => {
                         overview of each vendor and recommendations on how to
                         choose the right vendor for you.
                     </p>
-                    <h2>Comparison Matrix</h2>
+                    <h2 id={comparisonMatrixId}>Comparison Matrix</h2>
                     <table>
                         <thead>
                             <tr>
@@ -133,28 +210,28 @@ const SectionTwo = ({ xVendor, yVendor, estuaryVendor }: SectionTwoProps) => {
                     />
 
                     <div className={introductoryDetailsWrapper}>
-                        <h2>{estuaryVendor.name}</h2>
+                        <h2 id={estuaryVendor.id}>{estuaryVendor.name}</h2>
                         <div
                             dangerouslySetInnerHTML={{
                                 __html: estuaryVendor.introductoryDetails
                                     .introduction.data.introduction,
                             }}
                         />
-                        <h3>Pros</h3>
+                        <h3 id={`${estuaryVendor.id}-pros`}>Pros</h3>
                         <div
                             dangerouslySetInnerHTML={{
                                 __html: estuaryVendor.introductoryDetails.pros
                                     .data.pros,
                             }}
                         />
-                        <h3>Cons</h3>
+                        <h3 id={`${estuaryVendor.id}-cons`}>Cons</h3>
                         <div
                             dangerouslySetInnerHTML={{
                                 __html: estuaryVendor.introductoryDetails.cons
                                     .data.cons,
                             }}
                         />
-                        <h3>Pricing</h3>
+                        <h3 id={`${estuaryVendor.id}-pricing`}>Pricing</h3>
                         <div
                             dangerouslySetInnerHTML={{
                                 __html: estuaryVendor.introductoryDetails
@@ -162,28 +239,28 @@ const SectionTwo = ({ xVendor, yVendor, estuaryVendor }: SectionTwoProps) => {
                             }}
                         />
 
-                        <h2>{xVendor.name}</h2>
+                        <h2 id={xVendor.id}>{xVendor.name}</h2>
                         <div
                             dangerouslySetInnerHTML={{
                                 __html: xVendor.introductoryDetails.introduction
                                     .data.introduction,
                             }}
                         />
-                        <h3>Pros</h3>
+                        <h3 id={`${xVendor.id}-pros`}>Pros</h3>
                         <div
                             dangerouslySetInnerHTML={{
                                 __html: xVendor.introductoryDetails.pros.data
                                     .pros,
                             }}
                         />
-                        <h3>Cons</h3>
+                        <h3 id={`${xVendor.id}-cons`}>Cons</h3>
                         <div
                             dangerouslySetInnerHTML={{
                                 __html: xVendor.introductoryDetails.cons.data
                                     .cons,
                             }}
                         />
-                        <h3>Pricing</h3>
+                        <h3 id={`${xVendor.id}-pricing`}>Pricing</h3>
                         <div
                             dangerouslySetInnerHTML={{
                                 __html: xVendor.introductoryDetails.pricing.data
@@ -191,28 +268,28 @@ const SectionTwo = ({ xVendor, yVendor, estuaryVendor }: SectionTwoProps) => {
                             }}
                         />
 
-                        <h2>{yVendor.name}</h2>
+                        <h2 id={yVendor.id}>{yVendor.name}</h2>
                         <div
                             dangerouslySetInnerHTML={{
                                 __html: yVendor.introductoryDetails.introduction
                                     .data.introduction,
                             }}
                         />
-                        <h3>Pros</h3>
+                        <h3 id={`${yVendor.id}-pros`}>Pros</h3>
                         <div
                             dangerouslySetInnerHTML={{
                                 __html: yVendor.introductoryDetails.pros.data
                                     .pros,
                             }}
                         />
-                        <h3>Cons</h3>
+                        <h3 id={`${yVendor.id}-cons`}>Cons</h3>
                         <div
                             dangerouslySetInnerHTML={{
                                 __html: yVendor.introductoryDetails.cons.data
                                     .cons,
                             }}
                         />
-                        <h3>Pricing</h3>
+                        <h3 id={`${yVendor.id}-pricing`}>Pricing</h3>
                         <div
                             dangerouslySetInnerHTML={{
                                 __html: yVendor.introductoryDetails.pricing.data
@@ -221,7 +298,7 @@ const SectionTwo = ({ xVendor, yVendor, estuaryVendor }: SectionTwoProps) => {
                         />
                     </div>
 
-                    <h2>How to choose the best option</h2>
+                    <h2 id={howToChooseId}>How to choose the best option</h2>
                     <p>
                         For the most part, if you are interested in a cloud
                         option, and the connectivity options exist, you may
