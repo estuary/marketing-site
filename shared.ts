@@ -38,9 +38,82 @@ export const getComparisonSlug = (
     yVendorSlugKey: string
 ) => `/etl-tools/${xVendorSlugKey}-vs-${yVendorSlugKey}`;
 
+export interface SubText {
+    data: {
+        subText: string;
+    };
+}
+
+interface HasFeature {
+    icon: boolean | null;
+    subText?: SubText;
+}
+
+interface HasCellTitle {
+    cellTitle: string;
+    subText?: SubText;
+}
+
+interface HasDollarSign {
+    numberOfDollarSigns: {
+        array: number[];
+    };
+    subText?: SubText;
+}
+
 export interface Vendor {
     id: string;
     name: string;
     logo: any;
     slugKey: string;
+    useCases: {
+        odsReplication: HasFeature;
+        historicalAnalytics: string;
+        databaseReplication: string;
+        dataScienceMl: HasFeature;
+        dataMigration: HasFeature;
+        dataIntegration: HasFeature;
+        aiPipelines: HasFeature;
+        operationalAnalytics: HasFeature;
+        streamProcessing: HasFeature;
+    };
+    connectors: {
+        count: string;
+        streaming: string;
+        thirdParty: HasFeature;
+        customSdk: HasFeature;
+        adminApi: HasFeature;
+    };
+    features: {
+        batchingStreaming: string;
+        deliveryGuarantee: string;
+        loadWhiteMethod: string;
+        dataOps: HasFeature;
+        eltTransforms: HasFeature;
+        etlTransforms: HasFeature;
+        schemaInference: HasFeature;
+        storeReplay: HasFeature;
+        timeTravel: HasFeature;
+        workflow: HasFeature;
+    };
+    deployment: {
+        options: string;
+        abilities: {
+            perfMinLatency: string;
+            reliability: string;
+            scalability: string;
+        };
+        security: {
+            dataSourceAuth: string;
+            encryption: string;
+        };
+    };
+    support: {
+        support: HasCellTitle;
+    };
+    cost: {
+        vendor: HasDollarSign;
+        dataEngineering: HasDollarSign;
+        admin: HasDollarSign;
+    };
 }

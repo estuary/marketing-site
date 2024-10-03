@@ -124,6 +124,24 @@ const strapiConfig = {
                             },
                         },
                     },
+                    Support: {
+                        populate: {
+                            Support: '*',
+                        },
+                    },
+                    Cost: {
+                        populate: {
+                            Vendor: {
+                                populate: '*',
+                            },
+                            Data_Engineering: {
+                                populate: '*',
+                            },
+                            Admin: {
+                                populate: '*',
+                            },
+                        },
+                    },
                 },
             },
         },

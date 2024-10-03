@@ -16,13 +16,22 @@ import {
     tableHeaderVendor,
     tableLogoWrapper,
 } from './styles.module.less';
+import UseCases from './UseCases';
+import Connectors from './Connectors';
+import CoreFeatures from './CoreFeatures';
+import DeploymentOptions from './DeploymentOptions';
+import TheAbilities from './TheAbilities';
+import Security from './Security';
+import Support from './Support';
+import Cost from './Cost';
 
 interface SectionTwoProps {
     xVendor: Vendor;
     yVendor: Vendor;
+    estuaryVendor: Vendor;
 }
 
-const SectionTwo = ({ xVendor, yVendor }: SectionTwoProps) => {
+const SectionTwo = ({ xVendor, yVendor, estuaryVendor }: SectionTwoProps) => {
     return (
         <section className={defaultWrapperGrey}>
             <div className={container}>
@@ -54,11 +63,11 @@ const SectionTwo = ({ xVendor, yVendor }: SectionTwoProps) => {
                     </p>
                     <p>
                         Read through the comparison matrix of {xVendor.name} vs{' '}
-                        {yVendor.name} vs Estuary across the core criteria and
-                        use cases. You can read a detailed explanation of each
-                        of the criteria here. Then read an overview of each
-                        vendor and recommendations on how to choose the right
-                        vendor for you.
+                        {yVendor.name} vs {estuaryVendor.name} across the core
+                        criteria and use cases. You can read a detailed
+                        explanation of each of the criteria here. Then read an
+                        overview of each vendor and recommendations on how to
+                        choose the right vendor for you.
                     </p>
                     <h2>Comparison Matrix</h2>
                     <table>
@@ -103,352 +112,52 @@ const SectionTwo = ({ xVendor, yVendor }: SectionTwoProps) => {
                                                 height={36}
                                             />
                                         </div>
-                                        <span>Estuary</span>
+                                        <span>{estuaryVendor.name}</span>
                                     </div>
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th colSpan={4}>Use cases</th>
-                            </tr>
-                            <tr>
-                                <td>Database replication (CDC) - sources</td>
-                                <td>
-                                    MySQL, SQL Server (Debezium), Postgres
-                                    (New). No CDC destination, Many-to-many
-                                    messaging, ELT load only
-                                </td>
-                                <td>
-                                    Native MySQL, SQL Server, Postgres, Oracle
-                                    (ELT load only), Single target only, Batch
-                                    CDC only
-                                </td>
-                                <td>
-                                    Native CDC MySQL, SQL Server, Postgres,
-                                    AlloyDB, MariaDB, MongoDB, Firestore,
-                                    Salesforce Many-to-many ETL and ELT
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Replication to ODS</td>
-                                <td>&#10060; (batch CDC only)</td>
-                                <td>&#10060; (batch CDC only)</td>
-                                <td>&#10004; (real-time CDC)</td>
-                            </tr>
-                            <tr>
-                                <td>Historical Analytics</td>
-                                <td>1 destination ELT</td>
-                                <td>1 destination ELT</td>
-                                <td>Many-to-many ELT/ETL</td>
-                            </tr>
-                            <tr>
-                                <td>Op. data integration</td>
-                                <td>&#10060; (batch CDC only)</td>
-                                <td>&#10060; (batch CDC only)</td>
-                                <td>&#10004; (real-time CDC)</td>
-                            </tr>
-                            <tr>
-                                <td>Data migration</td>
-                                <td>&#10060; (batch CDC only)</td>
-                                <td>&#10060; (batch CDC only)</td>
-                                <td>&#10004; (real-time CDC)</td>
-                            </tr>
-                            <tr>
-                                <td>Stream processing</td>
-                                <td>&#10060; (batch CDC only)</td>
-                                <td>&#10060; (batch CDC only)</td>
-                                <td>&#10004; (real-time CDC)</td>
-                            </tr>
-                            <tr>
-                                <td>Operational Analytics</td>
-                                <td>Higher latency, batch ELT only</td>
-                                <td>Higher latency, batch ELT only</td>
-                                <td>Streaming ETL/ELT</td>
-                            </tr>
-                            <tr>
-                                <td>Data science and ML</td>
-                                <td>ELT only</td>
-                                <td>ELT only</td>
-                                <td>
-                                    Support for SQL, Typescript (Python Q2 24)
-                                </td>
-                            </tr>
-                            <tr>
-                                <th colSpan={4}>Connectors</th>
-                            </tr>
-                            <tr>
-                                <td>Number of connectors</td>
-                                <td>
-                                    50+ maintained connectors, 300 marketplace
-                                    connectors
-                                </td>
-                                <td>
-                                    &lt;300 connectors, 300+ lite (API)
-                                    connectors
-                                </td>
-                                <td>
-                                    150+ high performance connectors built by
-                                    Estuary
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Streaming connectors</td>
-                                <td>
-                                    Batch CDC only, Batch Kafka, Kinesis
-                                    (destination only)
-                                </td>
-                                <td>
-                                    Batch CDC only, Batch Kafka & Kinesis both
-                                    source only
-                                </td>
-                                <td>
-                                    Streaming CDC, Kafka, Kinesis (source only)
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Support for 3rd party connectors</td>
-                                <td>&#10004; (Singer/Stitch connectors)</td>
-                                <td>&#10060;</td>
-                                <td>
-                                    Support for 500+ Airbyte, Stitch, and
-                                    Meltano connectors
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Custom SDK</td>
-                                <td>&#10004; (Singer/Stitch connectors)</td>
-                                <td>&#10060;</td>
-                                <td>
-                                    Support for 500+ Airbyte, Stitch, and
-                                    Meltano connectors
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>API &#40;for admin&#41;</td>
-                                <td>&#10004; (Singer/Stitch connectors)</td>
-                                <td>&#10060;</td>
-                                <td>
-                                    Support for 500+ Airbyte, Stitch, and
-                                    Meltano connectors
-                                </td>
-                            </tr>
-                            <tr>
-                                <th colSpan={4}>Core features</th>
-                            </tr>
-                            <tr>
-                                <td>Batch and streaming</td>
-                                <td>&#10004; (Singer/Stitch connectors)</td>
-                                <td>&#10060;</td>
-                                <td>
-                                    Support for 500+ Airbyte, Stitch, and
-                                    Meltano connectors
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Snapshots</td>
-                                <td>&#10004; (Singer/Stitch connectors)</td>
-                                <td>&#10060;</td>
-                                <td>
-                                    Support for 500+ Airbyte, Stitch, and
-                                    Meltano connectors
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>ETL Transforms</td>
-                                <td>&#10004; (Singer/Stitch connectors)</td>
-                                <td>&#10060;</td>
-                                <td>
-                                    Support for 500+ Airbyte, Stitch, and
-                                    Meltano connectors
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Workflow</td>
-                                <td>&#10004; (Singer/Stitch connectors)</td>
-                                <td>&#10060;</td>
-                                <td>
-                                    Support for 500+ Airbyte, Stitch, and
-                                    Meltano connectors
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>ELT transforms</td>
-                                <td>&#10004; (Singer/Stitch connectors)</td>
-                                <td>&#10060;</td>
-                                <td>
-                                    Support for 500+ Airbyte, Stitch, and
-                                    Meltano connectors
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Delivery guarantees</td>
-                                <td>&#10004; (Singer/Stitch connectors)</td>
-                                <td>&#10060;</td>
-                                <td>
-                                    Support for 500+ Airbyte, Stitch, and
-                                    Meltano connectors
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Multiple destinations</td>
-                                <td>&#10004; (Singer/Stitch connectors)</td>
-                                <td>&#10060;</td>
-                                <td>
-                                    Support for 500+ Airbyte, Stitch, and
-                                    Meltano connectors
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Backfilling</td>
-                                <td>&#10004; (Singer/Stitch connectors)</td>
-                                <td>&#10060;</td>
-                                <td>
-                                    Support for 500+ Airbyte, Stitch, and
-                                    Meltano connectors
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Time travel</td>
-                                <td>&#10004; (Singer/Stitch connectors)</td>
-                                <td>&#10060;</td>
-                                <td>
-                                    Support for 500+ Airbyte, Stitch, and
-                                    Meltano connectors
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Schema inference and drift</td>
-                                <td>&#10004; (Singer/Stitch connectors)</td>
-                                <td>&#10060;</td>
-                                <td>
-                                    Support for 500+ Airbyte, Stitch, and
-                                    Meltano connectors
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>DataOps support</td>
-                                <td>&#10004; (Singer/Stitch connectors)</td>
-                                <td>&#10060;</td>
-                                <td>
-                                    Support for 500+ Airbyte, Stitch, and
-                                    Meltano connectors
-                                </td>
-                            </tr>
-                            <tr>
-                                <th colSpan={4}>Deployment options</th>
-                            </tr>
-                            <tr>
-                                <td>Deployment options</td>
-                                <td>&#10004; (Singer/Stitch connectors)</td>
-                                <td>&#10060;</td>
-                                <td>
-                                    Support for 500+ Airbyte, Stitch, and
-                                    Meltano connectors
-                                </td>
-                            </tr>
-                            <tr>
-                                <th colSpan={4}>The abilities</th>
-                            </tr>
-                            <tr>
-                                <td>Performance &#40;minimum latency&#41;</td>
-                                <td>&#10004; (Singer/Stitch connectors)</td>
-                                <td>&#10060;</td>
-                                <td>
-                                    Support for 500+ Airbyte, Stitch, and
-                                    Meltano connectors
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Scalability</td>
-                                <td>&#10004; (Singer/Stitch connectors)</td>
-                                <td>&#10060;</td>
-                                <td>
-                                    Support for 500+ Airbyte, Stitch, and
-                                    Meltano connectors
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Reliability</td>
-                                <td>&#10004; (Singer/Stitch connectors)</td>
-                                <td>&#10060;</td>
-                                <td>
-                                    Support for 500+ Airbyte, Stitch, and
-                                    Meltano connectors
-                                </td>
-                            </tr>
-                            <tr>
-                                <th colSpan={4}>Security</th>
-                            </tr>
-                            <tr>
-                                <td>Data Source Authentication</td>
-                                <td>&#10004; (Singer/Stitch connectors)</td>
-                                <td>&#10060;</td>
-                                <td>
-                                    Support for 500+ Airbyte, Stitch, and
-                                    Meltano connectors
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Encryption</td>
-                                <td>&#10004; (Singer/Stitch connectors)</td>
-                                <td>&#10060;</td>
-                                <td>
-                                    Support for 500+ Airbyte, Stitch, and
-                                    Meltano connectors
-                                </td>
-                            </tr>
-                            <tr>
-                                <th colSpan={4}>Support</th>
-                            </tr>
-                            <tr>
-                                <td>Support</td>
-                                <td>&#10004; (Singer/Stitch connectors)</td>
-                                <td>&#10060;</td>
-                                <td>
-                                    Support for 500+ Airbyte, Stitch, and
-                                    Meltano connectors
-                                </td>
-                            </tr>
-                            <tr>
-                                <th colSpan={4}>Costs</th>
-                            </tr>
-                            <tr>
-                                <td>Ease of use</td>
-                                <td>&#10004; (Singer/Stitch connectors)</td>
-                                <td>&#10060;</td>
-                                <td>
-                                    Support for 500+ Airbyte, Stitch, and
-                                    Meltano connectors
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>vendor costs</td>
-                                <td>&#10004; (Singer/Stitch connectors)</td>
-                                <td>&#10060;</td>
-                                <td>
-                                    Support for 500+ Airbyte, Stitch, and
-                                    Meltano connectors
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Data engineering costs</td>
-                                <td>&#10004; (Singer/Stitch connectors)</td>
-                                <td>&#10060;</td>
-                                <td>
-                                    Support for 500+ Airbyte, Stitch, and
-                                    Meltano connectors
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Admin costs</td>
-                                <td>&#10004; (Singer/Stitch connectors)</td>
-                                <td>&#10060;</td>
-                                <td>
-                                    Support for 500+ Airbyte, Stitch, and
-                                    Meltano connectors
-                                </td>
-                            </tr>
+                            <UseCases
+                                xVendor={xVendor}
+                                yVendor={yVendor}
+                                estuaryVendor={estuaryVendor}
+                            />
+                            <Connectors
+                                xVendor={xVendor}
+                                yVendor={yVendor}
+                                estuaryVendor={estuaryVendor}
+                            />
+                            <CoreFeatures
+                                xVendor={xVendor}
+                                yVendor={yVendor}
+                                estuaryVendor={estuaryVendor}
+                            />
+                            <DeploymentOptions
+                                xVendor={xVendor}
+                                yVendor={yVendor}
+                                estuaryVendor={estuaryVendor}
+                            />
+                            <TheAbilities
+                                xVendor={xVendor}
+                                yVendor={yVendor}
+                                estuaryVendor={estuaryVendor}
+                            />
+                            <Security
+                                xVendor={xVendor}
+                                yVendor={yVendor}
+                                estuaryVendor={estuaryVendor}
+                            />
+                            <Support
+                                xVendor={xVendor}
+                                yVendor={yVendor}
+                                estuaryVendor={estuaryVendor}
+                            />
+                            <Cost
+                                xVendor={xVendor}
+                                yVendor={yVendor}
+                                estuaryVendor={estuaryVendor}
+                            />
                         </tbody>
                     </table>
                     <BlogBanner
