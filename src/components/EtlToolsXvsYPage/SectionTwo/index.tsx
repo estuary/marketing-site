@@ -7,7 +7,12 @@ import {
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import ShareArticle from '../../../templates/blog-post/ShareArticle';
 import BlogBanner from '../../BlogBanner';
-import { container, leftColumn, bold } from './styles.module.less';
+import {
+    container,
+    leftColumn,
+    bold,
+    introductoryDetailsWrapper,
+} from './styles.module.less';
 import UseCases from './UseCases';
 import Connectors from './Connectors';
 import CoreFeatures from './CoreFeatures';
@@ -126,6 +131,96 @@ const SectionTwo = ({ xVendor, yVendor, estuaryVendor }: SectionTwoProps) => {
                             href: dashboardRegisterUrl,
                         }}
                     />
+
+                    <div className={introductoryDetailsWrapper}>
+                        <h2>{estuaryVendor.name}</h2>
+                        <div
+                            dangerouslySetInnerHTML={{
+                                __html: estuaryVendor.introductoryDetails
+                                    .introduction.data.introduction,
+                            }}
+                        />
+                        <h3>Pros</h3>
+                        <div
+                            dangerouslySetInnerHTML={{
+                                __html: estuaryVendor.introductoryDetails.pros
+                                    .data.pros,
+                            }}
+                        />
+                        <h3>Cons</h3>
+                        <div
+                            dangerouslySetInnerHTML={{
+                                __html: estuaryVendor.introductoryDetails.cons
+                                    .data.cons,
+                            }}
+                        />
+                        <h3>Pricing</h3>
+                        <div
+                            dangerouslySetInnerHTML={{
+                                __html: estuaryVendor.introductoryDetails
+                                    .pricing.data.pricing,
+                            }}
+                        />
+
+                        <h2>{xVendor.name}</h2>
+                        <div
+                            dangerouslySetInnerHTML={{
+                                __html: xVendor.introductoryDetails.introduction
+                                    .data.introduction,
+                            }}
+                        />
+                        <h3>Pros</h3>
+                        <div
+                            dangerouslySetInnerHTML={{
+                                __html: xVendor.introductoryDetails.pros.data
+                                    .pros,
+                            }}
+                        />
+                        <h3>Cons</h3>
+                        <div
+                            dangerouslySetInnerHTML={{
+                                __html: xVendor.introductoryDetails.cons.data
+                                    .cons,
+                            }}
+                        />
+                        <h3>Pricing</h3>
+                        <div
+                            dangerouslySetInnerHTML={{
+                                __html: xVendor.introductoryDetails.pricing.data
+                                    .pricing,
+                            }}
+                        />
+
+                        <h2>{yVendor.name}</h2>
+                        <div
+                            dangerouslySetInnerHTML={{
+                                __html: yVendor.introductoryDetails.introduction
+                                    .data.introduction,
+                            }}
+                        />
+                        <h3>Pros</h3>
+                        <div
+                            dangerouslySetInnerHTML={{
+                                __html: yVendor.introductoryDetails.pros.data
+                                    .pros,
+                            }}
+                        />
+                        <h3>Cons</h3>
+                        <div
+                            dangerouslySetInnerHTML={{
+                                __html: yVendor.introductoryDetails.cons.data
+                                    .cons,
+                            }}
+                        />
+                        <h3>Pricing</h3>
+                        <div
+                            dangerouslySetInnerHTML={{
+                                __html: yVendor.introductoryDetails.pricing.data
+                                    .pricing,
+                            }}
+                        />
+                    </div>
+
                     <h2>How to choose the best option</h2>
                     <p>
                         For the most part, if you are interested in a cloud

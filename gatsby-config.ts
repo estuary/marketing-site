@@ -142,6 +142,22 @@ const strapiConfig = {
                             },
                         },
                     },
+                    introductoryDetails: {
+                        populate: {
+                            Introduction: {
+                                populate: '*',
+                            },
+                            Pros: {
+                                populate: '*',
+                            },
+                            Cons: {
+                                populate: '*',
+                            },
+                            Pricing: {
+                                populate: '*',
+                            },
+                        },
+                    },
                 },
             },
         },

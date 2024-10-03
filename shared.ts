@@ -116,4 +116,26 @@ export interface Vendor {
         dataEngineering: HasDollarSign;
         admin: HasDollarSign;
     };
+    introductoryDetails: {
+        introduction: {
+            data: {
+                introduction: string;
+            };
+        };
+        pros: {
+            data: {
+                pros: string;
+            };
+        };
+        cons: {
+            data: {
+                cons: string;
+            };
+        };
+        pricing: {
+            data: {
+                pricing: string;
+            };
+        };
+    };
 }

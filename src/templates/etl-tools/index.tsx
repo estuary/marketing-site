@@ -268,6 +268,28 @@ export const pageQuery = graphql`
                     }
                 }
             }
+            introductoryDetails {
+                introduction: Introduction {
+                    data {
+                        introduction: Introduction
+                    }
+                }
+                pros: Pros {
+                    data {
+                        pros: Pros
+                    }
+                }
+                cons: Cons {
+                    data {
+                        cons: Cons
+                    }
+                }
+                pricing: Pricing {
+                    data {
+                        pricing: Pricing
+                    }
+                }
+            }
         }
         yVendor: strapiComparison(id: { eq: $yVendorId }) {
             id
@@ -480,6 +502,28 @@ export const pageQuery = graphql`
                         data {
                             subText
                         }
+                    }
+                }
+            }
+            introductoryDetails {
+                introduction: Introduction {
+                    data {
+                        introduction: Introduction
+                    }
+                }
+                pros: Pros {
+                    data {
+                        pros: Pros
+                    }
+                }
+                cons: Cons {
+                    data {
+                        cons: Cons
+                    }
+                }
+                pricing: Pricing {
+                    data {
+                        pricing: Pricing
                     }
                 }
             }
@@ -697,6 +741,28 @@ export const pageQuery = graphql`
                         data {
                             subText
                         }
+                    }
+                }
+            }
+            introductoryDetails {
+                introduction: Introduction {
+                    data {
+                        introduction: Introduction
+                    }
+                }
+                pros: Pros {
+                    data {
+                        pros: Pros
+                    }
+                }
+                cons: Cons {
+                    data {
+                        cons: Cons
+                    }
+                }
+                pricing: Pricing {
+                    data {
+                        pricing: Pricing
                     }
                 }
             }
