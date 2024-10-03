@@ -11,6 +11,7 @@ import { Vendor } from '../../../shared';
 
 interface EtlToolsProps {
     data: {
+        estuaryVendor: Vendor;
         vendors: {
             nodes: Vendor[];
         };
@@ -19,6 +20,7 @@ interface EtlToolsProps {
 
 const EtlTools = ({
     data: {
+        estuaryVendor,
         vendors: { nodes: vendors },
     },
 }: EtlToolsProps) => {
@@ -26,7 +28,7 @@ const EtlTools = ({
         <Layout>
             <SectionOne vendors={vendors} />
             <SectionTwo />
-            <SectionThree vendors={vendors} />
+            <SectionThree vendors={vendors} estuaryVendor={estuaryVendor} />
         </Layout>
     );
 };
@@ -44,6 +46,11 @@ export default EtlTools;
 
 export const pageQuery = graphql`
     query GetAllComparisons {
+        estuaryVendor: strapiComparison(
+            id: { eq: "d829928c-c473-5421-ac0a-f03c45b14993" }
+        ) {
+            id
+        }
         vendors: allStrapiComparison(
             sort: { fields: Vendor_Name, order: ASC }
         ) {

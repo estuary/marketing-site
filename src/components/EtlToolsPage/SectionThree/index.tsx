@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Tab, Tabs } from '@mui/material';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
@@ -16,30 +16,18 @@ import {
 import XvsYCard from './XvsYCard';
 import TabPanel from './TabPanel';
 
-const a11yProps = (vendorName: string | number) => ({
-    'id': `vendor-tab-${vendorName}`,
-    'aria-controls': `vendor-tabpanel-${vendorName}`,
+const a11yProps = (vendorId: string) => ({
+    'id': `vendor-tab-${vendorId}`,
+    'aria-controls': `vendor-tabpanel-${vendorId}`,
 });
 
 interface SectionThreeProps {
+    estuaryVendor: Vendor;
     vendors: Vendor[];
 }
 
-const SectionThree = ({ vendors }: SectionThreeProps) => {
-    const [selectedVendorId, setSelectedVendorId] = useState('');
-
-    useEffect(() => {
-        const estuaryFlowVendor = vendors.find((vendor) => {
-            const vendorName = vendor.name.toLowerCase();
-            return (
-                vendorName.includes('estuary') || vendorName.includes('flow')
-            );
-        });
-
-        if (estuaryFlowVendor) {
-            setSelectedVendorId(estuaryFlowVendor.id);
-        }
-    }, [vendors]);
+const SectionThree = ({ estuaryVendor, vendors }: SectionThreeProps) => {
+    const [selectedVendorId, setSelectedVendorId] = useState(estuaryVendor.id);
 
     const handleChangeSelectedVendor = (
         event: React.SyntheticEvent,
