@@ -445,7 +445,7 @@ export const Head = ({
                 url={`${siteUrl}/${post.slug}`}
                 image={
                     post.hero
-                        ? `${siteUrl}${post.hero.localFile.childImageSharp.meta_img.gatsbyImageData}`
+                        ? `${siteUrl}${post.hero.localFile.childImageSharp.metaImg.images.fallback.src}`
                         : undefined
                 }
             />
@@ -461,7 +461,7 @@ export const Head = ({
                     'description': post.description ?? '',
                     'image':
                         post.hero &&
-                        `${siteUrl}${post.hero.localFile.childImageSharp.meta_img.gatsbyImageData}`,
+                        `${siteUrl}${post.hero.localFile.childImageSharp.metaImg.images.fallback.src}`,
                     'author':
                         post.authors.length > 1
                             ? mappedAuthors
@@ -552,7 +552,7 @@ export const pageQuery = graphql`
                             # aspectRatio: 2
                             formats: [AUTO, WEBP, AVIF]
                         )
-                        meta_img: gatsbyImageData(layout: FIXED, width: 500)
+                        metaImg: gatsbyImageData(layout: FIXED, width: 500)
                         # Further below in this doc you can learn how to use these response images
                     }
                 }
