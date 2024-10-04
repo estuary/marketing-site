@@ -197,6 +197,7 @@ export const pageQuery = graphql`
             nodes {
                 title: Title
                 slug: Slug
+                updatedAt(formatString: "MMMM D, YYYY")
                 publishedAt(formatString: "MMMM D, YYYY")
                 tags: tags {
                     Name

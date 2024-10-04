@@ -12,6 +12,7 @@ export interface BlogPostCardProps {
     title: string;
     slug: string;
     publishedAt: string;
+    updatedAt?: string;
     tags: {
         Name: string;
         Slug: string;
@@ -43,6 +44,7 @@ export const BlogPostCard = ({
     title,
     authors,
     publishedAt,
+    updatedAt,
 }: BlogPostCardProps) => (
     <Link to={`/${slug}`} className={blogsPostCard}>
         {hero ? (
@@ -54,7 +56,8 @@ export const BlogPostCard = ({
             />
         ) : null}
         <p className={blogsPostCardDetails}>
-            {authors.map((author) => author.name).join(', ')} · {publishedAt}
+            {authors.map((author) => author.name).join(', ')} ·{' '}
+            {updatedAt ?? publishedAt}
         </p>
         <div className={blogsPostCardTitle}>{title}</div>
     </Link>
