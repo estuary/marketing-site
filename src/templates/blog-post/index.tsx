@@ -437,17 +437,18 @@ export const Head = ({
     const postTags = post.tags
         .filter((tag) => tag.type === 'tag')
         .map((t) => t.name);
+
+    const ogImage = post.hero
+        ? `${siteUrl}${post.hero.localFile.childImageSharp.metaImg.images.fallback.src}`
+        : undefined;
+
     return (
         <>
             <Seo
                 title={post.title}
                 description={post.description ?? ''}
                 url={`${siteUrl}/${post.slug}`}
-                image={
-                    post.hero
-                        ? `${siteUrl}${post.hero.localFile.childImageSharp.meta_img.gatsbyImageData}`
-                        : undefined
-                }
+                image={ogImage}
             />
             <script type="application/ld+json">
                 {JSON.stringify({
@@ -459,9 +460,7 @@ export const Head = ({
                     },
                     'headline': post.title,
                     'description': post.description ?? '',
-                    'image':
-                        post.hero &&
-                        `${siteUrl}${post.hero.localFile.childImageSharp.meta_img.gatsbyImageData}`,
+                    'image': ogImage,
                     'author':
                         post.authors.length > 1
                             ? mappedAuthors
@@ -552,7 +551,7 @@ export const pageQuery = graphql`
                             # aspectRatio: 2
                             formats: [AUTO, WEBP, AVIF]
                         )
-                        meta_img: gatsbyImageData(layout: FIXED, width: 500)
+                        metaImg: gatsbyImageData(layout: FIXED, width: 500)
                         # Further below in this doc you can learn how to use these response images
                     }
                 }
