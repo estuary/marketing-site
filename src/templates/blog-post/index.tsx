@@ -437,17 +437,18 @@ export const Head = ({
     const postTags = post.tags
         .filter((tag) => tag.type === 'tag')
         .map((t) => t.name);
+
+    const ogImage = post.hero
+        ? `${siteUrl}${post.hero.localFile.childImageSharp.metaImg.images.fallback.src}`
+        : undefined;
+
     return (
         <>
             <Seo
                 title={post.title}
                 description={post.description ?? ''}
                 url={`${siteUrl}/${post.slug}`}
-                image={
-                    post.hero
-                        ? `${siteUrl}${post.hero.localFile.childImageSharp.metaImg.images.fallback.src}`
-                        : undefined
-                }
+                image={ogImage}
             />
             <script type="application/ld+json">
                 {JSON.stringify({
@@ -459,9 +460,7 @@ export const Head = ({
                     },
                     'headline': post.title,
                     'description': post.description ?? '',
-                    'image':
-                        post.hero &&
-                        `${siteUrl}${post.hero.localFile.childImageSharp.metaImg.images.fallback.src}`,
+                    'image': ogImage,
                     'author':
                         post.authors.length > 1
                             ? mappedAuthors
