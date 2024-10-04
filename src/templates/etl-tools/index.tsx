@@ -41,11 +41,11 @@ const EtlTools = ({
     );
 };
 
-export const Head = () => {
+export const Head = ({ data: { xVendor, yVendor } }) => {
     return (
         <Seo
             title="Data Integration Tools Compared"
-            description="Compare X vs Y. Discover their key differences, ETL/ELT features, and pricing to choose the right data integration platform."
+            description={`Compare ${xVendor.name} vs ${yVendor.name}. Discover their key differences, ETL/ELT features, and pricing to choose the right data integration platform.`}
         />
     );
 };
