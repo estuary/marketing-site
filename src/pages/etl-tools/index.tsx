@@ -60,7 +60,7 @@ export const pageQuery = graphql`
                 logo {
                     localFile {
                         childImageSharp {
-                            gatsbyImageData
+                            gatsbyImageData(placeholder: BLURRED)
                         }
                     }
                 }

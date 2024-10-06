@@ -22,6 +22,7 @@ const SectionOne = ({ vendors }: SectionOneProps) => {
                         src="../../../images/lp-comparison/vendor-logos.png"
                         alt="Vendor logos around Estuary Flow logo"
                         loading="eager"
+                        placeholder="blurred"
                     />
                 </div>
             </div>

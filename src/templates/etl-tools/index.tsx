@@ -60,7 +60,7 @@ export const pageQuery = graphql`
             logo {
                 localFile {
                     childImageSharp {
-                        gatsbyImageData
+                        gatsbyImageData(placeholder: BLURRED)
                     }
                 }
             }
@@ -297,7 +297,7 @@ export const pageQuery = graphql`
             logo {
                 localFile {
                     childImageSharp {
-                        gatsbyImageData
+                        gatsbyImageData(placeholder: BLURRED)
                     }
                 }
             }
@@ -536,7 +536,7 @@ export const pageQuery = graphql`
             logo {
                 localFile {
                     childImageSharp {
-                        gatsbyImageData
+                        gatsbyImageData(placeholder: BLURRED)
                     }
                 }
             }
@@ -776,7 +776,7 @@ export const pageQuery = graphql`
                 logo {
                     localFile {
                         childImageSharp {
-                            gatsbyImageData
+                            gatsbyImageData(placeholder: BLURRED)
                         }
                     }
                 }

@@ -62,6 +62,7 @@ const SectionOne = ({ vendors, xVendor, yVendor }: SectionOneProps) => {
                         src="../../../images/lp-comparison/xVendor-vs-yVendor.png"
                         alt={`Comparison between ${xVendor.name} and ${yVendor.name}`}
                         loading="eager"
+                        placeholder="blurred"
                     />
                     <div className={clsx(vendorLogo, rightVendorLogo)}>
                         <GatsbyImage
