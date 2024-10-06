@@ -60,7 +60,7 @@ const VendorsLink = ({
     );
 
     const compareButtonHref = useMemo(
-        () => getComparisonSlug(firstVendorSlugKey, secondVendorSlugKey),
+        () => `/${getComparisonSlug(firstVendorSlugKey, secondVendorSlugKey)}`,
         [firstVendorSlugKey, secondVendorSlugKey]
     );
 

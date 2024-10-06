@@ -143,10 +143,10 @@ export const createPages: GatsbyNode['createPages'] = async ({
                     xVendor.id !== yVendor.id
                 ) {
                     createPage({
-                        path: getComparisonSlug(
+                        path: `/${getComparisonSlug(
                             xVendor.slugKey,
                             yVendor.slugKey
-                        ),
+                        )}`,
                         component: comparisonTemplate,
                         context: {
                             xVendorId: xVendor.id,
