@@ -11,6 +11,7 @@ import { RenderToc } from '../../BlogPostToc';
 import {
     container,
     leftColumn,
+    rightColumn,
     bold,
     tableWrapper,
     tableOfContentsWrapper,
@@ -32,9 +33,22 @@ interface SectionTwoProps {
     estuaryVendor: Vendor;
 }
 
-const introId = 'intro';
-const comparisonMatrixId = 'comparison-matrix';
-const howToChooseId = 'how-to-choose';
+const articleBody = {
+    intro: {
+        id: 'intro',
+        heading: 'Introduction',
+    },
+    comparisonMatrix: {
+        id: 'comparison-matrix',
+        heading: 'Comparison Matrix',
+    },
+    howToChoose: {
+        id: 'how-to-choose',
+        heading: 'How to choose the best option',
+    },
+};
+
+const { intro, comparisonMatrix, howToChoose } = articleBody;
 
 const tableBodyComponents = [
     UseCases,
@@ -79,10 +93,10 @@ const SectionTwo = ({ xVendor, yVendor, estuaryVendor }: SectionTwoProps) => {
         }
 
         return [
-            { id: introId, heading: 'Introduction' },
-            { id: comparisonMatrixId, heading: 'Comparison Matrix' },
+            { id: intro.id, heading: intro.heading },
+            { id: comparisonMatrix.id, heading: comparisonMatrix.heading },
             ...vendors,
-            { id: howToChooseId, heading: 'How to choose the best option' },
+            { id: howToChoose.id, heading: howToChoose.heading },
         ];
     }, [xVendor, yVendor, estuaryVendor, isThreeVendorComparison]);
 
@@ -103,8 +117,8 @@ const SectionTwo = ({ xVendor, yVendor, estuaryVendor }: SectionTwoProps) => {
                         <RenderToc items={tableOfContents} />
                     </div>
                 </div>
-                <div>
-                    <h2 id={introId}>Introduction</h2>
+                <div className={rightColumn}>
+                    <h2 id={intro.id}>{intro.heading}</h2>
                     <p className={bold}>
                         Do you need to load a cloud data warehouse? Synchronize
                         data in real-time across apps or databases? Support
@@ -117,7 +131,7 @@ const SectionTwo = ({ xVendor, yVendor, estuaryVendor }: SectionTwoProps) => {
                         best option for you based on your current and future
                         needs.
                     </p>
-                    <h2 id={comparisonMatrixId}>Comparison Matrix</h2>
+                    <h2 id={comparisonMatrix.id}>{comparisonMatrix.heading}</h2>
                     <div className={tableWrapper}>
                         <table>
                             <thead>
@@ -165,40 +179,40 @@ const SectionTwo = ({ xVendor, yVendor, estuaryVendor }: SectionTwoProps) => {
                         yVendor={yVendor}
                     />
 
-                    <h2 id={howToChooseId}>How to choose the best option</h2>
+                    <h2 id={howToChoose.id}>{howToChoose.heading}</h2>
                     <p>
                         For the most part, if you are interested in a cloud
                         option, and the connectivity options exist, you may
                         choose to evaluate Estuary.
                     </p>
                     <p>
-                        <span>Modern data pipeline:</span> Estuary has the
+                        <strong>Modern data pipeline:</strong> Estuary has the
                         broadest support for schema evolution and modern
                         DataOps.
                     </p>
                     <p>
-                        <span>Lowest latency:</span> If low latency matters,
+                        <strong>Lowest latency:</strong> If low latency matters,
                         Estuary will be the best option, especially at scale.
                     </p>
                     <p>
-                        <span>Highest data engineering productivity:</span>{' '}
+                        <strong>Highest data engineering productivity:</strong>{' '}
                         Estuary is among the easiest to use, on par with the
                         best ELT vendors. But it also has delivered up to 5x
                         greater productivity than the alternatives.
                     </p>
                     <p>
-                        <span>Connectivity:</span> If you&apos;re more concerned
-                        about cloud services, Estuary or another modern ELT
-                        vendor may be your best option. If you need more on
-                        premises connectivity, you might consider more
+                        <strong>Connectivity:</strong> If you&apos;re more
+                        concerned about cloud services, Estuary or another
+                        modern ELT vendor may be your best option. If you need
+                        more on premises connectivity, you might consider more
                         traditional ETL vendors.
                     </p>
                     <p>
-                        <span>Lowest cost:</span> Estuary is the clear low-cost
-                        winner for medium and larger deployments.
+                        <strong>Lowest cost:</strong> Estuary is the clear
+                        low-cost winner for medium and larger deployments.
                     </p>
                     <p>
-                        <span>Streaming support:</span> Estuary has a modern
+                        <strong>Streaming support:</strong> Estuary has a modern
                         approach to CDC that is built for reliability and scale,
                         and great Kafka support as well. It&apos;s real-time CDC
                         is arguably the best of all the options here. Some ETL
