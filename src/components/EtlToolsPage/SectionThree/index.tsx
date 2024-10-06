@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Tab, Tabs } from '@mui/material';
 import { GatsbyImage } from 'gatsby-plugin-image';
+import TabPanel from '@mui/lab/TabPanel';
+import TabContext from '@mui/lab/TabContext';
 import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import { Vendor } from '../../../../shared';
 import Checkmark from '../../../svgs/checkmark.svg';
@@ -14,7 +16,6 @@ import {
     tabLabel,
 } from './styles.module.less';
 import XvsYCard from './XvsYCard';
-import TabPanel from './TabPanel';
 
 const a11yProps = (vendorId: string) => ({
     'id': `vendor-tab-${vendorId}`,
@@ -47,66 +48,77 @@ const SectionThree = ({ estuaryVendor, vendors }: SectionThreeProps) => {
                     Browse the Complete List of Comparisons
                 </h2>
                 <p>Choose a vendor and see how it compares to the rest.</p>
-                <Tabs
-                    value={selectedVendorId}
-                    onChange={handleChangeSelectedVendor}
-                    aria-label="Vendor comparison tabs"
-                    TabIndicatorProps={{
-                        style: { display: 'none' },
-                    }}
-                    className={tabs}
-                >
-                    {vendors.map(({ id, name, logo }) => (
-                        <Tab
-                            key={id}
-                            label={
-                                <div className={tabLabel}>
-                                    <GatsbyImage
-                                        image={
-                                            logo?.localFile.childImageSharp
-                                                ?.gatsbyImageData
-                                        }
-                                        alt={`${name} Logo`}
-                                        className={itemImage}
-                                    />
-                                    <span>{name}</span>
-                                    {selectedVendorId === id ? (
-                                        <Checkmark width={20} color="#5072EB" />
-                                    ) : null}
-                                </div>
-                            }
-                            value={id}
-                            {...a11yProps(name)}
-                            className={vendorTab}
-                            sx={{
-                                '&.Mui-selected': {
-                                    backgroundColor: '#5072EB26',
-                                    border: '2px solid #5072EB',
-                                    color: '#04192B',
-                                },
-                            }}
-                        />
-                    ))}
-                </Tabs>
-                {vendors.map(({ id }) => (
-                    <TabPanel key={id} value={selectedVendorId} index={id}>
-                        <div className={gridCards}>
-                            {vendors
-                                .filter(
-                                    (yVendor) => yVendor.id !== selectedVendorId
-                                )
-                                .map((yVendor) =>
-                                    selectedVendor ? (
-                                        <XvsYCard
-                                            key={yVendor.id}
-                                            xVendor={selectedVendor}
-                                            yVendor={yVendor}
+                <TabContext value={selectedVendorId}>
+                    <Tabs
+                        value={selectedVendorId}
+                        onChange={handleChangeSelectedVendor}
+                        aria-label="Vendor comparison tabs"
+                        TabIndicatorProps={{
+                            style: { display: 'none' },
+                        }}
+                        className={tabs}
+                    >
+                        {vendors.map(({ id, name, logo }) => (
+                            <Tab
+                                key={id}
+                                label={
+                                    <div className={tabLabel}>
+                                        <GatsbyImage
+                                            image={
+                                                logo?.localFile.childImageSharp
+                                                    ?.gatsbyImageData
+                                            }
+                                            alt={`${name} Logo`}
+                                            className={itemImage}
                                         />
-                                    ) : null
-                                )}
-                        </div>
-                    </TabPanel>
-                ))}
+                                        <span>{name}</span>
+                                        {selectedVendorId === id ? (
+                                            <Checkmark
+                                                width={20}
+                                                color="#5072EB"
+                                            />
+                                        ) : null}
+                                    </div>
+                                }
+                                value={id}
+                                {...a11yProps(name)}
+                                className={vendorTab}
+                                sx={{
+                                    '&.Mui-selected': {
+                                        backgroundColor: '#5072EB26',
+                                        border: '2px solid #5072EB',
+                                        color: '#04192B',
+                                    },
+                                }}
+                            />
+                        ))}
+                    </Tabs>
+                    {vendors.map(({ id }) => (
+                        <TabPanel
+                            key={id}
+                            value={selectedVendorId}
+                            keepMounted
+                            hidden={selectedVendorId !== id}
+                        >
+                            <div className={gridCards}>
+                                {vendors
+                                    .filter(
+                                        (yVendor) =>
+                                            yVendor.id !== selectedVendorId
+                                    )
+                                    .map((yVendor) =>
+                                        selectedVendor ? (
+                                            <XvsYCard
+                                                key={yVendor.id}
+                                                xVendor={selectedVendor}
+                                                yVendor={yVendor}
+                                            />
+                                        ) : null
+                                    )}
+                            </div>
+                        </TabPanel>
+                    ))}
+                </TabContext>
             </div>
         </section>
     );
