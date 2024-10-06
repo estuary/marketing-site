@@ -13,6 +13,7 @@ import {
     leftColumn,
     bold,
     tableWrapper,
+    tableOfContentsWrapper,
 } from './styles.module.less';
 import UseCases from './UseCases';
 import Connectors from './Connectors';
@@ -98,7 +99,9 @@ const SectionTwo = ({ xVendor, yVendor, estuaryVendor }: SectionTwoProps) => {
                             ),
                         }}
                     />
-                    <RenderToc items={tableOfContents} />
+                    <div className={tableOfContentsWrapper}>
+                        <RenderToc items={tableOfContents} />
+                    </div>
                 </div>
                 <div>
                     <h2 id={introId}>Introduction</h2>

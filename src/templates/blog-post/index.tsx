@@ -67,6 +67,7 @@ import {
     authorNameAndRole,
     authorName,
     authorRole,
+    tableOfContentsWrapper,
 } from './styles.module.less';
 
 dayjs.extend(reltime);
@@ -208,7 +209,9 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                     />
                                 </div>
                                 {tableOfContents.length > 0 ? (
-                                    <RenderToc items={tableOfContents} />
+                                    <div className={tableOfContentsWrapper}>
+                                        <RenderToc items={tableOfContents} />
+                                    </div>
                                 ) : null}
                                 <div className={sidebarRight}>
                                     <div className={banner}>
