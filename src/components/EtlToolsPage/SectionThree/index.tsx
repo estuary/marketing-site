@@ -12,7 +12,6 @@ import {
     tabs,
     itemImage,
     gridCards,
-    vendorTab,
     tabLabel,
 } from './styles.module.less';
 import XvsYCard from './XvsYCard';
@@ -21,6 +20,30 @@ const a11yProps = (vendorId: string) => ({
     'id': `vendor-tab-${vendorId}`,
     'aria-controls': `vendor-tabpanel-${vendorId}`,
 });
+
+const tabStyling = {
+    'border': '1px solid #5072EB4D',
+    'borderRadius': '100px',
+    'textTransform': 'none',
+    'color': '#04192B',
+    'transition': 'var(--default-transition)',
+
+    '&:hover': {
+        backgroundColor: '#ECEFFC',
+        borderColor: '#AEBDF5',
+    },
+
+    '&:active': {
+        backgroundColor: '#E3E8FB',
+        border: '2px solid #5072EB',
+    },
+
+    '&.Mui-selected': {
+        backgroundColor: '#5072EB26',
+        border: '2px solid #5072EB',
+        color: '#04192B',
+    },
+};
 
 interface SectionThreeProps {
     estuaryVendor: Vendor;
@@ -82,14 +105,7 @@ const SectionThree = ({ estuaryVendor, vendors }: SectionThreeProps) => {
                                 }
                                 value={id}
                                 {...a11yProps(name)}
-                                className={vendorTab}
-                                sx={{
-                                    '&.Mui-selected': {
-                                        backgroundColor: '#5072EB26',
-                                        border: '2px solid #5072EB',
-                                        color: '#04192B',
-                                    },
-                                }}
+                                sx={tabStyling}
                             />
                         ))}
                     </Tabs>
