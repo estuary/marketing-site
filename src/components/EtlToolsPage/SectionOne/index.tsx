@@ -1,5 +1,5 @@
 import React from 'react';
-import { StaticImage } from 'gatsby-plugin-image';
+import { StaticImage, GatsbyImage } from 'gatsby-plugin-image';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import VendorsLink from '../../VendorsLink';
 import { Vendor } from '../../../../shared';
@@ -19,11 +19,23 @@ const SectionOne = ({ vendors }: SectionOneProps) => {
                 </div>
                 <div className={rightColumn}>
                     <StaticImage
-                        src="../../../images/lp-comparison/vendor-logos.png"
+                        src="../../../images/lp-comparison/vendor-comparison-base-image.png"
                         alt="Vendor logos around Estuary Flow logo"
                         loading="eager"
                         placeholder="blurred"
+                        quality={100}
                     />
+                    {vendors.slice(0, 9).map((vendor) => (
+                        <GatsbyImage
+                            key={vendor.id}
+                            alt={`${vendor.name} logo`}
+                            image={
+                                vendor.logo.localFile.childImageSharp
+                                    .gatsbyImageData
+                            }
+                            loading="eager"
+                        />
+                    ))}
                 </div>
             </div>
         </section>

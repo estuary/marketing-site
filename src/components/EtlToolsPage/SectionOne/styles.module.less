@@ -33,4 +33,61 @@
 
 .rightColumn {
   max-width: 496px;
+  width: 100%;
+  position: relative;
+
+  div:not(:first-of-type) {
+    max-width: 8.4%;
+    position: absolute !important;
+  }
+
+  div:nth-child(2) {
+    top: 8.5%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  div:nth-child(3) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  div:nth-child(4) {
+    top: 19.8%;
+    left: 72%;
+  }
+
+  div:nth-child(5) {
+    top: 50%;
+    transform: translateY(-50%);
+    left: 82.7%;
+  }
+
+  div:nth-child(6) {
+    top: 72%;
+    left: 72%;
+  }
+
+  div:nth-child(7) {
+    top: 72%;
+    left: 19.8%;
+  }
+
+  div:nth-child(8) {
+    top: 83%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  div:nth-child(9) {
+    top: 50%;
+    transform: translateY(-50%);
+    left: 9%;
+  }
+
+  div:nth-child(10) {
+    top: 19.8%;
+    left: 19.8%;
+  }
 }
