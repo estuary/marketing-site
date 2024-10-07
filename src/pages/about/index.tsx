@@ -79,6 +79,8 @@ import {
     itemPosition,
 } from './styles.module.less';
 
+const companyAge = new Date().getFullYear() - 2014;
+
 // const jobs = [
 //     {
 //         id: "soln",
@@ -251,7 +253,7 @@ const AboutPage = () => {
                 <div className={historyWrap}>
                     <div className={historyLeft}>
                         <div className={imageHeading}>
-                            9 years of real-time innovation
+                            {companyAge} years of real-time innovation
                         </div>
                         <StaticImage
                             placeholder="none"
