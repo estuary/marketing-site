@@ -56,22 +56,16 @@
   }
 
   thead th:not(:first-of-type) {
-    position: sticky !important;
-    top: 140px !important;
-    background-color: #fff;
-    z-index: 2000;
+    position: sticky;
+    top: 140px;
+    background-color: #FFF;
     background-color: transparent;
     padding: 0;
   }
 
-  thead th:nth-child(2) div {
-    border-bottom-left-radius: 32px;
-    border-top-left-radius: 32px;
-  }
-
-  thead th:nth-child(4) div {
-    border-bottom-right-radius: 32px;
-    border-top-right-radius: 32px;
+  thead th:nth-child(2) div:first-of-type {
+    border-bottom-left-radius: 16px;
+    border-top-left-radius: 16px;
   }
 
   th {
