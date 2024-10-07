@@ -31,6 +31,14 @@
   width: 100%;
   gap: 24px;
   margin-top: 24px;
+
+  @media (max-width: 824px) {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+
+  @media (max-width: 425px) {
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  }
 }
 
 .vendorTab {

@@ -16,7 +16,7 @@ const BlogBanner = ({ title, button }: BlogBanner) => {
         <StraightLinesBackground className={background}>
             <div className={container}>
                 <div className={banner}>
-                    <h3>{title}</h3>
+                    {title}
                     <OutboundLinkFilled href={button.href} target="_blank">
                         {button.title}
                     </OutboundLinkFilled>

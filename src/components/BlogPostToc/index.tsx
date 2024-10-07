@@ -192,7 +192,11 @@ export const RenderToc = ({ items }: { items: TocItem[] }) => {
                     className={accordionSidePadding}
                     expandIcon={
                         <ExpandMoreIcon
-                            sx={{ color: '#47506d', fontSize: '2rem' }}
+                            sx={{
+                                color: '#47506d',
+                                fontSize: '2rem',
+                                maxWidth: '36px',
+                            }}
                         />
                     }
                 >

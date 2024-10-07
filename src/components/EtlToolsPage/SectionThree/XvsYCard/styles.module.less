@@ -17,7 +17,7 @@
   &:hover {
     border-color: #5072EB;
     background-color: #E6EBFC;
-    
+
     .divider {
       background-color: #5072EB;
     }
@@ -26,7 +26,7 @@
   &:active {
     border-color: #5072EB4D;
     background-color: #5072EB0F;
-    
+
     .divider {
       background-color: #5072EB26;
     }
@@ -37,6 +37,11 @@
     font-weight: 700;
     line-height: 28px;
     color: #47506D;
+
+    @media (max-width: 824px) {
+      font-size: 1rem;
+      line-height: 19.2px;
+    }
   }
 }
 
@@ -44,17 +49,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 60px;
-  max-height: 60px;
-  width: 100%;
   background-color: #fff;
   border: 1px solid #D7DCE580;
   border-radius: 16px;
-  padding: 8px;
-
-  img {
-    max-height: 40px;
-  }
+  padding: 16px;
+  max-width: 60px;
+  max-height: 60px;
+  min-width: 52px;
+  min-height: 52px;
 }
 
 .logoVsLogoWrapper {
@@ -62,6 +64,10 @@
   align-items: center;
   justify-content: center;
   gap: 16px;
+
+  @media (max-width: 320px) {
+    flex-direction: column;
+  }
 
   span {
     font-size: 1.25rem;
