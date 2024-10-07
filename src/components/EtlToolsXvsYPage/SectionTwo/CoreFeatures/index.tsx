@@ -1,6 +1,7 @@
 import React from 'react';
 import FeatureData from '../FeatureData';
 import { ComparisonVendors } from '../shared';
+import TitledTableCell from '../TitledTableCell';
 
 const comparisonTableRows = [
     { label: 'Batch and streaming', key: 'batchingStreaming' },
@@ -28,7 +29,7 @@ const CoreFeatures = ({
             {comparisonTableRows.map((row) => (
                 <tr key={row.key}>
                     <td>{row.label}</td>
-                    <td>
+                    <TitledTableCell title={xVendor.name}>
                         {xVendor.features[row.key].subText ? (
                             <FeatureData
                                 icon={xVendor.features[row.key]?.icon}
@@ -37,8 +38,8 @@ const CoreFeatures = ({
                         ) : (
                             xVendor.features[row.key]
                         )}
-                    </td>
-                    <td>
+                    </TitledTableCell>
+                    <TitledTableCell title={yVendor.name}>
                         {yVendor.features[row.key].subText ? (
                             <FeatureData
                                 icon={yVendor.features[row.key]?.icon}
@@ -47,9 +48,9 @@ const CoreFeatures = ({
                         ) : (
                             yVendor.features[row.key]
                         )}
-                    </td>
+                    </TitledTableCell>
                     {estuaryVendor ? (
-                        <td>
+                        <TitledTableCell title={estuaryVendor.name}>
                             {estuaryVendor.features[row.key].subText ? (
                                 <FeatureData
                                     icon={estuaryVendor.features[row.key]?.icon}
@@ -60,7 +61,7 @@ const CoreFeatures = ({
                             ) : (
                                 estuaryVendor.features[row.key]
                             )}
-                        </td>
+                        </TitledTableCell>
                     ) : null}
                 </tr>
             ))}

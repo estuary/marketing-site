@@ -43,8 +43,7 @@
   }
 
   table {
-    min-width: 680px;
-    margin: 0;
+    margin: 24px 0 48px 0;
     border: none;
     font-size: 1rem;
     border-collapse: separate;
@@ -82,6 +81,14 @@
       border-top-left-radius: 32px;
       border-top-right-radius: 32px;
     }
+  }
+
+  tr:last-of-type td:first-of-type {
+    border-bottom-left-radius: 32px;
+  }
+
+  tr:last-of-type td:last-of-type {
+    border-bottom-right-radius: 32px;
   }
 
   thead {
@@ -126,6 +133,56 @@
   td:last-of-type {
     border-right: 1px solid #EEF1FD;
     padding: 12px 24px;
+  }
+
+  @media (max-width: 768px) {
+    table {
+      border: 1px solid #EEF1FD;
+      border-radius: 32px;
+    }
+
+    thead {
+      display: none;
+    }
+
+    th {
+      text-align: center;
+    }
+
+    tr {
+      display: flex;
+      flex-direction: column;
+    }
+
+    td:first-of-type {
+      width: 100%;
+      text-align: center;
+    }
+
+    tr td:last-of-type {
+      border-right: none;
+    }
+
+    tr:last-of-type td:last-of-type {
+      border-bottom-left-radius: 32px;
+    }
+
+    td:first-of-type {
+      border-left: none;
+      background-color: #F6F8FE;
+    }
+
+    .vendorNameMobile {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+  }
+
+  @media (min-width: 769px) {
+    td:not(:first-child) strong {
+      display: none;
+    }
   }
 }
 
@@ -172,12 +229,4 @@
 
 .bold {
   font-weight: 600;
-}
-
-.tableWrapper {
-  margin: 24px 0 48px 0;
-
-  @media (max-width: 860px) {
-    overflow-x: auto;
-  }
 }

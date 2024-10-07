@@ -1,6 +1,7 @@
 import React from 'react';
 import FeatureData from '../FeatureData';
 import { ComparisonVendors } from '../shared';
+import TitledTableCell from '../TitledTableCell';
 
 const comparisonTableRows = [
     { label: 'Performance (minimum latency)', key: 'perfMinLatency' },
@@ -21,7 +22,7 @@ const TheAbilities = ({
             {comparisonTableRows.map((row) => (
                 <tr key={row.key}>
                     <td>{row.label}</td>
-                    <td>
+                    <TitledTableCell title={xVendor.name}>
                         {xVendor.deployment.abilities[row.key].subText ? (
                             <FeatureData
                                 icon={
@@ -35,8 +36,8 @@ const TheAbilities = ({
                         ) : (
                             xVendor.deployment.abilities[row.key]
                         )}
-                    </td>
-                    <td>
+                    </TitledTableCell>
+                    <TitledTableCell title={yVendor.name}>
                         {yVendor.deployment.abilities[row.key].subText ? (
                             <FeatureData
                                 icon={
@@ -50,9 +51,9 @@ const TheAbilities = ({
                         ) : (
                             yVendor.deployment.abilities[row.key]
                         )}
-                    </td>
+                    </TitledTableCell>
                     {estuaryVendor ? (
-                        <td>
+                        <TitledTableCell title={estuaryVendor.name}>
                             {estuaryVendor.deployment.abilities[row.key]
                                 .subText ? (
                                 <FeatureData
@@ -70,7 +71,7 @@ const TheAbilities = ({
                             ) : (
                                 estuaryVendor.deployment.abilities[row.key]
                             )}
-                        </td>
+                        </TitledTableCell>
                     ) : null}
                 </tr>
             ))}

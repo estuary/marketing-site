@@ -1,6 +1,7 @@
 import React from 'react';
 import FeatureData from '../FeatureData';
 import { ComparisonVendors } from '../shared';
+import TitledTableCell from '../TitledTableCell';
 
 const comparisonTableRows = [
     { label: 'Data Source Authentication', key: 'dataSourceAuth' },
@@ -16,7 +17,7 @@ const Security = ({ xVendor, yVendor, estuaryVendor }: ComparisonVendors) => {
             {comparisonTableRows.map((row) => (
                 <tr key={row.key}>
                     <td>{row.label}</td>
-                    <td>
+                    <TitledTableCell title={xVendor.name}>
                         {xVendor.deployment.security[row.key].subText ? (
                             <FeatureData
                                 icon={
@@ -30,8 +31,8 @@ const Security = ({ xVendor, yVendor, estuaryVendor }: ComparisonVendors) => {
                         ) : (
                             xVendor.deployment.security[row.key]
                         )}
-                    </td>
-                    <td>
+                    </TitledTableCell>
+                    <TitledTableCell title={yVendor.name}>
                         {yVendor.deployment.security[row.key].subText ? (
                             <FeatureData
                                 icon={
@@ -45,9 +46,9 @@ const Security = ({ xVendor, yVendor, estuaryVendor }: ComparisonVendors) => {
                         ) : (
                             yVendor.deployment.security[row.key]
                         )}
-                    </td>
+                    </TitledTableCell>
                     {estuaryVendor ? (
-                        <td>
+                        <TitledTableCell title={estuaryVendor.name}>
                             {estuaryVendor.deployment.security[row.key]
                                 .subText ? (
                                 <FeatureData
@@ -65,7 +66,7 @@ const Security = ({ xVendor, yVendor, estuaryVendor }: ComparisonVendors) => {
                             ) : (
                                 estuaryVendor.deployment.security[row.key]
                             )}
-                        </td>
+                        </TitledTableCell>
                     ) : null}
                 </tr>
             ))}

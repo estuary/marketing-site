@@ -1,6 +1,7 @@
 import React from 'react';
 import FeatureData from '../FeatureData';
 import { ComparisonVendors } from '../shared';
+import TitledTableCell from '../TitledTableCell';
 
 const comparisonTableRows = [
     {
@@ -25,7 +26,7 @@ const UseCases = ({ xVendor, yVendor, estuaryVendor }: ComparisonVendors) => {
             {comparisonTableRows.map((row) => (
                 <tr key={row.key}>
                     <td>{row.label}</td>
-                    <td>
+                    <TitledTableCell title={xVendor.name}>
                         {xVendor.useCases[row.key].subText ? (
                             <FeatureData
                                 icon={xVendor.useCases[row.key]?.icon}
@@ -34,8 +35,8 @@ const UseCases = ({ xVendor, yVendor, estuaryVendor }: ComparisonVendors) => {
                         ) : (
                             xVendor.useCases[row.key]
                         )}
-                    </td>
-                    <td>
+                    </TitledTableCell>
+                    <TitledTableCell title={yVendor.name}>
                         {yVendor.useCases[row.key].subText ? (
                             <FeatureData
                                 icon={yVendor.useCases[row.key]?.icon}
@@ -44,9 +45,9 @@ const UseCases = ({ xVendor, yVendor, estuaryVendor }: ComparisonVendors) => {
                         ) : (
                             yVendor.useCases[row.key]
                         )}
-                    </td>
+                    </TitledTableCell>
                     {estuaryVendor ? (
-                        <td>
+                        <TitledTableCell title={estuaryVendor.name}>
                             {estuaryVendor.useCases[row.key].subText ? (
                                 <FeatureData
                                     icon={estuaryVendor.useCases[row.key]?.icon}
@@ -57,7 +58,7 @@ const UseCases = ({ xVendor, yVendor, estuaryVendor }: ComparisonVendors) => {
                             ) : (
                                 estuaryVendor.useCases[row.key]
                             )}
-                        </td>
+                        </TitledTableCell>
                     ) : null}
                 </tr>
             ))}

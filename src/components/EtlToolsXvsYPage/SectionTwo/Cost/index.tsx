@@ -1,6 +1,7 @@
 import React from 'react';
 import FeatureData from '../FeatureData';
 import { ComparisonVendors } from '../shared';
+import TitledTableCell from '../TitledTableCell';
 
 const comparisonTableRows = [
     { label: 'Vendor costs', key: 'vendor' },
@@ -17,7 +18,7 @@ const Cost = ({ xVendor, yVendor, estuaryVendor }: ComparisonVendors) => {
             {comparisonTableRows.map((row) => (
                 <tr key={row.key}>
                     <td>{row.label}</td>
-                    <td>
+                    <TitledTableCell title={xVendor.name}>
                         {xVendor.cost[row.key].subText ? (
                             <FeatureData
                                 numberOfDollarSigns={
@@ -29,8 +30,8 @@ const Cost = ({ xVendor, yVendor, estuaryVendor }: ComparisonVendors) => {
                         ) : (
                             xVendor.cost[row.key]
                         )}
-                    </td>
-                    <td>
+                    </TitledTableCell>
+                    <TitledTableCell title={yVendor.name}>
                         {yVendor.cost[row.key].subText ? (
                             <FeatureData
                                 numberOfDollarSigns={
@@ -42,9 +43,9 @@ const Cost = ({ xVendor, yVendor, estuaryVendor }: ComparisonVendors) => {
                         ) : (
                             yVendor.cost[row.key]
                         )}
-                    </td>
+                    </TitledTableCell>
                     {estuaryVendor ? (
-                        <td>
+                        <TitledTableCell title={estuaryVendor.name}>
                             {estuaryVendor.cost[row.key].subText ? (
                                 <FeatureData
                                     numberOfDollarSigns={
@@ -58,7 +59,7 @@ const Cost = ({ xVendor, yVendor, estuaryVendor }: ComparisonVendors) => {
                             ) : (
                                 estuaryVendor.cost[row.key]
                             )}
-                        </td>
+                        </TitledTableCell>
                     ) : null}
                 </tr>
             ))}

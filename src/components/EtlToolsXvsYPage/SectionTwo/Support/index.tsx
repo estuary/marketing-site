@@ -1,6 +1,7 @@
 import React from 'react';
 import FeatureData from '../FeatureData';
 import { ComparisonVendors } from '../shared';
+import TitledTableCell from '../TitledTableCell';
 
 const comparisonTableRows = [{ label: 'Support', key: 'support' }];
 
@@ -13,7 +14,7 @@ const Support = ({ xVendor, yVendor, estuaryVendor }: ComparisonVendors) => {
             {comparisonTableRows.map((row) => (
                 <tr key={row.key}>
                     <td>{row.label}</td>
-                    <td>
+                    <TitledTableCell title={xVendor.name}>
                         {xVendor.support[row.key].subText ? (
                             <FeatureData
                                 cellTitle={xVendor.support[row.key]?.cellTitle}
@@ -22,8 +23,8 @@ const Support = ({ xVendor, yVendor, estuaryVendor }: ComparisonVendors) => {
                         ) : (
                             xVendor.support[row.key]
                         )}
-                    </td>
-                    <td>
+                    </TitledTableCell>
+                    <TitledTableCell title={yVendor.name}>
                         {yVendor.support[row.key].subText ? (
                             <FeatureData
                                 cellTitle={yVendor.support[row.key]?.cellTitle}
@@ -32,9 +33,9 @@ const Support = ({ xVendor, yVendor, estuaryVendor }: ComparisonVendors) => {
                         ) : (
                             yVendor.support[row.key]
                         )}
-                    </td>
+                    </TitledTableCell>
                     {estuaryVendor ? (
-                        <td>
+                        <TitledTableCell title={estuaryVendor.name}>
                             {estuaryVendor.support[row.key].subText ? (
                                 <FeatureData
                                     cellTitle={
@@ -48,7 +49,7 @@ const Support = ({ xVendor, yVendor, estuaryVendor }: ComparisonVendors) => {
                             ) : (
                                 estuaryVendor.support[row.key]
                             )}
-                        </td>
+                        </TitledTableCell>
                     ) : null}
                 </tr>
             ))}

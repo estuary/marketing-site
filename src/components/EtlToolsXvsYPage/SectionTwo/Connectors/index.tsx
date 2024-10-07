@@ -1,6 +1,7 @@
 import React from 'react';
 import FeatureData from '../FeatureData';
 import { ComparisonVendors } from '../shared';
+import TitledTableCell from '../TitledTableCell';
 
 const comparisonTableRows = [
     { label: 'Number of connectors', key: 'count' },
@@ -19,7 +20,7 @@ const Connectors = ({ xVendor, yVendor, estuaryVendor }: ComparisonVendors) => {
             {comparisonTableRows.map((row) => (
                 <tr key={row.key}>
                     <td>{row.label}</td>
-                    <td>
+                    <TitledTableCell title={xVendor.name}>
                         {xVendor.connectors[row.key].subText ? (
                             <FeatureData
                                 icon={xVendor.connectors[row.key]?.icon}
@@ -28,8 +29,8 @@ const Connectors = ({ xVendor, yVendor, estuaryVendor }: ComparisonVendors) => {
                         ) : (
                             xVendor.connectors[row.key]
                         )}
-                    </td>
-                    <td>
+                    </TitledTableCell>
+                    <TitledTableCell title={yVendor.name}>
                         {yVendor.connectors[row.key].subText ? (
                             <FeatureData
                                 icon={yVendor.connectors[row.key]?.icon}
@@ -38,9 +39,9 @@ const Connectors = ({ xVendor, yVendor, estuaryVendor }: ComparisonVendors) => {
                         ) : (
                             yVendor.connectors[row.key]
                         )}
-                    </td>
+                    </TitledTableCell>
                     {estuaryVendor ? (
-                        <td>
+                        <TitledTableCell title={estuaryVendor.name}>
                             {estuaryVendor.connectors[row.key].subText ? (
                                 <FeatureData
                                     icon={
@@ -54,7 +55,7 @@ const Connectors = ({ xVendor, yVendor, estuaryVendor }: ComparisonVendors) => {
                             ) : (
                                 estuaryVendor.connectors[row.key]
                             )}
-                        </td>
+                        </TitledTableCell>
                     ) : null}
                 </tr>
             ))}

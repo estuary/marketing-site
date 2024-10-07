@@ -13,7 +13,6 @@ import {
     leftColumn,
     rightColumn,
     bold,
-    tableWrapper,
     tableOfContentsWrapper,
 } from './styles.module.less';
 import UseCases from './UseCases';
@@ -132,34 +131,32 @@ const SectionTwo = ({ xVendor, yVendor, estuaryVendor }: SectionTwoProps) => {
                         needs.
                     </p>
                     <h2 id={comparisonMatrix.id}>{comparisonMatrix.heading}</h2>
-                    <div className={tableWrapper}>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th />
-                                    <VendorAvatar vendor={xVendor} />
-                                    <VendorAvatar vendor={yVendor} />
-                                    {isThreeVendorComparison ? (
-                                        <VendorAvatar vendor={estuaryVendor} />
-                                    ) : null}
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {tableBodyComponents.map((Component, index) => (
-                                    <Component
-                                        key={index}
-                                        xVendor={xVendor}
-                                        yVendor={yVendor}
-                                        estuaryVendor={
-                                            isThreeVendorComparison
-                                                ? estuaryVendor
-                                                : null
-                                        }
-                                    />
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th />
+                                <VendorAvatar vendor={xVendor} />
+                                <VendorAvatar vendor={yVendor} />
+                                {isThreeVendorComparison ? (
+                                    <VendorAvatar vendor={estuaryVendor} />
+                                ) : null}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {tableBodyComponents.map((Component, index) => (
+                                <Component
+                                    key={index}
+                                    xVendor={xVendor}
+                                    yVendor={yVendor}
+                                    estuaryVendor={
+                                        isThreeVendorComparison
+                                            ? estuaryVendor
+                                            : null
+                                    }
+                                />
+                            ))}
+                        </tbody>
+                    </table>
                     <BlogBanner
                         title={
                             <h3>
