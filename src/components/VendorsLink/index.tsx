@@ -9,17 +9,18 @@ interface VendorsLinkProps {
     isDarkTheme?: boolean;
 }
 
-const createVendorSelectItems = (
-    vendors: Vendor[],
-    excludeVendorName: string
-) =>
+const createVendorSelectItems = (vendors: Vendor[], excludeVendorId: string) =>
     vendors
-        .filter((vendor) => vendor.name !== excludeVendorName)
+        .filter((vendor) => vendor.id !== excludeVendorId)
         .map((vendor) => ({
             id: vendor.id,
             image: vendor.logo?.localFile.childImageSharp?.gatsbyImageData,
             title: vendor.name,
         }));
+
+const estuaryVendorStrapiId = 'd829928c-c473-5421-ac0a-f03c45b14993';
+
+const selectPlaceholder = 'Please select a vendor';
 
 const VendorsLink = ({
     vendors,
@@ -27,11 +28,11 @@ const VendorsLink = ({
     yVendor,
     isDarkTheme,
 }: VendorsLinkProps) => {
-    const defaultXVendor = xVendor?.name ?? 'Estuary Flow';
-    const defaultYVendor = yVendor?.name ?? 'Fivetran';
+    const defaultXVendorId = xVendor?.id ?? estuaryVendorStrapiId;
+    const defaultYVendorId = yVendor?.id ?? selectPlaceholder;
 
-    const [firstVendorName, setFirstVendorName] = useState(defaultXVendor);
-    const [secondVendorName, setSecondVendorName] = useState(defaultYVendor);
+    const [firstVendorId, setFirstVendorId] = useState(defaultXVendorId);
+    const [secondVendorId, setSecondVendorId] = useState(defaultYVendorId);
 
     const handleVendorChange = useCallback(
         (setVendor: React.Dispatch<React.SetStateAction<string>>) =>
@@ -42,21 +43,21 @@ const VendorsLink = ({
     );
 
     const getVendorSlugKey = useCallback(
-        (vendorName: string, fallbackVendor?: Vendor) =>
-            vendors.find((v) => v.name === vendorName)?.slugKey ??
+        (vendorId: string, fallbackVendor?: Vendor) =>
+            vendors.find((v) => v.id === vendorId)?.slugKey ??
             fallbackVendor?.slugKey ??
             '',
         [vendors]
     );
 
     const firstVendorSlugKey = useMemo(
-        () => getVendorSlugKey(firstVendorName, xVendor),
-        [getVendorSlugKey, firstVendorName, xVendor]
+        () => getVendorSlugKey(firstVendorId, xVendor),
+        [getVendorSlugKey, firstVendorId, xVendor]
     );
 
     const secondVendorSlugKey = useMemo(
-        () => getVendorSlugKey(secondVendorName, yVendor),
-        [getVendorSlugKey, secondVendorName, yVendor]
+        () => getVendorSlugKey(secondVendorId, yVendor),
+        [getVendorSlugKey, secondVendorId, yVendor]
     );
 
     const compareButtonHref = useMemo(
@@ -65,26 +66,28 @@ const VendorsLink = ({
     );
 
     const xVendorSelectItems = useMemo(
-        () => createVendorSelectItems(vendors, secondVendorName),
-        [vendors, secondVendorName]
+        () => createVendorSelectItems(vendors, secondVendorId),
+        [vendors, secondVendorId]
     );
 
     const yVendorSelectItems = useMemo(
-        () => createVendorSelectItems(vendors, firstVendorName),
-        [vendors, firstVendorName]
+        () => createVendorSelectItems(vendors, firstVendorId),
+        [vendors, firstVendorId]
     );
 
     return (
         <XvsYFilter
             xSelect={{
-                value: firstVendorName,
-                onChange: handleVendorChange(setFirstVendorName),
+                value: firstVendorId,
+                onChange: handleVendorChange(setFirstVendorId),
                 items: xVendorSelectItems,
+                placeholder: selectPlaceholder,
             }}
             ySelect={{
-                value: secondVendorName,
-                onChange: handleVendorChange(setSecondVendorName),
+                value: secondVendorId,
+                onChange: handleVendorChange(setSecondVendorId),
                 items: yVendorSelectItems,
+                placeholder: selectPlaceholder,
             }}
             button={{
                 title: 'Compare',

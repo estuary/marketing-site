@@ -11,6 +11,7 @@ import {
     selectItem,
     itemImage,
     darkTheme,
+    disabledLink,
 } from './styles.module.less';
 
 type Item = {
@@ -23,12 +24,14 @@ type XvsYFilterProps = {
     xSelect: {
         label?: string;
         value: string;
+        placeholder?: string;
         onChange: (value: any) => void;
         items: Item[];
     };
     ySelect: {
         label?: string;
         value: string;
+        placeholder?: string;
         onChange: (value: any) => void;
         items: Item[];
     };
@@ -71,11 +74,17 @@ const XvsYFilter = ({
                     MenuProps={selectMenuProps}
                     className={connectorSelect}
                 >
+                    <MenuItem
+                        value={xSelect.placeholder}
+                        className={selectItem}
+                    >
+                        <em>{xSelect.placeholder}</em>
+                    </MenuItem>
                     {xSelect.items.map((item) => (
                         <MenuItem
                             className={selectItem}
                             key={item.id}
-                            value={item.title}
+                            value={item.id}
                         >
                             {item.image ? (
                                 <GatsbyImage
@@ -101,11 +110,17 @@ const XvsYFilter = ({
                     MenuProps={selectMenuProps}
                     className={connectorSelect}
                 >
+                    <MenuItem
+                        value={ySelect.placeholder}
+                        className={selectItem}
+                    >
+                        <em>{ySelect.placeholder}</em>
+                    </MenuItem>
                     {ySelect.items.map((item) => (
                         <MenuItem
                             className={selectItem}
                             key={item.id}
-                            value={item.title}
+                            value={item.id}
                         >
                             {item.image ? (
                                 <GatsbyImage
@@ -119,7 +134,16 @@ const XvsYFilter = ({
                     ))}
                 </Select>
             </FormControl>
-            <LinkFilled href={button.href} target="_blank">
+            <LinkFilled
+                href={button.href}
+                target="_blank"
+                className={
+                    xSelect.value === xSelect.placeholder ||
+                    ySelect.value === ySelect.placeholder
+                        ? disabledLink
+                        : null
+                }
+            >
                 {button.title}
             </LinkFilled>
         </div>
