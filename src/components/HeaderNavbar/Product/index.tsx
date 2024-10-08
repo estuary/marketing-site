@@ -1,6 +1,7 @@
 import { useMediaQuery } from '@mui/material';
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
+import { Link } from 'gatsby';
 import { webinarsUrl } from '../../../../shared';
 import { OutboundLinkOutlined } from '../../OutboundLink';
 import Card from '../Card';
@@ -14,7 +15,6 @@ import {
 } from '../styles';
 import { hideOnMobile } from '../styles.module.less';
 import Carousel from '../../Carousel';
-import NewTabLink from '../../NewTabLink';
 import ChevronRightIcon from '../../../svgs/chevron-right.svg';
 import { compare, products } from './items';
 import ProductLink from './Link';
@@ -48,10 +48,10 @@ const HeaderNavbarProduct = ({ active, setActive }) => {
                         title="COMPARE"
                         items={compare}
                         contentFooterLink={
-                            <NewTabLink href="/etl-tools">
+                            <Link to="/etl-tools">
                                 View all comparisons
                                 <ChevronRightIcon color="#5072EB" height={12} />
-                            </NewTabLink>
+                            </Link>
                         }
                     />
                     <CardItem className={hideOnMobile} title="WEBINARS">
