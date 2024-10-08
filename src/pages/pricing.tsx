@@ -35,8 +35,8 @@ export const Head = () => {
 
     return (
         <Seo
-            title="Pricing"
-            description="Reduce your data costs and latency with managed streaming CDC and ETL pipelines."
+            title="Pricing & Plans | Get Started for Free"
+            description="Estuary Flow offers simple pay-as-you-go pricing for real-time data integration and ETL. Build free pipelines, estimate costs with the calculator, and scale with flexible plans."
             image={metaImg.childImageSharp.gatsbyImageData.images.fallback.src}
         />
     );

@@ -170,8 +170,8 @@ export default BlogIndex;
 export const Head = () => {
     return (
         <Seo
-            title="Blog"
-            description="More about Estuary and related technologies, straight from the team. Our blog breaks down basic concepts and takes you into the minds of our engineers."
+            title="Estuary Blog | Insights on Data Strategy and Engineering"
+            description="Get expert insights on data strategy, integration, ETL, and engineering from Estuary Flow's blog. Explore tutorials, trends, and solutions crafted by our team of engineers."
         />
     );
 };
