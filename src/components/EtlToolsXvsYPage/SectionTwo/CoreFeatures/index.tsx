@@ -14,7 +14,7 @@ const comparisonTableRows = [
     { label: 'Store and replay', key: 'storeReplay' },
     { label: 'Time travel', key: 'timeTravel' },
     { label: 'Snapshots', key: 'snapshots' },
-    { label: 'Ease of use', key: 'useOfUse' },
+    { label: 'Ease of use', key: 'easeOfUse' },
 ];
 
 const CoreFeatures = ({
