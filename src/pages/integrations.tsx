@@ -21,7 +21,7 @@ const Integrations = () => {
 export const Head = () => {
     return (
         <Seo
-            title="Data Integration Connectors Directory | Estuary Flow"
+            title="Data Integration Connectors Directory"
             description={description}
         />
     );
