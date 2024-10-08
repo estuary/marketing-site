@@ -14,6 +14,9 @@ import BlogBanner from '../../BlogBanner';
 import { container } from './styles.module.less';
 import FeatureCard from './FeatureCard';
 
+const iconColor = '#5072EB';
+const iconSize = 28;
+
 const SectionThree = () => {
     return (
         <section className={defaultWrapperDark}>
@@ -23,9 +26,9 @@ const SectionThree = () => {
                     <FeatureCard
                         icon={
                             <EstuaryLogo
-                                width={28}
-                                height={28}
-                                color="#5072EB"
+                                width={iconSize}
+                                height={iconSize}
+                                color={iconColor}
                             />
                         }
                         title="Free account"
@@ -37,7 +40,11 @@ const SectionThree = () => {
                     />
                     <FeatureCard
                         icon={
-                            <FileIcon width={28} height={28} color="#5072EB" />
+                            <FileIcon
+                                width={iconSize}
+                                height={iconSize}
+                                color={iconColor}
+                            />
                         }
                         title="Docs"
                         description="Make sure you read through the documentation, especially the get started section."
@@ -48,7 +55,11 @@ const SectionThree = () => {
                     />
                     <FeatureCard
                         icon={
-                            <SlackIcon width={28} height={28} color="#5072EB" />
+                            <SlackIcon
+                                width={iconSize}
+                                height={iconSize}
+                                color={iconColor}
+                            />
                         }
                         title="Community"
                         description="I highly recommend you also join the Slack community. It's the easiest way to get support while you're getting started."
@@ -60,9 +71,9 @@ const SectionThree = () => {
                     <FeatureCard
                         icon={
                             <RecordIcon
-                                width={28}
-                                height={28}
-                                color="#5072EB"
+                                width={iconSize}
+                                height={iconSize}
+                                color={iconColor}
                             />
                         }
                         title="Estuary 101"
