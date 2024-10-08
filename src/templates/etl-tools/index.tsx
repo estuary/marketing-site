@@ -53,7 +53,11 @@ export const Head = ({ data: { xVendor, yVendor } }) => {
 export default EtlTools;
 
 export const pageQuery = graphql`
-    query GetComparisons($xVendorId: String!, $yVendorId: String!) {
+    query GetComparisons(
+        $xVendorId: String!
+        $yVendorId: String!
+        $estuaryVendorId: String!
+    ) {
         xVendor: strapiComparison(id: { eq: $xVendorId }) {
             id
             name: Vendor_Name
@@ -544,9 +548,7 @@ export const pageQuery = graphql`
                 }
             }
         }
-        estuaryVendor: strapiComparison(
-            id: { eq: "d829928c-c473-5421-ac0a-f03c45b14993" }
-        ) {
+        estuaryVendor: strapiComparison(id: { eq: $estuaryVendorId }) {
             id
             name: Vendor_Name
             logo {
