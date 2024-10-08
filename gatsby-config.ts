@@ -94,9 +94,6 @@ const strapiConfig = {
                             ETL_Transforms: {
                                 populate: '*',
                             },
-                            Workflow: {
-                                populate: '*',
-                            },
                             ELT_Transforms: {
                                 populate: '*',
                             },
@@ -110,6 +107,12 @@ const strapiConfig = {
                                 populate: '*',
                             },
                             Data_Ops: {
+                                populate: '*',
+                            },
+                            Snapshots: {
+                                populate: '*',
+                            },
+                            easeOfUse: {
                                 populate: '*',
                             },
                         },

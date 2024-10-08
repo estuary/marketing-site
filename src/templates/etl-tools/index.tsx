@@ -205,11 +205,19 @@ export const pageQuery = graphql`
                         }
                     }
                 }
-                workflow: Workflow {
+                snapshots: Snapshots {
                     icon: Icon
                     subText: Sub_Text {
                         data {
                             subText: Sub_Text
+                        }
+                    }
+                }
+                easeOfUse {
+                    cellTitle
+                    subText {
+                        data {
+                            subText
                         }
                     }
                 }
@@ -442,11 +450,19 @@ export const pageQuery = graphql`
                         }
                     }
                 }
-                workflow: Workflow {
+                snapshots: Snapshots {
                     icon: Icon
                     subText: Sub_Text {
                         data {
                             subText: Sub_Text
+                        }
+                    }
+                }
+                easeOfUse {
+                    cellTitle
+                    subText {
+                        data {
+                            subText
                         }
                     }
                 }
@@ -681,11 +697,19 @@ export const pageQuery = graphql`
                         }
                     }
                 }
-                workflow: Workflow {
+                snapshots: Snapshots {
                     icon: Icon
                     subText: Sub_Text {
                         data {
                             subText: Sub_Text
+                        }
+                    }
+                }
+                easeOfUse {
+                    cellTitle
+                    subText {
+                        data {
+                            subText
                         }
                     }
                 }

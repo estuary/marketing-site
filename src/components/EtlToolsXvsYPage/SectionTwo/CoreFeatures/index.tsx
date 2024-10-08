@@ -13,7 +13,8 @@ const comparisonTableRows = [
     { label: 'Schema inference and drift', key: 'schemaInference' },
     { label: 'Store and replay', key: 'storeReplay' },
     { label: 'Time travel', key: 'timeTravel' },
-    { label: 'Workflow', key: 'workflow' },
+    { label: 'Snapshots', key: 'snapshots' },
+    { label: 'Ease of use', key: 'useOfUse' },
 ];
 
 const CoreFeatures = ({

@@ -94,7 +94,8 @@ export interface Vendor {
         schemaInference: HasFeature;
         storeReplay: HasFeature;
         timeTravel: HasFeature;
-        workflow: HasFeature;
+        snapshots: HasFeature;
+        easeOfUse: HasCellTitle;
     };
     deployment: {
         options: string;
