@@ -59,8 +59,8 @@ export const Head = () => {
 
     return (
         <Seo
-            title="Flow"
-            description="Flow is the first real-time Data Operations platform. Set up pipelines with both historical and real-time data in minutes."
+            title="Estuary Flow | Real-time Data Pipeline & Integration Platform"
+            description="Estuary Flow is a real-time ETL and data pipeline platform for quick data integration. Build pipelines in minutes and handle both real-time and batch operations efficiently."
             image={metaImg.childImageSharp.gatsbyImageData.images.fallback.src}
         />
     );

@@ -54,7 +54,7 @@ const Seo: React.FC<SeoProps> = ({
     }
 
     const metaDescription = description ?? site.siteMetadata.description;
-    const defaultTitle = title.includes('Estuary |')
+    const defaultTitle = title.includes('Estuary')
         ? ''
         : site.siteMetadata?.title;
 
