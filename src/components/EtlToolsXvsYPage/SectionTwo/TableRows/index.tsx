@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import FeatureData from '../FeatureData';
 import TitledTableCell from '../TitledTableCell';
 
@@ -34,92 +34,81 @@ const TableRows = React.memo(
         estuaryVendor,
         dataType,
     }: TableRowsProps) => {
-        const xVendorData = useMemo(() => {
-            return rows.map(
-                (row) => getNestedProperty(xVendor, dataType)?.[row.key] || {}
-            );
-        }, [xVendor, dataType, rows]);
-
-        const yVendorData = useMemo(() => {
-            return rows.map(
-                (row) => getNestedProperty(yVendor, dataType)?.[row.key] || {}
-            );
-        }, [yVendor, dataType, rows]);
-
-        const estuaryVendorData = useMemo(() => {
-            return estuaryVendor
-                ? rows.map(
-                      (row) =>
-                          getNestedProperty(estuaryVendor, dataType)?.[
-                              row.key
-                          ] || {}
-                  )
-                : [];
-        }, [estuaryVendor, dataType, rows]);
-
         return (
             <>
                 <tr>
                     <th colSpan={4}>{title}</th>
                 </tr>
-                {rows.map((row, index) => (
-                    <tr key={row.key}>
-                        <td>{row.label}</td>
-                        <TitledTableCell title={xVendor.name}>
-                            {xVendorData[index].subText ? (
-                                <FeatureData
-                                    icon={xVendorData[index].icon}
-                                    subText={xVendorData[index].subText}
-                                    numberOfDollarSigns={
-                                        dataType === 'cost'
-                                            ? xVendorData[index]
-                                                  .numberOfDollarSigns?.array
-                                            : undefined
-                                    }
-                                />
-                            ) : (
-                                xVendorData[index]
-                            )}
-                        </TitledTableCell>
-                        <TitledTableCell title={yVendor.name}>
-                            {yVendorData[index].subText ? (
-                                <FeatureData
-                                    icon={yVendorData[index].icon}
-                                    subText={yVendorData[index].subText}
-                                    numberOfDollarSigns={
-                                        dataType === 'cost'
-                                            ? yVendorData[index]
-                                                  .numberOfDollarSigns?.array
-                                            : undefined
-                                    }
-                                />
-                            ) : (
-                                yVendorData[index]
-                            )}
-                        </TitledTableCell>
-                        {estuaryVendor ? (
-                            <TitledTableCell title={estuaryVendor.name}>
-                                {estuaryVendorData[index].subText ? (
+                {rows.map((row) => {
+                    const xVendorData: any =
+                        getNestedProperty(xVendor, dataType)?.[row.key] ?? {};
+                    const yVendorData: any =
+                        getNestedProperty(yVendor, dataType)?.[row.key] ?? {};
+                    const estuaryVendorData: any = estuaryVendor
+                        ? getNestedProperty(estuaryVendor, dataType)?.[
+                              row.key
+                          ] ?? {}
+                        : {};
+
+                    return (
+                        <tr key={row.key}>
+                            <td>{row.label}</td>
+                            <TitledTableCell title={xVendor.name}>
+                                {xVendorData.subText ? (
                                     <FeatureData
-                                        icon={estuaryVendorData[index].icon}
-                                        subText={
-                                            estuaryVendorData[index].subText
-                                        }
+                                        icon={xVendorData.icon}
+                                        subText={xVendorData.subText}
                                         numberOfDollarSigns={
                                             dataType === 'cost'
-                                                ? estuaryVendorData[index]
+                                                ? xVendorData
                                                       .numberOfDollarSigns
                                                       ?.array
                                                 : undefined
                                         }
                                     />
                                 ) : (
-                                    estuaryVendorData[index]
+                                    xVendorData
                                 )}
                             </TitledTableCell>
-                        ) : null}
-                    </tr>
-                ))}
+                            <TitledTableCell title={yVendor.name}>
+                                {yVendorData.subText ? (
+                                    <FeatureData
+                                        icon={yVendorData.icon}
+                                        subText={yVendorData.subText}
+                                        numberOfDollarSigns={
+                                            dataType === 'cost'
+                                                ? yVendorData
+                                                      .numberOfDollarSigns
+                                                      ?.array
+                                                : undefined
+                                        }
+                                    />
+                                ) : (
+                                    yVendorData
+                                )}
+                            </TitledTableCell>
+                            {estuaryVendor ? (
+                                <TitledTableCell title={estuaryVendor.name}>
+                                    {estuaryVendorData.subText ? (
+                                        <FeatureData
+                                            icon={estuaryVendorData.icon}
+                                            subText={estuaryVendorData.subText}
+                                            numberOfDollarSigns={
+                                                dataType === 'cost'
+                                                    ? estuaryVendorData
+                                                          .numberOfDollarSigns
+                                                          ?.array
+                                                    : undefined
+                                            }
+                                        />
+                                    ) : (
+                                        estuaryVendorData
+                                    )}
+                                </TitledTableCell>
+                            ) : null}
+                        </tr>
+                    );
+                })}
             </>
         );
     }
