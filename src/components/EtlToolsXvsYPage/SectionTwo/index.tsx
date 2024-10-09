@@ -115,9 +115,11 @@ const SectionTwo = ({ xVendor, yVendor, estuaryVendor }: SectionTwoProps) => {
                     if (position.top <= 164) {
                         if (firstDiv) {
                             firstDiv.style.backgroundColor = '#F2F3F5';
+                            firstDiv.style.padding = '8px 24px 8px 24px';
                         }
                     } else if (firstDiv) {
                         firstDiv.style.backgroundColor = '';
+                        firstDiv.style.padding = '24px';
                     }
                 }
             });
