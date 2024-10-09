@@ -6,7 +6,7 @@ import TwitterXOutlinedIcon from '../../../svgs/share-social-icons/twitter-x-out
 import CopyToClipboardButton from '../../../components/CopyToClipboardButton';
 import { socialShareButton } from '../../../components/styles.module.less';
 import { OutboundLink } from '../../../components/OutboundLink';
-import { Container, FailedCopyInput, SocialButtonsWrapper } from './styles';
+import { Container, SocialButtonsWrapper } from './styles';
 
 type ShareArticleProps = {
     article: {
@@ -16,9 +16,6 @@ type ShareArticleProps = {
 };
 
 const ShareArticle = ({ article: { title, slug } }: ShareArticleProps) => {
-    const [isCopied, setIsCopied] = React.useState(false);
-    const [isCopyFailed, setIsCopyFailed] = React.useState(false);
-
     const shareMessage = `Check out the article "${title}"`;
 
     const articleUrl = `https://estuary.dev/${slug}`;
@@ -26,28 +23,11 @@ const ShareArticle = ({ article: { title, slug } }: ShareArticleProps) => {
     const getSocialLinkAriaLabel = (platform: string) =>
         `Click to share article on ${platform}`;
 
-    const copyToClipboard = () => {
-        navigator.clipboard.writeText(articleUrl).then(
-            () => {
-                setIsCopied(true);
-                setIsCopyFailed(false);
-                setTimeout(() => setIsCopied(false), 2000);
-            },
-            () => {
-                setIsCopied(false);
-                setIsCopyFailed(false);
-            }
-        );
-    };
-
     return (
         <Container>
             <span>Share this article</span>
             <SocialButtonsWrapper>
-                <CopyToClipboardButton
-                    isCopied={isCopied}
-                    onCopy={copyToClipboard}
-                />
+                <CopyToClipboardButton contentToCopy={articleUrl} />
                 <OutboundLink
                     target="_blank"
                     aria-label={getSocialLinkAriaLabel('Linkedin')}
@@ -80,9 +60,6 @@ const ShareArticle = ({ article: { title, slug } }: ShareArticleProps) => {
                 >
                     <EmailOutlinedIcon />
                 </OutboundLink>
-                {isCopyFailed ? (
-                    <FailedCopyInput value={articleUrl} variant="filled" />
-                ) : null}
             </SocialButtonsWrapper>
         </Container>
     );

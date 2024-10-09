@@ -1,4 +1,3 @@
-import { TextField } from '@mui/material';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -26,13 +25,5 @@ export const SocialButtonsWrapper = styled.div`
 
     @media (max-width: 1150px) {
         gap: 20px;
-    }
-`;
-
-export const FailedCopyInput = styled(TextField)`
-    width: 100%;
-
-    .MuiInputBase-input {
-        padding: 12px;
     }
 `;
