@@ -14,7 +14,7 @@ const SectionTwo = () => {
                 <div className={cardsWrapper}>
                     <Card
                         title="The Data Engineer's Guide to ELT Alternatives"
-                        buttonHref="/ELT-comparison-guide"
+                        buttonHref="/ELT-alternatives-guide"
                     />
                     <Card
                         title="The Data Engineer's Guide to ETL Alternatives"

@@ -170,6 +170,11 @@
                 "source": "/vs-debezium",
                 "destination": "/etl-tools/estuary-vs-debezium-kafka",
                 "type": 301
+            },
+            {
+                "source": "/ELT-comparison-guide",
+                "destination": "/ELT-alternatives-guide",
+                "type": 301
             }
         ],
         "public": "public",
