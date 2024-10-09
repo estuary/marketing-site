@@ -60,7 +60,7 @@ export const compare = [
     },
     {
         name: 'Estuary vs. Debezium',
-        to: '/etl-tools/estuary-vs-debezium',
+        to: '/etl-tools/estuary-vs-debezium-kafka',
         hasChevronIcon: true,
         Image: () => (
             <StaticImage

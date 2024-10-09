@@ -168,7 +168,7 @@
             },
             {
                 "source": "/vs-debezium",
-                "destination": "/etl-tools/estuary-vs-debezium",
+                "destination": "/etl-tools/estuary-vs-debezium-kafka",
                 "type": 301
             }
         ],
