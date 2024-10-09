@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import { PricingCalculator } from '../../PricingCalculator';
 import {
@@ -7,11 +8,15 @@ import {
     description,
     textWrapper,
     pricingCalculatorWrapper,
+    jumpLinkOffset,
 } from './styles.module.less';
 
 const SectionThree = () => {
     return (
-        <section className={defaultWrapperDark}>
+        <section
+            className={clsx(defaultWrapperDark, jumpLinkOffset)}
+            id="pricing-calculator"
+        >
             <div className={container}>
                 <div className={textWrapper}>
                     <h2 className={title}>PRICING CALCULATOR</h2>
