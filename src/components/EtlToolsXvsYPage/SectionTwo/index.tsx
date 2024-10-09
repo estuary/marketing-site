@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import {
     dashboardRegisterUrl,
     getComparisonSlug,
@@ -65,6 +65,10 @@ const SectionTwo = ({ xVendor, yVendor, estuaryVendor }: SectionTwoProps) => {
         return ![xVendor.id, yVendor.id].includes(estuaryVendor.id);
     }, [xVendor.id, yVendor.id, estuaryVendor.id]);
 
+    const stickyRef1 = useRef<HTMLTableCellElement>(null);
+    const stickyRef2 = useRef<HTMLTableCellElement>(null);
+    const stickyRef3 = useRef<HTMLTableCellElement>(null);
+
     const tableOfContents = useMemo(() => {
         const createVendorItem = (vendor) => ({
             id: vendor.name.replace(' ', '-'),
@@ -98,6 +102,33 @@ const SectionTwo = ({ xVendor, yVendor, estuaryVendor }: SectionTwoProps) => {
             { id: howToChoose.id, heading: howToChoose.heading },
         ];
     }, [xVendor, yVendor, estuaryVendor, isThreeVendorComparison]);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const refs = [stickyRef1, stickyRef2, stickyRef3];
+
+            refs.forEach((ref) => {
+                if (ref.current) {
+                    const position = ref.current.getBoundingClientRect();
+                    const firstDiv = ref.current.querySelector('div');
+
+                    if (position.top <= 164) {
+                        if (firstDiv) {
+                            firstDiv.style.backgroundColor = '#F2F3F5';
+                        }
+                    } else if (firstDiv) {
+                        firstDiv.style.backgroundColor = '';
+                    }
+                }
+            });
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     return (
         <section className={defaultWrapperGrey}>
@@ -135,10 +166,19 @@ const SectionTwo = ({ xVendor, yVendor, estuaryVendor }: SectionTwoProps) => {
                         <thead>
                             <tr>
                                 <th />
-                                <VendorAvatar vendor={xVendor} />
-                                <VendorAvatar vendor={yVendor} />
+                                <VendorAvatar
+                                    ref={stickyRef1}
+                                    vendor={xVendor}
+                                />
+                                <VendorAvatar
+                                    ref={stickyRef2}
+                                    vendor={yVendor}
+                                />
                                 {isThreeVendorComparison ? (
-                                    <VendorAvatar vendor={estuaryVendor} />
+                                    <VendorAvatar
+                                        ref={stickyRef3}
+                                        vendor={estuaryVendor}
+                                    />
                                 ) : null}
                             </tr>
                         </thead>
@@ -201,7 +241,7 @@ const SectionTwo = ({ xVendor, yVendor, estuaryVendor }: SectionTwoProps) => {
                         <strong>Connectivity:</strong> If you&apos;re more
                         concerned about cloud services, Estuary or another
                         modern ELT vendor may be your best option. If you need
-                        more on premises connectivity, you might consider more
+                        more on-premises connectivity, you might consider more
                         traditional ETL vendors.
                     </p>
                     <p>
