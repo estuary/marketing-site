@@ -16,8 +16,6 @@ import {
 } from './styles.module.less';
 import XvsYCard from './XvsYCard';
 
-const ariaTabId = 'vendor-list-tabs';
-
 const a11yProps = (vendorId: string) => ({
     'id': `vendor-tab-${vendorId}`,
     'aria-controls': `vendor-tabpanel-${vendorId}`,
