@@ -2,6 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import { PricingCalculator } from '../../PricingCalculator';
+import CopyToClipboardButton from '../../CopyToClipboardButton';
 import {
     container,
     title,
@@ -19,7 +20,10 @@ const SectionThree = () => {
         >
             <div className={container}>
                 <div className={textWrapper}>
-                    <h2 className={title}>PRICING CALCULATOR</h2>
+                    <div>
+                        <h2 className={title}>PRICING CALCULATOR</h2>
+                        <CopyToClipboardButton contentToCopy="https://www.estuary.dev/pricing/#pricing-calculator" />
+                    </div>
                     <p className={description}>
                         Use our intuitive pricing calculator to easily estimate
                         your monthly costs. Simply input your requirements, and
