@@ -1,9 +1,15 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
-import { dashboardRegisterUrl, webinarsUrl } from '../../../../shared';
+import {
+    dashboardRegisterUrl,
+    docsPageUrl,
+    slackUrl,
+    webinarsUrl,
+} from '../../../../shared';
 import { DefaultWrapperDarkBlue } from '../../../styles/wrappers';
 import { sectionOneImageWrapper } from '../../../globalStyles/sections.module.less';
 import SubscriptionBenefits from '../../SubscriptionBenefits';
+import RecordIcon from '../../../svgs/record-outlined.svg';
 import Card from './Card';
 import {
     ButtonsContainer,
@@ -58,18 +64,12 @@ const SectionOne = () => {
                         description="Learn how to build a pipeline in minutes."
                         isActive
                         href={webinarsUrl}
-                        icon={
-                            <StaticImage
-                                src="../../../svgs/product-page/section-one/record-outlined.svg"
-                                alt="Watch a video to build a pipeline in minutes"
-                                loading="eager"
-                            />
-                        }
+                        icon={<RecordIcon color="#fff" />}
                     />
                     <Card
                         title="QUICKSTART"
                         description="Create a free account and use a tutorial for a pipeline."
-                        href="https://docs.estuary.dev/getting-started/installation/"
+                        href={`${docsPageUrl}/getting-started/installation/`}
                         icon={
                             <StaticImage
                                 src="../../../svgs/product-page/section-one/sign-up-outlined.svg"
@@ -81,7 +81,7 @@ const SectionOne = () => {
                     <Card
                         title="JOIN COMMUNITY"
                         description="Connect with others, and ask the experts."
-                        href="https://estuary-dev.slack.com/join/shared_invite/zt-86nal6yr-VPbv~YfZE9Q~6Zl~gmZdFQ#/shared-invite/email"
+                        href={slackUrl}
                         icon={
                             <StaticImage
                                 src="../../../svgs/product-page/section-one/slack-outlined.svg"

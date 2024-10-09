@@ -5,6 +5,7 @@ import { useMediaQuery } from '@mui/material';
 import { ConnectorType } from '../../../../shared';
 import ConnectorsLink from '../../../components/ConnectorsLink';
 import { DefaultWrapper } from '../../../styles/wrappers';
+import { OutboundLink } from '../../../components/OutboundLink';
 import Cards from './components/Cards';
 import {
     Container,
@@ -75,14 +76,14 @@ const ChangeData = ({ connector: { id, title, type } }: ChangeDataProps) => {
                     />
                     <Observation>
                         <span>Don’t see a connector?</span>
-                        <a
+                        <OutboundLink
                             href="https://github.com/estuary/connectors/issues/new?assignees=&labels=new+connector&projects=&template=request-new-connector-form.yaml&title=Request+a+connector+to+%5Bcapture+from+%7C+materialize+to%5D+%5Byour+favorite+system%5D"
                             target="_blank"
                             rel="noreferrer"
                         >
                             Request and our team will get back to you in 24
                             hours
-                        </a>
+                        </OutboundLink>
                     </Observation>
                 </ContainerContent>
             </Container>

@@ -25,9 +25,7 @@ const strapiConfig = {
         'testimonial',
         'vanity-logo',
         'job-posting',
-        'product-comparison-page',
         'employee',
-        'comparison',
         'podcast',
         {
             singularName: 'case-study',
@@ -39,6 +37,126 @@ const strapiConfig = {
                     About: {
                         populate: {
                             Topics: {
+                                populate: '*',
+                            },
+                        },
+                    },
+                },
+            },
+        },
+        {
+            singularName: 'comparison',
+            queryParams: {
+                populate: {
+                    logo: {
+                        populate: '*',
+                    },
+                    UseCases: {
+                        populate: {
+                            ODS_Replication: {
+                                populate: '*',
+                            },
+                            Data_Integration: {
+                                populate: '*',
+                            },
+                            Data_Migration: {
+                                populate: '*',
+                            },
+                            Stream_Processing: {
+                                populate: '*',
+                            },
+                            Operational_Analytics: {
+                                populate: '*',
+                            },
+                            Data_Science_ML: {
+                                populate: '*',
+                            },
+                            AI_Pipelines: {
+                                populate: '*',
+                            },
+                        },
+                    },
+                    Connectors: {
+                        populate: {
+                            Third_Party: {
+                                populate: '*',
+                            },
+                            Custom_SDK: {
+                                populate: '*',
+                            },
+                            Admin_API: {
+                                populate: '*',
+                            },
+                        },
+                    },
+                    Features: {
+                        populate: {
+                            ETL_Transforms: {
+                                populate: '*',
+                            },
+                            ELT_Transforms: {
+                                populate: '*',
+                            },
+                            Store_Replay: {
+                                populate: '*',
+                            },
+                            Time_Travel: {
+                                populate: '*',
+                            },
+                            Schema_Inference: {
+                                populate: '*',
+                            },
+                            Data_Ops: {
+                                populate: '*',
+                            },
+                            Snapshots: {
+                                populate: '*',
+                            },
+                            easeOfUse: {
+                                populate: '*',
+                            },
+                        },
+                    },
+                    Deployment: {
+                        populate: {
+                            Abilities: {
+                                populate: '*',
+                            },
+                            Security: {
+                                populate: '*',
+                            },
+                        },
+                    },
+                    Support: {
+                        populate: {
+                            Support: '*',
+                        },
+                    },
+                    Cost: {
+                        populate: {
+                            Vendor: {
+                                populate: '*',
+                            },
+                            Data_Engineering: {
+                                populate: '*',
+                            },
+                            Admin: {
+                                populate: '*',
+                            },
+                        },
+                    },
+                    introductoryDetails: {
+                        populate: {
+                            Introduction: {
+                                populate: '*',
+                            },
+                            Pros: {
+                                populate: '*',
+                            },
+                            Cons: {
+                                populate: '*',
+                            },
+                            Pricing: {
                                 populate: '*',
                             },
                         },

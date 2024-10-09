@@ -1,5 +1,6 @@
 import React from 'react';
 import { OutboundLink } from '../OutboundLink';
+import { docsPageUrl } from '../../../shared';
 
 export const sectionSixAdvantages = [
     {
@@ -12,7 +13,7 @@ export const sectionSixAdvantages = [
             <>
                 Use the Flow UI to build without coding, or the{' '}
                 <OutboundLink
-                    href="https://docs.estuary.dev/concepts/flowctl/"
+                    href={`${docsPageUrl}/concepts/flowctl/`}
                     target="_blank"
                 >
                     flowctl
@@ -34,7 +35,7 @@ export const sectionSevenAdvantages = [
             <>
                 Automate DataOps and integrate with other tooling using the{' '}
                 <OutboundLink
-                    href="https://docs.estuary.dev/concepts/flowctl/"
+                    href={`${docsPageUrl}/concepts/flowctl/`}
                     target="_blank"
                 >
                     flowctl
@@ -49,7 +50,7 @@ export const sectionSevenAdvantages = [
             <>
                 Use built-in pipeline{' '}
                 <OutboundLink
-                    href="https://docs.estuary.dev/concepts/tests/"
+                    href={`${docsPageUrl}/concepts/tests/`}
                     target="_blank"
                 >
                     testing
@@ -64,7 +65,7 @@ export const sectionSevenAdvantages = [
             <>
                 Select advanced schema detection and automate{' '}
                 <OutboundLink
-                    href="https://docs.estuary.dev/concepts/advanced/evolutions/"
+                    href={`${docsPageUrl}/concepts/advanced/evolutions/`}
                     target="_blank"
                 >
                     schema evolution

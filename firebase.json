@@ -88,7 +88,7 @@
             },
             {
                 "source": "/airbyte-vs-fivetran-vs-estuary",
-                "destination": "/airbyte-vs-fivetran",
+                "destination": "/etl-tools/airbyte-vs-fivetran",
                 "type": 301
             },
             {
@@ -149,6 +149,31 @@
             {
                 "source": "/source/netsuite-v",
                 "destination": "/source/netsuite-v2",
+                "type": 301
+            },
+            {
+                "source": "/vs-fivetran",
+                "destination": "/etl-tools/estuary-vs-fivetran",
+                "type": 301
+            },
+            {
+                "source": "/vs-airbyte",
+                "destination": "/etl-tools/estuary-vs-airbyte",
+                "type": 301
+            },
+            {
+                "source": "/vs-confluent",
+                "destination": "/etl-tools/estuary-vs-confluent",
+                "type": 301
+            },
+            {
+                "source": "/vs-debezium",
+                "destination": "/etl-tools/estuary-vs-debezium-kafka",
+                "type": 301
+            },
+            {
+                "source": "/ELT-comparison-guide",
+                "destination": "/ELT-alternatives-guide",
                 "type": 301
             }
         ],

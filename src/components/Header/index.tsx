@@ -14,7 +14,7 @@ import {
     globalHeaderLogo,
     globalHeaderTitle,
 } from '../styles.module.less';
-import { dashboardRegisterUrl } from '../../../shared';
+import { dashboardRegisterUrl, slackUrl } from '../../../shared';
 import {
     globalHeader,
     globalHeaderWrapper,
@@ -203,7 +203,7 @@ const Header = ({ fixedHeader }: HeaderProps) => {
                         <div className={headerSocialIcons}>
                             <OutboundLink
                                 target="_blank"
-                                href="https://estuary-dev.slack.com/join/shared_invite/zt-86nal6yr-VPbv~YfZE9Q~6Zl~gmZdFQ#/shared-invite/email"
+                                href={slackUrl}
                                 className={headerSocialIcon}
                                 aria-label="Slack Invite Link"
                             >

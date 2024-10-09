@@ -28,6 +28,7 @@ import ReadingTimeIcon from '../../svgs/time.svg';
 import { dashboardRegisterUrl, getAuthorPathBySlug } from '../../../shared';
 import Avatar from '../../components/Avatar';
 import SocialLinks from '../../components/SocialLinks';
+import BlogBanner from '../../components/BlogBanner';
 import ShareArticle from './ShareArticle';
 import {
     blogPost,
@@ -46,7 +47,6 @@ import {
     mainContent,
     background,
     bigBuildPipelineBannerContainer,
-    buildPipelineBanner,
     postSidebar,
     shareArticleDesktop,
     sidebarRight,
@@ -67,6 +67,7 @@ import {
     authorNameAndRole,
     authorName,
     authorRole,
+    tableOfContentsWrapper,
 } from './styles.module.less';
 
 dayjs.extend(reltime);
@@ -184,27 +185,18 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                 <ProcessedPost
                                     body={post.body.data.childHtmlRehype.html}
                                 />
-
-                                <StraightLinesBackground className={background}>
-                                    <div
-                                        className={
-                                            bigBuildPipelineBannerContainer
-                                        }
-                                    >
-                                        <div className={buildPipelineBanner}>
-                                            <h3>
-                                                Start streaming your data{' '}
-                                                <span>for free</span>
-                                            </h3>
-                                            <OutboundLinkFilled
-                                                href={dashboardRegisterUrl}
-                                                target="_blank"
-                                            >
-                                                Build a Pipeline
-                                            </OutboundLinkFilled>
-                                        </div>
-                                    </div>
-                                </StraightLinesBackground>
+                                <BlogBanner
+                                    title={
+                                        <h3>
+                                            Start streaming your data{' '}
+                                            <span>for free</span>
+                                        </h3>
+                                    }
+                                    button={{
+                                        title: 'Build a Pipeline',
+                                        href: dashboardRegisterUrl,
+                                    }}
+                                />
                             </div>
 
                             <div className={postSidebar}>
@@ -217,7 +209,9 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                     />
                                 </div>
                                 {tableOfContents.length > 0 ? (
-                                    <RenderToc items={tableOfContents} />
+                                    <div className={tableOfContentsWrapper}>
+                                        <RenderToc items={tableOfContents} />
+                                    </div>
                                 ) : null}
                                 <div className={sidebarRight}>
                                     <div className={banner}>

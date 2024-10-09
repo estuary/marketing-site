@@ -1,6 +1,7 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
 import SingleDataflowIcon from '../../../svgs/metric-single-dataflow.svg';
+import { docsPageUrl } from '../../../../shared';
 import {
     Button,
     Container,
@@ -38,7 +39,7 @@ const SectionSix = () => {
                         DataOps that can handle constant change without breaking
                         pipelines.
                     </Description>
-                    <Button href="https://docs.estuary.dev/" target="_blank">
+                    <Button href={docsPageUrl} target="_blank">
                         See the Docs
                     </Button>
                 </RightColumn>

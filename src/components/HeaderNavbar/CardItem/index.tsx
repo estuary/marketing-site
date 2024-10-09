@@ -13,6 +13,7 @@ import {
     TextWrapper,
     Title,
 } from './styles';
+import { contentFooter } from './styles.module.less';
 
 const ItemLink = ({ name, description, Image, to, hasChevronIcon }) => {
     const LinkElement: any = to[0] === '/' ? Link : OutboundLink;
@@ -53,6 +54,7 @@ const HeaderCardItem = ({
     children,
     onlyContent,
     active,
+    contentFooterLink,
     ...props
 }: any) => {
     const [showAll, setShowAll] = React.useState(false);
@@ -85,6 +87,7 @@ const HeaderCardItem = ({
                         <ItemLink key={index} {...item} />
                     ))}
                 {children}
+                <div className={contentFooter}>{contentFooterLink}</div>
             </Content>
         </div>
     );
