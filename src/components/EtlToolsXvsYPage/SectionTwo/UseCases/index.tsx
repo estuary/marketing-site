@@ -1,9 +1,8 @@
 import React from 'react';
-import FeatureData from '../FeatureData';
 import { ComparisonVendors } from '../shared';
-import TitledTableCell from '../TitledTableCell';
+import TableRows from '../TableRows';
 
-const comparisonTableRows = [
+const rows = [
     {
         label: 'Database replication (CDC) - sources',
         key: 'databaseReplication',
@@ -19,50 +18,14 @@ const comparisonTableRows = [
 
 const UseCases = ({ xVendor, yVendor, estuaryVendor }: ComparisonVendors) => {
     return (
-        <>
-            <tr>
-                <th colSpan={4}>Use cases</th>
-            </tr>
-            {comparisonTableRows.map((row) => (
-                <tr key={row.key}>
-                    <td>{row.label}</td>
-                    <TitledTableCell title={xVendor.name}>
-                        {xVendor.useCases[row.key].subText ? (
-                            <FeatureData
-                                icon={xVendor.useCases[row.key]?.icon}
-                                subText={xVendor.useCases[row.key].subText}
-                            />
-                        ) : (
-                            xVendor.useCases[row.key]
-                        )}
-                    </TitledTableCell>
-                    <TitledTableCell title={yVendor.name}>
-                        {yVendor.useCases[row.key].subText ? (
-                            <FeatureData
-                                icon={yVendor.useCases[row.key]?.icon}
-                                subText={yVendor.useCases[row.key].subText}
-                            />
-                        ) : (
-                            yVendor.useCases[row.key]
-                        )}
-                    </TitledTableCell>
-                    {estuaryVendor ? (
-                        <TitledTableCell title={estuaryVendor.name}>
-                            {estuaryVendor.useCases[row.key].subText ? (
-                                <FeatureData
-                                    icon={estuaryVendor.useCases[row.key]?.icon}
-                                    subText={
-                                        estuaryVendor.useCases[row.key].subText
-                                    }
-                                />
-                            ) : (
-                                estuaryVendor.useCases[row.key]
-                            )}
-                        </TitledTableCell>
-                    ) : null}
-                </tr>
-            ))}
-        </>
+        <TableRows
+            title="Use cases"
+            rows={rows}
+            xVendor={xVendor}
+            yVendor={yVendor}
+            estuaryVendor={estuaryVendor}
+            dataType="useCases"
+        />
     );
 };
 

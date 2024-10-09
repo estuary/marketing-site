@@ -1,9 +1,8 @@
 import React from 'react';
-import FeatureData from '../FeatureData';
 import { ComparisonVendors } from '../shared';
-import TitledTableCell from '../TitledTableCell';
+import TableRows from '../TableRows';
 
-const comparisonTableRows = [
+const rows = [
     { label: 'Batch and streaming', key: 'batchingStreaming' },
     { label: 'Delivery guarantee', key: 'deliveryGuarantee' },
     { label: 'Load write method', key: 'loadWhiteMethod' },
@@ -23,50 +22,14 @@ const CoreFeatures = ({
     estuaryVendor,
 }: ComparisonVendors) => {
     return (
-        <>
-            <tr>
-                <th colSpan={4}>Core features</th>
-            </tr>
-            {comparisonTableRows.map((row) => (
-                <tr key={row.key}>
-                    <td>{row.label}</td>
-                    <TitledTableCell title={xVendor.name}>
-                        {xVendor.features[row.key].subText ? (
-                            <FeatureData
-                                icon={xVendor.features[row.key]?.icon}
-                                subText={xVendor.features[row.key]?.subText}
-                            />
-                        ) : (
-                            xVendor.features[row.key]
-                        )}
-                    </TitledTableCell>
-                    <TitledTableCell title={yVendor.name}>
-                        {yVendor.features[row.key].subText ? (
-                            <FeatureData
-                                icon={yVendor.features[row.key]?.icon}
-                                subText={yVendor.features[row.key]?.subText}
-                            />
-                        ) : (
-                            yVendor.features[row.key]
-                        )}
-                    </TitledTableCell>
-                    {estuaryVendor ? (
-                        <TitledTableCell title={estuaryVendor.name}>
-                            {estuaryVendor.features[row.key].subText ? (
-                                <FeatureData
-                                    icon={estuaryVendor.features[row.key]?.icon}
-                                    subText={
-                                        estuaryVendor.features[row.key]?.subText
-                                    }
-                                />
-                            ) : (
-                                estuaryVendor.features[row.key]
-                            )}
-                        </TitledTableCell>
-                    ) : null}
-                </tr>
-            ))}
-        </>
+        <TableRows
+            title="Core features"
+            rows={rows}
+            xVendor={xVendor}
+            yVendor={yVendor}
+            estuaryVendor={estuaryVendor}
+            dataType="features"
+        />
     );
 };
 
