@@ -84,6 +84,7 @@ const SectionThree = ({ estuaryVendor, vendors }: SectionThreeProps) => {
                         {vendors.map(({ id, name, logo }) => (
                             <Tab
                                 key={id}
+                                disableRipple
                                 label={
                                     <div className={tabLabel}>
                                         <GatsbyImage
