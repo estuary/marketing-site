@@ -43,6 +43,9 @@ type XvsYFilterProps = {
     isDarkTheme?: boolean;
 };
 
+const ariaIdOne = 'vendor-select-menu-one';
+const ariaIdTwo = 'vendor-select-menu-two';
+
 const selectMenuProps = {
     slotProps: { paper: { style: { maxHeight: '30vh' } } },
 };
@@ -62,17 +65,29 @@ const XvsYFilter = ({
                 isDarkTheme ? darkTheme : null
             )}
         >
-            <FormControl className={formControl} fullWidth>
+            <FormControl
+                className={formControl}
+                fullWidth
+                aria-controls={ariaIdOne}
+                id={`control-${ariaIdOne}`}
+            >
                 {xSelect.label ? (
-                    <InputLabel>{xSelect.label}</InputLabel>
+                    <InputLabel id={ariaIdOne}>{xSelect.label}</InputLabel>
                 ) : null}
                 <Select
                     label={xSelect.label}
+                    labelId={ariaIdOne}
                     value={xSelect.value}
                     onChange={(evt: any) => xSelect.onChange(evt.target.value)}
                     variant="outlined"
                     MenuProps={selectMenuProps}
                     className={connectorSelect}
+                    aria-labelledby={ariaIdOne}
+                    aria-controls="nothing"
+                    inputProps={{
+                        'id': `input-${ariaIdOne}`,
+                        'aria-controls': 'none',
+                    }}
                 >
                     <MenuItem
                         value={xSelect.placeholder}
@@ -98,17 +113,29 @@ const XvsYFilter = ({
                     ))}
                 </Select>
             </FormControl>
-            <FormControl className={formControl} fullWidth>
+            <FormControl
+                className={formControl}
+                fullWidth
+                aria-controls={ariaIdTwo}
+                id={`control-${ariaIdTwo}`}
+            >
                 {ySelect.label ? (
-                    <InputLabel>{ySelect.label}</InputLabel>
+                    <InputLabel id={ariaIdTwo}>{ySelect.label}</InputLabel>
                 ) : null}
                 <Select
                     label={ySelect.label}
+                    labelId={ariaIdTwo}
                     value={ySelect.value}
                     onChange={(evt: any) => ySelect.onChange(evt.target.value)}
                     variant="outlined"
                     MenuProps={selectMenuProps}
                     className={connectorSelect}
+                    aria-labelledby={ariaIdTwo}
+                    aria-controls="nothing"
+                    inputProps={{
+                        'id': `input-${ariaIdTwo}`,
+                        'aria-controls': 'none',
+                    }}
                 >
                     <MenuItem
                         value={ySelect.placeholder}
