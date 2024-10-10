@@ -190,11 +190,7 @@ export const RenderToc = ({ items }: { items: TocItem[] }) => {
             >
                 <AccordionSummary
                     className={accordionSidePadding}
-                    expandIcon={
-                        <ExpandMoreIcon
-                            sx={{ color: '#47506d', fontSize: '2rem' }}
-                        />
-                    }
+                    expandIcon={<ExpandMoreIcon />}
                 >
                     <Typography className={accordionTitle}>
                         Table of Contents

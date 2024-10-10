@@ -8,7 +8,7 @@ import {
     globalHeaderLogo,
     globalHeaderTitle,
 } from '../styles.module.less';
-import { dashboardRegisterUrl } from '../../../shared';
+import { dashboardRegisterUrl, docsPageUrl } from '../../../shared';
 import { navItems } from './utils';
 import {
     sidebarWrap,
@@ -74,7 +74,7 @@ const Navigation = ({ activePage, setActivePage }) => (
             </OutboundLink>
             <OutboundLink
                 target="_blank"
-                href="https://docs.estuary.dev/"
+                href={docsPageUrl}
                 className={docLink}
             >
                 View Docs

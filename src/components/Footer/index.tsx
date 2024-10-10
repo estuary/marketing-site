@@ -9,7 +9,7 @@ import SlackIcon from '../../svgs/slack-outline.svg';
 import TwitterIcon from '../../svgs/twitter-outline.svg';
 import { ButtonOutlinedPrimary } from '../../globalStyles';
 import NewsletterSignupForm from '../NewsletterSignupForm';
-import { statusPageUrl } from '../../../shared';
+import { docsPageUrl, slackUrl, statusPageUrl } from '../../../shared';
 import {
     footer,
     globalFooterWrapper,
@@ -100,7 +100,7 @@ const Footer = () => {
                         </a>
                         <OutboundLink
                             target="_blank"
-                            href="https://docs.estuary.dev/"
+                            href={docsPageUrl}
                             className={globalFooterRightLink}
                         >
                             Docs
@@ -161,7 +161,7 @@ const Footer = () => {
                     <div className={globalFooterBottomSocial}>
                         <OutboundLink
                             target="_blank"
-                            href="https://estuary-dev.slack.com/join/shared_invite/zt-86nal6yr-VPbv~YfZE9Q~6Zl~gmZdFQ#/shared-invite/email"
+                            href={slackUrl}
                             aria-label="Slack Invite Link"
                         >
                             <SlackIcon className={footerSocialIconStyle} />

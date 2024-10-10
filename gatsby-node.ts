@@ -4,7 +4,7 @@ import { GatsbyNode } from 'gatsby';
 import { createRemoteFileNode } from 'gatsby-source-filesystem';
 import { SUPABASE_CONNECTION_STRING } from './config';
 import { normalizeConnector } from './src/utils';
-import { getAuthorPathBySlug } from './shared';
+import { getAuthorPathBySlug, getComparisonSlug, Vendor } from './shared';
 
 /**
  * Implement Gatsby's Node APIs in this file.
@@ -17,17 +17,17 @@ import { getAuthorPathBySlug } from './shared';
 const path = require('path');
 
 // Define the template for blog and blog post
-const blogPost = path.resolve('./src/templates/blog-post/index.tsx');
-const blog = path.resolve('./src/templates/blog/index.tsx');
-const comparisonTemplate = path.resolve(
-    './src/templates/product-comparison/index.tsx'
-);
+const blogPostTemplate = path.resolve('./src/templates/blog-post/index.tsx');
+const blogTemplate = path.resolve('./src/templates/blog/index.tsx');
+
 const caseStudyTemplate = path.resolve('./src/layouts/CaseStudy/index.tsx');
 
-const connector = path.resolve('./src/templates/connector/index.tsx');
-const connection = path.resolve('./src/templates/connection.tsx');
+const connectorTemplate = path.resolve('./src/templates/connector/index.tsx');
+const connectionTemplate = path.resolve('./src/templates/connection.tsx');
 
-const authorComponent = path.resolve('./src/templates/author/index.tsx');
+const authorTemplate = path.resolve('./src/templates/author/index.tsx');
+
+const comparisonTemplate = path.resolve('./src/templates/etl-tools/index.tsx');
 
 export const createPages: GatsbyNode['createPages'] = async ({
     graphql,
@@ -117,25 +117,50 @@ export const createPages: GatsbyNode['createPages'] = async ({
         });
     });
 
-    // Get all strapi comparison pages
-    const comparisonPages = await graphql<{
-        allStrapiProductComparisonPage: {
-            nodes: {
-                Slug: string;
-                id: string;
-            }[];
+    const comparisonVendors = await graphql<{
+        allStrapiComparison: {
+            nodes: Partial<Vendor>[];
         };
     }>(`
         {
-            allStrapiProductComparisonPage {
+            allStrapiComparison {
                 nodes {
                     id
-                    Slug
+                    slugKey
                 }
             }
         }
     `);
-    if (result.errors || comparisonPages.errors || caseStudyPages.errors) {
+
+    const vendors = comparisonVendors.data?.allStrapiComparison.nodes;
+
+    if (vendors) {
+        vendors.forEach((xVendor) => {
+            vendors.forEach((yVendor) => {
+                if (
+                    xVendor.slugKey &&
+                    yVendor.slugKey &&
+                    xVendor.id !== yVendor.id
+                ) {
+                    createPage({
+                        path: `/${getComparisonSlug(
+                            xVendor.slugKey,
+                            yVendor.slugKey
+                        )}`,
+                        component: comparisonTemplate,
+                        context: {
+                            xVendorId: xVendor.id,
+                            yVendorId: yVendor.id,
+                            estuaryVendorId:
+                                'd829928c-c473-5421-ac0a-f03c45b14993',
+                        },
+                    });
+                }
+            });
+        });
+    }
+
+    if (result.errors || comparisonVendors.errors || caseStudyPages.errors) {
         reporter.panicOnBuild(
             'There was an error loading your blog posts',
             result.errors
@@ -145,21 +170,8 @@ export const createPages: GatsbyNode['createPages'] = async ({
 
     const allPosts = result.data?.allStrapiBlogPost.nodes ?? [];
 
-    const allComparisonPages =
-        comparisonPages.data?.allStrapiProductComparisonPage.nodes;
-
     validateDataExistence(allPosts, 'Posts');
-    validateDataExistence(allComparisonPages, 'Comparison Pages');
-
-    allComparisonPages?.forEach((node) => {
-        createPage({
-            path: node.Slug,
-            component: comparisonTemplate,
-            context: {
-                id: node.id,
-            },
-        });
-    });
+    validateDataExistence(vendors, 'Comparison Pages');
 
     const categories: {
         [key: string]: {
@@ -219,7 +231,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
 
             createPage({
                 path: calculatedPath,
-                component: blog,
+                component: blogTemplate,
                 context: {
                     blogPostIds: pagePostIds,
                     categoryTitle: title,
@@ -275,7 +287,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
 
                     createPage({
                         path: post.Slug,
-                        component: blogPost,
+                        component: blogPostTemplate,
                         context: {
                             id: post.id,
                             previousPostId,
@@ -331,7 +343,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
         } else {
             createPage({
                 path: normalized_connector.slug,
-                component: connector,
+                component: connectorTemplate,
                 context: {
                     id: normalized_connector.id,
                     type: normalized_connector.type,
@@ -344,7 +356,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
                 )) {
                     createPage({
                         path: `/integrations/${normalized_connector.slugified_name}-to-${destination_connector.slugified_name}`,
-                        component: connection,
+                        component: connectionTemplate,
                         context: {
                             source_id: normalized_connector.id,
                             destination_id: destination_connector.id,
@@ -374,7 +386,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
         for (const author of authors.data.allStrapiAuthor.nodes) {
             createPage({
                 path: getAuthorPathBySlug(author.slug),
-                component: authorComponent,
+                component: authorTemplate,
                 context: {
                     id: author.id,
                 },
