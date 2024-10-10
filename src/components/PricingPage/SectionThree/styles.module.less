@@ -1,5 +1,9 @@
 @import '../../../globalStyles/sections.module.less';
 
+.jumpLinkOffset {
+  scroll-margin-top: 32px;
+}
+
 .container {
   .globalMaxWidth;
   display: flex;
@@ -24,6 +28,12 @@
 
   @media (max-width: 1024px) {
     text-align: center;
+  }
+
+  div:first-child {
+    display: flex;
+    align-items: center;
+    gap: 18px;
   }
 }
 

@@ -1,0 +1,58 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 256px;
+  width: 100%;
+  gap: 24px;
+  height: fit-content;
+
+  @media (max-width: 1150px) {
+    max-width: 100%;
+  }
+
+  @media (min-width: 1151px) {
+    position: sticky;
+    top: 140px;
+  }
+
+  @media (max-width: 767px) {
+    padding-right: 0;
+    position: relative !important;
+  }
+}
+
+.shareArticleDesktop {
+  display: flex;
+
+  @media (max-width: 1150px) {
+    display: none;
+  }
+}
+
+.tableOfContentsWrapper {
+  overflow: auto;
+
+  @media (max-width: 1150px) {
+    margin-bottom: 32px;
+  }
+
+  @media (min-width: 769px) {
+    max-height: 45vh;
+
+    @media (max-height: 1160px) {
+      max-height: 36vh;
+    }
+
+    @media (max-height: 1000px) {
+      max-height: 25vh;
+    }
+
+    @media (max-height: 900px) {
+      max-height: 20vh;
+    }
+
+    @media (max-height: 790px) {
+      max-height: 50vh;
+    }
+  }
+}

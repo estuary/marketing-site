@@ -1,0 +1,40 @@
+@import '../styles.module.less';
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.buttonStyling {
+  .socialShareButton;
+
+  transition: background-color,
+    border 300ms ease-in-out;
+
+  background-color: #FFFFFF;
+  border-color: #D7DCE5;
+
+  &:hover {
+    background-color: #f9fafc;
+    border-color: #D7DCE5;
+  }
+}
+
+.isCopiedStyling {
+  background-color: #00A99D30;
+  border-color: #00A99D;
+
+  &:hover {
+    background-color: #00A99D30;
+    border-color: #00A99D;
+  }
+}
+
+.copyFailed {
+  width: 100%;
+
+  .MuiInputBase-input {
+    padding: 12px;
+  }
+}
