@@ -6,6 +6,7 @@ import TwitterXOutlinedIcon from '../../../svgs/share-social-icons/twitter-x-out
 import CopyToClipboardButton from '../../../components/CopyToClipboardButton';
 import { socialShareButton } from '../../../components/styles.module.less';
 import { OutboundLink } from '../../../components/OutboundLink';
+import useWindowExistence from '../../../hooks/useWindowExistence';
 import { Container, SocialButtonsWrapper } from './styles';
 
 type ShareArticleProps = {
@@ -16,9 +17,11 @@ type ShareArticleProps = {
 };
 
 const ShareArticle = ({ article: { title, slug } }: ShareArticleProps) => {
+    const hasWindow = useWindowExistence();
+
     const shareMessage = `Check out the article "${title}"`;
 
-    const articleUrl = `https://estuary.dev/${slug}`;
+    const articleUrl = hasWindow ? `${window.location.origin}/${slug}` : '';
 
     const getSocialLinkAriaLabel = (platform: string) =>
         `Click to share article on ${platform}`;
