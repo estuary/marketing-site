@@ -117,7 +117,7 @@ export const RenderToc = ({ items }: { items: TocItem[] }) => {
         null
     );
     const timeoutRef = React.useRef<NodeJS.Timeout | null>(null);
-    const isMobile = useMediaQuery('(max-width:768px)');
+    const isMobile = useMediaQuery('(max-width: 768px) or (max-height: 790px)');
 
     React.useEffect(() => {
         intersectionObserver.current = new IntersectionObserver(

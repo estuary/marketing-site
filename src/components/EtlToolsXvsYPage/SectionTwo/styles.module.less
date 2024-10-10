@@ -6,7 +6,7 @@
   display: flex;
   gap: 48px;
 
-  @media (max-width: 1240px) {
+  @media (max-width: 1150px) {
     flex-direction: column;
   }
 
@@ -177,47 +177,6 @@
     td:not(:first-child) strong {
       display: none;
     }
-  }
-}
-
-.leftColumn {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  height: 100%;
-
-  @media (min-width: 426px) {
-    min-width: 256px;
-  }
-
-  @media (min-width: 1241px) {
-    position: sticky;
-    top: 140px;
-  }
-}
-
-.tableOfContentsWrapper {
-  overflow: auto;
-  max-height: 70vh;
-
-  @media (max-height: 880px) {
-    max-height: 65vh;
-  }
-
-  @media (max-height: 740px) {
-    max-height: 60vh;
-  }
-
-  @media (max-height: 740px) {
-    max-height: 50vh;
-  }
-
-  @media (max-height: 540px) {
-    max-height: 40vh;
-  }
-
-  @media (max-height: 440px) {
-    display: none;
   }
 }
 

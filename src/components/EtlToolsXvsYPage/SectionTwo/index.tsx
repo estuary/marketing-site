@@ -5,16 +5,9 @@ import {
     Vendor,
 } from '../../../../shared';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
-import ShareArticle from '../../../templates/blog-post/ShareArticle';
 import BlogBanner from '../../BlogBanner';
-import { RenderToc } from '../../BlogPostToc';
-import {
-    container,
-    leftColumn,
-    rightColumn,
-    bold,
-    tableOfContentsWrapper,
-} from './styles.module.less';
+import ArticleSidebar from '../../ArticleSidebar';
+import { container, rightColumn, bold } from './styles.module.less';
 import UseCases from './UseCases';
 import Connectors from './Connectors';
 import CoreFeatures from './CoreFeatures';
@@ -135,20 +128,16 @@ const SectionTwo = ({ xVendor, yVendor, estuaryVendor }: SectionTwoProps) => {
     return (
         <section className={defaultWrapperGrey}>
             <div className={container}>
-                <div className={leftColumn}>
-                    <ShareArticle
-                        article={{
-                            title: `${xVendor.name} vs ${yVendor.name}`,
-                            slug: getComparisonSlug(
-                                xVendor.slugKey,
-                                yVendor.slugKey
-                            ),
-                        }}
-                    />
-                    <div className={tableOfContentsWrapper}>
-                        <RenderToc items={tableOfContents} />
-                    </div>
-                </div>
+                <ArticleSidebar
+                    article={{
+                        title: `${xVendor.name} vs ${yVendor.name}`,
+                        slug: getComparisonSlug(
+                            xVendor.slugKey,
+                            yVendor.slugKey
+                        ),
+                    }}
+                    tableOfContents={tableOfContents}
+                />
                 <div className={rightColumn}>
                     <h2 id={intro.id}>{intro.heading}</h2>
                     <p className={bold}>

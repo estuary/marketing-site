@@ -13,7 +13,6 @@ import StraightLinesBackground from '../../components/BackgroundImages/StraightL
 import { PopularArticles } from '../../components/BlogPopularArticles';
 import BlogPostPopupModal from '../../components/BlogPostPopupModal';
 import { ProcessedPost } from '../../components/BlogPostProcessor';
-import { RenderToc } from '../../components/BlogPostToc';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import {
     OutboundLinkFilled,
@@ -29,6 +28,7 @@ import { dashboardRegisterUrl, getAuthorPathBySlug } from '../../../shared';
 import Avatar from '../../components/Avatar';
 import SocialLinks from '../../components/SocialLinks';
 import BlogBanner from '../../components/BlogBanner';
+import ArticleSidebar from '../../components/ArticleSidebar';
 import ShareArticle from './ShareArticle';
 import {
     blogPost,
@@ -47,10 +47,6 @@ import {
     mainContent,
     background,
     bigBuildPipelineBannerContainer,
-    postSidebar,
-    shareArticleDesktop,
-    sidebarRight,
-    banner,
     popularArticlesWrapper,
     bigBuildPipelineBannerSection,
     bigBuildPipelineBannerContainerLayout,
@@ -67,7 +63,6 @@ import {
     authorNameAndRole,
     authorName,
     authorRole,
-    tableOfContentsWrapper,
 } from './styles.module.less';
 
 dayjs.extend(reltime);
@@ -198,38 +193,13 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                     }}
                                 />
                             </div>
-
-                            <div className={postSidebar}>
-                                <div className={shareArticleDesktop}>
-                                    <ShareArticle
-                                        article={{
-                                            title: post.title,
-                                            slug: post.slug,
-                                        }}
-                                    />
-                                </div>
-                                {tableOfContents.length > 0 ? (
-                                    <div className={tableOfContentsWrapper}>
-                                        <RenderToc items={tableOfContents} />
-                                    </div>
-                                ) : null}
-                                <div className={sidebarRight}>
-                                    <div className={banner}>
-                                        <span>
-                                            Build a <span>Pipeline</span>
-                                        </span>
-                                    </div>
-                                    <h3>
-                                        Start streaming your data{' '}
-                                        <span>for free</span>
-                                    </h3>
-                                    <OutboundLinkFilled
-                                        href={dashboardRegisterUrl}
-                                    >
-                                        Build a Pipeline
-                                    </OutboundLinkFilled>
-                                </div>
-                            </div>
+                            <ArticleSidebar
+                                article={{
+                                    title: post.title,
+                                    slug: post.slug,
+                                }}
+                                tableOfContents={tableOfContents}
+                            />
                         </div>
                     </section>
                 ) : null}
