@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import { PricingCalculator } from '../../PricingCalculator';
 import CopyToClipboardButton from '../../CopyToClipboardButton';
+import useWindowExistence from '../../../hooks/useWindowExistence';
 import {
     container,
     title,
@@ -13,6 +14,8 @@ import {
 } from './styles.module.less';
 
 const SectionThree = () => {
+    const hasWindow = useWindowExistence();
+
     return (
         <section
             className={clsx(defaultWrapperDark, jumpLinkOffset)}
@@ -22,7 +25,11 @@ const SectionThree = () => {
                 <div className={textWrapper}>
                     <div>
                         <h2 className={title}>PRICING CALCULATOR</h2>
-                        <CopyToClipboardButton contentToCopy="https://www.estuary.dev/pricing/#pricing-calculator" />
+                        {hasWindow ? (
+                            <CopyToClipboardButton
+                                contentToCopy={`${window.location.origin}/pricing/#pricing-calculator`}
+                            />
+                        ) : null}
                     </div>
                     <p className={description}>
                         Use our intuitive pricing calculator to easily estimate
