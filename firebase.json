@@ -152,28 +152,28 @@
                 "type": 301
             },
             {
+                "source": "/ELT-comparison-guide",
+                "destination": "/ELT-alternatives-guide",
+                "type": 301
+            },
+            {
                 "source": "/vs-fivetran",
                 "destination": "/etl-tools/estuary-vs-fivetran",
                 "type": 301
             },
             {
                 "source": "/vs-airbyte",
-                "destination": "/etl-tools/estuary-vs-airbyte",
+                "destination": "/etl-tools/airbyte-vs-estuary",
                 "type": 301
             },
             {
                 "source": "/vs-confluent",
-                "destination": "/etl-tools/estuary-vs-confluent",
+                "destination": "/etl-tools/confluent-vs-estuary",
                 "type": 301
             },
             {
                 "source": "/vs-debezium",
-                "destination": "/etl-tools/estuary-vs-debezium-kafka",
-                "type": 301
-            },
-            {
-                "source": "/ELT-comparison-guide",
-                "destination": "/ELT-alternatives-guide",
+                "destination": "/etl-tools/debezium-kafka-vs-estuary",
                 "type": 301
             }
         ],
