@@ -1,5 +1,18 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
+
+const backgroundImageStyling: CSSProperties = {
+    position: 'absolute',
+    right: 0,
+    width: '100%',
+};
+
+const childrenWrapperStyling: CSSProperties = {
+    position: 'relative',
+    display: 'grid',
+    gridArea: '1 / 1',
+    placeItems: 'center',
+};
 
 const BigImageBackground = ({
     children,
@@ -11,22 +24,9 @@ const BigImageBackground = ({
                 alt=""
                 src="../../images/blogs-bg.png"
                 formats={['auto', 'webp', 'avif']}
-                style={{
-                    position: 'absolute',
-                    right: 0,
-                    width: '100%',
-                }}
+                style={backgroundImageStyling}
             />
-            <div
-                style={{
-                    position: 'relative',
-                    display: 'grid',
-                    gridArea: '1/1',
-                    placeItems: 'center',
-                }}
-            >
-                {children}
-            </div>
+            <div style={childrenWrapperStyling}>{children}</div>
         </>
     );
 };
