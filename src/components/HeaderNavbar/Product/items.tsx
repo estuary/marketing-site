@@ -1,5 +1,6 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
+import { getComparisonSlug } from '../../../../shared';
 
 export const products = [
     {
@@ -18,10 +19,13 @@ export const products = [
     },
 ];
 
+const generateComparisonTo = (xVendorSlugKey, yVendorSlugKey) =>
+    `/${getComparisonSlug(xVendorSlugKey, yVendorSlugKey)}`;
+
 export const compare = [
     {
         name: 'Estuary vs. Fivetran',
-        to: '/etl-tools/estuary-vs-fivetran',
+        to: generateComparisonTo('estuary', 'fivetran'),
         hasChevronIcon: true,
         Image: () => (
             <StaticImage
@@ -34,7 +38,7 @@ export const compare = [
     },
     {
         name: 'Estuary vs. Confluent',
-        to: '/etl-tools/estuary-vs-confluent',
+        to: generateComparisonTo('confluent', 'estuary'),
         hasChevronIcon: true,
         Image: () => (
             <StaticImage
@@ -47,7 +51,7 @@ export const compare = [
     },
     {
         name: 'Estuary vs. Airbyte',
-        to: '/etl-tools/estuary-vs-airbyte',
+        to: generateComparisonTo('airbyte', 'estuary'),
         hasChevronIcon: true,
         Image: () => (
             <StaticImage
@@ -60,7 +64,7 @@ export const compare = [
     },
     {
         name: 'Estuary vs. Debezium',
-        to: '/etl-tools/estuary-vs-debezium-kafka',
+        to: generateComparisonTo('debezium-kafka', 'estuary'),
         hasChevronIcon: true,
         Image: () => (
             <StaticImage
