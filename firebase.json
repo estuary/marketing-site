@@ -152,28 +152,303 @@
                 "type": 301
             },
             {
+                "source": "/ELT-comparison-guide",
+                "destination": "/ELT-alternatives-guide",
+                "type": 301
+            },
+            {
                 "source": "/vs-fivetran",
                 "destination": "/etl-tools/estuary-vs-fivetran",
                 "type": 301
             },
             {
                 "source": "/vs-airbyte",
-                "destination": "/etl-tools/estuary-vs-airbyte",
+                "destination": "/etl-tools/airbyte-vs-estuary",
                 "type": 301
             },
             {
                 "source": "/vs-confluent",
-                "destination": "/etl-tools/estuary-vs-confluent",
+                "destination": "/etl-tools/confluent-vs-estuary",
                 "type": 301
             },
             {
                 "source": "/vs-debezium",
-                "destination": "/etl-tools/estuary-vs-debezium-kafka",
+                "destination": "/etl-tools/debezium-kafka-vs-estuary",
                 "type": 301
             },
             {
-                "source": "/ELT-comparison-guide",
-                "destination": "/ELT-alternatives-guide",
+                "source": "/etl-tools/debezium-kafka-vs-confluent",
+                "destination": "/etl-tools/confluent-vs-debezium-kafka",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/estuary-vs-confluent",
+                "destination": "/etl-tools/confluent-vs-estuary",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/fivetran-vs-confluent",
+                "destination": "/etl-tools/confluent-vs-fivetran",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/hevo-vs-confluent",
+                "destination": "/etl-tools/confluent-vs-hevo",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/informatica-vs-confluent",
+                "destination": "/etl-tools/confluent-vs-informatica",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/matillion-vs-confluent",
+                "destination": "/etl-tools/confluent-vs-matillion",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/meltano-vs-confluent",
+                "destination": "/etl-tools/confluent-vs-meltano",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/rivery-vs-confluent",
+                "destination": "/etl-tools/confluent-vs-rivery",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/striim-vs-confluent",
+                "destination": "/etl-tools/confluent-vs-striim",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/talend-vs-confluent",
+                "destination": "/etl-tools/confluent-vs-talend",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/estuary-vs-debezium-kafka",
+                "destination": "/etl-tools/debezium-kafka-vs-estuary",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/fivetran-vs-debezium-kafka",
+                "destination": "/etl-tools/debezium-kafka-vs-fivetran",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/hevo-vs-debezium-kafka",
+                "destination": "/etl-tools/debezium-kafka-vs-hevo",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/informatica-vs-debezium-kafka",
+                "destination": "/etl-tools/debezium-kafka-vs-informatica",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/matillion-vs-debezium-kafka",
+                "destination": "/etl-tools/debezium-kafka-vs-matillion",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/meltano-vs-debezium-kafka",
+                "destination": "/etl-tools/debezium-kafka-vs-meltano",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/rivery-vs-debezium-kafka",
+                "destination": "/etl-tools/debezium-kafka-vs-rivery",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/striim-vs-debezium-kafka",
+                "destination": "/etl-tools/debezium-kafka-vs-striim",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/talend-vs-debezium-kafka",
+                "destination": "/etl-tools/debezium-kafka-vs-talend",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/fivetran-vs-estuary",
+                "destination": "/etl-tools/estuary-vs-fivetran",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/hevo-vs-estuary",
+                "destination": "/etl-tools/estuary-vs-hevo",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/informatica-vs-estuary",
+                "destination": "/etl-tools/estuary-vs-informatica",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/matillion-vs-estuary",
+                "destination": "/etl-tools/estuary-vs-matillion",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/meltano-vs-estuary",
+                "destination": "/etl-tools/estuary-vs-meltano",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/rivery-vs-estuary",
+                "destination": "/etl-tools/estuary-vs-rivery",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/striim-vs-estuary",
+                "destination": "/etl-tools/estuary-vs-striim",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/talend-vs-estuary",
+                "destination": "/etl-tools/estuary-vs-talend",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/hevo-vs-fivetran",
+                "destination": "/etl-tools/fivetran-vs-hevo",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/informatica-vs-fivetran",
+                "destination": "/etl-tools/fivetran-vs-informatica",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/matillion-vs-fivetran",
+                "destination": "/etl-tools/fivetran-vs-matillion",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/meltano-vs-fivetran",
+                "destination": "/etl-tools/fivetran-vs-meltano",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/rivery-vs-fivetran",
+                "destination": "/etl-tools/fivetran-vs-rivery",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/striim-vs-fivetran",
+                "destination": "/etl-tools/fivetran-vs-striim",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/talend-vs-fivetran",
+                "destination": "/etl-tools/fivetran-vs-talend",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/informatica-vs-hevo",
+                "destination": "/etl-tools/hevo-vs-informatica",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/matillion-vs-hevo",
+                "destination": "/etl-tools/hevo-vs-matillion",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/meltano-vs-hevo",
+                "destination": "/etl-tools/hevo-vs-meltano",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/rivery-vs-hevo",
+                "destination": "/etl-tools/hevo-vs-rivery",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/striim-vs-hevo",
+                "destination": "/etl-tools/hevo-vs-striim",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/talend-vs-hevo",
+                "destination": "/etl-tools/hevo-vs-talend",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/matillion-vs-informatica",
+                "destination": "/etl-tools/informatica-vs-matillion",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/meltano-vs-informatica",
+                "destination": "/etl-tools/informatica-vs-meltano",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/rivery-vs-informatica",
+                "destination": "/etl-tools/informatica-vs-rivery",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/striim-vs-informatica",
+                "destination": "/etl-tools/informatica-vs-striim",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/talend-vs-informatica",
+                "destination": "/etl-tools/informatica-vs-talend",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/meltano-vs-matillion",
+                "destination": "/etl-tools/matillion-vs-meltano",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/rivery-vs-matillion",
+                "destination": "/etl-tools/matillion-vs-rivery",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/striim-vs-matillion",
+                "destination": "/etl-tools/matillion-vs-striim",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/talend-vs-matillion",
+                "destination": "/etl-tools/matillion-vs-talend",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/rivery-vs-meltano",
+                "destination": "/etl-tools/meltano-vs-rivery",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/striim-vs-meltano",
+                "destination": "/etl-tools/meltano-vs-striim",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/talend-vs-meltano",
+                "destination": "/etl-tools/meltano-vs-talend",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/striim-vs-rivery",
+                "destination": "/etl-tools/rivery-vs-striim",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/talend-vs-rivery",
+                "destination": "/etl-tools/rivery-vs-talend",
+                "type": 301
+            },
+            {
+                "source": "/etl-tools/talend-vs-striim",
+                "destination": "/etl-tools/striim-vs-talend",
                 "type": 301
             }
         ],
