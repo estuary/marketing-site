@@ -135,13 +135,9 @@ export const createPages: GatsbyNode['createPages'] = async ({
     const vendors = comparisonVendors.data?.allStrapiComparison.nodes;
 
     if (vendors) {
-        vendors.forEach((xVendor) => {
-            vendors.forEach((yVendor) => {
-                if (
-                    xVendor.slugKey &&
-                    yVendor.slugKey &&
-                    xVendor.id !== yVendor.id
-                ) {
+        vendors.forEach((xVendor, i) => {
+            vendors.slice(i + 1).forEach((yVendor) => {
+                if (xVendor.slugKey && yVendor.slugKey) {
                     createPage({
                         path: `/${getComparisonSlug(
                             xVendor.slugKey,

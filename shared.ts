@@ -36,7 +36,13 @@ export const getAuthorPathBySlug = (slug: string) =>
 export const getComparisonSlug = (
     xVendorSlugKey: string,
     yVendorSlugKey: string
-) => `etl-tools/${xVendorSlugKey}-vs-${yVendorSlugKey}`;
+) => {
+    const [firstVendorSlugKey, secondVendorSlugKey] = [
+        xVendorSlugKey,
+        yVendorSlugKey,
+    ].sort();
+    return `etl-tools/${firstVendorSlugKey}-vs-${secondVendorSlugKey}`;
+};
 
 export interface SubText {
     data: {
