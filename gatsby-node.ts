@@ -123,7 +123,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
         };
     }>(`
         {
-            allStrapiComparison {
+            allStrapiComparison(sort: { slugKey: ASC }) {
                 nodes {
                     id
                     slugKey
