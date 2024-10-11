@@ -1,34 +1,33 @@
-import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-import BackgroundImage from 'gatsby-background-image';
-import { backgroundIndexWrapper } from './styles.module.less';
+import { StaticImage } from 'gatsby-plugin-image';
 
 const BigImageBackground = ({
     children,
-    ...rest
 }: React.BaseHTMLAttributes<HTMLDivElement>) => {
-    const imageData = useStaticQuery(graphql`
-        query {
-            background: file(relativePath: { eq: "blogs-bg.png" }) {
-                childImageSharp {
-                    fluid(quality: 90, maxWidth: 1920) {
-                        ...GatsbyImageSharpFluid_withWebp_noBase64
-                    }
-                }
-            }
-        }
-    `);
-
     return (
-        <BackgroundImage
-            fadeIn={false}
-            critical
-            className={backgroundIndexWrapper}
-            fluid={imageData.background.childImageSharp.fluid}
-            {...{ ...{ children, rest }, children: undefined }}
-        >
-            {children}
-        </BackgroundImage>
+        <>
+            <StaticImage
+                layout="fullWidth"
+                alt=""
+                src="../../images/blogs-bg.png"
+                formats={['auto', 'webp', 'avif']}
+                style={{
+                    position: 'absolute',
+                    right: 0,
+                    width: '100%',
+                }}
+            />
+            <div
+                style={{
+                    position: 'relative',
+                    display: 'grid',
+                    gridArea: '1/1',
+                    placeItems: 'center',
+                }}
+            >
+                {children}
+            </div>
+        </>
     );
 };
 
