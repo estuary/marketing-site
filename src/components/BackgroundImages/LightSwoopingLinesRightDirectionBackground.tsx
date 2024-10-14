@@ -7,6 +7,7 @@ import {
     backgroundImage,
     swoopingLines,
 } from './styles.module.less';
+import { backgroundColors } from './shared';
 
 type LightSwoopingLinesRightDirectionBackgroundProps = IBackgroundImageProps & {
     children?: React.ReactNode;
@@ -24,7 +25,7 @@ const LightSwoopingLinesRightDirectionBackground = ({
                 className={clsx(backgroundImage, swoopingLines)}
                 placeholder="blurred"
                 quality={100}
-                backgroundColor="#f9fafc"
+                backgroundColor={backgroundColors.light}
             />
             <div className={className}>{children}</div>
         </div>
