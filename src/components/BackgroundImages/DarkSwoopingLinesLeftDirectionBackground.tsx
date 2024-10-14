@@ -1,13 +1,14 @@
-import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 
-import BackgroundImage, {
-    IBackgroundImageProps,
-} from 'gatsby-background-image';
+import { IBackgroundImageProps } from 'gatsby-background-image';
 
 import clsx from 'clsx';
-import { sectionTopBottomPadding } from '../../globalStyles/sections.module.less';
-import { commonBackgroundImageProps } from './utils';
+import { StaticImage } from 'gatsby-plugin-image';
+import {
+    container,
+    backgroundImage,
+    swoopingLines,
+} from './styles.module.less';
 
 type DarkSwoopingLinesLeftDirectionBackgroundProps = IBackgroundImageProps & {
     children?: React.ReactNode;
@@ -16,31 +17,19 @@ type DarkSwoopingLinesLeftDirectionBackgroundProps = IBackgroundImageProps & {
 const DarkSwoopingLinesLeftDirectionBackground = ({
     children,
     className,
-    ...rest
 }: DarkSwoopingLinesLeftDirectionBackgroundProps) => {
-    const swoopingLines = useStaticQuery(graphql`
-        query {
-            imageData: file(relativePath: { eq: "overlay-vector-left.png" }) {
-                childImageSharp {
-                    fluid(quality: 90, maxWidth: 2170) {
-                        ...GatsbyImageSharpFluid_withWebp_noBase64
-                    }
-                }
-            }
-        }
-    `);
-
     return (
-        <BackgroundImage
-            Tag="section"
-            fluid={swoopingLines.imageData.childImageSharp.fluid}
-            backgroundColor="#04192b"
-            className={clsx(sectionTopBottomPadding, className)}
-            {...commonBackgroundImageProps}
-            {...rest}
-        >
-            {children}
-        </BackgroundImage>
+        <div className={container}>
+            <StaticImage
+                alt=""
+                src="../../images/overlay-vector-left.png"
+                className={clsx(backgroundImage, swoopingLines)}
+                placeholder="blurred"
+                quality={100}
+                backgroundColor="#04192b"
+            />
+            <div className={className}>{children}</div>
+        </div>
     );
 };
 

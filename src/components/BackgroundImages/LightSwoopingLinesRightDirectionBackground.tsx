@@ -24,6 +24,7 @@ const LightSwoopingLinesRightDirectionBackground = ({
                 className={clsx(backgroundImage, swoopingLines)}
                 placeholder="blurred"
                 quality={100}
+                backgroundColor="#f9fafc"
             />
             <div className={className}>{children}</div>
         </div>
