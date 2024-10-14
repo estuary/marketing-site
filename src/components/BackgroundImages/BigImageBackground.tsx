@@ -23,8 +23,8 @@ const BigImageBackground = ({
                 layout="fullWidth"
                 alt=""
                 src="../../images/blogs-bg.png"
-                formats={['auto', 'webp', 'avif']}
                 style={backgroundImageStyling}
+                placeholder="blurred"
             />
             <div style={childrenWrapperStyling}>{children}</div>
         </>
