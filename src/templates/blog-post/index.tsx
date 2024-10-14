@@ -45,10 +45,10 @@ import {
     blogPostContent,
     blogPostContentWrapper,
     mainContent,
-    background,
     bigBuildPipelineBannerContainer,
     popularArticlesWrapper,
     bigBuildPipelineBannerSection,
+    bigBuildPipelineBannerWrapper,
     bigBuildPipelineBannerContainerLayout,
     leftColumnContainer,
     rightColumnContainer,
@@ -315,8 +315,10 @@ const BlogPostTemplate = ({ data: { post } }) => {
                     <PopularArticles />
                 </section>
                 <section className={bigBuildPipelineBannerSection}>
-                    <StraightLinesBackground className={background}>
-                        <div className={bigBuildPipelineBannerContainer}>
+                    <div className={bigBuildPipelineBannerWrapper}>
+                        <StraightLinesBackground
+                            className={bigBuildPipelineBannerContainer}
+                        >
                             <div
                                 className={
                                     bigBuildPipelineBannerContainerLayout
@@ -372,8 +374,8 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                     See Pricing
                                 </OutboundLinkOutlined>
                             </div>
-                        </div>
-                    </StraightLinesBackground>
+                        </StraightLinesBackground>
+                    </div>
                 </section>
             </article>
             <BlogPostPopupModal />

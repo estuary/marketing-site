@@ -1,43 +1,32 @@
-import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
+import clsx from 'clsx';
+import { StaticImage } from 'gatsby-plugin-image';
+import {
+    container,
+    backgroundImage,
+    swoopingLines,
+} from './styles.module.less';
 
-import BackgroundImage, {
-    IBackgroundImageProps,
-} from 'gatsby-background-image';
-
-import { commonBackgroundImageProps } from './utils';
-
-type StraightLinesBackgroundProps = IBackgroundImageProps & {
+type StraightLinesBackgroundProps = {
     children?: React.ReactNode;
 } & React.HTMLAttributes<HTMLDivElement>;
 
 const StraightLinesBackground = ({
     children,
-    ...rest
+    className,
 }: StraightLinesBackgroundProps) => {
-    const swoopingLines = useStaticQuery(graphql`
-        query {
-            imageData: file(
-                relativePath: { eq: "lp-connector/real-time/Vector.png" }
-            ) {
-                childImageSharp {
-                    fluid(quality: 90, maxWidth: 1356) {
-                        ...GatsbyImageSharpFluid_withWebp_noBase64
-                    }
-                }
-            }
-        }
-    `);
-
     return (
-        <BackgroundImage
-            fluid={swoopingLines.imageData.childImageSharp.fluid}
-            backgroundColor="#04192b"
-            {...commonBackgroundImageProps}
-            {...rest}
-        >
-            {children}
-        </BackgroundImage>
+        <div className={container}>
+            <StaticImage
+                alt=""
+                src="../../images/lp-connector/real-time/Vector.png"
+                className={clsx(backgroundImage, swoopingLines)}
+                placeholder="blurred"
+                quality={100}
+                backgroundColor="#04192b"
+            />
+            <div className={className}>{children}</div>
+        </div>
     );
 };
 

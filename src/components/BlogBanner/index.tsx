@@ -13,16 +13,16 @@ interface BlogBanner {
 
 const BlogBanner = ({ title, button }: BlogBanner) => {
     return (
-        <StraightLinesBackground className={background}>
-            <div className={container}>
+        <div className={background}>
+            <StraightLinesBackground className={container}>
                 <div className={banner}>
                     {title}
                     <OutboundLinkFilled href={button.href} target="_blank">
                         {button.title}
                     </OutboundLinkFilled>
                 </div>
-            </div>
-        </StraightLinesBackground>
+            </StraightLinesBackground>
+        </div>
     );
 };
 
