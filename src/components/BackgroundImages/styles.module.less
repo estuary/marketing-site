@@ -3,12 +3,25 @@
 .container {
   .sectionTopBottomPadding;
   position: relative;
-  background-color: #f9fafc;
 }
 
-.background-image {
+.backgroundImage {
   position: absolute !important;
   width: 100%;
   top: 0;
+  z-index: -1;
+}
+
+.swoopingLines {
+  background-color: #f9fafc;
   bottom: 0;
+}
+
+.bigVector {
+  max-height: 100vh;
+
+  @media(min-width: 1700px) {
+    max-height: 100vh;
+    bottom: 0;
+  }
 }
