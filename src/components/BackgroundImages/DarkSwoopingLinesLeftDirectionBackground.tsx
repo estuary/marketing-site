@@ -2,8 +2,9 @@ import React from 'react';
 
 import clsx from 'clsx';
 import { StaticImage } from 'gatsby-plugin-image';
-import { container, backgroundImage, fullHeight } from './styles.module.less';
+import { backgroundImage, fullHeight } from './styles.module.less';
 import { backgroundColors } from './shared';
+import BackgroundWrapper from './BackgroundWrapper';
 
 type DarkSwoopingLinesLeftDirectionBackgroundProps = {
     children?: React.ReactNode;
@@ -14,7 +15,7 @@ const DarkSwoopingLinesLeftDirectionBackground = ({
     className,
 }: DarkSwoopingLinesLeftDirectionBackgroundProps) => {
     return (
-        <div className={container}>
+        <BackgroundWrapper>
             <StaticImage
                 alt=""
                 src="../../images/overlay-vector-left.png"
@@ -24,7 +25,7 @@ const DarkSwoopingLinesLeftDirectionBackground = ({
                 backgroundColor={backgroundColors.dark}
             />
             <div className={className}>{children}</div>
-        </div>
+        </BackgroundWrapper>
     );
 };
 

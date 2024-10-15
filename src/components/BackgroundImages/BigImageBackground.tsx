@@ -1,14 +1,15 @@
 import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import clsx from 'clsx';
-import { container, backgroundImage, bigVector } from './styles.module.less';
+import { backgroundImage, bigVector } from './styles.module.less';
+import BackgroundWrapper from './BackgroundWrapper';
 
 const BigImageBackground = ({
     children,
     className,
 }: React.BaseHTMLAttributes<HTMLDivElement>) => {
     return (
-        <div className={container}>
+        <BackgroundWrapper>
             <StaticImage
                 alt=""
                 src="../../images/blogs-bg.png"
@@ -17,7 +18,7 @@ const BigImageBackground = ({
                 quality={100}
             />
             <div className={className}>{children}</div>
-        </div>
+        </BackgroundWrapper>
     );
 };
 

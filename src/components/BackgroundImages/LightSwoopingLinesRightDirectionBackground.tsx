@@ -1,8 +1,9 @@
 import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import clsx from 'clsx';
-import { container, backgroundImage, fullHeight } from './styles.module.less';
+import { backgroundImage, fullHeight } from './styles.module.less';
 import { backgroundColors } from './shared';
+import BackgroundWrapper from './BackgroundWrapper';
 
 type LightSwoopingLinesRightDirectionBackgroundProps = {
     children?: React.ReactNode;
@@ -13,7 +14,7 @@ const LightSwoopingLinesRightDirectionBackground = ({
     className,
 }: LightSwoopingLinesRightDirectionBackgroundProps) => {
     return (
-        <div className={container}>
+        <BackgroundWrapper>
             <StaticImage
                 alt=""
                 src="../../images/swooping-lines-to-the-right.png"
@@ -23,7 +24,7 @@ const LightSwoopingLinesRightDirectionBackground = ({
                 backgroundColor={backgroundColors.light}
             />
             <div className={className}>{children}</div>
-        </div>
+        </BackgroundWrapper>
     );
 };
 

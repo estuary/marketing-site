@@ -1,7 +1,8 @@
 import React from 'react';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { graphql, useStaticQuery } from 'gatsby';
-import { container, backgroundImage } from './styles.module.less';
+import { backgroundImage } from './styles.module.less';
+import BackgroundWrapper from './BackgroundWrapper';
 
 interface WhyPageStepsBackgroundProps
     extends React.BaseHTMLAttributes<HTMLDivElement> {
@@ -76,7 +77,7 @@ const WhyPageStepsBackground = ({
             : step6Image;
 
     return (
-        <div className={container}>
+        <BackgroundWrapper>
             {stepsImage ? (
                 <GatsbyImage
                     alt=""
@@ -85,7 +86,7 @@ const WhyPageStepsBackground = ({
                 />
             ) : null}
             <div className={className}>{children}</div>
-        </div>
+        </BackgroundWrapper>
     );
 };
 

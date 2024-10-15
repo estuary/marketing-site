@@ -1,18 +1,15 @@
 import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import clsx from 'clsx';
-import {
-    container,
-    backgroundImage,
-    cdcBackgroundImage,
-} from './styles.module.less';
+import { backgroundImage, cdcBackgroundImage } from './styles.module.less';
+import BackgroundWrapper from './BackgroundWrapper';
 
 const CdcBackground = ({
     children,
     className,
 }: React.BaseHTMLAttributes<HTMLDivElement>) => {
     return (
-        <div className={container}>
+        <BackgroundWrapper>
             <StaticImage
                 alt=""
                 src="../../images/lp-connector/change-data/background.png"
@@ -21,7 +18,7 @@ const CdcBackground = ({
                 quality={100}
             />
             <div className={className}>{children}</div>
-        </div>
+        </BackgroundWrapper>
     );
 };
 
