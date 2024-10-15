@@ -1,32 +1,13 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
-import { graphql, useStaticQuery } from 'gatsby';
 import Card from '../Card';
 
 import { Container, ContainerCards } from './style';
 
 const TheAutomationCards = ({ $reverseDesktop = false }) => {
-    const imageData = useStaticQuery(graphql`
-        query {
-            imageData: file(
-                relativePath: { eq: "lp-connector/change-data/background.png" }
-            ) {
-                childImageSharp {
-                    fluid(quality: 90, maxWidth: 378) {
-                        ...GatsbyImageSharpFluid_withWebp_noBase64
-                    }
-                }
-            }
-        }
-    `);
-
     return (
-        <Container
-            fluid={imageData.imageData.childImageSharp.fluid}
-            fadeIn={false}
-            critical={true}
-        >
+        <Container>
             <ContainerCards>
                 <Card
                     title="HIGH THROUGHPUT"

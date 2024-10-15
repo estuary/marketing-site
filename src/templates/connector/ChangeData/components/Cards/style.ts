@@ -1,19 +1,17 @@
 import styled from 'styled-components';
 
-import BackgroundImage from 'gatsby-background-image';
+import CdcBackground from '../../../../../components/BackgroundImages/CdcBackground';
 
 interface ContainerCardsProps {
     $reverseDesktop: boolean;
-    $isBottomCard?: boolean;
 }
 
-export const Container = styled(BackgroundImage)`
+export const Container = styled(CdcBackground)`
     display: flex;
     flex-direction: column;
-    gap: 219px;
-    background-size: 378px;
+    gap: 120px;
 
-    @media (min-width: 1024px) {
+    @media (min-width: 1170px) {
         flex-direction: column-reverse;
     }
 `;
@@ -23,7 +21,7 @@ export const ContainerCards: any = styled.div<ContainerCardsProps>`
     flex-direction: column-reverse;
     gap: 20px;
 
-    @media (min-width: 1024px) {
+    @media (min-width: 1170px) {
         display: flex;
         flex-direction: ${({ $reverseDesktop }) =>
             $reverseDesktop ? 'column' : 'row'};
@@ -35,7 +33,14 @@ export const ContainerCards: any = styled.div<ContainerCardsProps>`
         }
     }
 
+    @media (min-width: 1025px) {
+        align-items: center;
+    }
+
     @media (max-width: 425px) {
-        margin-top: ${({ $isBottomCard }) => ($isBottomCard ? '-200px' : '0')};
+        div {
+            border-radius: 24px;
+            padding: 12px;
+        }
     }
 `;

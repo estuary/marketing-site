@@ -1,6 +1,5 @@
 import React from 'react';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import clsx from 'clsx';
 import { graphql, useStaticQuery } from 'gatsby';
 import { container, backgroundImage } from './styles.module.less';
 
@@ -82,7 +81,7 @@ const WhyPageStepsBackground = ({
                 <GatsbyImage
                     alt=""
                     image={stepsImage}
-                    className={clsx(backgroundImage)}
+                    className={backgroundImage}
                 />
             ) : null}
             <div className={className}>{children}</div>
