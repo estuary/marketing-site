@@ -30,7 +30,7 @@ interface AuthorBlogPostCardProps {
         };
         tags: { type: string; name: string }[];
         authors: { id: string; name: string; role?: string; picture?: any }[];
-        hero: { alternativeText: string; localFile: any };
+        hero: { alternativeText?: string; localFile: any };
     };
 }
 
@@ -59,7 +59,7 @@ const AuthorBlogPostCard = ({ data: blogPost }: AuthorBlogPostCardProps) => {
         <Link to={`/${blogPost.slug}`} className={container}>
             <GatsbyImage
                 image={blogPostImage}
-                alt={blogPost.hero.alternativeText}
+                alt={blogPost.hero.alternativeText ?? 'Blog post image'}
                 className={popularArticlesImage}
             />
             <div className={articleCardHeader}>

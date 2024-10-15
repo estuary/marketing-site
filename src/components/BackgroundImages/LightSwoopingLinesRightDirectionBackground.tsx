@@ -1,48 +1,26 @@
-import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-
-import BackgroundImage, {
-    IBackgroundImageProps,
-} from 'gatsby-background-image';
-
+import { StaticImage } from 'gatsby-plugin-image';
 import clsx from 'clsx';
-import { sectionTopBottomPadding } from '../../globalStyles/sections.module.less';
-import { commonBackgroundImageProps } from './utils';
-
-type LightSwoopingLinesRightDirectionBackgroundProps = IBackgroundImageProps & {
-    children?: React.ReactNode;
-} & React.HTMLAttributes<HTMLDivElement>;
+import { backgroundImage, fullHeight } from './styles.module.less';
+import { backgroundColors } from './shared';
+import BackgroundWrapper from './BackgroundWrapper';
 
 const LightSwoopingLinesRightDirectionBackground = ({
     children,
     className,
-    ...rest
-}: LightSwoopingLinesRightDirectionBackgroundProps) => {
-    const swoopingLines = useStaticQuery(graphql`
-        query {
-            imageData: file(
-                relativePath: { eq: "lp-connector/hero/Vector.png" }
-            ) {
-                childImageSharp {
-                    fluid(quality: 90, maxWidth: 2170) {
-                        ...GatsbyImageSharpFluid_withWebp_noBase64
-                    }
-                }
-            }
-        }
-    `);
-
+}: React.HTMLAttributes<HTMLDivElement>) => {
     return (
-        <BackgroundImage
-            Tag="section"
-            fluid={swoopingLines.imageData.childImageSharp.fluid}
-            backgroundColor="#f9fafc"
-            className={clsx(sectionTopBottomPadding, className)}
-            {...commonBackgroundImageProps}
-            {...rest}
-        >
-            {children}
-        </BackgroundImage>
+        <BackgroundWrapper>
+            <StaticImage
+                alt=""
+                src="../../images/swooping-lines-to-the-right.png"
+                className={clsx(backgroundImage, fullHeight)}
+                placeholder="blurred"
+                quality={100}
+                backgroundColor={backgroundColors.light}
+            />
+            <div className={className}>{children}</div>
+        </BackgroundWrapper>
     );
 };
 

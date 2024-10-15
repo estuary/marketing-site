@@ -1,6 +1,50 @@
-.backgroundIndexWrapper {
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: top right;
-  padding-bottom: 2rem;
+@import '../../globalStyles/sections.module.less';
+
+.wrapper {
+  position: relative;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.backgroundImage {
+  position: absolute !important;
+  width: 100%;
+  top: 0;
+  z-index: -1;
+}
+
+.fullHeight {
+  bottom: 0;
+}
+
+.bigVector {
+  max-height: 100vh;
+
+  @media(min-width: 1700px) {
+    max-height: 100vh;
+    bottom: 0;
+  }
+}
+
+.cdcBackgroundImage {
+  max-width: 378px;
+  max-height: 374px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  @media (max-width: 1170px) {
+    top: 25%;
+  }
+}
+
+.bubbleCircleBackgroundImage {
+  z-index: 0;
+  max-height: 478px;
+  max-width: 547px;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

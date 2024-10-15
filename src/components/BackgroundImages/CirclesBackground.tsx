@@ -1,25 +1,24 @@
 import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import clsx from 'clsx';
-import { backgroundImage, bigVector } from './styles.module.less';
-import BackgroundWrapper from './BackgroundWrapper';
+import { fullWidth, backgroundImage, fullHeight } from './styles.module.less';
 
-const BigImageBackground = ({
+const CirclesBackground = ({
     children,
     className,
 }: React.BaseHTMLAttributes<HTMLDivElement>) => {
     return (
-        <BackgroundWrapper>
+        <div className={fullWidth}>
             <StaticImage
                 alt=""
-                src="../../images/blogs-bg.png"
-                className={clsx(backgroundImage, bigVector)}
+                src="../../images/circles-background.png"
+                className={clsx(backgroundImage, fullHeight)}
                 placeholder="blurred"
                 quality={100}
             />
             <div className={className}>{children}</div>
-        </BackgroundWrapper>
+        </div>
     );
 };
 
-export default BigImageBackground;
+export default CirclesBackground;

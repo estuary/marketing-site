@@ -1,6 +1,5 @@
 import CloseIcon from '@mui/icons-material/Close';
 import { Dialog } from '@mui/material';
-import BackgroundImage from 'gatsby-background-image';
 import styled from 'styled-components';
 
 export const Container = styled(Dialog)`
@@ -28,7 +27,7 @@ export const Container = styled(Dialog)`
     }
 `;
 
-export const LeftColumn = styled(BackgroundImage)`
+export const LeftColumn = styled.div`
     display: grid;
     grid-template-rows: auto 1fr;
     align-items: center;

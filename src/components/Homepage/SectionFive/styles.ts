@@ -1,8 +1,9 @@
 import styled from 'styled-components';
-import { globalMaxWidth } from '../../../globalStyles';
+import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
 
 export const Wrapper = styled.div`
     ${globalMaxWidth}
+    ${sectionTopBottomPadding}
 
     display: flex;
     justify-content: center;

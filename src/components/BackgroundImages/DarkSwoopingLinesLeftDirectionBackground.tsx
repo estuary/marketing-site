@@ -1,46 +1,27 @@
-import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 
-import BackgroundImage, {
-    IBackgroundImageProps,
-} from 'gatsby-background-image';
-
 import clsx from 'clsx';
-import { sectionTopBottomPadding } from '../../globalStyles/sections.module.less';
-import { commonBackgroundImageProps } from './utils';
-
-type DarkSwoopingLinesLeftDirectionBackgroundProps = IBackgroundImageProps & {
-    children?: React.ReactNode;
-} & React.HTMLAttributes<HTMLDivElement>;
+import { StaticImage } from 'gatsby-plugin-image';
+import { backgroundImage, fullHeight } from './styles.module.less';
+import { backgroundColors } from './shared';
+import BackgroundWrapper from './BackgroundWrapper';
 
 const DarkSwoopingLinesLeftDirectionBackground = ({
     children,
     className,
-    ...rest
-}: DarkSwoopingLinesLeftDirectionBackgroundProps) => {
-    const swoopingLines = useStaticQuery(graphql`
-        query {
-            imageData: file(relativePath: { eq: "overlay-vector-left.png" }) {
-                childImageSharp {
-                    fluid(quality: 90, maxWidth: 2170) {
-                        ...GatsbyImageSharpFluid_withWebp_noBase64
-                    }
-                }
-            }
-        }
-    `);
-
+}: React.HTMLAttributes<HTMLDivElement>) => {
     return (
-        <BackgroundImage
-            Tag="section"
-            fluid={swoopingLines.imageData.childImageSharp.fluid}
-            backgroundColor="#04192b"
-            className={clsx(sectionTopBottomPadding, className)}
-            {...commonBackgroundImageProps}
-            {...rest}
-        >
-            {children}
-        </BackgroundImage>
+        <BackgroundWrapper>
+            <StaticImage
+                alt=""
+                src="../../images/overlay-vector-left.png"
+                className={clsx(backgroundImage, fullHeight)}
+                placeholder="blurred"
+                quality={100}
+                backgroundColor={backgroundColors.dark}
+            />
+            <div className={className}>{children}</div>
+        </BackgroundWrapper>
     );
 };
 

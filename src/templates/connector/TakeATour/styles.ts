@@ -1,7 +1,7 @@
-import BackgroundImage from 'gatsby-background-image';
 import ReactPlayer from 'react-player';
 import styled from 'styled-components';
 import { globalMaxWidth } from '../../../globalStyles';
+import BubblesCircleBackground from '../../../components/BackgroundImages/BubblesCircleBackground';
 
 export const Container = styled.div`
     ${globalMaxWidth}
@@ -17,7 +17,7 @@ export const Container = styled.div`
     }
 `;
 
-export const ContainerLeft = styled(BackgroundImage)`
+export const ContainerLeft = styled(BubblesCircleBackground)`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,7 +25,6 @@ export const ContainerLeft = styled(BackgroundImage)`
     height: auto;
     width: 100%;
     padding: 80px 0;
-    background-size: 520px;
 `;
 
 export const EstuaryProductVideo = styled(ReactPlayer)`

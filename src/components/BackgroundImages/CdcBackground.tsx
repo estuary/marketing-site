@@ -1,10 +1,10 @@
 import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import clsx from 'clsx';
-import { backgroundImage, bigVector } from './styles.module.less';
+import { backgroundImage, cdcBackgroundImage } from './styles.module.less';
 import BackgroundWrapper from './BackgroundWrapper';
 
-const BigImageBackground = ({
+const CdcBackground = ({
     children,
     className,
 }: React.BaseHTMLAttributes<HTMLDivElement>) => {
@@ -12,8 +12,8 @@ const BigImageBackground = ({
         <BackgroundWrapper>
             <StaticImage
                 alt=""
-                src="../../images/blogs-bg.png"
-                className={clsx(backgroundImage, bigVector)}
+                src="../../images/lp-connector/change-data/background.png"
+                className={clsx(backgroundImage, cdcBackgroundImage)}
                 placeholder="blurred"
                 quality={100}
             />
@@ -22,4 +22,4 @@ const BigImageBackground = ({
     );
 };
 
-export default BigImageBackground;
+export default CdcBackground;
