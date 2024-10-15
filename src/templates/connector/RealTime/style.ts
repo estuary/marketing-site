@@ -14,8 +14,13 @@ export const Wrapper = styled.section`
     }
 `;
 
+export const ContainerWrapper = styled.div`
+    border-radius: 24px;
+    overflow: hidden;
+`;
+
 export const Container = styled(StraightLinesBackground)`
-    padding: 40px 20px;
+    padding: 40px;
     display: flex;
     flex-direction: column-reverse;
     border-radius: 24px;
