@@ -80,7 +80,6 @@ const Connector = ({
                 <Pipelines />
                 <RealTime />
                 <TakeATour />
-                {/*<TheAutomation />*/}
             </article>
         </Layout>
     );
