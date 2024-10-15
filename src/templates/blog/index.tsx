@@ -138,7 +138,7 @@ const BlogIndex = ({
                 </div>
                 <div className={blogsIndexBody}>
                     {(query.length > 0 ? results : posts).map((post) => (
-                        <BlogPostCard key={post.Slug} {...post} />
+                        <BlogPostCard key={post.slug} {...post} />
                     ))}
                 </div>
             </BigImageBackground>

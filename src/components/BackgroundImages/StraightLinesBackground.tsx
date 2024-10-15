@@ -1,11 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import { StaticImage } from 'gatsby-plugin-image';
-import {
-    container,
-    backgroundImage,
-    swoopingLines,
-} from './styles.module.less';
+import { container, backgroundImage, fullHeight } from './styles.module.less';
 import { backgroundColors } from './shared';
 
 type StraightLinesBackgroundProps = {
@@ -21,7 +17,7 @@ const StraightLinesBackground = ({
             <StaticImage
                 alt=""
                 src="../../images/lp-connector/real-time/Vector.png"
-                className={clsx(backgroundImage, swoopingLines)}
+                className={clsx(backgroundImage, fullHeight)}
                 placeholder="blurred"
                 quality={100}
                 backgroundColor={backgroundColors.dark}

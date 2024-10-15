@@ -1,17 +1,11 @@
 import React from 'react';
 
-import { IBackgroundImageProps } from 'gatsby-background-image';
-
 import clsx from 'clsx';
 import { StaticImage } from 'gatsby-plugin-image';
-import {
-    container,
-    backgroundImage,
-    swoopingLines,
-} from './styles.module.less';
+import { container, backgroundImage, fullHeight } from './styles.module.less';
 import { backgroundColors } from './shared';
 
-type DarkSwoopingLinesLeftDirectionBackgroundProps = IBackgroundImageProps & {
+type DarkSwoopingLinesLeftDirectionBackgroundProps = {
     children?: React.ReactNode;
 } & React.HTMLAttributes<HTMLDivElement>;
 
@@ -24,7 +18,7 @@ const DarkSwoopingLinesLeftDirectionBackground = ({
             <StaticImage
                 alt=""
                 src="../../images/overlay-vector-left.png"
-                className={clsx(backgroundImage, swoopingLines)}
+                className={clsx(backgroundImage, fullHeight)}
                 placeholder="blurred"
                 quality={100}
                 backgroundColor={backgroundColors.dark}
