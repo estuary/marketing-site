@@ -5,14 +5,10 @@ import { backgroundImage, fullHeight } from './styles.module.less';
 import { backgroundColors } from './shared';
 import BackgroundWrapper from './BackgroundWrapper';
 
-type LightSwoopingLinesRightDirectionBackgroundProps = {
-    children?: React.ReactNode;
-} & React.HTMLAttributes<HTMLDivElement>;
-
 const LightSwoopingLinesRightDirectionBackground = ({
     children,
     className,
-}: LightSwoopingLinesRightDirectionBackgroundProps) => {
+}: React.HTMLAttributes<HTMLDivElement>) => {
     return (
         <BackgroundWrapper>
             <StaticImage

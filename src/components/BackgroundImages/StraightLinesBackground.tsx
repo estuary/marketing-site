@@ -5,14 +5,10 @@ import { backgroundImage, fullHeight } from './styles.module.less';
 import { backgroundColors } from './shared';
 import BackgroundWrapper from './BackgroundWrapper';
 
-type StraightLinesBackgroundProps = {
-    children?: React.ReactNode;
-} & React.HTMLAttributes<HTMLDivElement>;
-
 const StraightLinesBackground = ({
     children,
     className,
-}: StraightLinesBackgroundProps) => {
+}: React.HTMLAttributes<HTMLDivElement>) => {
     return (
         <BackgroundWrapper>
             <StaticImage
