@@ -1,7 +1,7 @@
-import BackgroundImage from 'gatsby-background-image';
 import styled from 'styled-components';
 
-export const Container = styled(BackgroundImage)`
+// TODO: Add the background image here once we use the "The automation" section again
+export const Container = styled.div`
     display: flex;
     flex-direction: column;
     gap: 250px;

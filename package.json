@@ -24,7 +24,6 @@
     "embla-carousel": "^8.2.0",
     "embla-carousel-react": "^8.2.0",
     "gatsby": "^5.13.3",
-    "gatsby-background-image": "^1.6.0",
     "gatsby-image": "^3.11.0",
     "gatsby-omni-font-loader": "^2.0.2",
     "gatsby-plugin-canonical-urls": "^5.13.1",
