@@ -28,6 +28,7 @@ const EtlTools = ({
         vendors: { nodes: vendors },
     },
 }: EtlToolsProps) => {
+    console.log(xVendor);
     return (
         <Layout>
             <SectionOne vendors={vendors} xVendor={xVendor} yVendor={yVendor} />
@@ -78,16 +79,7 @@ export const pageQuery = graphql`
                         }
                     }
                 }
-                historicalAnalytics: Historial_Analytics
                 databaseReplication: Database_Replication
-                dataScienceMl: Data_Science_ML {
-                    icon: Icon
-                    subText: Sub_Text {
-                        data {
-                            subText: Sub_Text
-                        }
-                    }
-                }
                 dataMigration: Data_Migration {
                     icon: Icon
                     subText: Sub_Text {
@@ -323,16 +315,7 @@ export const pageQuery = graphql`
                         }
                     }
                 }
-                historicalAnalytics: Historial_Analytics
                 databaseReplication: Database_Replication
-                dataScienceMl: Data_Science_ML {
-                    icon: Icon
-                    subText: Sub_Text {
-                        data {
-                            subText: Sub_Text
-                        }
-                    }
-                }
                 dataMigration: Data_Migration {
                     icon: Icon
                     subText: Sub_Text {
@@ -568,16 +551,7 @@ export const pageQuery = graphql`
                         }
                     }
                 }
-                historicalAnalytics: Historial_Analytics
                 databaseReplication: Database_Replication
-                dataScienceMl: Data_Science_ML {
-                    icon: Icon
-                    subText: Sub_Text {
-                        data {
-                            subText: Sub_Text
-                        }
-                    }
-                }
                 dataMigration: Data_Migration {
                     icon: Icon
                     subText: Sub_Text {

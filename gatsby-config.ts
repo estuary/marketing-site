@@ -68,9 +68,6 @@ const strapiConfig = {
                             Operational_Analytics: {
                                 populate: '*',
                             },
-                            Data_Science_ML: {
-                                populate: '*',
-                            },
                             AI_Pipelines: {
                                 populate: '*',
                             },

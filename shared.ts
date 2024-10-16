@@ -74,9 +74,7 @@ export interface Vendor {
     slugKey: string;
     useCases: {
         odsReplication: HasFeature;
-        historicalAnalytics: string;
         databaseReplication: string;
-        dataScienceMl: HasFeature;
         dataMigration: HasFeature;
         dataIntegration: HasFeature;
         aiPipelines: HasFeature;
