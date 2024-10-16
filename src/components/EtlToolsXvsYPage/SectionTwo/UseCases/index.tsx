@@ -8,12 +8,11 @@ const rows = [
         key: 'databaseReplication',
     },
     { label: 'Replication to ODS', key: 'odsReplication' },
-    { label: 'Historical Analytics', key: 'historicalAnalytics' },
     { label: 'Op. data integration', key: 'dataIntegration' },
     { label: 'Data migration', key: 'dataMigration' },
     { label: 'Stream processing', key: 'streamProcessing' },
     { label: 'Operational Analytics', key: 'operationalAnalytics' },
-    { label: 'Data science and ML', key: 'dataScienceMl' },
+    { label: 'AI Pipelines', key: 'aiPipelines' },
 ];
 
 const UseCases = ({ xVendor, yVendor, estuaryVendor }: ComparisonVendors) => {
