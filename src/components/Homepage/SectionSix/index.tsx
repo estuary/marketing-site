@@ -1,50 +1,23 @@
-import { StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
-import SingleDataflowIcon from '../../../svgs/metric-single-dataflow.svg';
-import { docsPageUrl } from '../../../../shared';
-import {
-    Button,
-    Container,
-    Description,
-    IconWrapper,
-    LeftColumn,
-    RightColumn,
-    Title,
-    Wrapper,
-} from './styles';
+import DarkSwoopingLinesLeftDirectionBackground from '../../BackgroundImages/DarkSwoopingLinesLeftDirectionBackground';
+import FlowDemoVideo from '../../FlowDemoVideo';
+import { Description, Title, Wrapper } from './styles';
 
 const SectionSix = () => {
     return (
-        <Container>
+        <DarkSwoopingLinesLeftDirectionBackground>
             <Wrapper>
-                <LeftColumn>
-                    <StaticImage
-                        quality={100}
-                        placeholder="none"
-                        alt="Schema evolution options"
-                        src="../../../images/schema-evolution-options.png"
-                    />
-                </LeftColumn>
-                <RightColumn>
-                    <IconWrapper>
-                        <SingleDataflowIcon color="#5072EB" />
-                    </IconWrapper>
-                    <Title>
-                        <span>AUTOMATE </span>
-                        <span>DATAOPS</span>
-                    </Title>
-                    <Description>
-                        Use schema inference, evolution, and automation along
-                        with a complete CLI and API to implement true agile
-                        DataOps that can handle constant change without breaking
-                        pipelines.
-                    </Description>
-                    <Button href={docsPageUrl} target="_blank">
-                        See the Docs
-                    </Button>
-                </RightColumn>
+                <Title>
+                    <span>Build </span>
+                    in minutes
+                </Title>
+                <Description>
+                    Use the UI to quickly build end-to-end pipelines using
+                    no-code connectors. Estuary Flow does the rest.
+                </Description>
+                <FlowDemoVideo />
             </Wrapper>
-        </Container>
+        </DarkSwoopingLinesLeftDirectionBackground>
     );
 };
 

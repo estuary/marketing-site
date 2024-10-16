@@ -1,19 +1,18 @@
 import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import {
-    SectionEight,
-    SectionFive,
-    SectionFour,
-    SectionNine,
-    SectionOne,
-    SectionSeven,
-    SectionSix,
-    SectionTen,
-    SectionThree,
-    SectionTwo,
-} from '../components/Homepage';
 import Layout from '../components/Layout';
 import Seo from '../components/seo';
+import SectionOne from '../components/Homepage/SectionOne';
+import SectionTwo from '../components/Homepage/SectionTwo';
+import SectionThree from '../components/Homepage/SectionThree';
+import SectionFour from '../components/Homepage/SectionFour';
+import SectionFive from '../components/Homepage/SectionFive';
+import SectionSix from '../components/Homepage/SectionSix';
+import SectionSeven from '../components/Homepage/SectionSeven';
+import SectionEight from '../components/Homepage/SectionEight';
+import SectionNine from '../components/Homepage/SectionNine';
+import SectionTen from '../components/Homepage/SectionTen';
+import SectionEleven from '../components/Homepage/SectionEleven';
 
 const IndexPage = () => {
     return (
@@ -28,6 +27,7 @@ const IndexPage = () => {
             <SectionEight />
             <SectionNine />
             <SectionTen />
+            <SectionEleven />
         </Layout>
     );
 };

@@ -1,66 +1,92 @@
 import styled from 'styled-components';
 import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
+import { OutboundLinkFilled } from '../../OutboundLink';
+
+export const Container = styled.section`
+    background-color: #fdfdfe;
+`;
 
 export const Wrapper = styled.div`
     ${globalMaxWidth}
     ${sectionTopBottomPadding}
-
-    padding-right: 0;
-    display: flex;
-    justify-content: center;
+    
+  display: flex;
+    justify-content: space-between;
     align-items: center;
-    flex-direction: column;
+    gap: 60px;
+
+    @media (max-width: 1024px) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 
     @media (max-width: 425px) {
-        padding-right: 0;
+        gap: 40px;
     }
 `;
 
 export const Title = styled.h2`
-    ${globalMaxWidth}
-
-    padding-left: 0;
-    text-align: center;
     font-size: 2.5rem;
     font-weight: 600;
     line-height: 48px;
     color: #5072eb;
-    text-transform: uppercase;
     margin: 0;
+    text-transform: uppercase;
 
-    span {
-        color: #ffffff;
+    & span:nth-child(odd) {
+        color: #04192b;
     }
 
-    @media (max-width: 425px) {
-        padding-left: 0;
-        padding-right: 20px;
-        font-size: 1.75rem;
-        line-height: 33.6px;
+    @media (max-width: 1024px) {
+        font-size: 2.25rem;
     }
 `;
 
 export const Description = styled.p`
-    ${globalMaxWidth}
-
-    padding-left: 0;
-    width: 100%;
     font-size: 1.25rem;
     font-weight: 400;
     line-height: 30px;
-    color: #ffffff;
-    margin: 24px 0 60px 0;
-    max-width: 940px;
-    text-align: center;
+    margin: 0;
+    color: #47506d;
 
     @media (max-width: 1024px) {
         font-size: 1rem;
     }
 
-    @media (max-width: 425px) {
-        padding-left: 0;
-        padding-right: 20px;
-        line-height: 30px;
-        margin: 16px 0 40px 0;
+    @media (max-width: 980px) {
+        max-width: 480px;
     }
+`;
+
+export const Button = styled(OutboundLinkFilled)`
+    padding: 16px 24px;
+    width: fit-content;
+
+    @media (max-width: 425px) {
+        width: 100%;
+    }
+`;
+
+export const IconWrapper = styled.div`
+    padding: 18px;
+    border: 1px solid #d7dce5;
+    border-radius: 8px;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+`;
+
+export const LeftColumn = styled.div`
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
+
+export const RightColumn = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 `;

@@ -1,22 +1,50 @@
+import { StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
-import DarkSwoopingLinesLeftDirectionBackground from '../../BackgroundImages/DarkSwoopingLinesLeftDirectionBackground';
-import MainConnectors from '../../MainConnectors';
-import { Description, Title, Wrapper } from './styles';
+import SingleDataflowIcon from '../../../svgs/metric-single-dataflow.svg';
+import { docsPageUrl } from '../../../../shared';
+import {
+    Button,
+    Container,
+    Description,
+    IconWrapper,
+    LeftColumn,
+    RightColumn,
+    Title,
+    Wrapper,
+} from './styles';
 
 const SectionSeven = () => {
     return (
-        <DarkSwoopingLinesLeftDirectionBackground>
+        <Container>
             <Wrapper>
-                <Title>INNOVATE FASTER</Title>
-                <Description>
-                    Innovate faster with a single data pipeline that decouples
-                    sources and destinations so you can share data across
-                    analytics, apps, and AI, and add or change systems, all
-                    without impacting others.
-                </Description>
-                <MainConnectors />
+                <LeftColumn>
+                    <StaticImage
+                        quality={100}
+                        placeholder="none"
+                        alt="Schema evolution options"
+                        src="../../../images/schema-evolution-options.png"
+                    />
+                </LeftColumn>
+                <RightColumn>
+                    <IconWrapper>
+                        <SingleDataflowIcon color="#5072EB" />
+                    </IconWrapper>
+                    <Title>
+                        <span>AUTOMATE </span>
+                        <span>DATAOPS</span>
+                    </Title>
+                    <Description>
+                        Use schema inference, evolution, and automation along
+                        with a complete CLI and API to implement true agile
+                        DataOps that can handle constant change without breaking
+                        pipelines.
+                    </Description>
+                    <Button href={docsPageUrl} target="_blank">
+                        See the Docs
+                    </Button>
+                </RightColumn>
             </Wrapper>
-        </DarkSwoopingLinesLeftDirectionBackground>
+        </Container>
     );
 };
 

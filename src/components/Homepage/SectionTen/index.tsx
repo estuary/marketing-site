@@ -1,27 +1,16 @@
 import * as React from 'react';
-import { dashboardRegisterUrl, webinarsUrl } from '../../../../shared';
-import { OutboundLinkOutlined } from '../../OutboundLink';
-import { ButtonFilled, Buttons, HubspotButton, Title, Wrapper } from './styles';
+import DarkSwoopingLinesLeftDirectionBackground from '../../BackgroundImages/DarkSwoopingLinesLeftDirectionBackground';
+import TestimonialsCarousel from '../../TestimonialsCarousel';
+import { Wrapper } from './styles';
 
 const SectionTen = () => {
     return (
-        <Wrapper>
-            <Title>
-                <span>SEE HOW </span>
-                <span>ESTUARY CAN WORK FOR YOU AND YOUR DATA</span>
-            </Title>
-            <Buttons>
-                <ButtonFilled href={dashboardRegisterUrl} target="_blank">
-                    Try Now
-                </ButtonFilled>
-                <OutboundLinkOutlined href={webinarsUrl} target="_blank">
-                    Watch Demo
-                </OutboundLinkOutlined>
-                <HubspotButton href="/contact-us" target="_blank">
-                    Contact Us
-                </HubspotButton>
-            </Buttons>
-        </Wrapper>
+        <DarkSwoopingLinesLeftDirectionBackground>
+            <Wrapper>
+                <h2>What people are saying</h2>
+                <TestimonialsCarousel />
+            </Wrapper>
+        </DarkSwoopingLinesLeftDirectionBackground>
     );
 };
 
