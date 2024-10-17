@@ -1,13 +1,8 @@
 import styled from 'styled-components';
-import {
-    LinkOutlined,
-    globalMaxWidth,
-    sectionTopBottomPadding,
-} from '../../../globalStyles';
+import { LinkOutlined, globalMaxWidth } from '../../../globalStyles';
 
 export const Wrapper = styled.div`
     ${globalMaxWidth}
-    ${sectionTopBottomPadding}
 
     display: flex;
     flex-direction: column;

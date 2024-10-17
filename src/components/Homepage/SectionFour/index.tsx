@@ -1,12 +1,12 @@
 import React from 'react';
-import { DefaultWrapperDark } from '../../../styles/wrappers';
 import SecurityCertificates from '../../SecuriityCertificates';
+import DarkSwoopingLinesLeftDirectionBackground from '../../BackgroundImages/DarkSwoopingLinesLeftDirectionBackground';
 
 const SectionFour = () => {
     return (
-        <DefaultWrapperDark>
-            <SecurityCertificates />
-        </DefaultWrapperDark>
+        <DarkSwoopingLinesLeftDirectionBackground>
+            <SecurityCertificates isDarkTheme />
+        </DarkSwoopingLinesLeftDirectionBackground>
     );
 };
 

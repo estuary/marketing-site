@@ -3,7 +3,11 @@ import { StaticImage } from 'gatsby-plugin-image';
 import Advantages from '../Advantages';
 import { sectionTenAdvantages } from '../Product/advantages';
 
-const SecurityCertificates = () => {
+interface SecurityCertificatesProps {
+    isDarkTheme?: boolean;
+}
+
+const SecurityCertificates = ({ isDarkTheme }: SecurityCertificatesProps) => {
     return (
         <Advantages
             icon={
@@ -28,6 +32,7 @@ const SecurityCertificates = () => {
                 />
             }
             advantages={sectionTenAdvantages}
+            isDarkTheme={isDarkTheme}
         />
     );
 };
