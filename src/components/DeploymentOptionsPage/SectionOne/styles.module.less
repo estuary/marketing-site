@@ -1,0 +1,63 @@
+@import '../../../globalStyles/sections.module.less';
+
+.container {
+  .globalMaxWidth;
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  justify-content: space-between;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  @media (max-width: 425px) {
+    gap: 20px;
+  }
+
+  h1,
+  p {
+    color: #fff;
+  }
+
+  h1 {
+    line-height: 72px;
+  }
+
+  p {
+    font-size: 1.25rem;
+    color: #F2F3F5;
+    margin: 0;
+  }
+
+  img {
+    min-width: 536px;
+  }
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  div {
+    display: flex;
+    gap: 16px;
+    max-width: 480px;
+    flex-direction: row;
+
+    &>a {
+      white-space: nowrap;
+      width: 100%;
+    }
+
+    @media (max-width: 1024px) {
+      margin: 0;
+    }
+
+    @media (max-width: 360px) {
+      flex-direction: column;
+    }
+  }
+}
