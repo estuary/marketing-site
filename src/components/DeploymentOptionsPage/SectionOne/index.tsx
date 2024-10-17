@@ -38,7 +38,7 @@ const SectionOne = () => {
                 <div>
                     <StaticImage
                         src="../../../images/deployment-options-page/deployment-options-meta-image.png"
-                        alt="Private BYOC; secure public Deployments; secure and enterprise-ready private deployments"
+                        alt="Enterprise-ready Estuary Flow deployment options: BYOC, Public, and Private"
                         quality={100}
                         placeholder="blurred"
                         loading="eager"
