@@ -2,7 +2,7 @@ import React from 'react';
 import SecurityCertificates from '../../SecuriityCertificates';
 import DarkSwoopingLinesLeftDirectionBackground from '../../BackgroundImages/DarkSwoopingLinesLeftDirectionBackground';
 
-const SectionFour = () => {
+const SecureYourData = () => {
     return (
         <DarkSwoopingLinesLeftDirectionBackground>
             <SecurityCertificates isDarkTheme />
@@ -10,4 +10,4 @@ const SectionFour = () => {
     );
 };
 
-export default SectionFour;
+export default SecureYourData;

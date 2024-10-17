@@ -2,32 +2,32 @@ import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/Layout';
 import Seo from '../components/seo';
-import SectionOne from '../components/Homepage/SectionOne';
-import SectionTwo from '../components/Homepage/SectionTwo';
-import SectionThree from '../components/Homepage/SectionThree';
-import SectionFour from '../components/Homepage/SectionFour';
-import SectionFive from '../components/Homepage/SectionFive';
-import SectionSix from '../components/Homepage/SectionSix';
-import SectionSeven from '../components/Homepage/SectionSeven';
-import SectionEight from '../components/Homepage/SectionEight';
-import SectionNine from '../components/Homepage/SectionNine';
-import SectionTen from '../components/Homepage/SectionTen';
-import SectionEleven from '../components/Homepage/SectionEleven';
+import Hero from '../components/Homepage/Hero';
+import MoveAndTransform from '../components/Homepage/MoveAndTransform';
+import CaseStudies from '../components/Homepage/CaseStudies';
+import SecureYourData from '../components/Homepage/SecureYourData';
+import UseTheBestRealTimeCdc from '../components/Homepage/UseTheBestRealTimeCdc';
+import BuildInMinutes from '../components/Homepage/BuildInMinutes';
+import AutomateDataops from '../components/Homepage/AutomateDataops';
+import InnovateFaster from '../components/Homepage/InnovateFaster';
+import Do4xMoreWith25xLess from '../components/Homepage/Do4xMoreWith25xLess';
+import WhatPeopleAreSaying from '../components/Homepage/WhatPeopleAreSaying';
+import SeeHow from '../components/Homepage/SeeHow';
 
 const IndexPage = () => {
     return (
         <Layout>
-            <SectionOne />
-            <SectionTwo />
-            <SectionThree />
-            <SectionFour />
-            <SectionFive />
-            <SectionSix />
-            <SectionSeven />
-            <SectionEight />
-            <SectionNine />
-            <SectionTen />
-            <SectionEleven />
+            <Hero />
+            <MoveAndTransform />
+            <CaseStudies />
+            <SecureYourData />
+            <UseTheBestRealTimeCdc />
+            <BuildInMinutes />
+            <AutomateDataops />
+            <InnovateFaster />
+            <Do4xMoreWith25xLess />
+            <WhatPeopleAreSaying />
+            <SeeHow />
         </Layout>
     );
 };

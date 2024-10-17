@@ -23,7 +23,7 @@ import {
 
 const metricIconColor = '#FFFFFF';
 
-const SectionOne = () => {
+const Hero = () => {
     return (
         <Container>
             <MainContent>
@@ -84,4 +84,4 @@ const SectionOne = () => {
     );
 };
 
-export default SectionOne;
+export default Hero;

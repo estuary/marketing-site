@@ -20,7 +20,7 @@ import {
     Title,
 } from './styles';
 
-const SectionTwo = () => {
+const MoveAndTransform = () => {
     return (
         <Container>
             <Header>
@@ -109,4 +109,4 @@ const SectionTwo = () => {
     );
 };
 
-export default SectionTwo;
+export default MoveAndTransform;

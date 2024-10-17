@@ -3,7 +3,7 @@ import DarkSwoopingLinesLeftDirectionBackground from '../../BackgroundImages/Dar
 import TestimonialsCarousel from '../../TestimonialsCarousel';
 import { Wrapper } from './styles';
 
-const SectionTen = () => {
+const WhatPeopleAreSaying = () => {
     return (
         <DarkSwoopingLinesLeftDirectionBackground>
             <Wrapper>
@@ -14,4 +14,4 @@ const SectionTen = () => {
     );
 };
 
-export default SectionTen;
+export default WhatPeopleAreSaying;

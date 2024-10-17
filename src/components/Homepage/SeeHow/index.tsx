@@ -3,7 +3,7 @@ import { dashboardRegisterUrl, webinarsUrl } from '../../../../shared';
 import { OutboundLinkOutlined } from '../../OutboundLink';
 import { ButtonFilled, Buttons, HubspotButton, Title, Wrapper } from './styles';
 
-const SectionEleven = () => {
+const SeeHow = () => {
     return (
         <Wrapper>
             <Title>
@@ -25,4 +25,4 @@ const SectionEleven = () => {
     );
 };
 
-export default SectionEleven;
+export default SeeHow;

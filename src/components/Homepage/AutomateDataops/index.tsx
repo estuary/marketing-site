@@ -13,7 +13,7 @@ import {
     Wrapper,
 } from './styles';
 
-const SectionSeven = () => {
+const AutomateDataops = () => {
     return (
         <Container>
             <Wrapper>
@@ -48,4 +48,4 @@ const SectionSeven = () => {
     );
 };
 
-export default SectionSeven;
+export default AutomateDataops;

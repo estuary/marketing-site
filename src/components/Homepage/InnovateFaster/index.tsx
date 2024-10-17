@@ -3,7 +3,7 @@ import DarkSwoopingLinesLeftDirectionBackground from '../../BackgroundImages/Dar
 import MainConnectors from '../../MainConnectors';
 import { Description, Title, Wrapper } from './styles';
 
-const SectionEight = () => {
+const InnovateFaster = () => {
     return (
         <DarkSwoopingLinesLeftDirectionBackground>
             <Wrapper>
@@ -20,4 +20,4 @@ const SectionEight = () => {
     );
 };
 
-export default SectionEight;
+export default InnovateFaster;
