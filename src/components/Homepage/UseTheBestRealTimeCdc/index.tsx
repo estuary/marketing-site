@@ -14,7 +14,7 @@ import {
     Wrapper,
 } from './styles';
 
-const SectionFour = () => {
+const UseTheBestRealTimeCdc = () => {
     return (
         <Container>
             <Wrapper>
@@ -56,4 +56,4 @@ const SectionFour = () => {
     );
 };
 
-export default SectionFour;
+export default UseTheBestRealTimeCdc;

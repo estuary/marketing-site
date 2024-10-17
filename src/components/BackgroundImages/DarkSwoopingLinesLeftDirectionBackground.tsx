@@ -11,7 +11,7 @@ const DarkSwoopingLinesLeftDirectionBackground = ({
     className,
 }: React.HTMLAttributes<HTMLDivElement>) => {
     return (
-        <BackgroundWrapper>
+        <BackgroundWrapper isSection>
             <StaticImage
                 alt=""
                 src="../../images/overlay-vector-left.png"

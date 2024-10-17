@@ -8,7 +8,7 @@ import { Cards, SectionTitle, Wrapper } from './styles';
 
 const cardsPerSlide = 3;
 
-const SectionThree = () => {
+const CaseStudies = () => {
     const {
         allStrapiCaseStudy: { nodes: allCaseStudies },
     } = useStaticQuery(graphql`
@@ -81,4 +81,4 @@ const SectionThree = () => {
     );
 };
 
-export default SectionThree;
+export default CaseStudies;

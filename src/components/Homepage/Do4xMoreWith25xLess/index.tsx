@@ -12,7 +12,7 @@ import {
     Wrapper,
 } from './styles';
 
-const SectionEight = () => {
+const Do4xMoreWith25xLess = () => {
     return (
         <Container>
             <Wrapper>
@@ -26,8 +26,8 @@ const SectionEight = () => {
                         <span>WITH 2-5X LESS</span>
                     </Title>
                     <Description>
-                        Estuary customers aren’t just benefitting from being
-                        more real-time. They are 4x more productive. They
+                        Estuary customers aren&apos;t just benefitting from
+                        being more real-time. They are 4x more productive. They
                         deliver new projects in days, not months. And they spend
                         2-5x less on Estuary than on batch ELT.
                     </Description>
@@ -43,4 +43,4 @@ const SectionEight = () => {
     );
 };
 
-export default SectionEight;
+export default Do4xMoreWith25xLess;

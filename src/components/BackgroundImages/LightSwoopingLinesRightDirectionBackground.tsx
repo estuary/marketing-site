@@ -10,7 +10,7 @@ const LightSwoopingLinesRightDirectionBackground = ({
     className,
 }: React.HTMLAttributes<HTMLDivElement>) => {
     return (
-        <BackgroundWrapper>
+        <BackgroundWrapper isSection>
             <StaticImage
                 alt=""
                 src="../../images/swooping-lines-to-the-right.png"

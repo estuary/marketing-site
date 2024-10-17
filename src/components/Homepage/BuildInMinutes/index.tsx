@@ -3,7 +3,7 @@ import DarkSwoopingLinesLeftDirectionBackground from '../../BackgroundImages/Dar
 import FlowDemoVideo from '../../FlowDemoVideo';
 import { Description, Title, Wrapper } from './styles';
 
-const SectionFive = () => {
+const BuildInMinutes = () => {
     return (
         <DarkSwoopingLinesLeftDirectionBackground>
             <Wrapper>
@@ -21,4 +21,4 @@ const SectionFive = () => {
     );
 };
 
-export default SectionFive;
+export default BuildInMinutes;
