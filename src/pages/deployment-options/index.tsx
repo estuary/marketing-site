@@ -28,10 +28,9 @@ export const Head = () => {
     `);
 
     return (
-        //TODO: Ask title and description to Sourabh
         <Seo
-            title=""
-            description=""
+            title="Estuary Flow Deployment Options: Public, Private & BYOC"
+            description="Estuary Flow offers Public, Private, and BYOC deployment options for secure, scalable, and customizable data integration, perfect for any business needs."
             image={metaImg.childImageSharp.gatsbyImageData.images.fallback.src}
         />
     );
