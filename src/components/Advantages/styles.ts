@@ -10,7 +10,7 @@ export const Container = styled.section<{ $isImageOnTheLeft: boolean }>`
 
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: 60px;
     flex-direction: ${(props) =>
         props.$isImageOnTheLeft ? 'row-reverse' : 'row'};

@@ -1,0 +1,17 @@
+import React from 'react';
+import Checkmark from '../../../../svgs/checkmark.svg';
+
+interface KeyFeatureProps {
+    title: string;
+}
+
+const KeyFeature = ({ title }: KeyFeatureProps) => {
+    return (
+        <li>
+            <Checkmark width={16} color="#5072EB" />
+            <p>{title}</p>
+        </li>
+    );
+};
+
+export default KeyFeature;
