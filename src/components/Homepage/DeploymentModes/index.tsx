@@ -3,8 +3,29 @@ import TabContext from '@mui/lab/TabContext';
 import Tab from '@mui/material/Tab';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
+import clsx from 'clsx';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
-import { container, leftColumn, rightColumn } from './styles.module.less';
+import CloudProviderIcon from '../../../svgs/cloud-provider-icon.svg';
+import CustomerCloudIcon from '../../../svgs/customer-cloud-icon.svg';
+import ControlPlaneIcon from '../../../svgs/control-plane-icon.svg';
+import CustomerVpcIcon from '../../../svgs/customer-vpc-icon.svg';
+import DatabaseIcon from '../../../svgs/database-icon.svg';
+import FlowStorageIcon from '../../../svgs/flow-storage-icon.svg';
+import UsaFlagIcon from '../../../svgs/usa-flag-icon.svg';
+import EuropeFlagIcon from '../../../svgs/europe-flag-icon.svg';
+import {
+    container,
+    leftColumn,
+    solidBorderBox,
+    secondLevelSolidBorderBox,
+    dashedBorderBox,
+    middleTag,
+    arrowLeft,
+    arrowRight,
+    horizontalWrapper,
+    minHeight,
+    rightColumn,
+} from './styles.module.less';
 import DeploymentOptionDetails from './DeploymentOptionDetails';
 
 const tabStyling = {
@@ -12,8 +33,8 @@ const tabStyling = {
     'transition': 'var(--default-transition)',
     'opacity': '0.75',
     'textTransform': 'none',
-    'maxWidth': '206px',
     'borderBottom': '1px solid #A4B6F4',
+    'width': '33.333%',
 
     '&:hover': {
         backgroundColor: '#ECEFFC',
@@ -55,28 +76,99 @@ const byocFeatures = [
 
 const tabPanelStyling = { padding: '40px 0 0 0', minHeight: '458px' };
 
-const DeploymentModes = () => {
-    const [value, setValue] = React.useState('1');
+const iconSize = 30;
 
-    const handleChange = (event: React.SyntheticEvent, newValue: string) => {
-        setValue(newValue);
+const DeploymentModes = () => {
+    const [selectedTab, setSelectedTab] = React.useState('1');
+
+    const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
+        setSelectedTab(newValue);
     };
 
     return (
         <section className={defaultWrapperGrey}>
             <div className={container}>
                 <div className={leftColumn}>
-                    <div />
-                    <div />
+                    <div className={solidBorderBox}>
+                        <div className={dashedBorderBox}>
+                            <CloudProviderIcon width={iconSize} />
+                            <span>Estuary Cloud provider & Region</span>
+                            <div
+                                className={clsx(
+                                    solidBorderBox,
+                                    secondLevelSolidBorderBox,
+                                    minHeight
+                                )}
+                            >
+                                <ControlPlaneIcon width={iconSize} />
+                                <span>Control Plane</span>
+                            </div>
+                            <div className={horizontalWrapper}>
+                                <div
+                                    className={clsx(
+                                        solidBorderBox,
+                                        secondLevelSolidBorderBox
+                                    )}
+                                >
+                                    <UsaFlagIcon width={iconSize} />
+                                    <span>US Data Plane</span>
+                                </div>
+                                <div
+                                    className={clsx(
+                                        solidBorderBox,
+                                        secondLevelSolidBorderBox
+                                    )}
+                                >
+                                    <EuropeFlagIcon width={iconSize} />
+                                    <span>EU Data Plane</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={middleTag}>
+                        <div className={arrowLeft} />
+                        <span>Internet</span>
+                        <div className={arrowRight} />
+                    </div>
+                    <div className={solidBorderBox}>
+                        <div className={dashedBorderBox}>
+                            <CustomerCloudIcon width={iconSize} />
+                            <span>Customer Cloud</span>
+                            <div
+                                className={clsx(
+                                    solidBorderBox,
+                                    secondLevelSolidBorderBox
+                                )}
+                            >
+                                <CustomerVpcIcon width={iconSize} />
+                                <span>Customer VPC</span>
+                                <div
+                                    className={clsx(
+                                        solidBorderBox,
+                                        secondLevelSolidBorderBox
+                                    )}
+                                >
+                                    <DatabaseIcon width={iconSize} />
+                                    <span>Database</span>
+                                </div>
+                                <div className={dashedBorderBox}>
+                                    <FlowStorageIcon width={iconSize} />
+                                    <span>Flow Storage</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div className={rightColumn}>
                     <h2>
                         <span>DEPLOYMENT MODES</span> FOR EVERY ENVIRONMENT
                     </h2>
-                    <TabContext value={value}>
+                    <TabContext value={selectedTab}>
                         <TabList
-                            onChange={handleChange}
-                            aria-label="Deployment options tabs"
+                            onChange={handleTabChange}
+                            aria-label="Scrollable deployment options tabs"
+                            variant="scrollable"
+                            scrollButtons={false}
                         >
                             <Tab
                                 label="Public Deployment"
