@@ -13,6 +13,7 @@ import InnovateFaster from '../components/Homepage/InnovateFaster';
 import Do4xMoreWith25xLess from '../components/Homepage/Do4xMoreWith25xLess';
 import WhatPeopleAreSaying from '../components/Homepage/WhatPeopleAreSaying';
 import SeeHow from '../components/Homepage/SeeHow';
+import DeploymentModes from '../components/Homepage/DeployentModes';
 
 const IndexPage = () => {
     return (
@@ -20,6 +21,7 @@ const IndexPage = () => {
             <Hero />
             <MoveAndTransform />
             <CaseStudies />
+            <DeploymentModes />
             <SecureYourData />
             <UseTheBestRealTimeCdc />
             <BuildInMinutes />
