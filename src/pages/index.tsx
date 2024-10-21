@@ -1,33 +1,35 @@
 import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import {
-    SectionEight,
-    SectionFive,
-    SectionFour,
-    SectionNine,
-    SectionOne,
-    SectionSeven,
-    SectionSix,
-    SectionTen,
-    SectionThree,
-    SectionTwo,
-} from '../components/Homepage';
 import Layout from '../components/Layout';
 import Seo from '../components/seo';
+import Hero from '../components/Homepage/Hero';
+import MoveAndTransform from '../components/Homepage/MoveAndTransform';
+import CaseStudies from '../components/Homepage/CaseStudies';
+import SecureYourData from '../components/Homepage/SecureYourData';
+import TheBestRealTimeCdc from '../components/Homepage/TheBestRealTimeCdc';
+import BuildInMinutes from '../components/Homepage/BuildInMinutes';
+import AutomateDataops from '../components/Homepage/AutomateDataops';
+import InnovateFaster from '../components/Homepage/InnovateFaster';
+import Do4xMoreWith25xLess from '../components/Homepage/Do4xMoreWith25xLess';
+import WhatPeopleAreSaying from '../components/Homepage/WhatPeopleAreSaying';
+import SeeHow from '../components/Homepage/SeeHow';
+import DeploymentModes from '../components/Homepage/DeploymentModes';
 
 const IndexPage = () => {
     return (
         <Layout>
-            <SectionOne />
-            <SectionTwo />
-            <SectionThree />
-            <SectionFour />
-            <SectionFive />
-            <SectionSix />
-            <SectionSeven />
-            <SectionEight />
-            <SectionNine />
-            <SectionTen />
+            <Hero />
+            <MoveAndTransform />
+            <CaseStudies />
+            <DeploymentModes />
+            <SecureYourData />
+            <TheBestRealTimeCdc />
+            <BuildInMinutes />
+            <AutomateDataops />
+            <InnovateFaster />
+            <Do4xMoreWith25xLess />
+            <WhatPeopleAreSaying />
+            <SeeHow />
         </Layout>
     );
 };

@@ -1,11 +1,10 @@
 import styled, { CSSProperties } from 'styled-components';
 
 import { ConnectorType } from '../../../../shared';
-import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
+import { globalMaxWidth } from '../../../globalStyles';
 
 export const Container = styled.div`
     ${globalMaxWidth}
-    ${sectionTopBottomPadding};
 
     display: flex;
     flex-direction: column;
