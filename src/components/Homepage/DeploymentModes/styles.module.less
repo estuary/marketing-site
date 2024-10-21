@@ -32,7 +32,7 @@
 
   @media (max-width: 360px) {
     max-width: 100vw;
-  
+
     h2 {
       font-size: 1.5rem;
       line-height: 30px;
@@ -46,7 +46,7 @@
   grid-template-columns: 1fr 1fr;
   align-items: center;
   justify-content: center;
-  gap: 40px;
+  gap: 20px;
   position: relative;
   max-width: 536px;
   width: 100%;
@@ -61,8 +61,6 @@
   }
 
   @media (max-width: 600px) {
-    gap: 20px;
-
     svg {
       max-width: 20px;
       max-height: 20px;
@@ -101,6 +99,10 @@
   }
 }
 
+.relativePosition {
+  position: relative;
+}
+
 .dashedBorderBox {
   border: 1px dashed #A4B6F4B2;
   border-radius: 12px;
@@ -110,6 +112,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 16px;
   width: 100%;
   height: 100%;
@@ -142,9 +145,8 @@
 
 .middleTag {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 46%;
+  left: -55%;
   text-align: center;
   display: flex;
   align-items: center;
@@ -155,12 +157,28 @@
     font-size: 0.875rem;
     font-weight: 700;
     padding: 4px 12px;
+    white-space: nowrap;
     min-width: 116px;
 
     @media (max-width: 600px) {
       min-width: 70px;
-      font-size: 0.75rem;
+      font-size: 0.6rem;
+      padding: 2px 0;
     }
+  }
+}
+
+.arrowLeft {
+  width: 0;
+  height: 0;
+  border-top: 14px solid transparent;
+  border-bottom: 14px solid transparent;
+  border-right: 14px solid #6ED5D6;
+
+  @media (max-width: 600px) {
+    border-top: 9px solid transparent;
+    border-bottom: 9px solid transparent;
+    border-right: 9px solid #6ED5D6;
   }
 }
 
@@ -170,19 +188,18 @@
   border-top: 14px solid transparent;
   border-bottom: 14px solid transparent;
   border-left: 14px solid #6ED5D6;
-}
 
-.arrowLeft {
-  width: 0;
-  height: 0;
-  border-top: 14px solid transparent;
-  border-bottom: 14px solid transparent;
-  border-right: 14px solid #6ED5D6;
+  @media (max-width: 600px) {
+    border-top: 9px solid transparent;
+    border-bottom: 9px solid transparent;
+    border-left: 9px solid #6ED5D6;
+  }
 }
 
 .horizontalWrapper {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 16px;
 
   @media (max-width: 600px) {
@@ -201,5 +218,63 @@
 
   span {
     font-weight: 500;
+  }
+}
+
+.vpcMarginBottom {
+  margin-bottom: 54px;
+
+  @media (max-width: 600px) {
+    margin-bottom: 26px;
+  }
+}
+
+.privateVpcBox {
+  position: relative;
+}
+
+.privateDeploymentTag {
+  span {
+    min-width: auto;
+    padding: 7px 8px;
+  }
+
+  @media (max-width: 600px) {
+    span {
+      padding: 2px 0;
+    }
+  }
+}
+
+.privateLinkTag {
+  top: 29%;
+  left: 50%;
+
+  @media (max-width: 600px) {
+    top: 31.8%;
+  }
+}
+
+.metadataOnlyDarkerBlueTag {
+  top: 88%;
+  left: -115%;
+
+  span {
+    background-color: #5072EB;
+  }
+
+  .arrowLeft {
+    border-right-color: #5072EB;
+  }
+
+  .arrowRight {
+    border-left-color: #5072EB;
+  }
+
+
+  @media (max-width: 600px) {
+    span {
+      min-width: 80px;
+    }
   }
 }
