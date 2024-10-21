@@ -14,7 +14,7 @@ import {
     Wrapper,
 } from './styles';
 
-const UseTheBestRealTimeCdc = () => {
+const TheBestRealTimeCdc = () => {
     return (
         <Container>
             <Wrapper>
@@ -56,4 +56,4 @@ const UseTheBestRealTimeCdc = () => {
     );
 };
 
-export default UseTheBestRealTimeCdc;
+export default TheBestRealTimeCdc;

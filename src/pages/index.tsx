@@ -6,7 +6,7 @@ import Hero from '../components/Homepage/Hero';
 import MoveAndTransform from '../components/Homepage/MoveAndTransform';
 import CaseStudies from '../components/Homepage/CaseStudies';
 import SecureYourData from '../components/Homepage/SecureYourData';
-import UseTheBestRealTimeCdc from '../components/Homepage/UseTheBestRealTimeCdc';
+import TheBestRealTimeCdc from '../components/Homepage/TheBestRealTimeCdc';
 import BuildInMinutes from '../components/Homepage/BuildInMinutes';
 import AutomateDataops from '../components/Homepage/AutomateDataops';
 import InnovateFaster from '../components/Homepage/InnovateFaster';
@@ -23,7 +23,7 @@ const IndexPage = () => {
             <CaseStudies />
             <DeploymentModes />
             <SecureYourData />
-            <UseTheBestRealTimeCdc />
+            <TheBestRealTimeCdc />
             <BuildInMinutes />
             <AutomateDataops />
             <InnovateFaster />
