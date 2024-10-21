@@ -1,11 +1,17 @@
 @import '../../../globalStyles/sections.module.less';
 
-.container {
-  .globalMaxWidth;
+@primaryTagColor: #6ED5D6;
+@secondaryTagColor: #5072EB;
 
+.grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
+}
+
+.container {
+  .globalMaxWidth;
+
   justify-content: space-between;
   gap: 60px;
 
@@ -17,7 +23,7 @@
     margin-bottom: 40px;
 
     span {
-      color: #5072EB;
+      color: @secondaryTagColor;
     }
   }
 
@@ -42,9 +48,6 @@
 }
 
 .leftColumn {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
   justify-content: center;
   gap: 20px;
   position: relative;
@@ -152,7 +155,7 @@
   align-items: center;
 
   span {
-    background-color: #6ED5D6;
+    background-color: @primaryTagColor;
     color: #FFFFFF;
     font-size: 0.875rem;
     font-weight: 700;
@@ -168,31 +171,31 @@
   }
 }
 
-.arrowLeft {
+.tagArrow {
   width: 0;
   height: 0;
   border-top: 14px solid transparent;
   border-bottom: 14px solid transparent;
-  border-right: 14px solid #6ED5D6;
 
   @media (max-width: 600px) {
     border-top: 9px solid transparent;
     border-bottom: 9px solid transparent;
-    border-right: 9px solid #6ED5D6;
   }
 }
 
-.arrowRight {
-  width: 0;
-  height: 0;
-  border-top: 14px solid transparent;
-  border-bottom: 14px solid transparent;
-  border-left: 14px solid #6ED5D6;
+.tagArrowLeft {
+  border-right: 14px solid @primaryTagColor;
 
   @media (max-width: 600px) {
-    border-top: 9px solid transparent;
-    border-bottom: 9px solid transparent;
-    border-left: 9px solid #6ED5D6;
+    border-right: 9px solid @primaryTagColor;
+  }
+}
+
+.tagArrowRight {
+  border-left: 14px solid @primaryTagColor;
+
+  @media (max-width: 600px) {
+    border-left: 9px solid @primaryTagColor;
   }
 }
 
@@ -214,7 +217,6 @@
 .secondLevelSolidBorderBox {
   border-radius: 8px;
   background-color: #FCFCFD;
-  width: 100%;
 
   span {
     font-weight: 500;
@@ -225,20 +227,19 @@
   margin-bottom: 54px;
 
   @media (max-width: 600px) {
-    margin-bottom: 26px;
+    margin-bottom: 40px;
   }
 }
 
-.privateVpcBox {
-  position: relative;
+.privateDeploymentVpcBox {
+  margin-bottom: 26px;
+
+  @media (max-width: 600px) {
+    margin-bottom: 25px;
+  }
 }
 
 .privateDeploymentTag {
-  span {
-    min-width: auto;
-    padding: 7px 8px;
-  }
-
   @media (max-width: 600px) {
     span {
       padding: 2px 0;
@@ -247,30 +248,28 @@
 }
 
 .privateLinkTag {
-  top: 29%;
-  left: 50%;
+  top: 41%;
+  left: -2%;
 
   @media (max-width: 600px) {
-    top: 31.8%;
+    top: 44.5%;
   }
 }
 
 .metadataOnlyDarkerBlueTag {
-  top: 88%;
-  left: -115%;
+  top: 85%;
 
   span {
-    background-color: #5072EB;
+    background-color: @secondaryTagColor;
   }
 
-  .arrowLeft {
-    border-right-color: #5072EB;
+  .tagArrowLeft {
+    border-right-color: @secondaryTagColor;
   }
 
-  .arrowRight {
-    border-left-color: #5072EB;
+  .tagArrowRight {
+    border-left-color: @secondaryTagColor;
   }
-
 
   @media (max-width: 600px) {
     span {

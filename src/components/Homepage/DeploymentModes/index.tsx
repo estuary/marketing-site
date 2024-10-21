@@ -1,60 +1,11 @@
 import React from 'react';
 import TabContext from '@mui/lab/TabContext';
-import Tab from '@mui/material/Tab';
-import TabList from '@mui/lab/TabList';
-import TabPanel from '@mui/lab/TabPanel';
+import clsx from 'clsx';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
-import { container, leftColumn, rightColumn } from './styles.module.less';
-import DeploymentOptionDetails from './DeploymentOptionDetails';
-import DeploymentDiagram from './DeploymentDiagram';
-
-const tabStyling = {
-    'color': '#5072EB',
-    'transition': 'var(--default-transition)',
-    'opacity': '0.75',
-    'textTransform': 'none',
-    'borderBottom': '1px solid #A4B6F4',
-    'width': '33.333%',
-
-    '&:hover': {
-        backgroundColor: '#ECEFFC',
-    },
-
-    '&:active': {
-        backgroundColor: '#E3E8FB',
-    },
-
-    '&.Mui-selected': {
-        fontWeight: '600',
-        opacity: '1',
-    },
-};
-
-const publicDeploymentFeatures = [
-    'Fully managed by Estuary',
-    'Quick setup and minimal configuration required',
-    'Automatic updates and maintenance',
-    'Multiple data processing region options',
-    'Suitable for organizations with less stringent data security requirements',
-];
-
-const privateDeploymentFeatures = [
-    'Enhanced security with data remaining within the private network',
-    'Complete control over data pathways',
-    'Immutable infrastructure pattern for up-to-date security',
-    'Compliant with stringent data security requirements',
-    'Ability to move data across regions',
-];
-
-const byocFeatures = [
-    'Full control over the cloud infrastructure',
-    'Ability to leverage existing cloud resources and configurations',
-    'Customizable to fit specific organizational needs',
-    'Potential cost savings by using existing cloud credits or negotiated rates',
-    'Greater flexibility in terms of data residency and compliance',
-];
-
-const tabPanelStyling = { padding: '40px 0 0 0', minHeight: '458px' };
+import { grid, container, leftColumn, rightColumn } from './styles.module.less';
+import DiagramContainer from './DiagramContainer';
+import TabPanels from './TabPanels';
+import Tabs from './Tabs';
 
 const DeploymentModes = () => {
     const [selectedTab, setSelectedTab] = React.useState('1');
@@ -65,69 +16,17 @@ const DeploymentModes = () => {
 
     return (
         <section className={defaultWrapperGrey}>
-            <div className={container}>
-                <div className={leftColumn}>
-                    {selectedTab === '1' ? (
-                        <DeploymentDiagram selectedTab="1" />
-                    ) : null}
-                    {selectedTab === '2' ? (
-                        <DeploymentDiagram selectedTab="2" />
-                    ) : null}
-                    {selectedTab === '3' ? (
-                        <DeploymentDiagram selectedTab="3" />
-                    ) : null}
+            <div className={clsx(grid, container)}>
+                <div className={clsx(grid, leftColumn)}>
+                    <DiagramContainer selectedTab={selectedTab} />
                 </div>
                 <div className={rightColumn}>
                     <h2>
                         <span>DEPLOYMENT MODES</span> FOR EVERY ENVIRONMENT
                     </h2>
                     <TabContext value={selectedTab}>
-                        <TabList
-                            onChange={handleTabChange}
-                            aria-label="Scrollable deployment options tabs"
-                            variant="scrollable"
-                            scrollButtons={false}
-                        >
-                            <Tab
-                                label="Public Deployment"
-                                value="1"
-                                sx={tabStyling}
-                                disableRipple
-                            />
-                            <Tab
-                                label="Private Deployment"
-                                value="2"
-                                sx={tabStyling}
-                                disableRipple
-                            />
-                            <Tab
-                                label="BYOC (Bring Your Own Cloud)"
-                                value="3"
-                                sx={tabStyling}
-                                disableRipple
-                            />
-                        </TabList>
-                        <TabPanel value="1" sx={tabPanelStyling} keepMounted>
-                            <DeploymentOptionDetails
-                                title="PUBLIC DEPLOYMENT"
-                                description="Public Deployment is the standard SaaS offering from Estuary Flow. Ideal for small to medium-sized businesses or teams that want a hassle-free, quick-to-implement solution without the need for extensive customization or heightened security measures."
-                                keyFeatures={publicDeploymentFeatures}
-                            />
-                        </TabPanel>
-                        <TabPanel value="2" sx={tabPanelStyling} keepMounted>
-                            <DeploymentOptionDetails
-                                title="PRIVATE DEPLOYMENT"
-                                description="Private Deployment allows customers to run Estuary Flow's data infrastructure within their private environment while maintaining the simplicity of a SaaS platform. Suitable for enterprises and organizations with strict data security and compliance needs, such as those in highly regulated industries or handling sensitive data."
-                                keyFeatures={privateDeploymentFeatures}
-                            />
-                        </TabPanel>
-                        <TabPanel value="3" sx={tabPanelStyling} keepMounted>
-                            <DeploymentOptionDetails
-                                title="BRING YOUR OWN CLOUD"
-                                description="BYOC allows customers to deploy Estuary Flow in their own cloud environment. Ideal for organizations that have invested heavily in their cloud infrastructure and want to maintain ownership over their entire stack while benefiting from Estuary Flow's capabilities."
-                                keyFeatures={byocFeatures}
-                            />
-                        </TabPanel>
+                        <Tabs handleTabChange={handleTabChange} />
+                        <TabPanels />
                     </TabContext>
                 </div>
             </div>

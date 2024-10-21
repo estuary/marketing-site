@@ -14,17 +14,18 @@ import {
     secondLevelSolidBorderBox,
     dashedBorderBox,
     middleTag,
-    arrowLeft,
-    arrowRight,
+    tagArrow,
+    tagArrowLeft,
+    tagArrowRight,
     horizontalWrapper,
     minHeight,
     privateLinkTag,
     vpcMarginBottom,
     privateDeploymentTag,
-    privateVpcBox,
     metadataOnlyDarkerBlueTag,
     metadataOnlyLighterBlueTag,
     relativePosition,
+    privateDeploymentVpcBox,
 } from '../styles.module.less';
 
 const iconSize = 30;
@@ -33,7 +34,9 @@ interface DeploymentDiagramProps {
     selectedTab: string;
 }
 
-const DeploymentDiagram = ({ selectedTab = '1' }: DeploymentDiagramProps) => {
+const DeploymentOptionDiagram = ({
+    selectedTab = '1',
+}: DeploymentDiagramProps) => {
     return (
         <>
             <div className={solidBorderBox}>
@@ -87,39 +90,21 @@ const DeploymentDiagram = ({ selectedTab = '1' }: DeploymentDiagramProps) => {
                             <div
                                 className={clsx(
                                     solidBorderBox,
-                                    secondLevelSolidBorderBox,
-                                    privateVpcBox
+                                    secondLevelSolidBorderBox
                                 )}
                             >
                                 <VpcIcon width={iconSize} />
-                                <span className={vpcMarginBottom}>
+                                <span
+                                    className={clsx(
+                                        privateDeploymentVpcBox,
+                                        vpcMarginBottom
+                                    )}
+                                >
                                     Private Deployment VPC
                                 </span>
                                 <div className={dashedBorderBox}>
                                     <PrivateDataPlaneIcon width={iconSize} />
                                     <span>Private Data Plane</span>
-                                </div>
-                                <div
-                                    className={clsx(
-                                        middleTag,
-                                        privateDeploymentTag,
-                                        privateLinkTag
-                                    )}
-                                >
-                                    <div className={arrowLeft} />
-                                    <span>PrivateLink</span>
-                                    <div className={arrowRight} />
-                                </div>
-                                <div
-                                    className={clsx(
-                                        middleTag,
-                                        privateDeploymentTag,
-                                        metadataOnlyDarkerBlueTag
-                                    )}
-                                >
-                                    <div className={arrowLeft} />
-                                    <span>metadata only</span>
-                                    <div className={arrowRight} />
                                 </div>
                             </div>
                         ) : null}
@@ -172,16 +157,42 @@ const DeploymentDiagram = ({ selectedTab = '1' }: DeploymentDiagramProps) => {
                                 : null
                         )}
                     >
-                        <div className={arrowLeft} />
+                        <div className={clsx(tagArrow, tagArrowLeft)} />
                         <span>
                             {selectedTab === '1' ? 'Internet' : 'metadata only'}
                         </span>
-                        <div className={arrowRight} />
+                        <div className={clsx(tagArrow, tagArrowRight)} />
                     </div>
+                ) : null}
+                {selectedTab === '2' ? (
+                    <>
+                        <div
+                            className={clsx(
+                                middleTag,
+                                privateDeploymentTag,
+                                privateLinkTag
+                            )}
+                        >
+                            <div className={clsx(tagArrow, tagArrowLeft)} />
+                            <span>PrivateLink</span>
+                            <div className={clsx(tagArrow, tagArrowRight)} />
+                        </div>
+                        <div
+                            className={clsx(
+                                middleTag,
+                                privateDeploymentTag,
+                                metadataOnlyDarkerBlueTag
+                            )}
+                        >
+                            <div className={clsx(tagArrow, tagArrowLeft)} />
+                            <span>metadata only</span>
+                            <div className={clsx(tagArrow, tagArrowRight)} />
+                        </div>
+                    </>
                 ) : null}
             </div>
         </>
     );
 };
 
-export default DeploymentDiagram;
+export default DeploymentOptionDiagram;
