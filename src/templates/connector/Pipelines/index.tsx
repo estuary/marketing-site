@@ -21,7 +21,7 @@ const Pipelines = () => {
                 </Title>
                 <Description>Feature Comparison</Description>
                 <PipelinesTable />
-                <Button target="_blank" href="/etl-tools/estuary-vs-fivetran">
+                <Button target="_blank" href="/etl-tools/estuary-vs-fivetran/">
                     Detailed Comparison
                 </Button>
             </Container>
