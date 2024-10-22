@@ -41,7 +41,7 @@ export const getComparisonSlug = (
         xVendorSlugKey,
         yVendorSlugKey,
     ].sort();
-    return `etl-tools/${firstVendorSlugKey}-vs-${secondVendorSlugKey}`;
+    return `etl-tools/${firstVendorSlugKey}-vs-${secondVendorSlugKey}/`;
 };
 
 export interface SubText {
