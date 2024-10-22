@@ -34,9 +34,9 @@ const Hero = () => {
                         <span className="white-text">ETL</span>
                     </HomepageTitle>
                     <HomepageDescription>
-                        The only platform built from the ground up for truly
-                        real-time ETL and ELT data integration, set up in
-                        minutes.
+                        Estuary is the only platform built from the ground up
+                        for truly real-time ETL and ELT data integration, set up
+                        in minutes.
                     </HomepageDescription>
                     <HomepageHeadingButtons>
                         <PrimaryButton
