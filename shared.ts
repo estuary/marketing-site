@@ -144,3 +144,5 @@ export interface Vendor {
         };
     };
 }
+
+export type DeploymentOption = 'public' | 'private' | 'byoc';

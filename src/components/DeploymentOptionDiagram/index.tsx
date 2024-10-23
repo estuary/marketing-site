@@ -1,15 +1,15 @@
 import React from 'react';
 import clsx from 'clsx';
-import CloudProviderIcon from '../../../../svgs/cloud-provider-icon.svg';
-import CustomerCloudIcon from '../../../../svgs/customer-cloud-icon.svg';
-import ControlPlaneIcon from '../../../../svgs/control-plane-icon.svg';
-import VpcIcon from '../../../../svgs/vpc-icon.svg';
-import DatabaseIcon from '../../../../svgs/database-icon.svg';
-import FlowStorageIcon from '../../../../svgs/flow-storage-icon.svg';
-import UsaFlagIcon from '../../../../svgs/usa-flag-icon.svg';
-import EuropeFlagIcon from '../../../../svgs/europe-flag-icon.svg';
-import PrivateDataPlaneIcon from '../../../../svgs/private-data-plane-icon.svg';
-import { DeploymentOption } from '../Homepage/DeploymentModes/shared';
+import CloudProviderIcon from '../../svgs/cloud-provider-icon.svg';
+import CustomerCloudIcon from '../../svgs/customer-cloud-icon.svg';
+import ControlPlaneIcon from '../../svgs/control-plane-icon.svg';
+import VpcIcon from '../../svgs/vpc-icon.svg';
+import DatabaseIcon from '../../svgs/database-icon.svg';
+import FlowStorageIcon from '../../svgs/flow-storage-icon.svg';
+import UsaFlagIcon from '../../svgs/usa-flag-icon.svg';
+import EuropeFlagIcon from '../../svgs/europe-flag-icon.svg';
+import PrivateDataPlaneIcon from '../../svgs/private-data-plane-icon.svg';
+import { DeploymentOption } from '../../../shared';
 import {
     container,
     solidBorderBox,
@@ -151,7 +151,7 @@ const DeploymentOptionDiagram = ({
                         </div>
                     </div>
                 </div>
-                {['1', '3'].includes(deploymentOption) ? (
+                {['public', 'byoc'].includes(deploymentOption) ? (
                     <div className={middleTag}>
                         <div className={clsx(tagArrow, tagArrowLeft)} />
                         <span>

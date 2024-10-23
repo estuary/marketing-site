@@ -1,11 +1,11 @@
 import React from 'react';
 import TabContext from '@mui/lab/TabContext';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
+import { DeploymentOption } from '../../../../shared';
 import { container, rightColumn } from './styles.module.less';
 import DeploymentDiagramContainer from './DeploymentDiagramContainer';
 import TabPanels from './TabPanels';
 import Tabs from './Tabs';
-import { DeploymentOption } from './shared';
 
 const DeploymentModes = () => {
     const [selectedTab, setSelectedTab] =
