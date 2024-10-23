@@ -2,18 +2,18 @@ import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
-import SectionOne from '../../components/DeploymentOptionsPage/SectionOne';
-import SectionTwo from '../../components/DeploymentOptionsPage/SectionTwo';
-import SectionThree from '../../components/DeploymentOptionsPage/SectionThree';
-import SectionFour from '../../components/DeploymentOptionsPage/SectionFour';
+import Hero from '../../components/DeploymentOptionsPage/Hero';
+import PublicDeployment from '../../components/DeploymentOptionsPage/PublicDeployment';
+import PrivateDeployment from '../../components/DeploymentOptionsPage/PrivateDeployment';
+import ByocDeployment from '../../components/DeploymentOptionsPage/ByocDeployment';
 
 const DeploymentOptions = () => {
     return (
         <Layout>
-            <SectionOne />
-            <SectionTwo />
-            <SectionThree />
-            <SectionFour />
+            <Hero />
+            <PublicDeployment />
+            <PrivateDeployment />
+            <ByocDeployment />
         </Layout>
     );
 };

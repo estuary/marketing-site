@@ -5,7 +5,7 @@ import { features } from '../shared';
 import { container } from '../styles.module.less';
 import DeploymentOptionDiagram from '../../DeploymentOptionDiagram';
 
-const SectionFour = () => {
+const ByocDeployment = () => {
     return (
         <section className={defaultWrapperGrey}>
             <div className={container}>
@@ -22,4 +22,4 @@ const SectionFour = () => {
     );
 };
 
-export default SectionFour;
+export default ByocDeployment;

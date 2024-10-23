@@ -6,7 +6,7 @@ import { LinkOutlined } from '../../../globalStyles';
 import { dashboardRegisterUrl } from '../../../../shared';
 import { container, leftColumn } from './styles.module.less';
 
-const SectionOne = () => {
+const Hero = () => {
     return (
         <section className={defaultWrapperDarkBlue}>
             <div className={container}>
@@ -49,4 +49,4 @@ const SectionOne = () => {
     );
 };
 
-export default SectionOne;
+export default Hero;

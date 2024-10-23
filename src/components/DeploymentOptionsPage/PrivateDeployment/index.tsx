@@ -5,7 +5,7 @@ import { features } from '../shared';
 import { container } from '../styles.module.less';
 import DeploymentOptionDiagram from '../../DeploymentOptionDiagram';
 
-const SectionThree = () => {
+const PrivateDeployment = () => {
     return (
         <section className={defaultWrapperDark}>
             <div className={container}>
@@ -22,4 +22,4 @@ const SectionThree = () => {
     );
 };
 
-export default SectionThree;
+export default PrivateDeployment;
