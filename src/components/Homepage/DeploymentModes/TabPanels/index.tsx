@@ -22,19 +22,19 @@ const features = {
 const TabPanels = () => (
     <>
         <DeploymentTabPanel
-            value="1"
+            value="public"
             title="PUBLIC DEPLOYMENT"
             description="Estuary Flow's standard SaaS option, fully managed for quick, hassle-free setup."
             keyFeatures={features.public}
         />
         <DeploymentTabPanel
-            value="2"
+            value="private"
             title="PRIVATE DEPLOYMENT"
             description="Offers enhanced security by hosting Estuary Flow within a private network, combining SaaS ease with more control."
             keyFeatures={features.private}
         />
         <DeploymentTabPanel
-            value="3"
+            value="byoc"
             title="BYOC (Bring Your Own Cloud)"
             description="Deploy Estuary Flow on your cloud infrastructure for complete control."
             keyFeatures={features.byoc}

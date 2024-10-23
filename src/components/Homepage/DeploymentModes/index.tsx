@@ -2,21 +2,26 @@ import React from 'react';
 import TabContext from '@mui/lab/TabContext';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import { container, rightColumn } from './styles.module.less';
-import DiagramContainer from './DiagramContainer';
+import DeploymentDiagramContainer from './DeploymentDiagramContainer';
 import TabPanels from './TabPanels';
 import Tabs from './Tabs';
+import { DeploymentOption } from './shared';
 
 const DeploymentModes = () => {
-    const [selectedTab, setSelectedTab] = React.useState('1');
+    const [selectedTab, setSelectedTab] =
+        React.useState<DeploymentOption>('public');
 
-    const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
+    const handleTabChange = (
+        event: React.SyntheticEvent,
+        newValue: DeploymentOption
+    ) => {
         setSelectedTab(newValue);
     };
 
     return (
         <section className={defaultWrapperGrey}>
             <div className={container}>
-                <DiagramContainer selectedTab={selectedTab} />
+                <DeploymentDiagramContainer deploymentOption={selectedTab} />
                 <div className={rightColumn}>
                     <h2>
                         <span>DEPLOYMENT MODES</span> FOR EVERY ENVIRONMENT

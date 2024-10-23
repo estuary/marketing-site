@@ -9,6 +9,7 @@ import FlowStorageIcon from '../../../../svgs/flow-storage-icon.svg';
 import UsaFlagIcon from '../../../../svgs/usa-flag-icon.svg';
 import EuropeFlagIcon from '../../../../svgs/europe-flag-icon.svg';
 import PrivateDataPlaneIcon from '../../../../svgs/private-data-plane-icon.svg';
+import { DeploymentOption } from '../Homepage/DeploymentModes/shared';
 import {
     container,
     solidBorderBox,
@@ -31,11 +32,11 @@ import {
 const iconSize = 30;
 
 interface DeploymentDiagramProps {
-    selectedTab: string;
+    deploymentOption: DeploymentOption;
 }
 
 const DeploymentOptionDiagram = ({
-    selectedTab = '1',
+    deploymentOption = 'public',
 }: DeploymentDiagramProps) => {
     return (
         <div className={container}>
@@ -53,7 +54,7 @@ const DeploymentOptionDiagram = ({
                         <ControlPlaneIcon width={iconSize} />
                         <span>Control Plane</span>
                     </div>
-                    {selectedTab === '1' ? (
+                    {deploymentOption === 'public' ? (
                         <div className={horizontalWrapper}>
                             <div
                                 className={clsx(
@@ -81,12 +82,12 @@ const DeploymentOptionDiagram = ({
                 <div className={dashedBorderBox}>
                     <CustomerCloudIcon width={iconSize} />
                     <span>
-                        {selectedTab === '1'
+                        {deploymentOption === 'public'
                             ? 'Customer Cloud'
                             : 'Customer Cloud & Region'}
                     </span>
                     <div className={horizontalWrapper}>
-                        {selectedTab === '2' ? (
+                        {deploymentOption === 'private' ? (
                             <div
                                 className={clsx(
                                     solidBorderBox,
@@ -117,13 +118,15 @@ const DeploymentOptionDiagram = ({
                             <VpcIcon width={iconSize} />
                             <span
                                 className={
-                                    selectedTab === '2' ? vpcMarginBottom : null
+                                    deploymentOption === 'private'
+                                        ? vpcMarginBottom
+                                        : null
                                 }
                             >
                                 Customer VPC
                             </span>
                             <div className={horizontalWrapper}>
-                                {selectedTab === '3' ? (
+                                {deploymentOption === 'byoc' ? (
                                     <div className={dashedBorderBox}>
                                         <PrivateDataPlaneIcon
                                             width={iconSize}
@@ -148,16 +151,18 @@ const DeploymentOptionDiagram = ({
                         </div>
                     </div>
                 </div>
-                {['1', '3'].includes(selectedTab) ? (
+                {['1', '3'].includes(deploymentOption) ? (
                     <div className={middleTag}>
                         <div className={clsx(tagArrow, tagArrowLeft)} />
                         <span>
-                            {selectedTab === '1' ? 'Internet' : 'metadata only'}
+                            {deploymentOption === 'public'
+                                ? 'Internet'
+                                : 'metadata only'}
                         </span>
                         <div className={clsx(tagArrow, tagArrowRight)} />
                     </div>
                 ) : null}
-                {selectedTab === '2' ? (
+                {deploymentOption === 'private' ? (
                     <>
                         <div
                             className={clsx(
