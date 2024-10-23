@@ -6,6 +6,7 @@ import Hero from '../../components/DeploymentOptionsPage/Hero';
 import PublicDeployment from '../../components/DeploymentOptionsPage/PublicDeployment';
 import PrivateDeployment from '../../components/DeploymentOptionsPage/PrivateDeployment';
 import ByocDeployment from '../../components/DeploymentOptionsPage/ByocDeployment';
+import ComparisonTable from '../../components/DeploymentOptionsPage/ComparisonTable';
 
 const DeploymentOptions = () => {
     return (
@@ -14,6 +15,7 @@ const DeploymentOptions = () => {
             <PublicDeployment />
             <PrivateDeployment />
             <ByocDeployment />
+            <ComparisonTable />
         </Layout>
     );
 };

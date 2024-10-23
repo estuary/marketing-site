@@ -1,5 +1,4 @@
 import React, { ReactNode } from 'react';
-import { vendorNameMobile } from '../styles.module.less';
 
 interface TitledTableCellProps {
     title: string;
@@ -9,7 +8,7 @@ interface TitledTableCellProps {
 const TitledTableCell = ({ title, children }: TitledTableCellProps) => {
     return (
         <td>
-            <strong className={vendorNameMobile}>{title}</strong>
+            <strong>{title}</strong>
             {children}
         </td>
     );
