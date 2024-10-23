@@ -6,18 +6,24 @@ interface DeploymentOptionDetailsProps {
     title: string;
     description: string;
     keyFeatures: string[];
+    TitleHeadingLevel?: keyof JSX.IntrinsicElements;
+    KeyFeaturesTitleHeadingLevel?: keyof JSX.IntrinsicElements;
 }
 
 const DeploymentOptionDetails = ({
     title,
     description,
     keyFeatures,
+    TitleHeadingLevel = 'h3',
+    KeyFeaturesTitleHeadingLevel = 'h4',
 }: DeploymentOptionDetailsProps) => {
     return (
         <div className={wrapper}>
-            <h3>{title}</h3>
+            <TitleHeadingLevel>{title}</TitleHeadingLevel>
             <p>{description}</p>
-            <h4>Key Features:</h4>
+            <KeyFeaturesTitleHeadingLevel>
+                Key Features:
+            </KeyFeaturesTitleHeadingLevel>
             <ul>
                 {keyFeatures.map((keyFeature, index) => (
                     <KeyFeature key={index} title={keyFeature} />

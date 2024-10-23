@@ -14,6 +14,8 @@ const SectionTwo = () => {
                     title="PUBLIC DEPLOYMENT"
                     description="Public Deployment is the standard SaaS offering from Estuary Flow. Ideal for small to medium-sized businesses or teams that want a hassle-free, quick-to-implement solution without the need for extensive customization or heightened security measures."
                     keyFeatures={features.public}
+                    TitleHeadingLevel="h2"
+                    KeyFeaturesTitleHeadingLevel="h3"
                 />
             </div>
         </section>
