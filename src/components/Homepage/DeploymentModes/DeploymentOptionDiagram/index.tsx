@@ -10,6 +10,7 @@ import UsaFlagIcon from '../../../../svgs/usa-flag-icon.svg';
 import EuropeFlagIcon from '../../../../svgs/europe-flag-icon.svg';
 import PrivateDataPlaneIcon from '../../../../svgs/private-data-plane-icon.svg';
 import {
+    container,
     solidBorderBox,
     secondLevelSolidBorderBox,
     dashedBorderBox,
@@ -23,10 +24,9 @@ import {
     vpcMarginBottom,
     privateDeploymentTag,
     metadataOnlyDarkerBlueTag,
-    metadataOnlyLighterBlueTag,
     relativePosition,
     privateDeploymentVpcBox,
-} from '../styles.module.less';
+} from './styles.module.less';
 
 const iconSize = 30;
 
@@ -38,7 +38,7 @@ const DeploymentOptionDiagram = ({
     selectedTab = '1',
 }: DeploymentDiagramProps) => {
     return (
-        <>
+        <div className={container}>
             <div className={solidBorderBox}>
                 <div className={dashedBorderBox}>
                     <CloudProviderIcon width={iconSize} />
@@ -149,14 +149,7 @@ const DeploymentOptionDiagram = ({
                     </div>
                 </div>
                 {['1', '3'].includes(selectedTab) ? (
-                    <div
-                        className={clsx(
-                            middleTag,
-                            selectedTab === '3'
-                                ? metadataOnlyLighterBlueTag
-                                : null
-                        )}
-                    >
+                    <div className={middleTag}>
                         <div className={clsx(tagArrow, tagArrowLeft)} />
                         <span>
                             {selectedTab === '1' ? 'Internet' : 'metadata only'}
@@ -191,7 +184,7 @@ const DeploymentOptionDiagram = ({
                     </>
                 ) : null}
             </div>
-        </>
+        </div>
     );
 };
 

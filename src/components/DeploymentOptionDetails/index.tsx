@@ -1,5 +1,5 @@
 import React from 'react';
-import KeyFeature from '../KeyFeature';
+import KeyFeature from '../Homepage/DeploymentModes/KeyFeature';
 import { wrapper } from './styles.module.less';
 
 interface DeploymentOptionDetailsProps {

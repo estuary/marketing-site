@@ -3,11 +3,17 @@ import { graphql, useStaticQuery } from 'gatsby';
 import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
 import SectionOne from '../../components/DeploymentOptionsPage/SectionOne';
+import SectionTwo from '../../components/DeploymentOptionsPage/SectionTwo';
+import SectionThree from '../../components/DeploymentOptionsPage/SectionThree';
+import SectionFour from '../../components/DeploymentOptionsPage/SectionFour';
 
 const DeploymentOptions = () => {
     return (
         <Layout>
             <SectionOne />
+            <SectionTwo />
+            <SectionThree />
+            <SectionFour />
         </Layout>
     );
 };
