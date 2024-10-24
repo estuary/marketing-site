@@ -35,15 +35,13 @@ const Hero = () => {
                         </LinkOutlined>
                     </div>
                 </div>
-                <div>
-                    <StaticImage
-                        src="../../../images/deployment-options-page/deployment-options-meta-image.png"
-                        alt="Enterprise-ready Estuary Flow deployment options: BYOC, Public, and Private"
-                        quality={100}
-                        placeholder="blurred"
-                        loading="eager"
-                    />
-                </div>
+                <StaticImage
+                    src="../../../images/deployment-options-page/deployment-options-meta-image.png"
+                    alt="Enterprise-ready Estuary Flow deployment options: BYOC, Public, and Private"
+                    quality={100}
+                    placeholder="blurred"
+                    loading="eager"
+                />
             </div>
         </section>
     );
