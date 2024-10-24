@@ -1,10 +1,18 @@
 import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
+import clsx from 'clsx';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import { OutboundLinkFilled } from '../../OutboundLink';
 import { LinkOutlined } from '../../../globalStyles';
 import { dashboardRegisterUrl } from '../../../../shared';
-import { container, leftColumn } from './styles.module.less';
+import {
+    container,
+    leftColumn,
+    rightColumn,
+    solidBorderBox,
+    dashedBorderBox,
+    reverse,
+} from './styles.module.less';
 
 const Hero = () => {
     return (
@@ -35,13 +43,42 @@ const Hero = () => {
                         </LinkOutlined>
                     </div>
                 </div>
-                <StaticImage
-                    src="../../../images/deployment-options-page/deployment-options-meta-image.png"
-                    alt="Enterprise-ready Estuary Flow deployment options: BYOC, Public, and Private"
-                    quality={100}
-                    placeholder="blurred"
-                    loading="eager"
-                />
+                <div className={rightColumn}>
+                    <StaticImage
+                        src="../../../images/deployment-options-page/deployment-options-page-hero-background-image.png"
+                        alt="Enterprise-ready Estuary Flow deployment options: BYOC, Public, and Private"
+                        quality={100}
+                        placeholder="blurred"
+                        loading="eager"
+                    />
+                    <div className={solidBorderBox}>
+                        <span>BYOC</span>
+                    </div>
+                    <div className={clsx(solidBorderBox, reverse)}>
+                        <span>Public Deployments</span>
+                    </div>
+                    <div className={solidBorderBox}>
+                        <span>Private Deployments</span>
+                    </div>
+                    <div className={dashedBorderBox}>
+                        <span>Private</span>
+                    </div>
+                    <div className={clsx(dashedBorderBox, reverse)}>
+                        <span>Secure</span>
+                    </div>
+                    <div className={dashedBorderBox}>
+                        <span>Private</span>
+                    </div>
+                    <div className={dashedBorderBox}>
+                        <span>Enterprise-ready</span>
+                    </div>
+                    <div className={clsx(dashedBorderBox, reverse)}>
+                        <span>Secure</span>
+                    </div>
+                    <div className={dashedBorderBox}>
+                        <span>Private</span>
+                    </div>
+                </div>
             </div>
         </section>
     );
