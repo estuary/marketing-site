@@ -7,6 +7,7 @@
 @sizeProportionalToViewWidth2: 1vw;
 @sizeProportionalToViewWidth3: 2vw;
 @sizeProportionalToViewWidth4: 2.8vw;
+@sizeProportionalToViewWidth5: 7vw;
 
 .fullSize {
   width: 100%;
@@ -147,10 +148,16 @@
 
   span {
     .centralize;
+    flex-direction: column;
+    gap: @sizeProportionalToViewWidth;
     background-color: #D8E1FF;
     border: 1px solid @purple;
     border-top-right-radius: @sizeProportionalToViewWidth;
     border-bottom-left-radius: @sizeProportionalToViewWidth;
+
+    svg {
+      max-width: @sizeProportionalToViewWidth4;
+    }
   }
 
   @media (min-width: 1441px) {
@@ -165,6 +172,12 @@
     span {
       border-top-right-radius: @sizeProportionalToViewWidth3;
       border-bottom-left-radius: @sizeProportionalToViewWidth3;
+      gap: @sizeProportionalToViewWidth3;
+
+      svg {
+        max-width: @sizeProportionalToViewWidth5;
+        max-height: @sizeProportionalToViewWidth5;
+      }
     }
   }
 }

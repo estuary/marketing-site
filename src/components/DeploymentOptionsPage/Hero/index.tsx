@@ -5,6 +5,9 @@ import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.le
 import { OutboundLinkFilled } from '../../OutboundLink';
 import { LinkOutlined } from '../../../globalStyles';
 import { dashboardRegisterUrl } from '../../../../shared';
+import CustomerCloudIcon from '../../../svgs/customer-cloud-icon.svg';
+import PublicDeploymentsIcon from '../../../svgs/public-deployments-icon.svg';
+import PrivateDeploymentsIcon from '../../../svgs/private-deployments-icon.svg';
 import {
     container,
     leftColumn,
@@ -52,13 +55,22 @@ const Hero = () => {
                         loading="eager"
                     />
                     <div className={solidBorderBox}>
-                        <span>BYOC</span>
+                        <span>
+                            <CustomerCloudIcon />
+                            BYOC
+                        </span>
                     </div>
                     <div className={clsx(solidBorderBox, reverse)}>
-                        <span>Public Deployments</span>
+                        <span>
+                            <PublicDeploymentsIcon />
+                            Public Deployments
+                        </span>
                     </div>
                     <div className={solidBorderBox}>
-                        <span>Private Deployments</span>
+                        <span>
+                            <PrivateDeploymentsIcon />
+                            Private Deployments
+                        </span>
                     </div>
                     <div className={dashedBorderBox}>
                         <span>Private</span>
