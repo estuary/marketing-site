@@ -1,14 +1,16 @@
 import * as React from 'react';
-import { SectionOne, SectionTwo, SectionThree } from '../components/ContactUs';
 import Layout from '../components/Layout';
 import Seo from '../components/seo';
+import FormSection from '../components/ContactUsPage/FormSection';
+import Address from '../components/ContactUsPage/Address';
+import GetEmail from '../components/ContactUsPage/GetEmail';
 
 const ContactUsPage = () => {
     return (
         <Layout>
-            <SectionOne />
-            <SectionTwo />
-            <SectionThree />
+            <FormSection />
+            <Address />
+            <GetEmail />
         </Layout>
     );
 };
