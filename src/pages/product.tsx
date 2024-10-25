@@ -3,21 +3,21 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Seo from '../components/seo';
 
-import SectionEight from '../components/Product/SectionEight';
-import SectionEleven from '../components/Product/SectionEleven';
-import SectionFive from '../components/Product/SectionFive';
-import SectionFour from '../components/Product/SectionFour';
-import SectionFourteen from '../components/Product/SectionFourteen';
-import SectionNine from '../components/Product/SectionNine';
-import SectionOne from '../components/Product/SectionOne';
-import SectionSeven from '../components/Product/SectionSeven';
-import SectionSix from '../components/Product/SectionSix';
-import SectionTen from '../components/Product/SectionTen';
-import SectionThirteen from '../components/Product/SectionThirteen';
-import SectionThree from '../components/Product/SectionThree';
-import SectionTwelve from '../components/Product/SectionTwelve';
-import SectionTwo from '../components/Product/SectionTwo';
 import Layout from '../components/Layout';
+import Hero from '../components/ProductPage/Hero';
+import HowItWorks from '../components/ProductPage/HowItWorks';
+import KeyFeatures from '../components/ProductPage/KeyFeatures';
+import ConfigureOrCode from '../components/ProductPage/ConfigureOrCode';
+import ModernDataops from '../components/ProductPage/ModernDataops';
+import CreateADataPipelineInMinutes from '../components/ProductPage/CreateADataPipelineInMinutes';
+import TheSameData from '../components/ProductPage/TheSameData';
+import IncreaseProductivity from '../components/ProductPage/IncreaseProductivity';
+import DeliverRealTimeData from '../components/ProductPage/DeliverRealTimeData';
+import Streaming from '../components/ProductPage/Streaming';
+import HowEstuaryFlowCompares from '../components/ProductPage/HowEstuaryFlowCompares';
+import DontMissAThing from '../components/ProductPage/DontMissAThing';
+import SecurityCertificatesSection from '../components/ProductPage/SecurityCertificatesSection';
+import ReadyToStart from '../components/ProductPage/ReadyToStart';
 
 const Product = () => {
     return (
@@ -27,20 +27,20 @@ const Product = () => {
                 itemScope
                 itemType="http://schema.org/Article"
             >
-                <SectionOne />
-                <SectionTwo />
-                <SectionThree />
-                <SectionFour />
-                <SectionFive />
-                <SectionSix />
-                <SectionSeven />
-                <SectionEight />
-                <SectionNine />
-                <SectionTen />
-                <SectionEleven />
-                <SectionTwelve />
-                <SectionThirteen />
-                <SectionFourteen />
+                <Hero />
+                <HowItWorks />
+                <KeyFeatures />
+                <CreateADataPipelineInMinutes />
+                <TheSameData />
+                <ConfigureOrCode />
+                <ModernDataops />
+                <IncreaseProductivity />
+                <DeliverRealTimeData />
+                <SecurityCertificatesSection />
+                <Streaming />
+                <HowEstuaryFlowCompares />
+                <DontMissAThing />
+                <ReadyToStart />
             </article>
         </Layout>
     );

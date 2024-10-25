@@ -1,3 +1,5 @@
+import { features } from './src/components/DeploymentOptionsPage/shared';
+
 export const webinarsUrl =
     'https://try.estuary.dev/webinar-estuary101-ondemand';
 
@@ -144,3 +146,5 @@ export interface Vendor {
         };
     };
 }
+
+export type DeploymentOption = keyof typeof features;

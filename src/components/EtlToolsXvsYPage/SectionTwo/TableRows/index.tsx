@@ -1,6 +1,6 @@
 import React from 'react';
 import FeatureData from '../FeatureData';
-import TitledTableCell from '../TitledTableCell';
+import TitledTableCell from '../../../Table/TitledTableCell';
 
 interface ComparisonVendor {
     name: string;
