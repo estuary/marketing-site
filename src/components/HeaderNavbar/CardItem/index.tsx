@@ -15,7 +15,7 @@ import {
 } from './styles';
 import { contentFooter } from './styles.module.less';
 
-const ItemLink = ({ name, description, Image, to, hasChevronIcon }) => {
+const ItemLink = ({ name, description, Image, to }) => {
     const LinkElement: any = to[0] === '/' ? Link : OutboundLink;
     const linkProps = to[0] === '/' ? { to } : { href: to, target: '_blank' };
 
@@ -36,12 +36,7 @@ const ItemLink = ({ name, description, Image, to, hasChevronIcon }) => {
                             </Description>
                         ) : null}
                     </TextWrapper>
-                    {hasChevronIcon ? (
-                        <Chevron
-                            className="header-chevron-icon"
-                            fontSize="small"
-                        />
-                    ) : null}
+                    <Chevron className="header-chevron-icon" fontSize="small" />
                 </ContentWrapper>
             </CardItem>
         </LinkElement>

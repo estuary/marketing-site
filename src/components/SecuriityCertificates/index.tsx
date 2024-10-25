@@ -1,7 +1,6 @@
 import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import Advantages from '../Advantages';
-import { sectionTenAdvantages } from '../Product/advantages';
 
 interface SecurityCertificatesProps {
     isDarkTheme?: boolean;
@@ -31,7 +30,20 @@ const SecurityCertificates = ({ isDarkTheme }: SecurityCertificatesProps) => {
                     quality={100}
                 />
             }
-            advantages={sectionTenAdvantages}
+            advantages={[
+                {
+                    id: 14,
+                    title: 'Estuary never stores your data.',
+                },
+                {
+                    id: 15,
+                    title: 'GDPR, CCPA and CPRA compliant.',
+                },
+                {
+                    id: 16,
+                    title: 'SOC 2 Type II certified.',
+                },
+            ]}
             isDarkTheme={isDarkTheme}
         />
     );

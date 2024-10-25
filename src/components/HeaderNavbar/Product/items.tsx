@@ -1,21 +1,24 @@
-import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { getComparisonSlug } from '../../../../shared';
+import BookIcon from '../../../svgs/header-book.svg';
+import BalanceIcon from '../../../svgs/header-balance.svg';
+
+const BookHeaderIcon = () => <BookIcon width={11} height={14} />;
+const BalanceHeaderIcon = () => <BalanceIcon width={15} height={15} />;
 
 export const products = [
     {
         name: 'ESTUARY FLOW',
         to: '/product',
         description: 'Build fully managed real-time data pipelines in minutes.',
-        hasChevronIcon: false,
-        Image: () => (
-            <StaticImage
-                src="../../../svgs/header-book.svg"
-                width={11}
-                height={14}
-                alt="Estuary Flow product"
-            />
-        ),
+        Image: () => <BookHeaderIcon />,
+    },
+    {
+        name: 'DEPLOYMENT OPTIONS',
+        to: '/deployment-options',
+        description:
+            'Explore the deployment options for Estuary Flow: Public, Private, and BYOC, with a comparison.',
+        Image: () => <BookHeaderIcon />,
     },
 ];
 
@@ -26,53 +29,21 @@ export const compare = [
     {
         name: 'Estuary vs. Fivetran',
         to: generateComparisonTo('estuary', 'fivetran'),
-        hasChevronIcon: true,
-        Image: () => (
-            <StaticImage
-                src="../../../svgs/header-balance.svg"
-                width={15}
-                height={15}
-                alt="Compare with concurrent"
-            />
-        ),
+        Image: () => <BalanceHeaderIcon />,
     },
     {
         name: 'Estuary vs. Confluent',
         to: generateComparisonTo('confluent', 'estuary'),
-        hasChevronIcon: true,
-        Image: () => (
-            <StaticImage
-                src="../../../svgs/header-balance.svg"
-                width={15}
-                height={15}
-                alt="Compare with concurrent"
-            />
-        ),
+        Image: () => <BalanceHeaderIcon />,
     },
     {
         name: 'Estuary vs. Airbyte',
         to: generateComparisonTo('airbyte', 'estuary'),
-        hasChevronIcon: true,
-        Image: () => (
-            <StaticImage
-                src="../../../svgs/header-balance.svg"
-                width={15}
-                height={15}
-                alt="Compare with concurrent"
-            />
-        ),
+        Image: () => <BalanceHeaderIcon />,
     },
     {
         name: 'Estuary vs. Debezium',
         to: generateComparisonTo('debezium-kafka', 'estuary'),
-        hasChevronIcon: true,
-        Image: () => (
-            <StaticImage
-                src="../../../svgs/header-balance.svg"
-                width={15}
-                height={15}
-                alt="Compare with concurrent"
-            />
-        ),
+        Image: () => <BalanceHeaderIcon />,
     },
 ];

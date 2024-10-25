@@ -6,13 +6,11 @@ export const read = [
     {
         name: 'Blog',
         to: '/blog/data-engineering',
-        hasChevronIcon: true,
         Image: () => <StaticImage src="../../../svgs/blog.svg" alt="Blog" />,
     },
     {
         name: 'Docs & Guides',
         to: 'https://docs.estuary.dev',
-        hasChevronIcon: true,
         Image: () => (
             <StaticImage
                 src="../../../svgs/docs-and-guides.svg"
@@ -23,7 +21,6 @@ export const read = [
     {
         name: 'Status',
         to: statusPageUrl,
-        hasChevronIcon: true,
         Image: () => (
             <StaticImage
                 src="../../../svgs/product-flow-live-reporting.svg"
@@ -36,7 +33,6 @@ export const read = [
     {
         name: 'About us',
         to: '/about',
-        hasChevronIcon: true,
         Image: () => (
             <StaticImage src="../../../svgs/estuary-icon.svg" alt="About us" />
         ),
@@ -47,7 +43,6 @@ export const listen = [
     {
         name: 'Podcasts',
         to: '/podcasts',
-        hasChevronIcon: true,
         Image: () => (
             <StaticImage src="../../../svgs/microphone.svg" alt="Podcasts" />
         ),
@@ -55,7 +50,6 @@ export const listen = [
     {
         name: 'Webinars',
         to: webinarsUrl,
-        hasChevronIcon: true,
         Image: () => (
             <StaticImage src="../../../svgs/webinars.svg" alt="Webinars" />
         ),
@@ -63,7 +57,6 @@ export const listen = [
     {
         name: 'YouTube',
         to: 'https://www.youtube.com/watch?v=Ys5BoNqKljc',
-        hasChevronIcon: true,
         Image: () => (
             <StaticImage src="../../../svgs/youtube.svg" alt="Youtube" />
         ),

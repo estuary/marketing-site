@@ -1,25 +1,28 @@
 import React from 'react';
 import TabContext from '@mui/lab/TabContext';
-import clsx from 'clsx';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
-import { grid, container, leftColumn, rightColumn } from './styles.module.less';
-import DiagramContainer from './DiagramContainer';
+import { DeploymentOption } from '../../../../shared';
+import { LinkFilled } from '../../../globalStyles';
+import { container, rightColumn } from './styles.module.less';
+import DeploymentDiagramContainer from './DeploymentDiagramContainer';
 import TabPanels from './TabPanels';
 import Tabs from './Tabs';
 
 const DeploymentModes = () => {
-    const [selectedTab, setSelectedTab] = React.useState('1');
+    const [selectedTab, setSelectedTab] =
+        React.useState<DeploymentOption>('public');
 
-    const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
+    const handleTabChange = (
+        event: React.SyntheticEvent,
+        newValue: DeploymentOption
+    ) => {
         setSelectedTab(newValue);
     };
 
     return (
         <section className={defaultWrapperGrey}>
-            <div className={clsx(grid, container)}>
-                <div className={clsx(grid, leftColumn)}>
-                    <DiagramContainer selectedTab={selectedTab} />
-                </div>
+            <div className={container}>
+                <DeploymentDiagramContainer deploymentOption={selectedTab} />
                 <div className={rightColumn}>
                     <h2>
                         <span>DEPLOYMENT MODES</span> FOR EVERY ENVIRONMENT
@@ -28,6 +31,9 @@ const DeploymentModes = () => {
                         <Tabs handleTabChange={handleTabChange} />
                         <TabPanels />
                     </TabContext>
+                    <LinkFilled href="/deployment-options" target="_blank">
+                        See Details
+                    </LinkFilled>
                 </div>
             </div>
         </section>

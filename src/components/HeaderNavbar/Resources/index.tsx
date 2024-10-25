@@ -18,8 +18,11 @@ import {
 } from '../styles';
 import { hideOnMobile, longLinkList } from '../styles.module.less';
 import Carousel from '../../Carousel';
+import SuccessIcon from '../../../svgs/success.svg';
 import { listen, read } from './items';
 import ResourcesLink from './Link';
+
+const iconSize = 16;
 
 const HeaderNavbarResources = ({ active, setActive }) => {
     const {
@@ -60,15 +63,7 @@ const HeaderNavbarResources = ({ active, setActive }) => {
         name: caseStudy.Title.toUpperCase(),
         to: `/customers/${caseStudy.Slug}`,
         description: caseStudy.LinkOneLiner,
-        hasCrevronIcon: false,
-        Image: () => (
-            <StaticImage
-                src="../../../svgs/success.svg"
-                width={16}
-                height={16}
-                alt={`${caseStudy.Title} logo`}
-            />
-        ),
+        Image: () => <SuccessIcon width={iconSize} height={iconSize} />,
     }));
 
     return (

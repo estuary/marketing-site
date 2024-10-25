@@ -23,19 +23,19 @@ const Tabs = ({ handleTabChange }) => (
     >
         <Tab
             label="Public Deployment"
-            value="1"
+            value="public"
             sx={tabStyling}
             disableRipple
         />
         <Tab
             label="Private Deployment"
-            value="2"
+            value="private"
             sx={tabStyling}
             disableRipple
         />
         <Tab
             label="BYOC (Bring Your Own Cloud)"
-            value="3"
+            value="byoc"
             sx={tabStyling}
             disableRipple
         />

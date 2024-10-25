@@ -28,6 +28,4 @@ const VendorAvatar = React.forwardRef<HTMLTableCellElement, VendorAvatarProps>(
     }
 );
 
-VendorAvatar.displayName = 'VendorAvatar';
-
 export default VendorAvatar;
