@@ -2,6 +2,7 @@ import React from 'react';
 import TabContext from '@mui/lab/TabContext';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import { DeploymentOption } from '../../../../shared';
+import { LinkFilled } from '../../../globalStyles';
 import { container, rightColumn } from './styles.module.less';
 import DeploymentDiagramContainer from './DeploymentDiagramContainer';
 import TabPanels from './TabPanels';
@@ -30,6 +31,9 @@ const DeploymentModes = () => {
                         <Tabs handleTabChange={handleTabChange} />
                         <TabPanels />
                     </TabContext>
+                    <LinkFilled href="/deployment-options" target="_blank">
+                        See Details
+                    </LinkFilled>
                 </div>
             </div>
         </section>
