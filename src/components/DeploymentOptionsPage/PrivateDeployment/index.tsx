@@ -5,11 +5,12 @@ import DeploymentOptionDetails from '../../DeploymentOptionDetails';
 import { features } from '../shared';
 import { container, reverseColumn } from '../styles.module.less';
 import DeploymentOptionDiagram from '../../DeploymentOptionDiagram';
+import Container from '../../Container';
 
 const PrivateDeployment = () => {
     return (
         <section className={defaultWrapperDark}>
-            <div className={clsx(container, reverseColumn)}>
+            <Container className={clsx(container, reverseColumn)}>
                 <DeploymentOptionDetails
                     title="PRIVATE DEPLOYMENT"
                     description="Private Deployment allows customers to run Estuary Flow's data infrastructure within their private environment while maintaining the simplicity of a SaaS platform. Suitable for enterprises and organizations with strict data security and compliance needs, such as those in highly regulated industries or handling sensitive data."
@@ -18,7 +19,7 @@ const PrivateDeployment = () => {
                     KeyFeaturesTitleHeadingLevel="h3"
                 />
                 <DeploymentOptionDiagram deploymentOption="private" />
-            </div>
+            </Container>
         </section>
     );
 };

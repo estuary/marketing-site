@@ -8,6 +8,7 @@ import { dashboardRegisterUrl } from '../../../../shared';
 import CustomerCloudIcon from '../../../svgs/customer-cloud-icon.svg';
 import PublicDeploymentsIcon from '../../../svgs/public-deployments-icon.svg';
 import PrivateDeploymentsIcon from '../../../svgs/private-deployments-icon.svg';
+import Container from '../../Container';
 import {
     container,
     leftColumn,
@@ -20,7 +21,7 @@ import {
 const Hero = () => {
     return (
         <section className={defaultWrapperDarkBlue}>
-            <div className={container}>
+            <Container className={container}>
                 <div className={leftColumn}>
                     <h1>ESTUARY FLOW DEPLOYMENT OPTIONS</h1>
                     <p>
@@ -91,7 +92,7 @@ const Hero = () => {
                         <span>Private</span>
                     </div>
                 </div>
-            </div>
+            </Container>
         </section>
     );
 };

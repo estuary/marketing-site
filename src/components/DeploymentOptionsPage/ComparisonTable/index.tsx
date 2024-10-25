@@ -1,6 +1,7 @@
 import React from 'react';
 import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import Table from '../../Table';
+import Container from '../../Container';
 import { container } from './styles.module.less';
 
 const headers = ['Features', 'Public Deployment', 'Private Deployment', 'BYOC'];
@@ -19,10 +20,10 @@ const data = [
 const ComparisonTable = () => {
     return (
         <section className={defaultWrapperDark}>
-            <div className={container}>
+            <Container className={container} isVertical>
                 <h2>COMPARISON TABLE</h2>
                 <Table headers={headers} data={data} />
-            </div>
+            </Container>
         </section>
     );
 };

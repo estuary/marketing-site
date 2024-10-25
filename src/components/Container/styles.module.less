@@ -1,0 +1,39 @@
+@import '../../globalStyles/sections.module.less';
+
+.container {
+  .globalMaxWidth;
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  justify-content: space-between;
+
+  > :nth-child(1),
+  > :nth-child(2) {
+    flex: 1;
+    max-width: 50%;
+  }
+
+  @media (max-width: 1024px) {
+    flex-direction: column-reverse;
+    gap: 40px;
+
+    > :nth-child(1),
+    > :nth-child(2) {
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: 425px) {
+    gap: 20px;
+  }
+}
+
+.vertical {
+  flex-direction: column;
+
+  > :nth-child(1),
+  > :nth-child(2) {
+    flex: 1;
+    max-width: 100%;
+  }
+}

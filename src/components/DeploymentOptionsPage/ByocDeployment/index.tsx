@@ -4,11 +4,12 @@ import DeploymentOptionDetails from '../../DeploymentOptionDetails';
 import { features } from '../shared';
 import { container } from '../styles.module.less';
 import DeploymentOptionDiagram from '../../DeploymentOptionDiagram';
+import Container from '../../Container';
 
 const ByocDeployment = () => {
     return (
         <section className={defaultWrapperGrey}>
-            <div className={container}>
+            <Container className={container}>
                 <DeploymentOptionDiagram deploymentOption="byoc" />
                 <DeploymentOptionDetails
                     title="BRING YOUR OWN CLOUD"
@@ -17,7 +18,7 @@ const ByocDeployment = () => {
                     TitleHeadingLevel="h2"
                     KeyFeaturesTitleHeadingLevel="h3"
                 />
-            </div>
+            </Container>
         </section>
     );
 };

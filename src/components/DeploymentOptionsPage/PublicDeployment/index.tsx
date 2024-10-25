@@ -4,11 +4,12 @@ import DeploymentOptionDetails from '../../DeploymentOptionDetails';
 import { features } from '../shared';
 import { container } from '../styles.module.less';
 import DeploymentOptionDiagram from '../../DeploymentOptionDiagram';
+import Container from '../../Container';
 
 const PublicDeployment = () => {
     return (
         <section className={defaultWrapperGrey}>
-            <div className={container}>
+            <Container className={container}>
                 <DeploymentOptionDiagram deploymentOption="public" />
                 <DeploymentOptionDetails
                     title="PUBLIC DEPLOYMENT"
@@ -17,7 +18,7 @@ const PublicDeployment = () => {
                     TitleHeadingLevel="h2"
                     KeyFeaturesTitleHeadingLevel="h3"
                 />
-            </div>
+            </Container>
         </section>
     );
 };
