@@ -1,35 +1,22 @@
 import ReactPlayer from 'react-player';
 import styled from 'styled-components';
-import { globalMaxWidth } from '../../../globalStyles';
 import BubblesCircleBackground from '../../../components/BackgroundImages/BubblesCircleBackground';
-
-export const Container = styled.div`
-    ${globalMaxWidth}
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 60px;
-
-    @media (min-width: 1024px) {
-        flex-direction: row;
-        align-items: center;
-    }
-`;
 
 export const ContainerLeft = styled(BubblesCircleBackground)`
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 100%;
-    height: auto;
-    width: 100%;
     padding: 80px 0;
 `;
 
 export const EstuaryProductVideo = styled(ReactPlayer)`
     max-height: 325px;
     max-width: 547px;
+
+    div {
+        position: relative;
+        z-index: 1;
+    }
 `;
 
 export const VideoPreviewContainer = styled.div`

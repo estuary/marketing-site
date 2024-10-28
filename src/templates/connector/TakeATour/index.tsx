@@ -5,8 +5,8 @@ import { estuaryProductFlowVideoUrl } from '../../../../shared';
 import useWindowExistence from '../../../hooks/useWindowExistence';
 import { DefaultWrapperDark } from '../../../styles/wrappers';
 import { ContainerIcon } from '../styles';
+import Container from '../../../components/Container';
 import {
-    Container,
     ContainerButton,
     ContainerContent,
     ContainerIcons,
@@ -23,7 +23,7 @@ const TakeATour = () => {
 
     return (
         <DefaultWrapperDark>
-            <Container>
+            <Container isReverseColumnOnMobile>
                 <ContainerLeft>
                     {hasWindow ? (
                         <EstuaryProductVideo

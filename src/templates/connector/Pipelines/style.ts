@@ -1,23 +1,5 @@
 import styled from 'styled-components';
-import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
 import { AnchorFilled } from '../../../components/OutboundLink/styles';
-
-export const Wrapper = styled.section`
-    ${sectionTopBottomPadding}
-`;
-
-export const Container = styled.div`
-    ${globalMaxWidth}
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
-
-    @media (min-width: 1280px) {
-        gap: 36px;
-    }
-`;
 
 export const LineBreak = styled.span`
     @media (min-width: 1024px) {
@@ -60,10 +42,15 @@ export const Description = styled.h3`
 `;
 
 export const Button = styled<any>(AnchorFilled)`
-    width: 100%;
-
-    @media (min-width: 1024px) {
-        width: fit-content;
-        padding: 12px 62px;
+    @media (max-width: 768px) {
+        width: 100%;
     }
+`;
+
+export const TableWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
 `;

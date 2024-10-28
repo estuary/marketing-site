@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { OutboundLinkFilled } from '../../../../../components/OutboundLink';
+import { OutboundLinkFilled } from '../../../../components/OutboundLink';
 
 export const Container = styled.div`
     display: flex;

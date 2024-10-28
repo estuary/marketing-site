@@ -6,9 +6,9 @@ import { ConnectorType } from '../../../../shared';
 import ConnectorsLink from '../../../components/ConnectorsLink';
 import { DefaultWrapper } from '../../../styles/wrappers';
 import { OutboundLink } from '../../../components/OutboundLink';
+import Container from '../../../components/Container';
 import Cards from './components/Cards';
 import {
-    Container,
     ContainerContent,
     ContainerImage,
     Description,
