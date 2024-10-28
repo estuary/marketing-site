@@ -1,13 +1,11 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../../components/Layout';
-import {
-    SectionOne,
-    SectionTwo,
-    SectionThree,
-} from '../../components/EtlToolsPage';
 import Seo from '../../components/seo';
 import { Vendor } from '../../../shared';
+import Hero from '../../components/EtlToolsPage/Hero';
+import LearnMoreArticles from '../../components/EtlToolsPage/LearnMoreArticles';
+import ListOfComparisons from '../../components/EtlToolsPage/ListOfComparisons';
 
 interface EtlToolsProps {
     data: {
@@ -26,9 +24,12 @@ const EtlTools = ({
 }: EtlToolsProps) => {
     return (
         <Layout>
-            <SectionOne vendors={vendors} />
-            <SectionTwo />
-            <SectionThree vendors={vendors} estuaryVendor={estuaryVendor} />
+            <Hero vendors={vendors} />
+            <LearnMoreArticles />
+            <ListOfComparisons
+                vendors={vendors}
+                estuaryVendor={estuaryVendor}
+            />
         </Layout>
     );
 };

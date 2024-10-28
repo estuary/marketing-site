@@ -50,7 +50,7 @@ interface SectionThreeProps {
     vendors: Vendor[];
 }
 
-const SectionThree = ({ estuaryVendor, vendors }: SectionThreeProps) => {
+const ListOfComparisons = ({ estuaryVendor, vendors }: SectionThreeProps) => {
     const [selectedVendorId, setSelectedVendorId] = useState(estuaryVendor.id);
 
     const handleChangeSelectedVendor = (
@@ -142,4 +142,4 @@ const SectionThree = ({ estuaryVendor, vendors }: SectionThreeProps) => {
     );
 };
 
-export default SectionThree;
+export default ListOfComparisons;

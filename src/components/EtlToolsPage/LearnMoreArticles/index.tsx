@@ -4,7 +4,7 @@ import { sectionTitle } from '../styles.module.less';
 import { container, cardsWrapper } from './styles.module.less';
 import Card from './Card';
 
-const SectionTwo = () => {
+const LearnMoreArticles = () => {
     return (
         <section className={defaultWrapperGrey}>
             <div className={container}>
@@ -30,4 +30,4 @@ const SectionTwo = () => {
     );
 };
 
-export default SectionTwo;
+export default LearnMoreArticles;
