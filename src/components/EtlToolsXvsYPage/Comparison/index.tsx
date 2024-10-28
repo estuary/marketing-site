@@ -53,7 +53,7 @@ const tableBodyComponents = [
     Cost,
 ];
 
-const SectionTwo = ({ xVendor, yVendor, estuaryVendor }: SectionTwoProps) => {
+const Comparison = ({ xVendor, yVendor, estuaryVendor }: SectionTwoProps) => {
     const isThreeVendorComparison = useMemo(() => {
         return ![xVendor.id, yVendor.id].includes(estuaryVendor.id);
     }, [xVendor.id, yVendor.id, estuaryVendor.id]);
@@ -261,4 +261,4 @@ const SectionTwo = ({ xVendor, yVendor, estuaryVendor }: SectionTwoProps) => {
     );
 };
 
-export default SectionTwo;
+export default Comparison;

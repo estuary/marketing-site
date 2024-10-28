@@ -21,7 +21,7 @@ interface SectionOneProps {
     yVendor: Vendor;
 }
 
-const SectionOne = ({ vendors, xVendor, yVendor }: SectionOneProps) => {
+const Hero = ({ vendors, xVendor, yVendor }: SectionOneProps) => {
     return (
         <section className={defaultWrapperDarkBlue}>
             <div className={container}>
@@ -80,4 +80,4 @@ const SectionOne = ({ vendors, xVendor, yVendor }: SectionOneProps) => {
     );
 };
 
-export default SectionOne;
+export default Hero;
