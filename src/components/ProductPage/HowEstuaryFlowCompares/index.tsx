@@ -3,12 +3,13 @@ import React from 'react';
 import { LinkFilled } from '../../../globalStyles';
 import { DefaultWrapperDark } from '../../../styles/wrappers';
 import PipelinesTable from '../../PipelinesTable';
-import { Container, TableTitle, TableWrapper, Title } from './styles';
+import Container from '../../Container';
+import { TableTitle, TableWrapper, Title } from './styles';
 
 const HowEstuaryFlowCompares = () => {
     return (
         <DefaultWrapperDark>
-            <Container>
+            <Container isVertical>
                 <Title>
                     HOW <span>ESTUARY FLOW</span> COMPARES
                 </Title>

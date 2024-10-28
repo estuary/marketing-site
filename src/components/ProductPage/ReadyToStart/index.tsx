@@ -7,13 +7,13 @@ import CalendarIcon from '../../../svgs/product-page/section-fourteen/calendar.s
 import LoginIcon from '../../../svgs/product-page/section-fourteen/login.svg';
 import { OutboundLinkOutlined } from '../../OutboundLink';
 import { dashboardRegisterUrl } from '../../../../shared';
+import Container from '../../Container';
 import {
     BoxDescription,
     BoxTitle,
     Boxes,
     Columns,
     ContactUsBox,
-    Container,
     GetStartedBox,
     IconWrapper,
     ImageWrapper,
@@ -24,7 +24,7 @@ import {
 const ReadyToStart = () => {
     return (
         <DefaultWrapperDark>
-            <Container>
+            <Container isVertical>
                 <Title>READY TO START?</Title>
                 <Columns>
                     <Boxes>

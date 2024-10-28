@@ -3,10 +3,10 @@ import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import { DefaultWrapperDarkBlue } from '../../../styles/wrappers';
 import NewsletterSignupForm from '../../NewsletterSignupForm';
+import Container from '../../Container';
 import {
     FormFields,
     FormLabel,
-    FormWrapper,
     IconWrapper,
     ImageWrapper,
     TermsAndConditions,
@@ -16,7 +16,7 @@ import {
 const DontMissAThing = () => {
     return (
         <DefaultWrapperDarkBlue>
-            <FormWrapper>
+            <Container isReverseColumnOnMobile>
                 <ImageWrapper>
                     <StaticImage
                         placeholder="none"
@@ -45,7 +45,7 @@ const DontMissAThing = () => {
                         </a>
                     </TermsAndConditions>
                 </FormFields>
-            </FormWrapper>
+            </Container>
         </DefaultWrapperDarkBlue>
     );
 };

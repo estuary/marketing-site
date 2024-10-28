@@ -3,9 +3,9 @@ import React from 'react';
 import { DefaultWrapperGrey } from '../../../styles/wrappers';
 import Carousel from '../../Carousel';
 import FlowCycle from '../../../svgs/flow-cycle.svg';
+import Container from '../../Container';
 import Hover from './Hover';
 import {
-    Container,
     DesktopImageWrapper,
     MobileImageWrapper,
     Slide,
@@ -18,7 +18,7 @@ import {
 const HowItWorks = () => {
     return (
         <DefaultWrapperGrey style={{ padding: '60px 0' }}>
-            <Container>
+            <Container isVertical>
                 <Title>HOW IT WORKS</Title>
                 <Carousel
                     hasArrow

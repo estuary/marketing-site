@@ -1,15 +1,6 @@
 import styled from 'styled-components';
 
-import { globalMaxWidth } from '../../../globalStyles';
 import { OutboundLink } from '../../OutboundLink';
-
-export const Container = styled.section`
-    ${globalMaxWidth};
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-`;
 
 export const KeyFeaturesWrapper = styled.div`
     display: flex;

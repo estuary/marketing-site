@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { globalMaxWidth } from '../../../globalStyles';
 
 export const Title = styled.h2`
     font-size: 2.5rem;
@@ -25,18 +24,6 @@ export const FormLabel = styled.label`
 
     @media (max-width: 768px) {
         font-size: 1rem;
-    }
-`;
-
-export const FormWrapper = styled.div`
-    ${globalMaxWidth};
-    display: flex;
-    align-items: center;
-    gap: 60px;
-
-    @media (max-width: 768px) {
-        flex-direction: column;
-        gap: 40px;
     }
 `;
 
