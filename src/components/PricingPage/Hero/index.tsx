@@ -1,29 +1,20 @@
 import React from 'react';
-import clsx from 'clsx';
 import { StaticImage } from 'gatsby-plugin-image';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
-import {
-    globalMaxWidth,
-    sectionOneImageWrapper,
-} from '../../../globalStyles/sections.module.less';
+
 import { OutboundLinkFilled } from '../../OutboundLink';
 import { LinkOutlined } from '../../../globalStyles';
 import { dashboardRegisterUrl } from '../../../../shared';
-import {
-    container,
-    title,
-    contentContainer,
-    description,
-    buttonsContainer,
-} from './styles.module.less';
+import Container from '../../Container';
+import { contentContainer, buttonsContainer } from './styles.module.less';
 
 const Hero = () => {
     return (
         <section className={defaultWrapperDarkBlue}>
-            <div className={clsx(container, globalMaxWidth)}>
+            <Container>
                 <div className={contentContainer}>
-                    <h1 className={title}>SIMPLY PRICED, PAY AS YOU GO</h1>
-                    <p className={description}>
+                    <h1>SIMPLY PRICED, PAY AS YOU GO</h1>
+                    <p>
                         Stop trying to guess your monthly bill based on
                         &apos;monthly active rows.&apos; We price predictably,
                         based on <span>data moved each month</span> and{' '}
@@ -45,16 +36,14 @@ const Hero = () => {
                         </LinkOutlined>
                     </div>
                 </div>
-                <div className={sectionOneImageWrapper}>
-                    <StaticImage
-                        src="../../../images/pricing/illustration.png"
-                        alt="It was just one insert though."
-                        quality={100}
-                        placeholder="blurred"
-                        loading="eager"
-                    />
-                </div>
-            </div>
+                <StaticImage
+                    src="../../../images/pricing/illustration.png"
+                    alt="It was just one insert though."
+                    quality={100}
+                    placeholder="blurred"
+                    loading="eager"
+                />
+            </Container>
         </section>
     );
 };
