@@ -1,13 +1,14 @@
 import React from 'react';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import { sectionTitle } from '../styles.module.less';
-import { container, cardsWrapper } from './styles.module.less';
+import Container from '../../Container';
+import { cardsWrapper } from './styles.module.less';
 import Card from './Card';
 
 const LearnMoreArticles = () => {
     return (
         <section className={defaultWrapperGrey}>
-            <div className={container}>
+            <Container isVertical>
                 <h2 className={sectionTitle}>
                     Learn more about ETL, ELT, and CDC alternatives
                 </h2>
@@ -25,7 +26,7 @@ const LearnMoreArticles = () => {
                         buttonHref="/CDC-comparison-guide"
                     />
                 </div>
-            </div>
+            </Container>
         </section>
     );
 };

@@ -3,6 +3,7 @@ import { StaticImage, GatsbyImage } from 'gatsby-plugin-image';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import VendorsLink from '../../VendorsLink';
 import { Vendor } from '../../../../shared';
+import Container from '../../Container';
 import { container, leftColumn, rightColumn } from './styles.module.less';
 
 interface SectionOneProps {
@@ -12,7 +13,7 @@ interface SectionOneProps {
 const Hero = ({ vendors }: SectionOneProps) => {
     return (
         <section className={defaultWrapperDarkBlue}>
-            <div className={container}>
+            <Container className={container}>
                 <div className={leftColumn}>
                     <h1>ETL, ELT and CDC Tools Comparison Center</h1>
                     <VendorsLink vendors={vendors} isDarkTheme />
@@ -37,7 +38,7 @@ const Hero = ({ vendors }: SectionOneProps) => {
                         />
                     ))}
                 </div>
-            </div>
+            </Container>
         </section>
     );
 };

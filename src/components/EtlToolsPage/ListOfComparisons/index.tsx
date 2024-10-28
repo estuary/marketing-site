@@ -7,12 +7,13 @@ import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import { Vendor } from '../../../../shared';
 import Checkmark from '../../../svgs/checkmark.svg';
 import { sectionTitle } from '../styles.module.less';
+import Container from '../../Container';
 import {
-    container,
     tabs,
     itemImage,
     gridCards,
     tabLabel,
+    textWrapper,
 } from './styles.module.less';
 import XvsYCard from './XvsYCard';
 
@@ -66,11 +67,13 @@ const ListOfComparisons = ({ estuaryVendor, vendors }: SectionThreeProps) => {
 
     return (
         <section className={defaultWrapperDark}>
-            <div className={container}>
-                <h2 className={sectionTitle}>
-                    Browse the Complete List of Comparisons
-                </h2>
-                <p>Choose a vendor and see how it compares to the rest.</p>
+            <Container isVertical>
+                <div className={textWrapper}>
+                    <h2 className={sectionTitle}>
+                        Browse the Complete List of Comparisons
+                    </h2>
+                    <p>Choose a vendor and see how it compares to the rest.</p>
+                </div>
                 <TabContext value={selectedVendorId}>
                     <Tabs
                         value={selectedVendorId}
@@ -117,6 +120,7 @@ const ListOfComparisons = ({ estuaryVendor, vendors }: SectionThreeProps) => {
                             value={selectedVendorId}
                             keepMounted
                             hidden={selectedVendorId !== id}
+                            sx={{ width: '100%' }}
                         >
                             <div className={gridCards}>
                                 {vendors
@@ -137,7 +141,7 @@ const ListOfComparisons = ({ estuaryVendor, vendors }: SectionThreeProps) => {
                         </TabPanel>
                     ))}
                 </TabContext>
-            </div>
+            </Container>
         </section>
     );
 };
