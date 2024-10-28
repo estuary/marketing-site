@@ -134,20 +134,22 @@
 }
 
 .blogPostHeaderWrapper {
-  .globalMaxWidth;
+  width: 100%;
 
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  gap: 60px;
-  height: fit-content;
-
-  @media (max-width: 1150px) {
+  @media (max-width: 1024px) {
     flex-direction: column;
-    gap: 32px;
   }
 
+  > :nth-child(1) {
+    max-width: 100%;
+  }
+
+  > :nth-child(2) {
+    max-width: 496px;
+  }
+}
+
+.headerInfo {
   h1 {
     margin-top: 36px;
     margin-bottom: 36px;
@@ -161,24 +163,6 @@
       margin: 20px 0 28px;
     }
   }
-
-  h2 {
-    color: #47506d;
-    font-size: 1.25rem;
-    font-weight: 400;
-    line-height: 30px;
-    margin-top: 36px;
-    margin-bottom: 16px;
-
-    @media (max-width: 1440px) {
-      font-size: 1rem;
-      margin-top: 28px;
-    }
-  }
-}
-
-.headerInfo {
-  max-width: 1024px;
 
   p {
     font-size: 1.25rem;
@@ -250,16 +234,13 @@
 }
 
 .heroImage {
-  max-width: 547px;
-  min-width: 450px;
-  width: 100%;
   border-radius: 24px;
 
   @media (min-width: 1200px) {
     max-width: 720px;
   }
 
-  @media (max-width: 1150px) {
+  @media (max-width: 1024px) {
     min-width: 100%;
   }
 }
@@ -267,7 +248,7 @@
 .shareArticleMobile {
   display: none;
 
-  @media (max-width: 1150px) {
+  @media (max-width: 1024px) {
     display: flex;
     margin-right: auto;
   }
@@ -285,7 +266,7 @@
   justify-content: space-between;
   gap: 48px;
 
-  @media (max-width: 1150px) {
+  @media (max-width: 1024px) {
     flex-direction: column-reverse;
     gap: 14px;
   }
@@ -328,7 +309,7 @@
   width: calc(100% - 256px - 48px);
   padding-left: 48px;
 
-  @media (max-width: 1150px) {
+  @media (max-width: 1024px) {
     width: 100%;
   }
 
@@ -356,7 +337,7 @@
     padding: 48px 30px;
   }
 
-  @media (max-width: 1150px) {
+  @media (max-width: 1024px) {
     padding: 32px;
   }
 
@@ -415,7 +396,7 @@
       line-height: 3rem;
     }
 
-    @media (max-width: 1150px) {
+    @media (max-width: 1024px) {
       font-size: 2rem;
     }
 
@@ -446,7 +427,7 @@
       font-weight: 500;
       line-height: 30px;
 
-      @media (max-width: 1150px) {
+      @media (max-width: 1024px) {
         font-size: 1rem;
       }
     }

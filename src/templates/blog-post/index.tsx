@@ -29,6 +29,7 @@ import Avatar from '../../components/Avatar';
 import SocialLinks from '../../components/SocialLinks';
 import BlogBanner from '../../components/BlogBanner';
 import ArticleSidebar from '../../components/ArticleSidebar';
+import Container from '../../components/Container';
 import ShareArticle from './ShareArticle';
 import {
     blogPost,
@@ -106,7 +107,7 @@ const BlogPostTemplate = ({ data: { post } }) => {
                 itemType="http://schema.org/Article"
             >
                 <SwoopingLinesBackground>
-                    <div className={blogPostHeaderWrapper}>
+                    <Container className={blogPostHeaderWrapper}>
                         <div className={headerInfo}>
                             <div className={postInfo}>
                                 <div className={tagsWrapper}>
@@ -170,7 +171,7 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                 }}
                             />
                         </div>
-                    </div>
+                    </Container>
                 </SwoopingLinesBackground>
 
                 {post.body ? (
