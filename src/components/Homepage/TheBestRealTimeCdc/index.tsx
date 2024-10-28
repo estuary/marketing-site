@@ -1,23 +1,23 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
 import RealTimeCdc from '../../../svgs/real-time-cdc.svg';
+import Container from '../../Container';
 import Advantage from './Advantage';
 import {
     AdvantagesList,
-    Container,
+    Wrapper,
     Description,
     IconWrapper,
     LeftColumn,
     Link,
     RightColumn,
     Title,
-    Wrapper,
 } from './styles';
 
 const TheBestRealTimeCdc = () => {
     return (
-        <Container>
-            <Wrapper>
+        <Wrapper>
+            <Container>
                 <LeftColumn>
                     <IconWrapper>
                         <RealTimeCdc />
@@ -51,8 +51,8 @@ const TheBestRealTimeCdc = () => {
                         quality={100}
                     />
                 </RightColumn>
-            </Wrapper>
-        </Container>
+            </Container>
+        </Wrapper>
     );
 };
 

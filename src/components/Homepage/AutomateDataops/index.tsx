@@ -2,9 +2,9 @@ import { StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
 import SingleDataflowIcon from '../../../svgs/metric-single-dataflow.svg';
 import { docsPageUrl } from '../../../../shared';
+import Container from '../../Container';
 import {
     Button,
-    Container,
     Description,
     IconWrapper,
     LeftColumn,
@@ -15,8 +15,8 @@ import {
 
 const AutomateDataops = () => {
     return (
-        <Container>
-            <Wrapper>
+        <Wrapper>
+            <Container isReverseColumnOnMobile>
                 <LeftColumn>
                     <StaticImage
                         quality={100}
@@ -43,8 +43,8 @@ const AutomateDataops = () => {
                         See the Docs
                     </Button>
                 </RightColumn>
-            </Wrapper>
-        </Container>
+            </Container>
+        </Wrapper>
     );
 };
 

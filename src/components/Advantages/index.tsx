@@ -4,7 +4,7 @@ import Advantage from './Advantage';
 import {
     AdvantagesList,
     ButtonWrapper,
-    Container,
+    Wrapper,
     IconWrapper,
     LeftColumn,
     RightColumn,
@@ -40,7 +40,7 @@ const Advantages = ({
     isImageOnTheLeft = false,
 }: AdvantagesProps) => {
     return (
-        <Container $isImageOnTheLeft={isImageOnTheLeft}>
+        <Wrapper $isImageOnTheLeft={isImageOnTheLeft}>
             <LeftColumn>
                 <IconWrapper $isDarkTheme={isDarkTheme}>{icon}</IconWrapper>
                 <Title $isDarkTheme={isDarkTheme}>{title}</Title>
@@ -67,7 +67,7 @@ const Advantages = ({
                 ) : null}
             </LeftColumn>
             {image ? <RightColumn>{image}</RightColumn> : null}
-        </Container>
+        </Wrapper>
     );
 };
 

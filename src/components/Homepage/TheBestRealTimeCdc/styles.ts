@@ -1,25 +1,9 @@
 import styled from 'styled-components';
-import {
-    LinkFilled,
-    globalMaxWidth,
-    sectionTopBottomPadding,
-} from '../../../globalStyles';
+import { LinkFilled, sectionTopBottomPadding } from '../../../globalStyles';
 
-export const Container = styled.section`
+export const Wrapper = styled.section`
+    ${sectionTopBottomPadding};
     background-color: #fdfdfe;
-`;
-
-export const Wrapper = styled.div`
-    ${globalMaxWidth}
-    ${sectionTopBottomPadding}
-    
-  display: flex;
-    justify-content: space-between;
-    gap: 60px;
-
-    @media (max-width: 1024px) {
-        flex-direction: column-reverse;
-    }
 `;
 
 export const Title = styled.h2`
@@ -48,10 +32,6 @@ export const Description = styled.p`
 
     @media (max-width: 1024px) {
         font-size: 1rem;
-    }
-
-    @media (max-width: 980px) {
-        max-width: 480px;
     }
 `;
 

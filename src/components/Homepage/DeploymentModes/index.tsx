@@ -3,6 +3,7 @@ import TabContext from '@mui/lab/TabContext';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import { DeploymentOption } from '../../../../shared';
 import { LinkFilled } from '../../../globalStyles';
+import Container from '../../Container';
 import { container, rightColumn } from './styles.module.less';
 import DeploymentDiagramContainer from './DeploymentDiagramContainer';
 import TabPanels from './TabPanels';
@@ -21,7 +22,7 @@ const DeploymentModes = () => {
 
     return (
         <section className={defaultWrapperGrey}>
-            <div className={container}>
+            <Container className={container} isReverseColumnOnMobile>
                 <DeploymentDiagramContainer deploymentOption={selectedTab} />
                 <div className={rightColumn}>
                     <h2>
@@ -35,7 +36,7 @@ const DeploymentModes = () => {
                         See Details
                     </LinkFilled>
                 </div>
-            </div>
+            </Container>
         </section>
     );
 };
