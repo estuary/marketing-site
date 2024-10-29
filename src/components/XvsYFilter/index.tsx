@@ -62,7 +62,7 @@ const XvsYFilter = ({
                 isDarkTheme ? darkTheme : null
             )}
         >
-            <FormControl className={formControl} fullWidth>
+            <FormControl className={formControl}>
                 {xSelect.label ? (
                     <InputLabel>{xSelect.label}</InputLabel>
                 ) : null}
@@ -101,7 +101,7 @@ const XvsYFilter = ({
                     ))}
                 </Select>
             </FormControl>
-            <FormControl className={formControl} fullWidth>
+            <FormControl className={formControl}>
                 {ySelect.label ? (
                     <InputLabel>{ySelect.label}</InputLabel>
                 ) : null}

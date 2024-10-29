@@ -23,7 +23,6 @@ const WhyPageStepsBackground = ({
                         placeholder: BLURRED
                         formats: [AUTO, WEBP, AVIF]
                         layout: FULL_WIDTH
-                        width: 1180
                     )
                 }
             }
@@ -34,7 +33,6 @@ const WhyPageStepsBackground = ({
                         placeholder: BLURRED
                         formats: [AUTO, WEBP, AVIF]
                         layout: FULL_WIDTH
-                        width: 1180
                     )
                 }
             }
@@ -45,7 +43,6 @@ const WhyPageStepsBackground = ({
                         placeholder: BLURRED
                         formats: [AUTO, WEBP, AVIF]
                         layout: FULL_WIDTH
-                        width: 1180
                     )
                 }
             }
@@ -56,7 +53,6 @@ const WhyPageStepsBackground = ({
                         placeholder: BLURRED
                         formats: [AUTO, WEBP, AVIF]
                         layout: FULL_WIDTH
-                        width: 1180
                     )
                 }
             }
