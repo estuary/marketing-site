@@ -6,7 +6,7 @@
   gap: 24px;
 
   h1 {
-    color: #5072eb;
+    color: #fff;
     margin: 0;
     font-weight: 600;
     font-size: 4.5rem;
@@ -19,8 +19,8 @@
       font-size: 2rem;
     }
 
-    span:nth-of-type(2n+1) {
-      color: #fff;
+    span:nth-of-type(2n) {
+      color: #5072eb;
     }
   }
 
@@ -37,6 +37,10 @@
     @media (max-width: 425px) {
       font-size: 0.875rem;
     }
+
+    span:nth-of-type(2n) {
+      color: #625eff;
+    }
   }
 }
 
@@ -48,19 +52,16 @@
     flex-direction: column;
   }
 
-  & button,
   a {
     white-space: nowrap;
-  }
 
-  .homepage-section-one-button {
     @media (max-width: 768px) {
       width: 50%;
       padding-left: 0;
       padding-right: 0;
     }
-
-    @media (max-width: 320px) {
+  
+    @media (max-width: 425px) {
       width: 100%;
     }
   }

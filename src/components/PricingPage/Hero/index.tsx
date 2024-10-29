@@ -1,41 +1,28 @@
 import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
-
-import { OutboundLinkFilled } from '../../OutboundLink';
-import { LinkOutlined } from '../../../globalStyles';
-import { dashboardRegisterUrl } from '../../../../shared';
 import Container from '../../Container';
-import { contentContainer, buttonsContainer } from './styles.module.less';
+import HeroSectionDetails from '../../HeroSectionDetails';
 
 const Hero = () => {
     return (
         <section className={defaultWrapperDarkBlue}>
             <Container>
-                <div className={contentContainer}>
-                    <h1>SIMPLY PRICED, PAY AS YOU GO</h1>
-                    <p>
-                        Stop trying to guess your monthly bill based on
-                        &apos;monthly active rows.&apos; We price predictably,
-                        based on <span>data moved each month</span> and{' '}
-                        <span>active connector instances</span>.
-                    </p>
-                    <div className={buttonsContainer}>
-                        <OutboundLinkFilled
-                            target="_blank"
-                            href={dashboardRegisterUrl}
-                        >
-                            Build Free Pipeline
-                        </OutboundLinkFilled>
-                        <LinkOutlined
-                            href="/contact-us"
-                            target="_blank"
-                            theme="dark"
-                        >
-                            Contact Us
-                        </LinkOutlined>
-                    </div>
-                </div>
+                <HeroSectionDetails
+                    title="SIMPLY PRICED, PAY AS YOU GO"
+                    description={
+                        <>
+                            <span>
+                                Stop trying to guess your monthly bill based on
+                                &apos;monthly active rows.&apos; We price
+                                predictably, based on
+                            </span>{' '}
+                            <span>data moved each month</span> <span>and</span>{' '}
+                            <span>active connector instances</span>.
+                        </>
+                    }
+                    hasCtaButtons
+                />
                 <StaticImage
                     src="../../../images/pricing/illustration.png"
                     alt="It was just one insert though."
