@@ -27,21 +27,6 @@
 }
 
 .container {
-  h1,
-  p {
-    color: #fff;
-  }
-
-  h1 {
-    line-height: 72px;
-  }
-
-  p {
-    font-size: 1.25rem;
-    color: #F2F3F5;
-    margin: 0;
-  }
-
   span {
     .fullSize;
     font-size: 0.9vw;
@@ -66,52 +51,6 @@
     span {
       font-size: 1.8vw;
       line-height: 2.2vw;
-    }
-  }
-
-  @media (max-width: 768px) {
-    h1 {
-      font-size: 2.5rem;
-      line-height: 48px;
-    }
-
-    p {
-      font-size: 1rem;
-    }
-  }
-
-  @media (max-width: 425px) {
-    h1 {
-      font-size: 2.25rem;
-      line-height: 43.2px;
-    }
-  }
-}
-
-.leftColumn {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  max-width: 50%;
-  width: 100%;
-
-  div {
-    display: flex;
-    gap: 16px;
-    max-width: 480px;
-    flex-direction: row;
-
-    &>a {
-      white-space: nowrap;
-      width: 100%;
-    }
-
-    @media (max-width: 1024px) {
-      margin: 0;
-    }
-
-    @media (max-width: 360px) {
-      flex-direction: column;
     }
   }
 }
