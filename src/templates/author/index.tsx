@@ -1,8 +1,8 @@
 import { graphql } from 'gatsby';
 import React from 'react';
-import { htmlToText } from 'html-to-text';
 import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
+import { getAuthorSeoJson } from '../../../shared';
 import SectionOne from './SectionOne';
 import { Author } from './shared';
 import SectionTwo from './SectionTwo';
@@ -43,23 +43,33 @@ export default AuthorPage;
 
 export const Head = ({
     data: {
-        author: { name, bio },
+        author,
+        site: {
+            siteMetadata: { siteUrl },
+        },
     },
 }) => {
+    console.log('author', author);
+
+    const seoJson = getAuthorSeoJson(author, siteUrl);
+
     return (
-        <Seo
-            title={name}
-            description={
-                bio.data.bio
-                    ? htmlToText(bio.data.bio, { wordwrap: false })
-                    : 'Blog post author.'
-            }
-        />
+        <>
+            <Seo title={author.name} description={seoJson.description} />
+            <script type="application/ld+json">
+                {JSON.stringify(seoJson)}
+            </script>
+        </>
     );
 };
 
 export const pageQuery = graphql`
     query AuthorById($id: String!) {
+        site {
+            siteMetadata {
+                siteUrl
+            }
+        }
         author: strapiAuthor(id: { eq: $id }) {
             id
             name: Name
@@ -71,6 +81,7 @@ export const pageQuery = graphql`
                             height: 208
                             placeholder: BLURRED
                         )
+                        fixedImg: gatsbyImageData(layout: FIXED, width: 60)
                     }
                 }
             }
