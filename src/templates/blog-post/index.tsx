@@ -30,6 +30,7 @@ import SocialLinks from '../../components/SocialLinks';
 import BlogBanner from '../../components/BlogBanner';
 import ArticleSidebar from '../../components/ArticleSidebar';
 import Container from '../../components/Container';
+import HeroSectionDetails from '../../components/HeroSectionDetails';
 import ShareArticle from './ShareArticle';
 import {
     blogPost,
@@ -148,8 +149,10 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                     </div>
                                 </div>
                             </div>
-                            <h1>{post.title}</h1>
-                            <p>{post.description}</p>
+                            <HeroSectionDetails
+                                title={post.title}
+                                description={post.description}
+                            />
                             <Bio authors={post.authors} />
                         </div>
                         {post.hero ? (
