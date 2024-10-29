@@ -4,7 +4,8 @@ import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.le
 import VendorsLink from '../../VendorsLink';
 import { Vendor } from '../../../../shared';
 import Container from '../../Container';
-import { container, leftColumn, rightColumn } from './styles.module.less';
+import HeroSectionDetails from '../../HeroSectionDetails';
+import { rightColumn } from './styles.module.less';
 
 interface SectionOneProps {
     vendors: Vendor[];
@@ -13,11 +14,13 @@ interface SectionOneProps {
 const Hero = ({ vendors }: SectionOneProps) => {
     return (
         <section className={defaultWrapperDarkBlue}>
-            <Container className={container}>
-                <div className={leftColumn}>
-                    <h1>ETL, ELT and CDC Tools Comparison Center</h1>
-                    <VendorsLink vendors={vendors} isDarkTheme />
-                </div>
+            <Container>
+                <HeroSectionDetails
+                    title="ETL, ELT AND CDC TOOLS COMPARISON CENTER"
+                    additionalElements={
+                        <VendorsLink vendors={vendors} isDarkTheme />
+                    }
+                />
                 <div className={rightColumn}>
                     <StaticImage
                         src="../../../images/lp-comparison/vendor-comparison-base-image.png"

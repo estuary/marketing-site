@@ -26,7 +26,7 @@
     --fontSize-6: 3.75rem;
     --color-primary: #5072eb;
     --color-text: #2e353f;
-    --color-text-light: #b7c6dd;
+    --color-text-light: #b7c6dd17;
     --color-heading: #1a202c;
     --color-heading-black: black;
     --color-accent: #d1dce5;
@@ -104,18 +104,19 @@ h1 {
     font-size: var(--fontSize-6);
     color: var(--color-heading-black);
     font-weight: var(--fontWeight-bold);
-    line-height: 72px;
-
-    span {
-        line-height: 80px;
-    }
+    color: #fff;
+    margin: 0;
 
     @media (max-width: 768px) {
-        line-height: 43px;
+      font-size: 2.25rem;
+    }
 
-        span {
-            line-height: 43px;
-        }
+    @media (max-width: 425px) {
+      font-size: 2rem;
+    }
+
+    span:nth-of-type(2n) {
+      color: #5072eb;
     }
 }
 

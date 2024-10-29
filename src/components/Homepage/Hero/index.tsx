@@ -24,7 +24,8 @@ const Hero = () => {
                     title={
                         <>
                             <span className="white-text">MEET</span>{' '}
-                            <span>THE FASTEST, MOST RELIABLE</span>{' '}
+                            <span>THE FASTEST</span>
+                            <span>,</span> <span>MOST RELIABLE</span>{' '}
                             <span className="white-text">ETL</span>
                         </>
                     }

@@ -59,6 +59,10 @@ export const MainContent = styled.div`
         ${globalMaxWidth}
         flex-direction: column-reverse;
     }
+
+    h1 {
+        max-width: 760px;
+    }
 `;
 
 export const FlowAnimationContainer = styled.div`

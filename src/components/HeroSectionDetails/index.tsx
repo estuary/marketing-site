@@ -7,7 +7,7 @@ import { container, buttonsWrapper } from './styles.module.less';
 
 interface HeroSectionDetailsProps {
     title: ReactNode;
-    description: ReactNode;
+    description?: ReactNode;
     additionalElements?: ReactNode;
     hasCtaButtons?: boolean;
     hasSubscriptionBenefits?: boolean;
@@ -23,7 +23,7 @@ const HeroSectionDetails = ({
     return (
         <div className={container}>
             <h1>{title}</h1>
-            <p>{description}</p>
+            {description ? <p>{description}</p> : null}
             {hasCtaButtons ? (
                 <div className={buttonsWrapper}>
                     <OutboundLinkFilled
