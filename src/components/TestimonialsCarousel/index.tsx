@@ -65,9 +65,7 @@ const TestimonialsCarousel = ({
             options={{ loop: true }}
         >
             {testimonials.map(({ id, logo, name, text }: Testimonial) => {
-                const isImageSvg =
-                    !logo.localFile.childImageSharp &&
-                    logo.localFile.extension === 'svg';
+                const isImageSvg = logo.localFile.extension === 'svg';
 
                 return (
                     <div key={id} className={slide}>
