@@ -33,17 +33,14 @@ const Content = ({ connector }: ContentProps) => {
                         <>
                             <span>MOVE</span>{' '}
                             <span>
-                                YOUR DATA FROM {connector.title.toUpperCase()}{' '}
-                                WITH YOUR
+                                YOUR DATA FROM {connector.title} WITH YOUR
                             </span>{' '}
                             <span>FREE</span> <span>ACCOUNT</span>
                         </>
                     ) : (
                         <>
                             <span>STREAM</span>{' '}
-                            <span>
-                                INTO {connector.title.toUpperCase()} WITH YOUR
-                            </span>{' '}
+                            <span>INTO {connector.title} WITH YOUR</span>{' '}
                             <span>FREE</span> <span>ACCOUNT</span>
                         </>
                     )
