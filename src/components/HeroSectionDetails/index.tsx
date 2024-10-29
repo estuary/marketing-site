@@ -1,9 +1,13 @@
 import React, { ReactNode } from 'react';
 import { OutboundLinkFilled } from '../OutboundLink';
-import { LinkOutlined } from '../../globalStyles';
 import { dashboardRegisterUrl } from '../../../shared';
 import SubscriptionBenefits from '../SubscriptionBenefits';
-import { container, buttonsWrapper } from './styles.module.less';
+import { LinkOutlined } from '../../globalStyles';
+import {
+    container,
+    buttonsWrapper,
+    outlinedButton,
+} from './styles.module.less';
 
 interface HeroSectionDetailsProps {
     title: ReactNode;
@@ -27,16 +31,15 @@ const HeroSectionDetails = ({
             {hasCtaButtons ? (
                 <div className={buttonsWrapper}>
                     <OutboundLinkFilled
-                        target="_blank"
                         href={dashboardRegisterUrl}
-                        className="homepage-section-one-button"
+                        target="_blank"
                     >
                         Build a Pipeline
                     </OutboundLinkFilled>
                     <LinkOutlined
                         href="/contact-us"
-                        className="homepage-section-one-button"
                         target="_blank"
+                        className={outlinedButton}
                     >
                         Contact Us
                     </LinkOutlined>
