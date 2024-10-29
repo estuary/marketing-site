@@ -1,48 +1,4 @@
-@import '../../../globalStyles/sections.module.less';
-
-.container {
-  .globalMaxWidth;
-
-  display: flex;
-  align-items: center;
-  gap: 60px;
-
-  h1 {
-    color: #5072EB;
-    text-transform: uppercase;
-    line-height: 69.6px;
-
-    span {
-      color: #fff;
-    }
-  }
-
-  p {
-    color: #fff;
-    font-size: 1.25rem;
-  }
-
-  @media (max-width: 1024px) {
-    flex-direction: column-reverse;
-  }
-
-  @media (max-width: 768px) {
-    h1 {
-      font-size: 2.5rem;
-      line-height: 43px;
-    }
-  }
-}
-
-.leftColumn {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
 .rightColumn {
-  max-width: 536px;
-  aspect-ratio: 15 / 9;
   width: 100%;
   position: relative;
 }

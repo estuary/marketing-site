@@ -104,6 +104,19 @@ h1 {
     font-size: var(--fontSize-6);
     color: var(--color-heading-black);
     font-weight: var(--fontWeight-bold);
+    line-height: 72px;
+
+    span {
+        line-height: 80px;
+    }
+
+    @media (max-width: 768px) {
+        line-height: 43px;
+
+        span {
+            line-height: 43px;
+        }
+    }
 }
 
 h2 {

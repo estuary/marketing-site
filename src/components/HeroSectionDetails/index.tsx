@@ -8,6 +8,7 @@ import { container, buttonsWrapper } from './styles.module.less';
 interface HeroSectionDetailsProps {
     title: ReactNode;
     description: ReactNode;
+    additionalElements?: ReactNode;
     hasCtaButtons?: boolean;
     hasSubscriptionBenefits?: boolean;
 }
@@ -15,6 +16,7 @@ interface HeroSectionDetailsProps {
 const HeroSectionDetails = ({
     title,
     description,
+    additionalElements,
     hasCtaButtons = false,
     hasSubscriptionBenefits = false,
 }: HeroSectionDetailsProps) => {
@@ -41,6 +43,7 @@ const HeroSectionDetails = ({
                 </div>
             ) : null}
             {hasSubscriptionBenefits ? <SubscriptionBenefits /> : null}
+            {additionalElements ? additionalElements : null}
         </div>
     );
 };
