@@ -49,8 +49,6 @@ export const Head = ({
         },
     },
 }) => {
-    console.log('author', author);
-
     const seoJson = getAuthorSeoJson(author, siteUrl);
 
     return (
