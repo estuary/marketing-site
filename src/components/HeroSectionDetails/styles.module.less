@@ -1,0 +1,76 @@
+@import '../../globalStyles/sections.module.less';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  h1 {
+    color: #5072eb;
+    margin: 0;
+    font-weight: 600;
+    font-size: 4.5rem;
+
+    @media (max-width: 768px) {
+      font-size: 2.25rem;
+    }
+
+    @media (max-width: 425px) {
+      font-size: 2rem;
+    }
+
+    span:nth-of-type(2n+1) {
+      color: #fff;
+    }
+  }
+
+  p {
+    margin-top: 24px;
+    font-size: 1.25rem;
+    color: #fff;
+    margin: 0 0 16px 0;
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
+
+    @media (max-width: 425px) {
+      font-size: 0.875rem;
+    }
+  }
+}
+
+.buttonsWrapper {
+  display: flex;
+  gap: 24px;
+
+  @media (max-width: 425px) {
+    flex-direction: column;
+  }
+
+  & button,
+  a {
+    white-space: nowrap;
+  }
+
+  .homepage-section-one-button {
+    @media (max-width: 768px) {
+      width: 50%;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    @media (max-width: 320px) {
+      width: 100%;
+    }
+  }
+
+  a:first-of-type {
+    padding: 16px 24px !important;
+  }
+
+  a:last-of-type {
+    background-color: transparent;
+    color: #ffffff;
+  }
+}
