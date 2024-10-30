@@ -28,9 +28,8 @@ const Hero = ({ vendors, xVendor, yVendor }: SectionOneProps) => {
                 <HeroSectionDetails
                     title={
                         <>
-                            <span>{xVendor.name.toUpperCase()}</span>{' '}
-                            <span>VS</span>{' '}
-                            <span>{yVendor.name.toUpperCase()}</span>
+                            <span>{xVendor.name}</span> <span>VS</span>{' '}
+                            <span>{yVendor.name}</span>
                         </>
                     }
                     description={

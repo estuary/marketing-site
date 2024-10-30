@@ -3,11 +3,7 @@ import { OutboundLinkFilled } from '../OutboundLink';
 import { dashboardRegisterUrl } from '../../../shared';
 import SubscriptionBenefits from '../SubscriptionBenefits';
 import { LinkOutlined } from '../../globalStyles';
-import {
-    container,
-    buttonsWrapper,
-    outlinedButton,
-} from './styles.module.less';
+import { container, buttonsWrapper } from './styles.module.less';
 
 interface HeroSectionDetailsProps {
     title: ReactNode;
@@ -39,7 +35,7 @@ const HeroSectionDetails = ({
                     <LinkOutlined
                         href="/contact-us"
                         target="_blank"
-                        className={outlinedButton}
+                        theme="dark"
                     >
                         Contact Us
                     </LinkOutlined>

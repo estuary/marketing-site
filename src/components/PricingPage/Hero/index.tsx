@@ -3,6 +3,7 @@ import { StaticImage } from 'gatsby-plugin-image';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import Container from '../../Container';
 import HeroSectionDetails from '../../HeroSectionDetails';
+import { boldText } from './styles.module.less';
 
 const Hero = () => {
     return (
@@ -17,8 +18,14 @@ const Hero = () => {
                                 &apos;monthly active rows.&apos; We price
                                 predictably, based on
                             </span>{' '}
-                            <span>data moved each month</span> <span>and</span>{' '}
-                            <span>active connector instances</span>.
+                            <span className={boldText}>
+                                data moved each month
+                            </span>{' '}
+                            <span>and</span>{' '}
+                            <span className={boldText}>
+                                active connector instances
+                            </span>
+                            .
                         </>
                     }
                     hasCtaButtons

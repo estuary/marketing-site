@@ -5,7 +5,7 @@ import VendorsLink from '../../VendorsLink';
 import { Vendor } from '../../../../shared';
 import Container from '../../Container';
 import HeroSectionDetails from '../../HeroSectionDetails';
-import { rightColumn } from './styles.module.less';
+import { container, rightColumn } from './styles.module.less';
 
 interface SectionOneProps {
     vendors: Vendor[];
@@ -14,7 +14,7 @@ interface SectionOneProps {
 const Hero = ({ vendors }: SectionOneProps) => {
     return (
         <section className={defaultWrapperDarkBlue}>
-            <Container>
+            <Container className={container}>
                 <HeroSectionDetails
                     title="ETL, ELT AND CDC TOOLS COMPARISON CENTER"
                     additionalElements={

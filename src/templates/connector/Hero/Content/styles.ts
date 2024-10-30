@@ -25,7 +25,6 @@ export const ContainerPreTitle = styled.div`
     gap: 16px;
     align-items: center;
     margin-bottom: 32px;
-    margin: 0;
 
     span {
         font-weight: 700;
