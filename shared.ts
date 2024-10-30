@@ -44,15 +44,15 @@ export const getAuthorSeoJson = (author: Author, siteUrl: string) => {
 
     const sameAs: string[] = [];
 
-    if (author.socials.linked_in) {
+    if (author.socials?.linked_in) {
         sameAs.push(author.socials.linked_in);
     }
 
-    if (author.socials.twitter) {
+    if (author.socials?.twitter) {
         sameAs.push(author.socials.twitter);
     }
 
-    if (author.socials.other) {
+    if (author.socials?.other) {
         sameAs.push(author.socials.other);
     }
 

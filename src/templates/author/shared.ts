@@ -3,10 +3,10 @@ export interface Author {
     name: string;
     picture: any;
     slug: string;
-    socials: {
-        linked_in: string;
-        twitter: string;
-        other: string;
+    socials?: {
+        linked_in?: string;
+        twitter?: string;
+        other?: string;
     };
     bio: {
         data: {
