@@ -11,7 +11,7 @@ const iconColor = '#47506D';
 
 interface SocialLinks {
     socialLinks: {
-        linkedIn: string;
+        linked_in: string;
         twitter: string;
         other: string;
     };

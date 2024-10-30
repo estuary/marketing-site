@@ -4,7 +4,7 @@ export interface Author {
     picture: any;
     slug: string;
     socials: {
-        linkedIn: string;
+        linked_in: string;
         twitter: string;
         other: string;
     };
