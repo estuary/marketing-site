@@ -17,7 +17,7 @@ import DeploymentModes from '../components/Homepage/DeploymentModes';
 
 const IndexPage = () => {
     return (
-        <Layout>
+        <Layout showReleaseBanner>
             <Hero />
             <MoveAndTransform />
             <CaseStudies />

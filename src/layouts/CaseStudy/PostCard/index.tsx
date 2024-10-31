@@ -53,7 +53,7 @@ export const CaseStudyPostCard = ({
         <div className="case-study-card-description">{Description}</div>
         <div className="case-study-card-link-wrapper">
             <p className="case-study-card-link-text">View Case Study</p>
-            <ArrowRight />
+            <ArrowRight color="#5374EA" />
         </div>
     </Link>
 );
