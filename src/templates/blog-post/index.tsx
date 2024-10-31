@@ -24,7 +24,11 @@ import Seo from '../../components/seo';
 import logoUrl from '../../images/combination-mark__multi-blue.png';
 import { costPerGB } from '../../utils';
 import ReadingTimeIcon from '../../svgs/time.svg';
-import { dashboardRegisterUrl, getAuthorPathBySlug } from '../../../shared';
+import {
+    dashboardRegisterUrl,
+    getAuthorPathBySlug,
+    getAuthorSeoJson,
+} from '../../../shared';
 import Avatar from '../../components/Avatar';
 import SocialLinks from '../../components/SocialLinks';
 import BlogBanner from '../../components/BlogBanner';
@@ -207,113 +211,126 @@ const BlogPostTemplate = ({ data: { post } }) => {
                         </div>
                     </section>
                 ) : null}
-                <section className={nextStepsAndAboutAuthorSection}>
-                    {/* <div className={nextSteps}>
+                {post?.authors.length >= 1 ? (
+                    <section className={nextStepsAndAboutAuthorSection}>
+                        {/* <div className={nextSteps}>
                         <h3>Next steps</h3>
                         <NextStepsLink href="">Read about Lorem ipsum dolor sit amet, consectetur</NextStepsLink>
                         <NextStepsLink href="">Learn about Lorem ipsum dolor sit amet</NextStepsLink>
                         <NextStepsLink href="">Lorem ipsum dolor sit amet</NextStepsLink>
                         </div> */}
 
-                    <div className={aboutAuthor}>
-                        <h2>
-                            {post?.authors.length === 1
-                                ? hasAtLeastOneBio
-                                    ? 'About the author'
-                                    : 'Author'
-                                : hasAtLeastOneBio
-                                  ? 'About the authors'
-                                  : 'Authors'}
-                        </h2>
-                        {post?.authors?.map((author, index) => {
-                            const authorImage =
-                                author?.picture &&
-                                getImage(
-                                    author.picture.localFile.childImageSharp
-                                        .gatsbyImageData
-                                );
+                        <div className={aboutAuthor}>
+                            <h2>
+                                {post?.authors.length === 1
+                                    ? hasAtLeastOneBio
+                                        ? 'About the author'
+                                        : 'Author'
+                                    : hasAtLeastOneBio
+                                      ? 'About the authors'
+                                      : 'Authors'}
+                            </h2>
+                            {post?.authors?.map((author, index) => {
+                                const authorImage =
+                                    author?.picture &&
+                                    getImage(
+                                        author.picture.localFile.childImageSharp
+                                            .gatsbyImageData
+                                    );
 
-                            const authorBio = author?.bio.data.bio;
+                                const authorBio = author?.bio.data.bio;
 
-                            const authorSocialLinks = author?.socials;
+                                const authorSocialLinks = author?.socials;
 
-                            return (
-                                <>
-                                    <div key={index} className={authorInfo}>
-                                        <Link
-                                            to={getAuthorPathBySlug(
-                                                author?.slug
-                                            )}
-                                            className={authorMainInfoContainer}
-                                        >
-                                            <div
+                                return (
+                                    <>
+                                        <div key={index} className={authorInfo}>
+                                            <Link
+                                                to={getAuthorPathBySlug(
+                                                    author?.slug
+                                                )}
                                                 className={
-                                                    authorAvatarContainer
+                                                    authorMainInfoContainer
                                                 }
                                             >
-                                                <Avatar
-                                                    image={authorImage}
-                                                    alt={`Picture of ${author?.name}`}
-                                                    name={author.name}
-                                                    loading="lazy"
-                                                    size={60}
-                                                />
-                                            </div>
-                                            <div className={authorNameAndRole}>
-                                                {author?.name ? (
-                                                    <span
-                                                        className={authorName}
-                                                    >
-                                                        {author.name}
-                                                    </span>
-                                                ) : null}
-                                                {author?.role ? (
-                                                    <span
-                                                        className={authorRole}
-                                                    >
-                                                        {author.role}
-                                                    </span>
-                                                ) : null}
-                                            </div>
-                                        </Link>
-                                        {authorSocialLinks ? (
-                                            <>
-                                                <Divider
-                                                    orientation="vertical"
-                                                    variant="middle"
-                                                    flexItem
-                                                    sx={{
-                                                        minHeight: '57px',
-                                                        width: '1px',
-                                                        borderColor: '#d7dce5',
-                                                        margin: '0 30px 0 20px',
-                                                        [theme.breakpoints.down(
-                                                            520
-                                                        )]: {
-                                                            display: 'none',
-                                                        },
-                                                    }}
-                                                />
-                                                <SocialLinks
-                                                    socialLinks={
-                                                        authorSocialLinks
+                                                <div
+                                                    className={
+                                                        authorAvatarContainer
                                                     }
-                                                />
-                                            </>
+                                                >
+                                                    <Avatar
+                                                        image={authorImage}
+                                                        alt={`Picture of ${author?.name}`}
+                                                        name={author.name}
+                                                        loading="lazy"
+                                                        size={60}
+                                                    />
+                                                </div>
+                                                <div
+                                                    className={
+                                                        authorNameAndRole
+                                                    }
+                                                >
+                                                    {author?.name ? (
+                                                        <span
+                                                            className={
+                                                                authorName
+                                                            }
+                                                        >
+                                                            {author.name}
+                                                        </span>
+                                                    ) : null}
+                                                    {author?.role ? (
+                                                        <span
+                                                            className={
+                                                                authorRole
+                                                            }
+                                                        >
+                                                            {author.role}
+                                                        </span>
+                                                    ) : null}
+                                                </div>
+                                            </Link>
+                                            {authorSocialLinks ? (
+                                                <>
+                                                    <Divider
+                                                        orientation="vertical"
+                                                        variant="middle"
+                                                        flexItem
+                                                        sx={{
+                                                            minHeight: '57px',
+                                                            width: '1px',
+                                                            borderColor:
+                                                                '#d7dce5',
+                                                            margin: '0 30px 0 20px',
+                                                            [theme.breakpoints.down(
+                                                                520
+                                                            )]: {
+                                                                display: 'none',
+                                                            },
+                                                        }}
+                                                    />
+                                                    <SocialLinks
+                                                        socialLinks={
+                                                            authorSocialLinks
+                                                        }
+                                                    />
+                                                </>
+                                            ) : null}
+                                        </div>
+                                        {authorBio ? (
+                                            <div
+                                                dangerouslySetInnerHTML={{
+                                                    __html: author.bio.data.bio,
+                                                }}
+                                            />
                                         ) : null}
-                                    </div>
-                                    {authorBio ? (
-                                        <div
-                                            dangerouslySetInnerHTML={{
-                                                __html: author.bio.data.bio,
-                                            }}
-                                        />
-                                    ) : null}
-                                </>
-                            );
-                        })}
-                    </div>
-                </section>
+                                    </>
+                                );
+                            })}
+                        </div>
+                    </section>
+                ) : null}
                 <section className={popularArticlesWrapper}>
                     <h2>Popular Articles</h2>
                     <PopularArticles />
@@ -395,14 +412,9 @@ export const Head = ({
         },
     },
 }) => {
-    const mappedAuthors = post.authors.map((author) => ({
-        name: author.name,
-        url: author.link,
-        image: author.picture && {
-            '@type': 'ImageObject',
-            'url': `${siteUrl}/${author.picture.localFile.childImageSharp.fixedImg.gatsbyImageData}`,
-        },
-    }));
+    const mappedAuthors = post.authors.map((author) =>
+        getAuthorSeoJson(author, siteUrl)
+    );
 
     const postTags = post.tags
         .filter((tag) => tag.type === 'tag')

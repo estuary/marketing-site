@@ -1,4 +1,6 @@
+import { htmlToText } from 'html-to-text';
 import { features } from './src/components/DeploymentOptionsPage/shared';
+import { Author } from './src/templates/author/shared';
 
 export const webinarsUrl =
     'https://try.estuary.dev/webinar-estuary101-ondemand';
@@ -34,6 +36,48 @@ export const estuaryAddress = {
 
 export const getAuthorPathBySlug = (slug: string) =>
     `/author/${slug.toLowerCase()}`;
+
+export const getAuthorSeoJson = (author: Author, siteUrl: string) => {
+    const authorBio = author.bio.data.bio
+        ? htmlToText(author.bio.data.bio, { wordwrap: false })
+        : 'Blog post author.';
+
+    const sameAs: string[] = [];
+
+    if (author.socials?.linked_in) {
+        sameAs.push(author.socials.linked_in);
+    }
+
+    if (author.socials?.twitter) {
+        sameAs.push(author.socials.twitter);
+    }
+
+    if (author.socials?.other) {
+        sameAs.push(author.socials.other);
+    }
+
+    return {
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        'name': author.name,
+        'url': `${siteUrl}${getAuthorPathBySlug(author.slug)}/`,
+        'jobTitle': author.role,
+        'description': authorBio,
+        'worksFor': {
+            '@type': 'Organization',
+            'name': 'Estuary',
+            'url': 'https://estuary.dev/',
+        },
+        sameAs,
+        'image': author.picture?.localFile?.childImageSharp?.fixedImg?.images
+            ?.fallback?.src
+            ? {
+                  '@type': 'ImageObject',
+                  'url': `${siteUrl}${author.picture.localFile.childImageSharp.fixedImg.images.fallback.src}`,
+              }
+            : undefined,
+    };
+};
 
 export const getComparisonSlug = (
     xVendorSlugKey: string,
