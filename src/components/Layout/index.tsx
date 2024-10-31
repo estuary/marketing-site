@@ -25,9 +25,7 @@ const Layout = ({
             </React.Suspense>
             <Header fixedHeader={fixedHeader} />
             <main className={clsx(fixedHeader && globalMainFixedHeader)}>
-                {showReleaseBanner ? (
-                    <ReleaseBanner href="/deployment-options" />
-                ) : null}
+                {showReleaseBanner ? <ReleaseBanner /> : null}
                 {children}
             </main>
             <Footer />

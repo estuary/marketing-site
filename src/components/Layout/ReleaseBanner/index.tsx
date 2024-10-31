@@ -9,10 +9,9 @@ import {
 
 interface ReleaseBanner {
     theme: 'dark' | 'light';
-    href: string;
 }
 
-const ReleaseBanner = ({ theme = 'dark', href }) => {
+const ReleaseBanner = ({ theme = 'dark' }) => {
     return (
         <div
             className={clsx(
@@ -21,7 +20,7 @@ const ReleaseBanner = ({ theme = 'dark', href }) => {
             )}
         >
             <div>
-                <a href={href} target="_blank" rel="noreferrer">
+                <a href="/deployment-options" target="_blank" rel="noreferrer">
                     <span>A Step Ahead</span>
                     <p>
                         Explore Estuary&apos;s powerful compliance solutions
