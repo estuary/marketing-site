@@ -1,15 +1,16 @@
 import * as React from 'react';
 import DarkSwoopingLinesLeftDirectionBackground from '../../BackgroundImages/DarkSwoopingLinesLeftDirectionBackground';
 import TestimonialsCarousel from '../../TestimonialsCarousel';
-import { Wrapper } from './styles';
+import Container from '../../Container';
+import { Title } from './styles';
 
 const WhatPeopleAreSaying = () => {
     return (
         <DarkSwoopingLinesLeftDirectionBackground>
-            <Wrapper>
-                <h2>What people are saying</h2>
+            <Container isVertical>
+                <Title>What people are saying</Title>
                 <TestimonialsCarousel />
-            </Wrapper>
+            </Container>
         </DarkSwoopingLinesLeftDirectionBackground>
     );
 };

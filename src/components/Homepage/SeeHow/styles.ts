@@ -1,33 +1,9 @@
 import styled from 'styled-components';
-import {
-    globalMaxWidth,
-    LinkOutlined,
-    sectionTopBottomPadding,
-} from '../../../globalStyles';
+import { LinkOutlined, sectionTopBottomPadding } from '../../../globalStyles';
 import { OutboundLinkFilled } from '../../OutboundLink';
 
 export const Wrapper = styled.section`
-    ${globalMaxWidth}
     ${sectionTopBottomPadding}
-    
-  display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 48px;
-
-    @media (max-width: 1024px) {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    @media (max-width: 768px) {
-        gap: 24px;
-    }
-
-    @media (max-width: 425px) {
-        gap: 40px;
-    }
 `;
 
 export const Title = styled.h2`

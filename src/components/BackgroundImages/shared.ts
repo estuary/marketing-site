@@ -1,4 +1,2 @@
-export const backgroundColors = {
-    dark: '#04192b',
-    light: '#f9fafc',
-};
+export const darkImgStyle = { backgroundColor: '#04192b' };
+export const lightImgStyle = { backgroundColor: '#f9fafc' };

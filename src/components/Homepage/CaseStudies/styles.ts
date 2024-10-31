@@ -1,12 +1,5 @@
 import styled from 'styled-components';
-import { LinkOutlined, globalMaxWidth } from '../../../globalStyles';
-
-export const Wrapper = styled.div`
-    ${globalMaxWidth}
-
-    display: flex;
-    flex-direction: column;
-`;
+import { LinkOutlined } from '../../../globalStyles';
 
 export const CardContainer = styled.div`
     display: flex;
@@ -69,7 +62,6 @@ export const SectionTitle = styled.h2`
     font-weight: 600;
     line-height: 72px;
     color: #5072eb;
-    margin: 0 0 60px 0;
     text-transform: uppercase;
 `;
 

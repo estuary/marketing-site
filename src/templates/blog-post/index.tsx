@@ -29,6 +29,8 @@ import Avatar from '../../components/Avatar';
 import SocialLinks from '../../components/SocialLinks';
 import BlogBanner from '../../components/BlogBanner';
 import ArticleSidebar from '../../components/ArticleSidebar';
+import Container from '../../components/Container';
+import HeroSectionDetails from '../../components/HeroSectionDetails';
 import ShareArticle from './ShareArticle';
 import {
     blogPost,
@@ -106,7 +108,7 @@ const BlogPostTemplate = ({ data: { post } }) => {
                 itemType="http://schema.org/Article"
             >
                 <SwoopingLinesBackground>
-                    <div className={blogPostHeaderWrapper}>
+                    <Container className={blogPostHeaderWrapper}>
                         <div className={headerInfo}>
                             <div className={postInfo}>
                                 <div className={tagsWrapper}>
@@ -147,8 +149,10 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                     </div>
                                 </div>
                             </div>
-                            <h1>{post.title}</h1>
-                            <p>{post.description}</p>
+                            <HeroSectionDetails
+                                title={post.title}
+                                description={post.description}
+                            />
                             <Bio authors={post.authors} />
                         </div>
                         {post.hero ? (
@@ -170,7 +174,7 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                 }}
                             />
                         </div>
-                    </div>
+                    </Container>
                 </SwoopingLinesBackground>
 
                 {post.body ? (

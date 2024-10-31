@@ -6,9 +6,9 @@ import VendorsLink from '../../VendorsLink';
 import { Vendor } from '../../../../shared';
 import NewTabLink from '../../NewTabLink';
 import ChevronRightIcon from '../../../svgs/chevron-right.svg';
+import HeroSectionDetails from '../../HeroSectionDetails';
+import Container from '../../Container';
 import {
-    container,
-    leftColumn,
     rightColumn,
     vendorLogo,
     leftVendorLogo,
@@ -21,32 +21,40 @@ interface SectionOneProps {
     yVendor: Vendor;
 }
 
-const SectionOne = ({ vendors, xVendor, yVendor }: SectionOneProps) => {
+const Hero = ({ vendors, xVendor, yVendor }: SectionOneProps) => {
     return (
         <section className={defaultWrapperDarkBlue}>
-            <div className={container}>
-                <div className={leftColumn}>
-                    <h1>
-                        <span>{xVendor.name}</span> VS{' '}
-                        <span>{yVendor.name}</span>
-                    </h1>
-                    <p>
-                        Read this detailed 2024 comparison of {xVendor.name} vs{' '}
-                        {yVendor.name}. Understand their key differences, core
-                        features, and pricing to choose the right platform for
-                        your data integration needs.
-                    </p>
-                    <VendorsLink
-                        vendors={vendors}
-                        xVendor={xVendor}
-                        yVendor={yVendor}
-                        isDarkTheme
-                    />
-                    <NewTabLink href="/etl-tools">
-                        View all comparisons
-                        <ChevronRightIcon color="#5072EB" />
-                    </NewTabLink>
-                </div>
+            <Container>
+                <HeroSectionDetails
+                    title={
+                        <>
+                            <span>{xVendor.name}</span> <span>VS</span>{' '}
+                            <span>{yVendor.name}</span>
+                        </>
+                    }
+                    description={
+                        <>
+                            Read this detailed 2024 comparison of {xVendor.name}{' '}
+                            vs {yVendor.name}. Understand their key differences,
+                            core features, and pricing to choose the right
+                            platform for your data integration needs.
+                        </>
+                    }
+                    additionalElements={
+                        <>
+                            <VendorsLink
+                                vendors={vendors}
+                                xVendor={xVendor}
+                                yVendor={yVendor}
+                                isDarkTheme
+                            />
+                            <NewTabLink href="/etl-tools">
+                                View all comparisons
+                                <ChevronRightIcon color="#5072EB" />
+                            </NewTabLink>
+                        </>
+                    }
+                />
                 <div className={rightColumn}>
                     <div className={clsx(vendorLogo, leftVendorLogo)}>
                         <GatsbyImage
@@ -75,9 +83,9 @@ const SectionOne = ({ vendors, xVendor, yVendor }: SectionOneProps) => {
                         />
                     </div>
                 </div>
-            </div>
+            </Container>
         </section>
     );
 };
 
-export default SectionOne;
+export default Hero;

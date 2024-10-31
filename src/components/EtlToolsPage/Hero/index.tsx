@@ -3,20 +3,24 @@ import { StaticImage, GatsbyImage } from 'gatsby-plugin-image';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import VendorsLink from '../../VendorsLink';
 import { Vendor } from '../../../../shared';
-import { container, leftColumn, rightColumn } from './styles.module.less';
+import Container from '../../Container';
+import HeroSectionDetails from '../../HeroSectionDetails';
+import { container, rightColumn } from './styles.module.less';
 
 interface SectionOneProps {
     vendors: Vendor[];
 }
 
-const SectionOne = ({ vendors }: SectionOneProps) => {
+const Hero = ({ vendors }: SectionOneProps) => {
     return (
         <section className={defaultWrapperDarkBlue}>
-            <div className={container}>
-                <div className={leftColumn}>
-                    <h1>ETL, ELT and CDC Tools Comparison Center</h1>
-                    <VendorsLink vendors={vendors} isDarkTheme />
-                </div>
+            <Container className={container}>
+                <HeroSectionDetails
+                    title="ETL, ELT AND CDC TOOLS COMPARISON CENTER"
+                    additionalElements={
+                        <VendorsLink vendors={vendors} isDarkTheme />
+                    }
+                />
                 <div className={rightColumn}>
                     <StaticImage
                         src="../../../images/lp-comparison/vendor-comparison-base-image.png"
@@ -37,9 +41,9 @@ const SectionOne = ({ vendors }: SectionOneProps) => {
                         />
                     ))}
                 </div>
-            </div>
+            </Container>
         </section>
     );
 };
 
-export default SectionOne;
+export default Hero;

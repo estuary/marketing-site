@@ -1,14 +1,5 @@
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import { globalMaxWidth } from '../../../globalStyles';
-
-export const Container = styled.div`
-    ${globalMaxWidth};
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-`;
 
 export const ImageWrapper = styled.div`
     position: relative;

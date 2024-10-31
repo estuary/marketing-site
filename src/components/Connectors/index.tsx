@@ -277,7 +277,7 @@ export const Connectors = ({
                         >
                             <FlowLogo className={connectorBottomFlow} />
                             <StaticImage
-                                src="../images/connectors-bottom.png"
+                                src="../../images/connectors-bottom.png"
                                 alt={
                                     bottomTitle ??
                                     'Connectors logos background image'

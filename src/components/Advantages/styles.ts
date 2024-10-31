@@ -1,17 +1,11 @@
 import styled from 'styled-components';
-import { globalMaxWidth } from '../../globalStyles';
+import Container from '../Container';
 
 type Theme = {
     $isDarkTheme: boolean;
 };
 
-export const Container = styled.section<{ $isImageOnTheLeft: boolean }>`
-    ${globalMaxWidth}
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 60px;
+export const Wrapper = styled(Container)<{ $isImageOnTheLeft: boolean }>`
     flex-direction: ${(props) =>
         props.$isImageOnTheLeft ? 'row-reverse' : 'row'};
 

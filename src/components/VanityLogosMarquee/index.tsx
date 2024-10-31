@@ -16,13 +16,9 @@ const VanityLogosMarquee = () => {
                     enabled: Enabled
                     logo: Logo {
                         localFile {
-                            svg {
-                                content
-                            }
                             name
-                            internal {
-                                mediaType
-                            }
+                            publicURL
+                            extension
                             childImageSharp {
                                 gatsbyImageData(
                                     layout: FIXED
@@ -40,20 +36,21 @@ const VanityLogosMarquee = () => {
     return (
         <div className="container">
             <Marquee autoFill>
-                {logos.allStrapiVanityLogo.nodes?.map((logo) =>
-                    logo.logo.localFile.internal.mediaType ===
-                    'image/svg+xml' ? (
+                {logos.allStrapiVanityLogo.nodes?.map((logo) => {
+                    const isImageSvg = logo.logo.localFile.extension === 'svg';
+                    const imgAltText = 'Customer logo';
+
+                    return isImageSvg ? (
                         <div key={logo.id} className="vanity-logo">
-                            <div
-                                dangerouslySetInnerHTML={{
-                                    __html: logo.logo.localFile.svg.content,
-                                }}
+                            <img
+                                src={logo.logo.localFile.publicURL}
+                                alt={imgAltText}
                             />
                         </div>
                     ) : (
                         <div key={logo.id} className="vanity-logo">
                             <GatsbyImage
-                                alt="logo"
+                                alt={imgAltText}
                                 loading="eager"
                                 image={
                                     logo.logo.localFile.childImageSharp
@@ -61,8 +58,8 @@ const VanityLogosMarquee = () => {
                                 }
                             />
                         </div>
-                    )
-                )}
+                    );
+                })}
             </Marquee>
         </div>
     );

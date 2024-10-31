@@ -1,22 +1,25 @@
 import * as React from 'react';
 import DarkSwoopingLinesLeftDirectionBackground from '../../BackgroundImages/DarkSwoopingLinesLeftDirectionBackground';
 import FlowDemoVideo from '../../FlowDemoVideo';
-import { Description, Title, Wrapper } from './styles';
+import Container from '../../Container';
+import { TextWrapper } from '../styles';
 
 const BuildInMinutes = () => {
     return (
         <DarkSwoopingLinesLeftDirectionBackground>
-            <Wrapper>
-                <Title>
-                    <span>Build </span>
-                    in minutes
-                </Title>
-                <Description>
-                    Use the UI to quickly build end-to-end pipelines using
-                    no-code connectors. Estuary Flow does the rest.
-                </Description>
+            <Container isVertical>
+                <TextWrapper>
+                    <h2>
+                        <span>Build </span>
+                        in minutes
+                    </h2>
+                    <p>
+                        Use the UI to quickly build end-to-end pipelines using
+                        no-code connectors. Estuary Flow does the rest.
+                    </p>
+                </TextWrapper>
                 <FlowDemoVideo />
-            </Wrapper>
+            </Container>
         </DarkSwoopingLinesLeftDirectionBackground>
     );
 };

@@ -26,7 +26,7 @@
     --fontSize-6: 3.75rem;
     --color-primary: #5072eb;
     --color-text: #2e353f;
-    --color-text-light: #b7c6dd;
+    --color-text-light: #b7c6dd17;
     --color-heading: #1a202c;
     --color-heading-black: black;
     --color-accent: #d1dce5;
@@ -102,8 +102,22 @@ h6 {
 h1 {
     font-weight: var(--fontWeight-white);
     font-size: var(--fontSize-6);
-    color: var(--color-heading-black);
+    color: var(--color-primary);
     font-weight: var(--fontWeight-bold);
+    margin: 0;
+    text-transform: uppercase;
+
+    @media (max-width: 768px) {
+      font-size: 2.25rem;
+    }
+
+    @media (max-width: 425px) {
+      font-size: 2rem;
+    }
+
+    span:nth-of-type(2n+1) {
+      color: #fff;
+    }
 }
 
 h2 {

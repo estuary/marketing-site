@@ -3,11 +3,9 @@ import { graphql } from 'gatsby';
 import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
 import { Vendor } from '../../../shared';
-import {
-    SectionOne,
-    SectionThree,
-    SectionTwo,
-} from '../../components/EtlToolsXvsYPage';
+import Hero from '../../components/EtlToolsXvsYPage/Hero';
+import Comparison from '../../components/EtlToolsXvsYPage/Comparison';
+import GettingStarted from '../../components/EtlToolsXvsYPage/GettingStarted';
 
 interface EtlToolsProps {
     data: {
@@ -28,16 +26,15 @@ const EtlTools = ({
         vendors: { nodes: vendors },
     },
 }: EtlToolsProps) => {
-    console.log(xVendor);
     return (
         <Layout>
-            <SectionOne vendors={vendors} xVendor={xVendor} yVendor={yVendor} />
-            <SectionTwo
+            <Hero vendors={vendors} xVendor={xVendor} yVendor={yVendor} />
+            <Comparison
                 xVendor={xVendor}
                 yVendor={yVendor}
                 estuaryVendor={estuaryVendor}
             />
-            <SectionThree />
+            <GettingStarted />
         </Layout>
     );
 };

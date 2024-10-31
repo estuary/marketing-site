@@ -1,6 +1,7 @@
 import React from 'react';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
-import { container, title, questionsList } from './styles.module.less';
+import Container from '../../Container';
+import { title, questionsList } from './styles.module.less';
 import FaqAccordion from './FaqAccordion';
 import { faqs } from './faqs';
 
@@ -15,7 +16,7 @@ const Faq = () => {
 
     return (
         <section className={defaultWrapperGrey}>
-            <div className={container}>
+            <Container isVertical>
                 <h2 className={title}>FAQ</h2>
                 <ol className={questionsList}>
                     {faqs.map(({ questionNumber, question, content }) => (
@@ -30,7 +31,7 @@ const Faq = () => {
                         </FaqAccordion>
                     ))}
                 </ol>
-            </div>
+            </Container>
         </section>
     );
 };

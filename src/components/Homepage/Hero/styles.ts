@@ -1,10 +1,5 @@
 import styled from 'styled-components';
-import {
-    globalMaxWidth,
-    LinkOutlined,
-    sectionTopBottomPadding,
-} from '../../../globalStyles';
-import { OutboundLinkFilled } from '../../OutboundLink';
+import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
 
 export const AnimationBaseStyling = `
   width: 100%;
@@ -64,86 +59,10 @@ export const MainContent = styled.div`
         ${globalMaxWidth}
         flex-direction: column-reverse;
     }
-`;
 
-export const HomepageHeader = styled.div`
-    display: flex;
-    flex-direction: column;
-    margin: auto 0;
-
-    ul {
-        margin-top: 24px;
+    h1 {
+        max-width: 760px;
     }
-`;
-
-export const HomepageTitle = styled.h1`
-    color: #5072eb;
-    margin: 0;
-    font-weight: 600;
-    font-size: 4.5rem;
-
-    @media (max-width: 768px) {
-        font-size: 2.25rem;
-    }
-
-    @media (max-width: 425px) {
-        font-size: 1.5rem;
-    }
-
-    & > .white-text {
-        color: #fff;
-    }
-`;
-
-export const HomepageDescription = styled.p`
-    margin-top: 24px;
-    font-size: 1.25rem;
-    color: #fff;
-    margin: 20px 0 0 0;
-
-    @media (max-width: 768px) {
-        font-size: 1rem;
-    }
-
-    @media (max-width: 425px) {
-        font-size: 0.875rem;
-    }
-`;
-
-export const HomepageHeadingButtons = styled.div`
-    display: flex;
-    gap: 24px;
-    margin-top: 36px;
-
-    @media (max-width: 320px) {
-        flex-direction: column;
-    }
-
-    & button,
-    a {
-        white-space: nowrap;
-    }
-
-    .homepage-section-one-button {
-        @media (max-width: 768px) {
-            width: 50%;
-            padding-left: 0;
-            padding-right: 0;
-        }
-
-        @media (max-width: 320px) {
-            width: 100%;
-        }
-    }
-`;
-
-export const PrimaryButton = styled(OutboundLinkFilled)`
-    padding: 16px 24px !important;
-`;
-
-export const SecondaryButton = styled(LinkOutlined)`
-    background-color: transparent;
-    color: #ffffff;
 `;
 
 export const FlowAnimationContainer = styled.div`

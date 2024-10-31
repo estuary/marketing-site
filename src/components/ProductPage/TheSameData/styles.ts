@@ -1,24 +1,47 @@
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import { globalMaxWidth } from '../../../globalStyles';
-
-export const Container = styled.div`
-    ${globalMaxWidth}
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-
-    @media (max-width: 840px) {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-`;
 
 export const TextWrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 24px;
+
+    h2 {
+        font-size: 2.5rem;
+        font-weight: 600;
+        line-height: 48px;
+        margin: 0;
+        color: #ffffff;
+        max-width: 600px;
+
+        @media (max-width: 810px) {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 38.4px;
+            margin: 0;
+        }
+
+        @media (max-width: 425px) {
+            font-size: 1.75rem;
+            line-height: 33.6px;
+        }
+
+        & > span {
+            color: #5072eb;
+        }
+    }
+
+    p {
+        font-size: 1.25rem;
+        font-weight: 400;
+        line-height: 30px;
+        color: #ffffff;
+        margin: 0;
+
+        @media (max-width: 810px) {
+            font-size: 1rem;
+        }
+    }
 `;
 
 export const IconsWrapper = styled.div`
@@ -40,43 +63,6 @@ export const IconWrapper = styled.div`
     @media (max-width: 1280px) {
         width: 72px;
         height: 72px;
-    }
-`;
-
-export const Title = styled.h2`
-    font-size: 2.5rem;
-    font-weight: 600;
-    line-height: 48px;
-    margin: 0;
-    color: #ffffff;
-    max-width: 600px;
-
-    @media (max-width: 810px) {
-        font-size: 2rem;
-        font-weight: 700;
-        line-height: 38.4px;
-        margin: 0;
-    }
-
-    @media (max-width: 425px) {
-        font-size: 1.75rem;
-        line-height: 33.6px;
-    }
-
-    & > span {
-        color: #5072eb;
-    }
-`;
-
-export const Subtitle = styled.p`
-    font-size: 1.25rem;
-    font-weight: 400;
-    line-height: 30px;
-    color: #ffffff;
-    margin: 0;
-
-    @media (max-width: 810px) {
-        font-size: 1rem;
     }
 `;
 

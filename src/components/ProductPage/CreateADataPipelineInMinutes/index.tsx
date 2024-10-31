@@ -4,20 +4,14 @@ import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import { DefaultWrapper } from '../../../styles/wrappers';
 import FlowDemoVideo from '../../FlowDemoVideo';
+import Container from '../../Container';
 import Step from './Step';
-import {
-    Container,
-    Steps,
-    Subtitle,
-    TextWrapper,
-    Title,
-    VideoWrapper,
-} from './styles';
+import { Steps, Subtitle, TextWrapper, Title, VideoWrapper } from './styles';
 
 const CreateADataPipelineInMinutes = () => {
     return (
         <DefaultWrapper>
-            <Container>
+            <Container isVertical>
                 <TextWrapper>
                     <Title className="text">
                         CREATE A DATA PIPELINE IN <span>MINUTES</span>

@@ -1,28 +1,10 @@
 import styled from 'styled-components';
-import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
+import { sectionTopBottomPadding } from '../../../globalStyles';
 import { OutboundLinkFilled } from '../../OutboundLink';
 
-export const Container = styled.section`
+export const Wrapper = styled.section`
+    ${sectionTopBottomPadding};
     background-color: #fdfdfe;
-`;
-
-export const Wrapper = styled.div`
-    ${globalMaxWidth}
-    ${sectionTopBottomPadding}
-    
-  display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 60px;
-
-    @media (max-width: 1024px) {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    @media (max-width: 425px) {
-        gap: 40px;
-    }
 `;
 
 export const Title = styled.h2`
@@ -45,16 +27,11 @@ export const Title = styled.h2`
 export const Description = styled.p`
     font-size: 1.25rem;
     font-weight: 400;
-    line-height: 30px;
     margin: 0;
     color: #47506d;
 
     @media (max-width: 1024px) {
         font-size: 1rem;
-    }
-
-    @media (max-width: 980px) {
-        max-width: 480px;
     }
 `;
 

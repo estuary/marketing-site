@@ -3,10 +3,10 @@ import { StaticImage } from 'gatsby-plugin-image';
 import React, { useMemo } from 'react';
 import { DefaultWrapperDarkBlue } from '../../../styles/wrappers';
 import { HTMLTooltipProps } from '../../HTMLTooltip';
+import Container from '../../Container';
 import KeyFeature from './KeyFeature';
 import { features } from './features';
 import {
-    Container,
     ImageWrapper,
     KeyFeaturesListLeft,
     KeyFeaturesListRight,
@@ -153,7 +153,7 @@ const KeyFeatures = () => {
 
     return (
         <DefaultWrapperDarkBlue>
-            <Container>
+            <Container isVertical>
                 <TextWrapper>
                     <Title>KEY FEATURES</Title>
                     <Subtitle>

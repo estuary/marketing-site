@@ -1,60 +1,43 @@
 import React from 'react';
-import clsx from 'clsx';
 import { StaticImage } from 'gatsby-plugin-image';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
-import {
-    globalMaxWidth,
-    sectionOneImageWrapper,
-} from '../../../globalStyles/sections.module.less';
-import { OutboundLinkFilled } from '../../OutboundLink';
-import { LinkOutlined } from '../../../globalStyles';
-import { dashboardRegisterUrl } from '../../../../shared';
-import {
-    container,
-    title,
-    contentContainer,
-    description,
-    buttonsContainer,
-} from './styles.module.less';
+import Container from '../../Container';
+import HeroSectionDetails from '../../HeroSectionDetails';
+import { boldText } from './styles.module.less';
 
 const Hero = () => {
     return (
         <section className={defaultWrapperDarkBlue}>
-            <div className={clsx(container, globalMaxWidth)}>
-                <div className={contentContainer}>
-                    <h1 className={title}>SIMPLY PRICED, PAY AS YOU GO</h1>
-                    <p className={description}>
-                        Stop trying to guess your monthly bill based on
-                        &apos;monthly active rows.&apos; We price predictably,
-                        based on <span>data moved each month</span> and{' '}
-                        <span>active connector instances</span>.
-                    </p>
-                    <div className={buttonsContainer}>
-                        <OutboundLinkFilled
-                            target="_blank"
-                            href={dashboardRegisterUrl}
-                        >
-                            Build Free Pipeline
-                        </OutboundLinkFilled>
-                        <LinkOutlined
-                            href="/contact-us"
-                            target="_blank"
-                            theme="dark"
-                        >
-                            Contact Us
-                        </LinkOutlined>
-                    </div>
-                </div>
-                <div className={sectionOneImageWrapper}>
-                    <StaticImage
-                        src="../../../images/pricing/illustration.png"
-                        alt="It was just one insert though."
-                        quality={100}
-                        placeholder="blurred"
-                        loading="eager"
-                    />
-                </div>
-            </div>
+            <Container>
+                <HeroSectionDetails
+                    title="SIMPLY PRICED, PAY AS YOU GO"
+                    description={
+                        <>
+                            <span>
+                                Stop trying to guess your monthly bill based on
+                                &apos;monthly active rows.&apos; We price
+                                predictably, based on
+                            </span>{' '}
+                            <span className={boldText}>
+                                data moved each month
+                            </span>{' '}
+                            <span>and</span>{' '}
+                            <span className={boldText}>
+                                active connector instances
+                            </span>
+                            .
+                        </>
+                    }
+                    hasCtaButtons
+                />
+                <StaticImage
+                    src="../../../images/pricing/illustration.png"
+                    alt="It was just one insert though."
+                    quality={100}
+                    placeholder="blurred"
+                    loading="eager"
+                />
+            </Container>
         </section>
     );
 };

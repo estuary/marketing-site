@@ -1,13 +1,4 @@
 import styled from 'styled-components';
-import { globalMaxWidth } from '../../../globalStyles';
-
-export const Container = styled.div`
-    ${globalMaxWidth};
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 36px;
-`;
 
 export const Title = styled.h2`
     font-size: 2.5rem;

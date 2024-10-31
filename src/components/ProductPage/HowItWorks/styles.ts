@@ -1,11 +1,4 @@
 import styled from 'styled-components';
-import { globalMaxWidth } from '../../../globalStyles';
-
-export const Container = styled.div`
-    ${globalMaxWidth};
-    display: flex;
-    flex-direction: column;
-`;
 
 export const Title = styled.h2`
     font-size: 2.5rem;
@@ -15,7 +8,6 @@ export const Title = styled.h2`
     text-transform: uppercase;
     margin: 0;
     color: #5072eb;
-    margin: 0 0 12px 0;
 
     @media (max-width: 810px) {
         font-size: 1.75rem;

@@ -4,21 +4,14 @@ import LatencyIcon from '../../../svgs/metric-latency.svg';
 import SingleDataflowIcon from '../../../svgs/metric-single-dataflow.svg';
 import MetricCard from '../../MetricCard';
 import VanityLogosMarquee from '../../VanityLogosMarquee';
-import { dashboardRegisterUrl } from '../../../../shared';
-import SubscriptionBenefits from '../../SubscriptionBenefits';
+import HeroSectionDetails from '../../HeroSectionDetails';
 import AnimFallback from './AnimFallback';
 import AnimatedHero from './AnimatedHero';
 import {
     Container,
     FlowAnimationContainer,
-    HomepageDescription,
-    HomepageHeader,
-    HomepageHeadingButtons,
-    HomepageTitle,
     MainContent,
     MetricCardsList,
-    PrimaryButton,
-    SecondaryButton,
 } from './styles';
 
 const metricIconColor = '#FFFFFF';
@@ -27,35 +20,21 @@ const Hero = () => {
     return (
         <Container>
             <MainContent>
-                <HomepageHeader>
-                    <HomepageTitle>
-                        <span className="white-text">MEET</span>{' '}
-                        <span>THE FASTEST, MOST RELIABLE</span>{' '}
-                        <span className="white-text">ETL</span>
-                    </HomepageTitle>
-                    <HomepageDescription>
-                        Estuary is the only platform built from the ground up
+                <HeroSectionDetails
+                    title={
+                        <>
+                            <span className="white-text">MEET</span>{' '}
+                            <span>THE FASTEST</span>
+                            <span>,</span> <span>MOST RELIABLE</span>{' '}
+                            <span className="white-text">ETL</span>
+                        </>
+                    }
+                    description="Estuary is the only platform built from the ground up
                         for truly real-time ETL and ELT data integration, set up
-                        in minutes.
-                    </HomepageDescription>
-                    <HomepageHeadingButtons>
-                        <PrimaryButton
-                            target="_blank"
-                            href={dashboardRegisterUrl}
-                            className="homepage-section-one-button"
-                        >
-                            Build a Pipeline
-                        </PrimaryButton>
-                        <SecondaryButton
-                            href="/contact-us"
-                            className="homepage-section-one-button"
-                            target="_blank"
-                        >
-                            Contact Us
-                        </SecondaryButton>
-                    </HomepageHeadingButtons>
-                    <SubscriptionBenefits />
-                </HomepageHeader>
+                        in minutes."
+                    hasCtaButtons
+                    hasSubscriptionBenefits
+                />
                 <FlowAnimationContainer>
                     <React.Suspense fallback={AnimFallback}>
                         <AnimatedHero />

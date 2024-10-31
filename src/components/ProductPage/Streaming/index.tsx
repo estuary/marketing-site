@@ -2,13 +2,13 @@ import React from 'react';
 
 import { StaticImage } from 'gatsby-plugin-image';
 import { DefaultWrapperDarkBlue } from '../../../styles/wrappers';
+import Container from '../../Container';
 import {
     AmazonRedshiftStreamingEtlLogoWrapper,
     BatchEltColumn,
     BatchEltDescription,
     BatchEltTitle,
     Columns,
-    Container,
     ElasticStreamingEtlLogoWrapper,
     ImageWrapper,
     MySQLBatchElt1LogoWrapper,
@@ -27,7 +27,7 @@ import {
 const Streaming = () => {
     return (
         <DefaultWrapperDarkBlue>
-            <Container>
+            <Container isVertical>
                 <Title>
                     STREAMING <span>ETL VS. BATCH ELT</span>
                 </Title>

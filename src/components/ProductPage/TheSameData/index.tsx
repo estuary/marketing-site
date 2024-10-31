@@ -2,11 +2,11 @@ import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { DefaultWrapperDarkBlue } from '../../../styles/wrappers';
 import Tabs from '../../Tabs';
+import Container from '../../Container';
 import LogoAndPath from './LogoAndPath';
 import {
     AmazonRedshiftLogoWrapper,
     Connectors,
-    Container,
     DatabricksAILogoWrapper,
     DatabricksLogoWrapper,
     DynamoDBLogoWrapper,
@@ -18,19 +18,17 @@ import {
     OpenAiLogoWrapper,
     PineconeLogoWrapper,
     SnowflakeLogoWrapper,
-    Subtitle,
     TabContent,
     TabFooterText,
     TabImageWrapper,
     TabsWrapper,
     TextWrapper,
-    Title,
 } from './styles';
 
 const TheSameData = () => {
     return (
         <DefaultWrapperDarkBlue>
-            <Container>
+            <Container isReverseColumnOnMobile>
                 <TextWrapper>
                     <IconsWrapper>
                         <IconWrapper>
@@ -55,14 +53,14 @@ const TheSameData = () => {
                             />
                         </IconWrapper>
                     </IconsWrapper>
-                    <Title>
+                    <h2>
                         THE SAME DATA ACROSS <span>ANALYTICS, OPS,</span> AND{' '}
                         <span>AI</span>
-                    </Title>
-                    <Subtitle>
+                    </h2>
+                    <p>
                         Add data from your sources into collections. Then reuse
                         that data for any destinations in real-time or batch.
-                    </Subtitle>
+                    </p>
                 </TextWrapper>
                 <TabsWrapper>
                     <Tabs

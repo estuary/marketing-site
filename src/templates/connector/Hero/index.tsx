@@ -8,10 +8,10 @@ import React from 'react';
 
 import { ConnectorType } from '../../../../shared';
 import LightSwoopingLinesRightDirectionBackground from '../../../components/BackgroundImages/LightSwoopingLinesRightDirectionBackground';
-import Content from './components/Content';
+import Container from '../../../components/Container';
+import Content from './Content';
 
 import {
-    Container,
     ContainerImage,
     FlowStepOne,
     FlowStepThree,

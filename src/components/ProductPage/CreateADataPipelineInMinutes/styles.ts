@@ -1,14 +1,5 @@
 import styled from 'styled-components';
 
-import { globalMaxWidth } from '../../../globalStyles';
-
-export const Container = styled.div`
-    ${globalMaxWidth}
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-`;
-
 export const TextWrapper = styled.div`
     display: flex;
     flex-direction: column;

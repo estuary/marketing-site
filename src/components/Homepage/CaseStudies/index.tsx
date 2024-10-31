@@ -3,8 +3,9 @@ import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import DarkSwoopingLinesLeftDirectionBackground from '../../BackgroundImages/DarkSwoopingLinesLeftDirectionBackground';
 import Carousel from '../../Carousel';
+import Container from '../../Container';
 import Card from './Card';
-import { Cards, SectionTitle, Wrapper } from './styles';
+import { Cards, SectionTitle } from './styles';
 
 const cardsPerSlide = 3;
 
@@ -34,7 +35,7 @@ const CaseStudies = () => {
 
     return (
         <DarkSwoopingLinesLeftDirectionBackground>
-            <Wrapper>
+            <Container isVertical>
                 <SectionTitle>CASE STUDIES</SectionTitle>
                 <Carousel
                     hasArrow
@@ -76,7 +77,7 @@ const CaseStudies = () => {
                         )
                     )}
                 </Carousel>
-            </Wrapper>
+            </Container>
         </DarkSwoopingLinesLeftDirectionBackground>
     );
 };

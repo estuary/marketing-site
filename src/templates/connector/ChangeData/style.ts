@@ -1,22 +1,4 @@
 import styled from 'styled-components';
-import { globalMaxWidth } from '../../../globalStyles';
-
-export const Container = styled.div`
-    ${globalMaxWidth}
-
-    display: flex;
-    flex-direction: column-reverse;
-    gap: 40px;
-
-    @media (min-width: 1024px) {
-        flex-direction: row;
-        align-items: center;
-    }
-
-    @media (min-width: 1280px) {
-        gap: 60px;
-    }
-`;
 
 export const ContainerImage = styled.div`
     flex: 1;

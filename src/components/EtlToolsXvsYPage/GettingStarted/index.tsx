@@ -11,16 +11,17 @@ import {
     webinarsUrl,
 } from '../../../../shared';
 import BlogBanner from '../../BlogBanner';
+import Container from '../../Container';
 import { container } from './styles.module.less';
 import FeatureCard from './FeatureCard';
 
 const iconColor = '#5072EB';
 const iconSize = 28;
 
-const SectionThree = () => {
+const GettingStarted = () => {
     return (
         <section className={defaultWrapperDark}>
-            <div className={container}>
+            <Container isVertical className={container}>
                 <h2>GETTING STARTED WITH ESTUARY</h2>
                 <ul>
                     <FeatureCard
@@ -96,9 +97,9 @@ const SectionThree = () => {
                         href: '/contact-us',
                     }}
                 />
-            </div>
+            </Container>
         </section>
     );
 };
 
-export default SectionThree;
+export default GettingStarted;

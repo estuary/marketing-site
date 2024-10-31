@@ -4,10 +4,8 @@ import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import { PricingCalculator } from '../../PricingCalculator';
 import CopyToClipboardButton from '../../CopyToClipboardButton';
 import useWindowExistence from '../../../hooks/useWindowExistence';
+import Container from '../../Container';
 import {
-    container,
-    title,
-    description,
     textWrapper,
     pricingCalculatorWrapper,
     jumpLinkOffset,
@@ -21,17 +19,17 @@ const PricingCalculatorSection = () => {
             className={clsx(defaultWrapperDark, jumpLinkOffset)}
             id="pricing-calculator"
         >
-            <div className={container}>
+            <Container isReverseColumnOnMobile>
                 <div className={textWrapper}>
                     <div>
-                        <h2 className={title}>PRICING CALCULATOR</h2>
+                        <h2>PRICING CALCULATOR</h2>
                         {hasWindow ? (
                             <CopyToClipboardButton
                                 contentToCopy={`${window.location.origin}/pricing/#pricing-calculator`}
                             />
                         ) : null}
                     </div>
-                    <p className={description}>
+                    <p>
                         Use our intuitive pricing calculator to easily estimate
                         your monthly costs. Simply input your requirements, and
                         we&apos;ll provide a clear breakdown of your expenses,
@@ -42,7 +40,7 @@ const PricingCalculatorSection = () => {
                 <div className={pricingCalculatorWrapper}>
                     <PricingCalculator />
                 </div>
-            </div>
+            </Container>
         </section>
     );
 };

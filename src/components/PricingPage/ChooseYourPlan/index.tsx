@@ -2,7 +2,8 @@ import React from 'react';
 import { useMediaQuery } from '@mui/material';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import Carousel from '../../Carousel';
-import { container, title, planCardsWrapper } from './styles.module.less';
+import Container from '../../Container';
+import { container, planCardsWrapper } from './styles.module.less';
 import PlanCard from './PlanCard';
 import { plans } from './utils';
 
@@ -15,8 +16,8 @@ const ChooseYourPlan = () => {
 
     return (
         <section className={defaultWrapperGrey}>
-            <div className={container}>
-                <h2 className={title}>CHOOSE YOUR PLAN</h2>
+            <Container isVertical className={container}>
+                <h2>CHOOSE YOUR PLAN</h2>
                 {isMobile ? (
                     <Carousel
                         aria-label="Pricing plan carousel"
@@ -31,7 +32,7 @@ const ChooseYourPlan = () => {
                 ) : (
                     <div className={planCardsWrapper}>{planCards}</div>
                 )}
-            </div>
+            </Container>
         </section>
     );
 };

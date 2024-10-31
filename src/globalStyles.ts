@@ -1,7 +1,5 @@
 import styled, { css } from 'styled-components';
 
-/* TODO: Transfer the global styles from style.less to this styled-components file */
-
 type LinkOutlinedProps = {
     theme?: 'light' | 'dark';
     $fullWidth?: boolean;

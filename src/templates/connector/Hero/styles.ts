@@ -1,20 +1,6 @@
 import styled, { CSSProperties } from 'styled-components';
 
 import { ConnectorType } from '../../../../shared';
-import { globalMaxWidth } from '../../../globalStyles';
-
-export const Container = styled.div`
-    ${globalMaxWidth}
-
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-
-    @media (min-width: 1024px) {
-        flex-direction: row;
-        align-items: center;
-    }
-`;
 
 export const ContainerImage = styled.div`
     position: relative;

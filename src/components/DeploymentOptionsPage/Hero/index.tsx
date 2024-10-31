@@ -2,16 +2,13 @@ import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import clsx from 'clsx';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
-import { OutboundLinkFilled } from '../../OutboundLink';
-import { LinkOutlined } from '../../../globalStyles';
-import { dashboardRegisterUrl } from '../../../../shared';
 import CustomerCloudIcon from '../../../svgs/customer-cloud-icon.svg';
 import PublicDeploymentsIcon from '../../../svgs/public-deployments-icon.svg';
 import PrivateDeploymentsIcon from '../../../svgs/private-deployments-icon.svg';
 import Container from '../../Container';
+import HeroSectionDetails from '../../HeroSectionDetails';
 import {
     container,
-    leftColumn,
     rightColumn,
     solidBorderBox,
     dashedBorderBox,
@@ -22,31 +19,15 @@ const Hero = () => {
     return (
         <section className={defaultWrapperDarkBlue}>
             <Container className={container}>
-                <div className={leftColumn}>
-                    <h1>ESTUARY FLOW DEPLOYMENT OPTIONS</h1>
-                    <p>
-                        Estuary Flow offers three main deployment options to
+                <HeroSectionDetails
+                    title="ESTUARY FLOW DEPLOYMENT OPTIONS"
+                    description="Estuary Flow offers three main deployment options to
                         cater to various organizational needs and security
                         requirements. This section provides a high-level
                         overview and comparison of Public Deployment, Private
-                        Deployment, and BYOC options.
-                    </p>
-                    <div>
-                        <OutboundLinkFilled
-                            target="_blank"
-                            href={dashboardRegisterUrl}
-                        >
-                            Build a pipeline
-                        </OutboundLinkFilled>
-                        <LinkOutlined
-                            href="/contact-us"
-                            target="_blank"
-                            theme="dark"
-                        >
-                            Contact Us
-                        </LinkOutlined>
-                    </div>
-                </div>
+                        Deployment, and BYOC options."
+                    hasCtaButtons
+                />
                 <div className={rightColumn}>
                     <StaticImage
                         src="../../../images/deployment-options-page/deployment-options-page-hero-background-image.png"

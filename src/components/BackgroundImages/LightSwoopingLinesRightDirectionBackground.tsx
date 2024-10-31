@@ -2,7 +2,7 @@ import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import clsx from 'clsx';
 import { backgroundImage, fullHeight } from './styles.module.less';
-import { backgroundColors } from './shared';
+import { lightImgStyle } from './shared';
 import BackgroundWrapper from './BackgroundWrapper';
 
 const LightSwoopingLinesRightDirectionBackground = ({
@@ -17,7 +17,7 @@ const LightSwoopingLinesRightDirectionBackground = ({
                 className={clsx(backgroundImage, fullHeight)}
                 placeholder="blurred"
                 quality={100}
-                backgroundColor={backgroundColors.light}
+                imgStyle={lightImgStyle}
             />
             <div className={className}>{children}</div>
         </BackgroundWrapper>
