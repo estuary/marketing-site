@@ -3,16 +3,21 @@ import * as React from 'react';
 import Footer from '../Footer';
 import Header from '../Header';
 import { globalWrapper, globalMainFixedHeader } from './styles.module.less';
+import ReleaseBanner from './ReleaseBanner';
 
 const TakeATour = React.lazy(() => import('../TakeATour'));
 
+interface LayoutProps {
+    fixedHeader?: boolean;
+    showReleaseBanner?: boolean;
+    children: React.ReactNode | React.ReactNode[];
+}
+
 const Layout = ({
     fixedHeader = true,
+    showReleaseBanner = false,
     children,
-}: {
-    fixedHeader?: boolean;
-    children: React.ReactNode | React.ReactNode[];
-}) => {
+}: LayoutProps) => {
     return (
         <div className={globalWrapper}>
             <React.Suspense fallback={null}>
@@ -20,6 +25,7 @@ const Layout = ({
             </React.Suspense>
             <Header fixedHeader={fixedHeader} />
             <main className={clsx(fixedHeader && globalMainFixedHeader)}>
+                {showReleaseBanner ? <ReleaseBanner /> : null}
                 {children}
             </main>
             <Footer />

@@ -1,0 +1,83 @@
+@import '../../../globalStyles/sections.module.less';
+
+.container {
+  .sectionTopBottomPadding;
+  padding-top: 50px;
+  padding-bottom: 0;
+
+  div {
+    .globalMaxWidth;
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      background-color: #FFA80040;
+      border: 1px solid #FFA800CC;
+      border-radius: 12px;
+      padding: 28px 37px;
+      width: 100%;
+      cursor: pointer;
+      transition: var(--default-transition);
+
+      &:hover {
+        background-color: #FFA80050;
+      }
+
+      span {
+        background-color: #FFA800;
+        color: #04192B;
+        border-radius: 36px;
+        padding: 4px 16px;
+        line-height: 30px;
+        font-weight: 700;
+        font-size: 1rem;
+        text-align: center;
+        width: fit-content;
+      }
+
+      p {
+        color: #F9FAFC;
+        font-size: 1.125rem;
+        font-weight: 600;
+        margin: 0;
+        flex: 1;
+        text-align: left;
+      }
+
+      @media (max-width: 768px) {
+        display: grid;
+        grid-template-columns: 5fr 1fr;
+        grid-template-rows: auto auto;
+        gap: 24px;
+        padding: 24px;
+
+        div {
+          grid-column: 1;
+          grid-row: 1;
+        }
+
+        p {
+          grid-column: 1;
+          grid-row: 2;
+          grid-column: span 2;
+        }
+
+        svg {
+          grid-column: 2;
+          grid-row: 1;
+          margin-left: auto;
+        }
+      }
+    }
+  }
+}
+
+.darkBackgroundColor {
+  background-color: var(--background-color-primary);
+}
+
+.lightBackgroundColor {
+  background-color: #F9FAFC;
+}
