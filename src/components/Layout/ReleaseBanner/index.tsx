@@ -8,11 +8,11 @@ import {
 } from './styles.module.less';
 
 interface ReleaseBanner {
-    containerBackgroundColor: string;
     theme: 'dark' | 'light';
+    href: string;
 }
 
-const ReleaseBanner = ({ theme = 'dark' }) => {
+const ReleaseBanner = ({ theme = 'dark', href }) => {
     return (
         <div
             className={clsx(
@@ -21,7 +21,7 @@ const ReleaseBanner = ({ theme = 'dark' }) => {
             )}
         >
             <div>
-                <button>
+                <a href={href} target="_blank" rel="noreferrer">
                     <span>A Step Ahead</span>
                     <p>
                         Explore Estuary&apos;s powerful compliance solutions
@@ -29,7 +29,7 @@ const ReleaseBanner = ({ theme = 'dark' }) => {
                         confidence!
                     </p>
                     <ArrowRight color="#fff" />
-                </button>
+                </a>
             </div>
         </div>
     );
