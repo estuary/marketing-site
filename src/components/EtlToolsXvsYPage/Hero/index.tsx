@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import VendorsLink from '../../VendorsLink';
 import { Vendor } from '../../../../shared';
-import NewTabLink from '../../NewTabLink';
+import InternalLink from '../../InternalLink';
 import ChevronRightIcon from '../../../svgs/chevron-right.svg';
 import HeroSectionDetails from '../../HeroSectionDetails';
 import Container from '../../Container';
@@ -48,10 +48,10 @@ const Hero = ({ vendors, xVendor, yVendor }: SectionOneProps) => {
                                 yVendor={yVendor}
                                 isDarkTheme
                             />
-                            <NewTabLink href="/etl-tools">
+                            <InternalLink href="/etl-tools">
                                 View all comparisons
                                 <ChevronRightIcon color="#5072EB" />
-                            </NewTabLink>
+                            </InternalLink>
                         </>
                     }
                 />
