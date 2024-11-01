@@ -192,3 +192,5 @@ export interface Vendor {
 }
 
 export type DeploymentOption = keyof typeof features;
+
+export const activeUsersAmount = '5500+';

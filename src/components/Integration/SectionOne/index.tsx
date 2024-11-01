@@ -12,7 +12,7 @@ import NewsletterSignupForm from '../../NewsletterSignupForm';
 import VanityLogosMarquee from '../../VanityLogosMarquee';
 import { Connector } from '../shared';
 import { LinkOutlined } from '../../../globalStyles';
-import { dashboardRegisterUrl } from '../../../../shared';
+import { activeUsersAmount, dashboardRegisterUrl } from '../../../../shared';
 import {
     backgroundImageWraper,
     bgImage,
@@ -120,7 +120,6 @@ const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
                             <LinkOutlined
                                 href="/contact-us"
                                 className={secondaryButton}
-                                target="_blank"
                             >
                                 Contact Us
                             </LinkOutlined>
@@ -136,7 +135,7 @@ const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
                 />
                 <MetricCard
                     icon={<ActiveUsersIcon color={metricIconColor} />}
-                    value="3000+"
+                    value={activeUsersAmount}
                     label="Active users"
                 />
                 <MetricCard
