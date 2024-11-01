@@ -91,11 +91,7 @@ const Footer = () => {
                         >
                             Github
                         </OutboundLink>
-                        <a
-                            href="/contact-us"
-                            className={globalFooterRightLink}
-                            target="_blank"
-                        >
+                        <a href="/contact-us" className={globalFooterRightLink}>
                             Contact Us
                         </a>
                         <OutboundLink
