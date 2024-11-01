@@ -19,9 +19,7 @@ const SeeHow = () => {
                     <OutboundLinkOutlined href={webinarsUrl} target="_blank">
                         Watch Demo
                     </OutboundLinkOutlined>
-                    <HubspotButton href="/contact-us" target="_blank">
-                        Contact Us
-                    </HubspotButton>
+                    <HubspotButton href="/contact-us">Contact Us</HubspotButton>
                 </Buttons>
             </Container>
         </Wrapper>

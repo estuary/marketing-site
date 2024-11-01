@@ -29,9 +29,7 @@ const Do4xMoreWith25xLess = () => {
                         deliver new projects in days, not months. And they spend
                         2-5x less on Estuary than on batch ELT.
                     </p>
-                    <Button href="/pricing" target="_blank">
-                        See Pricing
-                    </Button>
+                    <Button href="/pricing">See Pricing</Button>
                 </LeftColumn>
                 <RightColumn>
                     <PricingCalculator />
