@@ -30,7 +30,7 @@
     width: 600px;
     color: #04192b;
     margin-top: 0;
-  
+
     @media (max-width: 810px) {
       font-size: 3rem;
       max-width: 320px;
@@ -41,24 +41,35 @@
     font-size: 1.25rem;
     color: #47506d;
     margin-bottom: 0;
-  
+
     @media (max-width: 810px) {
       font-size: var(--fontSize-0);
     }
-  
+
     a {
       color: #47506d;
       font-size: 1.25rem;
       text-decoration-line: underline;
     }
+
+    span {
+      font-weight: 700;
+    }
   }
 }
 
-.sectionTwoHeaderSmall {
+.preTitle {
   color: #5072eb;
   margin-bottom: 0px;
   font-size: var(--fontSize-0);
-  text-transform: uppercase;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (max-width: 1512px) {
+    max-width: 100%;
+    padding-left: ~'calc(min(9%, 146px))';
+    padding-right: ~'calc(min(9%, 146px))';
+  }
 }
 
 .sectionTwoGif {
@@ -89,10 +100,6 @@
   .icon-image {
     margin: auto;
   }
-}
-
-.textBold {
-  font-weight: 700;
 }
 
 .sectionTwo {
@@ -154,16 +161,6 @@
   }
 }
 
-.careersText {
-  font-size: var(--fontSize-1);
-  color: #b7c6dd;
-  margin-left: 24px;
-
-  @media (max-width: 810px) {
-    font-size: var(--fontSize-0);
-  }
-}
-
 .textBoldRegular {
   font-weight: bold;
 }
@@ -176,6 +173,16 @@
 
   @media (max-width: 810px) {
     padding: 0 16px;
+  }
+
+  p {
+    font-size: var(--fontSize-1);
+    color: #b7c6dd;
+    margin-left: 24px;
+
+    @media (max-width: 810px) {
+      font-size: var(--fontSize-0);
+    }
   }
 }
 
@@ -191,7 +198,7 @@
   .globalMaxWidth;
 }
 
-.sectionHeaderTop {
+.sectionTitle {
   color: #04192b;
   margin-top: 12px;
 
@@ -321,6 +328,17 @@
   display: flex;
   width: 100%;
   margin-bottom: 8px;
+
+  p {
+    font-size: 1.5rem;
+    color: var(--background-color-primary);
+    font-weight: 600;
+    color: #47506d;
+
+    @media (max-width: 810px) {
+      font-size: var(--fontSize-1);
+    }
+  }
 }
 
 .sectionCurrentOpeningsWrapper {
@@ -334,30 +352,19 @@
 
 .currentOpeningsLocationWrapper {
   display: flex;
+
+  p {
+    margin: 0px;
+    color: #47506d;
+
+    @media (max-width: 810px) {
+      font-size: var(--fontSize-0);
+    }
+  }
 }
 
 .link {
   margin: auto 12px;
-}
-
-.openingTitle {
-  font-size: 1.5rem;
-  color: var(--background-color-primary);
-  font-weight: 600;
-  color: #47506d;
-
-  @media (max-width: 810px) {
-    font-size: var(--fontSize-1);
-  }
-}
-
-.openingText {
-  margin: 0px;
-  color: #47506d;
-
-  @media (max-width: 810px) {
-    font-size: var(--fontSize-0);
-  }
 }
 
 .currentOpeningsDivider {
@@ -403,22 +410,23 @@
   @media (max-width: 811px) {
     max-width: 100%;
   }
-}
 
-.imageHeading {
-  font-style: normal;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 24px;
-  text-align: center;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #47506d;
-  margin-bottom: 24px;
+  span {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #47506d;
+    margin-bottom: 24px;
+    display: block;
 
-  @media (max-width: 811px) {
-    font-size: 11.622px;
-    line-height: 15px;
+    @media (max-width: 811px) {
+      font-size: 11.622px;
+      line-height: 15px;
+    }
   }
 }
 
@@ -459,17 +467,6 @@
 
   @media (max-width: 811px) {
     padding: 32px 0;
-  }
-
-  .sectionTwoHeaderSmall {
-    margin-left: auto;
-    margin-right: auto;
-
-    @media (max-width: 1512px) {
-      max-width: 100%;
-      padding-left: ~'calc(min(9%, 146px))';
-      padding-right: ~'calc(min(9%, 146px))';
-    }
   }
 
   h2 {
@@ -628,34 +625,39 @@
 .meetTheTeam {
   .sectionTopBottomPadding;
 
+  span {
+    display: block;
+  }
+
+  span,
   p,
   h2 {
     .globalMaxWidth;
     text-align: center;
   }
-}
 
-.teamWrap {
-  .globalMaxWidth;
+  ul {
+    .globalMaxWidth;
 
-  margin: 35px auto 0;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 1fr;
-  grid-column-gap: 24px;
-  grid-row-gap: 48px;
+    margin: 35px auto 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 24px;
+    grid-row-gap: 48px;
 
-  @media (max-width: 1512px) {
-    max-width: 100%;
-  }
+    @media (max-width: 1512px) {
+      max-width: 100%;
+    }
 
-  @media (max-width: 1024px) {
-    grid-template-columns: repeat(2, 1fr);
-    grid-row-gap: 40px;
-  }
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-row-gap: 40px;
+    }
 
-  @media (max-width: 480px) {
-    grid-template-columns: repeat(1, 1fr);
+    @media (max-width: 480px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 }
 
