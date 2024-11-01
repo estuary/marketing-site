@@ -13,27 +13,21 @@ import VanityLogosMarquee from '../../VanityLogosMarquee';
 import { Connector } from '../shared';
 import { LinkOutlined } from '../../../globalStyles';
 import { activeUsersAmount, dashboardRegisterUrl } from '../../../../shared';
+import Container from '../../Container';
 import {
+    container,
     backgroundImageWraper,
     bgImage,
     bgMiddleImageWrapper,
     bgSideImageWrapper,
-    buttonWrapper,
-    columnLeft,
-    columnRight,
     contactUsCta,
     iconWrapper,
-    imageWrapper,
-    mainContent,
     metricCardsList,
     middleLine,
-    preTitle,
     preTitleWrapper,
-    secondaryButton,
     semiCircleLeftSide,
     semiCircleMiddle,
     semiCircleRightSide,
-    title,
 } from './styles.module.less';
 
 const metricIconColor = '#FFFFFF';
@@ -53,8 +47,8 @@ const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
 
     return (
         <section className={defaultWrapperDarkBlue}>
-            <div className={mainContent}>
-                <div className={columnLeft}>
+            <Container className={container}>
+                <div>
                     <div className={preTitleWrapper}>
                         <div className={iconWrapper}>
                             <StaticImage
@@ -64,15 +58,13 @@ const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
                                 loading="eager"
                             />
                         </div>
-                        <span className={preTitle}>
-                            Fastest, Most Reliable CDC and ETL
-                        </span>
+                        <span>FASTEST, MOST RELIABLE CDC AND ETL</span>
                     </div>
-                    <h2 className={title}>
+                    <h1>
                         STREAM DATA FROM {sourceConnector.title} TO{' '}
                         {destConnector.title}
-                    </h2>
-                    <label htmlFor="newsletter-signup" className="label">
+                    </h1>
+                    <label htmlFor="newsletter-signup">
                         Enter your company e-mail to register
                     </label>
                     <NewsletterSignupForm
@@ -81,52 +73,45 @@ const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
                         redirectUrl={dashboardRegisterUrl}
                     />
                 </div>
-                <div className={columnRight}>
+                <div>
                     {sourceConnectorLogo && destinationConnectorLogo ? (
-                        <div className={imageWrapper}>
-                            <div className={backgroundImageWraper}>
-                                <div className={semiCircleLeftSide}>
-                                    <div className={bgSideImageWrapper}>
-                                        <GatsbyImage
-                                            image={sourceConnectorLogo}
-                                            alt={`${sourceConnector.title} logo`}
-                                            loading="eager"
-                                            className={bgImage}
-                                        />
-                                    </div>
+                        <div className={backgroundImageWraper}>
+                            <div className={semiCircleLeftSide}>
+                                <div className={bgSideImageWrapper}>
+                                    <GatsbyImage
+                                        image={sourceConnectorLogo}
+                                        alt={`${sourceConnector.title} logo`}
+                                        loading="eager"
+                                        className={bgImage}
+                                    />
                                 </div>
-                                <div className={semiCircleMiddle}>
-                                    <div className={bgMiddleImageWrapper}>
-                                        <EstuaryLogo width={46} />
-                                        <div className={middleLine} />
-                                    </div>
+                            </div>
+                            <div className={semiCircleMiddle}>
+                                <div className={bgMiddleImageWrapper}>
+                                    <EstuaryLogo width={46} />
+                                    <div className={middleLine} />
                                 </div>
-                                <div className={semiCircleRightSide}>
-                                    <div className={bgSideImageWrapper}>
-                                        <GatsbyImage
-                                            image={destinationConnectorLogo}
-                                            alt={`${destConnector.title} logo`}
-                                            loading="eager"
-                                            className={bgImage}
-                                        />
-                                    </div>
+                            </div>
+                            <div className={semiCircleRightSide}>
+                                <div className={bgSideImageWrapper}>
+                                    <GatsbyImage
+                                        image={destinationConnectorLogo}
+                                        alt={`${destConnector.title} logo`}
+                                        loading="eager"
+                                        className={bgImage}
+                                    />
                                 </div>
                             </div>
                         </div>
                     ) : null}
                     <div className={contactUsCta}>
                         <span>Schedule an appointment</span>
-                        <div className={buttonWrapper}>
-                            <LinkOutlined
-                                href="/contact-us"
-                                className={secondaryButton}
-                            >
-                                Contact Us
-                            </LinkOutlined>
-                        </div>
+                        <LinkOutlined href="/contact-us" theme="dark">
+                            Contact Us
+                        </LinkOutlined>
                     </div>
                 </div>
-            </div>
+            </Container>
             <ul className={metricCardsList}>
                 <MetricCard
                     icon={<OfConnectorsIcon color={metricIconColor} />}
