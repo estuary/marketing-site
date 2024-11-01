@@ -24,6 +24,7 @@ type AdvantagesProps = {
     link?: {
         title: string;
         href: string;
+        openNewTab?: boolean;
     };
     isDarkTheme?: boolean;
     isImageOnTheLeft?: boolean;
@@ -60,7 +61,10 @@ const Advantages = ({
                 ) : null}
                 {link ? (
                     <ButtonWrapper>
-                        <OutboundLinkFilled href={link.href} target="_blank">
+                        <OutboundLinkFilled
+                            href={link.href}
+                            target={link.openNewTab ? '_blank' : undefined}
+                        >
                             {link.title}
                         </OutboundLinkFilled>
                     </ButtonWrapper>
