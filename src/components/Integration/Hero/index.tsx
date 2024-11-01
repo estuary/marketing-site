@@ -32,12 +32,12 @@ import {
 
 const metricIconColor = '#FFFFFF';
 
-export interface SectionOneProps {
+export interface HeroProps {
     sourceConnector: Connector;
     destConnector: Connector;
 }
 
-const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
+const Hero = ({ sourceConnector, destConnector }: HeroProps) => {
     const sourceConnectorLogo = getImage(
         sourceConnector.logo?.childImageSharp?.gatsbyImageData
     );
@@ -139,4 +139,4 @@ const SectionOne = ({ sourceConnector, destConnector }: SectionOneProps) => {
     );
 };
 
-export default SectionOne;
+export default Hero;

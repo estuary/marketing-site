@@ -1,4 +1,4 @@
-export const sectionSixAdvantages = [
+export const estuaryFlowAdvantages = [
     {
         title: 'Fastest real-time capture with sub-100ms latency.',
     },

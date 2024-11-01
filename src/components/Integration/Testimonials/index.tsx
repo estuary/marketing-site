@@ -3,7 +3,7 @@ import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import TestimonialsCarousel from '../../TestimonialsCarousel';
 import { container, title } from './styles.module.less';
 
-const SectionFour = () => {
+const Testimonials = () => {
     return (
         <section className={defaultWrapperGrey}>
             <div className={container}>
@@ -16,4 +16,4 @@ const SectionFour = () => {
     );
 };
 
-export default SectionFour;
+export default Testimonials;

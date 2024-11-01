@@ -3,9 +3,9 @@ import React from 'react';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import RealTimeCdc from '../../../svgs/real-time-cdc.svg';
 import Advantages from '../../Advantages';
-import { sectionSixAdvantages } from '../advantages';
+import { estuaryFlowAdvantages } from '../advantages';
 
-const SectionSix = () => {
+const RealTimeAndBatch = () => {
     return (
         <section className={defaultWrapperGrey}>
             <Advantages // Move the style of the Avantages component from styled-components to LESS.
@@ -25,10 +25,10 @@ const SectionSix = () => {
                         quality={100}
                     />
                 }
-                advantages={sectionSixAdvantages}
+                advantages={estuaryFlowAdvantages}
             />
         </section>
     );
 };
 
-export default SectionSix;
+export default RealTimeAndBatch;

@@ -11,7 +11,7 @@ import {
     title,
 } from './styles.module.less';
 
-const SectionFive = () => {
+const EstuaryFlowVideo = () => {
     return (
         <section className={defaultWrapperDarkBlue}>
             <div className={container}>
@@ -39,4 +39,4 @@ const SectionFive = () => {
     );
 };
 
-export default SectionFive;
+export default EstuaryFlowVideo;

@@ -3,7 +3,7 @@ import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import MainConnectors from '../../MainConnectors';
 import { container, description, title } from './styles.module.less';
 
-const SectionEight = () => {
+const IncreaseProductivity4x = () => {
     return (
         <section className={defaultWrapperGrey}>
             <div className={container}>
@@ -22,4 +22,4 @@ const SectionEight = () => {
     );
 };
 
-export default SectionEight;
+export default IncreaseProductivity4x;

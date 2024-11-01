@@ -10,7 +10,7 @@ import {
     title,
 } from './styles.module.less';
 
-const SectionTen = () => {
+const SeeHow = () => {
     return (
         <section className={defaultWrapperGrey}>
             <div className={container}>
@@ -35,4 +35,4 @@ const SectionTen = () => {
     );
 };
 
-export default SectionTen;
+export default SeeHow;

@@ -4,7 +4,7 @@ import DatabaseSavingWithLowPrice from '../../../svgs/database-saving-with-low-p
 import Advantages from '../../Advantages';
 import { PricingCalculator } from '../../PricingCalculator';
 
-const SectionNine = () => {
+const Spend25xLess = () => {
     return (
         <section className={defaultWrapperDarkBlue}>
             <Advantages // TODO: Move the Advantages component's styles from styled-components to LESS
@@ -29,4 +29,4 @@ const SectionNine = () => {
     );
 };
 
-export default SectionNine;
+export default Spend25xLess;

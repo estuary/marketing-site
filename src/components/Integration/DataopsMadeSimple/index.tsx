@@ -4,7 +4,7 @@ import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.le
 import SingleDataflowIcon from '../../../svgs/metric-single-dataflow.svg';
 import Advantages from '../../Advantages';
 
-const SectionSeven = () => {
+const DataopsMadeSimple = () => {
     return (
         <section className={defaultWrapperDarkBlue}>
             <Advantages
@@ -30,4 +30,4 @@ const SectionSeven = () => {
     );
 };
 
-export default SectionSeven;
+export default DataopsMadeSimple;

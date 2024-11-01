@@ -1,20 +1,18 @@
 import { graphql } from 'gatsby';
 import React from 'react';
-import {
-    SectionEight,
-    SectionFive,
-    SectionFour,
-    SectionNine,
-    SectionOne,
-    SectionSeven,
-    SectionSix,
-    SectionTen,
-    SectionThree,
-    SectionTwo,
-} from '../components/Integration';
 import Layout from '../components/Layout';
 import Seo from '../components/seo';
 import { normalizeConnector } from '../utils';
+import Hero from '../components/Integration/Hero';
+import FromConnector from '../components/Integration/FromConnector';
+import ToConnector from '../components/Integration/ToConnector';
+import Testimonials from '../components/Integration/Testimonials';
+import EstuaryFlowVideo from '../components/Integration/EstuaryFlowVideo';
+import RealTimeAndBatch from '../components/Integration/RealTimeAndBatch';
+import DataopsMadeSimple from '../components/Integration/DataopsMadeSimple';
+import IncreaseProductivity4x from '../components/Integration/IncreaseProductivity4x';
+import Spend25xLess from '../components/Integration/Spend25xLess';
+import SeeHow from '../components/Integration/SeeHow';
 
 export interface ConnectorProps {
     data: {
@@ -42,7 +40,7 @@ const Connector = ({
 
     return (
         <Layout>
-            <SectionOne
+            <Hero
                 sourceConnector={{
                     title: source_mapped.title,
                     logo: source_mapped.logo,
@@ -52,25 +50,25 @@ const Connector = ({
                     logo: dest_mapped.logo,
                 }}
             />
-            <SectionTwo
+            <FromConnector
                 title={source_mapped.title}
                 logo={source_mapped.logo}
                 longDescription={source_mapped.longDescription}
                 shortDescription={source_mapped.shortDescription}
             />
-            <SectionThree
+            <ToConnector
                 title={dest_mapped.title}
                 logo={dest_mapped.logo}
                 longDescription={dest_mapped.longDescription}
                 shortDescription={dest_mapped.shortDescription}
             />
-            <SectionFour />
-            <SectionFive />
-            <SectionSix />
-            <SectionSeven />
-            <SectionEight />
-            <SectionNine />
-            <SectionTen />
+            <Testimonials />
+            <EstuaryFlowVideo />
+            <RealTimeAndBatch />
+            <DataopsMadeSimple />
+            <IncreaseProductivity4x />
+            <Spend25xLess />
+            <SeeHow />
         </Layout>
     );
 };
