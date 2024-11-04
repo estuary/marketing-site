@@ -55,15 +55,6 @@ const Hero = () => {
                         </span>
                     </div>
                     <div className={dashedBorderBox}>
-                        <span>Private</span>
-                    </div>
-                    <div className={clsx(dashedBorderBox, reverse)}>
-                        <span>Secure</span>
-                    </div>
-                    <div className={dashedBorderBox}>
-                        <span>Private</span>
-                    </div>
-                    <div className={dashedBorderBox}>
                         <span>Enterprise-ready</span>
                     </div>
                     <div className={clsx(dashedBorderBox, reverse)}>
