@@ -1,24 +1,23 @@
 import clsx from 'clsx';
 import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
-import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
+import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import EstuaryLogo from '../../../svgs/colored-logo.svg';
 import { Connector } from '../shared';
 import {
     connectorDescriptionContainer,
     connectorsFlowImage,
-    darkenDashedCircle,
     dashedCircle,
-    descriptionLight,
+    descriptionDark,
     flowImage,
     flowImagesWrapper,
-    sectionTitleLight,
+    sectionTitleDark,
     sourceConnectorImage,
     titleAndImages,
     whiteFilledCircle,
 } from '../styles.module.less';
 
-const SectionThree = ({
+const FromConnector = ({
     title,
     longDescription,
     shortDescription,
@@ -26,35 +25,32 @@ const SectionThree = ({
 }: Connector) => {
     const description = longDescription ?? shortDescription;
 
-    const destinationConnectorLogo = getImage(
+    const sourceConnectorLogo = getImage(
         logo?.childImageSharp?.gatsbyImageData
     );
 
     return (
-        <section className={defaultWrapperDarkBlue}>
+        <section className={defaultWrapperGrey}>
             <div className={connectorDescriptionContainer}>
                 <div className={titleAndImages}>
-                    <h2 className={sectionTitleLight}>
-                        TO <span>{title}</span>
+                    <h2 className={sectionTitleDark}>
+                        FROM <span>{title}</span>
                     </h2>
-                    {destinationConnectorLogo ? (
+                    {sourceConnectorLogo ? (
                         <div className={flowImagesWrapper}>
-                            <div
-                                className={clsx(flowImage, connectorsFlowImage)}
-                            >
-                                <StaticImage
-                                    placeholder="none"
-                                    src="../../../images/integration/section-three/connectors.png"
-                                    alt="Destination connectors"
-                                />
+                            <div className={flowImage}>
+                                <div className={dashedCircle}>
+                                    <div className={whiteFilledCircle}>
+                                        <GatsbyImage
+                                            image={sourceConnectorLogo}
+                                            alt={`${title} logo`}
+                                            className={sourceConnectorImage}
+                                        />
+                                    </div>
+                                </div>
                             </div>
                             <div className={flowImage}>
-                                <div
-                                    className={clsx(
-                                        dashedCircle,
-                                        darkenDashedCircle
-                                    )}
-                                >
+                                <div className={dashedCircle}>
                                     <div className={whiteFilledCircle}>
                                         <EstuaryLogo
                                             className={sourceConnectorImage}
@@ -62,21 +58,14 @@ const SectionThree = ({
                                     </div>
                                 </div>
                             </div>
-                            <div className={flowImage}>
-                                <div
-                                    className={clsx(
-                                        dashedCircle,
-                                        darkenDashedCircle
-                                    )}
-                                >
-                                    <div className={whiteFilledCircle}>
-                                        <GatsbyImage
-                                            image={destinationConnectorLogo}
-                                            alt={`${title} logo`}
-                                            className={sourceConnectorImage}
-                                        />
-                                    </div>
-                                </div>
+                            <div
+                                className={clsx(flowImage, connectorsFlowImage)}
+                            >
+                                <StaticImage
+                                    placeholder="none"
+                                    src="../../../images/integration/section-two/connectors.png"
+                                    alt="Destination connectors"
+                                />
                             </div>
                         </div>
                     ) : null}
@@ -86,7 +75,7 @@ const SectionThree = ({
                         dangerouslySetInnerHTML={{
                             __html: description,
                         }}
-                        className={descriptionLight}
+                        className={descriptionDark}
                     />
                 ) : null}
             </div>
@@ -94,4 +83,4 @@ const SectionThree = ({
     );
 };
 
-export default SectionThree;
+export default FromConnector;

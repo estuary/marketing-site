@@ -15,9 +15,7 @@ const Card = ({ title, buttonHref }: CardProps) => {
                 <FileIcon color="#5072EB" />
             </div>
             <h3>{title}</h3>
-            <LinkOutlined href={buttonHref} target="_blank">
-                Read
-            </LinkOutlined>
+            <LinkOutlined href={buttonHref}>Read</LinkOutlined>
         </div>
     );
 };

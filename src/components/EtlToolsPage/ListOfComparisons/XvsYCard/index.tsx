@@ -26,8 +26,6 @@ const XvsYCard = ({ xVendor, yVendor }: XvsYCardProps) => {
     return (
         <a
             href={`/${getComparisonSlug(xVendor.slugKey, yVendor.slugKey)}`}
-            target="_blank"
-            rel="noreferrer"
             className={container}
         >
             {xVendorLogo && yVendorLogo ? (

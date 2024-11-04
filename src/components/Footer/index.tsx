@@ -9,7 +9,12 @@ import SlackIcon from '../../svgs/slack-outline.svg';
 import TwitterIcon from '../../svgs/twitter-outline.svg';
 import { ButtonOutlinedPrimary } from '../../globalStyles';
 import NewsletterSignupForm from '../NewsletterSignupForm';
-import { docsPageUrl, slackUrl, statusPageUrl } from '../../../shared';
+import {
+    docsPageUrl,
+    estuaryFlowGithubUrl,
+    slackUrl,
+    statusPageUrl,
+} from '../../../shared';
 import {
     footer,
     globalFooterWrapper,
@@ -86,15 +91,14 @@ const Footer = () => {
                         </Link>
                         <OutboundLink
                             target="_blank"
-                            href="https://github.com/estuary/flow"
+                            href={estuaryFlowGithubUrl}
                             className={globalFooterRightLink}
                         >
                             Github
                         </OutboundLink>
                         <a
-                            href="/contact-us"
+                            href="/contact-us/"
                             className={globalFooterRightLink}
-                            target="_blank"
                         >
                             Contact Us
                         </a>
@@ -168,7 +172,7 @@ const Footer = () => {
                         </OutboundLink>
                         <OutboundLink
                             target="_blank"
-                            href="https://github.com/estuary/flow"
+                            href={estuaryFlowGithubUrl}
                             aria-label="Github Repo Link"
                         >
                             <GithubIcon className={footerSocialIconStyle} />

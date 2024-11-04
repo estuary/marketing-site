@@ -20,7 +20,7 @@ const ReleaseBanner = ({ theme = 'dark' }) => {
             )}
         >
             <div>
-                <a href="/deployment-options/" target="_blank" rel="noreferrer">
+                <a href="/deployment-options/" rel="noreferrer">
                     <span>A Step Ahead</span>
                     <p>
                         Private deployments are now live! Explore how Estuary

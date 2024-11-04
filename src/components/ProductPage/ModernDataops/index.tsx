@@ -37,6 +37,7 @@ const ModernDataops = () => {
                 link={{
                     title: 'See The Docs',
                     href: docsPageUrl,
+                    openNewTab: true,
                 }}
             />
         </DefaultWrapperDarkBlue>

@@ -60,7 +60,7 @@ const CaseStudies = () => {
                                             key={caseStudy.id}
                                             title={caseStudy.Title}
                                             description={caseStudy.Description}
-                                            href={`/customers/${caseStudy.Slug}`}
+                                            href={`/customers/${caseStudy.Slug}/`}
                                             image={
                                                 <GatsbyImage
                                                     image={

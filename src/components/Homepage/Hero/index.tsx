@@ -5,6 +5,7 @@ import SingleDataflowIcon from '../../../svgs/metric-single-dataflow.svg';
 import MetricCard from '../../MetricCard';
 import VanityLogosMarquee from '../../VanityLogosMarquee';
 import HeroSectionDetails from '../../HeroSectionDetails';
+import { activeUsersAmount } from '../../../../shared';
 import AnimFallback from './AnimFallback';
 import AnimatedHero from './AnimatedHero';
 import {
@@ -44,7 +45,7 @@ const Hero = () => {
             <MetricCardsList>
                 <MetricCard
                     icon={<ActiveUsersIcon color={metricIconColor} />}
-                    value="5500+"
+                    value={activeUsersAmount}
                     label="Active users"
                 />
                 <MetricCard

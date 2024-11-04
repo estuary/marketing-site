@@ -5,11 +5,13 @@ import { Author } from './src/templates/author/shared';
 export const webinarsUrl =
     'https://try.estuary.dev/webinar-estuary101-ondemand';
 
-export const dashboardRegisterUrl = 'https://dashboard.estuary.dev/register';
+export const dashboardUrl = 'https://dashboard.estuary.dev';
+export const dashboardRegisterUrl = `${dashboardUrl}/register`;
 export const statusPageUrl = 'https://status.estuary.dev/';
 export const docsPageUrl = 'https://docs.estuary.dev';
 export const slackUrl =
     'https://estuary-dev.slack.com/join/shared_invite/zt-86nal6yr-VPbv~YfZE9Q~6Zl~gmZdFQ#/shared-invite/email';
+export const estuaryFlowGithubUrl = 'https://github.com/estuary/flow/';
 
 export const estuaryProductFlowVideoUrl =
     'https://www.youtube.com/embed/hlCh81ZbBik';
@@ -192,3 +194,5 @@ export interface Vendor {
 }
 
 export type DeploymentOption = keyof typeof features;
+
+export const activeUsersAmount = '5500+';

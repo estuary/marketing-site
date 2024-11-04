@@ -99,7 +99,7 @@ const HeaderNavbarResources = ({ active, setActive }) => {
                                 </ImageWrapper>
                                 <LinkOutlined
                                     target="_blank"
-                                    href="/why"
+                                    href="/why/"
                                     theme="dark"
                                     $fullWidth
                                 >

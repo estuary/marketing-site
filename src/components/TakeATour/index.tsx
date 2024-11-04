@@ -4,7 +4,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { Container, Link } from './styles';
 
 const DEFAULTS = {
-    href: '/why',
+    href: '/why/',
     message: 'Take a Product Tour',
     version: '',
 };

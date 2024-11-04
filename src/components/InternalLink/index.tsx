@@ -1,17 +1,17 @@
 import React, { ReactNode } from 'react';
 import { linkStyling } from './styles.module.less';
 
-interface NewTabLinkProps {
+interface InternalLinkProps {
     href: string;
     children: ReactNode;
 }
 
-const NewTabLink = ({ children, href }: NewTabLinkProps) => {
+const InternalLink = ({ children, href }: InternalLinkProps) => {
     return (
-        <a href={href} target="_blank" rel="noreferrer" className={linkStyling}>
+        <a href={href} className={linkStyling}>
             {children}
         </a>
     );
 };
 
-export default NewTabLink;
+export default InternalLink;

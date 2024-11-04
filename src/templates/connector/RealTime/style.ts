@@ -80,6 +80,6 @@ export const Button = styled(OutboundLinkFilled)`
     width: 100%;
 
     @media (min-width: 1280px) {
-        width: 189px;
+        width: 220px;
     }
 `;

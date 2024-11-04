@@ -21,23 +21,21 @@ import {
     sectionOne,
     sectionOneBackgroundImageWrapper,
     sectionOneLeft,
-    sectionTwoHeaderSmall,
+    preTitle,
     sectionTwoGif,
     iconWrapperMedium,
     iconWrapperMediumGray,
-    textBold,
     sectionTwo,
     sectionTwoWrapper,
     flowLogo,
     sectionHeader,
     cardText,
     currentOpeningsButton,
-    careersText,
     textBoldRegular,
     careersTextWrapper,
     sectionThree,
     sectionThreeWrapper,
-    sectionHeaderTop,
+    sectionTitle,
     sectionThreeTop,
     sectionThreeCardWapper,
     sectionThreeCard,
@@ -53,13 +51,10 @@ import {
     sectionCurrentOpeningsWrapper,
     currentOpeningsLocationWrapper,
     link,
-    openingTitle,
-    openingText,
     currentOpeningsDivider,
     getInTouchButtonMobile,
     history,
     historyWrap,
-    imageHeading,
     historyLeft,
     historyRight,
     media,
@@ -72,7 +67,6 @@ import {
     investors,
     investorsWrap,
     meetTheTeam,
-    teamWrap,
     teamItem,
     employeeImg,
     itemName,
@@ -206,7 +200,7 @@ const AboutPage = () => {
 
     return (
         <Layout>
-            <div className={sectionOneBackgroundImageWrapper}>
+            <section className={sectionOneBackgroundImageWrapper}>
                 <div className={sectionOne}>
                     <div className={sectionOneLeft}>
                         <h1>
@@ -215,32 +209,25 @@ const AboutPage = () => {
                         </h1>
                         <p>
                             We&apos;re creating a new kind of DataOps platform
-                            that{' '}
-                            <span className={textBold}>
-                                empowers engineering teams
-                            </span>{' '}
-                            to build real-time, data-intensive pipelines and
+                            that <span>empowers engineering teams</span> to
+                            build real-time, data-intensive pipelines and
                             applications at scale, with minimal friction, in a
                             UI or CLI. We aim to make real-time data accessible
                             to the analyst, while bringing power tooling to the
-                            streaming enthusiast. Flow{' '}
-                            <span className={textBold}>unifies</span> a
+                            streaming enthusiast. Flow <span>unifies</span> a
                             team&apos;s databases, pub/sub systems, and SaaS
                             around their data,{' '}
-                            <span className={textBold}>
+                            <span>
                                 without requiring new investments in
                                 infrastructure
                             </span>{' '}
                             or development.
                         </p>
                         <p>
-                            Estuary{' '}
-                            <span className={textBold}>
-                                develops in the open
-                            </span>{' '}
-                            to produce both the runtime for our managed service
-                            and an ecosystem of open-source connectors. You can
-                            read more about{' '}
+                            Estuary <span>develops in the open</span> to produce
+                            both the runtime for our managed service and an
+                            ecosystem of open-source connectors. You can read
+                            more about{' '}
                             <Link to="/the-estuary-story-and-guiding-principles/">
                                 our story here.
                             </Link>
@@ -248,13 +235,11 @@ const AboutPage = () => {
                     </div>
                     <FlowLogoVector />
                 </div>
-            </div>
+            </section>
             <section className={history}>
                 <div className={historyWrap}>
                     <div className={historyLeft}>
-                        <div className={imageHeading}>
-                            {companyAge} years of real-time innovation
-                        </div>
+                        <span>{companyAge} years of real-time innovation</span>
                         <StaticImage
                             placeholder="none"
                             alt="Estuary history"
@@ -265,8 +250,8 @@ const AboutPage = () => {
                         />
                     </div>
                     <div className={historyRight}>
-                        <p className={sectionTwoHeaderSmall}>about us</p>
-                        <h2 className={sectionHeaderTop}>History</h2>
+                        <span className={preTitle}>ABOUT US</span>
+                        <h2 className={sectionTitle}>History</h2>
                         <p>
                             We didn&apos;t start at trying to make real-time
                             data flows more accessible by abstracting away the
@@ -294,10 +279,8 @@ const AboutPage = () => {
             </section>
             <section className={media}>
                 <div className={mediaWrapper}>
-                    <p className={sectionTwoHeaderSmall}>
-                        what&apos;s happening
-                    </p>
-                    <h2 className={sectionHeaderTop}>In the Media</h2>
+                    <span className={preTitle}>WHAT&apos;S HAPPENING</span>
+                    <h2 className={sectionTitle}>In the Media</h2>
                     <FlowLogo className={mediaLogo} />
                     <div className={mediaWrap}>
                         <div className={mediaItem}>
@@ -376,9 +359,9 @@ const AboutPage = () => {
                 </div>
             </section>
             <section className={meetTheTeam}>
-                <p className={sectionTwoHeaderSmall}>say hello</p>
-                <h2 className={sectionHeaderTop}>Meet Our Team</h2>
-                <ul className={teamWrap}>
+                <span className={preTitle}>SAY HELLO</span>
+                <h2 className={sectionTitle}>Meet Our Team</h2>
+                <ul>
                     {employees.map((employee, index) => (
                         <div className={teamItem} key={index}>
                             <GatsbyImage
@@ -396,7 +379,7 @@ const AboutPage = () => {
                 </ul>
             </section>
             <section className={investors}>
-                <h2>Our Investors</h2>
+                <h2 className={sectionTitle}>Our Investors</h2>
                 <div className={investorsWrap}>
                     <StaticImage
                         placeholder="none"
@@ -418,7 +401,7 @@ const AboutPage = () => {
             </section>
             <div className={sectionTwo}>
                 <div className={sectionTwoWrapper}>
-                    <p className={sectionTwoHeaderSmall}>Come work with us</p>
+                    <span className={preTitle}>COME WORK WITH US</span>
                     <h2 className={sectionHeader}>Careers</h2>
                     <div className={flowLogo}>
                         <FlowLogoVector />
@@ -427,8 +410,7 @@ const AboutPage = () => {
                         <div className={iconWrapperMedium}>
                             <CareerAvatar className={sectionTwoGif} />
                         </div>
-
-                        <p className={careersText}>
+                        <p>
                             <span className={textBoldRegular}>About you</span>:
                             You&apos;re passionate about the complexities and
                             potential of our data-driven world, self-motivated,
@@ -439,7 +421,7 @@ const AboutPage = () => {
                         <div className={iconWrapperMedium}>
                             <EstuaryLogoSmall className={sectionTwoGif} />
                         </div>
-                        <p className={careersText}>
+                        <p>
                             <span className={textBoldRegular}>About us</span>:
                             We&apos;re a rapidly growing, highly technical team
                             built by successful repeat founders that&apos;s
@@ -457,9 +439,9 @@ const AboutPage = () => {
             </div>
             <div className={sectionThree}>
                 <div className={sectionThreeWrapper}>
-                    <p className={sectionTwoHeaderSmall}>What&apos;s it like</p>
+                    <span className={preTitle}>WHAT&apos;S IT LIKE</span>
                     <div className={sectionThreeTop}>
-                        <h2 className={sectionHeaderTop}>Working at Estuary</h2>
+                        <h2 className={sectionTitle}>Working at Estuary</h2>
                         <FlowLogoVector />
                     </div>
                     <div className={sectionThreeCardWapper}>
@@ -518,8 +500,8 @@ const AboutPage = () => {
             </div>
             <div className={sectionFourCurrentOpenings} id="careers">
                 <div className={sectionFourCurrentOpeningsWrapper}>
-                    <p className={sectionTwoHeaderSmall}>Apply today</p>
-                    <h2 className={sectionHeaderTop}>Current Openings</h2>
+                    <span className={preTitle}>APPLY TODAY</span>
+                    <h2 className={sectionTitle}>Current Openings</h2>
                     <div className={sectionCurrentOpeningsWrapper}>
                         <div className={currentOpeningsList}>
                             {jobs.length > 0
@@ -552,9 +534,7 @@ const AboutPage = () => {
                                                   currentOpeningsTitleWrapper
                                               }
                                           >
-                                              <p className={openingTitle}>
-                                                  {job.title}
-                                              </p>
+                                              <p>{job.title}</p>
                                               <Link
                                                   to={`#${job.slug}`}
                                                   className={link}
@@ -567,7 +547,7 @@ const AboutPage = () => {
                                                   currentOpeningsLocationWrapper
                                               }
                                           >
-                                              <p className={openingText}>
+                                              <p>
                                                   Location:{' '}
                                                   <b>{job.location}</b>
                                               </p>

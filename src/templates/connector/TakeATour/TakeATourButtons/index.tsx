@@ -10,7 +10,7 @@ const TakeATourButtons = () => {
             <LinkFilled
                 className="take-a-tour-button"
                 target="_blank"
-                href="/why"
+                href="/why/"
             >
                 Self-Guided Tour [1 min]
             </LinkFilled>

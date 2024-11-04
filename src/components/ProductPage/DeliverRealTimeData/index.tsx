@@ -7,6 +7,7 @@ import LatencyIcon from '../../../svgs/metric-latency.svg';
 import SingleDataflowIcon from '../../../svgs/metric-single-dataflow.svg';
 import Advantages from '../../Advantages';
 import { sectionNineAdvantages } from '../advantages';
+import { activeUsersAmount } from '../../../../shared';
 import {
     ActiveUsersMetric,
     IconWrapper,
@@ -65,7 +66,7 @@ const DeliverRealTimeData = () => {
                                 <ActiveUsersIcon color="#5072EB" />
                             </IconWrapper>
                             <TextWrapper>
-                                <h3>3000+</h3>
+                                <h3>{activeUsersAmount}</h3>
                                 <p>Active users</p>
                             </TextWrapper>
                         </ActiveUsersMetric>

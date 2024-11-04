@@ -142,7 +142,6 @@ const XvsYFilter = ({
             </FormControl>
             <LinkFilled
                 href={button.href}
-                target="_blank"
                 className={
                     xSelect.value === xSelect.placeholder ||
                     ySelect.value === ySelect.placeholder
