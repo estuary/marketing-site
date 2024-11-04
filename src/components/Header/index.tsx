@@ -14,7 +14,12 @@ import {
     globalHeaderLogo,
     globalHeaderTitle,
 } from '../styles.module.less';
-import { dashboardRegisterUrl, slackUrl } from '../../../shared';
+import {
+    dashboardRegisterUrl,
+    dashboardUrl,
+    estuaryFlowGithubUrl,
+    slackUrl,
+} from '../../../shared';
 import {
     globalHeader,
     globalHeaderWrapper,
@@ -211,7 +216,7 @@ const Header = ({ fixedHeader }: HeaderProps) => {
                             </OutboundLink>
                             <OutboundLink
                                 target="_blank"
-                                href="https://github.com/estuary/flow"
+                                href={estuaryFlowGithubUrl}
                                 className={headerSocialIcon}
                                 aria-label="Github Repo Link"
                             >
@@ -222,7 +227,7 @@ const Header = ({ fixedHeader }: HeaderProps) => {
                             <OutboundLink
                                 target="_blank"
                                 className={globalHeaderLink}
-                                href="https://dashboard.estuary.dev"
+                                href={dashboardUrl}
                                 style={{ marginRight: '1rem' }}
                             >
                                 Log in
