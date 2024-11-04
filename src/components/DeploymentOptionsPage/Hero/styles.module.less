@@ -1,10 +1,11 @@
 @purple: #A4B6F4;
-@darkGreen: #134753;
-@lightGreen: #4EFFF2;
-@sizeProportionalToViewWidth: 0.7vw;
-@sizeProportionalToViewWidth2: 1vw;
-@sizeProportionalToViewWidth3: 2vw;
-@sizeProportionalToViewWidth4: 2.8vw;
+@darkGreen: #13475388;
+@lightGreen: #4EFFF2aa;
+@sizeProportionalToViewWidth: 1vw;
+@sizeProportionalToViewWidth1: 1.5vw;
+@sizeProportionalToViewWidth2: 2vw;
+@sizeProportionalToViewWidth3: 3vw;
+@sizeProportionalToViewWidth4: 3.8vw;
 @sizeProportionalToViewWidth5: 7vw;
 
 .fullSize {
@@ -31,7 +32,7 @@
     .fullSize;
     font-size: 0.9vw;
     font-weight: 600;
-    line-height: @sizeProportionalToViewWidth2;
+    line-height: 1vw;
     color: #47506D;
     text-align: center;
   }
@@ -40,20 +41,15 @@
     color: #fff;
   }
 
-  @media (min-width: 1441px) {
+  @media (min-width: 1650px) {
     span {
       font-size: 0.875rem;
-      line-height: 16.3px;
     }
   }
 
   @media (max-width: 1024px) {
-    .leftColumn {
-      max-width: 100%;
-    }
-
     span {
-      font-size: 1.8vw;
+      font-size: 1.6vw;
       line-height: 2.2vw;
     }
   }
@@ -62,15 +58,14 @@
 .solidBorderBox {
   .fullSize;
   background-color: #FFFFFF33;
-  padding: @sizeProportionalToViewWidth2;
-  top: 26%;
-  left: 2%;
+  padding: @sizeProportionalToViewWidth;
+  top: 56%;
+  left: 8%;
   position: absolute;
   border: 1px solid @purple;
-  border-top-right-radius: @sizeProportionalToViewWidth2;
-  border-bottom-left-radius: @sizeProportionalToViewWidth2;
+  border-radius: @sizeProportionalToViewWidth2;
   max-width: 26%;
-  max-height: 36%;
+  max-height: 39%;
 
   span {
     .centralize;
@@ -78,27 +73,29 @@
     gap: @sizeProportionalToViewWidth;
     background-color: #D8E1FF;
     border: 1px solid @purple;
-    border-top-right-radius: @sizeProportionalToViewWidth;
-    border-bottom-left-radius: @sizeProportionalToViewWidth;
+    border-radius: @sizeProportionalToViewWidth1;
+  }
 
-    svg {
-      max-width: @sizeProportionalToViewWidth4;
+  @media (min-width: 1430px) {
+    left: 40px;
+    max-width: 142px;
+    padding: 16px;
+    border-radius: 36px;
+
+    span {
+      gap: 12px;
+      border-radius: 24px;
+      line-height: 16.8px;
     }
   }
 
-  @media (min-width: 1441px) {
-    padding: 16px;
-  }
-
   @media (max-width: 1024px) {
-    padding: @sizeProportionalToViewWidth3;
-    border-top-right-radius: @sizeProportionalToViewWidth4;
-    border-bottom-left-radius: @sizeProportionalToViewWidth4;
+    border-radius: @sizeProportionalToViewWidth3;
 
     span {
-      border-top-right-radius: @sizeProportionalToViewWidth3;
-      border-bottom-left-radius: @sizeProportionalToViewWidth3;
-      gap: @sizeProportionalToViewWidth3;
+      border-radius: @sizeProportionalToViewWidth2;
+      padding: @sizeProportionalToViewWidth;
+      gap: @sizeProportionalToViewWidth2;
 
       svg {
         max-width: @sizeProportionalToViewWidth5;
@@ -106,19 +103,21 @@
       }
     }
   }
+
+  @media (max-width: 900px) {
+    padding: @sizeProportionalToViewWidth2;
+  }
 }
 
 .dashedBorderBox {
   .fullSize;
   position: absolute;
-  top: 65%;
-  left: 2%;
   border: 1px dashed @purple;
-  background-color: #172D48;
-  border-top-left-radius: @sizeProportionalToViewWidth;
-  border-bottom-right-radius: @sizeProportionalToViewWidth;
-  max-width: 11%;
-  max-height: 13%;
+  background-color: #172D4888;
+  border-radius: 100%;
+  max-width: 20%;
+  max-height: 24%;
+  padding: @sizeProportionalToViewWidth2;
 
   span {
     .centralize;
@@ -126,24 +125,38 @@
     color: #B8C7F7;
     font-weight: 900;
 
-    @media (min-width: 1441px) {
+    @media (min-width: 1281px) {
       font-size: 0.75rem;
     }
   }
 
-  @media (max-width: 1024px) {
-    border-top-left-radius: @sizeProportionalToViewWidth3;
-    border-bottom-right-radius: @sizeProportionalToViewWidth3;
+  @media (min-width: 1430px) {
+    max-width: 100px;
+    max-height: 100px;
+    padding: 16px;
 
     span {
-      font-size: 1.5vw;
+      line-height: 14.4px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    border-radius: 100%;
+
+    span {
+      font-size: @sizeProportionalToViewWidth1;
+    }
+  }
+
+  @media (max-width: 768px) {
+    span {
+      font-size: @sizeProportionalToViewWidth2;
     }
   }
 }
 
 .rightColumn {
   position: relative;
-  width: 100%;
 
   div {
     img {
@@ -152,71 +165,60 @@
   }
 
   .solidBorderBox:nth-of-type(3) {
-    top: 18%;
-    left: 31%;
-    max-height: 44%;
+    left: 37.5%;
 
-    span {
-      border-top-left-radius: @sizeProportionalToViewWidth;
-      border-bottom-right-radius: @sizeProportionalToViewWidth;
-      border-top-right-radius: 0;
-      border-bottom-left-radius: 0;
-
-      @media (max-width: 1024px) {
-        border-top-left-radius: @sizeProportionalToViewWidth3;
-        border-bottom-right-radius: @sizeProportionalToViewWidth3;
-      }
+    @media (min-width: 1430px) {
+      left: 200px;
     }
   }
 
   .solidBorderBox:nth-of-type(4) {
-    top: 10%;
-    left: 60%;
-    max-height: 52%;
+    left: 67%;
+
+    @media (min-width: 1430px) {
+      left: 358px;
+    }
   }
 
   .dashedBorderBox:nth-of-type(5) {
-    top: 65%;
-    left: 46%;
+    top: 24.5%;
+    left: 30%;
+
+    background-color: #152D5Bbb;
+    border-color: #5072EB;
+
+    @media (min-width: 1430px) {
+      left: 168px;
+    }
+
+    span {
+      color: #85A0FF;
+    }
   }
 
   .dashedBorderBox:nth-of-type(6) {
-    top: 65%;
-    left: 87%;
+    top: 24.5%;
+    left: 50%;
+
     background-color: @darkGreen;
     border-color: @lightGreen;
 
     span {
       color: @lightGreen;
+    }
+
+    @media (min-width: 1430px) {
+      left: 268px;
     }
   }
 
   .dashedBorderBox:nth-of-type(7) {
-    top: 49%;
-    left: 89%;
-  }
+    top: 4%;
+    left: 40%;
 
-  .dashedBorderBox:nth-of-type(8) {
-    top: 65%;
-    left: 70%;
-    max-width: 14%;
-    max-height: 16%;
-    background-color: #152D5B;
-    border-color: #5072EB;
-
-    span {
-      color: #FFFFFF;
-    }
-  }
-
-  .dashedBorderBox:nth-of-type(9) {
-    top: 65%;
-    left: 31%;
-    background-color: @darkGreen;
-    border-color: @lightGreen;
-
-    span {
-      color: @lightGreen;
+    @media (min-width: 1430px) {
+      top: 5.5%;
+      left: 218px;
     }
   }
 }
