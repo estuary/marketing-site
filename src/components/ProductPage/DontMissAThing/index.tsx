@@ -40,7 +40,7 @@ const DontMissAThing = () => {
                     <NewsletterSignupForm inputPlaceholder="Enter your email" />
                     <TermsAndConditions>
                         By subscribing I agree with{' '}
-                        <a href="/terms">Terms and Conditions</a>
+                        <a href="/terms/">Terms and Conditions</a>
                     </TermsAndConditions>
                 </FormFields>
             </Container>

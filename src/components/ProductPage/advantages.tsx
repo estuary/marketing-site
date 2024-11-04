@@ -86,7 +86,7 @@ export const sectionEightAdvantages = [
         title: (
             <>
                 Spend 2-5x less with low, predictable pricing (see{' '}
-                <OutboundLink href="/pricing" target="_blank">
+                <OutboundLink href="/pricing/" target="_blank">
                     pricing
                 </OutboundLink>
                 .)

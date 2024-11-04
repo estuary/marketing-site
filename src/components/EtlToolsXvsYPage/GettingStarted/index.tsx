@@ -94,7 +94,7 @@ const GettingStarted = () => {
                     }
                     button={{
                         title: 'Contact us',
-                        href: '/contact-us',
+                        href: '/contact-us/',
                     }}
                 />
             </Container>

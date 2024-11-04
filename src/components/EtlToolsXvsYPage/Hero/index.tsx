@@ -48,7 +48,7 @@ const Hero = ({ vendors, xVendor, yVendor }: SectionOneProps) => {
                                 yVendor={yVendor}
                                 isDarkTheme
                             />
-                            <InternalLink href="/etl-tools">
+                            <InternalLink href="/etl-tools/">
                                 View all comparisons
                                 <ChevronRightIcon color="#5072EB" />
                             </InternalLink>

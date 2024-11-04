@@ -18,7 +18,7 @@ const SignUp = () => {
                     >
                         Sign up
                     </OutboundLinkFilled>
-                    <LinkFilled href="/contact-us">Contact us</LinkFilled>
+                    <LinkFilled href="/contact-us/">Contact us</LinkFilled>
                 </div>
             </div>
         </section>

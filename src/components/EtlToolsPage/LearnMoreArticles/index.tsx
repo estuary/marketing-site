@@ -15,15 +15,15 @@ const LearnMoreArticles = () => {
                 <div className={cardsWrapper}>
                     <Card
                         title="The Data Engineer's Guide to ELT Alternatives"
-                        buttonHref="/ELT-alternatives-guide"
+                        buttonHref="/ELT-alternatives-guide/"
                     />
                     <Card
                         title="The Data Engineer's Guide to ETL Alternatives"
-                        buttonHref="/ETL-alternatives-guide"
+                        buttonHref="/ETL-alternatives-guide/"
                     />
                     <Card
                         title="The Data Engineer's Guide to CDC for Analytics, Ops, and AI Pipelines"
-                        buttonHref="/CDC-comparison-guide"
+                        buttonHref="/CDC-comparison-guide/"
                     />
                 </div>
             </Container>

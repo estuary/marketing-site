@@ -86,12 +86,15 @@ const Footer = () => {
                         </Link>
                         <OutboundLink
                             target="_blank"
-                            href="https://github.com/estuary/flow"
+                            href="https://github.com/estuary/flow/"
                             className={globalFooterRightLink}
                         >
                             Github
                         </OutboundLink>
-                        <a href="/contact-us" className={globalFooterRightLink}>
+                        <a
+                            href="/contact-us/"
+                            className={globalFooterRightLink}
+                        >
                             Contact Us
                         </a>
                         <OutboundLink

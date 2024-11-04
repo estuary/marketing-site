@@ -106,7 +106,7 @@ const Hero = ({ sourceConnector, destConnector }: HeroProps) => {
                     ) : null}
                     <div className={contactUsCta}>
                         <span>Schedule an appointment</span>
-                        <LinkOutlined href="/contact-us" theme="dark">
+                        <LinkOutlined href="/contact-us/" theme="dark">
                             Contact Us
                         </LinkOutlined>
                     </div>

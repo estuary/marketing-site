@@ -32,7 +32,7 @@ const DeploymentModes = () => {
                         <Tabs handleTabChange={handleTabChange} />
                         <TabPanels />
                     </TabContext>
-                    <LinkFilled href="/deployment-options">
+                    <LinkFilled href="/deployment-options/">
                         See Details
                     </LinkFilled>
                 </div>

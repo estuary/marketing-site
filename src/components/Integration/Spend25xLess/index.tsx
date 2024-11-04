@@ -22,7 +22,7 @@ const Spend25xLess = () => {
                 isDarkTheme
                 link={{
                     title: 'See Pricing',
-                    href: '/pricing',
+                    href: '/pricing/',
                 }}
             />
         </section>

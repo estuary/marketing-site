@@ -54,7 +54,7 @@ const ReadyToStart = () => {
                                     overview.
                                 </BoxDescription>
                             </TextWrapper>
-                            <LinkOutlined href="/contact-us">
+                            <LinkOutlined href="/contact-us/">
                                 <IconWrapper>
                                     <CalendarIcon color="#5072EB" />
                                 </IconWrapper>

@@ -79,7 +79,7 @@ const ConnectorsLink = ({
             return `/integrations/${captureConnectors.find((c) => c.id === sourceId)?.slugified_name}-to-${
                 materializationConnectors.find((c) => c.id === destinationId)
                     ?.slugified_name
-            }`;
+            }/`;
         } else {
             return '#';
         }

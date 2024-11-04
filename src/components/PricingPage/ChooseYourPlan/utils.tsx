@@ -48,7 +48,7 @@ export const plans = [
         icon: <EnterpriseSvgIcon width={iconSize} height={iconSize} />,
         title: 'Enterprise',
         description: 'Get to the next level for mission-critical deployments.',
-        button: { title: 'Contact Us', href: '/contact-us' },
+        button: { title: 'Contact Us', href: '/contact-us/' },
         benefits: [
             'SOC2 & HIPAA Reports',
             'Customer Success Manager',

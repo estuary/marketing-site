@@ -32,7 +32,7 @@ const HeroSectionDetails = ({
                     >
                         Build a Pipeline
                     </OutboundLinkFilled>
-                    <LinkOutlined href="/contact-us" theme="dark">
+                    <LinkOutlined href="/contact-us/" theme="dark">
                         Contact Us
                     </LinkOutlined>
                 </div>
