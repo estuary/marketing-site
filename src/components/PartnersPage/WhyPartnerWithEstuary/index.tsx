@@ -3,7 +3,7 @@ import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import TopPlatformIcon from '../../../svgs/top-platform.svg';
 import IndustryTrendsIcon from '../../../svgs/industry-trends.svg';
 import PartnerBenefitsIcon from '../../../svgs/partner-benefits.svg';
-import Card from './Card';
+import Card from '../Card';
 import { container, cardList } from './styles.module.less';
 
 const WhyPartnerWithEstuary = () => (

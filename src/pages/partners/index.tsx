@@ -4,12 +4,14 @@ import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
 import Hero from '../../components/PartnersPage/Hero';
 import WhyPartnerWithEstuary from '../../components/PartnersPage/WhyPartnerWithEstuary';
+import Benefits from '../../components/PartnersPage/Benefits';
 
 const Partners = () => {
     return (
         <Layout>
             <Hero />
             <WhyPartnerWithEstuary />
+            <Benefits />
         </Layout>
     );
 };
