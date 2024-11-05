@@ -19,7 +19,7 @@ const Hero = () => {
                 />
                 <StaticImage
                     src="../../../images/partners-page/handshake.png"
-                    alt="" // Ask alt text to Sourabh.
+                    alt="Estuary Partner Program"
                     quality={100}
                     placeholder="blurred"
                     loading="eager"
