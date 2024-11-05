@@ -5,6 +5,7 @@ import Seo from '../../components/seo';
 import Hero from '../../components/PartnersPage/Hero';
 import WhyPartnerWithEstuary from '../../components/PartnersPage/WhyPartnerWithEstuary';
 import Benefits from '../../components/PartnersPage/Benefits';
+import JoinPartnerProgram from '../../components/PartnersPage/JoinPartnerProgram';
 
 const Partners = () => {
     return (
@@ -12,6 +13,7 @@ const Partners = () => {
             <Hero />
             <WhyPartnerWithEstuary />
             <Benefits />
+            <JoinPartnerProgram />
         </Layout>
     );
 };
