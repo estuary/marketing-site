@@ -3,11 +3,13 @@ import { graphql, useStaticQuery } from 'gatsby';
 import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
 import Hero from '../../components/PartnersPage/Hero';
+import WhyPartnerWithEstuary from '../../components/PartnersPage/WhyPartnerWithEstuary';
 
 const Partners = () => {
     return (
         <Layout>
             <Hero />
+            <WhyPartnerWithEstuary />
         </Layout>
     );
 };
