@@ -3,6 +3,9 @@ import { StaticImage } from 'gatsby-plugin-image';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import Container from '../../Container';
 import HeroSectionDetails from '../../HeroSectionDetails';
+import { OutboundLinkFilled } from '../../OutboundLink';
+import { LinkOutlined } from '../../../globalStyles';
+import { dashboardRegisterUrl } from '../../../../shared';
 import { boldText } from './styles.module.less';
 
 const Hero = () => {
@@ -28,7 +31,19 @@ const Hero = () => {
                             .
                         </>
                     }
-                    hasCtaButtons
+                    ctaButtons={
+                        <>
+                            <OutboundLinkFilled
+                                href={dashboardRegisterUrl}
+                                target="_blank"
+                            >
+                                Build a Pipeline
+                            </OutboundLinkFilled>
+                            <LinkOutlined href="/contact-us/" theme="dark">
+                                Contact Us
+                            </LinkOutlined>
+                        </>
+                    }
                 />
                 <StaticImage
                     src="../../../images/pricing/illustration.png"
