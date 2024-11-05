@@ -27,8 +27,8 @@ export const Head = () => {
 
     return (
         <Seo
-            title="" // Ask Sourabh
-            description=""
+            title="Estuary Partner Program: Drive Growth with Real-Time Integration"
+            description="Join the Estuary Partner Program to boost your data integration capabilities. Benefit from real-time solutions, collaborative marketing, referral rewards, and hands-on support."
             image={metaImg.childImageSharp.gatsbyImageData.images.fallback.src}
         />
     );
