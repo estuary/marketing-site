@@ -14,11 +14,8 @@ const ReferralIncentive = () => (
                     Estuary offers a referral incentive of 10% of the yearly
                     contract after a deal is made through a referral.
                 </p>
-                <LinkOutlined
-                    theme="dark"
-                    // TODO: Add href
-                >
-                    Learn More
+                <LinkOutlined theme="dark" href="/contact-us/">
+                    Contact Us
                 </LinkOutlined>
             </div>
             <StaticImage

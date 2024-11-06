@@ -399,7 +399,7 @@ const AboutPage = () => {
                     />
                 </div>
             </section>
-            <div className={sectionTwo}>
+            <section className={sectionTwo}>
                 <div className={sectionTwoWrapper}>
                     <span className={preTitle}>COME WORK WITH US</span>
                     <h2 className={sectionHeader}>Careers</h2>
@@ -436,8 +436,8 @@ const AboutPage = () => {
                         Current openings
                     </LinkFilled>
                 </div>
-            </div>
-            <div className={sectionThree}>
+            </section>
+            <section className={sectionThree}>
                 <div className={sectionThreeWrapper}>
                     <span className={preTitle}>WHAT&apos;S IT LIKE</span>
                     <div className={sectionThreeTop}>
@@ -497,8 +497,8 @@ const AboutPage = () => {
                         referral bonus.
                     </p>
                 </div>
-            </div>
-            <div className={sectionFourCurrentOpenings} id="careers">
+            </section>
+            <section className={sectionFourCurrentOpenings} id="careers">
                 <div className={sectionFourCurrentOpeningsWrapper}>
                     <span className={preTitle}>APPLY TODAY</span>
                     <h2 className={sectionTitle}>Current Openings</h2>
@@ -573,8 +573,8 @@ const AboutPage = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-            <ContactUsForm />
+                <ContactUsForm titleHeadingLevel="h3" />
+            </section>
         </Layout>
     );
 };

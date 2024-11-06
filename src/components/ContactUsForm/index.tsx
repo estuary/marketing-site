@@ -10,7 +10,7 @@ import {
 } from './styles.module.less';
 
 interface ContactUsFormProps {
-    titleHeadingLevel?: 'h1' | 'h2';
+    titleHeadingLevel?: 'h1' | 'h2' | 'h3';
 }
 
 const ContactUsForm = ({ titleHeadingLevel = 'h2' }: ContactUsFormProps) => {
