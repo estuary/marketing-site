@@ -8,6 +8,7 @@ import Benefits from '../../components/PartnersPage/Benefits';
 import JoinPartnerProgram from '../../components/PartnersPage/JoinPartnerProgram';
 import TechnologyPartners from '../../components/PartnersPage/TechnologyPartners';
 import ResourcesAndGettingStarted from '../../components/PartnersPage/ResourcesAndGettingStarted';
+import ReferralIncentive from '../../components/PartnersPage/ReferralIncentive';
 
 const Partners = () => {
     return (
@@ -18,6 +19,7 @@ const Partners = () => {
             <JoinPartnerProgram />
             <TechnologyPartners />
             <ResourcesAndGettingStarted />
+            <ReferralIncentive />
         </Layout>
     );
 };
