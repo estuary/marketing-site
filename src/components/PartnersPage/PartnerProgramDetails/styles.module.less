@@ -1,5 +1,6 @@
 .container {
   padding: 0;
+  width: 100%;
 
   > :nth-child(1) {
     display: flex;
@@ -18,7 +19,7 @@
       line-height: 32.4px;
       color: #47506D;
       margin: 0;
-      max-width: 544px;
+      max-width: 590px;
     }
 
     a {
@@ -32,6 +33,7 @@
     grid-template-rows: repeat(2, 1fr);
     gap: 32px;
     margin: 0;
+    width: 100%;
 
     li {
       display: flex;
@@ -42,20 +44,122 @@
 
       div {
         border: 1px solid #A4B6F4;
-        border-radius: 24px;
-        padding: 20px;
-        width: 100px;
-        height: 100px;
+        border-radius: 1.5vw;
+        padding: 1vw;
+        width: 6.25vw;
+        height: 6.25vw;
+        min-width: 80px;
+        min-height: 80px;
         display: flex;
         align-items: center;
         justify-content: center;
+
+        @media(min-width: 1620px) {
+          width: 100px;
+          height: 100px;
+          border-radius: 24px;
+        }
       }
 
       span {
         color: #47506D;
         font-size: 1rem;
         font-weight: 400;
-        line-height: 30px;
+        line-height: 18.2px;
+        text-align: center;
+      }
+    }
+  }
+
+  @media(max-width: 1024px) {
+    margin: 0;
+    width: 100%;
+
+    > :nth-child(1) {
+      max-width: 100%;
+      width: 100%;
+
+      h3 {
+        font-size: 1.25rem;
+      }
+
+      p {
+        max-width: 100%;
+        font-size: 1rem;
+      }
+
+      a {
+        max-width: 100%;
+      }
+    }
+
+    ul {
+      width: fit-content;
+      margin-top: 16px;
+
+      li {
+        div {
+          width: 9.766vw;
+          height: 9.766vw;
+        }
+      }
+    }
+  }
+
+  @media(max-width: 520px) {
+    ul {
+      grid-template-columns: repeat(3, 1fr);
+      margin: 0 0 20px 0;
+    }
+  }
+
+  @media(max-width: 425px) {
+    > :nth-child(1) {
+      h3 {
+        font-size: 1.125rem;
+      }
+    }
+
+    ul {
+      li {
+        span {
+          font-size: 0.875rem;
+        }
+      }
+    }
+  }
+
+  @media(max-width: 375px) {
+    ul {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+.isReverseStyling {
+  @media(min-width: 1025px) {
+    flex-direction: row-reverse;
+  }
+}
+
+.darkTheme {
+  > :nth-child(1) {
+
+    h3,
+    p {
+      color: #fff;
+    }
+  }
+
+  ul {
+    li {
+      div {
+        background-color: #0E2443;
+        border-color: #5072EB3D;
+      }
+
+      span {
+        color: #fff;
       }
     }
   }

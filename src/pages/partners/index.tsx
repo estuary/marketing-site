@@ -6,6 +6,7 @@ import Hero from '../../components/PartnersPage/Hero';
 import WhyPartnerWithEstuary from '../../components/PartnersPage/WhyPartnerWithEstuary';
 import Benefits from '../../components/PartnersPage/Benefits';
 import JoinPartnerProgram from '../../components/PartnersPage/JoinPartnerProgram';
+import TechnologyPartners from '../../components/PartnersPage/TechnologyPartners';
 
 const Partners = () => {
     return (
@@ -14,6 +15,7 @@ const Partners = () => {
             <WhyPartnerWithEstuary />
             <Benefits />
             <JoinPartnerProgram />
+            <TechnologyPartners />
         </Layout>
     );
 };
