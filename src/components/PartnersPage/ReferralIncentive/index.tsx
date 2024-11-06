@@ -11,8 +11,8 @@ const ReferralIncentive = () => (
             <div className={header}>
                 <h2>REFERRAL INCENTIVE</h2>
                 <p>
-                    Estuary offers a referral incentive of 10% of the yearly
-                    contract after a deal is made through a referral.
+                    Estuary offers a referral incentive of the yearly contract
+                    after a deal is made through a referral.
                 </p>
                 <LinkOutlined theme="dark" href="/contact-us/">
                     Contact Us

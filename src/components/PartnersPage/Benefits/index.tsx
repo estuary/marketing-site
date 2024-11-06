@@ -31,7 +31,7 @@ const Benefits = () => {
                         <Card
                             icon={<IndustryTrendsIcon color="#5072EB" />}
                             title="Referral Incentive"
-                            description="Estuary offers a referral incentive of 10% of the yearly contract after a deal is made through a referral."
+                            description="Estuary offers a referral incentive of the yearly contract after a deal is made through a referral."
                             isDarkTheme
                         />
                         <Card
