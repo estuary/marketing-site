@@ -1,6 +1,13 @@
 import React from 'react';
 import HubSpotFormWrapper from '../HubSpot/FormWrapper';
-import { container, title, description } from './styles.module.less';
+import { OutboundLink } from '../OutboundLink';
+import {
+    container,
+    title,
+    description,
+    contactUsFormHelpText,
+    redirectLink,
+} from './styles.module.less';
 
 interface ContactUsFormProps {
     titleHeadingLevel?: 'h1' | 'h2';
@@ -19,6 +26,17 @@ const ContactUsForm = ({ titleHeadingLevel = 'h2' }: ContactUsFormProps) => {
                 member will reach out to you shortly.
             </p>
             <HubSpotFormWrapper />
+            <p className={contactUsFormHelpText}>
+                If you don&apos;t see the form, please{' '}
+                <OutboundLink
+                    href="https://share.hsforms.com/1aY5nFvOLS9WRBd-boiDimw553hf"
+                    target="__blank"
+                    className={redirectLink}
+                >
+                    click here
+                </OutboundLink>{' '}
+                to open it in a new tab.
+            </p>
         </div>
     );
 };

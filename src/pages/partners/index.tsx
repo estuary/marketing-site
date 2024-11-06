@@ -9,6 +9,7 @@ import JoinPartnerProgram from '../../components/PartnersPage/JoinPartnerProgram
 import TechnologyPartners from '../../components/PartnersPage/TechnologyPartners';
 import ResourcesAndGettingStarted from '../../components/PartnersPage/ResourcesAndGettingStarted';
 import ReferralIncentive from '../../components/PartnersPage/ReferralIncentive';
+import ContactUs from '../../components/PartnersPage/ContactUs';
 
 const Partners = () => {
     return (
@@ -20,6 +21,7 @@ const Partners = () => {
             <TechnologyPartners />
             <ResourcesAndGettingStarted />
             <ReferralIncentive />
+            <ContactUs />
         </Layout>
     );
 };
