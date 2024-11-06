@@ -7,6 +7,7 @@ import WhyPartnerWithEstuary from '../../components/PartnersPage/WhyPartnerWithE
 import Benefits from '../../components/PartnersPage/Benefits';
 import JoinPartnerProgram from '../../components/PartnersPage/JoinPartnerProgram';
 import TechnologyPartners from '../../components/PartnersPage/TechnologyPartners';
+import ResourcesAndGettingStarted from '../../components/PartnersPage/ResourcesAndGettingStarted';
 
 const Partners = () => {
     return (
@@ -16,6 +17,7 @@ const Partners = () => {
             <Benefits />
             <JoinPartnerProgram />
             <TechnologyPartners />
+            <ResourcesAndGettingStarted />
         </Layout>
     );
 };
