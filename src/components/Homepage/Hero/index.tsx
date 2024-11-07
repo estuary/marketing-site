@@ -5,9 +5,8 @@ import SingleDataflowIcon from '../../../svgs/metric-single-dataflow.svg';
 import MetricCard from '../../MetricCard';
 import VanityLogosMarquee from '../../VanityLogosMarquee';
 import HeroSectionDetails from '../../HeroSectionDetails';
-import { activeUsersAmount, dashboardRegisterUrl } from '../../../../shared';
-import { OutboundLinkFilled } from '../../OutboundLink';
-import { LinkOutlined } from '../../../globalStyles';
+import { activeUsersAmount } from '../../../../shared';
+import HeroSectionActions from '../../HeroSectionActions';
 import AnimFallback from './AnimFallback';
 import AnimatedHero from './AnimatedHero';
 import {
@@ -35,19 +34,7 @@ const Hero = () => {
                     description="Estuary is the only platform built from the ground up
                         for truly real-time ETL and ELT data integration, set up
                         in minutes."
-                    ctaButtons={
-                        <>
-                            <OutboundLinkFilled
-                                href={dashboardRegisterUrl}
-                                target="_blank"
-                            >
-                                Build a Pipeline
-                            </OutboundLinkFilled>
-                            <LinkOutlined href="/contact-us/" theme="dark">
-                                Contact Us
-                            </LinkOutlined>
-                        </>
-                    }
+                    ctaButtons={<HeroSectionActions />}
                     hasSubscriptionBenefits
                 />
                 <FlowAnimationContainer>

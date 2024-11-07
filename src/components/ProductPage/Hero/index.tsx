@@ -1,17 +1,11 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
-import {
-    dashboardRegisterUrl,
-    docsPageUrl,
-    slackUrl,
-    webinarsUrl,
-} from '../../../../shared';
+import { docsPageUrl, slackUrl, webinarsUrl } from '../../../../shared';
 import { DefaultWrapperDarkBlue } from '../../../styles/wrappers';
 import RecordIcon from '../../../svgs/record-outlined.svg';
 import HeroSectionDetails from '../../HeroSectionDetails';
 import Container from '../../Container';
-import { OutboundLinkFilled } from '../../OutboundLink';
-import { LinkOutlined } from '../../../globalStyles';
+import HeroSectionActions from '../../HeroSectionActions';
 import Card from './Card';
 import { Cards } from './styles';
 
@@ -25,19 +19,7 @@ const Hero = () => {
                             real-time ETL and ELT data pipelines. Batch-load for
                             analytics, and stream for ops and AI - all set up in
                             minutes, with millisecond latency."
-                    ctaButtons={
-                        <>
-                            <OutboundLinkFilled
-                                href={dashboardRegisterUrl}
-                                target="_blank"
-                            >
-                                Build a Pipeline
-                            </OutboundLinkFilled>
-                            <LinkOutlined href="/contact-us/" theme="dark">
-                                Contact Us
-                            </LinkOutlined>
-                        </>
-                    }
+                    ctaButtons={<HeroSectionActions />}
                     hasSubscriptionBenefits
                 />
                 <StaticImage

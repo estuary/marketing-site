@@ -7,9 +7,7 @@ import PublicDeploymentsIcon from '../../../svgs/public-deployments-icon.svg';
 import PrivateDeploymentsIcon from '../../../svgs/private-deployments-icon.svg';
 import Container from '../../Container';
 import HeroSectionDetails from '../../HeroSectionDetails';
-import { OutboundLinkFilled } from '../../OutboundLink';
-import { LinkOutlined } from '../../../globalStyles';
-import { dashboardRegisterUrl } from '../../../../shared';
+import HeroSectionActions from '../../HeroSectionActions';
 import {
     container,
     rightColumn,
@@ -29,19 +27,7 @@ const Hero = () => {
                         requirements. This section provides a high-level
                         overview and comparison of Public Deployment, Private
                         Deployment, and BYOC options."
-                    ctaButtons={
-                        <>
-                            <OutboundLinkFilled
-                                href={dashboardRegisterUrl}
-                                target="_blank"
-                            >
-                                Build a Pipeline
-                            </OutboundLinkFilled>
-                            <LinkOutlined href="/contact-us/" theme="dark">
-                                Contact Us
-                            </LinkOutlined>
-                        </>
-                    }
+                    ctaButtons={<HeroSectionActions />}
                 />
                 <div className={rightColumn}>
                     <StaticImage

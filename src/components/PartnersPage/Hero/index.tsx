@@ -3,7 +3,7 @@ import { StaticImage } from 'gatsby-plugin-image';
 import Container from '../../Container';
 import HeroSectionDetails from '../../HeroSectionDetails';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
-import { LinkFilled } from '../../../globalStyles';
+import ContactUsCta from '../../HeroSectionActions/ContactUsCta';
 import { container } from './styles.module.less';
 
 const Hero = () => {
@@ -13,9 +13,7 @@ const Hero = () => {
                 <HeroSectionDetails
                     title="THE ESTUARY PARTNER PROGRAM"
                     description="Become an Estuary Partner to accelerate business results through real-time data integrations."
-                    ctaButtons={
-                        <LinkFilled href="/contact-us/">Contact Us</LinkFilled>
-                    }
+                    ctaButtons={<ContactUsCta />}
                 />
                 <StaticImage
                     src="../../../images/partners-page/handshake.png"
