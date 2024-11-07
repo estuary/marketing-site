@@ -1,5 +1,6 @@
 import React from 'react';
 import { OutboundLinkFilled } from '../OutboundLink';
+import { dashboardRegisterUrl } from '../../../shared';
 
 function RegisterCta() {
     return (
