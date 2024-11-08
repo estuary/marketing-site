@@ -6,7 +6,7 @@ import Hero from '../../components/PartnersPage/Hero';
 import WhyPartnerWithEstuary from '../../components/PartnersPage/WhyPartnerWithEstuary';
 import Benefits from '../../components/PartnersPage/Benefits';
 import JoinPartnerProgram from '../../components/PartnersPage/JoinPartnerProgram';
-import TechnologyPartners from '../../components/PartnersPage/TechnologyPartners';
+import SIPartners from '../../components/PartnersPage/SIPartners';
 import ResourcesAndGettingStarted from '../../components/PartnersPage/ResourcesAndGettingStarted';
 import ReferralIncentive from '../../components/PartnersPage/ReferralIncentive';
 import ContactUs from '../../components/PartnersPage/ContactUs';
@@ -18,7 +18,7 @@ const Partners = () => {
             <WhyPartnerWithEstuary />
             <Benefits />
             <JoinPartnerProgram />
-            <TechnologyPartners />
+            <SIPartners />
             <ResourcesAndGettingStarted />
             <ReferralIncentive />
             <ContactUs />

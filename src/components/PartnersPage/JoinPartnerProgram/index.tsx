@@ -5,26 +5,86 @@ import PartnerProgramDetails from '../PartnerProgramDetails';
 import { Partner } from '../shared';
 import { container } from './styles.module.less';
 
-const partners: Partner[] = [
+const techPartners: Partner[] = [
     {
         icon: (
             <StaticImage
-                src="../../../images/partners-page/partner-logos/database-tycoon.png"
-                alt="Database Tycoon logo"
+                src="../../../images/partners-page/partner-logos/bytewax.png"
+                alt="Bytewax logo"
                 placeholder="blurred"
             />
         ),
-        name: 'Database Tycoon',
+        name: 'Bytewax',
     },
     {
         icon: (
             <StaticImage
-                src="../../../images/partners-page/partner-logos/outlier.png"
-                alt="Outlier logo"
+                src="../../../images/partners-page/partner-logos/materialize.png"
+                alt="Materialize logo"
                 placeholder="blurred"
             />
         ),
-        name: 'Outlier',
+        name: 'Materialize',
+    },
+    {
+        icon: (
+            <StaticImage
+                src="../../../images/partners-page/partner-logos/motherduck.svg"
+                alt="MotherDuck logo"
+                placeholder="blurred"
+            />
+        ),
+        name: 'MotherDuck',
+    },
+    {
+        icon: (
+            <StaticImage
+                src="../../../images/partners-page/partner-logos/singlestore.png"
+                alt="SingleStore logo"
+                placeholder="blurred"
+            />
+        ),
+        name: 'SingleStore',
+    },
+    {
+        icon: (
+            <StaticImage
+                src="../../../images/partners-page/partner-logos/snowflake.png"
+                alt="Snowflake logo"
+                placeholder="blurred"
+            />
+        ),
+        name: 'Snowflake',
+    },
+    {
+        icon: (
+            <StaticImage
+                src="../../../images/partners-page/partner-logos/startree.png"
+                alt="StarTree logo"
+                placeholder="blurred"
+            />
+        ),
+        name: 'StarTree',
+    },
+    {
+        icon: (
+            <StaticImage
+                src="../../../images/partners-page/partner-logos/tinybird.png"
+                alt="Tinybird logo"
+                placeholder="blurred"
+            />
+        ),
+        name: 'Tinybird',
+    },
+    {
+        icon: (
+            <StaticImage
+                src="../../../images/partners-page/partner-logos/databricks.svg"
+                alt="Databricks logo"
+                placeholder="blurred"
+            />
+        ),
+        name: 'Databricks',
     },
 ];
 
@@ -38,9 +98,9 @@ const JoinPartnerProgram = () => (
                 data integration, we want to partner with you.
             </p>
             <PartnerProgramDetails
-                title="SERVICE INTEGRATION PARTNERS"
-                description="Enable clients to build efficient, real-time data pipelines using Estuary Flow, transforming their data management and analytics capabilities."
-                partners={partners}
+                title="TECHNOLOGY PARTNERS"
+                description="Integrate seamlessly with Estuary Flow to enhance the data ecosystem. The Estuary Partner Program is designed to simplify the process for developers and businesses looking to integrate real-time data solutions."
+                partners={techPartners}
             />
         </div>
     </section>
