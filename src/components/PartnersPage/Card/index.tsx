@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import { container, darkTheme } from './styles.module.less';
 
 interface CardProps {
-    icon: ReactNode;
+    Icon: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
     title: string;
     children: string;
     isDarkTheme?: boolean;
@@ -11,14 +11,16 @@ interface CardProps {
 }
 
 const Card = ({
-    icon,
+    Icon,
     title,
     children,
     isDarkTheme = false,
     link,
 }: CardProps) => (
     <div className={clsx(container, isDarkTheme ? darkTheme : null)}>
-        <div>{icon}</div>
+        <div>
+            <Icon color="#5072EB" />
+        </div>
         <h3>{title}</h3>
         <p>{children}</p>
         {link}

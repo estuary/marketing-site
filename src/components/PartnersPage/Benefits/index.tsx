@@ -9,8 +9,6 @@ import EngineerIcon from '../../../svgs/engineer.svg';
 import ConnectorsIcon from '../../../svgs/connectors.svg';
 import { container, cardList, subContainer } from './styles.module.less';
 
-const iconColor = '#5072EB';
-
 const Benefits = () => {
     return (
         <section className={defaultWrapperDarkBlue}>
@@ -25,7 +23,7 @@ const Benefits = () => {
                     />
                     <div className={cardList}>
                         <Card
-                            icon={<TopPlatformIcon color={iconColor} />}
+                            Icon={TopPlatformIcon}
                             title="Co-marketing initiatives"
                             isDarkTheme
                         >
@@ -34,7 +32,7 @@ const Benefits = () => {
                             for increased reach.
                         </Card>
                         <Card
-                            icon={<IndustryTrendsIcon color={iconColor} />}
+                            Icon={IndustryTrendsIcon}
                             title="Referral Incentive"
                             isDarkTheme
                         >
@@ -42,7 +40,7 @@ const Benefits = () => {
                             contract after a deal is made through a referral.
                         </Card>
                         <Card
-                            icon={<EngineerIcon color={iconColor} />}
+                            Icon={EngineerIcon}
                             title="First-Party Support"
                             isDarkTheme
                         >
@@ -50,7 +48,7 @@ const Benefits = () => {
                             ensure your integrations are seamless and effective.
                         </Card>
                         <Card
-                            icon={<ConnectorsIcon color={iconColor} />}
+                            Icon={ConnectorsIcon}
                             title="First-Party Connectors"
                             isDarkTheme
                         >
