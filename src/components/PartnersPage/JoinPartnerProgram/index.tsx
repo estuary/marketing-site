@@ -15,6 +15,7 @@ const techPartners: Partner[] = [
             />
         ),
         name: 'Bytewax',
+        href: 'https://docs.estuary.dev/reference/Connectors/dekaf/dekaf-bytewax/',
     },
     {
         icon: (
@@ -25,6 +26,7 @@ const techPartners: Partner[] = [
             />
         ),
         name: 'Materialize',
+        href: 'https://docs.estuary.dev/reference/Connectors/dekaf/dekaf-materialize/',
     },
     {
         icon: (
@@ -35,6 +37,7 @@ const techPartners: Partner[] = [
             />
         ),
         name: 'MotherDuck',
+        href: 'https://motherduck.com/ecosystem/estuary/',
     },
     {
         icon: (
@@ -45,6 +48,7 @@ const techPartners: Partner[] = [
             />
         ),
         name: 'SingleStore',
+        href: 'https://docs.estuary.dev/reference/Connectors/dekaf/dekaf-singlestore/',
     },
     {
         icon: (
@@ -55,6 +59,7 @@ const techPartners: Partner[] = [
             />
         ),
         name: 'Snowflake',
+        href: 'https://estuary.dev/destination/snowflake/',
     },
     {
         icon: (
@@ -65,6 +70,7 @@ const techPartners: Partner[] = [
             />
         ),
         name: 'StarTree',
+        href: 'https://docs.estuary.dev/reference/Connectors/dekaf/dekaf-startree/',
     },
     {
         icon: (
@@ -75,6 +81,7 @@ const techPartners: Partner[] = [
             />
         ),
         name: 'Tinybird',
+        href: 'https://www.tinybird.co/docs/guides/ingesting-data/ingest-with-estuary/',
     },
     {
         icon: (
@@ -85,6 +92,7 @@ const techPartners: Partner[] = [
             />
         ),
         name: 'Databricks',
+        href: 'https://estuary.dev/destination/databricks/',
     },
 ];
 

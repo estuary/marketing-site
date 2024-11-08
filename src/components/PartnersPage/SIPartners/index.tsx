@@ -17,6 +17,7 @@ const serviceIntegrationPartners: Partner[] = [
             />
         ),
         name: 'Database Tycoon',
+        href: 'https://www.databasetycoon.com/',
     },
     {
         icon: (
@@ -27,6 +28,7 @@ const serviceIntegrationPartners: Partner[] = [
             />
         ),
         name: 'Outlier',
+        href: 'https://weareoutlier.com/',
     },
 ];
 

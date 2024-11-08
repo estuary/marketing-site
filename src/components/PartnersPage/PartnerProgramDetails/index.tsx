@@ -45,6 +45,7 @@ const PartnerProgramDetails = ({
                         key={index}
                         icon={partner.icon}
                         name={partner.name}
+                        href={partner.href}
                     />
                 ))}
             </ul>
