@@ -1,6 +1,6 @@
 import React from 'react';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
-import TopPlatformIcon from '../../../svgs/top-platform.svg';
+import TopPlatformIcon from '../../../svgs/success.svg';
 import IndustryTrendsIcon from '../../../svgs/industry-trends.svg';
 import PartnerBenefitsIcon from '../../../svgs/partner-benefits.svg';
 import Card from '../Card';
