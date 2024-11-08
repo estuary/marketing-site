@@ -2,8 +2,9 @@ import { StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
 import { statusPageUrl, webinarsUrl } from '../../../../shared';
 import DocIcon from '../../../svgs/file.svg';
+import SuccessIcon from '../../../svgs/success.svg';
 
-const iconSize = 18;
+const iconSize = 16;
 
 export const read = [
     {
@@ -69,5 +70,16 @@ export const tours = [
     {
         name: 'Real-time 101 [30 min]',
         to: webinarsUrl,
+    },
+];
+
+export const partners = [
+    {
+        name: 'PARTNERS',
+        to: '/partners/',
+        description: 'Browse our directory of partners',
+        Image: () => (
+            <SuccessIcon color="#5072EB" width={iconSize} height={iconSize} />
+        ),
     },
 ];
