@@ -1,45 +1,82 @@
 import React from 'react';
+import { StaticImage } from 'gatsby-plugin-image';
 import {
     defaultWrapperDarkBlue,
     globalMaxWidth,
 } from '../../../globalStyles/wrappers.module.less';
 import PartnerProgramDetails from '../PartnerProgramDetails';
 import { Partner } from '../shared';
-import TopPlatformIcon from '../../../svgs/top-platform.svg';
 
 const partners: Partner[] = [
-    // Replace this with real logos
     {
-        icon: <TopPlatformIcon color="#5072EB" width={40} height={40} />,
-        name: 'Azure Storage',
+        icon: (
+            <StaticImage
+                src="../../../images/partners-page/partner-logos/bytewax.png"
+                alt="Bytewax logo"
+                placeholder="blurred"
+            />
+        ),
+        name: 'Bytewax',
     },
     {
-        icon: <TopPlatformIcon color="#5072EB" width={40} height={40} />,
-        name: 'Azure Storage',
+        icon: (
+            <StaticImage
+                src="../../../images/partners-page/partner-logos/materialize.png"
+                alt="Materialize logo"
+                placeholder="blurred"
+            />
+        ),
+        name: 'Materialize',
     },
     {
-        icon: <TopPlatformIcon color="#5072EB" width={40} height={40} />,
-        name: 'Azure Storage',
+        icon: (
+            <StaticImage
+                src="../../../images/partners-page/partner-logos/motherduck.svg"
+                alt="MotherDuck logo"
+                placeholder="blurred"
+            />
+        ),
+        name: 'MotherDuck',
     },
     {
-        icon: <TopPlatformIcon color="#5072EB" width={40} height={40} />,
-        name: 'Azure Storage',
+        icon: (
+            <StaticImage
+                src="../../../images/partners-page/partner-logos/singlestore.png"
+                alt="SingleStore logo"
+                placeholder="blurred"
+            />
+        ),
+        name: 'SingleStore',
     },
     {
-        icon: <TopPlatformIcon color="#5072EB" width={40} height={40} />,
-        name: 'Azure Storage',
+        icon: (
+            <StaticImage
+                src="../../../images/partners-page/partner-logos/snowflake.png"
+                alt="Snowflake logo"
+                placeholder="blurred"
+            />
+        ),
+        name: 'Snowflake',
     },
     {
-        icon: <TopPlatformIcon color="#5072EB" width={40} height={40} />,
-        name: 'Azure Storage',
+        icon: (
+            <StaticImage
+                src="../../../images/partners-page/partner-logos/startree.png"
+                alt="StarTree logo"
+                placeholder="blurred"
+            />
+        ),
+        name: 'StarTree',
     },
     {
-        icon: <TopPlatformIcon color="#5072EB" width={40} height={40} />,
-        name: 'Azure Storage',
-    },
-    {
-        icon: <TopPlatformIcon color="#5072EB" width={40} height={40} />,
-        name: 'Azure Storage',
+        icon: (
+            <StaticImage
+                src="../../../images/partners-page/partner-logos/tinybird.png"
+                alt="Tinybird logo"
+                placeholder="blurred"
+            />
+        ),
+        name: 'Tinybird',
     },
 ];
 

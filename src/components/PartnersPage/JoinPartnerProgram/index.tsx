@@ -1,43 +1,30 @@
 import React from 'react';
+import { StaticImage } from 'gatsby-plugin-image';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import PartnerProgramDetails from '../PartnerProgramDetails';
 import { Partner } from '../shared';
-import TopPlatformIcon from '../../../svgs/top-platform.svg';
 import { container } from './styles.module.less';
 
 const partners: Partner[] = [
-    // Replace this with real logos
     {
-        icon: <TopPlatformIcon color="#5072EB" width={40} height={40} />,
-        name: 'Azure Storage',
+        icon: (
+            <StaticImage
+                src="../../../images/partners-page/partner-logos/database-tycoon.png"
+                alt="Database Tycoon logo"
+                placeholder="blurred"
+            />
+        ),
+        name: 'Database Tycoon',
     },
     {
-        icon: <TopPlatformIcon color="#5072EB" width={40} height={40} />,
-        name: 'Azure Storage',
-    },
-    {
-        icon: <TopPlatformIcon color="#5072EB" width={40} height={40} />,
-        name: 'Azure Storage',
-    },
-    {
-        icon: <TopPlatformIcon color="#5072EB" width={40} height={40} />,
-        name: 'Azure Storage',
-    },
-    {
-        icon: <TopPlatformIcon color="#5072EB" width={40} height={40} />,
-        name: 'Azure Storage',
-    },
-    {
-        icon: <TopPlatformIcon color="#5072EB" width={40} height={40} />,
-        name: 'Azure Storage',
-    },
-    {
-        icon: <TopPlatformIcon color="#5072EB" width={40} height={40} />,
-        name: 'Azure Storage',
-    },
-    {
-        icon: <TopPlatformIcon color="#5072EB" width={40} height={40} />,
-        name: 'Azure Storage',
+        icon: (
+            <StaticImage
+                src="../../../images/partners-page/partner-logos/outlier.png"
+                alt="Outlier logo"
+                placeholder="blurred"
+            />
+        ),
+        name: 'Outlier',
     },
 ];
 
