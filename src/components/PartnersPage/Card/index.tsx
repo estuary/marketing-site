@@ -5,7 +5,7 @@ import { container, darkTheme } from './styles.module.less';
 interface CardProps {
     icon: ReactNode;
     title: string;
-    description: string;
+    children: string;
     isDarkTheme?: boolean;
     link?: ReactNode;
 }
@@ -13,14 +13,14 @@ interface CardProps {
 const Card = ({
     icon,
     title,
-    description,
+    children,
     isDarkTheme = false,
     link,
 }: CardProps) => (
     <div className={clsx(container, isDarkTheme ? darkTheme : null)}>
         <div>{icon}</div>
         <h3>{title}</h3>
-        <p>{description}</p>
+        <p>{children}</p>
         {link}
     </div>
 );

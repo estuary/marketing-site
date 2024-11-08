@@ -9,6 +9,8 @@ import EngineerIcon from '../../../svgs/engineer.svg';
 import ConnectorsIcon from '../../../svgs/connectors.svg';
 import { container, cardList, subContainer } from './styles.module.less';
 
+const iconColor = '#5072EB';
+
 const Benefits = () => {
     return (
         <section className={defaultWrapperDarkBlue}>
@@ -23,29 +25,38 @@ const Benefits = () => {
                     />
                     <div className={cardList}>
                         <Card
-                            icon={<TopPlatformIcon color="#5072EB" />}
+                            icon={<TopPlatformIcon color={iconColor} />}
                             title="Co-marketing initiatives"
-                            description="Publish content together with Estuary and cross-market new initiatives and product launches for increased reach."
                             isDarkTheme
-                        />
+                        >
+                            Publish content together with Estuary and
+                            cross-market new initiatives and product launches
+                            for increased reach.
+                        </Card>
                         <Card
-                            icon={<IndustryTrendsIcon color="#5072EB" />}
+                            icon={<IndustryTrendsIcon color={iconColor} />}
                             title="Referral Incentive"
-                            description="Estuary offers a referral incentive of the yearly contract after a deal is made through a referral."
                             isDarkTheme
-                        />
+                        >
+                            Estuary offers a referral incentive of the yearly
+                            contract after a deal is made through a referral.
+                        </Card>
                         <Card
-                            icon={<EngineerIcon color="#5072EB" />}
+                            icon={<EngineerIcon color={iconColor} />}
                             title="First-Party Support"
-                            description="Gain first-party support from Estuary developers to ensure your integrations are seamless and effective."
                             isDarkTheme
-                        />
+                        >
+                            Gain first-party support from Estuary developers to
+                            ensure your integrations are seamless and effective.
+                        </Card>
                         <Card
-                            icon={<ConnectorsIcon color="#5072EB" />}
+                            icon={<ConnectorsIcon color={iconColor} />}
                             title="First-Party Connectors"
-                            description="Technology partners receive a first-party connector to enhance integration with Estuary Flow."
                             isDarkTheme
-                        />
+                        >
+                            Technology partners receive a first-party connector
+                            to enhance integration with Estuary Flow.
+                        </Card>
                     </div>
                 </div>
             </Container>

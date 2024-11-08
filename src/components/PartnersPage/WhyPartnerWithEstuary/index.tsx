@@ -6,6 +6,8 @@ import PartnerBenefitsIcon from '../../../svgs/partner-benefits.svg';
 import Card from '../Card';
 import { container, cardList } from './styles.module.less';
 
+const iconColor = '#5072EB';
+
 const WhyPartnerWithEstuary = () => (
     <section className={defaultWrapperGrey}>
         <div className={container}>
@@ -13,20 +15,29 @@ const WhyPartnerWithEstuary = () => (
             <p>Revolutionize Data Integration</p>
             <div className={cardList}>
                 <Card
-                    icon={<TopPlatformIcon color="#5072EB" />}
+                    icon={<TopPlatformIcon color={iconColor} />}
                     title="Top Platform"
-                    description="Estuary Flow is ranked as a top real-time data integration platform, empowering organizations to synchronize data seamlessly across their systems."
-                />
+                >
+                    Estuary Flow is ranked as a top real-time data integration
+                    platform, empowering organizations to synchronize data
+                    seamlessly across their systems.
+                </Card>
                 <Card
-                    icon={<IndustryTrendsIcon color="#5072EB" />}
+                    icon={<IndustryTrendsIcon color={iconColor} />}
                     title="Industry Trends"
-                    description="According to industry trends, real-time data integration is crucial for enterprises to stay competitive, providing up-to-date insights for better decision-making."
-                />
+                >
+                    According to industry trends, real-time data integration is
+                    crucial for enterprises to stay competitive, providing
+                    up-to-date insights for better decision-making.
+                </Card>
                 <Card
-                    icon={<PartnerBenefitsIcon color="#5072EB" />}
+                    icon={<PartnerBenefitsIcon color={iconColor} />}
                     title="Partner Benefits"
-                    description="Real-time data integration is essential for modern businesses, and partnering with Estuary ensures your clients can harness the power of up-to-date information."
-                />
+                >
+                    Real-time data integration is essential for modern
+                    businesses, and partnering with Estuary ensures your clients
+                    can harness the power of up-to-date information.
+                </Card>
             </div>
         </div>
     </section>
