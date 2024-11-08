@@ -3,7 +3,7 @@ import { StaticImage } from 'gatsby-plugin-image';
 import Container from '../../Container';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import Card from '../Card';
-import TopPlatformIcon from '../../../svgs/top-platform.svg';
+import TopPlatformIcon from '../../../svgs/success.svg';
 import IndustryTrendsIcon from '../../../svgs/industry-trends.svg';
 import EngineerIcon from '../../../svgs/engineer.svg';
 import ConnectorsIcon from '../../../svgs/connectors.svg';

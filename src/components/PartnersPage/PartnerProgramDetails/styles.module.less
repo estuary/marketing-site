@@ -44,6 +44,13 @@
       gap: 16px;
       margin: 0;
 
+      &:hover {
+        > :nth-child(1) {
+          border: 2px solid #7284FF;
+          padding: calc(0.5vw - 1px);
+        }
+      }
+
       > :nth-child(1) {
         border: 1px solid #A4B6F4;
         border-radius: 1.5vw;
@@ -55,11 +62,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-
-        &:hover {
-          border: 2px solid #7284FF;
-          padding: calc(0.5vw - 1px);
-        }
 
         @media(min-width: 1620px) {
           width: 100px;
@@ -109,9 +111,14 @@
     }
 
     ul {
+      
       a {
         span {
           font-size: 0.875rem;
+        }
+
+        > :nth-child(1) {
+          border-radius: 4vw;
         }
       }
     }
