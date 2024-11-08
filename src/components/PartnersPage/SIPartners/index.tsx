@@ -30,6 +30,17 @@ const serviceIntegrationPartners: Partner[] = [
         name: 'Outlier',
         href: 'https://weareoutlier.com/',
     },
+    {
+        icon: (
+            <StaticImage
+                src="../../../images/partners-page/partner-logos/seattle-data-guy.png"
+                alt="Seattle Data Guy logo"
+                placeholder="blurred"
+            />
+        ),
+        name: 'Seattle Data Guy',
+        href: 'https://www.theseattledataguy.com/',
+    },
 ];
 
 const SIPartners = () => (
