@@ -13,7 +13,9 @@ const Hero = () => {
                 <HeroSectionDetails
                     title="THE ESTUARY PARTNER PROGRAM"
                     description="Become an Estuary Partner to accelerate business results through real-time data integrations."
-                    ctaButtons={<ContactUsCta />}
+                    ctaButtons={
+                        <ContactUsCta href="/partners/#contact-us-form-section" />
+                    }
                 />
                 <StaticImage
                     src="../../../images/partners-page/handshake.png"
