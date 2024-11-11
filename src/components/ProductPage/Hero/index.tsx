@@ -5,6 +5,7 @@ import { DefaultWrapperDarkBlue } from '../../../styles/wrappers';
 import RecordIcon from '../../../svgs/record-outlined.svg';
 import HeroSectionDetails from '../../HeroSectionDetails';
 import Container from '../../Container';
+import HeroSectionActions from '../../HeroSectionActions';
 import Card from './Card';
 import { Cards } from './styles';
 
@@ -18,7 +19,7 @@ const Hero = () => {
                             real-time ETL and ELT data pipelines. Batch-load for
                             analytics, and stream for ops and AI - all set up in
                             minutes, with millisecond latency."
-                    hasCtaButtons
+                    ctaButtons={<HeroSectionActions />}
                     hasSubscriptionBenefits
                 />
                 <StaticImage

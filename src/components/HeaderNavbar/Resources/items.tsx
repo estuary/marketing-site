@@ -1,6 +1,10 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
 import { statusPageUrl, webinarsUrl } from '../../../../shared';
+import DocIcon from '../../../svgs/file.svg';
+import SuccessIcon from '../../../svgs/success.svg';
+
+const iconSize = 16;
 
 export const read = [
     {
@@ -11,12 +15,7 @@ export const read = [
     {
         name: 'Docs & Guides',
         to: 'https://docs.estuary.dev',
-        Image: () => (
-            <StaticImage
-                src="../../../svgs/docs-and-guides.svg"
-                alt="Docs & Guides"
-            />
-        ),
+        Image: () => <DocIcon color="#5072EB" width={iconSize} />,
     },
     {
         name: 'Status',
@@ -25,8 +24,8 @@ export const read = [
             <StaticImage
                 src="../../../svgs/product-flow-live-reporting.svg"
                 alt="Status"
-                height={18}
-                width={18}
+                height={iconSize}
+                width={iconSize}
             />
         ),
     },
@@ -71,5 +70,16 @@ export const tours = [
     {
         name: 'Real-time 101 [30 min]',
         to: webinarsUrl,
+    },
+];
+
+export const partners = [
+    {
+        name: 'PARTNERS',
+        to: '/partners/',
+        description: 'Browse our directory of partners',
+        Image: () => (
+            <SuccessIcon color="#5072EB" width={iconSize} height={iconSize} />
+        ),
     },
 ];

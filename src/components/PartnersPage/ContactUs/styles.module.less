@@ -1,0 +1,64 @@
+@import '../../../globalStyles/sections.module.less';
+
+.section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  background-color: #FDFDFE;
+
+  > :nth-child(1),
+  > :nth-child(2) {
+    .sectionTopBottomPadding;
+    display: flex;
+    align-items: center;
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
+  > :nth-child(1) {
+    background-color: #EEF1FD;
+    height: 100%;
+    justify-content: flex-end;
+  }
+
+  > :nth-child(2) {
+    justify-content: flex-start;
+
+    div {
+      width: 100%;
+      max-width: 516px;
+      display: flex;
+      margin: 0;
+      padding: 0;
+
+      h2 {
+        text-align: center;
+      }
+    }
+  }
+
+  @media(max-width: 768px) {
+    grid-template-columns: 1fr;
+
+    > :nth-child(1),
+    > :nth-child(2) {
+      justify-content: center;
+      padding: 40px;
+    }
+
+    > :nth-child(1) {
+      div {
+        max-width: 316px;
+      }
+    }
+  }
+
+  @media(max-width: 425px) {
+
+    > :nth-child(1),
+    > :nth-child(2) {
+      padding: 20px;
+    }
+  }
+}

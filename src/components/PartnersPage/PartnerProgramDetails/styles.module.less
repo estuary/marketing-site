@@ -1,0 +1,155 @@
+.container {
+  padding: 0;
+  width: 100%;
+
+  > :nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 28.8px;
+      color: #47506D;
+    }
+
+    p {
+      font-size: 1.125rem;
+      line-height: 32.4px;
+      color: #47506D;
+      margin: 0;
+      max-width: 590px;
+    }
+
+    a {
+      max-width: 200px;
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    margin: 0;
+    width: 100%;
+    list-style: none;
+
+    a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      margin: 0;
+
+      &:hover {
+        > :nth-child(1) {
+          border: 2px solid #7284FF;
+          padding: calc(0.5vw - 1px);
+        }
+      }
+
+      > :nth-child(1) {
+        border: 1px solid #A4B6F4;
+        border-radius: 1.5vw;
+        padding: 0.5vw;
+        width: 6.25vw;
+        height: 6.25vw;
+        min-width: 80px;
+        min-height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @media(min-width: 1620px) {
+          width: 100px;
+          height: 100px;
+          border-radius: 24px;
+        }
+      }
+
+      span {
+        color: #47506D;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 18.2px;
+        text-align: center;
+      }
+    }
+  }
+
+  @media(max-width: 1024px) {
+    margin: 0;
+    width: 100%;
+
+    > :nth-child(1) {
+      max-width: 100%;
+      width: 100%;
+
+      h3 {
+        font-size: 1.25rem;
+      }
+
+      p {
+        max-width: 100%;
+        font-size: 1rem;
+      }
+
+      a {
+        max-width: 100%;
+      }
+    }
+  }
+
+  @media(max-width: 425px) {
+    > :nth-child(1) {
+      h3 {
+        font-size: 1.125rem;
+      }
+    }
+
+    ul {
+      
+      a {
+        span {
+          font-size: 0.875rem;
+        }
+
+        > :nth-child(1) {
+          border-radius: 4vw;
+        }
+      }
+    }
+  }
+}
+
+.isReverseStyling {
+  @media(min-width: 1025px) {
+    flex-direction: row-reverse;
+  }
+}
+
+.darkTheme {
+  > :nth-child(1) {
+
+    h3,
+    p {
+      color: #fff;
+    }
+  }
+
+  ul {
+    a {
+      div {
+        background-color: #0E2443;
+        border-color: #5072EB3D;
+      }
+
+      span {
+        color: #fff;
+      }
+    }
+  }
+}

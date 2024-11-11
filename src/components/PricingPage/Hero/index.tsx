@@ -3,6 +3,7 @@ import { StaticImage } from 'gatsby-plugin-image';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import Container from '../../Container';
 import HeroSectionDetails from '../../HeroSectionDetails';
+import HeroSectionActions from '../../HeroSectionActions';
 import { boldText } from './styles.module.less';
 
 const Hero = () => {
@@ -28,7 +29,7 @@ const Hero = () => {
                             .
                         </>
                     }
-                    hasCtaButtons
+                    ctaButtons={<HeroSectionActions />}
                 />
                 <StaticImage
                     src="../../../images/pricing/illustration.png"

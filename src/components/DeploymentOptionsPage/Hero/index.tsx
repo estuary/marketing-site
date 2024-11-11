@@ -7,6 +7,7 @@ import PublicDeploymentsIcon from '../../../svgs/public-deployments-icon.svg';
 import PrivateDeploymentsIcon from '../../../svgs/private-deployments-icon.svg';
 import Container from '../../Container';
 import HeroSectionDetails from '../../HeroSectionDetails';
+import HeroSectionActions from '../../HeroSectionActions';
 import {
     container,
     rightColumn,
@@ -26,7 +27,7 @@ const Hero = () => {
                         requirements. This section provides a high-level
                         overview and comparison of Public Deployment, Private
                         Deployment, and BYOC options."
-                    hasCtaButtons
+                    ctaButtons={<HeroSectionActions />}
                 />
                 <div className={rightColumn}>
                     <StaticImage

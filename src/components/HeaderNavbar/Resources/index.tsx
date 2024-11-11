@@ -19,7 +19,7 @@ import {
 import { hideOnMobile, longLinkList } from '../styles.module.less';
 import Carousel from '../../Carousel';
 import SuccessIcon from '../../../svgs/success.svg';
-import { listen, read } from './items';
+import { listen, read, partners } from './items';
 import ResourcesLink from './Link';
 
 const iconSize = 16;
@@ -73,13 +73,20 @@ const HeaderNavbarResources = ({ active, setActive }) => {
             </MenuAccordionButton>
             <MenuAccordionContent>
                 <Card>
-                    <CardItem
-                        className={clsx(hideOnMobile, longLinkList)}
-                        title="CASE STUDIES"
-                        items={caseStudiesItems}
-                        onlyContent
-                        active={active}
-                    />
+                    <ColumnWithTwoRows>
+                        <CardItem
+                            title="ECOSYSTEM"
+                            items={partners}
+                            onlyContent
+                        />
+                        <CardItem
+                            className={clsx(hideOnMobile, longLinkList)}
+                            title="CASE STUDIES"
+                            items={caseStudiesItems}
+                            onlyContent
+                            active={active}
+                        />
+                    </ColumnWithTwoRows>
                     <ColumnWithTwoRows>
                         <CardItem title="READ" items={read} onlyContent />
                         <CardItem title="LISTEN" items={listen} onlyContent />

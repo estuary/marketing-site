@@ -6,6 +6,7 @@ import MetricCard from '../../MetricCard';
 import VanityLogosMarquee from '../../VanityLogosMarquee';
 import HeroSectionDetails from '../../HeroSectionDetails';
 import { activeUsersAmount } from '../../../../shared';
+import HeroSectionActions from '../../HeroSectionActions';
 import AnimFallback from './AnimFallback';
 import AnimatedHero from './AnimatedHero';
 import {
@@ -33,7 +34,7 @@ const Hero = () => {
                     description="Estuary is the only platform built from the ground up
                         for truly real-time ETL and ELT data integration, set up
                         in minutes."
-                    hasCtaButtons
+                    ctaButtons={<HeroSectionActions />}
                     hasSubscriptionBenefits
                 />
                 <FlowAnimationContainer>
