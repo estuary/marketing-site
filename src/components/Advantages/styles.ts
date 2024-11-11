@@ -42,6 +42,7 @@ export const LeftColumn = styled.div`
     max-width: 45%;
 
     @media (max-width: 1024px) {
+        width: 100%;
         max-width: 100%;
     }
 `;

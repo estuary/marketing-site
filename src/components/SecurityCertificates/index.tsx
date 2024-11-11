@@ -1,27 +1,33 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import Advantages from '../Advantages';
+import SecureIcon from '../../svgs/secure-data.svg';
 
 interface SecurityCertificatesProps {
     isDarkTheme?: boolean;
+    title?: ReactNode;
+    subtitle?: string;
 }
 
-const SecurityCertificates = ({ isDarkTheme }: SecurityCertificatesProps) => {
+const SecurityCertificates = ({
+    isDarkTheme,
+    title,
+    subtitle,
+}: SecurityCertificatesProps) => {
     return (
         <Advantages
-            icon={
-                <StaticImage
-                    placeholder="none"
-                    alt="Secure Your Data with Estuary Flow: GDPR, CCPA, CPRA Compliant & SOC 2 Type II Certified"
-                    src="../../svgs/product-page/section-ten/secure-data.svg"
-                />
-            }
+            icon={<SecureIcon color="#5072EB" />}
             title={
-                <>
-                    <span>SECURE</span> YOUR DATA
-                </>
+                title ?? (
+                    <>
+                        <span>SECURE</span> YOUR DATA
+                    </>
+                )
             }
-            subtitle="Estuary Flow is designed and tested to make sure your data and your systems stay secure."
+            subtitle={
+                subtitle ??
+                'Estuary Flow is designed and tested to make sure your data and your systems stay secure.'
+            }
             image={
                 <StaticImage
                     placeholder="none"
@@ -33,15 +39,19 @@ const SecurityCertificates = ({ isDarkTheme }: SecurityCertificatesProps) => {
             advantages={[
                 {
                     id: 14,
-                    title: 'Estuary never stores your data.',
+                    title: 'Estuary never stores your data',
                 },
                 {
                     id: 15,
-                    title: 'GDPR, CCPA and CPRA compliant.',
+                    title: 'GDPR, CCPA and CPRA compliant',
                 },
                 {
                     id: 16,
-                    title: 'SOC 2 Type II certified.',
+                    title: 'SOC 2 Type II certified',
+                },
+                {
+                    id: 17,
+                    title: 'HIPAA',
                 },
             ]}
             isDarkTheme={isDarkTheme}

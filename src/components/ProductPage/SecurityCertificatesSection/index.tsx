@@ -1,6 +1,6 @@
 import React from 'react';
 import { DefaultWrapperDark } from '../../../styles/wrappers';
-import SecurityCertificates from '../../SecuriityCertificates';
+import SecurityCertificates from '../../SecurityCertificates';
 
 const SecurityCertificatesSection = () => {
     return (

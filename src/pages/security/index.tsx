@@ -4,12 +4,14 @@ import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
 import Hero from '../../components/SecurityPage/Hero';
 import DeploymentModes from '../../components/SecurityPage/DeploymentModes';
+import AlwaysSecure from '../../components/SecurityPage/AlwaysSecure';
 
 const SecurityPage = () => {
     return (
         <Layout>
             <Hero />
             <DeploymentModes />
+            <AlwaysSecure />
         </Layout>
     );
 };
