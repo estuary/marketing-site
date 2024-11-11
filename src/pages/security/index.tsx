@@ -3,11 +3,13 @@ import { graphql, useStaticQuery } from 'gatsby';
 import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
 import Hero from '../../components/SecurityPage/Hero';
+import DeploymentModes from '../../components/SecurityPage/DeploymentModes';
 
 const SecurityPage = () => {
     return (
         <Layout>
             <Hero />
+            <DeploymentModes />
         </Layout>
     );
 };

@@ -1,6 +1,6 @@
 import React from 'react';
-import DeploymentOptionDiagram from '../../../DeploymentOptionDiagram';
-import { DeploymentOption } from '../../../../../shared';
+import DeploymentOptionDiagram from '../DeploymentOptionDiagram';
+import { DeploymentOption } from '../../../../shared';
 
 interface DeploymentDiagramContainerProps {
     deploymentOption: DeploymentOption;

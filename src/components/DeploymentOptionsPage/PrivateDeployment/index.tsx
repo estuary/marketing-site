@@ -1,9 +1,9 @@
 import React from 'react';
 import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
-import DeploymentOptionDetails from '../../DeploymentOptionDetails';
+import DeploymentOptionDetails from '../../DeploymentOptions/DeploymentOptionDetails';
 import { features } from '../shared';
 import { container } from '../styles.module.less';
-import DeploymentOptionDiagram from '../../DeploymentOptionDiagram';
+import DeploymentOptionDiagram from '../../DeploymentOptions/DeploymentOptionDiagram';
 import Container from '../../Container';
 
 const PrivateDeployment = () => {
