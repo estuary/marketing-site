@@ -1,4 +1,4 @@
-@import '../../../globalStyles/sections.module.less';
+@import '../../globalStyles/sections.module.less';
 
 .container {
   .globalMaxWidth;
@@ -31,6 +31,20 @@
     font-weight: 400;
     line-height: 30px;
     margin: 0;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+    margin-top: auto;
+    width: fit-content;
+
+    &:hover {
+      text-underline-offset: 4px;
+      text-decoration: underline;
+    }
   }
 }
 

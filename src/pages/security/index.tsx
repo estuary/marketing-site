@@ -5,6 +5,7 @@ import Seo from '../../components/seo';
 import Hero from '../../components/SecurityPage/Hero';
 import DeploymentModes from '../../components/SecurityPage/DeploymentModes';
 import AlwaysSecure from '../../components/SecurityPage/AlwaysSecure';
+import SecurityFeatures from '../../components/SecurityPage/SecurityFeatures';
 
 const SecurityPage = () => {
     return (
@@ -12,6 +13,7 @@ const SecurityPage = () => {
             <Hero />
             <DeploymentModes />
             <AlwaysSecure />
+            <SecurityFeatures />
         </Layout>
     );
 };

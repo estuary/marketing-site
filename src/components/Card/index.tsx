@@ -19,7 +19,7 @@ const Card = ({
 }: CardProps) => (
     <div className={clsx(container, isDarkTheme ? darkTheme : null)}>
         <div>
-            <Icon color="#5072EB" />
+            <Icon color="#5072EB" width={28} />
         </div>
         <h3>{title}</h3>
         <p>{children}</p>
