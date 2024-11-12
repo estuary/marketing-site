@@ -54,7 +54,9 @@ const Advantages = ({
                         ))}
                     </AdvantagesList>
                 ) : null}
-                <CtaButtonsWrapper>{ctaButtons}</CtaButtonsWrapper>
+                {ctaButtons ? (
+                    <CtaButtonsWrapper>{ctaButtons}</CtaButtonsWrapper>
+                ) : null}
             </LeftColumn>
             {image ? <RightColumn>{image}</RightColumn> : null}
         </Wrapper>
