@@ -36,8 +36,8 @@ const Benefits = () => {
                             title="Referral Incentive"
                             isDarkTheme
                         >
-                            Estuary offers a referral incentive of the yearly
-                            contract after a deal is made through a referral.
+                            Estuary offers an incentive after a deal is made
+                            through a partner referral.
                         </Card>
                         <Card
                             Icon={EngineerIcon}
@@ -52,8 +52,8 @@ const Benefits = () => {
                             title="First-Party Connectors"
                             isDarkTheme
                         >
-                            Technology partners receive a first-party connector
-                            to enhance integration with Estuary Flow.
+                            Technology partners may receive a first-party
+                            connector to enhance integration with Estuary Flow.
                         </Card>
                     </div>
                 </div>
