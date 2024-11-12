@@ -20,6 +20,13 @@ export const products = [
             'Explore the deployment options for Estuary Flow: Public, Private, and BYOC, with a comparison.',
         Image: () => <BookHeaderIcon />,
     },
+    {
+        name: 'SECURITY',
+        to: '/security',
+        description:
+            'Learn more about seamless data security with Estuary Flow.',
+        Image: () => <BookHeaderIcon />,
+    },
 ];
 
 const generateComparisonTo = (xVendorSlugKey, yVendorSlugKey) =>
