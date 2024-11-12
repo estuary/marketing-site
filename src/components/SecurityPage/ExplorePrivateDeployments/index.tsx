@@ -30,7 +30,10 @@ const ExplorePrivateDeployments = () => (
             ctaButtons={
                 <>
                     <LinkFilled href="/contact-us/">Contact Us</LinkFilled>
-                    <OutboundLinkOutlined href={docsPageUrl} target="__blank">
+                    <OutboundLinkOutlined
+                        href={`${docsPageUrl}/getting-started/deployment-options/`}
+                        target="__blank"
+                    >
                         Explore Documentation
                     </OutboundLinkOutlined>
                 </>
