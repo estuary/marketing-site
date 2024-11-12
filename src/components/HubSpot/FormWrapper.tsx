@@ -16,12 +16,16 @@ const handleLoad = () => {
     }
 };
 
-function HubSpotFormWrapper() {
+interface HubSpotFormWrapperProps {
+    formId: string;
+}
+
+function HubSpotFormWrapper({ formId }: HubSpotFormWrapperProps) {
     return (
         <HubspotForm
             loading={<LinearProgress />}
             portalId="8635875"
-            formId="698e6716-f38b-4bd5-9105-df9ba220e29b"
+            formId={formId}
             onSubmit={handleSubmit}
             onReady={handleLoad}
         />

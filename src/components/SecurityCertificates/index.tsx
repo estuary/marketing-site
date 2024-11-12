@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import Advantages from '../Advantages';
 import SecureIcon from '../../svgs/secure-data.svg';
+import OpenHubspotModal from '../HubSpot/OpenModal';
 
 interface SecurityCertificatesProps {
     isDarkTheme?: boolean;
@@ -55,6 +56,14 @@ const SecurityCertificates = ({
                 },
             ]}
             isDarkTheme={isDarkTheme}
+            ctaButtons={
+                <OpenHubspotModal
+                    buttonLabel="Download the security whitepaper"
+                    buttonId="security-certificates-section-hubspot"
+                    formId="657d4cf2-b1e1-410d-a0ea-b61ff24a5c7e"
+                    theme="dark"
+                />
+            }
         />
     );
 };
