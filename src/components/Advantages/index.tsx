@@ -1,9 +1,8 @@
 import React, { ReactNode } from 'react';
-import { OutboundLinkFilled } from '../OutboundLink';
 import Advantage from './Advantage';
 import {
     AdvantagesList,
-    ButtonWrapper,
+    CtaButtonsWrapper,
     Wrapper,
     IconWrapper,
     LeftColumn,
@@ -21,11 +20,7 @@ type AdvantagesProps = {
         id?: number;
         title: ReactNode;
     }[];
-    link?: {
-        title: string;
-        href: string;
-        openNewTab?: boolean;
-    };
+    ctaButtons?: ReactNode;
     isDarkTheme?: boolean;
     isImageOnTheLeft?: boolean;
 };
@@ -36,7 +31,7 @@ const Advantages = ({
     subtitle,
     image,
     advantages,
-    link,
+    ctaButtons,
     isDarkTheme = false,
     isImageOnTheLeft = false,
 }: AdvantagesProps) => {
@@ -59,15 +54,8 @@ const Advantages = ({
                         ))}
                     </AdvantagesList>
                 ) : null}
-                {link ? (
-                    <ButtonWrapper>
-                        <OutboundLinkFilled
-                            href={link.href}
-                            target={link.openNewTab ? '_blank' : undefined}
-                        >
-                            {link.title}
-                        </OutboundLinkFilled>
-                    </ButtonWrapper>
+                {ctaButtons ? (
+                    <CtaButtonsWrapper>{ctaButtons}</CtaButtonsWrapper>
                 ) : null}
             </LeftColumn>
             {image ? <RightColumn>{image}</RightColumn> : null}

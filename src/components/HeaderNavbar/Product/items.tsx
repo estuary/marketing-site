@@ -1,6 +1,6 @@
 import React from 'react';
 import { getComparisonSlug } from '../../../../shared';
-import BookIcon from '../../../svgs/header-book.svg';
+import BookIcon from '../../../svgs/book.svg';
 import BalanceIcon from '../../../svgs/header-balance.svg';
 
 const BookHeaderIcon = () => <BookIcon width={11} height={14} />;
@@ -18,6 +18,13 @@ export const products = [
         to: '/deployment-options',
         description:
             'Explore the deployment options for Estuary Flow: Public, Private, and BYOC, with a comparison.',
+        Image: () => <BookHeaderIcon />,
+    },
+    {
+        name: 'SECURITY',
+        to: '/security',
+        description:
+            'Learn more about seamless data security with Estuary Flow.',
         Image: () => <BookHeaderIcon />,
     },
 ];

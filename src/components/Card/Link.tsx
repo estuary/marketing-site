@@ -1,7 +1,7 @@
 import React from 'react';
-import { OutboundLink } from '../../OutboundLink';
-import InternalLink from '../../InternalLink';
-import ChevronRightIcon from '../../../svgs/chevron-right.svg';
+import { OutboundLink } from '../OutboundLink';
+import InternalLink from '../InternalLink';
+import ChevronRightIcon from '../../svgs/chevron-right.svg';
 
 interface LinkProps {
     children: string;

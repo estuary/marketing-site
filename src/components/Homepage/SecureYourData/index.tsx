@@ -1,5 +1,5 @@
 import React from 'react';
-import SecurityCertificates from '../../SecuriityCertificates';
+import SecurityCertificates from '../../SecurityCertificates';
 import DarkSwoopingLinesLeftDirectionBackground from '../../BackgroundImages/DarkSwoopingLinesLeftDirectionBackground';
 
 const SecureYourData = () => {

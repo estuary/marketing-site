@@ -1,44 +1,45 @@
 import React from 'react';
-import TabContext from '@mui/lab/TabContext';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
-import { DeploymentOption } from '../../../../shared';
-import { LinkFilled } from '../../../globalStyles';
-import Container from '../../Container';
-import { container, rightColumn } from './styles.module.less';
-import DeploymentDiagramContainer from './DeploymentDiagramContainer';
-import TabPanels from './TabPanels';
-import Tabs from './Tabs';
+import DeploymentOptions from '../../DeploymentOptions';
 
-const DeploymentModes = () => {
-    const [selectedTab, setSelectedTab] =
-        React.useState<DeploymentOption>('public');
-
-    const handleTabChange = (
-        event: React.SyntheticEvent,
-        newValue: DeploymentOption
-    ) => {
-        setSelectedTab(newValue);
-    };
-
-    return (
-        <section className={defaultWrapperGrey}>
-            <Container className={container} isReverseColumnOnMobile>
-                <DeploymentDiagramContainer deploymentOption={selectedTab} />
-                <div className={rightColumn}>
-                    <h2>
-                        <span>DEPLOYMENT MODES</span> FOR EVERY ENVIRONMENT
-                    </h2>
-                    <TabContext value={selectedTab}>
-                        <Tabs handleTabChange={handleTabChange} />
-                        <TabPanels />
-                    </TabContext>
-                    <LinkFilled href="/deployment-options/">
-                        See Details
-                    </LinkFilled>
-                </div>
-            </Container>
-        </section>
-    );
+const optionsDescription = {
+    public: "Estuary Flow's standard SaaS option, fully managed for quick, hassle-free setup.",
+    private:
+        'Offers enhanced security by hosting Estuary Flow within a private network, combining SaaS ease with more control.',
+    byoc: 'Deploy Estuary Flow on your cloud infrastructure for complete control.',
 };
+
+const keyFeatures = {
+    public: [
+        'Managed by Estuary',
+        'Easy setup and minimal configuration',
+        'Multiple data processing regions',
+    ],
+    private: [
+        'Private network data control',
+        'Maximum security',
+        'Compliance-ready',
+    ],
+    byoc: [
+        'Full infrastructure control and customization',
+        'Potential cost savings for cloud resources',
+        'Total flexibility',
+    ],
+};
+
+const DeploymentModes = () => (
+    <section className={defaultWrapperGrey}>
+        <DeploymentOptions
+            title={
+                <>
+                    <span>DEPLOYMENT MODES</span> FOR EVERY ENVIRONMENT
+                </>
+            }
+            buttonTitle="See Details"
+            optionsDescription={optionsDescription}
+            keyFeatures={keyFeatures}
+        />
+    </section>
+);
 
 export default DeploymentModes;

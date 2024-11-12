@@ -127,7 +127,3 @@ export const ButtonOutlinedPrimary = styled.button<LinkOutlinedProps>`
     ${(props) => baseButtonPrimaryStyling(props.theme)}
     width: ${(props) => (props.$fullWidth ? '100%' : 'auto')};
 `;
-
-export const ButtonOutlinedSecondary = styled.button`
-    ${BaseButtonSecondaryStyling}
-`;

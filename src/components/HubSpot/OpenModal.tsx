@@ -1,36 +1,38 @@
 import CloseIcon from '@mui/icons-material/Close';
 import { Dialog, DialogContent, DialogTitle, IconButton } from '@mui/material';
 import * as React from 'react';
-import { ButtonOutlinedSecondary } from '../../globalStyles';
+import { ButtonOutlinedPrimary } from '../../globalStyles';
 import HubSpotFormWrapper from './FormWrapper';
 
 interface OpenHubspotModalProps
     extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     buttonLabel: string;
-    buttonClass?: string;
     buttonId: string;
+    formId: string;
+    theme?: 'light' | 'dark';
 }
 
 function OpenHubspotModal({
     buttonLabel,
-    buttonClass,
     buttonId,
+    formId,
+    theme = 'light',
     ...rest
 }: OpenHubspotModalProps) {
     const [openDialog, setOpenDialog] = React.useState(false);
 
     return (
         <>
-            <ButtonOutlinedSecondary
+            <ButtonOutlinedPrimary
                 id={buttonId}
-                className={buttonClass}
                 onClick={() => {
                     setOpenDialog(true);
                 }}
+                theme={theme}
                 {...rest}
             >
                 {buttonLabel}
-            </ButtonOutlinedSecondary>
+            </ButtonOutlinedPrimary>
             <Dialog open={openDialog} fullWidth style={{ zIndex: 10000 }}>
                 <DialogTitle
                     style={{ display: 'flex', justifyContent: 'space-between' }}
@@ -41,7 +43,7 @@ function OpenHubspotModal({
                     </IconButton>
                 </DialogTitle>
                 <DialogContent>
-                    <HubSpotFormWrapper />
+                    <HubSpotFormWrapper formId={formId} />
                 </DialogContent>
             </Dialog>
         </>

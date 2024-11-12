@@ -3,6 +3,7 @@ import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.le
 import DatabaseSavingWithLowPrice from '../../../svgs/database-saving-with-low-price.svg';
 import Advantages from '../../Advantages';
 import { PricingCalculator } from '../../PricingCalculator';
+import { OutboundLinkFilled } from '../../OutboundLink';
 
 const Spend25xLess = () => {
     return (
@@ -20,10 +21,11 @@ const Spend25xLess = () => {
                     <PricingCalculator />
                 }
                 isDarkTheme
-                link={{
-                    title: 'See Pricing',
-                    href: '/pricing/',
-                }}
+                ctaButtons={
+                    <OutboundLinkFilled href="/pricing/" target="_blank">
+                        See Pricing
+                    </OutboundLinkFilled>
+                }
             />
         </section>
     );
