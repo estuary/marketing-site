@@ -5,6 +5,7 @@ import { DefaultWrapperDarkBlue } from '../../../styles/wrappers';
 import Advantages from '../../Advantages';
 import { sectionSevenAdvantages } from '../advantages';
 import { docsPageUrl } from '../../../../shared';
+import { OutboundLinkFilled } from '../../OutboundLink';
 
 const ModernDataops = () => {
     return (
@@ -34,11 +35,11 @@ const ModernDataops = () => {
                     />
                 }
                 advantages={sectionSevenAdvantages}
-                link={{
-                    title: 'See The Docs',
-                    href: docsPageUrl,
-                    openNewTab: true,
-                }}
+                ctaButtons={
+                    <OutboundLinkFilled href={docsPageUrl} target="_blank">
+                        See The Docs
+                    </OutboundLinkFilled>
+                }
             />
         </DefaultWrapperDarkBlue>
     );

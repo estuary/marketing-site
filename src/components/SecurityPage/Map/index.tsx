@@ -21,7 +21,7 @@ const Map = () => (
             </div>
             <StaticImage
                 src="../../../images/security-page/map.png"
-                alt="Private deployments for maximum data control and security."
+                alt="Map showing secure data connections across global regions for compliance and control."
                 quality={100}
                 placeholder="blurred"
             />

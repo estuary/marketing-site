@@ -7,6 +7,7 @@ import DeploymentModes from '../../components/SecurityPage/DeploymentModes';
 import AlwaysSecure from '../../components/SecurityPage/AlwaysSecure';
 import SecurityFeatures from '../../components/SecurityPage/SecurityFeatures';
 import Map from '../../components/SecurityPage/Map';
+import ExplorePrivateDeployments from '../../components/SecurityPage/ExplorePrivateDeployments';
 
 const SecurityPage = () => {
     return (
@@ -16,6 +17,7 @@ const SecurityPage = () => {
             <AlwaysSecure />
             <SecurityFeatures />
             <Map />
+            <ExplorePrivateDeployments />
         </Layout>
     );
 };

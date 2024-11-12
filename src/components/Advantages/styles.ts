@@ -53,6 +53,7 @@ export const Title = styled.h2<Theme>`
     line-height: 48px;
     margin: 0;
     color: ${(props) => (props.$isDarkTheme ? '#FFFFFF' : '#47506d')};
+    max-width: 600px;
 
     @media (max-width: 768px) {
         font-size: 1.75rem;
@@ -90,10 +91,28 @@ export const RightColumn = styled.div`
     width: 100%;
 `;
 
-export const ButtonWrapper = styled.div`
-    margin-right: auto;
+export const CtaButtonsWrapper = styled.div`
+    display: flex;
+    gap: 24px;
+    align-items: center;
 
-    @media (max-width: 425px) {
-        margin-right: 0;
+    @media (max-width: 580px) {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    a {
+        width: 100%;
+        max-width: 232px;
+        padding: 16px 24px;
+        white-space: nowrap;
+
+        @media (max-width: 768px) {
+            max-width: 100%;
+        }
+
+        @media (max-width: 320px) {
+            white-space: normal;
+        }
     }
 `;
