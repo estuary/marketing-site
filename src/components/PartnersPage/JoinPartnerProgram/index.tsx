@@ -37,7 +37,7 @@ const techPartners: Partner[] = [
             />
         ),
         name: 'MotherDuck',
-        href: 'https://motherduck.com/ecosystem/estuary/',
+        href: 'https://motherduck.com/?utm_source=estuary&utm_medium=referral/',
     },
     {
         icon: (
