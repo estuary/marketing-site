@@ -1,15 +1,16 @@
 import React, { ReactNode } from 'react';
+import clsx from 'clsx';
+import Container from '../Container';
 import Advantage from './Advantage';
+
 import {
-    AdvantagesList,
-    CtaButtonsWrapper,
-    Wrapper,
-    IconWrapper,
-    LeftColumn,
-    RightColumn,
-    Subtitle,
-    Title,
-} from './styles';
+    imageOnTheLeft,
+    leftColumn,
+    iconWrapper,
+    darkTheme,
+    rightColumn,
+    ctaButtonsWrapper,
+} from './styles.module.less';
 
 type AdvantagesProps = {
     icon: ReactNode;
@@ -36,15 +37,13 @@ const Advantages = ({
     isImageOnTheLeft = false,
 }: AdvantagesProps) => {
     return (
-        <Wrapper $isImageOnTheLeft={isImageOnTheLeft}>
-            <LeftColumn>
-                <IconWrapper $isDarkTheme={isDarkTheme}>{icon}</IconWrapper>
-                <Title $isDarkTheme={isDarkTheme}>{title}</Title>
-                {subtitle ? (
-                    <Subtitle $isDarkTheme={isDarkTheme}>{subtitle}</Subtitle>
-                ) : null}
+        <Container className={isImageOnTheLeft ? imageOnTheLeft : null}>
+            <div className={clsx(leftColumn, isDarkTheme ? darkTheme : null)}>
+                <div className={iconWrapper}>{icon}</div>
+                <h2>{title}</h2>
+                {subtitle ? <p>{subtitle}</p> : null}
                 {advantages ? (
-                    <AdvantagesList>
+                    <ul>
                         {advantages.map((advantage, index) => (
                             <Advantage
                                 key={`estuary-flow-advantage-${advantage.id ?? index}`}
@@ -52,14 +51,14 @@ const Advantages = ({
                                 isDarkTheme={isDarkTheme}
                             />
                         ))}
-                    </AdvantagesList>
+                    </ul>
                 ) : null}
                 {ctaButtons ? (
-                    <CtaButtonsWrapper>{ctaButtons}</CtaButtonsWrapper>
+                    <div className={ctaButtonsWrapper}>{ctaButtons}</div>
                 ) : null}
-            </LeftColumn>
-            {image ? <RightColumn>{image}</RightColumn> : null}
-        </Wrapper>
+            </div>
+            {image ? <div className={rightColumn}>{image}</div> : null}
+        </Container>
     );
 };
 

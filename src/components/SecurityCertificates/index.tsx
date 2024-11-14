@@ -61,7 +61,7 @@ const SecurityCertificates = ({
                     buttonLabel="Download the security whitepaper"
                     buttonId="security-certificates-section-hubspot"
                     formId="657d4cf2-b1e1-410d-a0ea-b61ff24a5c7e"
-                    theme="dark"
+                    theme={isDarkTheme ? 'dark' : 'light'}
                 />
             }
         />
