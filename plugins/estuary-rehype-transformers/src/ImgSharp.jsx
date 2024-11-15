@@ -1,6 +1,6 @@
 import { GatsbyImage } from 'gatsby-plugin-image';
 
-const ImgSharpInline = ({ className, imgdata, alt, loading }) => {
+const ImgSharpInline = ({ className, imgdata, alt }) => {
     const parsed = JSON.parse(imgdata);
     return (
         <GatsbyImage
