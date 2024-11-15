@@ -1,20 +1,15 @@
-import { IconButton } from '@mui/material';
+import { IconButton, Dialog } from '@mui/material';
 import { StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
+import CloseIcon from '@mui/icons-material/Close';
 import { webinarsUrl } from '../../../shared';
 import EstuaryLogo from '../../svgs/colored-logo.svg';
+
 import {
-    CloseButtonWrapper,
-    Container,
-    LeftColumn,
-    NoThanksButton,
-    RightColumn,
-    Subtitle,
-    TitleWrapper,
-    WatchNowLink,
-    WebinarTitle,
-    XIcon,
-} from './styles';
+    leftColumn,
+    rightColumn,
+    closeButtonWrapper,
+} from './styles.module.less';
 
 const DEFAULT = {
     id: '1',
@@ -29,8 +24,7 @@ const DEFAULT = {
         <StaticImage
             src="../../images/blog-post-popup-image.png"
             alt="Change data capture webinar"
-            placeholder="none"
-            loading="eager"
+            placeholder="blurred"
         />
     ),
     version: '',
@@ -57,7 +51,30 @@ const SETTINGS = {
 
 const STORAGE_KEY = `@estuary/closeBlogPostPopup${SETTINGS.version}`;
 
-function BlogPostPopupModal() {
+const dialogStyle = {
+    '& .MuiPaper-root': {
+        'boxShadow': 'none',
+        'borderRadius': '16px',
+        'maxWidth': '1280px',
+        'width': '70%',
+        'display': 'grid',
+        'gridTemplateColumns': '0.6fr 0.4fr',
+        'padding': 0,
+        'color': '#ffffff',
+        'marginTop': '124px',
+        'maxHeight': 'calc(100% - 160px)',
+        'minHeight': '100px',
+        '@media (max-width: 1024px)': {
+            width: '90%',
+        },
+        '@media (max-width: 780px)': {
+            gridTemplateColumns: '1fr',
+            gridTemplateRows: '1fr auto',
+        },
+    },
+};
+
+const BlogPostPopupModal = () => {
     const [openDialog, setOpenDialog] = React.useState(false);
 
     const hasOpened = React.useRef(false);
@@ -85,31 +102,29 @@ function BlogPostPopupModal() {
     }
 
     return (
-        <Container open={openDialog} fullWidth>
-            <CloseButtonWrapper>
+        <Dialog open={openDialog} fullWidth sx={dialogStyle}>
+            <div className={closeButtonWrapper}>
                 <IconButton onClick={handlePopupClose}>
-                    <XIcon fontSize="large" />
+                    <CloseIcon fontSize="large" />
                 </IconButton>
-            </CloseButtonWrapper>
-            <LeftColumn>
-                <TitleWrapper>
+            </div>
+            <div className={leftColumn}>
+                <span>
                     <span>Webinar:</span>
-                    <WebinarTitle>{SETTINGS.title}</WebinarTitle>
-                </TitleWrapper>
+                    <span>{SETTINGS.title}</span>
+                </span>
                 {SETTINGS.image}
-            </LeftColumn>
-            <RightColumn>
+            </div>
+            <div className={rightColumn}>
                 <EstuaryLogo width={38} />
-                <Subtitle>{SETTINGS.subtitle}</Subtitle>
-                <WatchNowLink href={SETTINGS.link.href} target="_blank">
+                <span>{SETTINGS.subtitle}</span>
+                <a href={SETTINGS.link.href} target="_blank" rel="noreferrer">
                     {SETTINGS.link.label}
-                </WatchNowLink>
-                <NoThanksButton onClick={handlePopupClose}>
-                    No, thanks
-                </NoThanksButton>
-            </RightColumn>
-        </Container>
+                </a>
+                <button onClick={handlePopupClose}>No, thanks</button>
+            </div>
+        </Dialog>
     );
-}
+};
 
 export default BlogPostPopupModal;
