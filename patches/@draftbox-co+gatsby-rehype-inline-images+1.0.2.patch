@@ -1,5 +1,5 @@
 diff --git a/node_modules/@draftbox-co/gatsby-rehype-inline-images/gatsby-node.js b/node_modules/@draftbox-co/gatsby-rehype-inline-images/gatsby-node.js
-index 320309d..6d8129c 100644
+index 320309d..2a9fc55 100644
 --- a/node_modules/@draftbox-co/gatsby-rehype-inline-images/gatsby-node.js
 +++ b/node_modules/@draftbox-co/gatsby-rehype-inline-images/gatsby-node.js
 @@ -9,7 +9,7 @@ const {
@@ -48,7 +48,7 @@ index 320309d..6d8129c 100644
    formattedImgTag.classList = node.properties.className || []; // formattedImgTag.title = thisImg.attr(`title`)
    // formattedImgTag.alt = thisImg.attr(`alt`)
  
-@@ -153,50 +150,25 @@ const generateImagesAndUpdateNode = async function ({
+@@ -153,50 +150,24 @@ const generateImagesAndUpdateNode = async function ({
  
    try {
      await sharp(imageNode.absolutePath).metadata();
@@ -99,7 +99,6 @@ index 320309d..6d8129c 100644
 -      imgStyle: {
 -        opacity: 1
 -      }
-+      loading: "lazy",
      };
 -    if (formattedImgTag.width) imgOptions.style.width = formattedImgTag.width;
 -    const ReactImgEl = React.createElement(Img.default, imgOptions, null);
