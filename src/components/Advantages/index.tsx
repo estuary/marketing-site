@@ -48,7 +48,6 @@ const Advantages = ({
                             <Advantage
                                 key={`estuary-flow-advantage-${advantage.id ?? index}`}
                                 title={advantage.title}
-                                isDarkTheme={isDarkTheme}
                             />
                         ))}
                     </ul>

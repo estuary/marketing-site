@@ -1,20 +1,18 @@
 import CheckIcon from '@mui/icons-material/Check';
 import React, { ReactNode } from 'react';
-import { Container, IconWrapper, Title } from './styles';
 
-type AdvantageProps = {
+interface AdvantageProps {
     title: ReactNode;
-    isDarkTheme?: boolean;
-};
+}
 
-const Advantage = ({ title, isDarkTheme = false }: AdvantageProps) => {
+const Advantage = ({ title }: AdvantageProps) => {
     return (
-        <Container>
-            <IconWrapper>
+        <li>
+            <div>
                 <CheckIcon fontSize="large" htmlColor="#5072EB" />
-            </IconWrapper>
-            <Title $isDarkTheme={isDarkTheme}>{title}</Title>
-        </Container>
+            </div>
+            <p>{title}</p>
+        </li>
     );
 };
 
