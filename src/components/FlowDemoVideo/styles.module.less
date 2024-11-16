@@ -1,7 +1,4 @@
-import styled from 'styled-components';
-import { ButtonFilled } from '../../globalStyles';
-
-export const Container = styled.div`
+.container {
     background-color: #5072eb40;
     border: 1px solid #5072eb99;
     border-radius: 20px;
@@ -34,9 +31,9 @@ export const Container = styled.div`
         height: 100%;
         width: 100%;
     }
-`;
+}
 
-export const VideoTextAndButton = styled.div`
+.videoTextAndButtonsWrapper {
     position: absolute;
     font-size: 1.5rem;
     line-height: 30px;
@@ -54,14 +51,14 @@ export const VideoTextAndButton = styled.div`
         gap: 16px;
         line-height: 18px;
     }
-`;
 
-export const Button = styled(ButtonFilled)`
-    padding: 16px 24px;
-    gap: 16px;
+    button {
+        padding: 16px 24px;
+        gap: 16px;
 
-    @media (max-width: 425px) {
-        font-size: 0.875rem;
-        padding: 8px 16px;
+        @media (max-width: 425px) {
+            font-size: 0.875rem;
+            padding: 8px 16px;
+        }
     }
-`;
+}
