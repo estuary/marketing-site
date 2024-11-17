@@ -1,3 +1,114 @@
+@textColor: #fff;
+
+.cardItem {
+  display: flex;
+  gap: 16px;
+  padding: 8px;
+  border: 1px solid transparent;
+  border-radius: 16px;
+  transition: border 200ms ease-in-out;
+  width: 100%;
+
+  .headerChevronIcon {
+    display: none;
+  }
+
+  @media (max-width: 1024px) {
+    padding: 0;
+  }
+
+  @media (min-width: 1024px) {
+    &:hover {
+      border-color: #625eff;
+
+      .headerChevronIcon {
+        display: block;
+        color: #625eff;
+      }
+    }
+
+    &:active {
+      border-color: #625eff80;
+
+      .headerChevronIcon {
+        color: #625eff80;
+      }
+    }
+  }
+}
+
+.iconWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 28px;
+  min-width: 28px;
+  height: 28px;
+  border: 1px solid #5072eb80;
+  border-radius: 100%;
+}
+
+.contentWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+  div {
+    display: flex;
+    flex-direction: column;
+
+    span {
+      color: @textColor;
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 28px;
+
+      @media (max-width: 1024px) {
+        font-size: 0.875rem;
+      }
+    }
+
+    p {
+      font-size: 0.875rem;
+      font-weight: 400;
+      line-height: 30px;
+      color: @textColor;
+      margin: 0;
+
+      @media (max-width: 1024px) {
+        font-size: 0.75rem;
+      }
+    }
+  }
+}
+
+.cardTitle {
+  color: #a4b6f4b2;
+  font-size: 1rem;
+  line-height: 19.2px;
+  margin: 0 0 16px 0;
+  font-weight: 600;
+
+  @media (max-width: 1024px) {
+    font-size: 0.875rem;
+    margin-top: 8px;
+  }
+}
+
+.content {
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
+  padding: 12px 0 0 0;
+
+  @media (max-width: 768px) {
+    padding: 0;
+  }
+}
+
 .contentFooter {
   a {
     display: flex;

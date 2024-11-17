@@ -1,4 +1,9 @@
-import { useMediaQuery } from '@mui/material';
+import {
+    useMediaQuery,
+    Accordion,
+    AccordionDetails,
+    AccordionSummary,
+} from '@mui/material';
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
@@ -9,16 +14,16 @@ import { OutboundLinkOutlined } from '../../OutboundLink';
 import Card from '../Card';
 import CardItem from '../CardItem';
 import {
-    ColumnWithTwoRows,
-    ImageWrapper,
-    MenuAccordion,
-    MenuAccordionButton,
-    MenuAccordionContent,
-    Slide,
-} from '../styles';
-import { hideOnMobile, longLinkList } from '../styles.module.less';
+    hideOnMobile,
+    longLinkList,
+    accordionDetails,
+    imageWrapper,
+    slide,
+    columnWithTwoRows,
+} from '../styles.module.less';
 import Carousel from '../../Carousel';
 import SuccessIcon from '../../../svgs/success.svg';
+import { accordionStyles, accordionSummaryStyles } from '../shared';
 import { listen, read, partners } from './items';
 import ResourcesLink from './Link';
 
@@ -67,14 +72,19 @@ const HeaderNavbarResources = ({ active, setActive }) => {
     }));
 
     return (
-        <MenuAccordion elevation={0} expanded={active}>
-            <MenuAccordionButton onClick={onClick} onMouseEnter={onMouseEnter}>
+        <Accordion elevation={0} expanded={active} sx={accordionStyles}>
+            <AccordionSummary
+                onClick={onClick}
+                onMouseEnter={onMouseEnter}
+                sx={accordionSummaryStyles}
+            >
                 <ResourcesLink active={active} />
-            </MenuAccordionButton>
-            <MenuAccordionContent>
+            </AccordionSummary>
+            <AccordionDetails className={accordionDetails}>
                 <Card>
-                    <ColumnWithTwoRows>
+                    <div className={columnWithTwoRows}>
                         <CardItem
+                            className={hideOnMobile}
                             title="ECOSYSTEM"
                             items={partners}
                             onlyContent
@@ -86,24 +96,24 @@ const HeaderNavbarResources = ({ active, setActive }) => {
                             onlyContent
                             active={active}
                         />
-                    </ColumnWithTwoRows>
-                    <ColumnWithTwoRows>
+                    </div>
+                    <div className={columnWithTwoRows}>
                         <CardItem title="READ" items={read} onlyContent />
                         <CardItem title="LISTEN" items={listen} onlyContent />
-                    </ColumnWithTwoRows>
+                    </div>
                     <CardItem
                         className={hideOnMobile}
                         title="TOURS"
                         onlyContent
                     >
                         <Carousel aria-label="Tours carousel" hasFullWidthSlide>
-                            <Slide key="header-carousel-tour-1">
-                                <ImageWrapper>
+                            <div key="header-carousel-tour-1" className={slide}>
+                                <div className={imageWrapper}>
                                     <StaticImage
                                         src="../../../images/product-tour-2min.png"
                                         alt="Estuary Flow Product tour - 2 minutes"
                                     />
-                                </ImageWrapper>
+                                </div>
                                 <LinkOutlined
                                     target="_blank"
                                     href="/why/"
@@ -112,14 +122,14 @@ const HeaderNavbarResources = ({ active, setActive }) => {
                                 >
                                     Watch Product Tour (2 min)
                                 </LinkOutlined>
-                            </Slide>
-                            <Slide key="header-carousel-tour-2">
-                                <ImageWrapper>
+                            </div>
+                            <div key="header-carousel-tour-2" className={slide}>
+                                <div className={imageWrapper}>
                                     <StaticImage
                                         src="../../../images/real-time-101-30min.png"
                                         alt="Deploy CDC and Streaming ETL in Minutes Using Estuary Flow"
                                     />
-                                </ImageWrapper>
+                                </div>
                                 <OutboundLinkOutlined
                                     target="_blank"
                                     href={webinarsUrl}
@@ -128,12 +138,12 @@ const HeaderNavbarResources = ({ active, setActive }) => {
                                 >
                                     Real-time 101 (30 min)
                                 </OutboundLinkOutlined>
-                            </Slide>
+                            </div>
                         </Carousel>
                     </CardItem>
                 </Card>
-            </MenuAccordionContent>
-        </MenuAccordion>
+            </AccordionDetails>
+        </Accordion>
     );
 };
 

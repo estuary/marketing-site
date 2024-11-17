@@ -1,4 +1,9 @@
-import { useMediaQuery } from '@mui/material';
+import {
+    useMediaQuery,
+    Accordion,
+    AccordionDetails,
+    AccordionSummary,
+} from '@mui/material';
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { Link } from 'gatsby';
@@ -7,15 +12,14 @@ import { OutboundLinkOutlined } from '../../OutboundLink';
 import Card from '../Card';
 import CardItem from '../CardItem';
 import {
-    ImageWrapper,
-    MenuAccordion,
-    MenuAccordionButton,
-    MenuAccordionContent,
-    Slide,
-} from '../styles';
-import { hideOnMobile } from '../styles.module.less';
+    hideOnMobile,
+    accordionDetails,
+    imageWrapper,
+    slide,
+} from '../styles.module.less';
 import Carousel from '../../Carousel';
 import ChevronRightIcon from '../../../svgs/chevron-right.svg';
+import { accordionStyles, accordionSummaryStyles } from '../shared';
 import { compare, products } from './items';
 import ProductLink from './Link';
 
@@ -37,11 +41,15 @@ const HeaderNavbarProduct = ({ active, setActive }) => {
     };
 
     return (
-        <MenuAccordion elevation={0} expanded={active}>
-            <MenuAccordionButton onClick={onClick} onMouseEnter={onMouseEnter}>
+        <Accordion elevation={0} expanded={active} sx={accordionStyles}>
+            <AccordionSummary
+                onClick={onClick}
+                onMouseEnter={onMouseEnter}
+                sx={accordionSummaryStyles}
+            >
                 <ProductLink active={active} />
-            </MenuAccordionButton>
-            <MenuAccordionContent>
+            </AccordionSummary>
+            <AccordionDetails className={accordionDetails}>
                 <Card>
                     <CardItem title="PRODUCT" items={products} onlyContent />
                     <CardItem
@@ -59,13 +67,13 @@ const HeaderNavbarProduct = ({ active, setActive }) => {
                             aria-label="Webinars carousel"
                             hasFullWidthSlide
                         >
-                            <Slide key="header-carousel-tour-2">
-                                <ImageWrapper>
+                            <div key="header-carousel-tour-2" className={slide}>
+                                <div className={imageWrapper}>
                                     <StaticImage
                                         src="../../../images/webinar101.png"
                                         alt="Estuary 101 Webinar"
                                     />
-                                </ImageWrapper>
+                                </div>
                                 <OutboundLinkOutlined
                                     target="_blank"
                                     href={webinarsUrl}
@@ -74,12 +82,12 @@ const HeaderNavbarProduct = ({ active, setActive }) => {
                                 >
                                     Watch Estuary 101
                                 </OutboundLinkOutlined>
-                            </Slide>
+                            </div>
                         </Carousel>
                     </CardItem>
                 </Card>
-            </MenuAccordionContent>
-        </MenuAccordion>
+            </AccordionDetails>
+        </Accordion>
     );
 };
 
