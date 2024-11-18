@@ -1,13 +1,15 @@
 import React from 'react';
+import clsx from 'clsx';
 import ChevronRightIcon from '../../../../svgs/chevron-right.svg';
+import { OutboundLink } from '../../../OutboundLink';
 import {
-    ChevronIconWrapper,
-    Container,
-    Description,
-    IconWrapper,
-    TextWrapper,
-    Title,
-} from './styles';
+    container,
+    textWrapper,
+    activeCard,
+    iconWrapper,
+    activeIconWrapper,
+    chevronIconWrapper,
+} from './styles.module.less';
 
 type CardProps = {
     title: string;
@@ -24,16 +26,22 @@ const Card = ({
     href,
     isActive = false,
 }: CardProps) => (
-    <Container $isActive={isActive} href={href} target="_blank">
-        <IconWrapper $isActive={isActive}>{icon}</IconWrapper>
-        <TextWrapper>
-            <Title>{title}</Title>
-            <Description>{description}</Description>
-        </TextWrapper>
-        <ChevronIconWrapper>
+    <OutboundLink
+        href={href}
+        target="_blank"
+        className={clsx(container, isActive ? activeCard : null)}
+    >
+        <div className={clsx(iconWrapper, isActive ? activeIconWrapper : null)}>
+            {icon}
+        </div>
+        <div className={textWrapper}>
+            <h3>{title}</h3>
+            <p>{description}</p>
+        </div>
+        <div className={chevronIconWrapper}>
             <ChevronRightIcon width={32} color="#FFFFFF" />
-        </ChevronIconWrapper>
-    </Container>
+        </div>
+    </OutboundLink>
 );
 
 export default Card;

@@ -1,0 +1,17 @@
+@import '../../../globalStyles/wrappers.module.less';
+
+.wrapper {
+    .defaultWrapperDarkBlue;
+    padding-top: 50px;
+}
+
+.cardsList {
+    .globalMaxWidth;
+    display: flex;
+    margin-top: 40px;
+    gap: 20px;
+
+    @media (max-width: 670px) {
+        flex-direction: column;
+    }
+}

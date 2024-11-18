@@ -15,9 +15,10 @@ import { DiagramConnectorsProps } from '../types';
 
 const DiagramDestinationConnectors = ({
     hasTooltips = false,
+    connectorsGroupsClassName,
 }: DiagramConnectorsProps) => {
     return (
-        <ConnectorsGroupsRightWrapper className="connectors-groups">
+        <ConnectorsGroupsRightWrapper className={connectorsGroupsClassName}>
             <ConnectorsGroup className="spacing-right">
                 <ConnectorsType
                     title="Analytics"

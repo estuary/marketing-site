@@ -1,7 +1,6 @@
-import styled from 'styled-components';
-import { globalMaxWidth, sectionTopBottomPadding } from '../../../globalStyles';
+@import '../../../globalStyles/sections.module.less';
 
-export const AnimationBaseStyling = `
+.animationBaseStyling {
   width: 100%;
 
   & > :first-child {
@@ -21,10 +20,10 @@ export const AnimationBaseStyling = `
       height: 381px;
     }
   }
-`;
+}
 
-export const Container = styled.section`
-    ${sectionTopBottomPadding}
+.container {
+    .sectionTopBottomPadding;
 
     padding-top: 100px;
     display: flex;
@@ -40,10 +39,10 @@ export const Container = styled.section`
         min-height: 500px;
         padding-top: 16px;
     }
-`;
+}
 
-export const MainContent = styled.div`
-    ${globalMaxWidth}
+.mainContent {
+    .globalMaxWidth;
 
     display: flex;
     width: 100%;
@@ -56,16 +55,16 @@ export const MainContent = styled.div`
     }
 
     @media (max-width: 1024px) {
-        ${globalMaxWidth}
+        .globalMaxWidth;
         flex-direction: column-reverse;
     }
 
     h1 {
         max-width: 760px;
     }
-`;
+}
 
-export const FlowAnimationContainer = styled.div`
+.flowAnimationContainer {
     display: flex;
     flex: 1 1 auto;
     justify-content: flex-end;
@@ -79,15 +78,15 @@ export const FlowAnimationContainer = styled.div`
     @media (max-width: 810px) {
         display: none;
     }
-`;
+}
 
-export const FlowAnimationPlaceholderContainer = styled.div`
-    ${AnimationBaseStyling}
-`;
+.flowAnimationPlaceholderContainer {
+    .animationBaseStyling;
+}
 
-export const MetricCardsList = styled.ul`
-    ${globalMaxWidth}
-    ${sectionTopBottomPadding}
+.metricCardsList {
+    .globalMaxWidth;
+    .sectionTopBottomPadding;
 
     margin-top: 0;
     margin-bottom: 0;
@@ -98,4 +97,4 @@ export const MetricCardsList = styled.ul`
     @media (max-width: 1116px) {
         flex-direction: column;
     }
-`;
+}

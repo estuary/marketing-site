@@ -10,18 +10,18 @@ import HeroSectionActions from '../../HeroSectionActions';
 import AnimFallback from './AnimFallback';
 import AnimatedHero from './AnimatedHero';
 import {
-    Container,
-    FlowAnimationContainer,
-    MainContent,
-    MetricCardsList,
-} from './styles';
+    container,
+    flowAnimationContainer,
+    mainContent,
+    metricCardsList,
+} from './styles.module.less';
 
 const metricIconColor = '#FFFFFF';
 
 const Hero = () => {
     return (
-        <Container>
-            <MainContent>
+        <section className={container}>
+            <div className={mainContent}>
                 <HeroSectionDetails
                     title={
                         <>
@@ -37,13 +37,13 @@ const Hero = () => {
                     ctaButtons={<HeroSectionActions />}
                     hasSubscriptionBenefits
                 />
-                <FlowAnimationContainer>
+                <div className={flowAnimationContainer}>
                     <React.Suspense fallback={AnimFallback}>
                         <AnimatedHero />
                     </React.Suspense>
-                </FlowAnimationContainer>
-            </MainContent>
-            <MetricCardsList>
+                </div>
+            </div>
+            <ul className={metricCardsList}>
                 <MetricCard
                     icon={<ActiveUsersIcon color={metricIconColor} />}
                     value={activeUsersAmount}
@@ -59,9 +59,9 @@ const Hero = () => {
                     value="7+gb/sec"
                     label="Single dataflow"
                 />
-            </MetricCardsList>
+            </ul>
             <VanityLogosMarquee />
-        </Container>
+        </section>
     );
 };
 

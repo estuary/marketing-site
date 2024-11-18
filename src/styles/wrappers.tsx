@@ -10,11 +10,6 @@ export const DefaultWrapperDark = styled.section`
     background-color: #F9FAFC;
 `;
 
-export const DefaultWrapperGrey = styled.section`
-    ${sectionTopBottomPadding}
-    background-color: #FDFDFE;
-`;
-
 export const DefaultWrapperDarkBlue = styled.section`
     ${sectionTopBottomPadding}
     background-color: #04192B;

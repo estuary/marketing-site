@@ -4,27 +4,25 @@ import * as React from 'react';
 import DiagramSourceConnectors from '../../DiagramConnectors/DiagramSourceConnectors';
 import DiagramDestinationConnectors from '../../DiagramConnectors/DiagramDestinationConnectors';
 import FlowCycle from '../../../svgs/flow-cycle.svg';
+import CaptureIcon from '../../../svgs/capture.svg';
+import RealTimeDelivery from '../../../svgs/real-time-delivery.svg';
+import StoreAndTransformIcon from '../../../svgs/store-and-transform.svg';
 import {
-    Container,
-    DesktopDiagramWrapper,
-    Header,
-    Step,
-    StepDescription,
-    StepIcon,
-    StepOneIcon,
-    StepThreeIcon,
-    StepTitle,
-    StepTwoIcon,
-    Steps,
-    Subtitle,
-    Title,
-} from './styles';
+    container,
+    desktopDiagramWrapper,
+    header,
+    step,
+    StepIconWrapper,
+    steps,
+    mobileImage,
+    connectorsGroups,
+} from './styles.module.less';
 
 const MoveAndTransform = () => {
     return (
-        <Container>
-            <Header>
-                <Title>
+        <section className={container}>
+            <div className={header}>
+                <h2>
                     <span>Move </span>
                     <span>and </span>
                     <span>transform </span>
@@ -36,76 +34,76 @@ const MoveAndTransform = () => {
                     <span>analytics</span>
                     <span>, and </span>
                     <span>AI</span>
-                </Title>
-                <Subtitle>
+                </h2>
+                <p>
                     Capture, transform, and materialize with millisecond latency
                     using ETL and ELT data integration, for an exact view of
                     your data that powers analytics and operations.
-                </Subtitle>
-            </Header>
-            <Steps>
-                <Step>
-                    <StepIcon>
-                        <StepOneIcon />
-                    </StepIcon>
+                </p>
+            </div>
+            <div className={steps}>
+                <div className={step}>
+                    <div className={StepIconWrapper}>
+                        <CaptureIcon />
+                    </div>
                     <div>
-                        <StepTitle>
+                        <h3>
                             <span>01</span>Capture
-                        </StepTitle>
-                        <StepDescription>
+                        </h3>
+                        <p>
                             Use 100s of no-code connectors for streaming CDC,
                             real-time, or batch.
-                        </StepDescription>
+                        </p>
                     </div>
-                </Step>
+                </div>
 
-                <Step>
-                    <StepIcon>
-                        <StepTwoIcon />
-                    </StepIcon>
+                <div className={step}>
+                    <div className={StepIconWrapper}>
+                        <StoreAndTransformIcon />
+                    </div>
                     <div>
-                        <StepTitle>
+                        <h3>
                             <span>02</span>Stream-store-replay
-                        </StepTitle>
-                        <StepDescription>
+                        </h3>
+                        <p>
                             Stream and store in your own storage, then replay
                             any time.
-                        </StepDescription>
+                        </p>
                     </div>
-                </Step>
+                </div>
 
-                <Step>
-                    <StepIcon>
-                        <StepThreeIcon />
-                    </StepIcon>
+                <div className={step}>
+                    <div className={StepIconWrapper}>
+                        <RealTimeDelivery />
+                    </div>
                     <div>
-                        <StepTitle>
+                        <h3>
                             <span>03</span>Materialize
-                        </StepTitle>
-                        <StepDescription>
+                        </h3>
+                        <p>
                             Load data at different speeds into many destinations
                             for analytics, ops, and AI.
-                        </StepDescription>
+                        </p>
                     </div>
-                </Step>
-            </Steps>
-            <DesktopDiagramWrapper className="desktop-image">
-                <DiagramSourceConnectors />
-                <FlowCycle
-                    width="100%"
-                    height="100%"
-                    className="flow-cycle-middle-image"
+                </div>
+            </div>
+            <div className={desktopDiagramWrapper}>
+                <DiagramSourceConnectors
+                    connectorsGroupsClassName={connectorsGroups}
                 />
-                <DiagramDestinationConnectors />
-            </DesktopDiagramWrapper>
+                <FlowCycle />
+                <DiagramDestinationConnectors
+                    connectorsGroupsClassName={connectorsGroups}
+                />
+            </div>
             <StaticImage
                 placeholder="none"
                 alt="Estuary Flow streamlines complex data workflows by integrating diverse data sources and destinations"
                 src="../../../images/flow-mobile.png"
                 quality={100}
-                className="mobile-image"
+                className={mobileImage}
             />
-        </Container>
+        </section>
     );
 };
 

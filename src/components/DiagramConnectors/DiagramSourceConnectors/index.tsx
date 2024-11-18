@@ -16,9 +16,10 @@ import { DiagramConnectorsProps } from '../types';
 
 const DiagramSourceConnectors = ({
     hasTooltips = false,
+    connectorsGroupsClassName,
 }: DiagramConnectorsProps) => {
     return (
-        <ConnectorsGroupsLeftWrapper className="connectors-groups">
+        <ConnectorsGroupsLeftWrapper className={connectorsGroupsClassName}>
             <ConnectorsGroup className="spacing-left">
                 <Connector to="/source/oracle-flashback">
                     <LogoWrapper>
