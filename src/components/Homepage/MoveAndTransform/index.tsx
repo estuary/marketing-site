@@ -16,6 +16,7 @@ import {
     steps,
     mobileImage,
     connectorsGroups,
+    flowCycleMiddleImage,
 } from './styles.module.less';
 
 const MoveAndTransform = () => {
@@ -91,7 +92,11 @@ const MoveAndTransform = () => {
                 <DiagramSourceConnectors
                     connectorsGroupsClassName={connectorsGroups}
                 />
-                <FlowCycle />
+                <FlowCycle
+                    width="100%"
+                    height="100%"
+                    className={flowCycleMiddleImage}
+                />
                 <DiagramDestinationConnectors
                     connectorsGroupsClassName={connectorsGroups}
                 />
