@@ -1,10 +1,6 @@
 import * as React from 'react';
-import {
-    Button,
-    CardContainer,
-    CaseStudyDescription,
-    CaseStudyLogoWrapper,
-} from './styles';
+import { LinkOutlined } from '../../../../globalStyles';
+import { caseStudyLogoWrapper, container } from './styles.module.less';
 
 type CardProps = {
     href: string;
@@ -15,17 +11,17 @@ type CardProps = {
 
 const Card = ({ href, title, description, image }: CardProps) => {
     return (
-        <CardContainer>
-            <CaseStudyLogoWrapper>{image}</CaseStudyLogoWrapper>
-            <CaseStudyDescription>{description}.</CaseStudyDescription>
-            <Button
+        <div className={container}>
+            <div className={caseStudyLogoWrapper}>{image}</div>
+            <p>{description}.</p>
+            <LinkOutlined
                 href={href}
                 rel="noopener"
                 aria-label={`Read case study for ${title}`}
             >
                 Read
-            </Button>
-        </CardContainer>
+            </LinkOutlined>
+        </div>
     );
 };
 
