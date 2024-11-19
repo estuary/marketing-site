@@ -1,30 +1,40 @@
 import * as React from 'react';
 import { dashboardRegisterUrl, webinarsUrl } from '../../../../shared';
-import { OutboundLinkOutlined } from '../../OutboundLink';
 import Container from '../../Container';
-import { ButtonFilled, Buttons, HubspotButton, Title, Wrapper } from './styles';
+import { OutboundLinkFilled, OutboundLinkOutlined } from '../../OutboundLink';
+import { LinkOutlined } from '../../../globalStyles';
+import {
+    buttonsWrapper,
+    hubspotButton,
+    baseButtonStyling,
+    wrapper,
+} from './styles.module.less';
 
 const SeeHow = () => {
     return (
-        <Wrapper>
+        <section className={wrapper}>
             <Container isVertical>
-                <Title>
+                <h2>
                     <span>SEE HOW </span>
                     <span>ESTUARY CAN WORK FOR YOU AND YOUR DATA</span>
-                </Title>
-                <Buttons>
-                    <ButtonFilled href={dashboardRegisterUrl} target="_blank">
+                </h2>
+                <div className={buttonsWrapper}>
+                    <OutboundLinkFilled
+                        href={dashboardRegisterUrl}
+                        target="_blank"
+                        className={baseButtonStyling}
+                    >
                         Try Now
-                    </ButtonFilled>
+                    </OutboundLinkFilled>
                     <OutboundLinkOutlined href={webinarsUrl} target="_blank">
                         Watch Demo
                     </OutboundLinkOutlined>
-                    <HubspotButton href="/contact-us/">
+                    <LinkOutlined href="/contact-us/" className={hubspotButton}>
                         Contact Us
-                    </HubspotButton>
-                </Buttons>
+                    </LinkOutlined>
+                </div>
             </Container>
-        </Wrapper>
+        </section>
     );
 };
 

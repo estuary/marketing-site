@@ -3,48 +3,46 @@ import * as React from 'react';
 import SingleDataflowIcon from '../../../svgs/metric-single-dataflow.svg';
 import { docsPageUrl } from '../../../../shared';
 import Container from '../../Container';
+import { OutboundLinkFilled } from '../../OutboundLink';
 import {
-    Button,
-    Description,
-    IconWrapper,
-    LeftColumn,
-    RightColumn,
-    Title,
-    Wrapper,
-} from './styles';
+    iconWrapper,
+    leftColumn,
+    rightColumn,
+    wrapper,
+} from './styles.module.less';
 
 const AutomateDataops = () => {
     return (
-        <Wrapper>
+        <section className={wrapper}>
             <Container isReverseColumnOnMobile>
-                <LeftColumn>
+                <div className={leftColumn}>
                     <StaticImage
                         quality={100}
                         placeholder="none"
                         alt="Schema evolution options"
                         src="../../../images/schema-evolution-options.png"
                     />
-                </LeftColumn>
-                <RightColumn>
-                    <IconWrapper>
+                </div>
+                <div className={rightColumn}>
+                    <div className={iconWrapper}>
                         <SingleDataflowIcon color="#5072EB" />
-                    </IconWrapper>
-                    <Title>
+                    </div>
+                    <h2>
                         <span>AUTOMATE </span>
                         <span>DATAOPS</span>
-                    </Title>
-                    <Description>
+                    </h2>
+                    <p>
                         Use schema inference, evolution, and automation along
                         with a complete CLI and API to implement true agile
                         DataOps that can handle constant change without breaking
                         pipelines.
-                    </Description>
-                    <Button href={docsPageUrl} target="_blank">
+                    </p>
+                    <OutboundLinkFilled href={docsPageUrl} target="_blank">
                         See the Docs
-                    </Button>
-                </RightColumn>
+                    </OutboundLinkFilled>
+                </div>
             </Container>
-        </Wrapper>
+        </section>
     );
 };
 

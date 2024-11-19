@@ -2,22 +2,22 @@ import * as React from 'react';
 import DatabaseSavingWithLowPrice from '../../../svgs/database-saving-with-low-price.svg';
 import { PricingCalculator } from '../../PricingCalculator';
 import Container from '../../Container';
+import { LinkFilled } from '../../../globalStyles';
 import {
-    Button,
-    IconWrapper,
-    LeftColumn,
-    RightColumn,
-    Wrapper,
-} from './styles';
+    iconWrapper,
+    leftColumn,
+    rightColumn,
+    wrapper,
+} from './styles.module.less';
 
 const Do4xMoreWith25xLess = () => {
     return (
-        <Wrapper>
+        <section className={wrapper}>
             <Container isReverseColumnOnMobile>
-                <LeftColumn>
-                    <IconWrapper>
+                <div className={leftColumn}>
+                    <div className={iconWrapper}>
                         <DatabaseSavingWithLowPrice color="#5072EB" />
-                    </IconWrapper>
+                    </div>
                     <h2>
                         <span>DO </span>
                         <span>4X MORE </span>
@@ -29,13 +29,13 @@ const Do4xMoreWith25xLess = () => {
                         deliver new projects in days, not months. And they spend
                         2-5x less on Estuary than on batch ELT.
                     </p>
-                    <Button href="/pricing/">See Pricing</Button>
-                </LeftColumn>
-                <RightColumn>
+                    <LinkFilled href="/pricing/">See Pricing</LinkFilled>
+                </div>
+                <div className={rightColumn}>
                     <PricingCalculator />
-                </RightColumn>
+                </div>
             </Container>
-        </Wrapper>
+        </section>
     );
 };
 
