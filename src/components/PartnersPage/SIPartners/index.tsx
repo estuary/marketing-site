@@ -41,6 +41,17 @@ const serviceIntegrationPartners: Partner[] = [
         name: 'Seattle Data Guy',
         href: 'https://www.theseattledataguy.com/',
     },
+    {
+        icon: (
+            <StaticImage
+                src="../../../images/partners-page/partner-logos/corrdyn.png"
+                alt="Corrdyn logo"
+                placeholder="blurred"
+            />
+        ),
+        name: 'Corrdyn',
+        href: 'https://www.corrdyn.com/',
+    },
 ];
 
 const SIPartners = () => (

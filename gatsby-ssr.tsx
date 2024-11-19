@@ -34,10 +34,6 @@ export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
       gtag('config', '${GA_MEASUREMENT_ID}');
   `;
 
-    const reoDevHTML = `
-      !function(){var e,t,n;e="a2955ffcdd9029c",t=function(){Reo.init({clientID:"a2955ffcdd9029c"})},(n=document.createElement("script")).src="https://static.reo.dev/"+e+"/reo.js",n.async=!0,n.onload=t,document.head.appendChild(n)}();
-    `;
-
     setHtmlAttributes({ lang: 'en' });
     setHeadComponents([
         <link
@@ -88,13 +84,6 @@ export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
             id="CookieFirst"
             async
             src="https://consent.cookiefirst.com/sites/estuary.dev-bb4406bb-2dfd-4133-8a4c-7b737e5b0bac/consent.js"
-        />,
-        <script
-            key="reo-dot-dev"
-            dangerouslySetInnerHTML={{
-                __html: reoDevHTML,
-            }}
-            async
         />,
     ]);
 };
