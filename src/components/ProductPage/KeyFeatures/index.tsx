@@ -1,20 +1,20 @@
 import { useMediaQuery } from '@mui/material';
 import { StaticImage } from 'gatsby-plugin-image';
 import React, { useMemo } from 'react';
-import { DefaultWrapperDarkBlue } from '../../../styles/wrappers';
+import clsx from 'clsx';
 import { HTMLTooltipProps } from '../../HTMLTooltip';
 import Container from '../../Container';
+import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import KeyFeature from './KeyFeature';
 import { features } from './features';
 import {
-    ImageWrapper,
-    KeyFeaturesListLeft,
-    KeyFeaturesListRight,
-    KeyFeaturesWrapper,
-    Subtitle,
-    TextWrapper,
-    Title,
-} from './styles';
+    imageWrapper,
+    keyFeaturesList,
+    keyFeaturesListLeft,
+    keyFeaturesListRight,
+    keyFeaturesWrapper,
+    textWrapper,
+} from './styles.module.less';
 
 const tooltipProps = {
     backgroundColor: '#091F38',
@@ -152,19 +152,19 @@ const KeyFeatures = () => {
     );
 
     return (
-        <DefaultWrapperDarkBlue>
+        <section className={defaultWrapperDarkBlue}>
             <Container isVertical>
-                <TextWrapper>
-                    <Title>KEY FEATURES</Title>
-                    <Subtitle>
+                <div className={textWrapper}>
+                    <h2>KEY FEATURES</h2>
+                    <p>
                         Estuary Flow stands out because it brings together the
                         best of CDC, real-time, and batch with modern data
                         engineering best practices, enabling the best of both
                         worlds, without managing infrastructure.
-                    </Subtitle>
-                </TextWrapper>
-                <KeyFeaturesWrapper>
-                    <KeyFeaturesListLeft className="key-features-list">
+                    </p>
+                </div>
+                <div className={keyFeaturesWrapper}>
+                    <div className={clsx(keyFeaturesList, keyFeaturesListLeft)}>
                         {leftFeatures.map(({ feature, icon }) => (
                             <KeyFeature
                                 key={feature.title}
@@ -174,15 +174,17 @@ const KeyFeatures = () => {
                                 isDesktop={isDesktop}
                             />
                         ))}
-                    </KeyFeaturesListLeft>
-                    <ImageWrapper>
+                    </div>
+                    <div className={imageWrapper}>
                         <StaticImage
                             placeholder="none"
                             alt="Flow"
                             src="../../../images/product-page/section-three/middle-circle.png"
                         />
-                    </ImageWrapper>
-                    <KeyFeaturesListRight className="key-features-list">
+                    </div>
+                    <div
+                        className={clsx(keyFeaturesList, keyFeaturesListRight)}
+                    >
                         {rightFeatures.map(({ feature, icon, props }) => (
                             <KeyFeature
                                 key={feature.title}
@@ -192,10 +194,10 @@ const KeyFeatures = () => {
                                 isDesktop={isDesktop}
                             />
                         ))}
-                    </KeyFeaturesListRight>
-                </KeyFeaturesWrapper>
+                    </div>
+                </div>
             </Container>
-        </DefaultWrapperDarkBlue>
+        </section>
     );
 };
 

@@ -1,21 +1,58 @@
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { useMediaQuery } from '@mui/material';
-import React, { ReactNode, useState } from 'react';
 import {
+    useMediaQuery,
+    AccordionDetails,
     Accordion,
-    AccordionButton,
-    AccordionContent,
-    ChevronIconWrapper,
-    Container,
-    IconWrapper,
-    Title,
-} from './styles';
+    AccordionSummary,
+} from '@mui/material';
+import React, { ReactNode, useState } from 'react';
+import clsx from 'clsx';
+import {
+    reversed,
+    chevronIconWrapper,
+    container,
+    iconWrapper,
+    accordionDetails,
+} from './styles.module.less';
 
 type KeyFeatureContentProps = {
     title: string;
     description: ReactNode;
     icon: ReactNode;
     isReversed?: boolean;
+};
+
+const accordionStyles = {
+    'backgroundColor': 'transparent !important',
+    'border': '1px solid transparent !important',
+    '&.MuiAccordion-root:before': {
+        display: 'none !important',
+    },
+    '&.MuiAccordion-root': {
+        margin: 'auto 0 !important',
+    },
+    '@media (max-width: 810px)': {
+        'backgroundColor': '#091f38 !important',
+        'border': '1px solid #a4b6f41a !important',
+        'borderRadius': '36px !important',
+        'padding': '20px !important',
+        'minHeight': '100px',
+        '&.Mui-expanded': {
+            height: '100% !important',
+        },
+    },
+};
+
+const accordionSummaryStyles = {
+    'minHeight': '0 !important',
+    'padding': '0 !important',
+    '&.Mui-expanded': {
+        minHeight: '0 !important',
+    },
+    '& .MuiAccordionSummary-content': {
+        margin: '0 !important',
+        display: 'block',
+    },
 };
 
 const KeyFeatureContent = ({
@@ -33,21 +70,28 @@ const KeyFeatureContent = ({
     };
 
     return (
-        <Accordion elevation={0} expanded={isMobile ? isAccordionOpen : false}>
-            <AccordionButton
+        <Accordion
+            elevation={0}
+            expanded={isMobile ? isAccordionOpen : false}
+            sx={accordionStyles}
+        >
+            <AccordionSummary
                 onClick={handleAccordionOpen}
                 expandIcon={
-                    <ChevronIconWrapper>
+                    <div className={chevronIconWrapper}>
                         <ExpandMoreIcon width={24} htmlColor="#ffffff" />
-                    </ChevronIconWrapper>
+                    </div>
                 }
+                sx={accordionSummaryStyles}
             >
-                <Container $isReversed={isReversed}>
-                    <IconWrapper>{icon}</IconWrapper>
-                    <Title>{title}</Title>
-                </Container>
-            </AccordionButton>
-            <AccordionContent>{description}</AccordionContent>
+                <div className={clsx(container, isReversed ? reversed : null)}>
+                    <div className={iconWrapper}>{icon}</div>
+                    <h3>{title}</h3>
+                </div>
+            </AccordionSummary>
+            <AccordionDetails className={accordionDetails}>
+                {description}
+            </AccordionDetails>
         </Accordion>
     );
 };

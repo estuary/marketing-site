@@ -3,12 +3,11 @@ import DarkSwoopingLinesLeftDirectionBackground from '../../BackgroundImages/Dar
 import FlowDemoVideo from '../../FlowDemoVideo';
 import Container from '../../Container';
 import { textWrapper } from '../styles.module.less';
-import { container } from './styles.module.less';
 
 const BuildInMinutes = () => {
     return (
         <DarkSwoopingLinesLeftDirectionBackground>
-            <Container isVertical className={container}>
+            <Container isVertical>
                 <div className={textWrapper}>
                     <h2>
                         <span>Build </span>
