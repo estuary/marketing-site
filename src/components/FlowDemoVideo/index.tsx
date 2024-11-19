@@ -16,7 +16,6 @@ const FlowDemoVideo = () => {
                 placeholder="none"
                 alt="estuary flow product end to end demo video"
                 src="../../images/end-to-end-demo-video-thumbnail.png"
-                className="section-five-product-video-thumbnail"
                 style={{ borderRadius: '12px' }}
             />
         ),

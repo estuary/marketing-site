@@ -24,6 +24,7 @@ type AdvantagesProps = {
     ctaButtons?: ReactNode;
     isDarkTheme?: boolean;
     isImageOnTheLeft?: boolean;
+    isReverseColumnOnMobile?: boolean;
 };
 
 const Advantages = ({
@@ -35,9 +36,13 @@ const Advantages = ({
     ctaButtons,
     isDarkTheme = false,
     isImageOnTheLeft = false,
+    isReverseColumnOnMobile = false,
 }: AdvantagesProps) => {
     return (
-        <Container className={isImageOnTheLeft ? imageOnTheLeft : null}>
+        <Container
+            className={isImageOnTheLeft ? imageOnTheLeft : null}
+            isReverseColumnOnMobile={isReverseColumnOnMobile}
+        >
             <div className={clsx(leftColumn, isDarkTheme ? darkTheme : null)}>
                 <div className={iconWrapper}>{icon}</div>
                 <h2>{title}</h2>

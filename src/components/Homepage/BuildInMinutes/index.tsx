@@ -19,7 +19,9 @@ const BuildInMinutes = () => {
                         no-code connectors. Estuary Flow does the rest.
                     </p>
                 </div>
-                <FlowDemoVideo />
+                <div>
+                    <FlowDemoVideo />
+                </div>
             </Container>
         </DarkSwoopingLinesLeftDirectionBackground>
     );
