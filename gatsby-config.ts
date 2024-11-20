@@ -222,25 +222,6 @@ const cfg: GatsbyConfig = {
         PARALLEL_SOURCING: true,
         DEV_SSR: true,
     },
-    headers: [
-        {
-            source: `*`,
-            headers: [
-                {
-                    key: `X-Frame-Options`,
-                    value: `SAMEORIGIN`,
-                },
-                {
-                    key: `X-Content-Type-Options`,
-                    value: `nosniff always`,
-                },
-                {
-                    key: `Permissions-Policy`,
-                    value: `geolocation=(), microphone=(), camera=() always`,
-                },
-            ],
-        },
-    ],
     // graphqlTypegen: true,
     plugins: [
         {
