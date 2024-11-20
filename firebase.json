@@ -469,15 +469,15 @@
                     },
                     {
                         "key": "x-frame-options",
-                        "value": "SAMEORIGIN always"
+                        "value": "SAMEORIGIN"
                     },
                     {
                         "key": "x-content-type-options",
-                        "value": "nosniff always"
+                        "value": "nosniff"
                     },
                     {
                         "key": "Referrer-Policy",
-                        "value": "no-referrer-when-downgrade always"
+                        "value": "no-referrer-when-downgrade"
                     },
                     {
                         "key": "Strict-Transport-Security",
