@@ -469,11 +469,19 @@
                     },
                     {
                         "key": "x-frame-options",
-                        "value": "SAMEORIGIN"
+                        "value": "SAMEORIGIN always"
                     },
                     {
                         "key": "x-content-type-options",
-                        "value": "nosniff"
+                        "value": "nosniff always"
+                    },
+                    {
+                        "key": "Referrer-Policy",
+                        "value": "no-referrer-when-downgrade always"
+                    },
+                    {
+                        "key": "Strict-Transport-Security",
+                        "value": "\"max-age=31536000; includeSubDomains\" always"
                     }
                 ]
             },
