@@ -1,7 +1,6 @@
 import React from 'react';
-
 import { StaticImage } from 'gatsby-plugin-image';
-import { DefaultWrapperDarkBlue } from '../../../styles/wrappers';
+import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import Advantages from '../../Advantages';
 import { sectionSevenAdvantages } from '../advantages';
 import { docsPageUrl } from '../../../../shared';
@@ -9,7 +8,7 @@ import { OutboundLinkFilled } from '../../OutboundLink';
 
 const ModernDataops = () => {
     return (
-        <DefaultWrapperDarkBlue>
+        <section className={defaultWrapperDarkBlue}>
             <Advantages
                 isDarkTheme
                 isImageOnTheLeft
@@ -41,7 +40,7 @@ const ModernDataops = () => {
                     </OutboundLinkFilled>
                 }
             />
-        </DefaultWrapperDarkBlue>
+        </section>
     );
 };
 

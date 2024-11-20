@@ -1,7 +1,7 @@
 import React from 'react';
-
 import { StaticImage } from 'gatsby-plugin-image';
-import { DefaultWrapperDarkBlue } from '../../../styles/wrappers';
+import clsx from 'clsx';
+import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import ActiveUsersIcon from '../../../svgs/metric-active-users.svg';
 import LatencyIcon from '../../../svgs/metric-latency.svg';
 import SingleDataflowIcon from '../../../svgs/metric-single-dataflow.svg';
@@ -9,18 +9,19 @@ import Advantages from '../../Advantages';
 import { sectionNineAdvantages } from '../advantages';
 import { activeUsersAmount } from '../../../../shared';
 import {
-    ActiveUsersMetric,
-    IconWrapper,
-    LatencyMetric,
-    LogoWrapper,
-    Metrics,
-    SingleDataFlowMetric,
-    TextWrapper,
-} from './styles';
+    activeUsersMetric,
+    iconWrapper,
+    latencyMetric,
+    logoWrapper,
+    metrics,
+    metric,
+    singleDataFlowMetric,
+    textWrapper,
+} from './styles.module.less';
 
 const DeliverRealTimeData = () => {
     return (
-        <DefaultWrapperDarkBlue>
+        <section className={defaultWrapperDarkBlue}>
             <Advantages
                 isDarkTheme
                 isImageOnTheLeft
@@ -38,52 +39,52 @@ const DeliverRealTimeData = () => {
                 }
                 subtitle="Estuary Flow delivers reliable, real-time performance in production for over 3,000 active users, including some the most demanding workloads proven to 10x the scale of the alternatives."
                 image={
-                    <Metrics>
+                    <div className={metrics}>
                         <StaticImage
                             placeholder="none"
                             alt="Estuary performance metrics"
                             src="../../../images/product-page/section-nine/metrics-background.png"
                         />
-                        <LogoWrapper>
+                        <div className={logoWrapper}>
                             <StaticImage
                                 placeholder="none"
                                 alt="Estuary logo"
                                 src="../../../images/product-page/section-nine/estuary-logo.png"
                                 quality={100}
                             />
-                        </LogoWrapper>
-                        <SingleDataFlowMetric className="metric">
-                            <IconWrapper>
+                        </div>
+                        <div className={clsx(metric, singleDataFlowMetric)}>
+                            <div className={iconWrapper}>
                                 <SingleDataflowIcon color="#ffffff" />
-                            </IconWrapper>
-                            <TextWrapper>
+                            </div>
+                            <div className={textWrapper}>
                                 <h3>7+GB/sec</h3>
                                 <p>Single dataflow</p>
-                            </TextWrapper>
-                        </SingleDataFlowMetric>
-                        <ActiveUsersMetric className="metric">
-                            <IconWrapper>
+                            </div>
+                        </div>
+                        <div className={clsx(metric, activeUsersMetric)}>
+                            <div className={iconWrapper}>
                                 <ActiveUsersIcon color="#5072EB" />
-                            </IconWrapper>
-                            <TextWrapper>
+                            </div>
+                            <div className={textWrapper}>
                                 <h3>{activeUsersAmount}</h3>
                                 <p>Active users</p>
-                            </TextWrapper>
-                        </ActiveUsersMetric>
-                        <LatencyMetric className="metric">
-                            <IconWrapper>
+                            </div>
+                        </div>
+                        <div className={clsx(metric, latencyMetric)}>
+                            <div className={iconWrapper}>
                                 <LatencyIcon color="#5072EB" />
-                            </IconWrapper>
-                            <TextWrapper>
+                            </div>
+                            <div className={textWrapper}>
                                 <h3>&#60;100ms</h3>
                                 <p>Latency</p>
-                            </TextWrapper>
-                        </LatencyMetric>
-                    </Metrics>
+                            </div>
+                        </div>
+                    </div>
                 }
                 advantages={sectionNineAdvantages}
             />
-        </DefaultWrapperDarkBlue>
+        </section>
     );
 };
 

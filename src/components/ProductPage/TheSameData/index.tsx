@@ -2,7 +2,7 @@ import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { Link } from 'gatsby';
 import clsx from 'clsx';
-import { DefaultWrapperDarkBlue } from '../../../styles/wrappers';
+import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import Tabs from '../../Tabs';
 import Container from '../../Container';
 import LogoAndPath from './LogoAndPath';
@@ -28,7 +28,7 @@ import {
 
 const TheSameData = () => {
     return (
-        <DefaultWrapperDarkBlue>
+        <section className={defaultWrapperDarkBlue}>
             <Container isReverseColumnOnMobile>
                 <div className={textWrapper}>
                     <div className={iconsWrapper}>
@@ -229,7 +229,7 @@ const TheSameData = () => {
                     />
                 </div>
             </Container>
-        </DefaultWrapperDarkBlue>
+        </section>
     );
 };
 

@@ -1,0 +1,140 @@
+.metrics {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.metric {
+    position: absolute;
+    border: 1px solid #5072eb4d;
+    border-radius: 24px;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    padding: 16px;
+
+    h3 {
+        font-size: 2.25rem;
+        font-weight: 700;
+        line-height: 43.2px;
+        margin: 0;
+    }
+
+    p {
+        font-size: 1.25rem;
+        font-weight: 400;
+        line-height: 30px;
+        margin: 0;
+    }
+
+    @media (min-width: 769px) and (max-width: 1320px),
+    (max-width: 480px) {
+        gap: 16px;
+        padding: 8px;
+        border-radius: 16px;
+    }
+
+    @media (max-width: 1024px) {
+        padding: 2vw;
+        gap: 2vw;
+        border-radius: 2vw;
+
+        h3 {
+            font-size: 4vw;
+            line-height: 5vw;
+        }
+
+        p {
+            font-size: 3vw;
+            line-height: 3vw;
+        }
+    }
+}
+
+.singleDataFlowMetric {
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20px;
+    background-color: #5072eb;
+
+    h3,
+    p {
+        color: #ffffff;
+    }
+}
+
+.activeUsersMetric {
+    left: -48px;
+    bottom: 96px;
+    background-color: #eef1fd;
+
+    @media (max-width: 1024px) {
+        left: 0;
+    }
+
+    h3 {
+        color: #5072EB;
+    }
+
+    p {
+        color: #47506D;
+    }
+}
+
+.latencyMetric {
+    bottom: 0;
+    right: 0;
+    background-color: #eef1fd;
+
+    @media (max-width: 1024px) {
+        bottom: 48px;
+        right: 0;
+    }
+
+    h3 {
+        color: #5072EB;
+    }
+
+    p {
+        color: #47506D;
+    }
+}
+
+.textWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.logoWrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 102px;
+    height: 102px;
+
+    @media (min-width: 769px) and (max-width: 1190px) {
+        width: 64px;
+        height: 64px;
+    }
+
+    @media (max-width: 1024px) {
+        width: 12vw;
+        height: 12vw;
+    }
+}
+
+.iconWrapper {
+    width: 49px;
+    height: 49px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: 1024px) {
+        width: 6vw;
+        height: 6vw;
+    }
+}
