@@ -224,7 +224,7 @@ const cfg: GatsbyConfig = {
     },
     headers: [
         {
-            source: `/`,
+            source: `*`,
             headers: [
                 {
                     key: `X-Frame-Options`,
