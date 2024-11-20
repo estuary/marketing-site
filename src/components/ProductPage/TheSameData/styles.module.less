@@ -1,7 +1,4 @@
-import { Link } from 'gatsby';
-import styled from 'styled-components';
-
-export const TextWrapper = styled.div`
+.textWrapper {
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -42,14 +39,14 @@ export const TextWrapper = styled.div`
             font-size: 1rem;
         }
     }
-`;
+}
 
-export const IconsWrapper = styled.div`
+.iconsWrapper {
     display: flex;
     gap: 24px;
-`;
+}
 
-export const IconWrapper = styled.div`
+.iconWrapper {
     width: 90px;
     height: 90px;
     padding: 20px;
@@ -64,16 +61,24 @@ export const IconWrapper = styled.div`
         width: 72px;
         height: 72px;
     }
-`;
+}
 
-export const TabContent = styled.div`
+.tabContent {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 49px;
-`;
 
-export const TabImageWrapper = styled.div`
+    p {
+        color: #ffffff;
+        margin: 32px 0 0 0;
+        max-width: 397px;
+        text-align: center;
+        min-height: 100px;
+    }
+}
+
+.tabImageWrapper {
     display: flex;
     align-items: center;
     padding: 4px;
@@ -81,29 +86,23 @@ export const TabImageWrapper = styled.div`
     @media (max-width: 425px) {
         flex-direction: column;
     }
-`;
+}
 
-export const Connectors = styled.div<{ $tab: 'analytics' | 'ops' | 'ai' }>`
+.connectors {
     position: relative;
     z-index: 2;
-    margin-left: ${(props) => (props.$tab === 'analytics' ? '-6%' : '-2%')};
+    margin-left: -2%;
 
     @media (max-width: 425px) {
         margin: 6% 0 0 0;
     }
+}
 
-    .trio-group-logo {
-        top: 50.5%;
-        width: 19%;
+.analyticsConnectors {
+    margin-left: -6%;
+}
 
-        @media (max-width: 1024px), (min-width: 425px) {
-            height: 45%;
-            width: 18.5%;
-        }
-    }
-`;
-
-export const LogoWrapper = styled(Link)`
+.logoWrapper {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -138,21 +137,31 @@ export const LogoWrapper = styled(Link)`
     &:active {
         background: linear-gradient(to bottom, #6ed5d699, #7284ff99) border-box;
     }
-`;
+}
 
-export const GoogleBigQueryLogoWrapper = styled(LogoWrapper)`
+.trioGroupLogo {
+    top: 50.5%;
+    width: 19%;
+
+    @media (max-width: 1024px), (min-width: 425px) {
+        height: 45%;
+        width: 18.5%;
+    }
+}
+
+.googleBigQueryLogoWrapper {
     right: 73.8%;
 
     @media (max-width: 900px) {
         right: 74.2%;
     }
-`;
+}
 
-export const DatabricksLogoWrapper = styled(LogoWrapper)`
+.databricksLogoWrapper {
     right: 53.2%;
-`;
+}
 
-export const AmazonRedshiftLogoWrapper = styled(LogoWrapper)`
+.amazonRedshiftLogoWrapper {
     left: 53.4%;
 
     @media (max-width: 1280px) {
@@ -162,68 +171,36 @@ export const AmazonRedshiftLogoWrapper = styled(LogoWrapper)`
     @media (max-width: 1024px) {
         left: 53%;
     }
-`;
+}
 
-export const SnowflakeLogoWrapper = styled(LogoWrapper)`
+.snowflakeLogoWrapper {
     left: 74.2%;
 
     @media (max-width: 1280px) {
         left: 74%;
     }
-`;
+}
 
-const trioGroupFirstLogo = `
+.trioGroupFirstLogo {
     right: 67.3%;
 
     @media (max-width: 1024px), (min-width: 425px) {
         right: 67%;
     }
-`;
+}
 
-const trioGroupSecondLogo = `
+.trioGroupSecondLogo {
     right: 40.5%;
 
     @media (max-width: 840px) {
         right: 41%;
     }
-`;
+}
 
-const trioGroupThirdLogo = `
+.trioGroupThirdLogo {
     right: 14.5%;
-`;
+}
 
-export const ElasticLogoWrapper = styled(LogoWrapper)`
-    ${trioGroupFirstLogo}
-`;
-
-export const MongoDBLogoWrapper = styled(LogoWrapper)`
-    ${trioGroupSecondLogo}
-`;
-
-export const DynamoDBLogoWrapper = styled(LogoWrapper)`
-    ${trioGroupThirdLogo}
-`;
-
-export const PineconeLogoWrapper = styled(LogoWrapper)`
-    ${trioGroupFirstLogo}
-`;
-
-export const OpenAiLogoWrapper = styled(LogoWrapper)`
-    ${trioGroupSecondLogo}
-`;
-
-export const DatabricksAILogoWrapper = styled(LogoWrapper)`
-    ${trioGroupThirdLogo}
-`;
-
-export const TabFooterText = styled.p`
-    color: #ffffff;
-    margin: 32px 0 0 0;
-    max-width: 397px;
-    text-align: center;
-    min-height: 100px;
-`;
-
-export const TabsWrapper = styled.div`
+.tabsWrapper {
     height: 100%;
-`;
+}

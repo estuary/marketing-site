@@ -1,6 +1,4 @@
-import styled from 'styled-components';
-
-export const Cicle = styled.div`
+.cicle {
     position: relative;
     z-index: 2;
     max-width: 20%;
@@ -9,15 +7,15 @@ export const Cicle = styled.div`
     @media (max-width: 425px) {
         max-width: 40%;
     }
-`;
+}
 
-export const Path = styled.div<{ $tab: 'analytics' | 'ops' | 'ai' }>`
+.path {
     position: relative;
     z-index: 1;
     background-color: #0e2443;
     display: flex;
     align-items: center;
-    margin-left: ${(props) => (props.$tab === 'analytics' ? '-6%' : '-2%')};
+    margin-left: -2%;
 
     @media (max-width: 425px) {
         transform: rotate(90deg);
@@ -25,4 +23,8 @@ export const Path = styled.div<{ $tab: 'analytics' | 'ops' | 'ai' }>`
         max-width: 128px;
         height: 16px;
     }
-`;
+}
+
+.analyticsPath {
+    margin-left: -6%;
+}

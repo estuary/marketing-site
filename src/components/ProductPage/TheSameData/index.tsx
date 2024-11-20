@@ -1,58 +1,59 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
+import { Link } from 'gatsby';
+import clsx from 'clsx';
 import { DefaultWrapperDarkBlue } from '../../../styles/wrappers';
 import Tabs from '../../Tabs';
 import Container from '../../Container';
 import LogoAndPath from './LogoAndPath';
 import {
-    AmazonRedshiftLogoWrapper,
-    Connectors,
-    DatabricksAILogoWrapper,
-    DatabricksLogoWrapper,
-    DynamoDBLogoWrapper,
-    ElasticLogoWrapper,
-    GoogleBigQueryLogoWrapper,
-    IconWrapper,
-    IconsWrapper,
-    MongoDBLogoWrapper,
-    OpenAiLogoWrapper,
-    PineconeLogoWrapper,
-    SnowflakeLogoWrapper,
-    TabContent,
-    TabFooterText,
-    TabImageWrapper,
-    TabsWrapper,
-    TextWrapper,
-} from './styles';
+    amazonRedshiftLogoWrapper,
+    connectors,
+    analyticsConnectors,
+    databricksLogoWrapper,
+    googleBigQueryLogoWrapper,
+    iconWrapper,
+    iconsWrapper,
+    trioGroupFirstLogo,
+    trioGroupSecondLogo,
+    trioGroupThirdLogo,
+    snowflakeLogoWrapper,
+    tabContent,
+    tabImageWrapper,
+    tabsWrapper,
+    textWrapper,
+    logoWrapper,
+    trioGroupLogo,
+} from './styles.module.less';
 
 const TheSameData = () => {
     return (
         <DefaultWrapperDarkBlue>
             <Container isReverseColumnOnMobile>
-                <TextWrapper>
-                    <IconsWrapper>
-                        <IconWrapper>
+                <div className={textWrapper}>
+                    <div className={iconsWrapper}>
+                        <div className={iconWrapper}>
                             <StaticImage
                                 placeholder="none"
                                 alt="Analytics - pie chart"
                                 src="../../../svgs/pie-chart.svg"
                             />
-                        </IconWrapper>
-                        <IconWrapper>
+                        </div>
+                        <div className={iconWrapper}>
                             <StaticImage
                                 placeholder="none"
                                 alt="Ops"
                                 src="../../../svgs/ops.svg"
                             />
-                        </IconWrapper>
-                        <IconWrapper>
+                        </div>
+                        <div className={iconWrapper}>
                             <StaticImage
                                 placeholder="none"
                                 alt="AI - artificial intelligence"
                                 src="../../../svgs/android-brain.svg"
                             />
-                        </IconWrapper>
-                    </IconsWrapper>
+                        </div>
+                    </div>
                     <h2>
                         THE SAME DATA ACROSS <span>ANALYTICS, OPS,</span> AND{' '}
                         <span>AI</span>
@@ -61,54 +62,75 @@ const TheSameData = () => {
                         Add data from your sources into collections. Then reuse
                         that data for any destinations in real-time or batch.
                     </p>
-                </TextWrapper>
-                <TabsWrapper>
+                </div>
+                <div className={tabsWrapper}>
                     <Tabs
                         tabs={[
                             {
                                 label: 'Analytics',
                                 content: (
-                                    <TabContent>
-                                        <TabImageWrapper>
+                                    <div className={tabContent}>
+                                        <div className={tabImageWrapper}>
                                             <LogoAndPath tab="analytics" />
-                                            <Connectors $tab="analytics">
+                                            <div
+                                                className={clsx(
+                                                    connectors,
+                                                    analyticsConnectors
+                                                )}
+                                            >
                                                 <StaticImage
                                                     placeholder="none"
                                                     alt="Analytics Connectors"
                                                     src="../../../images/product-page/section-five/analytics-connectors.png"
                                                 />
-                                                <GoogleBigQueryLogoWrapper
+                                                <Link
                                                     to="/destination/bigquery"
                                                     aria-label="Google BigQuery destination"
+                                                    className={clsx(
+                                                        logoWrapper,
+                                                        googleBigQueryLogoWrapper
+                                                    )}
                                                 />
-                                                <DatabricksLogoWrapper
+                                                <Link
                                                     to="/destination/databricks"
                                                     aria-label="Databricks destination"
+                                                    className={clsx(
+                                                        logoWrapper,
+                                                        databricksLogoWrapper
+                                                    )}
                                                 />
-                                                <AmazonRedshiftLogoWrapper
+                                                <Link
                                                     to="/destination/redshift"
                                                     aria-label="Amazon Redshift destination"
+                                                    className={clsx(
+                                                        logoWrapper,
+                                                        amazonRedshiftLogoWrapper
+                                                    )}
                                                 />
-                                                <SnowflakeLogoWrapper
+                                                <Link
                                                     to="/destination/snowflake"
                                                     aria-label="Snowflake destination"
+                                                    className={clsx(
+                                                        logoWrapper,
+                                                        snowflakeLogoWrapper
+                                                    )}
                                                 />
-                                            </Connectors>
-                                        </TabImageWrapper>
-                                        <TabFooterText>
+                                            </div>
+                                        </div>
+                                        <p>
                                             Load into BigQuery, Databricks,
                                             Redshift or Snowflake for analytics.
-                                        </TabFooterText>
-                                    </TabContent>
+                                        </p>
+                                    </div>
                                 ),
                             },
                             {
                                 label: 'Ops',
                                 content: (
-                                    <TabContent>
-                                        <TabImageWrapper>
+                                    <div className={tabContent}>
+                                        <div className={tabImageWrapper}>
                                             <LogoAndPath tab="ops" />
-                                            <Connectors $tab="ops">
+                                            <div className={connectors}>
                                                 <StaticImage
                                                     placeholder="none"
                                                     alt="Ops Connectors"
@@ -116,72 +138,96 @@ const TheSameData = () => {
                                                     height={128}
                                                     quality={100}
                                                 />
-                                                <ElasticLogoWrapper
+                                                <Link
                                                     to="/destination/elasticsearch"
                                                     aria-label="Elastic destination"
-                                                    className="trio-group-logo"
+                                                    className={clsx(
+                                                        trioGroupLogo,
+                                                        logoWrapper,
+                                                        trioGroupFirstLogo
+                                                    )}
                                                 />
-                                                <MongoDBLogoWrapper
+                                                <Link
                                                     to="/destination/mongodb"
                                                     aria-label="MongoDB destination"
-                                                    className="trio-group-logo"
+                                                    className={clsx(
+                                                        trioGroupLogo,
+                                                        logoWrapper,
+                                                        trioGroupSecondLogo
+                                                    )}
                                                 />
-                                                <DynamoDBLogoWrapper
+                                                <Link
                                                     to="/destination/dynamodb"
                                                     aria-label="Amazon DynamoDB destination"
-                                                    className="trio-group-logo"
+                                                    className={clsx(
+                                                        trioGroupLogo,
+                                                        logoWrapper,
+                                                        trioGroupThirdLogo
+                                                    )}
                                                 />
-                                            </Connectors>
-                                        </TabImageWrapper>
-                                        <TabFooterText>
+                                            </div>
+                                        </div>
+                                        <p>
                                             Stream into SQL or NoSQL databases,
                                             high-performance OLAP, or
                                             Elasticsearch for operations.
-                                        </TabFooterText>
-                                    </TabContent>
+                                        </p>
+                                    </div>
                                 ),
                             },
                             {
                                 label: 'AI',
                                 content: (
-                                    <TabContent>
-                                        <TabImageWrapper>
+                                    <div className={tabContent}>
+                                        <div className={tabImageWrapper}>
                                             <LogoAndPath tab="ai" />
-                                            <Connectors $tab="ai">
+                                            <div className={connectors}>
                                                 <StaticImage
                                                     placeholder="none"
                                                     alt="AI Connectors"
                                                     src="../../../images/product-page/section-five/ai-connectors.png"
                                                     height={128}
                                                 />
-                                                <PineconeLogoWrapper
+                                                <Link
                                                     to="/destination/pinecone"
                                                     aria-label="Pinecone destination"
-                                                    className="trio-group-logo"
+                                                    className={clsx(
+                                                        trioGroupLogo,
+                                                        logoWrapper,
+                                                        trioGroupFirstLogo
+                                                    )}
                                                 />
-                                                <OpenAiLogoWrapper
+                                                <Link
                                                     to="/destination/pinecone"
                                                     aria-label="Pinecone destination"
-                                                    className="trio-group-logo"
+                                                    className={clsx(
+                                                        trioGroupLogo,
+                                                        logoWrapper,
+                                                        trioGroupSecondLogo
+                                                    )}
                                                 />
-                                                <DatabricksAILogoWrapper
+                                                <Link
                                                     to="/destination/databricks"
                                                     aria-label="Databricks destination"
-                                                    className="trio-group-logo"
+                                                    className={clsx(
+                                                        trioGroupLogo,
+                                                        logoWrapper,
+                                                        trioGroupThirdLogo
+                                                    )}
                                                 />
-                                            </Connectors>
-                                        </TabImageWrapper>
-                                        <TabFooterText>
+                                            </div>
+                                        </div>
+                                        <p>
                                             Build pipelines that vectorize and
                                             load data into databases, or call
                                             ChatGPT for AI.
-                                        </TabFooterText>
-                                    </TabContent>
+                                        </p>
+                                    </div>
                                 ),
                             },
                         ]}
                     />
-                </TabsWrapper>
+                </div>
             </Container>
         </DefaultWrapperDarkBlue>
     );
