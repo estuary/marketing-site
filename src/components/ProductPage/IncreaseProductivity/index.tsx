@@ -1,19 +1,21 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
-import { DefaultWrapperDark } from '../../../styles/wrappers';
+import clsx from 'clsx';
+import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import Advantages from '../../Advantages';
 import { sectionEightAdvantages } from '../advantages';
 import {
-    BottomCaseStudies,
-    BottomCaseStudy,
-    CaseStudies,
-    IconWrapper,
-    TopCaseStudy,
-} from './styles';
+    bottomCaseStudies,
+    caseStudyBase,
+    bottomCaseStudy,
+    caseStudies,
+    iconWrapper,
+    topCaseStudy,
+} from './styles.module.less';
 
 const IncreaseProductivity = () => {
     return (
-        <DefaultWrapperDark>
+        <section className={defaultWrapperDark}>
             <Advantages
                 icon={
                     <StaticImage
@@ -28,58 +30,62 @@ const IncreaseProductivity = () => {
                     </>
                 }
                 image={
-                    <CaseStudies>
-                        <TopCaseStudy>
-                            <IconWrapper>
+                    <div className={caseStudies}>
+                        <div className={clsx(caseStudyBase, topCaseStudy)}>
+                            <div className={iconWrapper}>
                                 <StaticImage
                                     placeholder="none"
                                     alt="Case study - Connect & Go logo"
                                     src="../../../images/c&g-logo.png"
                                 />
-                            </IconWrapper>
+                            </div>
                             <h3>CONNECT&GO</h3>
                             <p>
                                 Connect&GO lowers MySQL to Snowflake latency up
                                 to 180x, improves productivity 4x with Estuary.
                             </p>
-                        </TopCaseStudy>
-                        <BottomCaseStudies>
-                            <BottomCaseStudy>
-                                <IconWrapper>
+                        </div>
+                        <div className={bottomCaseStudies}>
+                            <div
+                                className={clsx(caseStudyBase, bottomCaseStudy)}
+                            >
+                                <div className={iconWrapper}>
                                     <StaticImage
                                         placeholder="none"
                                         alt="Case study - True logo"
                                         src="../../../images/true-logo.png"
                                     />
-                                </IconWrapper>
+                                </div>
                                 <h3>TRUE PLATFORM</h3>
                                 <p>
                                     True Platform reduced its data pipeline
                                     spend by &gt;2x and discovered seamless,
                                     scalable data movement.
                                 </p>
-                            </BottomCaseStudy>
-                            <BottomCaseStudy>
-                                <IconWrapper>
+                            </div>
+                            <div
+                                className={clsx(caseStudyBase, bottomCaseStudy)}
+                            >
+                                <div className={iconWrapper}>
                                     <StaticImage
                                         placeholder="none"
                                         alt="Case study - Soli & Company logo"
                                         src="../../../images/soli&company-logo.png"
                                     />
-                                </IconWrapper>
+                                </div>
                                 <h3>SOLI & COMPANY</h3>
                                 <p>
                                     Soli & Company trusts Estuary&apos;s
                                     approachable pricing and quick setup to
                                     deliver change data capture solutions.
                                 </p>
-                            </BottomCaseStudy>
-                        </BottomCaseStudies>
-                    </CaseStudies>
+                            </div>
+                        </div>
+                    </div>
                 }
                 advantages={sectionEightAdvantages}
             />
-        </DefaultWrapperDark>
+        </section>
     );
 };
 
