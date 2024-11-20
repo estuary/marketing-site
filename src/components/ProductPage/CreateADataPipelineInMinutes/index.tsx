@@ -1,27 +1,26 @@
 import React from 'react';
-
 import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
-import { DefaultWrapper } from '../../../styles/wrappers';
 import FlowDemoVideo from '../../FlowDemoVideo';
 import Container from '../../Container';
+import { sectionTopBottomPadding } from '../../../globalStyles/sections.module.less';
 import Step from './Step';
-import { Steps, Subtitle, TextWrapper, Title, VideoWrapper } from './styles';
+import { steps, textWrapper } from './styles.module.less';
 
 const CreateADataPipelineInMinutes = () => {
     return (
-        <DefaultWrapper>
+        <section className={sectionTopBottomPadding}>
             <Container isVertical>
-                <TextWrapper>
-                    <Title className="text">
+                <div className={textWrapper}>
+                    <h2>
                         CREATE A DATA PIPELINE IN <span>MINUTES</span>
-                    </Title>
-                    <Subtitle className="text">
+                    </h2>
+                    <p>
                         Build new data pipelines that connect many sources to
                         many destinations in minutes.
-                    </Subtitle>
-                </TextWrapper>
-                <Steps>
+                    </p>
+                </div>
+                <div className={steps}>
                     <Step
                         number={1}
                         text="Add 100s of sources and destinations using no-code connectors for streaming CDC, real-time, batch, and SaaS."
@@ -56,12 +55,10 @@ const CreateADataPipelineInMinutes = () => {
                             />
                         }
                     />
-                </Steps>
-                <VideoWrapper>
-                    <FlowDemoVideo />
-                </VideoWrapper>
+                </div>
+                <FlowDemoVideo />
             </Container>
-        </DefaultWrapper>
+        </section>
     );
 };
 

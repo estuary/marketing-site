@@ -1,0 +1,50 @@
+.textWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h2, p {
+        color: #47506d;
+        text-align: center;
+        margin: 0;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+        font-weight: 600;
+        line-height: 48px;
+
+        @media (max-width: 810px) {
+            font-size: 1.75rem;
+            font-weight: 700;
+            line-height: 33.6px;
+        }
+
+        &>span {
+            color: #5072eb;
+        }
+    }
+
+    p {
+        font-size: 1.25rem;
+        font-weight: 400;
+        line-height: 30px;
+        margin-top: 24px;
+
+        @media (max-width: 810px) {
+            font-size: 1rem;
+        }
+    }
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+}
