@@ -39,7 +39,7 @@ const Hero = () => {
                 <Card
                     title="QUICKSTART"
                     description="Create a free account and use a tutorial for a pipeline."
-                    href={`${docsPageUrl}/getting-started/installation/`}
+                    href={`${docsPageUrl}/getting-started/quickstart/`}
                     icon={
                         <StaticImage
                             src="../../../svgs/product-page/section-one/sign-up-outlined.svg"
