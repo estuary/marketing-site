@@ -1,126 +1,170 @@
 import React from 'react';
-
+import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
+import clsx from 'clsx';
 import { DefaultWrapperDarkBlue } from '../../../styles/wrappers';
 import Container from '../../Container';
 import {
-    AmazonRedshiftStreamingEtlLogoWrapper,
-    BatchEltColumn,
-    BatchEltDescription,
-    BatchEltTitle,
-    Columns,
-    ElasticStreamingEtlLogoWrapper,
-    ImageWrapper,
-    MySQLBatchElt1LogoWrapper,
-    MySQLBatchElt2LogoWrapper,
-    MySQLBatchElt3LogoWrapper,
-    MySQLStreamingEtlLogoWrapper,
-    SnowflakeBatchEltLogoWrapper,
-    SnowflakeStreamingEtlLogoWrapper,
-    StreamingEtlColumn,
-    StreamingEtlDescription,
-    StreamingEtlTitle,
-    TextWrapper,
-    Title,
-} from './styles';
+    amazonRedshiftStreamingEtlLogoWrapper,
+    batchEltColumn,
+    batchEltDescription,
+    batchEltTitle,
+    columns,
+    column,
+    imageWrapper,
+    mySQLBatchElt1LogoWrapper,
+    slightlyOffsetCenteredLogoWrapper,
+    streamingEtlColumn,
+    streamingEtlDescription,
+    streamingEtlTitle,
+    textWrapper,
+    title,
+    rightIcon,
+    leftIcon,
+    centeredLogoWrapper,
+    topLogoWrapper,
+    bottomLogoWrapper,
+    logoWrapper,
+} from './styles.module.less';
 
 const Streaming = () => {
     return (
         <DefaultWrapperDarkBlue>
             <Container isVertical>
-                <Title>
+                <h2 className={title}>
                     STREAMING <span>ETL VS. BATCH ELT</span>
-                </Title>
-                <Columns>
-                    <StreamingEtlColumn className="column">
-                        <ImageWrapper>
+                </h2>
+                <div className={columns}>
+                    <div className={clsx(streamingEtlColumn, column)}>
+                        <div className={imageWrapper}>
                             <StaticImage
                                 placeholder="none"
                                 alt="Key feature - Real-time and batch"
                                 src="../../../images/product-page/section-eleven/streaming-etl.png"
                                 quality={100}
                             />
-                            <MySQLStreamingEtlLogoWrapper
+                            <Link
                                 to="/source/mysql"
                                 aria-label="MySQL source"
-                                className="right-icon"
+                                className={clsx(
+                                    logoWrapper,
+                                    centeredLogoWrapper,
+                                    rightIcon
+                                )}
                             />
-                            <ElasticStreamingEtlLogoWrapper
+                            <Link
                                 to="/destination/elasticsearch"
                                 aria-label="Elastic destination"
-                                className="left-icon"
+                                className={clsx(
+                                    logoWrapper,
+                                    topLogoWrapper,
+                                    leftIcon
+                                )}
                             />
-                            <SnowflakeStreamingEtlLogoWrapper
+                            <Link
                                 to="/destination/snowflake"
                                 aria-label="Snowflake destination"
-                                className="left-icon"
+                                className={clsx(
+                                    logoWrapper,
+                                    centeredLogoWrapper,
+                                    leftIcon
+                                )}
                             />
-                            <AmazonRedshiftStreamingEtlLogoWrapper
+                            <Link
                                 to="/destination/redshift"
                                 aria-label="Amazon Redshift destination"
-                                className="left-icon"
+                                className={clsx(
+                                    logoWrapper,
+                                    amazonRedshiftStreamingEtlLogoWrapper,
+                                    leftIcon
+                                )}
                             />
-                        </ImageWrapper>
-                        <TextWrapper>
-                            <StreamingEtlTitle>STREAMING ETL</StreamingEtlTitle>
-                            <StreamingEtlDescription>
+                        </div>
+                        <div className={textWrapper}>
+                            <h3 className={streamingEtlTitle}>STREAMING ETL</h3>
+                            <p className={streamingEtlDescription}>
                                 With Estuary, you extract data exactly and only
                                 once using CDC, real-time, or batch; use ELT and
                                 ETL; and deliver to many destinations with one
                                 pipeline.
-                            </StreamingEtlDescription>
-                        </TextWrapper>
-                    </StreamingEtlColumn>
-                    <BatchEltColumn className="column">
-                        <ImageWrapper>
+                            </p>
+                        </div>
+                    </div>
+                    <div className={clsx(batchEltColumn, column)}>
+                        <div className={imageWrapper}>
                             <StaticImage
                                 placeholder="none"
                                 alt="Key feature - Real-time and batch"
                                 src="../../../images/product-page/section-eleven/batch-elt.png"
                                 quality={100}
                             />
-                            <MySQLBatchElt1LogoWrapper
+                            <Link
                                 to="/source/mysql"
                                 aria-label="MySQL source"
-                                className="right-icon"
+                                className={clsx(
+                                    logoWrapper,
+                                    mySQLBatchElt1LogoWrapper,
+                                    topLogoWrapper,
+                                    rightIcon
+                                )}
                             />
-                            <MySQLBatchElt3LogoWrapper
+                            <Link
                                 to="/source/mysql"
                                 aria-label="MySQL source"
-                                className="right-icon"
+                                className={clsx(
+                                    logoWrapper,
+                                    slightlyOffsetCenteredLogoWrapper,
+                                    rightIcon
+                                )}
                             />
-                            <MySQLBatchElt2LogoWrapper
+                            <Link
                                 to="/source/mysql"
                                 aria-label="MySQL source"
-                                className="right-icon"
+                                className={clsx(
+                                    logoWrapper,
+                                    bottomLogoWrapper,
+                                    rightIcon
+                                )}
                             />
-                            <ElasticStreamingEtlLogoWrapper
+                            <Link
                                 to="/destination/elasticsearch"
                                 aria-label="Elastic destination"
-                                className="left-icon"
+                                className={clsx(
+                                    logoWrapper,
+                                    topLogoWrapper,
+                                    leftIcon
+                                )}
                             />
-                            <SnowflakeBatchEltLogoWrapper
+                            <Link
                                 to="/destination/snowflake"
                                 aria-label="Snowflake destination"
-                                className="left-icon"
+                                className={clsx(
+                                    logoWrapper,
+                                    slightlyOffsetCenteredLogoWrapper,
+                                    leftIcon
+                                )}
                             />
-                            <AmazonRedshiftStreamingEtlLogoWrapper
+                            <Link
                                 to="/destination/redshift"
                                 aria-label="Amazon Redshift destination"
-                                className="left-icon"
+                                className={clsx(
+                                    logoWrapper,
+                                    amazonRedshiftStreamingEtlLogoWrapper,
+                                    leftIcon
+                                )}
                             />
-                        </ImageWrapper>
-                        <TextWrapper>
-                            <BatchEltTitle>BATCH</BatchEltTitle>
-                            <BatchEltDescription>
+                        </div>
+                        <div className={textWrapper}>
+                            <h3 className={batchEltTitle}>BATCH</h3>
+                            <p className={batchEltDescription}>
                                 SaaS ELT tools are batch only, point-to-point
                                 replication. Each destination requires its own
                                 pipeline and source extractions, adding loads,
                                 costs, and time.
-                            </BatchEltDescription>
-                        </TextWrapper>
-                    </BatchEltColumn>
-                </Columns>
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </Container>
         </DefaultWrapperDarkBlue>
     );
