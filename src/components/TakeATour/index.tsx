@@ -1,7 +1,8 @@
 import CloseIcon from '@mui/icons-material/Close';
 import IconButton from '@mui/material/IconButton';
 import React, { useCallback, useEffect, useState } from 'react';
-import { Container, Link } from './styles';
+import { OutboundLink } from '../OutboundLink';
+import { container } from './styles.module.less';
 
 const DEFAULTS = {
     href: '/why/',
@@ -36,14 +37,14 @@ const TakeATour = () => {
     if (closeTour) return null;
 
     return (
-        <Container>
-            <Link target="_blank" href={SETTINGS.href}>
+        <div className={container}>
+            <OutboundLink target="_blank" href={SETTINGS.href}>
                 {SETTINGS.message}
-            </Link>
+            </OutboundLink>
             <IconButton onClick={onClick} aria-label="Close banner">
                 <CloseIcon color="inherit" fontSize="small" />
             </IconButton>
-        </Container>
+        </div>
     );
 };
 

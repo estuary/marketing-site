@@ -1,8 +1,4 @@
-import styled from 'styled-components';
-
-import { OutboundLink } from '../OutboundLink';
-
-export const Container = styled.div`
+.container {
     background-color: #5072eb;
     height: 24px;
     display: flex;
@@ -18,10 +14,10 @@ export const Container = styled.div`
     @media (min-width: 1024px) {
         display: flex;
     }
-`;
 
-export const Link = styled(OutboundLink)`
-    font-size: 12px;
-    text-decoration-line: underline;
-    color: #fff;
-`;
+    a {
+        font-size: 12px;
+        text-decoration-line: underline;
+        color: #fff;
+    }
+}
