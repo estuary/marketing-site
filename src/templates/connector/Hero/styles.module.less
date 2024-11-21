@@ -1,0 +1,130 @@
+.containerImage {
+    position: relative;
+    margin: 0 auto;
+    flex: 1;
+}
+
+.logoContainer {
+    position: absolute;
+    z-index: 1;
+    top: 31%;
+    right: 11%;
+    width: 12%;
+    max-width: 90px;
+    height: auto;
+
+    @media (max-width: 1023px) {
+        width: 10%;
+        top: 27%;
+        right: 12%;
+    }
+}
+
+.logoContainerCapture {
+    top: 33%;
+    right: 77%;
+
+    @media (max-width: 1023px) {
+        top: 29%;
+        right: 78.5%;
+    }
+}
+
+.frameContainer {
+    position: relative;
+    flex: 1;
+
+    @media (max-width: 1023px) {
+        padding-bottom: 10%;
+    }
+}
+
+.textBaseStyling {
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 19.2px;
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+    color: #47506d;
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+
+    span {
+        text-transform: uppercase;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #5072eb;
+
+        @media (max-width: 1280px) {
+            font-size: 0.75rem;
+        }
+
+        @media (max-width: 1023px) {
+            font-size: 1.8vw;
+        }
+    }
+
+    @media (max-width: 1280px) {
+        font-size: 0.75rem;
+    }
+
+    @media (max-width: 1024px) {
+        font-size: 1.8vw;
+        max-width: 18vw;
+        line-height: 2.5vw;
+    }
+
+    @media (max-width: 425px) {
+        font-size: 2.5vw;
+        max-width: 22vw;
+
+        span {
+            font-size: 2.5vw;
+        }
+    }
+}
+
+.flowStepOne {
+    top: 100%;
+    left: 3%;
+
+    @media (max-width: 1180px) {
+        left: 0;
+    }
+
+    @media (max-width: 1023px) {
+        top: 80%;
+        left: 4vw;
+    }
+}
+
+.flowStepTwo {
+    top: 105%;
+    left: 37%;
+
+    @media (max-width: 1180px) {
+        left: 34%;
+    }
+
+    @media (max-width: 1023px) {
+        top: 85%;
+        left: 30vw;
+    }
+}
+
+.flowStepThree {
+    top: 97%;
+    left: 70%;
+
+    @media (max-width: 1180px) {
+        left: 68%;
+    }
+
+    @media (max-width: 1023px) {
+        top: 78%;
+        left: 56vw;
+    }
+}

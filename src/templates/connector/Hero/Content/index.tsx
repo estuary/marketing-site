@@ -4,7 +4,8 @@ import React from 'react';
 import DoneIcon from '@mui/icons-material/Done';
 import { ConnectorType, dashboardRegisterUrl } from '../../../../../shared';
 import HeroSectionDetails from '../../../../components/HeroSectionDetails';
-import { Button, Container, ContainerPreTitle, Topic, Topics } from './styles';
+import { OutboundLinkFilled } from '../../../../components/OutboundLink';
+import { container, containerPreTitleWrapper } from './styles.module.less';
 
 type ContentProps = {
     connector: {
@@ -15,8 +16,8 @@ type ContentProps = {
 
 const Content = ({ connector }: ContentProps) => {
     return (
-        <Container>
-            <ContainerPreTitle>
+        <div className={container}>
+            <div className={containerPreTitleWrapper}>
                 <StaticImage
                     placeholder="none"
                     alt="icon"
@@ -25,8 +26,8 @@ const Content = ({ connector }: ContentProps) => {
                     height={40}
                     quality={100}
                 />
-                <span>Real-time ETL & CDC</span>
-            </ContainerPreTitle>
+                <span>REAL-TIME ETL & CDC</span>
+            </div>
             <HeroSectionDetails
                 title={
                     connector.type === 'capture' ? (
@@ -49,24 +50,24 @@ const Content = ({ connector }: ContentProps) => {
                 data from 100s of sources using Estuary's custom no-code
                 connectors."
             />
-            <Topics>
-                <Topic>
+            <ul>
+                <li>
                     <DoneIcon htmlColor="#47506d" fontSize="small" />
                     <span>&#60;100ms</span> Data pipelines
-                </Topic>
-                <Topic>
+                </li>
+                <li>
                     <DoneIcon htmlColor="#47506d" fontSize="small" />
                     <span>100+</span> Connectors
-                </Topic>
-                <Topic>
+                </li>
+                <li>
                     <DoneIcon htmlColor="#47506d" fontSize="small" />
                     <span>2-5x</span> less than batch ELT
-                </Topic>
-            </Topics>
-            <Button target="_blank" href={dashboardRegisterUrl}>
+                </li>
+            </ul>
+            <OutboundLinkFilled target="_blank" href={dashboardRegisterUrl}>
                 Try it free
-            </Button>
-        </Container>
+            </OutboundLinkFilled>
+        </div>
     );
 };
 

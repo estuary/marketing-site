@@ -5,21 +5,21 @@ import {
     getImage,
 } from 'gatsby-plugin-image';
 import React from 'react';
-
+import clsx from 'clsx';
 import { ConnectorType } from '../../../../shared';
 import LightSwoopingLinesRightDirectionBackground from '../../../components/BackgroundImages/LightSwoopingLinesRightDirectionBackground';
 import Container from '../../../components/Container';
 import Content from './Content';
-
 import {
-    ContainerImage,
-    FlowStepOne,
-    FlowStepThree,
-    FlowStepTwo,
-    FrameContainer,
-    LogoContainer,
-    logoImageStyle,
-} from './styles';
+    containerImage,
+    flowStepOne,
+    flowStepThree,
+    flowStepTwo,
+    frameContainer,
+    logoContainer,
+    logoContainerCapture,
+    textBaseStyling,
+} from './styles.module.less';
 
 type HeroProps = {
     connector: {
@@ -42,30 +42,34 @@ const Hero = ({ connector: { title, logo, type } }: HeroProps) => {
                     }}
                 />
                 {logoImage ? (
-                    <ContainerImage>
-                        <FlowStepOne>
+                    <div className={containerImage}>
+                        <span className={clsx(textBaseStyling, flowStepOne)}>
                             <span>01.</span>{' '}
                             {type === 'capture'
                                 ? `Move from ${title}`
                                 : 'Select a source'}
-                        </FlowStepOne>
-                        <FlowStepTwo>
+                        </span>
+                        <span className={clsx(textBaseStyling, flowStepTwo)}>
                             <span>02.</span> Transform in-flight
-                        </FlowStepTwo>
-                        <FlowStepThree>
+                        </span>
+                        <span className={clsx(textBaseStyling, flowStepThree)}>
                             <span>03.</span>{' '}
                             {type === 'materialization'
                                 ? `Deliver to ${title}`
                                 : 'Select a destination'}
-                        </FlowStepThree>
-                        <LogoContainer $connectorType={type}>
+                        </span>
+                        <div
+                            className={clsx(
+                                logoContainer,
+                                type === 'capture' ? logoContainerCapture : null
+                            )}
+                        >
                             <GatsbyImage
                                 alt={`${title} logo`}
                                 image={logoImage}
-                                style={logoImageStyle}
                             />
-                        </LogoContainer>
-                        <FrameContainer>
+                        </div>
+                        <div className={frameContainer}>
                             {type === 'capture' ? (
                                 <StaticImage
                                     placeholder="none"
@@ -85,8 +89,8 @@ const Hero = ({ connector: { title, logo, type } }: HeroProps) => {
                                     }}
                                 />
                             )}
-                        </FrameContainer>
-                    </ContainerImage>
+                        </div>
+                    </div>
                 ) : null}
             </Container>
         </LightSwoopingLinesRightDirectionBackground>
