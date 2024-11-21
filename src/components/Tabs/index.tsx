@@ -1,6 +1,12 @@
 // src/components/Tabs.tsx
 import React, { ReactNode, useState } from 'react';
-import { Tab, TabContainer, TabList } from './styles';
+import clsx from 'clsx';
+import {
+    tabStyle,
+    activeTabStyle,
+    container,
+    tabList,
+} from './styles.module.less';
 
 interface TabData {
     label: string;
@@ -17,20 +23,23 @@ const Tabs = ({ tabs }: TabsProps) => {
     const handleTabClick = (index: number) => setActiveTab(index);
 
     return (
-        <TabContainer>
-            <TabList>
+        <div className={container}>
+            <div className={tabList}>
                 {tabs.map((tab, index) => (
-                    <Tab
+                    <div
                         key={index}
-                        $isActive={activeTab === index}
                         onClick={() => handleTabClick(index)}
+                        className={clsx(
+                            tabStyle,
+                            activeTab === index ? activeTabStyle : null
+                        )}
                     >
                         <span>{tab.label}</span>
-                    </Tab>
+                    </div>
                 ))}
-            </TabList>
+            </div>
             {tabs[activeTab].content}
-        </TabContainer>
+        </div>
     );
 };
 
