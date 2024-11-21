@@ -1,6 +1,4 @@
-import styled from 'styled-components';
-
-export const Title = styled.h2`
+.title {
     font-size: 2.5rem;
     font-weight: 600;
     line-height: 48px;
@@ -15,23 +13,23 @@ export const Title = styled.h2`
         margin: 0;
     }
 
-    & > span {
+    &>span {
         color: #5072eb;
     }
-`;
+}
 
-export const TableWrapper = styled.div`
+.tableWrapper {
     display: flex;
     flex-direction: column;
     gap: 16px;
     width: 100%;
-`;
 
-export const TableTitle = styled.h3`
-    font-size: 1.25rem;
-    font-weight: 600;
-    line-height: 24px;
-    text-align: center;
-    color: #47506d;
-    margin: 0;
-`;
+    h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        line-height: 24px;
+        text-align: center;
+        color: #47506d;
+        margin: 0;
+    }
+}

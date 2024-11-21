@@ -4,19 +4,19 @@ import { LinkFilled } from '../../../globalStyles';
 import { DefaultWrapperDark } from '../../../styles/wrappers';
 import PipelinesTable from '../../PipelinesTable';
 import Container from '../../Container';
-import { TableTitle, TableWrapper, Title } from './styles';
+import { tableWrapper, title } from './styles.module.less';
 
 const HowEstuaryFlowCompares = () => {
     return (
         <DefaultWrapperDark>
             <Container isVertical>
-                <Title>
+                <h2 className={title}>
                     HOW <span>ESTUARY FLOW</span> COMPARES
-                </Title>
-                <TableWrapper>
-                    <TableTitle>Feature Comparison</TableTitle>
+                </h2>
+                <div className={tableWrapper}>
+                    <h3>Feature Comparison</h3>
                     <PipelinesTable />
-                </TableWrapper>
+                </div>
                 <LinkFilled
                     href="/etl-tools/estuary-vs-fivetran/"
                     target="_blank"
