@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { currencyFormatter } from '../../utils';
-import { BrandName, BrandPrice, BrandWrapper } from './styles';
+import { brandName, brandPrice, brandWrapper } from './styles.module.less';
 
 interface ComparisonCardProps {
     title: string;
@@ -9,12 +9,12 @@ interface ComparisonCardProps {
 
 const ComparisonCard = ({ title, price }: ComparisonCardProps) => {
     return (
-        <BrandWrapper>
-            <BrandName>{title}</BrandName>
-            <BrandPrice>
+        <div className={brandWrapper}>
+            <span className={brandName}>{title}</span>
+            <span className={brandPrice}>
                 <span>{currencyFormatter.format(price)}</span> / month
-            </BrandPrice>
-        </BrandWrapper>
+            </span>
+        </div>
     );
 };
 

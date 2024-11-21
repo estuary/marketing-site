@@ -1,0 +1,248 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    border: 1px solid #d5ddf8;
+    border-radius: 16px;
+    padding: 28px;
+    background-color: #fff;
+    min-height: 697px;
+}
+
+.subSectionTitle {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 24px;
+    color: #47506d;
+}
+
+.highlightedCard {
+    background-color: #5072eb12;
+    border: 1px solid #5072eb;
+    border-radius: 16px;
+    padding: 16px 32px;
+    color: #5072eb;
+    display: flex;
+    flex-direction: column;
+    min-height: 99.2px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    padding: 8px 0 60px 0;
+
+    @media (max-width: 425px) {
+        flex-direction: column;
+        gap: 16px;
+    }
+}
+
+.textWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    p {
+        color: '#47506d';
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 20px;
+    }
+}
+
+.gbInput {
+    font-family: var(--font-family);
+    color: #47506d;
+    font-weight: 500;
+    height: 52px;
+    max-width: 119px;
+    border: 1px solid #d7dce5;
+    border-radius: 4px;
+
+    @media (max-width: 425px) {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+.sliderWrapper {
+    width: 100%;
+    max-height: 32px;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.estuaryPrice {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    gap: 24px;
+    min-height: 169px;
+
+    @media (max-width: 1024px) {
+        flex-wrap: wrap;
+    }
+
+    @media (max-width: 525px) {
+        gap: 32px;
+        padding: 0;
+    }
+
+    @media (max-width: 325px) {
+        gap: 16px;
+        padding: 0;
+    }
+}
+
+.priceComparisons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.comparisons {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (max-width: 768px),
+    (min-width: 1025px) and (max-width: 1400px) {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+}
+
+.brandWrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    flex-wrap: wrap;
+
+    @media (max-width: 525px) {
+        gap: 4px;
+        max-width: 100%;
+    }
+}
+
+.highlightedBrandPrice {
+    font-size: 1.25rem;
+
+    span {
+        font-weight: 600;
+        font-size: 2rem;
+        line-height: 38.4px;
+    }
+}
+
+.brandName {
+    color: '#04192b';
+    font-weight: 400;
+    font-size: 1rem;
+
+    @media (max-width: 425px) {
+        font-size: 0.875rem;
+    }
+}
+
+.brandPrice {
+    color: #47506d;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 24px;
+    display: inline-block;
+    white-space: nowrap;
+    text-align: center;
+
+    span {
+        color: #04192b;
+    }
+
+    @media (max-width: 425px) {
+        font-size: 0.875rem;
+    }
+}
+
+.brandDetails {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.detail {
+    font-size: 0.875rem;
+    color: #47506d;
+    line-height: 16.8px;
+
+    span {
+        font-weight: 600;
+    }
+}
+
+.connectorsCounter {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (max-width: 425px) {
+        flex-direction: column;
+    }
+}
+
+.selector {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+
+    button {
+        width: 52px;
+        height: 52px;
+        padding: 0;
+
+        @media (max-width: 425px) {
+            min-width: 52px;
+            min-height: 52px;
+        }
+    }
+}
+
+.form {
+    max-width: 85px;
+
+    @media (max-width: 425px) {
+        max-width: 100%;
+    }
+}
+
+.countInput {
+    font-family: var(--font-family);
+    max-width: 85px;
+    height: 52px;
+    border: 0;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 500;
+    box-shadow: none;
+
+    @media (max-width: 1280px) {
+        font-size: 1rem;
+    }
+
+    @media (max-width: 425px) {
+        max-width: 100%;
+    }
+}
+
+.divider {
+    width: 100%;
+    height: 1px;
+    border: 1px solid #d5ddf8;
+}
