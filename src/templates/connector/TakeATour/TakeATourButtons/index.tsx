@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { webinarsUrl } from '../../../../../shared';
 import { OutboundLinkOutlined } from '../../../../components/OutboundLink';
 import { LinkFilled } from '../../../../globalStyles';

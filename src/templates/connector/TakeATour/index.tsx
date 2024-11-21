@@ -1,50 +1,51 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
-
+import ReactPlayer from 'react-player';
 import { estuaryProductFlowVideoUrl } from '../../../../shared';
 import useWindowExistence from '../../../hooks/useWindowExistence';
-import { DefaultWrapperDark } from '../../../styles/wrappers';
-import { ContainerIcon } from '../styles';
+import { containerIcon } from '../styles.module.less';
 import Container from '../../../components/Container';
+import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
+import BubblesCircleBackground from '../../../components/BackgroundImages/BubblesCircleBackground';
 import {
-    ContainerButton,
-    ContainerContent,
-    ContainerIcons,
-    ContainerLeft,
-    Description,
-    EstuaryProductVideo,
-    Title,
-    VideoPreviewContainer,
-} from './styles';
+    containerButton,
+    containerContent,
+    containerIcons,
+    containerLeft,
+    estuaryProductVideo,
+    videoPreviewContainer,
+    estuaryproductvideoThumbnail,
+} from './styles.module.less';
 import TakeATourButtons from './TakeATourButtons';
 
 const TakeATour = () => {
     const hasWindow = useWindowExistence();
 
     return (
-        <DefaultWrapperDark>
+        <section className={defaultWrapperDark}>
             <Container isReverseColumnOnMobile>
-                <ContainerLeft>
+                <BubblesCircleBackground className={containerLeft}>
                     {hasWindow ? (
-                        <EstuaryProductVideo
+                        <ReactPlayer
                             light={
-                                <VideoPreviewContainer>
+                                <div className={videoPreviewContainer}>
                                     <StaticImage
                                         quality={90}
                                         placeholder="none"
                                         alt="estuary flow product video"
                                         src="../../../images/homepage-product-video.svg"
-                                        className="estuary-product-video-thumbnail"
+                                        className={estuaryproductvideoThumbnail}
                                     />
-                                </VideoPreviewContainer>
+                                </div>
                             }
                             url={estuaryProductFlowVideoUrl}
+                            className={estuaryProductVideo}
                         />
                     ) : null}
-                </ContainerLeft>
-                <ContainerContent>
-                    <ContainerIcons>
-                        <ContainerIcon>
+                </BubblesCircleBackground>
+                <div className={containerContent}>
+                    <div className={containerIcons}>
+                        <div className={containerIcon}>
                             <StaticImage
                                 alt="Microsoft Logo"
                                 src="../../../images/microsoft-logo.png"
@@ -52,8 +53,8 @@ const TakeATour = () => {
                                 height={46}
                                 quality={100}
                             />
-                        </ContainerIcon>
-                        <ContainerIcon>
+                        </div>
+                        <div className={containerIcon}>
                             <StaticImage
                                 alt="AWS Logo"
                                 src="../../../images/aws-logo.png"
@@ -61,8 +62,8 @@ const TakeATour = () => {
                                 height={46}
                                 quality={100}
                             />
-                        </ContainerIcon>
-                        <ContainerIcon>
+                        </div>
+                        <div className={containerIcon}>
                             <StaticImage
                                 alt="Google Cloud Logo"
                                 src="../../../images/google-cloud-logo.png"
@@ -70,19 +71,19 @@ const TakeATour = () => {
                                 height={46}
                                 quality={100}
                             />
-                        </ContainerIcon>
-                    </ContainerIcons>
-                    <Title>TAKE A TOUR</Title>
-                    <Description>
+                        </div>
+                    </div>
+                    <h2>TAKE A TOUR</h2>
+                    <p>
                         Learn more about how Estuary can help with real-time
                         replication.
-                    </Description>
-                    <ContainerButton>
+                    </p>
+                    <div className={containerButton}>
                         <TakeATourButtons />
-                    </ContainerButton>
-                </ContainerContent>
+                    </div>
+                </div>
             </Container>
-        </DefaultWrapperDark>
+        </section>
     );
 };
 

@@ -10,7 +10,7 @@ import Hero from './Hero';
 import Pipelines from './Pipelines';
 import RealTime from './RealTime';
 import TakeATour from './TakeATour';
-import { BreadcrumbsWrapper } from './styles';
+import { breadcrumbsWrapper } from './styles.module.less';
 
 export interface ConnectorProps {
     data: {
@@ -40,7 +40,7 @@ const Connector = ({
 
     return (
         <Layout>
-            <BreadcrumbsWrapper>
+            <div className={breadcrumbsWrapper}>
                 <Breadcrumbs
                     breadcrumbs={[
                         {
@@ -60,7 +60,7 @@ const Connector = ({
                         },
                     ]}
                 />
-            </BreadcrumbsWrapper>
+            </div>
             <article itemScope itemType="http://schema.org/Article">
                 <Hero
                     connector={{
