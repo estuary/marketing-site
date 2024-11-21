@@ -1,0 +1,80 @@
+@import '../../../globalStyles/sections.module.less';
+
+.wrapper {
+    .sectionTopBottomPadding;
+    .globalMaxWidth;
+
+    .background {
+        overflow: hidden;
+    }
+}
+
+.containerWrapper {
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+.container {
+    padding: 40px;
+    display: flex;
+    flex-direction: column-reverse;
+    border-radius: 24px;
+
+    @media (min-width: 1024px) {
+        flex-direction: row;
+        align-items: center;
+        min-height: 400px;
+    }
+
+    @media (min-width: 1280px) {
+        padding: 48px 90px;
+    }
+}
+
+.containerImage {
+    position: relative;
+    flex: 1;
+    max-width: 335px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+
+    @media (min-width: 1024px) {
+        max-width: 100%;
+
+        >div {
+            margin-left: 60px;
+        }
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    flex: 1;
+
+    h2 {
+        font-weight: 600;
+        font-size: 36px;
+        line-height: 43px;
+        margin: 0;
+        color: #fff;
+
+        span {
+            color: #5072eb;
+        }
+
+        @media (min-width: 1280px) {
+            font-size: 60px;
+            line-height: 72px;
+        }
+    }
+
+    a {
+        width: 100%;
+
+        @media (min-width: 1280px) {
+            width: 220px;
+        }
+    }
+}

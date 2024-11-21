@@ -1,33 +1,35 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
-
 import { dashboardRegisterUrl } from '../../../../shared';
+import { OutboundLinkFilled } from '../../../components/OutboundLink';
+import StraightLinesBackground from '../../../components/BackgroundImages/StraightLinesBackground';
 import {
-    Button,
-    ContainerWrapper,
-    Container,
-    ContainerImage,
-    Content,
-    Title,
-    Wrapper,
-} from './style';
+    containerWrapper,
+    container,
+    containerImage,
+    content,
+    wrapper,
+} from './style.module.less';
 
 const RealTime = () => {
     return (
-        <Wrapper>
-            <ContainerWrapper>
-                <Container>
-                    <Content>
-                        <Title>
+        <section className={wrapper}>
+            <div className={containerWrapper}>
+                <StraightLinesBackground className={container}>
+                    <div className={content}>
+                        <h2>
                             Deliver <span>real-time</span> and{' '}
                             <span>batch</span> data from DBs, SaaS, APIs, and
                             more
-                        </Title>
-                        <Button target="_blank" href={dashboardRegisterUrl}>
+                        </h2>
+                        <OutboundLinkFilled
+                            target="_blank"
+                            href={dashboardRegisterUrl}
+                        >
                             Build Free Pipeline
-                        </Button>
-                    </Content>
-                    <ContainerImage>
+                        </OutboundLinkFilled>
+                    </div>
+                    <div className={containerImage}>
                         <StaticImage
                             alt="Connection-1"
                             src="../../../images/lp-connector/real-time/icons.png"
@@ -35,10 +37,10 @@ const RealTime = () => {
                             height={240}
                             quality={100}
                         />
-                    </ContainerImage>
-                </Container>
-            </ContainerWrapper>
-        </Wrapper>
+                    </div>
+                </StraightLinesBackground>
+            </div>
+        </section>
     );
 };
 
