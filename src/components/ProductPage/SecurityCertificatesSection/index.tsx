@@ -1,12 +1,12 @@
 import React from 'react';
-import { DefaultWrapperDark } from '../../../styles/wrappers';
+import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import SecurityCertificates from '../../SecurityCertificates';
 
 const SecurityCertificatesSection = () => {
     return (
-        <DefaultWrapperDark>
+        <section className={defaultWrapperDark}>
             <SecurityCertificates />
-        </DefaultWrapperDark>
+        </section>
     );
 };
 

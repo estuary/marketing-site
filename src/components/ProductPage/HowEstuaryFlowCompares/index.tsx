@@ -1,14 +1,13 @@
 import React from 'react';
-
 import { LinkFilled } from '../../../globalStyles';
-import { DefaultWrapperDark } from '../../../styles/wrappers';
+import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import PipelinesTable from '../../PipelinesTable';
 import Container from '../../Container';
 import { tableWrapper, title } from './styles.module.less';
 
 const HowEstuaryFlowCompares = () => {
     return (
-        <DefaultWrapperDark>
+        <section className={defaultWrapperDark}>
             <Container isVertical>
                 <h2 className={title}>
                     HOW <span>ESTUARY FLOW</span> COMPARES
@@ -25,7 +24,7 @@ const HowEstuaryFlowCompares = () => {
                     View Comparisons
                 </LinkFilled>
             </Container>
-        </DefaultWrapperDark>
+        </section>
     );
 };
 

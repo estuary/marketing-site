@@ -1,13 +1,13 @@
 import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
-import { DefaultWrapperDarkBlue } from '../../../styles/wrappers';
+import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import NewsletterSignupForm from '../../NewsletterSignupForm';
 import Container from '../../Container';
 import { formFields, iconWrapper, imageWrapper } from './styles.module.less';
 
 const DontMissAThing = () => {
     return (
-        <DefaultWrapperDarkBlue>
+        <section className={defaultWrapperDarkBlue}>
             <Container isReverseColumnOnMobile>
                 <div className={imageWrapper}>
                     <StaticImage
@@ -36,7 +36,7 @@ const DontMissAThing = () => {
                     </p>
                 </div>
             </Container>
-        </DefaultWrapperDarkBlue>
+        </section>
     );
 };
 

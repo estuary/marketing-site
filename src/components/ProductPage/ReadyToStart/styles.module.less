@@ -1,6 +1,4 @@
-import styled from 'styled-components';
-
-export const Title = styled.h2`
+.sectionTitle {
     font-size: 2.5rem;
     font-weight: 600;
     line-height: 48px;
@@ -14,9 +12,9 @@ export const Title = styled.h2`
         line-height: 33.6px;
         margin: 0;
     }
-`;
+}
 
-export const Columns = styled.div`
+.columns {
     display: flex;
     align-items: center;
     gap: 60px;
@@ -25,9 +23,9 @@ export const Columns = styled.div`
     @media (max-width: 768px) {
         flex-direction: column-reverse;
     }
-`;
+}
 
-export const Boxes = styled.div`
+.boxes {
     display: flex;
     flex-direction: column;
     gap: 32px;
@@ -44,9 +42,9 @@ export const Boxes = styled.div`
             width: 100%;
         }
     }
-`;
+}
 
-export const GetStartedBox = styled.div`
+.getStartedBox {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -70,9 +68,9 @@ export const GetStartedBox = styled.div`
     @media (max-width: 768px) {
         width: 100%;
     }
-`;
+}
 
-export const ContactUsBox = styled.div`
+.contactUsBox {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -96,9 +94,9 @@ export const ContactUsBox = styled.div`
     @media (max-width: 768px) {
         width: 100%;
     }
-`;
+}
 
-export const TextWrapper = styled.div`
+.textWrapper {
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -107,29 +105,29 @@ export const TextWrapper = styled.div`
     @media (min-width: 769px) {
         max-width: 308px;
     }
-`;
 
-export const BoxTitle = styled.h3`
-    font-size: 1.5rem;
+    h3 {
+        font-size: 1.5rem;
     font-weight: 700;
     line-height: 28.8px;
     color: #47506d;
     margin: 0;
-`;
+    }
 
-export const BoxDescription = styled.p`
-    color: #47506d;
+    p {
+        color: #47506d;
     margin: 0;
     line-height: 30px;
     font-size: 1rem;
     font-weight: 400;
-`;
+    }
+}
 
-export const ImageWrapper = styled.div`
+.imageWrapper {
     max-width: 515px;
-`;
+}
 
-export const IconWrapper = styled.div`
+.iconWrapper {
     min-width: 20px;
     min-height: 20px;
-`;
+}
