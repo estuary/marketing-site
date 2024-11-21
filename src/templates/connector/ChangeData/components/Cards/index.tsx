@@ -1,18 +1,21 @@
-import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
-
+import { StaticImage } from 'gatsby-plugin-image';
+import clsx from 'clsx';
 import Card from '../Card';
+import CdcBackground from '../../../../../components/BackgroundImages/CdcBackground';
+import {
+    container,
+    containerCards,
+    containerCardsReverse,
+} from './styles.module.less';
 
-import { Container, ContainerCards } from './style';
-
-const TheAutomationCards = ({ $reverseDesktop = false }) => {
+const TheAutomationCards = ({ reverseDesktop = false }) => {
     return (
-        <Container>
-            <ContainerCards>
+        <CdcBackground className={container}>
+            <div className={containerCards}>
                 <Card
                     title="HIGH THROUGHPUT"
                     description="Distributed event-driven architecture enable boundless scaling with exactly-once semantics."
-                    $reverseDesktop
                 >
                     <StaticImage
                         alt="icon-2"
@@ -22,30 +25,30 @@ const TheAutomationCards = ({ $reverseDesktop = false }) => {
                 <Card
                     title="DURABLE REPLICATION"
                     description="Cloud storage backed CDC w/ heart beats ensures reliability, even if your destination is down."
-                    $reverseDesktop
                 >
                     <StaticImage
                         alt="icon-3"
                         src="../../../../../images/lp-connector/change-data/icon-03.png"
                     />
                 </Card>
-            </ContainerCards>
-            <ContainerCards
-                $reverseDesktop={$reverseDesktop}
-                $isBottomCard={true}
+            </div>
+            <div
+                className={clsx(
+                    containerCards,
+                    reverseDesktop ? containerCardsReverse : null
+                )}
             >
                 <Card
                     title="REAL-TIME INGESTION"
                     description="Capture and relay every  insert, update, and delete in milliseconds."
-                    $reverseDesktop
                 >
                     <StaticImage
                         alt="icon-1"
                         src="../../../../../images/lp-connector/change-data/icon-01.png"
                     />
                 </Card>
-            </ContainerCards>
-        </Container>
+            </div>
+        </CdcBackground>
     );
 };
 

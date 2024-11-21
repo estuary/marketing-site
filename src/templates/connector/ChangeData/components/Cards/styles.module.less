@@ -1,12 +1,4 @@
-import styled from 'styled-components';
-
-import CdcBackground from '../../../../../components/BackgroundImages/CdcBackground';
-
-interface ContainerCardsProps {
-    $reverseDesktop: boolean;
-}
-
-export const Container = styled(CdcBackground)`
+.container {
     display: flex;
     flex-direction: column;
     gap: 120px;
@@ -14,20 +6,19 @@ export const Container = styled(CdcBackground)`
     @media (min-width: 1170px) {
         flex-direction: column-reverse;
     }
-`;
+}
 
-export const ContainerCards: any = styled.div<ContainerCardsProps>`
+.containerCards {
     display: flex;
     flex-direction: column-reverse;
     gap: 20px;
 
     @media (min-width: 1170px) {
         display: flex;
-        flex-direction: ${({ $reverseDesktop }) =>
-            $reverseDesktop ? 'column' : 'row'};
+        flex-direction: row;
         justify-content: space-around;
 
-        > div:nth-child(2) {
+        >div:nth-child(2) {
             position: relative;
             top: 50px;
         }
@@ -43,4 +34,10 @@ export const ContainerCards: any = styled.div<ContainerCardsProps>`
             padding: 12px;
         }
     }
-`;
+}
+
+.containerCardsReverse {
+    @media (min-width: 1170px) {
+        flex-direction: column;
+    }
+}

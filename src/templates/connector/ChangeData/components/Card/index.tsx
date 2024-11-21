@@ -1,28 +1,20 @@
 import React from 'react';
 
 import {
-    Container,
-    ContainerContent,
-    ContainerImage,
-    Description,
-    Title,
-} from './style';
+    container,
+    containerContent,
+    containerImage,
+} from './styles.module.less';
 
-const TheAutomationCard = ({
-    title,
-    description,
-    $reverse = false,
-    $reverseDesktop = false,
-    children,
-}) => {
+const TheAutomationCard = ({ title, description, children }) => {
     return (
-        <Container $reverse={$reverse} $reverseDesktop={$reverseDesktop}>
-            <ContainerImage>{children}</ContainerImage>
-            <ContainerContent>
-                <Title>{title}</Title>
-                <Description>{description}</Description>
-            </ContainerContent>
-        </Container>
+        <div className={container}>
+            <div className={containerImage}>{children}</div>
+            <div className={containerContent}>
+                <h3>{title}</h3>
+                <p>{description}</p>
+            </div>
+        </div>
     );
 };
 
