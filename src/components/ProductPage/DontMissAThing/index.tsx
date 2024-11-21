@@ -1,48 +1,40 @@
 import React from 'react';
-
 import { StaticImage } from 'gatsby-plugin-image';
 import { DefaultWrapperDarkBlue } from '../../../styles/wrappers';
 import NewsletterSignupForm from '../../NewsletterSignupForm';
 import Container from '../../Container';
-import {
-    FormFields,
-    FormLabel,
-    IconWrapper,
-    ImageWrapper,
-    TermsAndConditions,
-    Title,
-} from './styles';
+import { formFields, iconWrapper, imageWrapper } from './styles.module.less';
 
 const DontMissAThing = () => {
     return (
         <DefaultWrapperDarkBlue>
             <Container isReverseColumnOnMobile>
-                <ImageWrapper>
+                <div className={imageWrapper}>
                     <StaticImage
                         placeholder="none"
                         alt="Subscribe to our newsletter"
                         src="../../../images/product-page/section-thirteen/news.png"
                     />
-                </ImageWrapper>
-                <FormFields>
-                    <IconWrapper>
+                </div>
+                <div className={formFields}>
+                    <div className={iconWrapper}>
                         <StaticImage
                             placeholder="none"
                             alt="Email icon"
                             src="../../../svgs/product-page/section-thirteen/email-outlined.svg"
                         />
-                    </IconWrapper>
-                    <Title>DON&apos;T MISS A THING</Title>
-                    <FormLabel htmlFor="newsletter-signup">
+                    </div>
+                    <h2>DON&apos;T MISS A THING</h2>
+                    <label htmlFor="newsletter-signup">
                         Join our newsletter to get best practices, events, and
                         news.
-                    </FormLabel>
+                    </label>
                     <NewsletterSignupForm inputPlaceholder="Enter your email" />
-                    <TermsAndConditions>
+                    <p>
                         By subscribing I agree with{' '}
                         <a href="/terms/">Terms and Conditions</a>
-                    </TermsAndConditions>
-                </FormFields>
+                    </p>
+                </div>
             </Container>
         </DefaultWrapperDarkBlue>
     );
