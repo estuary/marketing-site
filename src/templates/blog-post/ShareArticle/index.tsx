@@ -7,7 +7,7 @@ import CopyToClipboardButton from '../../../components/CopyToClipboardButton';
 import { socialShareButton } from '../../../components/styles.module.less';
 import { OutboundLink } from '../../../components/OutboundLink';
 import useWindowExistence from '../../../hooks/useWindowExistence';
-import { Container, SocialButtonsWrapper } from './styles';
+import { container, socialButtonsWrapper } from './styles.module.less';
 
 type ShareArticleProps = {
     article: {
@@ -27,9 +27,9 @@ const ShareArticle = ({ article: { title, slug } }: ShareArticleProps) => {
         `Click to share article on ${platform}`;
 
     return (
-        <Container>
+        <div className={container}>
             <span>Share this article</span>
-            <SocialButtonsWrapper>
+            <div className={socialButtonsWrapper}>
                 <CopyToClipboardButton contentToCopy={articleUrl} />
                 <OutboundLink
                     target="_blank"
@@ -63,8 +63,8 @@ const ShareArticle = ({ article: { title, slug } }: ShareArticleProps) => {
                 >
                     <EmailOutlinedIcon />
                 </OutboundLink>
-            </SocialButtonsWrapper>
-        </Container>
+            </div>
+        </div>
     );
 };
 
