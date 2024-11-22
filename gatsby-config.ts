@@ -349,18 +349,6 @@ const cfg: GatsbyConfig = {
         },
         'gatsby-plugin-less',
         {
-            resolve: 'gatsby-plugin-styled-components',
-            // https://styled-components.com/docs/tooling#babel-plugin
-            options: {
-                ssr: false, // We need this to prevent mismatch errors
-                transpileTemplateLiterals: false, // Setting to false just to be safe - think we can remove in future
-                displayName: process.env.NODE_ENV !== 'production', // Good to enable when debugging - but should not be needed for production
-                fileName: true, // We want to use the file in the style name
-                preprocess: false,
-                meaninglessFileNames: ['index', 'styles'], // Having these two files names in the class name isn't too valuable
-            },
-        },
-        {
             resolve: 'gatsby-plugin-local-search',
             options: {
                 // A unique name for the search index. This should be descriptive of
