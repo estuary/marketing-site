@@ -37,8 +37,8 @@
   height: 30px !important;
 
   @media (min-width: 1280px) {
-      width: 27px !important;
-      height: 35px !important;
+    width: 27px !important;
+    height: 35px !important;
   }
 }
 
@@ -52,7 +52,7 @@
   color: #fff;
 
   @media (min-width: 1280px) {
-      font-size: 2rem;
+    font-size: 2rem;
   }
 }
 
@@ -74,5 +74,41 @@
   @media (max-width: 1150px) {
     width: 48px;
     height: 48px;
+  }
+}
+
+.legalWrapper {
+  padding-left: ~'calc(min(9%, 146px))';
+  padding-right: ~'calc(min(9%, 146px))';
+
+  .legalUnderline {
+    text-decoration: underline;
+  }
+
+  .legalBold {
+    font-weight: bold;
+  }
+
+  &.privacyRoot {
+    .last-updated {
+      font-style: italic;
+    }
+  }
+
+  &.termsRoot {
+    display: flex;
+    flex-direction: column;
+
+    h4,
+    h6 {
+      text-align: center;
+    }
+
+    .lastUpdatedStyle {
+      font-weight: bold;
+      color: #6377ee;
+      margin-top: 0;
+      text-align: center;
+    }
   }
 }

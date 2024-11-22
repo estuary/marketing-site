@@ -1,11 +1,16 @@
 import React from 'react';
-import { buttonFilled } from '../styles.module.less';
+import clsx from 'clsx';
+import { baseButton, buttonFilled } from '../styles.module.less';
 
 const LinkFilled = React.forwardRef<
     HTMLAnchorElement,
     React.HTMLProps<HTMLAnchorElement>
->(({ children, ...props }, ref) => (
-    <a ref={ref} {...props} className={buttonFilled}>
+>(({ children, className, ...props }, ref) => (
+    <a
+        ref={ref}
+        {...props}
+        className={clsx(baseButton, buttonFilled, className)}
+    >
         {children}
     </a>
 ));

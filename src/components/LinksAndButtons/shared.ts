@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import {
+    baseButton,
     buttonPrimary,
     buttonPrimaryLight,
     buttonPrimaryDark,
@@ -14,10 +15,16 @@ export interface CustomProps {
     fullWidth?: boolean;
 }
 
-export const customStyles = (theme?: Theme, fullWidth?: boolean) =>
+export const customStyles = (
+    theme?: Theme,
+    fullWidth?: boolean,
+    className?: string
+) =>
     clsx(
+        baseButton,
         buttonPrimary,
         theme === 'light' ? buttonPrimaryLight : buttonPrimaryDark,
         fullWidth ? fullWidthStyle : null,
-        hover
+        hover,
+        className
     );

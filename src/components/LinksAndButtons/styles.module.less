@@ -1,3 +1,5 @@
+@primaryColor: #5072EB;
+
 .hover {
     &:hover {
         svg {
@@ -31,8 +33,8 @@
     }
 
     &:active {
-        background-color: #5072EB;
-        border-color: #5072EB;
+        background-color: @primaryColor;
+        border-color: @primaryColor;
     }
 
     &:disabled {
@@ -42,19 +44,17 @@
 }
 
 .buttonFilled {
-    .baseButton;
-    background-color: #5072EB;
-    border: 2px solid #5072EB;
+    background-color: @primaryColor;
+    border: 2px solid @primaryColor;
     color: #FFFFFF;
 }
 
 .buttonPrimary {
-    .baseButton;
-    border: 2px solid #5072eb;
+    border: 2px solid @primaryColor;
 }
 
 .buttonPrimaryLight {
-    color: #5072eb;
+    color: @primaryColor;
     background-color: #fdfdfe;
 }
 
@@ -64,10 +64,9 @@
 }
 
 .buttonOutlined {
-    .hover;
-    width: auto;
+    background-color: transparent;
 }
 
-.fullWidth {
+.fullWidthStyle {
     width: 100%;
 }
