@@ -18,6 +18,7 @@ const TakeATourButtons = () => {
                 className={takeATourButton}
                 target="_blank"
                 href={webinarsUrl}
+                variant="secondary"
             >
                 Product Demo [30 min]
             </OutboundLinkOutlined>

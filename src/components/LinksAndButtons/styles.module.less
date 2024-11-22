@@ -1,12 +1,8 @@
-@primaryColor: #5072EB;
-
-.hover {
-    &:hover {
-        svg {
-            color: #ffffff;
-        }
-    }
-}
+@primaryColor: #5072eb;
+@hoverColor: #625eff;
+@lightColor: #fff;
+@disabledColor: #d7dce5;
+@secondaryColor: #fdfdfe;
 
 .baseButton {
     padding: 16px 24px;
@@ -21,15 +17,22 @@
     text-align: center;
     cursor: pointer;
     transition: background-color 150ms ease-in-out;
+    border: 2px solid @primaryColor;
+    background-color: @primaryColor;
+    color: @lightColor;
 
     @media (max-width: 425px) {
         font-size: 0.875rem;
     }
 
     &:hover {
-        background-color: #625EFF;
-        border-color: #625EFF;
-        color: #FFFFFF;
+        background-color: @hoverColor;
+        border-color: @hoverColor;
+        color: @lightColor;
+
+        svg {
+            color: @lightColor;
+        }
     }
 
     &:active {
@@ -38,29 +41,14 @@
     }
 
     &:disabled {
-        background-color: #D7DCE5;
-        border-color: #D7DCE5;
+        background-color: @disabledColor;
+        border-color: @disabledColor;
     }
 }
 
-.buttonFilled {
-    background-color: @primaryColor;
-    border: 2px solid @primaryColor;
-    color: #FFFFFF;
-}
-
-.buttonPrimary {
-    border: 2px solid @primaryColor;
-}
-
-.buttonPrimaryLight {
+.secondaryButton {
     color: @primaryColor;
-    background-color: #fdfdfe;
-}
-
-.buttonPrimaryDark {
-    color: #ffffff;
-    background-color: transparent;
+    background-color: @secondaryColor;
 }
 
 .buttonOutlined {

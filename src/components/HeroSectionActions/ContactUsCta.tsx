@@ -7,9 +7,7 @@ interface ContactUsProps {
 
 const ContactUsCta = ({ href }: ContactUsProps) => {
     return (
-        <LinkOutlined href={href ?? '/contact-us/'} theme="dark">
-            Contact Us
-        </LinkOutlined>
+        <LinkOutlined href={href ?? '/contact-us/'}>Contact Us</LinkOutlined>
     );
 };
 

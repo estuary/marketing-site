@@ -28,7 +28,7 @@ function OpenHubspotModal({
                 onClick={() => {
                     setOpenDialog(true);
                 }}
-                theme={theme}
+                variant={theme === 'dark' ? 'primary' : 'secondary'}
                 {...rest}
             >
                 {buttonLabel}

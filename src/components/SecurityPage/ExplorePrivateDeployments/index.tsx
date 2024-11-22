@@ -33,6 +33,7 @@ const ExplorePrivateDeployments = () => (
                     <OutboundLinkOutlined
                         href={`${docsPageUrl}/getting-started/deployment-options/`}
                         target="__blank"
+                        variant="secondary"
                     >
                         Explore Documentation
                     </OutboundLinkOutlined>

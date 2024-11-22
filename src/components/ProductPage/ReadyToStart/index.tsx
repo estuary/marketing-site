@@ -38,6 +38,7 @@ const ReadyToStart = () => {
                             <OutboundLinkOutlined
                                 href={dashboardRegisterUrl}
                                 target="_blank"
+                                variant="secondary"
                             >
                                 <div className={iconWrapper}>
                                     <LoginIcon color={iconColor} />
@@ -53,7 +54,10 @@ const ReadyToStart = () => {
                                     overview.
                                 </p>
                             </div>
-                            <LinkOutlined href="/contact-us/">
+                            <LinkOutlined
+                                href="/contact-us/"
+                                variant="secondary"
+                            >
                                 <div className={iconWrapper}>
                                     <CalendarIcon color={iconColor} />
                                 </div>

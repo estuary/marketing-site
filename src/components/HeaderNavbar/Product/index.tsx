@@ -77,7 +77,6 @@ const HeaderNavbarProduct = ({ active, setActive }) => {
                                 <OutboundLinkOutlined
                                     target="_blank"
                                     href={webinarsUrl}
-                                    theme="dark"
                                     fullWidth
                                 >
                                     Watch Estuary 101

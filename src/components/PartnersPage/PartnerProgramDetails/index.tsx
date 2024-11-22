@@ -34,7 +34,7 @@ const PartnerProgramDetails = ({
                 <p>{description}</p>
                 <LinkOutlined
                     href="/partners/#contact-us-form-section"
-                    theme={isDarkTheme ? 'dark' : 'light'}
+                    variant={isDarkTheme ? 'primary' : 'secondary'}
                 >
                     Contact Us
                 </LinkOutlined>

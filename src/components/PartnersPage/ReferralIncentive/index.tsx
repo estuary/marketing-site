@@ -14,10 +14,7 @@ const ReferralIncentive = () => (
                     Estuary offers an incentive after a deal is made through a
                     referral.
                 </p>
-                <LinkOutlined
-                    theme="dark"
-                    href="/partners/#contact-us-form-section"
-                >
+                <LinkOutlined href="/partners/#contact-us-form-section">
                     Contact Us
                 </LinkOutlined>
             </div>

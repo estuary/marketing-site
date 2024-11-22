@@ -117,7 +117,6 @@ const HeaderNavbarResources = ({ active, setActive }) => {
                                 <LinkOutlined
                                     target="_blank"
                                     href="/why/"
-                                    theme="dark"
                                     fullWidth
                                 >
                                     Watch Product Tour (2 min)
@@ -133,7 +132,6 @@ const HeaderNavbarResources = ({ active, setActive }) => {
                                 <OutboundLinkOutlined
                                     target="_blank"
                                     href={webinarsUrl}
-                                    theme="dark"
                                     fullWidth
                                 >
                                     Real-time 101 (30 min)

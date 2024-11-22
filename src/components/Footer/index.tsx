@@ -141,10 +141,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className={globalFooterBottom}>
-                <ButtonOutlinedPrimary
-                    onClick={openCookiePreferences}
-                    theme="dark"
-                >
+                <ButtonOutlinedPrimary onClick={openCookiePreferences}>
                     Manage Cookie Preferences
                 </ButtonOutlinedPrimary>
                 <hr className={globalFooterDivider} />

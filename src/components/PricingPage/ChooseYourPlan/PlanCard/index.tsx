@@ -97,7 +97,11 @@ const PlanCard = ({
             </div>
             <p className={planDescriptionStyle}>{description}</p>
             <hr className={divider} />
-            <LinkComponent href={button.href} target="_blank">
+            <LinkComponent
+                href={button.href}
+                target="_blank"
+                variant="secondary"
+            >
                 {button.title}
             </LinkComponent>
             {!isFreePlan ? (

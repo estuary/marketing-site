@@ -4,9 +4,7 @@ import { CustomProps } from '../shared';
 import {
     baseButton,
     buttonOutlined,
-    buttonPrimary,
-    buttonPrimaryLight,
-    buttonPrimaryDark,
+    secondaryButton,
     fullWidthStyle,
 } from '../styles.module.less';
 
@@ -15,7 +13,13 @@ const LinkOutlined = React.forwardRef<
     React.AnchorHTMLAttributes<HTMLAnchorElement> & CustomProps
 >(
     (
-        { children, theme = 'light', fullWidth = false, className, ...props },
+        {
+            children,
+            variant = 'primary',
+            fullWidth = false,
+            className,
+            ...props
+        },
         ref
     ) => (
         <a
@@ -24,8 +28,7 @@ const LinkOutlined = React.forwardRef<
             className={clsx(
                 baseButton,
                 buttonOutlined,
-                buttonPrimary,
-                theme === 'light' ? buttonPrimaryLight : buttonPrimaryDark,
+                variant === 'secondary' ? secondaryButton : null,
                 fullWidth ? fullWidthStyle : null,
                 className
             )}

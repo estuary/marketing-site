@@ -27,10 +27,18 @@ const SeeHow = () => {
                     >
                         Try Now
                     </OutboundLinkFilled>
-                    <OutboundLinkOutlined href={webinarsUrl} target="_blank">
+                    <OutboundLinkOutlined
+                        href={webinarsUrl}
+                        target="_blank"
+                        variant="secondary"
+                    >
                         Watch Demo
                     </OutboundLinkOutlined>
-                    <LinkOutlined href="/contact-us/" className={hubspotButton}>
+                    <LinkOutlined
+                        href="/contact-us/"
+                        className={hubspotButton}
+                        variant="secondary"
+                    >
                         Contact Us
                     </LinkOutlined>
                 </div>

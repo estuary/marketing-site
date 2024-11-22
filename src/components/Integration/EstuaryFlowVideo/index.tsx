@@ -30,9 +30,7 @@ const EstuaryFlowVideo = () => {
                     >
                         Try Now
                     </OutboundLinkFilled>
-                    <LinkOutlined href="/contact-us" theme="dark">
-                        Contact Us
-                    </LinkOutlined>
+                    <LinkOutlined href="/contact-us">Contact Us</LinkOutlined>
                 </div>
             </div>
         </section>

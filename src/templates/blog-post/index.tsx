@@ -388,7 +388,6 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                 <OutboundLinkOutlined
                                     href="https://estuary.dev/pricing/"
                                     className={pricingLink}
-                                    theme="dark"
                                 >
                                     See Pricing
                                 </OutboundLinkOutlined>
