@@ -1,6 +1,6 @@
 import ChevronRight from '@mui/icons-material/ChevronRight';
 import React from 'react';
-import { OutboundLink } from '../OutboundLink';
+import OutboundLink from '../LinksAndButtons/OutboundLink';
 import {
     nextStepsLinkContainer,
     nextStepsLinkText,

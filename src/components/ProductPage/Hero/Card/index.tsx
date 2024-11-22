@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import ChevronRightIcon from '../../../../svgs/chevron-right.svg';
-import { OutboundLink } from '../../../OutboundLink';
+import OutboundLink from '../../../LinksAndButtons/OutboundLink';
 import {
     container,
     textWrapper,

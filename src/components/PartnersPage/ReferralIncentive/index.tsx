@@ -2,7 +2,7 @@ import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import Container from '../../Container';
-import { LinkOutlined } from '../../../globalStyles';
+import LinkOutlined from '../../LinksAndButtons/LinkOutlined';
 import { header } from './styles.module.less';
 
 const ReferralIncentive = () => (

@@ -4,7 +4,7 @@ import React from 'react';
 import DoneIcon from '@mui/icons-material/Done';
 import { ConnectorType, dashboardRegisterUrl } from '../../../../../shared';
 import HeroSectionDetails from '../../../../components/HeroSectionDetails';
-import { OutboundLinkFilled } from '../../../../components/OutboundLink';
+import OutboundLinkFilled from '../../../../components/LinksAndButtons/OutboundLinkFilled';
 import { container, containerPreTitleWrapper } from './styles.module.less';
 
 type ContentProps = {

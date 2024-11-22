@@ -2,12 +2,10 @@ import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
 import clsx from 'clsx';
-import { OutboundLink } from '../OutboundLink';
 import GithubIcon from '../../svgs/github-outline.svg';
 import LinkedinIcon from '../../svgs/linkedin-outline.svg';
 import SlackIcon from '../../svgs/slack-outline.svg';
 import TwitterIcon from '../../svgs/twitter-outline.svg';
-import { ButtonOutlinedPrimary } from '../../globalStyles';
 import NewsletterSignupForm from '../NewsletterSignupForm';
 import {
     docsPageUrl,
@@ -15,6 +13,8 @@ import {
     slackUrl,
     statusPageUrl,
 } from '../../../shared';
+import OutboundLink from '../LinksAndButtons/OutboundLink';
+import ButtonOutlinedPrimary from '../LinksAndButtons/ButtonOutlinedPrimary';
 import {
     footer,
     globalFooterWrapper,

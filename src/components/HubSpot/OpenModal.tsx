@@ -1,7 +1,7 @@
 import CloseIcon from '@mui/icons-material/Close';
 import { Dialog, DialogContent, DialogTitle, IconButton } from '@mui/material';
 import * as React from 'react';
-import { ButtonOutlinedPrimary } from '../../globalStyles';
+import ButtonOutlinedPrimary from '../LinksAndButtons/ButtonOutlinedPrimary';
 import HubSpotFormWrapper from './FormWrapper';
 
 interface OpenHubspotModalProps

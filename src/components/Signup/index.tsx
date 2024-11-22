@@ -1,7 +1,7 @@
 import React from 'react';
 import { dashboardRegisterUrl } from '../../../shared';
-import { LinkFilled } from '../../globalStyles';
-import { OutboundLinkFilled } from '../OutboundLink';
+import LinkFilled from '../LinksAndButtons/LinkFilled';
+import OutboundLinkFilled from '../LinksAndButtons/OutboundLinkFilled';
 import { signUp, signupBg, signupHeading, ctaWrap } from './styles.module.less';
 
 const SignUp = () => {

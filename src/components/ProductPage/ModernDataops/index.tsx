@@ -4,7 +4,7 @@ import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.le
 import Advantages from '../../Advantages';
 import { sectionSevenAdvantages } from '../advantages';
 import { docsPageUrl } from '../../../../shared';
-import { OutboundLinkFilled } from '../../OutboundLink';
+import OutboundLinkFilled from '../../LinksAndButtons/OutboundLinkFilled';
 
 const ModernDataops = () => {
     return (

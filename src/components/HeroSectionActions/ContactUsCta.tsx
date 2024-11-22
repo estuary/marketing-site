@@ -1,5 +1,5 @@
 import React from 'react';
-import { LinkOutlined } from '../../globalStyles';
+import LinkOutlined from '../LinksAndButtons/LinkOutlined';
 
 interface ContactUsProps {
     href?: string;

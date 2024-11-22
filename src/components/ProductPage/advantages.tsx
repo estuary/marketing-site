@@ -1,6 +1,6 @@
 import React from 'react';
-import { OutboundLink } from '../OutboundLink';
 import { docsPageUrl } from '../../../shared';
+import OutboundLink from '../LinksAndButtons/OutboundLink';
 
 export const sectionSixAdvantages = [
     {

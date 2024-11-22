@@ -1,12 +1,12 @@
 import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
-import { LinkOutlined } from '../../../globalStyles';
 import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import CalendarIcon from '../../../svgs/product-page/section-fourteen/calendar.svg';
 import LoginIcon from '../../../svgs/product-page/section-fourteen/login.svg';
-import { OutboundLinkOutlined } from '../../OutboundLink';
 import { dashboardRegisterUrl } from '../../../../shared';
 import Container from '../../Container';
+import OutboundLinkOutlined from '../../LinksAndButtons/OutboundLinkOutlined';
+import LinkOutlined from '../../LinksAndButtons/LinkOutlined';
 import {
     boxes,
     columns,

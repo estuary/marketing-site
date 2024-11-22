@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { LinkOutlined } from '../../../../globalStyles';
+import LinkOutlined from '../../../LinksAndButtons/LinkOutlined';
 import { caseStudyLogoWrapper, container } from './styles.module.less';
 
 type CardProps = {

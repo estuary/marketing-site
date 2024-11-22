@@ -2,9 +2,9 @@ import { StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
 import SingleDataflowIcon from '../../../svgs/metric-single-dataflow.svg';
 import { docsPageUrl } from '../../../../shared';
-import { OutboundLinkFilled } from '../../OutboundLink';
 import Advantages from '../../Advantages';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
+import OutboundLinkFilled from '../../LinksAndButtons/OutboundLinkFilled';
 
 const AutomateDataops = () => {
     return (

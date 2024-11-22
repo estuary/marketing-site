@@ -1,11 +1,9 @@
 import React from 'react';
 import clsx from 'clsx';
-import {
-    OutboundLinkFilled,
-    OutboundLinkOutlined,
-} from '../../../OutboundLink';
-import { LinkOutlined } from '../../../../globalStyles';
 import CheckSvgIcon from '../../../../svgs/checkmark.svg';
+import OutboundLinkFilled from '../../../LinksAndButtons/OutboundLinkFilled';
+import OutboundLinkOutlined from '../../../LinksAndButtons/OutboundLinkOutlined';
+import LinkOutlined from '../../../LinksAndButtons/LinkOutlined';
 import {
     container,
     header,

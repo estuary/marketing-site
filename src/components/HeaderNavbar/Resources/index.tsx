@@ -9,8 +9,6 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import clsx from 'clsx';
 import { webinarsUrl } from '../../../../shared';
-import { LinkOutlined } from '../../../globalStyles';
-import { OutboundLinkOutlined } from '../../OutboundLink';
 import Card from '../Card';
 import CardItem from '../CardItem';
 import {
@@ -24,6 +22,8 @@ import {
 import Carousel from '../../Carousel';
 import SuccessIcon from '../../../svgs/success.svg';
 import { accordionStyles, accordionSummaryStyles } from '../shared';
+import LinkOutlined from '../../LinksAndButtons/LinkOutlined';
+import OutboundLinkOutlined from '../../LinksAndButtons/OutboundLinkOutlined';
 import { listen, read, partners } from './items';
 import ResourcesLink from './Link';
 
@@ -118,7 +118,7 @@ const HeaderNavbarResources = ({ active, setActive }) => {
                                     target="_blank"
                                     href="/why/"
                                     theme="dark"
-                                    $fullWidth
+                                    fullWidth
                                 >
                                     Watch Product Tour (2 min)
                                 </LinkOutlined>

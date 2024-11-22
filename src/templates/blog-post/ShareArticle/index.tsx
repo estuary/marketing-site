@@ -5,8 +5,8 @@ import LinkedinOutlinedIcon from '../../../svgs/share-social-icons/linkedin-outl
 import TwitterXOutlinedIcon from '../../../svgs/share-social-icons/twitter-x-outlined.svg';
 import CopyToClipboardButton from '../../../components/CopyToClipboardButton';
 import { socialShareButton } from '../../../components/styles.module.less';
-import { OutboundLink } from '../../../components/OutboundLink';
 import useWindowExistence from '../../../hooks/useWindowExistence';
+import OutboundLink from '../../../components/LinksAndButtons/OutboundLink';
 import { container, socialButtonsWrapper } from './styles.module.less';
 
 type ShareArticleProps = {

@@ -1,24 +1,17 @@
 import * as React from 'react';
-
-import styled from 'styled-components';
 import Layout from '../components/Layout';
 import Seo from '../components/seo';
-
-import { globalMaxWidth } from '../globalStyles';
-
-const Container = styled.div`
-    ${globalMaxWidth}
-`;
+import { globalMaxWidth } from '../globalStyles/sections.module.less';
 
 const NotFoundPage = () => {
     return (
         <Layout>
-            <Container>
+            <div className={globalMaxWidth}>
                 <h1>404: Not Found</h1>
                 <p>
                     You just hit a route that doesn&#39;t exist... the sadness.
                 </p>
-            </Container>
+            </div>
         </Layout>
     );
 };

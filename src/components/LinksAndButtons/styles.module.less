@@ -1,0 +1,73 @@
+.hover {
+    &:hover {
+        svg {
+            color: #ffffff;
+        }
+    }
+}
+
+.baseButton {
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 20px;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 150ms ease-in-out;
+
+    @media (max-width: 425px) {
+        font-size: 0.875rem;
+    }
+
+    &:hover {
+        background-color: #625EFF;
+        border-color: #625EFF;
+        color: #FFFFFF;
+    }
+
+    &:active {
+        background-color: #5072EB;
+        border-color: #5072EB;
+    }
+
+    &:disabled {
+        background-color: #D7DCE5;
+        border-color: #D7DCE5;
+    }
+}
+
+.buttonFilled {
+    .baseButton;
+    background-color: #5072EB;
+    border: 2px solid #5072EB;
+    color: #FFFFFF;
+}
+
+.buttonPrimary {
+    .baseButton;
+    border: 2px solid #5072eb;
+}
+
+.buttonPrimaryLight {
+    color: #5072eb;
+    background-color: #fdfdfe;
+}
+
+.buttonPrimaryDark {
+    color: #ffffff;
+    background-color: transparent;
+}
+
+.buttonOutlined {
+    .hover;
+    width: auto;
+}
+
+.fullWidth {
+    width: 100%;
+}

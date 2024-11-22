@@ -19,7 +19,7 @@ import {
 import MinusSign from '../../svgs/minus-sign.svg';
 import PlusSign from '../../svgs/plus-sign.svg';
 import OpenHubspotModal from '../HubSpot/OpenModal';
-import { ButtonFilled } from '../../globalStyles';
+import ButtonFilled from '../LinksAndButtons/ButtonFilled';
 import { maxConnectors, selfServiceConnectorLimit } from './shared';
 import {
     connectorsCounter,

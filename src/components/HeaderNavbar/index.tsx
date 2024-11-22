@@ -1,7 +1,7 @@
 import { Link } from 'gatsby';
 import React, { useCallback } from 'react';
-import { OutboundLink } from '../OutboundLink';
 import { globalHeaderLink } from '../styles.module.less';
+import OutboundLink from '../LinksAndButtons/OutboundLink';
 import LinkProduct from './Product';
 import LinkResources from './Resources';
 import { globalHeaderLinks } from './styles.module.less';

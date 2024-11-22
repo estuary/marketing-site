@@ -8,7 +8,6 @@ import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { Link } from 'gatsby';
 import { webinarsUrl } from '../../../../shared';
-import { OutboundLinkOutlined } from '../../OutboundLink';
 import Card from '../Card';
 import CardItem from '../CardItem';
 import {
@@ -20,6 +19,7 @@ import {
 import Carousel from '../../Carousel';
 import ChevronRightIcon from '../../../svgs/chevron-right.svg';
 import { accordionStyles, accordionSummaryStyles } from '../shared';
+import OutboundLinkOutlined from '../../LinksAndButtons/OutboundLinkOutlined';
 import { compare, products } from './items';
 import ProductLink from './Link';
 

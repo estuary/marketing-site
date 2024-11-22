@@ -1,6 +1,6 @@
 import React from 'react';
 import HubSpotFormWrapper from '../HubSpot/FormWrapper';
-import { OutboundLink } from '../OutboundLink';
+import OutboundLink from '../LinksAndButtons/OutboundLink';
 import {
     container,
     title,

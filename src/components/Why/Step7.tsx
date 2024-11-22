@@ -1,8 +1,8 @@
 import * as React from 'react';
 import clsx from 'clsx';
 import { calculatePrice, currencyFormatter } from '../../utils';
-import { OutboundLink } from '../OutboundLink';
 import { dashboardRegisterUrl } from '../../../shared';
+import OutboundLink from '../LinksAndButtons/OutboundLink';
 import {
     step,
     step7,

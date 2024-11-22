@@ -4,7 +4,7 @@ import ReactPlayer from 'react-player';
 import { estuaryProductFlowVideoUrl } from '../../../shared';
 import useWindowExistence from '../../hooks/useWindowExistence';
 import PlayIcon from '../../svgs/play.svg';
-import { ButtonFilled } from '../../globalStyles';
+import ButtonFilled from '../LinksAndButtons/ButtonFilled';
 import { container, videoTextAndButtonsWrapper } from './styles.module.less';
 
 const FlowDemoVideo = () => {

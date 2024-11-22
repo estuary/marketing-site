@@ -1,8 +1,8 @@
 import React from 'react';
-import { LinkFilled } from '../../../globalStyles';
 import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import PipelinesTable from '../../PipelinesTable';
 import Container from '../../Container';
+import LinkFilled from '../../LinksAndButtons/LinkFilled';
 import { tableWrapper, title } from './styles.module.less';
 
 const HowEstuaryFlowCompares = () => {

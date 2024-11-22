@@ -1,7 +1,7 @@
 import React from 'react';
 import { webinarsUrl } from '../../../../../shared';
-import { OutboundLinkOutlined } from '../../../../components/OutboundLink';
-import { LinkFilled } from '../../../../globalStyles';
+import LinkFilled from '../../../../components/LinksAndButtons/LinkFilled';
+import OutboundLinkOutlined from '../../../../components/LinksAndButtons/OutboundLinkOutlined';
 
 const TakeATourButtons = () => {
     return (

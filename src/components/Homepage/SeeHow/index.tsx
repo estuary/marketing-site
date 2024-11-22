@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { dashboardRegisterUrl, webinarsUrl } from '../../../../shared';
 import Container from '../../Container';
-import { OutboundLinkFilled, OutboundLinkOutlined } from '../../OutboundLink';
-import { LinkOutlined } from '../../../globalStyles';
+import LinkOutlined from '../../LinksAndButtons/LinkOutlined';
+import OutboundLinkFilled from '../../LinksAndButtons/OutboundLinkFilled';
+import OutboundLinkOutlined from '../../LinksAndButtons/OutboundLinkOutlined';
 import {
     buttonsWrapper,
     hubspotButton,

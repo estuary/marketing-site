@@ -1,7 +1,7 @@
 import CheckIcon from '@mui/icons-material/Check';
 import { StaticImage } from 'gatsby-plugin-image';
 import React, { ChangeEvent, useState } from 'react';
-import { ButtonFilled } from '../../globalStyles';
+import ButtonFilled from '../LinksAndButtons/ButtonFilled';
 import {
     emailInput,
     form,
@@ -60,7 +60,6 @@ const NewsletterSignupForm = ({
                     value={email}
                     onChange={handleEmailChange}
                 />
-                {/* TODO: Move this button style to LESS */}
                 <ButtonFilled type="submit" className={primaryButton}>
                     {isSubmitted ? (
                         <CheckIcon fontSize="medium" htmlColor="#FFFFFF" />

@@ -3,7 +3,6 @@ import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
 import { ProcessedPost } from '../../components/BlogPostProcessor';
 import Layout from '../../components/Layout';
-import { OutboundLink } from '../../components/OutboundLink';
 import Seo from '../../components/seo';
 import { estuaryHelpsYourTeam } from '../../content/seo';
 import CareerAvatar from '../../svgs/about-careers-avatar-icon.svg';
@@ -15,8 +14,9 @@ import EstuaryLogoSmall from '../../svgs/estuary-logo-small.svg';
 import FlowLogo from '../../svgs/flow-logo.svg';
 import LinkIcon from '../../svgs/link-icon.svg';
 import ContactUsForm from '../../components/ContactUsForm';
-import { LinkFilled } from '../../globalStyles';
 import FlowLogoVector from '../../components/FlowLogoVector';
+import OutboundLink from '../../components/LinksAndButtons/OutboundLink';
+import LinkFilled from '../../components/LinksAndButtons/LinkFilled';
 import {
     sectionOne,
     sectionOneBackgroundImageWrapper,

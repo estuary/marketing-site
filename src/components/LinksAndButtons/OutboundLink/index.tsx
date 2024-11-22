@@ -1,6 +1,5 @@
-import PropTypes from 'prop-types';
 import React from 'react';
-import { handleOutboundLinkClick } from './utils';
+import { handleOutboundLinkClick } from '../utils';
 
 const OutboundLink = React.forwardRef<
     HTMLAnchorElement,
@@ -17,11 +16,4 @@ const OutboundLink = React.forwardRef<
     );
 });
 
-OutboundLink.propTypes = {
-    href: PropTypes.string,
-    target: PropTypes.string,
-    onClick: PropTypes.func,
-    children: PropTypes.node.isRequired,
-};
-
-export { OutboundLink };
+export default OutboundLink;

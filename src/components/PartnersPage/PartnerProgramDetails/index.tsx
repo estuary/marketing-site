@@ -1,8 +1,8 @@
 import React from 'react';
 import clsx from 'clsx';
 import Container from '../../Container';
-import { LinkOutlined } from '../../../globalStyles';
 import { Partner } from '../shared';
+import LinkOutlined from '../../LinksAndButtons/LinkOutlined';
 import { container, isReverseStyling, darkTheme } from './styles.module.less';
 import PartnerAvatar from './PartnerAvatar';
 

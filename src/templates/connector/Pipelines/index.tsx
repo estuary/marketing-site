@@ -3,7 +3,7 @@ import React from 'react';
 import PipelinesTable from '../../../components/PipelinesTable';
 import Container from '../../../components/Container';
 import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
-import { AnchorFilled } from '../../../components/OutboundLink/styles';
+import LinkFilled from '../../../components/LinksAndButtons/LinkFilled';
 import { lineBreak, tableWrapper, sectionTitle } from './styles.module.less';
 
 const Pipelines = () => {
@@ -20,9 +20,9 @@ const Pipelines = () => {
                 <div className={tableWrapper}>
                     <h3>Feature Comparison</h3>
                     <PipelinesTable />
-                    <AnchorFilled href="/etl-tools/estuary-vs-fivetran/">
+                    <LinkFilled href="/etl-tools/estuary-vs-fivetran/">
                         Detailed Comparison
-                    </AnchorFilled>
+                    </LinkFilled>
                 </div>
             </Container>
         </section>

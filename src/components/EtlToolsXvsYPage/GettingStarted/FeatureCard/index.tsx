@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
-import { OutboundLink } from '../../../OutboundLink';
 import ChevronRightIcon from '../../../../svgs/chevron-right.svg';
+import OutboundLink from '../../../LinksAndButtons/OutboundLink';
 import { container, iconWrapper } from './styles.module.less';
 
 interface FeatureCardProps {

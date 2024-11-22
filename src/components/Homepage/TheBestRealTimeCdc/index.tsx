@@ -1,9 +1,9 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
 import RealTimeCdc from '../../../svgs/real-time-cdc.svg';
-import { LinkFilled } from '../../../globalStyles';
 import Advantages from '../../Advantages';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
+import LinkFilled from '../../LinksAndButtons/LinkFilled';
 
 const TheBestRealTimeCdc = () => {
     return (

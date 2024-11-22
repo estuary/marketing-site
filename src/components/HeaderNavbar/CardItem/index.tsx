@@ -2,8 +2,8 @@ import Chevron from '@mui/icons-material/ChevronRight';
 import { Link } from 'gatsby';
 import * as React from 'react';
 import clsx from 'clsx';
-import { OutboundLink } from '../../OutboundLink';
 import { hideOnMobile, seeAllButton } from '../styles.module.less';
+import OutboundLink from '../../LinksAndButtons/OutboundLink';
 import {
     cardItem,
     iconWrapper,

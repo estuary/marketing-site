@@ -1,8 +1,8 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { dashboardRegisterUrl } from '../../../../shared';
-import { OutboundLinkFilled } from '../../../components/OutboundLink';
 import StraightLinesBackground from '../../../components/BackgroundImages/StraightLinesBackground';
+import OutboundLinkFilled from '../../../components/LinksAndButtons/OutboundLinkFilled';
 import {
     containerWrapper,
     container,

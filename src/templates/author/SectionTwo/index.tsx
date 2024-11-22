@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Author } from '../shared';
 import AuthorBlogPostCard from '../../../components/AuthorBlogPostCard';
-import { ButtonFilled } from '../../../globalStyles';
+import ButtonFilled from '../../../components/LinksAndButtons/ButtonFilled';
 import { container, blogPostCardList } from './styles.module.less';
 
 interface SectionTwoProps {
