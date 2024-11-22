@@ -1,15 +1,12 @@
-import styled from 'styled-components';
-import { Link } from 'gatsby';
-
-export const ConnectorsGroupsLeftWrapper = styled.div`
+.connectorsGroupsLeftWrapper {
     margin-right: -24%;
-`;
+}
 
-export const ConnectorsGroupsRightWrapper = styled.div`
+.connectorsGroupsRightWrapper {
     margin-left: -24%;
-`;
+}
 
-export const ConnectorsGroup = styled.div`
+.connectorsGroup {
     width: 100%;
     display: flex;
     align-items: center;
@@ -20,20 +17,20 @@ export const ConnectorsGroup = styled.div`
     border-radius: 100px;
     background-color: #fdfdfe;
 
-    &.spacing-left {
+    &.spacingLeft {
         padding-left: 12%;
     }
-
-    &.spacing-right {
+    
+    &.spacingRight {
         padding-right: 12%;
     }
 
     &:not(:first-child) {
         margin-top: 2%;
     }
-`;
+}
 
-export const Connector = styled(Link)`
+.connector {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -60,9 +57,29 @@ export const Connector = styled(Link)`
         visibility: visible;
         opacity: 1;
     }
-`;
 
-export const LogoWrapper = styled.div`
+    span {
+        color: #47506d;
+        font-size: 0.875rem;
+        font-weight: 400;
+        line-height: 120%;
+        text-align: center;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+        min-height: 40px;
+
+        @media (max-width: 1280px) {
+            font-size: 0.75rem;
+        }
+
+        @media (max-width: 1024px) {
+            font-size: 0.5rem;
+        }
+    }
+}
+
+.logoWrapper {
     background-color: #ffffff;
     border: 1px solid #d7dce5;
     border-radius: 12%;
@@ -83,29 +100,9 @@ export const LogoWrapper = styled.div`
         min-width: 24px;
         min-height: 24px;
     }
-`;
+}
 
-export const HiddenLogoTitle = styled.span`
-    color: #47506d;
-    font-size: 0.875rem;
-    font-weight: 400;
-    line-height: 120%;
-    text-align: center;
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.2s ease-in-out;
-    min-height: 40px;
-
-    @media (max-width: 1280px) {
-        font-size: 0.75rem;
-    }
-
-    @media (max-width: 1024px) {
-        font-size: 0.5rem;
-    }
-`;
-
-export const FeatureWrapper = styled.div<{ $hasTooltips: boolean }>`
+.featureWrapper {
     width: 100%;
     min-width: 5vw;
     max-width: 5vw;
@@ -141,21 +138,26 @@ export const FeatureWrapper = styled.div<{ $hasTooltips: boolean }>`
     transition: border-color 0.2s ease-in-out;
 
     &:hover {
-        border-color: ${({ $hasTooltips }) =>
-            $hasTooltips ? '#5072eb' : '#e5e9f5'};
+        border-color: #e5e9f5;
     }
+}
 
-    .icon {
-        width: 100%;
-        height: 100%;
-        max-width: 32px;
-        max-height: 32px;
-        min-width: 16px;
-        min-height: 16px;
+.icon {
+    width: 100%;
+    height: 100%;
+    max-width: 32px;
+    max-height: 32px;
+    min-width: 16px;
+    min-height: 16px;
 
-        @media (max-width: 1280px) {
-            max-width: 24px;
-            max-height: 24px;
-        }
+    @media (max-width: 1280px) {
+        max-width: 24px;
+        max-height: 24px;
     }
-`;
+}
+
+.withTooltips {
+    &:hover {
+        border-color: #5072eb;
+    }
+}
