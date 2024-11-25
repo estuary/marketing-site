@@ -1,19 +1,18 @@
 import Chevron from '@mui/icons-material/ChevronRight';
 import { Link } from 'gatsby';
 import * as React from 'react';
-import { OutboundLink } from '../../OutboundLink';
+import clsx from 'clsx';
 import { hideOnMobile, seeAllButton } from '../styles.module.less';
+import OutboundLink from '../../LinksAndButtons/OutboundLink';
 import {
-    CardItem,
-    CardTitle,
-    Content,
-    ContentWrapper,
-    Description,
-    Icon,
-    TextWrapper,
-    Title,
-} from './styles';
-import { contentFooter } from './styles.module.less';
+    cardItem,
+    iconWrapper,
+    contentWrapper,
+    cardTitle,
+    content,
+    headerChevronIcon,
+    contentFooter,
+} from './styles.module.less';
 
 const ItemLink = ({ name, description, Image, to }) => {
     const LinkElement: any = to[0] === '/' ? Link : OutboundLink;
@@ -21,24 +20,22 @@ const ItemLink = ({ name, description, Image, to }) => {
 
     return (
         <LinkElement {...linkProps} aria-label={`Read content of ${name}`}>
-            <CardItem>
+            <div className={cardItem}>
                 {Image ? (
-                    <Icon>
+                    <div className={iconWrapper}>
                         <Image />
-                    </Icon>
+                    </div>
                 ) : null}
-                <ContentWrapper>
-                    <TextWrapper>
-                        <Title>{name}</Title>
+                <div className={contentWrapper}>
+                    <div>
+                        <span>{name}</span>
                         {description ? (
-                            <Description className={hideOnMobile}>
-                                {description}
-                            </Description>
+                            <p className={hideOnMobile}>{description}</p>
                         ) : null}
-                    </TextWrapper>
-                    <Chevron className="header-chevron-icon" fontSize="small" />
-                </ContentWrapper>
-            </CardItem>
+                    </div>
+                    <Chevron className={headerChevronIcon} fontSize="small" />
+                </div>
+            </div>
         </LinkElement>
     );
 };
@@ -64,7 +61,9 @@ const HeaderCardItem = ({
 
     return (
         <div {...props}>
-            <CardTitle className={onlyContent ? hideOnMobile : null}>
+            <span
+                className={clsx(cardTitle, onlyContent ? hideOnMobile : null)}
+            >
                 {title}
                 {items.length > 4 ? (
                     <button
@@ -74,8 +73,8 @@ const HeaderCardItem = ({
                         See {showAll ? 'less' : 'more'}
                     </button>
                 ) : null}
-            </CardTitle>
-            <Content>
+            </span>
+            <div className={content}>
                 {items
                     .slice(0, showAll ? items.length : 4)
                     .map((item, index) => (
@@ -83,7 +82,7 @@ const HeaderCardItem = ({
                     ))}
                 {children}
                 <div className={contentFooter}>{contentFooterLink}</div>
-            </Content>
+            </div>
         </div>
     );
 };

@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { Container, IconWrapper, Number, Text } from './styles';
+import { container, iconWrapper } from './styles.module.less';
 
 type StepProps = {
     icon: ReactNode;
@@ -10,10 +10,10 @@ type StepProps = {
 
 const Step = ({ icon, number, text, link }: StepProps) => {
     return (
-        <Container>
-            <IconWrapper>{icon}</IconWrapper>
-            <Number>{number}</Number>
-            <Text>
+        <div className={container}>
+            <div className={iconWrapper}>{icon}</div>
+            <h3>{number}</h3>
+            <p>
                 {text}
                 {link ? (
                     <>
@@ -22,8 +22,8 @@ const Step = ({ icon, number, text, link }: StepProps) => {
                         {').'}
                     </>
                 ) : null}
-            </Text>
-        </Container>
+            </p>
+        </div>
     );
 };
 

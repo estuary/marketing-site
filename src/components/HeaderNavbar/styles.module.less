@@ -62,3 +62,48 @@
     text-underline-offset: 4px;
   }
 }
+
+.accordionDetails {
+  padding: 0 !important;
+}
+
+.imageWrapper {
+  padding: 8px;
+  background-color: #5072eb40;
+  border: 1px solid #5072eb80;
+  border-radius: 12px;
+  max-width: 400px;
+}
+
+.menuBackground {
+  position: fixed;
+  top: 116px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 3;
+}
+
+.columnWithTwoRows {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 1025px) {
+    gap: 38px;
+  }
+
+  @media (max-height: 1024px) {
+    gap: 12px;
+  }
+}
+
+.slide {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 24px;
+  margin: 0;
+}

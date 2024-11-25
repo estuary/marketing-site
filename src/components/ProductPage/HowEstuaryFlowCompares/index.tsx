@@ -1,22 +1,21 @@
 import React from 'react';
-
-import { LinkFilled } from '../../../globalStyles';
-import { DefaultWrapperDark } from '../../../styles/wrappers';
+import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import PipelinesTable from '../../PipelinesTable';
 import Container from '../../Container';
-import { TableTitle, TableWrapper, Title } from './styles';
+import LinkFilled from '../../LinksAndButtons/LinkFilled';
+import { tableWrapper, title } from './styles.module.less';
 
 const HowEstuaryFlowCompares = () => {
     return (
-        <DefaultWrapperDark>
+        <section className={defaultWrapperDark}>
             <Container isVertical>
-                <Title>
+                <h2 className={title}>
                     HOW <span>ESTUARY FLOW</span> COMPARES
-                </Title>
-                <TableWrapper>
-                    <TableTitle>Feature Comparison</TableTitle>
+                </h2>
+                <div className={tableWrapper}>
+                    <h3>Feature Comparison</h3>
                     <PipelinesTable />
-                </TableWrapper>
+                </div>
                 <LinkFilled
                     href="/etl-tools/estuary-vs-fivetran/"
                     target="_blank"
@@ -25,7 +24,7 @@ const HowEstuaryFlowCompares = () => {
                     View Comparisons
                 </LinkFilled>
             </Container>
-        </DefaultWrapperDark>
+        </section>
     );
 };
 

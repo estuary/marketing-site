@@ -2,49 +2,40 @@ import { StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
 import SingleDataflowIcon from '../../../svgs/metric-single-dataflow.svg';
 import { docsPageUrl } from '../../../../shared';
-import Container from '../../Container';
-import {
-    Button,
-    Description,
-    IconWrapper,
-    LeftColumn,
-    RightColumn,
-    Title,
-    Wrapper,
-} from './styles';
+import Advantages from '../../Advantages';
+import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
+import OutboundLinkFilled from '../../LinksAndButtons/OutboundLinkFilled';
 
 const AutomateDataops = () => {
     return (
-        <Wrapper>
-            <Container isReverseColumnOnMobile>
-                <LeftColumn>
+        <section className={defaultWrapperGrey}>
+            <Advantages
+                icon={<SingleDataflowIcon color="#5072EB" />}
+                title={
+                    <>
+                        AUTOMATE <span>DATAOPS</span>
+                    </>
+                }
+                subtitle="Use schema inference, evolution, and automation along
+                        with a complete CLI and API to implement true agile
+                        DataOps that can handle constant change without breaking
+                        pipelines."
+                image={
                     <StaticImage
                         quality={100}
                         placeholder="none"
                         alt="Schema evolution options"
                         src="../../../images/schema-evolution-options.png"
                     />
-                </LeftColumn>
-                <RightColumn>
-                    <IconWrapper>
-                        <SingleDataflowIcon color="#5072EB" />
-                    </IconWrapper>
-                    <Title>
-                        <span>AUTOMATE </span>
-                        <span>DATAOPS</span>
-                    </Title>
-                    <Description>
-                        Use schema inference, evolution, and automation along
-                        with a complete CLI and API to implement true agile
-                        DataOps that can handle constant change without breaking
-                        pipelines.
-                    </Description>
-                    <Button href={docsPageUrl} target="_blank">
+                }
+                ctaButtons={
+                    <OutboundLinkFilled href={docsPageUrl} target="_blank">
                         See the Docs
-                    </Button>
-                </RightColumn>
-            </Container>
-        </Wrapper>
+                    </OutboundLinkFilled>
+                }
+                isImageOnTheLeft
+            />
+        </section>
     );
 };
 

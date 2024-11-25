@@ -3,24 +3,27 @@ import React from 'react';
 import PipelinesTable from '../../../components/PipelinesTable';
 import Container from '../../../components/Container';
 import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
-import { Button, Description, LineBreak, Title, TableWrapper } from './style';
+import LinkFilled from '../../../components/LinksAndButtons/LinkFilled';
+import { lineBreak, tableWrapper, sectionTitle } from './styles.module.less';
 
 const Pipelines = () => {
     return (
         <section className={defaultWrapperDark}>
             <Container isVertical>
-                <Title>
-                    PIPELINES AS <span>FAST</span> AS KAFKA, <LineBreak />
-                    <span>EASY</span> AS MANAGED ELT/ETL, <LineBreak />
+                <h2 className={sectionTitle}>
+                    PIPELINES AS <span>FAST</span> AS KAFKA,{' '}
+                    <span className={lineBreak} />
+                    <span>EASY</span> AS MANAGED ELT/ETL,{' '}
+                    <span className={lineBreak} />
                     <span>CHEAPER</span> THAN BUILDING IT.
-                </Title>
-                <TableWrapper>
-                    <Description>Feature Comparison</Description>
+                </h2>
+                <div className={tableWrapper}>
+                    <h3>Feature Comparison</h3>
                     <PipelinesTable />
-                    <Button href="/etl-tools/estuary-vs-fivetran/">
+                    <LinkFilled href="/etl-tools/estuary-vs-fivetran/">
                         Detailed Comparison
-                    </Button>
-                </TableWrapper>
+                    </LinkFilled>
+                </div>
             </Container>
         </section>
     );

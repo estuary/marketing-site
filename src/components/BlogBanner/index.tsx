@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import StraightLinesBackground from '../BackgroundImages/StraightLinesBackground';
-import { OutboundLinkFilled } from '../OutboundLink';
+import OutboundLinkFilled from '../LinksAndButtons/OutboundLinkFilled';
 import { background, container, banner } from './styles.module.less';
 
 interface BlogBanner {

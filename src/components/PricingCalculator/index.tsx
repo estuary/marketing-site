@@ -1,5 +1,12 @@
 import React, { useState, useMemo, ChangeEvent } from 'react';
-import { InputAdornment } from '@mui/material';
+import {
+    FormControl,
+    OutlinedInput,
+    Slider,
+    styled,
+    InputAdornment,
+} from '@mui/material';
+import clsx from 'clsx';
 import {
     calculatePrice,
     currencyFormatter,
@@ -12,30 +19,30 @@ import {
 import MinusSign from '../../svgs/minus-sign.svg';
 import PlusSign from '../../svgs/plus-sign.svg';
 import OpenHubspotModal from '../HubSpot/OpenModal';
+import ButtonFilled from '../LinksAndButtons/ButtonFilled';
 import { maxConnectors, selfServiceConnectorLimit } from './shared';
 import {
-    ButtonMinus,
-    Description,
-    ConnectorsCounter,
-    Container,
-    Form,
-    PricingSlider,
-    SliderWrapper,
-    ButtonPlus,
-    CountInput,
-    EstuaryPrice,
-    Header,
-    TextWrapper,
-    GbInput,
-    Divider,
-    Selector,
-    PriceComparisons,
-    Comparisons,
-    BrandWrapper,
-    BrandPrice,
-    BrandDetails,
-    Detail,
-} from './styles';
+    connectorsCounter,
+    container,
+    form,
+    sliderWrapper,
+    countInput,
+    estuaryPrice,
+    header,
+    textWrapper,
+    gbInput,
+    divider,
+    selector,
+    priceComparisons,
+    comparisons,
+    brandWrapper,
+    brandPrice,
+    brandDetails,
+    detail,
+    highlightedBrandPrice,
+    subSectionTitle,
+    highlightedCard,
+} from './styles.module.less';
 import ComparisonCard from './ComparisonCard';
 
 const inputLabel = 'Number of connector instances';
@@ -61,6 +68,69 @@ const getClampedGBValue = (currentValue: number) => {
 
     return currentValue;
 };
+
+const PricingSlider = styled(Slider)(() => {
+    return {
+        'color': '#5272EB',
+        'width': '100%',
+        'borderRadius': 3,
+        'boxSizing': 'border-box',
+
+        '& .MuiSlider-thumb': {
+            'height': 28,
+            'width': 28,
+            'backgroundColor': '#5272EB',
+            'boxShadow': '0px 2px 7px rgba(0, 0, 0, 0.25)',
+            '&:focus, &:hover, &.Mui-active, &.Mui-focusVisible': {
+                boxShadow: '0px 2px 7px rgba(0, 0, 0, 0.25)',
+            },
+            '&:before': {
+                display: 'none',
+            },
+        },
+        '& .MuiSlider-track': {
+            height: 6,
+        },
+        '& .MuiSlider-rail': {
+            color: '#B9C7F7',
+            opacity: 1,
+            height: 6,
+            width: '101%',
+            borderRadius: 3,
+            left: 0,
+        },
+        '& .MuiSlider-markLabel': {
+            'fontFamily': '"Inter", sans-serif',
+            'top': '-60px',
+            'fontSize': '1.25rem',
+            'fontWeight': 500,
+            'color': '#47506D',
+
+            '@media (max-width: 1200px)': {
+                fontSize: '1rem',
+            },
+
+            '@media (max-width: 540px)': {
+                fontSize: '0.875rem',
+            },
+
+            '@media (max-width: 400px)': {
+                fontSize: '0.75rem',
+            },
+        },
+        '& > .MuiSlider-mark': {
+            color: '#5072EB50',
+            backgroundColor: '#5072EB50 !important',
+            height: '15px',
+            width: '2.5px',
+            top: '-12px',
+        },
+        '& > .MuiSlider-mark:nth-of-type(5n + 3)': {
+            height: '24px',
+            top: '-17px',
+        },
+    };
+});
 
 export const PricingCalculator = ({
     isDarkTheme = false,
@@ -121,16 +191,16 @@ export const PricingCalculator = ({
     };
 
     return (
-        <Container>
-            <Header>
-                <TextWrapper>
-                    <h3 className="sub-section-title">Data moved</h3>
-                    <Description>
+        <div className={container}>
+            <div className={header}>
+                <div className={textWrapper}>
+                    <h3 className={subSectionTitle}>Data moved</h3>
+                    <p>
                         It&apos;s free up to 10 GB/month and 2 connector
                         instances.
-                    </Description>
-                </TextWrapper>
-                <GbInput
+                    </p>
+                </div>
+                <OutlinedInput
                     endAdornment={
                         <InputAdornment position="end">GB</InputAdornment>
                     }
@@ -142,9 +212,10 @@ export const PricingCalculator = ({
                     value={gbInputValue}
                     onChange={handleGbInputValueChange}
                     onBlur={handleGbInputBlur}
+                    className={gbInput}
                 />
-            </Header>
-            <SliderWrapper>
+            </div>
+            <div className={sliderWrapper}>
                 <PricingSlider
                     value={selectedGbs}
                     min={1}
@@ -156,27 +227,27 @@ export const PricingCalculator = ({
                     onChange={handleSliderChange}
                     aria-label="Amount of change data"
                 />
-            </SliderWrapper>
-            <Divider />
-            <ConnectorsCounter>
-                <h3 className="sub-section-title">
+            </div>
+            <div className={divider} />
+            <div className={connectorsCounter}>
+                <h3 className={subSectionTitle}>
                     Choose number of sources and destinations.
                 </h3>
-                <Selector>
-                    <ButtonMinus
+                <div className={selector}>
+                    <ButtonFilled
                         onClick={handleMinusClick}
                         disabled={selectedConnectors === 2}
                         aria-label={`decrease ${inputLabel}`}
                     >
-                        <MinusSign color="#FFFFFF" />
-                    </ButtonMinus>
-                    <Form variant="outlined">
-                        <CountInput
+                        <MinusSign color="#fff" />
+                    </ButtonFilled>
+                    <FormControl variant="outlined" className={form}>
+                        <OutlinedInput
                             id="pricing-calculator-selector-input"
                             inputProps={{
                                 style: {
                                     textAlign: 'center',
-                                    color: isDarkTheme ? '#FFFFFF' : '#04192B',
+                                    color: isDarkTheme ? '#fff' : '#04192B',
                                 },
                                 min: 2,
                                 max: maxConnectors,
@@ -187,18 +258,19 @@ export const PricingCalculator = ({
                                     : selectedConnectors.toString()
                             }
                             onChange={handleCountInputChange}
+                            className={countInput}
                         />
-                    </Form>
-                    <ButtonPlus
+                    </FormControl>
+                    <ButtonFilled
                         onClick={handlePlusClick}
                         disabled={selectedConnectors === maxConnectors}
                         aria-label={`increase ${inputLabel}`}
                     >
                         <PlusSign color="#fff" />
-                    </ButtonPlus>
-                </Selector>
-            </ConnectorsCounter>
-            <Divider />
+                    </ButtonFilled>
+                </div>
+            </div>
+            <div className={divider} />
             {selectedConnectors === maxConnectors ||
             selectedGbs === totalMarks ? (
                 <OpenHubspotModal
@@ -208,12 +280,17 @@ export const PricingCalculator = ({
                 />
             ) : (
                 <>
-                    <EstuaryPrice>
-                        <h3 className="sub-section-title">
+                    <div className={estuaryPrice}>
+                        <h3 className={subSectionTitle}>
                             Your price at Estuary
                         </h3>
-                        <BrandWrapper className="highlighted-card">
-                            <BrandPrice className="highlighted-brand-price">
+                        <div className={clsx(brandWrapper, highlightedCard)}>
+                            <span
+                                className={clsx(
+                                    brandPrice,
+                                    highlightedBrandPrice
+                                )}
+                            >
                                 {estuaryFreeTier ? (
                                     <span>Free</span>
                                 ) : (
@@ -226,9 +303,9 @@ export const PricingCalculator = ({
                                         / month
                                     </>
                                 )}
-                            </BrandPrice>
-                            <BrandDetails>
-                                <Detail>
+                            </span>
+                            <div className={brandDetails}>
+                                <div className={detail}>
                                     <span>
                                         {/*This is hacky but works. We only reset the input on blur so while typing they could see incorrect info without this override*/}
                                         {gbInputValue === '0' ||
@@ -238,19 +315,17 @@ export const PricingCalculator = ({
                                         GB
                                     </span>{' '}
                                     of data moved
-                                </Detail>
-                                <Detail>
+                                </div>
+                                <div className={detail}>
                                     <span>{selectedConnectors}</span> connector
                                     instances
-                                </Detail>
-                            </BrandDetails>
-                        </BrandWrapper>
-                    </EstuaryPrice>
-                    <PriceComparisons>
-                        <h3 className="sub-section-title">
-                            Pricing comparisons
-                        </h3>
-                        <Comparisons>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={priceComparisons}>
+                        <h3 className={subSectionTitle}>Pricing comparisons</h3>
+                        <div className={comparisons}>
                             <ComparisonCard
                                 title="Confluent"
                                 price={prices.confluent}
@@ -259,10 +334,10 @@ export const PricingCalculator = ({
                                 title="Fivetran"
                                 price={prices.fivetran}
                             />
-                        </Comparisons>
-                    </PriceComparisons>
+                        </div>
+                    </div>
                 </>
             )}
-        </Container>
+        </div>
     );
 };

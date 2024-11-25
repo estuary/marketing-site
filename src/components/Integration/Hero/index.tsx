@@ -11,9 +11,9 @@ import MetricCard from '../../MetricCard';
 import NewsletterSignupForm from '../../NewsletterSignupForm';
 import VanityLogosMarquee from '../../VanityLogosMarquee';
 import { Connector } from '../shared';
-import { LinkOutlined } from '../../../globalStyles';
 import { activeUsersAmount, dashboardRegisterUrl } from '../../../../shared';
 import Container from '../../Container';
+import LinkOutlined from '../../LinksAndButtons/LinkOutlined';
 import {
     container,
     backgroundImageWraper,
@@ -106,7 +106,7 @@ const Hero = ({ sourceConnector, destConnector }: HeroProps) => {
                     ) : null}
                     <div className={contactUsCta}>
                         <span>Schedule an appointment</span>
-                        <LinkOutlined href="/contact-us/" theme="dark">
+                        <LinkOutlined href="/contact-us/">
                             Contact Us
                         </LinkOutlined>
                     </div>

@@ -1,6 +1,7 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
-import { Cicle, Path } from './styles';
+import clsx from 'clsx';
+import { cicle, path, analyticsPath } from './styles.module.less';
 
 type LogoAndPathProps = {
     tab: 'analytics' | 'ops' | 'ai';
@@ -9,20 +10,25 @@ type LogoAndPathProps = {
 const LogoAndPath = ({ tab }: LogoAndPathProps) => {
     return (
         <>
-            <Cicle>
+            <div className={cicle}>
                 <StaticImage
                     placeholder="none"
                     alt="Estuary logo"
                     src="../../../../images/product-page/section-five/circle-estuary-logo.png"
                 />
-            </Cicle>
-            <Path $tab={tab}>
+            </div>
+            <div
+                className={clsx(
+                    path,
+                    tab === 'analytics' ? analyticsPath : null
+                )}
+            >
                 <StaticImage
                     placeholder="none"
                     alt="Flow path with arrow"
                     src="../../../../svgs/product-page/section-five/path-arrow.svg"
                 />
-            </Path>
+            </div>
         </>
     );
 };

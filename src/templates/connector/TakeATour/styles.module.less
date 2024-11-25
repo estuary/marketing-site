@@ -1,0 +1,100 @@
+.containerLeft {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 0;
+}
+
+.estuaryProductVideo {
+    max-height: 325px;
+    max-width: 547px;
+
+    div {
+        position: relative;
+        z-index: 1;
+    }
+}
+
+.videoPreviewContainer {
+    width: 100%;
+    height: 100%;
+    max-width: 547px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.estuaryproductvideoThumbnail {
+    width: auto;
+    height: 100%;
+}
+
+.containerContent {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+
+    h2 {
+        font-weight: 600;
+        font-size: 36px;
+        line-height: 43px;
+        margin: 0;
+
+        @media (min-width: 1280px) {
+            font-size: 60px;
+            line-height: 72px;
+        }
+    }
+
+    p {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 30px;
+        margin: 0;
+
+        @media (min-width: 1280px) {
+            font-size: 20px;
+        }
+    }
+}
+
+.containerIcons {
+    display: flex;
+    justify-content: center;
+    gap: 8%;
+    margin-bottom: 16px;
+
+    @media (min-width: 1280px) {
+        gap: 60px;
+    }
+
+    @media (min-width: 1024px) {
+        display: flex;
+        justify-content: left;
+    }
+}
+
+.containerButton {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @media (min-width: 1280px) {
+        gap: 24px;
+        flex-direction: row;
+        margin-top: 20px;
+    }
+}
+
+.takeATourButton {
+    white-space: nowrap;
+
+    @media (max-width: 1280px) {
+        width: 100%;
+    }
+
+    @media (max-width: 425px) {
+        white-space: wrap;
+    }
+}

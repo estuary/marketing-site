@@ -1,12 +1,12 @@
 import React from 'react';
-import { Container, Divider, Wrapper } from './styles';
+import { wrapper, divider, container } from './styles.module.less';
 
 const HeaderCard = ({ children, ...props }) => {
     return (
-        <Wrapper {...props}>
-            <Divider />
-            <Container>{children}</Container>
-        </Wrapper>
+        <div {...props} className={wrapper}>
+            <div className={divider} />
+            <div className={container}>{children}</div>
+        </div>
     );
 };
 

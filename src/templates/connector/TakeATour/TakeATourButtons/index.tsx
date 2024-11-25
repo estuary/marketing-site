@@ -1,23 +1,24 @@
 import React from 'react';
-
 import { webinarsUrl } from '../../../../../shared';
-import { OutboundLinkOutlined } from '../../../../components/OutboundLink';
-import { LinkFilled } from '../../../../globalStyles';
+import LinkFilled from '../../../../components/LinksAndButtons/LinkFilled';
+import OutboundLinkOutlined from '../../../../components/LinksAndButtons/OutboundLinkOutlined';
+import { takeATourButton } from '../styles.module.less';
 
 const TakeATourButtons = () => {
     return (
         <>
             <LinkFilled
-                className="take-a-tour-button"
+                className={takeATourButton}
                 target="_blank"
                 href="/why/"
             >
                 Self-Guided Tour [1 min]
             </LinkFilled>
             <OutboundLinkOutlined
-                className="take-a-tour-button"
+                className={takeATourButton}
                 target="_blank"
                 href={webinarsUrl}
+                variant="secondary"
             >
                 Product Demo [30 min]
             </OutboundLinkOutlined>

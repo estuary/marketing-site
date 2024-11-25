@@ -1,12 +1,12 @@
 import React from 'react';
-import { MenuBackground } from './styles';
+import { menuBackground } from './styles.module.less';
 
-function HeaderNavBarBackground({ menuOpen }) {
+const HeaderNavBarBackground = ({ menuOpen }) => {
     if (menuOpen) {
-        return <MenuBackground />;
+        return <div className={menuBackground} />;
     }
 
     return null;
-}
+};
 
 export default HeaderNavBarBackground;

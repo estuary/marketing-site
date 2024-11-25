@@ -1,0 +1,77 @@
+@import '../../../globalStyles/sections.module.less';
+
+.wrapper {
+    width: 100%;
+    background-color: #04192b;
+    flex-direction: column;
+
+    @media (min-width: 1025px) {
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 116px;
+    }
+}
+
+.commonPadding {
+    @media (max-width: 1400px) {
+        padding-left: ~'calc(min(2vw, 160px))';
+        padding-right: ~'calc(min(2vw, 160px))';
+    }
+
+    @media (max-width: 1024px) {
+        padding-left: ~'calc(min(10vw, 160px))';
+        padding-right: ~'calc(min(10vw, 160px))';
+    }
+}
+
+.container {
+    .globalMaxWidth;
+    .commonPadding;
+
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 16px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    background-color: #04192b;
+
+    @media (max-height: 880px) {
+        overflow: auto;
+        max-height: 85vh;
+    }
+
+    @media (max-height: 425px) {
+        max-height: 60vh;
+    }
+
+    @media (max-width: 1024px) {
+        grid-template-columns: 1fr 1fr;
+        padding: 0 20px;
+    }
+
+    @media (max-width: 768px) {
+        gap: 8px;
+        grid-template-columns: 1fr;
+    }
+}
+
+.divider {
+    .globalMaxWidth;
+    .commonPadding;
+
+    width: 100%;
+    background-clip: content-box;
+    background-color: #1b3465;
+    height: 1px;
+
+    @media (max-width: 1024px) {
+        margin: 12px 0;
+        padding: 0;
+    }
+
+    @media (max-width: 768px) {
+        display: none;
+    }
+}

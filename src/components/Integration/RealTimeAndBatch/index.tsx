@@ -8,7 +8,7 @@ import { estuaryFlowAdvantages } from '../advantages';
 const RealTimeAndBatch = () => {
     return (
         <section className={defaultWrapperGrey}>
-            <Advantages // Move the style of the Avantages component from styled-components to LESS.
+            <Advantages
                 icon={<RealTimeCdc />}
                 title={
                     <>

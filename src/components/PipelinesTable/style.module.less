@@ -1,0 +1,68 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    overflow-x: scroll;
+    width: 100%;
+    padding-bottom: 10px;
+
+    @media (min-width: 1024px) {
+        overflow-x: auto;
+    }
+
+    table {
+        width: 100%;
+        flex: 1;
+        margin: 0 auto;
+        border-collapse: separate !important;
+        border-spacing: 0;
+        border: 2px solid #d7dce5;
+        border-radius: 24px;
+        overflow: hidden;
+    }
+
+    thead {
+        font-weight: 400;
+        font-size: 20px;
+    }
+
+    th {
+        border: none;
+        background-color: #eef1fd;
+        color: #04192b;
+        padding: 28px;
+        text-align: center;
+    }
+
+    tbody {
+        font-weight: 400;
+        font-size: 20px;
+        text-align: center;
+
+        td:first-of-type {
+            text-align: left;
+        }
+    }
+
+    td {
+        border: none;
+        border-top: 2px solid #d7dce5;
+        padding: 28px;
+        color: #04192b;
+        background-color: #f6f8fe;
+
+        span {
+            font-weight: 600;
+        }
+    }
+}
+
+.checkmarkIcon {
+    width: 28px;
+    height: 28px;
+    color: #2da771;
+}
+
+.closeIcon {
+    width: 21px;
+    height: 21px;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Typography } from '@mui/material';
-import { FeatureWrapper } from '../styles';
+import clsx from 'clsx';
+import { featureWrapper, withTooltips } from '../styles.module.less';
 import HTMLTooltip from '../../HTMLTooltip';
 
 interface ConnectorsTypeProps {
@@ -17,10 +18,12 @@ const ConnectorsType = ({
     description,
 }: ConnectorsTypeProps) => {
     const featureContent = (
-        <FeatureWrapper $hasTooltips={hasTooltips}>
+        <div
+            className={clsx(featureWrapper, hasTooltips ? withTooltips : null)}
+        >
             {icon}
             <h4>{title}</h4>
-        </FeatureWrapper>
+        </div>
     );
 
     if (hasTooltips) {

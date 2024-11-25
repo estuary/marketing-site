@@ -1,17 +1,16 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { docsPageUrl, slackUrl, webinarsUrl } from '../../../../shared';
-import { DefaultWrapperDarkBlue } from '../../../styles/wrappers';
 import RecordIcon from '../../../svgs/record-outlined.svg';
 import HeroSectionDetails from '../../HeroSectionDetails';
 import Container from '../../Container';
 import HeroSectionActions from '../../HeroSectionActions';
 import Card from './Card';
-import { Cards } from './styles';
+import { wrapper, cardsList } from './styles.module.less';
 
 const Hero = () => {
     return (
-        <DefaultWrapperDarkBlue style={{ paddingTop: '50px' }}>
+        <section className={wrapper}>
             <Container>
                 <HeroSectionDetails
                     title="ESTUARY FLOW"
@@ -29,7 +28,7 @@ const Hero = () => {
                     loading="eager"
                 />
             </Container>
-            <Cards>
+            <div className={cardsList}>
                 <Card
                     title="SEE OVERVIEW"
                     description="Learn how to build a pipeline in minutes."
@@ -62,8 +61,8 @@ const Hero = () => {
                         />
                     }
                 />
-            </Cards>
-        </DefaultWrapperDarkBlue>
+            </div>
+        </section>
     );
 };
 

@@ -1,86 +1,77 @@
 import React from 'react';
-
-import {
-    Body,
-    Checkmark,
-    Close,
-    Container,
-    Head,
-    LineBody,
-    LineHead,
-    Table,
-    TableLine,
-} from './style';
+import CheckmarkDefault from '../../svgs/checkmark.svg';
+import CloseDefault from '../../svgs/close.svg';
+import { container, checkmarkIcon, closeIcon } from './style.module.less';
 
 const PipelinesTable = () => {
     return (
-        <Container>
-            <Table>
-                <Head>
-                    <TableLine>
-                        <LineHead />
-                        <LineHead>Estuary</LineHead>
-                        <LineHead>Batch ELT/ETL</LineHead>
-                        <LineHead>DIY Python</LineHead>
-                        <LineHead>KAFKA</LineHead>
-                    </TableLine>
-                </Head>
-                <Body>
-                    <TableLine>
-                        <LineBody>
+        <div className={container}>
+            <table>
+                <thead>
+                    <tr>
+                        <th />
+                        <th>Estuary</th>
+                        <th>Batch ELT/ETL</th>
+                        <th>DIY Python</th>
+                        <th>KAFKA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
                             <span>Price</span>
-                        </LineBody>
-                        <LineBody>
+                        </td>
+                        <td>
                             <span>$</span>
-                        </LineBody>
-                        <LineBody>
+                        </td>
+                        <td>
                             <span>$$-$$$$</span>
-                        </LineBody>
-                        <LineBody>
+                        </td>
+                        <td>
                             <span>$-$$$$</span>
-                        </LineBody>
-                        <LineBody>
+                        </td>
+                        <td>
                             <span>$-$$$$</span>
-                        </LineBody>
-                    </TableLine>
-                    <TableLine>
-                        <LineBody>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
                             <span>Speed</span>
-                        </LineBody>
-                        <LineBody>&#60;100ms</LineBody>
-                        <LineBody>5min+</LineBody>
-                        <LineBody>Varies</LineBody>
-                        <LineBody>&#60;100ms</LineBody>
-                    </TableLine>
-                    <TableLine>
-                        <LineBody>
+                        </td>
+                        <td>&#60;100ms</td>
+                        <td>5min+</td>
+                        <td>Varies</td>
+                        <td>&#60;100ms</td>
+                    </tr>
+                    <tr>
+                        <td>
                             <span>Ease</span>
-                        </LineBody>
-                        <LineBody>Analysts can manage</LineBody>
-                        <LineBody>Analysts can manage</LineBody>
-                        <LineBody>Data Engineer</LineBody>
-                        <LineBody>Senior Data Engineer</LineBody>
-                    </TableLine>
-                    <TableLine>
-                        <LineBody>
+                        </td>
+                        <td>Analysts can manage</td>
+                        <td>Analysts can manage</td>
+                        <td>Data Engineer</td>
+                        <td>Senior Data Engineer</td>
+                    </tr>
+                    <tr>
+                        <td>
                             <span>Scale</span>
-                        </LineBody>
-                        <LineBody>
-                            <Checkmark />
-                        </LineBody>
-                        <LineBody>
-                            <Close />
-                        </LineBody>
-                        <LineBody>
-                            <Close />
-                        </LineBody>
-                        <LineBody>
-                            <Checkmark />
-                        </LineBody>
-                    </TableLine>
-                </Body>
-            </Table>
-        </Container>
+                        </td>
+                        <td>
+                            <CheckmarkDefault className={checkmarkIcon} />
+                        </td>
+                        <td>
+                            <CloseDefault className={closeIcon} />
+                        </td>
+                        <td>
+                            <CloseDefault className={closeIcon} />
+                        </td>
+                        <td>
+                            <CheckmarkDefault className={checkmarkIcon} />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     );
 };
 

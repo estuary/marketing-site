@@ -1,30 +1,49 @@
 import * as React from 'react';
 import { dashboardRegisterUrl, webinarsUrl } from '../../../../shared';
-import { OutboundLinkOutlined } from '../../OutboundLink';
 import Container from '../../Container';
-import { ButtonFilled, Buttons, HubspotButton, Title, Wrapper } from './styles';
+import LinkOutlined from '../../LinksAndButtons/LinkOutlined';
+import OutboundLinkFilled from '../../LinksAndButtons/OutboundLinkFilled';
+import OutboundLinkOutlined from '../../LinksAndButtons/OutboundLinkOutlined';
+import {
+    buttonsWrapper,
+    hubspotButton,
+    baseButtonStyling,
+    wrapper,
+} from './styles.module.less';
 
 const SeeHow = () => {
     return (
-        <Wrapper>
+        <section className={wrapper}>
             <Container isVertical>
-                <Title>
+                <h2>
                     <span>SEE HOW </span>
                     <span>ESTUARY CAN WORK FOR YOU AND YOUR DATA</span>
-                </Title>
-                <Buttons>
-                    <ButtonFilled href={dashboardRegisterUrl} target="_blank">
+                </h2>
+                <div className={buttonsWrapper}>
+                    <OutboundLinkFilled
+                        href={dashboardRegisterUrl}
+                        target="_blank"
+                        className={baseButtonStyling}
+                    >
                         Try Now
-                    </ButtonFilled>
-                    <OutboundLinkOutlined href={webinarsUrl} target="_blank">
+                    </OutboundLinkFilled>
+                    <OutboundLinkOutlined
+                        href={webinarsUrl}
+                        target="_blank"
+                        variant="secondary"
+                    >
                         Watch Demo
                     </OutboundLinkOutlined>
-                    <HubspotButton href="/contact-us/">
+                    <LinkOutlined
+                        href="/contact-us/"
+                        className={hubspotButton}
+                        variant="secondary"
+                    >
                         Contact Us
-                    </HubspotButton>
-                </Buttons>
+                    </LinkOutlined>
+                </div>
             </Container>
-        </Wrapper>
+        </section>
     );
 };
 

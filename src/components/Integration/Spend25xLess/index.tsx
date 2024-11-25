@@ -3,12 +3,12 @@ import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.le
 import DatabaseSavingWithLowPrice from '../../../svgs/database-saving-with-low-price.svg';
 import Advantages from '../../Advantages';
 import { PricingCalculator } from '../../PricingCalculator';
-import { OutboundLinkFilled } from '../../OutboundLink';
+import OutboundLinkFilled from '../../LinksAndButtons/OutboundLinkFilled';
 
 const Spend25xLess = () => {
     return (
         <section className={defaultWrapperDarkBlue}>
-            <Advantages // TODO: Move the Advantages component's styles from styled-components to LESS
+            <Advantages
                 icon={<DatabaseSavingWithLowPrice color="#5072EB" />}
                 title={
                     <>
@@ -16,10 +16,7 @@ const Spend25xLess = () => {
                     </>
                 }
                 subtitle="Estuary customers not only do 4x more. They also spend 2-5x less on ETL and ELT. Flow’s unique ability to mix and match streaming and batch loading has also helped customers save as much as 40% on data warehouse compute costs."
-                image={
-                    // TODO: Move the pricing calculator's styles from styled-components to LESS
-                    <PricingCalculator />
-                }
+                image={<PricingCalculator />}
                 isDarkTheme
                 ctaButtons={
                     <OutboundLinkFilled href="/pricing/" target="_blank">

@@ -2,7 +2,6 @@ import { IGatsbyImageData, GatsbyImage, getImage } from 'gatsby-plugin-image';
 import * as React from 'react';
 import { graphql } from 'gatsby';
 import NewsletterSignupForm from '../../components/NewsletterSignupForm';
-import { OutboundLink } from '../../components/OutboundLink';
 import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
 import { estuaryAllowsEnterprises } from '../../content/seo';
@@ -13,6 +12,7 @@ import SubscribeYoutubeImage from '../../svgs/subscribe-image.svg';
 import SubscribeYoutubeButton from '../../svgs/subscribe-youtube.svg';
 import WatchYoutubeButton from '../../svgs/youtube-watch.svg';
 import SignUp from '../../components/Signup';
+import OutboundLink from '../../components/LinksAndButtons/OutboundLink';
 import {
     container,
     hero,

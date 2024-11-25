@@ -1,7 +1,7 @@
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import * as React from 'react';
-import { Avatar as LetterAvatar } from '@mui/material';
-import { Container } from './styles';
+import { Avatar as MuiAvatar } from '@mui/material';
+import { avatar } from './styles.module.less';
 
 type Avatar = {
     image?: IGatsbyImageData;
@@ -13,13 +13,13 @@ type Avatar = {
 
 const Avatar = ({ image, alt, name, loading = 'eager', size = 40 }: Avatar) => {
     return (
-        <Container sx={{ width: size, height: size }}>
+        <MuiAvatar className={avatar} sx={{ width: size, height: size }}>
             {image ? (
                 <GatsbyImage image={image} alt={alt} loading={loading} />
             ) : (
-                <LetterAvatar>{name.charAt(0).toUpperCase()}</LetterAvatar>
+                <MuiAvatar>{name.charAt(0).toUpperCase()}</MuiAvatar>
             )}
-        </Container>
+        </MuiAvatar>
     );
 };
 

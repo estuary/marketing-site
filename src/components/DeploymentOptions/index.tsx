@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react';
 import TabContext from '@mui/lab/TabContext';
 import Container from '../Container';
-import { LinkFilled } from '../../globalStyles';
 import { DeploymentOption } from '../../../shared';
+import LinkFilled from '../LinksAndButtons/LinkFilled';
 import DeploymentDiagramContainer from './DeploymentDiagramContainer';
 import { container, rightColumn } from './styles.module.less';
 import Tabs from './Tabs';

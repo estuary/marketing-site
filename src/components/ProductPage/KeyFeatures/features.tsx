@@ -1,6 +1,7 @@
 import React from 'react';
 import { docsPageUrl } from '../../../../shared';
-import { TooltipLink } from './styles';
+import OutboundLink from '../../LinksAndButtons/OutboundLink';
+import { tooltipLink } from './styles.module.less';
 
 interface Features {
     title: string;
@@ -100,12 +101,13 @@ export const features: { [key: string]: Features } = {
                 <p>
                     Automatically inferred and managed from source to
                     destination using{' '}
-                    <TooltipLink
+                    <OutboundLink
                         href={`${docsPageUrl}/concepts/advanced/evolutions/`}
                         target="_blank"
+                        className={tooltipLink}
                     >
                         schema evolution
-                    </TooltipLink>
+                    </OutboundLink>
                     .
                 </p>
                 <ul>

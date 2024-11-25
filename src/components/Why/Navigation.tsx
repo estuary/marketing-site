@@ -2,13 +2,13 @@ import { Link } from 'gatsby';
 import * as React from 'react';
 import clsx from 'clsx';
 import ColoredLogo from '../../svgs/colored-logo.svg';
-import { OutboundLink } from '../OutboundLink';
 import {
     globalHeaderLogoLink,
     globalHeaderLogo,
     globalHeaderTitle,
 } from '../styles.module.less';
 import { dashboardRegisterUrl, docsPageUrl } from '../../../shared';
+import OutboundLink from '../LinksAndButtons/OutboundLink';
 import { navItems } from './utils';
 import {
     sidebarWrap,

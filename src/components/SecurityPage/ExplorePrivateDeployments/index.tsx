@@ -3,9 +3,9 @@ import { StaticImage } from 'gatsby-plugin-image';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import Advantages from '../../Advantages';
 import SecureDataIcon from '../../../svgs/secure-data.svg';
-import { LinkFilled } from '../../../globalStyles';
-import { OutboundLinkOutlined } from '../../OutboundLink';
 import { docsPageUrl } from '../../../../shared';
+import LinkFilled from '../../LinksAndButtons/LinkFilled';
+import OutboundLinkOutlined from '../../LinksAndButtons/OutboundLinkOutlined';
 
 const ExplorePrivateDeployments = () => (
     <section className={defaultWrapperGrey}>
@@ -33,6 +33,7 @@ const ExplorePrivateDeployments = () => (
                     <OutboundLinkOutlined
                         href={`${docsPageUrl}/getting-started/deployment-options/`}
                         target="__blank"
+                        variant="secondary"
                     >
                         Explore Documentation
                     </OutboundLinkOutlined>

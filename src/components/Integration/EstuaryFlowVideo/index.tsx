@@ -1,9 +1,9 @@
 import React from 'react';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import FlowDemoVideo from '../../FlowDemoVideo';
-import { OutboundLinkFilled } from '../../OutboundLink';
-import { LinkOutlined } from '../../../globalStyles';
 import { dashboardRegisterUrl } from '../../../../shared';
+import OutboundLinkFilled from '../../LinksAndButtons/OutboundLinkFilled';
+import LinkOutlined from '../../LinksAndButtons/LinkOutlined';
 import {
     buttonsWrapper,
     container,
@@ -24,15 +24,13 @@ const EstuaryFlowVideo = () => {
                 </p>
                 <FlowDemoVideo />
                 <div className={buttonsWrapper}>
-                    <OutboundLinkFilled //TODO: move the styles of this button to LESS
+                    <OutboundLinkFilled
                         href={dashboardRegisterUrl}
                         target="_blank"
                     >
                         Try Now
                     </OutboundLinkFilled>
-                    <LinkOutlined href="/contact-us" theme="dark">
-                        Contact Us
-                    </LinkOutlined>
+                    <LinkOutlined href="/contact-us">Contact Us</LinkOutlined>
                 </div>
             </div>
         </section>

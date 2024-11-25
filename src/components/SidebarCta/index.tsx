@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { OutboundLinkFilled } from '../OutboundLink';
 import { dashboardRegisterUrl } from '../../../shared';
+import OutboundLinkFilled from '../LinksAndButtons/OutboundLinkFilled';
 import { container, image } from './styles.module.less';
 
 const SidebarCta = () => {

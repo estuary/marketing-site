@@ -1,12 +1,7 @@
 import * as React from 'react';
-import {
-    Container,
-    Crumb,
-    CurrentPageTitle,
-    Divider,
-    Links,
-    PreviousLink,
-} from './styles';
+import { Link } from 'gatsby';
+import { globalMaxWidth } from '../../globalStyles/sections.module.less';
+import { links, crumbTitle, divider } from './styles.module.less';
 
 interface Breadcrumb {
     title: string;
@@ -17,25 +12,23 @@ interface BreadcrumbsProps {
     breadcrumbs: Breadcrumb[];
 }
 
-const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ breadcrumbs = [] }) => {
-    return (
-        <Container aria-label="breadcrumb">
-            <Links>
-                {breadcrumbs.map(({ title, href }) => (
-                    <Crumb key={`breadCrumb_${href ?? title}`}>
-                        {href ? (
-                            <>
-                                <PreviousLink to={href}>{title}</PreviousLink>
-                                <Divider> / </Divider>
-                            </>
-                        ) : (
-                            <CurrentPageTitle>{title}</CurrentPageTitle>
-                        )}
-                    </Crumb>
-                ))}
-            </Links>
-        </Container>
-    );
-};
+const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ breadcrumbs = [] }) => (
+    <nav aria-label="breadcrumb" className={globalMaxWidth}>
+        <ol className={links}>
+            {breadcrumbs.map(({ title, href }) => (
+                <li key={`breadCrumb_${href ?? title}`}>
+                    {href ? (
+                        <>
+                            <Link to={href}>{title}</Link>
+                            <span className={divider}> / </span>
+                        </>
+                    ) : (
+                        <span className={crumbTitle}>{title}</span>
+                    )}
+                </li>
+            ))}
+        </ol>
+    </nav>
+);
 
 export default Breadcrumbs;

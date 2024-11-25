@@ -4,7 +4,8 @@ import ReactPlayer from 'react-player';
 import { estuaryProductFlowVideoUrl } from '../../../shared';
 import useWindowExistence from '../../hooks/useWindowExistence';
 import PlayIcon from '../../svgs/play.svg';
-import { Button, Container, VideoTextAndButton } from './styles';
+import ButtonFilled from '../LinksAndButtons/ButtonFilled';
+import { container, videoTextAndButtonsWrapper } from './styles.module.less';
 
 const FlowDemoVideo = () => {
     const hasWindow = useWindowExistence();
@@ -15,7 +16,6 @@ const FlowDemoVideo = () => {
                 placeholder="none"
                 alt="estuary flow product end to end demo video"
                 src="../../images/end-to-end-demo-video-thumbnail.png"
-                className="section-five-product-video-thumbnail"
                 style={{ borderRadius: '12px' }}
             />
         ),
@@ -23,23 +23,23 @@ const FlowDemoVideo = () => {
     );
 
     return hasWindow ? (
-        <Container>
+        <div className={container}>
             <ReactPlayer
                 light={thumbnailComponent}
                 url={estuaryProductFlowVideoUrl}
                 width="100%"
                 height="100%"
                 playIcon={
-                    <VideoTextAndButton>
+                    <div className={videoTextAndButtonsWrapper}>
                         <span>Watch our 80 second end-to-end demo!</span>
-                        <Button>
+                        <ButtonFilled>
                             <PlayIcon />
                             <span>Play Video</span>
-                        </Button>
-                    </VideoTextAndButton>
+                        </ButtonFilled>
+                    </div>
                 }
             />
-        </Container>
+        </div>
     ) : null;
 };
 

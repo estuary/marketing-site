@@ -7,7 +7,6 @@ import GithubIcon from '../../svgs/github-outline.svg';
 import SlackIcon from '../../svgs/slack-outline.svg';
 import HeaderNavbar from '../HeaderNavbar';
 import HeaderNavBarBackground from '../HeaderNavbar/Background';
-import { OutboundLink, OutboundLinkFilled } from '../OutboundLink';
 import {
     globalHeaderLink,
     globalHeaderLogoLink,
@@ -20,6 +19,8 @@ import {
     estuaryFlowGithubUrl,
     slackUrl,
 } from '../../../shared';
+import OutboundLink from '../LinksAndButtons/OutboundLink';
+import OutboundLinkFilled from '../LinksAndButtons/OutboundLinkFilled';
 import {
     globalHeader,
     globalHeaderWrapper,

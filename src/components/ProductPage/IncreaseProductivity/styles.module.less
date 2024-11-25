@@ -1,0 +1,74 @@
+.flexCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flexColumnCenter {
+    .flexCenter;
+    flex-direction: column;
+}
+
+.caseStudies {
+    .flexColumnCenter;
+    gap: 18px;
+    height: 100%;
+}
+
+.iconWrapper {
+    .flexCenter;
+    width: 64px;
+    height: 64px;
+}
+
+.bottomCaseStudies {
+    display: flex;
+    gap: 16px;
+
+    @media (max-width: 425px) {
+        flex-direction: column;
+    }
+}
+
+.caseStudyBase {
+    .flexColumnCenter;
+    padding: 16px;
+    gap: 16px;
+    border-radius: 24px;
+    background-color: #ffffff;
+
+    & > h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 28.8px;
+        text-align: center;
+        margin: 0;
+    }
+
+    & > p {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 30px;
+        color: #47506d;
+        text-align: center;
+        margin: 0;
+    }
+}
+
+.topCaseStudy {
+    border: 1px solid #e2e8fb;
+
+    & > h3 {
+        color: #5072eb;
+    }
+}
+
+.bottomCaseStudy {
+    border: 1px solid #a4b6f4;
+    background-color: #5072eb1a;
+    flex: 1;
+
+    & > h3 {
+        color: #04192b;
+    }
+}

@@ -1,0 +1,43 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 120px;
+
+    @media (min-width: 1170px) {
+        flex-direction: column-reverse;
+    }
+}
+
+.containerCards {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 20px;
+
+    @media (min-width: 1170px) {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+
+        >div:nth-child(2) {
+            position: relative;
+            top: 50px;
+        }
+    }
+
+    @media (min-width: 1025px) {
+        align-items: center;
+    }
+
+    @media (max-width: 425px) {
+        div {
+            border-radius: 24px;
+            padding: 12px;
+        }
+    }
+}
+
+.containerCardsReverse {
+    @media (min-width: 1170px) {
+        flex-direction: column;
+    }
+}

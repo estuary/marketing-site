@@ -1,12 +1,7 @@
 import * as React from 'react';
 import LottiePlayerLight from 'react-lottie-player/dist/LottiePlayerLight';
-import styled from 'styled-components';
 import AnimFallback from './AnimFallback';
-import { AnimationBaseStyling } from './styles';
-
-const FlowAnimation = styled('div')`
-    ${AnimationBaseStyling}
-`;
+import { flowAnimationPlaceholderContainer } from './styles.module.less';
 
 const AnimatedHero = () => {
     const [animationData, setAnimationData] = React.useState<object>();
@@ -43,7 +38,7 @@ const AnimatedHero = () => {
     }, [lottieRef]);
 
     return (
-        <FlowAnimation>
+        <div className={flowAnimationPlaceholderContainer}>
             {!showAnimation ? <AnimFallback /> : null}
             {animationData ? (
                 <LottiePlayerLight
@@ -60,7 +55,7 @@ const AnimatedHero = () => {
                     ref={lottieRef}
                 />
             ) : null}
-        </FlowAnimation>
+        </div>
     );
 };
 

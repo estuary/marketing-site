@@ -1,41 +1,31 @@
 import * as React from 'react';
 import DatabaseSavingWithLowPrice from '../../../svgs/database-saving-with-low-price.svg';
 import { PricingCalculator } from '../../PricingCalculator';
-import Container from '../../Container';
-import {
-    Button,
-    IconWrapper,
-    LeftColumn,
-    RightColumn,
-    Wrapper,
-} from './styles';
+import Advantages from '../../Advantages';
+import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
+import LinkFilled from '../../LinksAndButtons/LinkFilled';
 
 const Do4xMoreWith25xLess = () => {
     return (
-        <Wrapper>
-            <Container isReverseColumnOnMobile>
-                <LeftColumn>
-                    <IconWrapper>
-                        <DatabaseSavingWithLowPrice color="#5072EB" />
-                    </IconWrapper>
-                    <h2>
-                        <span>DO </span>
-                        <span>4X MORE </span>
-                        <span>WITH 2-5X LESS</span>
-                    </h2>
-                    <p>
-                        Estuary customers aren&apos;t just benefitting from
+        <section className={defaultWrapperGrey}>
+            <Advantages
+                icon={<DatabaseSavingWithLowPrice color="#5072EB" />}
+                title={
+                    <>
+                        DO <span>4X MORE </span> WITH 2-5X LESS
+                    </>
+                }
+                subtitle="Estuary customers aren't just benefitting from
                         being more real-time. They are 4x more productive. They
                         deliver new projects in days, not months. And they spend
-                        2-5x less on Estuary than on batch ELT.
-                    </p>
-                    <Button href="/pricing/">See Pricing</Button>
-                </LeftColumn>
-                <RightColumn>
-                    <PricingCalculator />
-                </RightColumn>
-            </Container>
-        </Wrapper>
+                        2-5x less on Estuary than on batch ELT."
+                image={<PricingCalculator />}
+                ctaButtons={
+                    <LinkFilled href="/pricing/">See Pricing</LinkFilled>
+                }
+                isReverseColumnOnMobile
+            />
+        </section>
     );
 };
 

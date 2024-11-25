@@ -1,23 +1,19 @@
 import React from 'react';
-
 import DoneIcon from '@mui/icons-material/Done';
 import { useMediaQuery } from '@mui/material';
 import { ConnectorType } from '../../../../shared';
 import ConnectorsLink from '../../../components/ConnectorsLink';
-import { DefaultWrapper } from '../../../styles/wrappers';
-import { OutboundLink } from '../../../components/OutboundLink';
 import Container from '../../../components/Container';
+import OutboundLink from '../../../components/LinksAndButtons/OutboundLink';
 import Cards from './components/Cards';
 import {
-    ContainerContent,
-    ContainerImage,
-    Description,
-    LineBreak,
-    Observation,
-    Title,
-    Topic,
-    Topics,
-} from './style';
+    wrapper,
+    containerImage,
+    containerContent,
+    observation,
+    description,
+    lineBreak,
+} from './styles.module.less';
 
 type ChangeDataProps = {
     connector: {
@@ -31,51 +27,51 @@ const ChangeData = ({ connector: { id, title, type } }: ChangeDataProps) => {
     const isColumn = useMediaQuery('(max-width:1485px)');
 
     return (
-        <DefaultWrapper>
+        <section className={wrapper}>
             <Container>
-                <ContainerImage>
+                <div className={containerImage}>
                     <Cards />
-                </ContainerImage>
-                <ContainerContent>
-                    <Title>
+                </div>
+                <div className={containerContent}>
+                    <h2>
                         <span>REAL-TIME</span>
-                        <LineBreak />
+                        <span className={lineBreak} />
                         HIGH THROUGHPUT
-                    </Title>
-                    <Description>
+                    </h2>
+                    <p className={description}>
                         Point a connector and replicate changes{' '}
                         {type === 'capture' ? 'from' : 'to'} {title} in
                         &#60;100ms. Leverage high-availability, high-throughput
                         Change Data Capture.
-                        <LineBreak />
+                        <span className={lineBreak} />
                         Or choose from 100s of batch and real-time connectors to
                         move and transform data using ELT and ETL.
-                    </Description>
-                    <Topics>
-                        <Topic>
+                    </p>
+                    <ul>
+                        <li>
                             <DoneIcon htmlColor="#5072EB" fontSize="medium" />
                             <span>
                                 Ensure your {title} insights always reflect the
                                 latest data by connecting your databases to{' '}
                                 {title} with change data capture.
                             </span>
-                        </Topic>
-                        <Topic>
+                        </li>
+                        <li>
                             <DoneIcon htmlColor="#5072EB" fontSize="medium" />
                             <span>
                                 Or connect critical SaaS apps to {title} with
                                 real-time data pipelines.
                             </span>
-                        </Topic>
-                    </Topics>
+                        </li>
+                    </ul>
                     <ConnectorsLink
                         defaultDestinationId={id}
                         defaultSourceId={id}
                         connectorType={type}
                         direction={isColumn ? 'column' : 'row'}
                     />
-                    <Observation>
-                        <span>Don’t see a connector?</span>
+                    <p className={observation}>
+                        <span>Don&apos;t see a connector?</span>
                         <OutboundLink
                             href="https://github.com/estuary/connectors/issues/new?assignees=&labels=new+connector&projects=&template=request-new-connector-form.yaml&title=Request+a+connector+to+%5Bcapture+from+%7C+materialize+to%5D+%5Byour+favorite+system%5D"
                             target="_blank"
@@ -84,10 +80,10 @@ const ChangeData = ({ connector: { id, title, type } }: ChangeDataProps) => {
                             Request and our team will get back to you in 24
                             hours
                         </OutboundLink>
-                    </Observation>
-                </ContainerContent>
+                    </p>
+                </div>
             </Container>
-        </DefaultWrapper>
+        </section>
     );
 };
 

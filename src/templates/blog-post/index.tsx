@@ -14,10 +14,6 @@ import { PopularArticles } from '../../components/BlogPopularArticles';
 import BlogPostPopupModal from '../../components/BlogPostPopupModal';
 import { ProcessedPost } from '../../components/BlogPostProcessor';
 import Breadcrumbs from '../../components/Breadcrumbs';
-import {
-    OutboundLinkFilled,
-    OutboundLinkOutlined,
-} from '../../components/OutboundLink';
 import Bio from '../../components/Bio';
 import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
@@ -35,6 +31,8 @@ import BlogBanner from '../../components/BlogBanner';
 import ArticleSidebar from '../../components/ArticleSidebar';
 import Container from '../../components/Container';
 import HeroSectionDetails from '../../components/HeroSectionDetails';
+import OutboundLinkFilled from '../../components/LinksAndButtons/OutboundLinkFilled';
+import OutboundLinkOutlined from '../../components/LinksAndButtons/OutboundLinkOutlined';
 import ShareArticle from './ShareArticle';
 import {
     blogPost,
@@ -390,7 +388,6 @@ const BlogPostTemplate = ({ data: { post } }) => {
                                 <OutboundLinkOutlined
                                     href="https://estuary.dev/pricing/"
                                     className={pricingLink}
-                                    theme="dark"
                                 >
                                     See Pricing
                                 </OutboundLinkOutlined>

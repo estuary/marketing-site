@@ -1,77 +1,80 @@
 import React from 'react';
-
 import { StaticImage } from 'gatsby-plugin-image';
-import { LinkOutlined } from '../../../globalStyles';
-import { DefaultWrapperDark } from '../../../styles/wrappers';
+import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import CalendarIcon from '../../../svgs/product-page/section-fourteen/calendar.svg';
 import LoginIcon from '../../../svgs/product-page/section-fourteen/login.svg';
-import { OutboundLinkOutlined } from '../../OutboundLink';
 import { dashboardRegisterUrl } from '../../../../shared';
 import Container from '../../Container';
+import OutboundLinkOutlined from '../../LinksAndButtons/OutboundLinkOutlined';
+import LinkOutlined from '../../LinksAndButtons/LinkOutlined';
 import {
-    BoxDescription,
-    BoxTitle,
-    Boxes,
-    Columns,
-    ContactUsBox,
-    GetStartedBox,
-    IconWrapper,
-    ImageWrapper,
-    TextWrapper,
-    Title,
-} from './styles';
+    boxes,
+    columns,
+    contactUsBox,
+    getStartedBox,
+    iconWrapper,
+    imageWrapper,
+    textWrapper,
+    sectionTitle,
+} from './styles.module.less';
+
+const iconColor = '#5072EB';
 
 const ReadyToStart = () => {
     return (
-        <DefaultWrapperDark>
+        <section className={defaultWrapperDark}>
             <Container isVertical>
-                <Title>READY TO START?</Title>
-                <Columns>
-                    <Boxes>
-                        <GetStartedBox>
-                            <TextWrapper>
-                                <BoxTitle>BUILD A PIPELINE</BoxTitle>
-                                <BoxDescription>
+                <h2 className={sectionTitle}>READY TO START?</h2>
+                <div className={columns}>
+                    <div className={boxes}>
+                        <div className={getStartedBox}>
+                            <div className={textWrapper}>
+                                <h3>BUILD A PIPELINE</h3>
+                                <p>
                                     Try out Estuary free, and build a new
                                     pipeline in minutes.
-                                </BoxDescription>
-                            </TextWrapper>
+                                </p>
+                            </div>
                             <OutboundLinkOutlined
                                 href={dashboardRegisterUrl}
                                 target="_blank"
+                                variant="secondary"
                             >
-                                <IconWrapper>
-                                    <LoginIcon color="#5072EB" />
-                                </IconWrapper>
+                                <div className={iconWrapper}>
+                                    <LoginIcon color={iconColor} />
+                                </div>
                                 GET STARTED
                             </OutboundLinkOutlined>
-                        </GetStartedBox>
-                        <ContactUsBox>
-                            <TextWrapper>
-                                <BoxTitle>SET UP AN APPOINTMENT</BoxTitle>
-                                <BoxDescription>
+                        </div>
+                        <div className={contactUsBox}>
+                            <div className={textWrapper}>
+                                <h3>SET UP AN APPOINTMENT</h3>
+                                <p>
                                     Set up an appointment to get a personalized
                                     overview.
-                                </BoxDescription>
-                            </TextWrapper>
-                            <LinkOutlined href="/contact-us/">
-                                <IconWrapper>
-                                    <CalendarIcon color="#5072EB" />
-                                </IconWrapper>
+                                </p>
+                            </div>
+                            <LinkOutlined
+                                href="/contact-us/"
+                                variant="secondary"
+                            >
+                                <div className={iconWrapper}>
+                                    <CalendarIcon color={iconColor} />
+                                </div>
                                 CONTACT US
                             </LinkOutlined>
-                        </ContactUsBox>
-                    </Boxes>
-                    <ImageWrapper>
+                        </div>
+                    </div>
+                    <div className={imageWrapper}>
                         <StaticImage
                             placeholder="none"
                             alt="Rocket image"
                             src="../../../images/product-page/section-fourteen/rocket.png"
                         />
-                    </ImageWrapper>
-                </Columns>
+                    </div>
+                </div>
             </Container>
-        </DefaultWrapperDark>
+        </section>
     );
 };
 

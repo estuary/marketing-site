@@ -1,0 +1,20 @@
+export const accordionStyles = {
+    'background': 'transparent !important',
+    '&.MuiAccordion-root:before': {
+        display: 'none !important',
+    },
+    '&.MuiAccordion-root': {
+        margin: 'auto 0 !important',
+    },
+};
+
+export const accordionSummaryStyles = {
+    'minHeight': '0 !important',
+    'padding': '0 !important',
+    '&.Mui-expanded': {
+        minHeight: '0 !important',
+    },
+    '& .MuiAccordionSummary-content': {
+        margin: '0 !important',
+    },
+};

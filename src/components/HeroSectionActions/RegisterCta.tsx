@@ -1,6 +1,6 @@
 import React from 'react';
-import { OutboundLinkFilled } from '../OutboundLink';
 import { dashboardRegisterUrl } from '../../../shared';
+import OutboundLinkFilled from '../LinksAndButtons/OutboundLinkFilled';
 
 function RegisterCta() {
     return (

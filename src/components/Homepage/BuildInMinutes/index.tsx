@@ -2,13 +2,13 @@ import * as React from 'react';
 import DarkSwoopingLinesLeftDirectionBackground from '../../BackgroundImages/DarkSwoopingLinesLeftDirectionBackground';
 import FlowDemoVideo from '../../FlowDemoVideo';
 import Container from '../../Container';
-import { TextWrapper } from '../styles';
+import { textWrapper } from '../styles.module.less';
 
 const BuildInMinutes = () => {
     return (
         <DarkSwoopingLinesLeftDirectionBackground>
             <Container isVertical>
-                <TextWrapper>
+                <div className={textWrapper}>
                     <h2>
                         <span>Build </span>
                         in minutes
@@ -17,8 +17,10 @@ const BuildInMinutes = () => {
                         Use the UI to quickly build end-to-end pipelines using
                         no-code connectors. Estuary Flow does the rest.
                     </p>
-                </TextWrapper>
-                <FlowDemoVideo />
+                </div>
+                <div>
+                    <FlowDemoVideo />
+                </div>
             </Container>
         </DarkSwoopingLinesLeftDirectionBackground>
     );

@@ -1,8 +1,8 @@
 import React from 'react';
 import clsx from 'clsx';
 import Container from '../../Container';
-import { LinkOutlined } from '../../../globalStyles';
 import { Partner } from '../shared';
+import LinkOutlined from '../../LinksAndButtons/LinkOutlined';
 import { container, isReverseStyling, darkTheme } from './styles.module.less';
 import PartnerAvatar from './PartnerAvatar';
 
@@ -34,7 +34,7 @@ const PartnerProgramDetails = ({
                 <p>{description}</p>
                 <LinkOutlined
                     href="/partners/#contact-us-form-section"
-                    theme={isDarkTheme ? 'dark' : 'light'}
+                    variant={isDarkTheme ? 'primary' : 'secondary'}
                 >
                     Contact Us
                 </LinkOutlined>

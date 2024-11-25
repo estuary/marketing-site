@@ -5,7 +5,7 @@ import DarkSwoopingLinesLeftDirectionBackground from '../../BackgroundImages/Dar
 import Carousel from '../../Carousel';
 import Container from '../../Container';
 import Card from './Card';
-import { Cards, SectionTitle } from './styles';
+import { cardsList, sectionTitle } from './styles.module.less';
 
 const cardsPerSlide = 3;
 
@@ -36,7 +36,7 @@ const CaseStudies = () => {
     return (
         <DarkSwoopingLinesLeftDirectionBackground>
             <Container isVertical>
-                <SectionTitle>CASE STUDIES</SectionTitle>
+                <h2 className={sectionTitle}>CASE STUDIES</h2>
                 <Carousel
                     hasArrow
                     aria-label="Case studies carousel"
@@ -49,7 +49,7 @@ const CaseStudies = () => {
                             ),
                         },
                         (_, index) => (
-                            <Cards key={index}>
+                            <div key={index} className={cardsList}>
                                 {allCaseStudies
                                     .slice(
                                         index * cardsPerSlide,
@@ -73,7 +73,7 @@ const CaseStudies = () => {
                                             }
                                         />
                                     ))}
-                            </Cards>
+                            </div>
                         )
                     )}
                 </Carousel>

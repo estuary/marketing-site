@@ -1,14 +1,12 @@
 import React from 'react';
-
 import { StaticImage } from 'gatsby-plugin-image';
-import { DefaultWrapperDark } from '../../../styles/wrappers';
-
+import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import Advantages from '../../Advantages';
 import { sectionSixAdvantages } from '../advantages';
 
 const ConfigureOrCode = () => {
     return (
-        <DefaultWrapperDark>
+        <section className={defaultWrapperDark}>
             <Advantages
                 icon={
                     <StaticImage
@@ -32,7 +30,7 @@ const ConfigureOrCode = () => {
                 }
                 advantages={sectionSixAdvantages}
             />
-        </DefaultWrapperDark>
+        </section>
     );
 };
 

@@ -1,0 +1,67 @@
+.container {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    min-height: 60px;
+
+    @media (min-width: 811px) {
+        cursor: default;
+        min-height: 100%;
+    }
+
+    h3 {
+        font-weight: 500;
+        font-size: 1.5rem;
+        line-height: 28.8px;
+        color: #ffffff;
+        margin: 0;
+
+        @media (min-width: 811px) {
+            text-align: center;
+        }
+
+        @media (max-width: 1024px) {
+            font-size: 1.25rem;
+        }
+    }
+}
+
+.reversed {
+    @media (min-width: 811px) {
+        flex-direction: row-reverse;
+    }
+}
+
+.iconWrapper {
+    min-width: 51px;
+    min-height: 51px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    background-color: #5072eb99;
+    border-radius: 50%;
+
+    @media (max-width: 810px) {
+        min-width: 40px;
+        min-height: 40px;
+    }
+}
+
+.chevronIconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 4px;
+
+    @media (min-width: 811px) {
+        display: none;
+    }
+}
+
+.accordionDetails {
+    padding: 0 !important;
+    display: flex;
+    flex-direction: column;
+    margin-top: 12px 0 0 0;
+}

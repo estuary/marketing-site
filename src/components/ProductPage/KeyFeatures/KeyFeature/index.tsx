@@ -1,11 +1,11 @@
 import React from 'react';
 import HTMLTooltip from '../../../HTMLTooltip';
 import KeyFeatureContent from '../KeyFeatureContent';
-import { DescriptionWrapper } from './styles';
+import { descriptionWrapper } from './styles.module.less';
 
 const KeyFeature = ({ props, feature, icon, isDesktop }) => {
     const featureDescription = (
-        <DescriptionWrapper>{feature.description}</DescriptionWrapper>
+        <div className={descriptionWrapper}>{feature.description}</div>
     );
 
     const keyFeatureContent = (

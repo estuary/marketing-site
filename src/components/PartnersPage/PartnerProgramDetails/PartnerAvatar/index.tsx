@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { OutboundLink } from '../../../OutboundLink';
+import OutboundLink from '../../../LinksAndButtons/OutboundLink';
 
 interface PartnerAvatarProps {
     icon: ReactNode;

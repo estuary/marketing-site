@@ -1,0 +1,60 @@
+@primaryColor: #5072eb;
+@hoverColor: #625eff;
+@lightColor: #fff;
+@disabledColor: #d7dce5;
+@secondaryColor: #fdfdfe;
+
+.baseButton {
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 20px;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 150ms ease-in-out;
+    border: 2px solid @primaryColor;
+    background-color: @primaryColor;
+    color: @lightColor;
+
+    @media (max-width: 425px) {
+        font-size: 0.875rem;
+    }
+
+    &:hover {
+        background-color: @hoverColor;
+        border-color: @hoverColor;
+        color: @lightColor;
+
+        svg {
+            color: @lightColor;
+        }
+    }
+
+    &:active {
+        background-color: @primaryColor;
+        border-color: @primaryColor;
+    }
+
+    &:disabled {
+        background-color: @disabledColor;
+        border-color: @disabledColor;
+    }
+}
+
+.secondaryButton {
+    color: @primaryColor;
+    background-color: @secondaryColor;
+}
+
+.buttonOutlined {
+    background-color: transparent;
+}
+
+.fullWidthStyle {
+    width: 100%;
+}

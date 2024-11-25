@@ -1,0 +1,206 @@
+.textWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    h2 {
+        font-size: 2.5rem;
+        font-weight: 600;
+        line-height: 48px;
+        margin: 0;
+        color: #ffffff;
+        max-width: 600px;
+
+        @media (max-width: 810px) {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 38.4px;
+            margin: 0;
+        }
+
+        @media (max-width: 425px) {
+            font-size: 1.75rem;
+            line-height: 33.6px;
+        }
+
+        & > span {
+            color: #5072eb;
+        }
+    }
+
+    p {
+        font-size: 1.25rem;
+        font-weight: 400;
+        line-height: 30px;
+        color: #ffffff;
+        margin: 0;
+
+        @media (max-width: 810px) {
+            font-size: 1rem;
+        }
+    }
+}
+
+.iconsWrapper {
+    display: flex;
+    gap: 24px;
+}
+
+.iconWrapper {
+    width: 90px;
+    height: 90px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff05;
+    border: 1px solid #d7dce526;
+    border-radius: 8px;
+
+    @media (max-width: 1280px) {
+        width: 72px;
+        height: 72px;
+    }
+}
+
+.tabContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 49px;
+
+    p {
+        color: #ffffff;
+        margin: 32px 0 0 0;
+        max-width: 397px;
+        text-align: center;
+        min-height: 100px;
+    }
+}
+
+.tabImageWrapper {
+    display: flex;
+    align-items: center;
+    padding: 4px;
+
+    @media (max-width: 425px) {
+        flex-direction: column;
+    }
+}
+
+.connectors {
+    position: relative;
+    z-index: 2;
+    margin-left: -2%;
+
+    @media (max-width: 425px) {
+        margin: 6% 0 0 0;
+    }
+}
+
+.analyticsConnectors {
+    margin-left: -6%;
+}
+
+.logoWrapper {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 14.5%;
+    height: 43%;
+    background-color: transparent;
+    cursor: pointer;
+
+    @media (max-width: 1280px) {
+        height: 43.4%;
+        width: 14.6%;
+    }
+
+    @media (max-width: 1024px) {
+        height: 43.6%;
+    }
+
+    &:hover {
+        border-radius: 14%;
+        border: 2px solid transparent;
+        background: linear-gradient(to bottom, #6ed5d6, #7284ff) border-box;
+        mask:
+            linear-gradient(#fff 0 0) padding-box,
+            linear-gradient(#fff 0 0);
+        mask-composite: exclude;
+
+        @media (max-width: 425px) {
+            border-radius: 18%;
+        }
+    }
+
+    &:active {
+        background: linear-gradient(to bottom, #6ed5d699, #7284ff99) border-box;
+    }
+}
+
+.trioGroupLogo {
+    top: 50.5%;
+    width: 19%;
+
+    @media (max-width: 1024px), (min-width: 425px) {
+        height: 45%;
+        width: 18.5%;
+    }
+}
+
+.googleBigQueryLogoWrapper {
+    right: 73.8%;
+
+    @media (max-width: 900px) {
+        right: 74.2%;
+    }
+}
+
+.databricksLogoWrapper {
+    right: 53.2%;
+}
+
+.amazonRedshiftLogoWrapper {
+    left: 53.4%;
+
+    @media (max-width: 1280px) {
+        left: 53%;
+    }
+
+    @media (max-width: 1024px) {
+        left: 53%;
+    }
+}
+
+.snowflakeLogoWrapper {
+    left: 74.2%;
+
+    @media (max-width: 1280px) {
+        left: 74%;
+    }
+}
+
+.trioGroupFirstLogo {
+    right: 67.3%;
+
+    @media (max-width: 1024px), (min-width: 425px) {
+        right: 67%;
+    }
+}
+
+.trioGroupSecondLogo {
+    right: 40.5%;
+
+    @media (max-width: 840px) {
+        right: 41%;
+    }
+}
+
+.trioGroupThirdLogo {
+    right: 14.5%;
+}
+
+.tabsWrapper {
+    height: 100%;
+}

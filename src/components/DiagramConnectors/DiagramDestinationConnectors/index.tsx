@@ -1,12 +1,15 @@
 import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
+import { Link } from 'gatsby';
+import clsx from 'clsx';
 import {
-    Connector,
-    ConnectorsGroup,
-    ConnectorsGroupsRightWrapper,
-    HiddenLogoTitle,
-    LogoWrapper,
-} from '../styles';
+    connector,
+    connectorsGroup,
+    connectorsGroupsRightWrapper,
+    spacingRight,
+    logoWrapper,
+    icon,
+} from '../styles.module.less';
 import AiIcon from '../../../svgs/android-brain.svg';
 import OpsIcon from '../../../svgs/ops.svg';
 import AnalyticsIcon from '../../../svgs/pie-chart.svg';
@@ -15,133 +18,139 @@ import { DiagramConnectorsProps } from '../types';
 
 const DiagramDestinationConnectors = ({
     hasTooltips = false,
+    connectorsGroupsClassName,
 }: DiagramConnectorsProps) => {
     return (
-        <ConnectorsGroupsRightWrapper className="connectors-groups">
-            <ConnectorsGroup className="spacing-right">
+        <div
+            className={clsx(
+                connectorsGroupsRightWrapper,
+                connectorsGroupsClassName
+            )}
+        >
+            <div className={clsx(connectorsGroup, spacingRight)}>
                 <ConnectorsType
                     title="Analytics"
                     description="Load data at any speed into data warehouses and lakes from real-time to hour+ intervals as in-place updates and hard deletes or append-only change data history."
                     hasTooltips={hasTooltips}
-                    icon={<AnalyticsIcon className="icon" color="#5072EB" />}
+                    icon={<AnalyticsIcon className={icon} color="#5072EB" />}
                 />
-                <Connector to="/destination/snowflake">
-                    <LogoWrapper>
+                <Link className={connector} to="/destination/snowflake">
+                    <div className={logoWrapper}>
                         <StaticImage
                             placeholder="none"
                             alt="Snowflake logo"
                             src="../../../images/logos/snowflake.png"
                             loading="eager"
                         />
-                    </LogoWrapper>
-                    <HiddenLogoTitle>Snowflake</HiddenLogoTitle>
-                </Connector>
-                <Connector to="/destination/bigquery">
-                    <LogoWrapper>
+                    </div>
+                    <span>Snowflake</span>
+                </Link>
+                <Link className={connector} to="/destination/bigquery">
+                    <div className={logoWrapper}>
                         <StaticImage
                             placeholder="none"
                             alt="Google BigQuery logo"
                             src="../../../images/logos/bigquery.png"
                             loading="eager"
                         />
-                    </LogoWrapper>
-                    <HiddenLogoTitle>Google Bigquery</HiddenLogoTitle>
-                </Connector>
-                <Connector to="/destination/redshift">
-                    <LogoWrapper>
+                    </div>
+                    <span>Google Bigquery</span>
+                </Link>
+                <Link className={connector} to="/destination/redshift">
+                    <div className={logoWrapper}>
                         <StaticImage
                             placeholder="none"
                             alt="Redshift logo"
                             src="../../../images/logos/redshift.png"
                             loading="eager"
                         />
-                    </LogoWrapper>
-                    <HiddenLogoTitle>Amazon Redshift</HiddenLogoTitle>
-                </Connector>
-            </ConnectorsGroup>
-            <ConnectorsGroup className="spacing-right">
+                    </div>
+                    <span>Amazon Redshift</span>
+                </Link>
+            </div>
+            <div className={clsx(connectorsGroup, spacingRight)}>
                 <ConnectorsType
                     title="Ops"
                     description="Stream in real-time to SQL or NoSQL, OLAP, time series, or ElasticSearch databases."
                     hasTooltips={hasTooltips}
-                    icon={<OpsIcon className="icon" color="#5072EB" />}
+                    icon={<OpsIcon className={icon} color="#5072EB" />}
                 />
-                <Connector to="/destination/elasticsearch">
-                    <LogoWrapper>
+                <Link className={connector} to="/destination/elasticsearch">
+                    <div className={logoWrapper}>
                         <StaticImage
                             placeholder="none"
                             alt="ElasticSearch logo"
                             src="../../../images/logos/elastic-search.png"
                             loading="eager"
                         />
-                    </LogoWrapper>
-                    <HiddenLogoTitle>Elastic</HiddenLogoTitle>
-                </Connector>
-                <Connector to="/destination/mongodb">
-                    <LogoWrapper>
+                    </div>
+                    <span>Elastic</span>
+                </Link>
+                <Link className={connector} to="/destination/mongodb">
+                    <div className={logoWrapper}>
                         <StaticImage
                             placeholder="none"
                             alt="MongoDB logo"
                             src="../../../images/logos/mongo-db.png"
                             loading="eager"
                         />
-                    </LogoWrapper>
-                    <HiddenLogoTitle>MongoDB</HiddenLogoTitle>
-                </Connector>
-                <Connector to="/destination/dynamodb">
-                    <LogoWrapper>
+                    </div>
+                    <span>MongoDB</span>
+                </Link>
+                <Link className={connector} to="/destination/dynamodb">
+                    <div className={logoWrapper}>
                         <StaticImage
                             placeholder="none"
                             alt="Amazon DynamoDB logo"
                             src="../../../images/logos/dynamo-db.png"
                             loading="eager"
                         />
-                    </LogoWrapper>
-                    <HiddenLogoTitle>Amazon DynamoDB</HiddenLogoTitle>
-                </Connector>
-            </ConnectorsGroup>
-            <ConnectorsGroup className="spacing-right">
+                    </div>
+                    <span>Amazon DynamoDB</span>
+                </Link>
+            </div>
+            <div className={clsx(connectorsGroup, spacingRight)}>
                 <ConnectorsType
                     title="AI"
                     description="Build AI pipelines that load vector databases for RAG and invoke chabots like ChatGPT or use other LLM models in real-time."
                     hasTooltips={hasTooltips}
-                    icon={<AiIcon className="icon" color="#5072EB" />}
+                    icon={<AiIcon className={icon} color="#5072EB" />}
                 />
-                <Connector to="/destination/pinecone">
-                    <LogoWrapper>
+                <Link className={connector} to="/destination/pinecone">
+                    <div className={logoWrapper}>
                         <StaticImage
                             placeholder="none"
                             alt="Pinecone logo"
                             src="../../../images/logos/pinecone.png"
                             loading="eager"
                         />
-                    </LogoWrapper>
-                    <HiddenLogoTitle>Pinecone</HiddenLogoTitle>
-                </Connector>
-                <Connector to="/destination/pinecone">
-                    <LogoWrapper>
+                    </div>
+                    <span>Pinecone</span>
+                </Link>
+                <Link className={connector} to="/destination/pinecone">
+                    <div className={logoWrapper}>
                         <StaticImage
                             placeholder="none"
                             alt="Open AI logo"
                             src="../../../images/logos/openai.png"
                             loading="eager"
                         />
-                    </LogoWrapper>
-                    <HiddenLogoTitle>Open AI</HiddenLogoTitle>
-                </Connector>
-                <Connector to="/destination/databricks">
-                    <LogoWrapper>
+                    </div>
+                    <span>Open AI</span>
+                </Link>
+                <Link className={connector} to="/destination/databricks">
+                    <div className={logoWrapper}>
                         <StaticImage
                             placeholder="none"
                             alt="Databricks logo"
                             src="../../../images/logos/databricks.png"
                             loading="eager"
                         />
-                    </LogoWrapper>
-                    <HiddenLogoTitle>Databricks</HiddenLogoTitle>
-                </Connector>
-            </ConnectorsGroup>
-        </ConnectorsGroupsRightWrapper>
+                    </div>
+                    <span>Databricks</span>
+                </Link>
+            </div>
+        </div>
     );
 };
 

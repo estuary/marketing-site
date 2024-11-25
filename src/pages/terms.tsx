@@ -1,33 +1,40 @@
 import * as React from 'react';
-import LegalWrapper from '../components/LegalWrapper';
+import clsx from 'clsx';
 import Layout from '../components/Layout';
 import Seo from '../components/seo';
+import {
+    legalWrapper,
+    termsRoot,
+    lastUpdatedStyle,
+    legalUnderline,
+    legalBold,
+} from '../components/styles.module.less';
 
 export const Head = () => <Seo title="Terms of Service" />;
 
 const Terms = () => {
     return (
         <Layout>
-            <LegalWrapper className="terms-root">
+            <div className={clsx(legalWrapper, termsRoot)}>
                 <h4>Terms of Service</h4>
-                <h6 className="last-updated">
+                <h6 className={lastUpdatedStyle}>
                     Last updated January 20th, 2022
                 </h6>
 
                 <p>
                     These terms of use (the “
-                    <span className="legal-underline">Terms of Use</span>”) are
-                    a legal agreement between you and Estuary Technologies, Inc.
-                    (“<span className="legal-underline">Estuary</span>,” “
-                    <span className="legal-underline">we</span>,” “
-                    <span className="legal-underline">us</span>,” or “
-                    <span className="legal-underline">our</span>). These Terms
-                    of Use specify the terms under which you may access and use
-                    the website located at{' '}
+                    <span className={legalUnderline}>Terms of Use</span>”) are a
+                    legal agreement between you and Estuary Technologies, Inc.
+                    (“<span className={legalUnderline}>Estuary</span>,” “
+                    <span className={legalUnderline}>we</span>,” “
+                    <span className={legalUnderline}>us</span>,” or “
+                    <span className={legalUnderline}>our</span>). These Terms of
+                    Use specify the terms under which you may access and use the
+                    website located at{' '}
                     <a href="https://www.estuary.dev/">
                         https://www.estuary.dev/
                     </a>{' '}
-                    (the “<span className="legal-underline">Website</span>).
+                    (the “<span className={legalUnderline}>Website</span>).
                     Please note that we offer additional products and services,
                     which are provided pursuant to a separate manually or
                     digitally-executed agreement.
@@ -39,7 +46,7 @@ const Terms = () => {
                     have read, understood, and agree to be legally bound by
                     these Terms of Use and our Privacy Policy, which is hereby
                     incorporated by reference (collectively, this “
-                    <span className="legal-underline">Agreement</span>). If you
+                    <span className={legalUnderline}>Agreement</span>). If you
                     do not agree to any of these terms, then please do not use
                     the Website.
                 </p>
@@ -54,7 +61,7 @@ const Terms = () => {
                     .
                 </p>
 
-                <p className="legal-bold">
+                <p className={legalBold}>
                     THE SECTIONS BELOW TITLED “BINDING ARBITRATION” AND “CLASS
                     ACTION WAIVER” CONTAIN A BINDING ARBITRATION AGREEMENT AND
                     CLASS ACTION WAIVER. THEY AFFECT YOUR LEGAL RIGHTS. PLEASE
@@ -66,13 +73,13 @@ const Terms = () => {
                     company or other legal entity, you represent and warrant
                     that you have the authority to bind that company or other
                     legal entity to the Agreement and, in such event, “
-                    <span className="legal-underline">you</span>” and “
-                    <span className="legal-underline">your</span>” will refer
-                    and apply to that company or other legal entity, and any
+                    <span className={legalUnderline}>you</span>” and “
+                    <span className={legalUnderline}>your</span>” will refer and
+                    apply to that company or other legal entity, and any
                     employees, contractors, or agents authorized by you to
                     access and use the Products pursuant to the terms of this
                     Agreement (“
-                    <span className="legal-underline">Authorized Users</span>”).
+                    <span className={legalUnderline}>Authorized Users</span>”).
                 </p>
 
                 <p>
@@ -82,7 +89,7 @@ const Terms = () => {
 
                 <p>
                     1.{' '}
-                    <span className="legal-bold legal-underline">
+                    <span className={clsx(legalUnderline, legalBold)}>
                         INTELLECTUAL PROPERTY
                     </span>
                 </p>
@@ -91,7 +98,7 @@ const Terms = () => {
                     graphics, images, sound recordings, and other material
                     provided by or on behalf of Estuary or its licensors
                     (collectively referred to as the &quot;
-                    <span className="legal-underline">Content</span>”). The
+                    <span className={legalUnderline}>Content</span>”). The
                     Content may be owned by us or third parties. The Content is
                     protected under both United States and foreign laws.
                     Unauthorized use of the Content may violate copyright,
@@ -121,17 +128,17 @@ const Terms = () => {
 
                 <p>
                     The trademarks, service marks, and logos of Estuary (the “
-                    <span className="legal-underline">Estuary Trademarks</span>
+                    <span className={legalUnderline}>Estuary Trademarks</span>
                     ”) used and displayed on the Website is owned by Estuary.
                     Other company, product, and service names located on the
                     Website may be trademarks or service marks owned by others
                     (the “
-                    <span className="legal-underline">
+                    <span className={legalUnderline}>
                         Third-Party Trademarks
                     </span>
                     ,” and, collectively with Estuary Trademarks, the “
-                    <span className="legal-underline">Trademarks</span>).
-                    Nothing on the Website should be construed as granting, by
+                    <span className={legalUnderline}>Trademarks</span>). Nothing
+                    on the Website should be construed as granting, by
                     implication, estoppel, or otherwise, any license or right to
                     use the Trademarks, without our prior written permission
                     specific for each such use. Use of the Trademarks as part of
@@ -152,7 +159,7 @@ const Terms = () => {
 
                 <p>
                     2.{' '}
-                    <span className="legal-bold legal-underline">
+                    <span className={clsx(legalUnderline, legalBold)}>
                         COMMUNITY GUIDELINES
                     </span>
                 </p>
@@ -161,9 +168,7 @@ const Terms = () => {
                     its users follow a few simple rules. By accessing the
                     Website, you agree to comply with these community guidelines
                     (the “
-                    <span className="legal-underline">
-                        Community Guidelines
-                    </span>
+                    <span className={legalUnderline}>Community Guidelines</span>
                     ”) and that:
                 </p>
                 <ul>
@@ -209,7 +214,7 @@ const Terms = () => {
                         You will not use any robot, spider, scraper, or other
                         automated means to access the Website for any purpose
                         without our express, written permission;{' '}
-                        <span className="legal-underline">
+                        <span className={legalUnderline}>
                             provided, however
                         </span>
                         , that we may grant the operators of public search
@@ -233,7 +238,7 @@ const Terms = () => {
 
                 <p>
                     3.{' '}
-                    <span className="legal-bold legal-underline">
+                    <span className={clsx(legalUnderline, legalBold)}>
                         COMMUNICATIONS WITH US
                     </span>
                 </p>
@@ -253,7 +258,7 @@ const Terms = () => {
 
                 <p>
                     4.{' '}
-                    <span className="legal-bold legal-underline">
+                    <span className={clsx(legalUnderline, legalBold)}>
                         NO WARRANTIES; LIMITATION OF LIABILITY
                     </span>
                 </p>
@@ -304,13 +309,13 @@ const Terms = () => {
 
                 <p>
                     5.{' '}
-                    <span className="legal-bold legal-underline">
+                    <span className={clsx(legalUnderline, legalBold)}>
                         EXTERNAL SITES
                     </span>
                 </p>
                 <p>
                     The Website may contain links to third-party websites (“
-                    <span className="legal-underline">External Sites</span>”).
+                    <span className={legalUnderline}>External Sites</span>”).
                     These links are provided solely as a convenience to you and
                     not as an endorsement by us of the content on such External
                     Sites. The content of such External Sites is developed and
@@ -329,7 +334,7 @@ const Terms = () => {
 
                 <p>
                     6.{' '}
-                    <span className="legal-bold legal-underline">
+                    <span className={clsx(legalUnderline, legalBold)}>
                         INDEMNIFICATION
                     </span>
                 </p>
@@ -356,7 +361,7 @@ const Terms = () => {
 
                 <p>
                     7.{' '}
-                    <span className="legal-bold legal-underline">
+                    <span className={clsx(legalUnderline, legalBold)}>
                         COMPLIANCE WITH APPLICABLE LAWS
                     </span>
                 </p>
@@ -373,7 +378,7 @@ const Terms = () => {
 
                 <p>
                     8.{' '}
-                    <span className="legal-bold legal-underline">
+                    <span className={clsx(legalUnderline, legalBold)}>
                         CHANGES TO THE AGREEMENT
                     </span>
                 </p>
@@ -389,7 +394,7 @@ const Terms = () => {
 
                 <p>
                     9.{' '}
-                    <span className="legal-bold legal-underline">
+                    <span className={clsx(legalUnderline, legalBold)}>
                         TERMINATION OF THE AGREEMENT
                     </span>
                 </p>
@@ -398,13 +403,13 @@ const Terms = () => {
                     suspend, or terminate this Agreement and the Website, and
                     your access to all or any part of the Website, at any time
                     and for any reason without prior notice or liability.{' '}
-                    <span className="legal-underline">Sections 3-15</span> shall
+                    <span className={legalUnderline}>Sections 3-15</span> shall
                     survive the termination of this Agreement.
                 </p>
 
                 <p>
                     10.{' '}
-                    <span className="legal-bold legal-underline">
+                    <span className={clsx(legalUnderline, legalBold)}>
                         CONTROLLING LAW
                     </span>
                 </p>
@@ -416,18 +421,18 @@ const Terms = () => {
 
                 <p>
                     11.{' '}
-                    <span className="legal-bold legal-underline">
+                    <span className={clsx(legalUnderline, legalBold)}>
                         BINDING ARBITRATION
                     </span>
                 </p>
                 <p>
                     In the event of a dispute arising between you and Estuary
                     under or relating to these Terms of Use or the Website
-                    (each, a “<span className="legal-underline">Dispute</span>
+                    (each, a “<span className={legalUnderline}>Dispute</span>
                     ”), such dispute will be finally and exclusively resolved by
                     binding arbitration governed by the Federal Arbitration Act
                     (“
-                    <span className="legal-underline">FAA</span>). Any election
+                    <span className={legalUnderline}>FAA</span>). Any election
                     to arbitrate, at any time, shall be final and binding on the
                     other party. NEITHER PARTY SHALL HAVE THE RIGHT TO LITIGATE
                     SUCH CLAIM IN COURT OR TO HAVE A JURY TRIAL, EXCEPT EITHER
@@ -463,7 +468,7 @@ const Terms = () => {
                     information (including electronically stored information)
                     relevant to the Dispute immediately after commencement of
                     the arbitration. As set forth in{' '}
-                    <span className="legal-underline">Section 13</span> below,
+                    <span className={legalUnderline}>Section 13</span> below,
                     nothing in these Terms of Use will prevent us from seeking
                     injunctive relief in any court of competent jurisdiction as
                     necessary to protect our proprietary interests.
@@ -471,7 +476,7 @@ const Terms = () => {
 
                 <p>
                     12.{' '}
-                    <span className="legal-bold legal-underline">
+                    <span className={clsx(legalUnderline, legalBold)}>
                         CLASS ACTION WAIVER
                     </span>
                 </p>
@@ -492,7 +497,7 @@ const Terms = () => {
 
                 <p>
                     13.{' '}
-                    <span className="legal-bold legal-underline">
+                    <span className={clsx(legalUnderline, legalBold)}>
                         EQUITABLE RELIEF
                     </span>
                 </p>
@@ -514,7 +519,7 @@ const Terms = () => {
 
                 <p>
                     14.{' '}
-                    <span className="legal-bold legal-underline">
+                    <span className={clsx(legalUnderline, legalBold)}>
                         RESTRICTIONS
                     </span>
                 </p>
@@ -533,7 +538,7 @@ const Terms = () => {
 
                 <p>
                     15.{' '}
-                    <span className="legal-bold legal-underline">
+                    <span className={clsx(legalUnderline, legalBold)}>
                         MISCELLANEOUS
                     </span>
                 </p>
@@ -553,7 +558,7 @@ const Terms = () => {
                     legal import. This Agreement will inure to the benefit of
                     our successors, assigns, licensees, and sublicensees.
                 </p>
-            </LegalWrapper>
+            </div>
         </Layout>
     );
 };
