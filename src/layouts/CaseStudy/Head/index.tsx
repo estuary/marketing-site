@@ -15,8 +15,8 @@ const CaseStudyHead = ({
     return (
         <>
             <Seo
-                title={caseStudy.Title}
-                description={caseStudy.Description ?? ''}
+                title={caseStudy.metaTitle}
+                description={caseStudy.metaDescription ?? ''}
                 url={`${siteUrl}/customers/${caseStudy.Slug}`}
                 image={
                     caseStudy.Logo
