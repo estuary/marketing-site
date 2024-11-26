@@ -8,7 +8,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import * as React from 'react';
 
-import logoUrl from '../images/combination-mark__multi-blue.png';
+import logoUrl from '../images/estuary.png';
 import { estuaryAddress } from '../../shared';
 
 export interface SeoProps {

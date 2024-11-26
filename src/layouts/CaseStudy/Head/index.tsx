@@ -2,7 +2,7 @@ import React from 'react';
 
 import Seo from '../../../components/seo';
 
-import logoUrl from '../../../images/combination-mark__multi-blue.png';
+import logoUrl from '../../../images/estuary.png';
 
 const CaseStudyHead = ({
     data: {
