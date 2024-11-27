@@ -170,7 +170,7 @@ const Footer = () => {
                         </FooterLink>
                     </div>
                     <div className={globalFooterRightLinkWrapper}>
-                        <p className={globalFooterSubtextTitle}>Services</p>
+                        <p className={globalFooterSubtextTitle}>Company</p>
                         <FooterLink
                             to="/about/"
                             ariaLabel="Learn more about Estuary and the team"
