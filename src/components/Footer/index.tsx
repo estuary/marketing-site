@@ -14,8 +14,8 @@ import {
     statusPageUrl,
     webinarsUrl,
 } from '../../../shared';
-import OutboundLink from '../LinksAndButtons/OutboundLink';
 import ButtonOutlinedPrimary from '../LinksAndButtons/ButtonOutlinedPrimary';
+import OutboundLink from '../LinksAndButtons/OutboundLink';
 import {
     footer,
     globalFooterWrapper,
@@ -25,7 +25,6 @@ import {
     globalFooterSubtextTitle,
     globalFooterRight,
     globalFooterRightLinkWrapper,
-    globalFooterRightLink,
     globalFooterBottom,
     globalFooterDivider,
     globalFooterBottomWrapper,
@@ -35,6 +34,7 @@ import {
     globalFooterBottomSocial,
     socialIconFooter,
 } from './styles.module.less';
+import FooterLink from './FooterLink';
 
 const footerSocialIconStyle = clsx(socialIconFooter, 'socialIcon');
 
@@ -87,130 +87,111 @@ const Footer = () => {
                 <div className={globalFooterRight}>
                     <div className={globalFooterRightLinkWrapper}>
                         <p className={globalFooterSubtextTitle}>Product</p>
-                        <Link to="/product/" className={globalFooterRightLink}>
+                        <FooterLink
+                            to="/product/"
+                            ariaLabel="Learn more about Estuary Flow product"
+                        >
                             Estuary Flow
-                        </Link>
-                        <Link
+                        </FooterLink>
+                        <FooterLink
                             to="/integrations/"
-                            className={globalFooterRightLink}
+                            ariaLabel="Explore Estuary Flow's real-time data integration connectors"
                         >
                             Connectors
-                        </Link>
-                        <Link to="/pricing/" className={globalFooterRightLink}>
+                        </FooterLink>
+                        <FooterLink
+                            to="/pricing/"
+                            ariaLabel="Know more about Estuary Flow pricing"
+                        >
                             Pricing
-                        </Link>
-                        <Link to="/why/" className={globalFooterRightLink}>
+                        </FooterLink>
+                        <FooterLink
+                            to="/why/"
+                            ariaLabel="Explore a tour of Estuary Flow"
+                        >
                             Product Tour
-                        </Link>
-                        <Link
-                            to="/etl-tools/estuary-vs-fivetran/"
-                            className={globalFooterRightLink}
-                        >
+                        </FooterLink>
+                        <FooterLink to="/etl-tools/estuary-vs-fivetran/">
                             Estuary vs Fivetran
-                        </Link>
-                        <Link
-                            to="/etl-tools/airbyte-vs-estuary/"
-                            className={globalFooterRightLink}
-                        >
+                        </FooterLink>
+                        <FooterLink to="/etl-tools/airbyte-vs-estuary/">
                             Estuary vs Airbyte
-                        </Link>
-                        <Link
-                            to="/etl-tools/confluent-vs-estuary/"
-                            className={globalFooterRightLink}
-                        >
+                        </FooterLink>
+                        <FooterLink to="/etl-tools/confluent-vs-estuary/">
                             Estuary vs Confluent
-                        </Link>
-                        <Link
-                            to="/pricing/#pricing-calculator"
-                            className={globalFooterRightLink}
-                        >
+                        </FooterLink>
+                        <FooterLink to="/pricing/#pricing-calculator">
                             Data Pipeline Cost Calculator
-                        </Link>
+                        </FooterLink>
                     </div>
                     <div className={globalFooterRightLinkWrapper}>
                         <p className={globalFooterSubtextTitle}>Resources</p>
-                        <OutboundLink
-                            target="_blank"
-                            href={docsPageUrl}
-                            className={globalFooterRightLink}
+                        <FooterLink
+                            to={docsPageUrl}
+                            ariaLabel="Explore the documentation about Estuary Flow"
                         >
                             Documentation
-                        </OutboundLink>
-                        <Link to="/blog" className={globalFooterRightLink}>
+                        </FooterLink>
+                        <FooterLink
+                            to="/blog"
+                            ariaLabel="Learn more about Estuary and its related technologies, directly from our team."
+                        >
                             Blogs
-                        </Link>
-                        <Link
+                        </FooterLink>
+                        <FooterLink
                             to="/blog/tutorial/"
-                            className={globalFooterRightLink}
+                            ariaLabel="Explore blog posts with tutorials"
                         >
                             Tutorials
-                        </Link>
-                        <Link
+                        </FooterLink>
+                        <FooterLink
                             to="/blog/data-engineering/"
-                            className={globalFooterRightLink}
+                            ariaLabel="Explore blog posts about data engineering"
                         >
                             Data Engineering
-                        </Link>
-                        <OutboundLink
-                            target="_blank"
-                            href={webinarsUrl}
-                            className={globalFooterRightLink}
+                        </FooterLink>
+                        <FooterLink
+                            to={webinarsUrl}
+                            ariaLabel="See the last Estuary webinars"
                         >
                             Webinar
-                        </OutboundLink>
-                        <OutboundLink
-                            target="_blank"
-                            href={estuaryFlowGithubUrl}
-                            className={globalFooterRightLink}
+                        </FooterLink>
+                        <FooterLink
+                            to={estuaryFlowGithubUrl}
+                            ariaLabel="Check the Estuary Flow Github"
                         >
                             Github
-                        </OutboundLink>
-                        <Link
-                            to="/etl-tools/"
-                            className={globalFooterRightLink}
-                        >
+                        </FooterLink>
+                        <FooterLink to="/etl-tools/">
                             Compare ETL/ELT Tools
-                        </Link>
-                        <Link
-                            to="/etl-tools-list/"
-                            className={globalFooterRightLink}
-                        >
+                        </FooterLink>
+                        <FooterLink to="/etl-tools-list/">
                             Top ETL Tools
-                        </Link>
+                        </FooterLink>
                     </div>
                     <div className={globalFooterRightLinkWrapper}>
                         <p className={globalFooterSubtextTitle}>Services</p>
-                        <Link to="/about/" className={globalFooterRightLink}>
+                        <FooterLink
+                            to="/about/"
+                            ariaLabel="Learn more about Estuary and the team"
+                        >
                             About Us
-                        </Link>
-                        <Link
+                        </FooterLink>
+                        <FooterLink
                             to="/about#careers"
-                            className={globalFooterRightLink}
+                            ariaLabel="Check out the current career opportunities at Estuary"
                         >
                             Careers
-                        </Link>
-                        <Link
-                            to="/contact-us/"
-                            className={globalFooterRightLink}
-                        >
-                            Contact Us
-                        </Link>
-                        <Link
-                            to="/privacy-policy/"
-                            className={globalFooterRightLink}
-                        >
-                            Privacy
-                        </Link>
-                        <Link to="/terms/" className={globalFooterRightLink}>
-                            Terms
-                        </Link>
-                        <OutboundLink
-                            target="_blank"
-                            href={statusPageUrl}
-                            className={globalFooterRightLink}
+                        </FooterLink>
+                        <FooterLink to="/contact-us/">Contact Us</FooterLink>
+                        <FooterLink to="/privacy-policy/">Privacy</FooterLink>
+                        <FooterLink to="/terms/">Terms</FooterLink>
+                        <FooterLink
+                            to={statusPageUrl}
+                            ariaLabel="Check the status of Estuary website"
                         >
                             Status
-                        </OutboundLink>
+                        </FooterLink>
                     </div>
                 </div>
             </div>
