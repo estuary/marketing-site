@@ -13,7 +13,7 @@
 
   display: flex;
   justify-content: space-between;
-  gap: 60px;
+  gap: 80px;
   width: 100%;
 
   @media (max-width: 850px) {
@@ -38,7 +38,11 @@
 }
 
 .globalFooterSubtext {
-  max-width: 400px;
+  max-width: 500px;
+
+  @media (max-width: 850px) {
+    max-width: 100%;
+  }
 }
 
 .globalFooterSubtext,
@@ -67,9 +71,9 @@
 .globalFooterRight {
   display: flex;
   justify-content: space-between;
-  gap: 100px;
+  gap: 60px;
 
-  @media (max-width: 930px) {
+  @media (max-width: 980px) {
     gap: 40px;
   }
 
@@ -85,6 +89,7 @@
 
   @media (max-width: 850px) {
     margin-top: 32px;
+    max-width: 100%;
   }
 }
 
@@ -132,12 +137,12 @@
   justify-content: center;
 
   &>a {
-      color: #B7C6DD;
+    color: #B7C6DD;
 
-      &:hover {
-          text-underline-offset: 4px;
-          text-decoration: underline;
-      }
+    &:hover {
+      text-underline-offset: 4px;
+      text-decoration: underline;
+    }
   }
 }
 
@@ -154,6 +159,6 @@
   transition: var(--default-transition);
 
   &:hover {
-      color: #b7c6dd99;
+    color: #b7c6dd99;
   }
 }

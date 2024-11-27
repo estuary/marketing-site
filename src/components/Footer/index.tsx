@@ -12,6 +12,7 @@ import {
     estuaryFlowGithubUrl,
     slackUrl,
     statusPageUrl,
+    webinarsUrl,
 } from '../../../shared';
 import OutboundLink from '../LinksAndButtons/OutboundLink';
 import ButtonOutlinedPrimary from '../LinksAndButtons/ButtonOutlinedPrimary';
@@ -85,10 +86,78 @@ const Footer = () => {
                 </div>
                 <div className={globalFooterRight}>
                     <div className={globalFooterRightLinkWrapper}>
-                        <p className={globalFooterSubtextTitle}>Quick Links</p>
-                        <Link to="/blog" className={globalFooterRightLink}>
-                            Blog
+                        <p className={globalFooterSubtextTitle}>Product</p>
+                        <Link to="/product/" className={globalFooterRightLink}>
+                            Estuary Flow
                         </Link>
+                        <Link
+                            to="/integrations/"
+                            className={globalFooterRightLink}
+                        >
+                            Connectors
+                        </Link>
+                        <Link to="/pricing/" className={globalFooterRightLink}>
+                            Pricing
+                        </Link>
+                        <Link to="/why/" className={globalFooterRightLink}>
+                            Product Tour
+                        </Link>
+                        <Link
+                            to="/etl-tools/estuary-vs-fivetran/"
+                            className={globalFooterRightLink}
+                        >
+                            Estuary vs Fivetran
+                        </Link>
+                        <Link
+                            to="/etl-tools/airbyte-vs-estuary/"
+                            className={globalFooterRightLink}
+                        >
+                            Estuary vs Airbyte
+                        </Link>
+                        <Link
+                            to="/etl-tools/confluent-vs-estuary/"
+                            className={globalFooterRightLink}
+                        >
+                            Estuary vs Confluent
+                        </Link>
+                        <Link
+                            to="/pricing/#pricing-calculator"
+                            className={globalFooterRightLink}
+                        >
+                            Data Pipeline Cost Calculator
+                        </Link>
+                    </div>
+                    <div className={globalFooterRightLinkWrapper}>
+                        <p className={globalFooterSubtextTitle}>Resources</p>
+                        <OutboundLink
+                            target="_blank"
+                            href={docsPageUrl}
+                            className={globalFooterRightLink}
+                        >
+                            Documentation
+                        </OutboundLink>
+                        <Link to="/blog" className={globalFooterRightLink}>
+                            Blogs
+                        </Link>
+                        <Link
+                            to="/blog/tutorial/"
+                            className={globalFooterRightLink}
+                        >
+                            Tutorials
+                        </Link>
+                        <Link
+                            to="/blog/data-engineering/"
+                            className={globalFooterRightLink}
+                        >
+                            Data Engineering
+                        </Link>
+                        <OutboundLink
+                            target="_blank"
+                            href={webinarsUrl}
+                            className={globalFooterRightLink}
+                        >
+                            Webinar
+                        </OutboundLink>
                         <OutboundLink
                             target="_blank"
                             href={estuaryFlowGithubUrl}
@@ -96,31 +165,23 @@ const Footer = () => {
                         >
                             Github
                         </OutboundLink>
-                        <a
-                            href="/contact-us/"
+                        <Link
+                            to="/etl-tools/"
                             className={globalFooterRightLink}
                         >
-                            Contact Us
-                        </a>
-                        <OutboundLink
-                            target="_blank"
-                            href={docsPageUrl}
+                            Compare ETL/ELT Tools
+                        </Link>
+                        <Link
+                            to="/etl-tools-list/"
                             className={globalFooterRightLink}
                         >
-                            Docs
-                        </OutboundLink>
-                        <OutboundLink
-                            target="_blank"
-                            href={statusPageUrl}
-                            className={globalFooterRightLink}
-                        >
-                            Status
-                        </OutboundLink>
+                            Top ETL Tools
+                        </Link>
                     </div>
                     <div className={globalFooterRightLinkWrapper}>
                         <p className={globalFooterSubtextTitle}>Services</p>
-                        <Link to="/product" className={globalFooterRightLink}>
-                            Product
+                        <Link to="/about/" className={globalFooterRightLink}>
+                            About Us
                         </Link>
                         <Link
                             to="/about#careers"
@@ -129,14 +190,27 @@ const Footer = () => {
                             Careers
                         </Link>
                         <Link
-                            to="/privacy-policy"
+                            to="/contact-us/"
+                            className={globalFooterRightLink}
+                        >
+                            Contact Us
+                        </Link>
+                        <Link
+                            to="/privacy-policy/"
                             className={globalFooterRightLink}
                         >
                             Privacy
                         </Link>
-                        <Link to="/terms" className={globalFooterRightLink}>
+                        <Link to="/terms/" className={globalFooterRightLink}>
                             Terms
                         </Link>
+                        <OutboundLink
+                            target="_blank"
+                            href={statusPageUrl}
+                            className={globalFooterRightLink}
+                        >
+                            Status
+                        </OutboundLink>
                     </div>
                 </div>
             </div>
