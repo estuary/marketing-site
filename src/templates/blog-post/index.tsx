@@ -17,7 +17,7 @@ import Breadcrumbs from '../../components/Breadcrumbs';
 import Bio from '../../components/Bio';
 import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
-import logoUrl from '../../images/combination-mark__multi-blue.png';
+import logoUrl from '../../images/estuary.png';
 import { costPerGB } from '../../utils';
 import ReadingTimeIcon from '../../svgs/time.svg';
 import {
