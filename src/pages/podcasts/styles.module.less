@@ -78,25 +78,6 @@
 .episodes {
   .sectionTopBottomPadding;
   .globalMaxWidth;
-
-  ul {
-    display: flex;
-    flex-direction: column;
-    gap: 64px;
-  }
-
-  li {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-
-    @media (max-width: 767px) {
-      flex-direction: column;
-      border-bottom: 1px solid #d7dce5;
-      padding-bottom: 16px;
-      margin-bottom: 16px;
-    }
-  }
 }
 
 .episodesHeading {
@@ -110,91 +91,6 @@
     font-size: 28px;
     line-height: 36px;
     margin-bottom: 16px;
-  }
-}
-
-.episodeLeft {
-  max-width: 600px;
-  width: 100%;
-  background: #ffffff;
-  border: 1px solid #d7dce5;
-  border-radius: 8px;
-  padding: 16px;
-
-  @media (max-width: 767px) {
-    max-width: 550px;
-    margin-bottom: 16px;
-  }
-}
-
-.episodeRight {
-  max-width: 638px;
-  width: 100%;
-  padding-left: 48px;
-
-  @media (max-width: 767px) {
-    max-width: 100%;
-    padding-left: 0;
-  }
-
-  h3 {
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 30px;
-    color: #47506d;
-
-    @media (max-width: 767px) {
-      font-size: 18px;
-      line-height: 26px;
-    }
-  }
-
-  span {
-    font-size: 1rem;
-    color: #878EA6;
-  }
-}
-
-.episodeDescription {
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 30px;
-  color: #47506d;
-  margin-bottom: 40px;
-
-  @media (max-width: 767px) {
-    font-size: 14px;
-    line-height: 22px;
-    margin-bottom: 32px;
-  }
-}
-
-.linksWrap {
-  display: flex;
-  flex-direction: column;
-  width: fit-content;
-
-  @media (max-width: 767px) {
-    align-items: center;
-  }
-
-  a {
-    margin-bottom: 12px;
-
-    &:hover {
-      opacity: 0.9;
-    }
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-
-    svg {
-      @media (max-width: 767px) {
-        width: 190px;
-        height: auto;
-      }
-    }
   }
 }
 

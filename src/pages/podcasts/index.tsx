@@ -1,18 +1,16 @@
-import { IGatsbyImageData, GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
 import * as React from 'react';
 import { graphql } from 'gatsby';
 import NewsletterSignupForm from '../../components/NewsletterSignupForm';
 import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
 import { estuaryAllowsEnterprises } from '../../content/seo';
-import ApplePodcastButton from '../../svgs/apple-podcasts.svg';
 import HeroImage from '../../svgs/hero-image.svg';
-import SpotifyButton from '../../svgs/listen-spotify.svg';
 import SubscribeYoutubeImage from '../../svgs/subscribe-image.svg';
 import SubscribeYoutubeButton from '../../svgs/subscribe-youtube.svg';
-import WatchYoutubeButton from '../../svgs/youtube-watch.svg';
 import SignUp from '../../components/Signup';
 import OutboundLink from '../../components/LinksAndButtons/OutboundLink';
+import VerticalList from '../../components/VerticalList';
 import {
     container,
     hero,
@@ -20,10 +18,6 @@ import {
     heroRight,
     episodes,
     episodesHeading,
-    episodeLeft,
-    episodeRight,
-    episodeDescription,
-    linksWrap,
     subscribe,
     subscribeWrap,
     subscribeLeft,
@@ -84,71 +78,7 @@ const LpPodcats = ({
                 </section>
                 <section className={episodes}>
                     <h2 className={episodesHeading}>Episodes</h2>
-                    <ul>
-                        {podcasts.map((podcast) => {
-                            const podcastPictureSrc = getImage(
-                                podcast.picture.localFile.childImageSharp
-                                    .gatsbyImageData
-                            );
-
-                            return (
-                                <li key={podcast.id}>
-                                    {podcastPictureSrc ? (
-                                        <div className={episodeLeft}>
-                                            <GatsbyImage
-                                                alt={`${podcast.title} podcast thumbnail`}
-                                                image={podcastPictureSrc}
-                                            />
-                                        </div>
-                                    ) : null}
-                                    <div className={episodeRight}>
-                                        <h3>{podcast.title}</h3>
-                                        <span>{podcast.postedDate}</span>
-                                        <div
-                                            className={episodeDescription}
-                                            dangerouslySetInnerHTML={{
-                                                __html: podcast.description.data
-                                                    .description,
-                                            }}
-                                        />
-                                        <div className={linksWrap}>
-                                            {podcast.links.strapi_json_value.map(
-                                                (link) => (
-                                                    <OutboundLink
-                                                        key={`podcast-link-${link}`}
-                                                        target="_blank"
-                                                        href={link}
-                                                        aria-label="listen to podcast"
-                                                    >
-                                                        {link.includes(
-                                                            'youtube.com'
-                                                        ) ||
-                                                        link.includes(
-                                                            'youtu.be'
-                                                        ) ? (
-                                                            <WatchYoutubeButton />
-                                                        ) : null}
-
-                                                        {link.includes(
-                                                            'podcasts.apple.com'
-                                                        ) ? (
-                                                            <ApplePodcastButton />
-                                                        ) : null}
-
-                                                        {link.includes(
-                                                            'spotify.com'
-                                                        ) ? (
-                                                            <SpotifyButton />
-                                                        ) : null}
-                                                    </OutboundLink>
-                                                )
-                                            )}
-                                        </div>
-                                    </div>
-                                </li>
-                            );
-                        })}
-                    </ul>
+                    <VerticalList items={podcasts} />
                 </section>
                 <section className={subscribe}>
                     <div className={subscribeWrap}>
@@ -198,6 +128,7 @@ export const pageQuery = graphql`
                             gatsbyImageData(width: 600, placeholder: BLURRED)
                         }
                     }
+                    alternativeText
                 }
                 links: Links {
                     strapi_json_value
