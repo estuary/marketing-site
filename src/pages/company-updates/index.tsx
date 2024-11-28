@@ -15,7 +15,7 @@ const CompanyUpdates = () => {
 };
 
 export const Head = () => {
-    // TODO: Adapt this to company updates page
+    // TODO: Ask an image to Polina
     const { metaImg } = useStaticQuery(graphql`
         query {
             metaImg: file(relativePath: { eq: "flow-desktop.png" }) {
@@ -27,9 +27,9 @@ export const Head = () => {
     `);
 
     return (
-        <Seo // TODO: Adapt this to company updates page
-            title="Estuary | Real-Time Data Integration, CDC & ETL Platform"
-            description="Estuary Flow is the most reliable real-time data integration platform for ETL, ELT, CDC and streaming pipelines. Build and automate data pipelines. Try it free!"
+        <Seo // TODO: Ask an image to Polina
+            title="Company Updates - News, Milestones & Announcements | Estuary"
+            description="Stay up to date with Estuary's latest company news, product launches, partnerships, and more. Explore updates that showcase our journey and innovations."
             image={metaImg.childImageSharp.gatsbyImageData.images.fallback.src}
         />
     );
