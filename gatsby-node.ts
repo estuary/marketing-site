@@ -18,6 +18,9 @@ const path = require('path');
 
 // Define the template for blog and blog post
 const blogPostTemplate = path.resolve('./src/templates/blog-post/index.tsx');
+const companyUpdatesPostTemplate = path.resolve(
+    './src/templates/company-updates-post/index.tsx'
+);
 const blogTemplate = path.resolve('./src/templates/blog/index.tsx');
 
 const caseStudyTemplate = path.resolve('./src/layouts/CaseStudy/index.tsx');
@@ -50,7 +53,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
     });
 
     // Get all strapi blog posts sorted by date
-    const result = await graphql<{
+    const blogPostsQuery = await graphql<{
         allStrapiBlogPost: {
             nodes: {
                 updatedAt: any;
@@ -156,17 +159,31 @@ export const createPages: GatsbyNode['createPages'] = async ({
         });
     }
 
-    if (result.errors || comparisonVendors.errors || caseStudyPages.errors) {
+    if (blogPostsQuery.errors) {
         reporter.panicOnBuild(
-            'There was an error loading your blog posts',
-            result.errors
+            'There was an error loading your blog posts.',
+            blogPostsQuery.errors
+        );
+        return;
+    }
+    if (comparisonVendors.errors) {
+        reporter.panicOnBuild(
+            'There was an error loading your comparison vendors.',
+            comparisonVendors.errors
+        );
+        return;
+    }
+    if (caseStudyPages.errors) {
+        reporter.panicOnBuild(
+            'There was an error loading your case studies.',
+            caseStudyPages.errors
         );
         return;
     }
 
-    const allPosts = result.data?.allStrapiBlogPost.nodes ?? [];
+    const allBlogPosts = blogPostsQuery.data?.allStrapiBlogPost.nodes ?? [];
 
-    validateDataExistence(allPosts, 'Posts');
+    validateDataExistence(allBlogPosts, 'Blog posts');
     validateDataExistence(vendors, 'Comparison Pages');
 
     const categories: {
@@ -178,7 +195,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
         };
     } = Object.assign(
         {},
-        ...allPosts.flatMap((post) =>
+        ...allBlogPosts.flatMap((post) =>
             post.tags
                 .filter((tag) => tag.Type === 'category')
                 .map((tag) => ({ [tag.Slug]: tag }))
@@ -187,12 +204,12 @@ export const createPages: GatsbyNode['createPages'] = async ({
 
     const postsByCategory = [
         ...Object.keys(categories).map((category) =>
-            allPosts.filter((post) =>
+            allBlogPosts.filter((post) =>
                 post.tags.some((tag) => tag.Slug === category)
             )
         ),
         // Let's not forget posts that have no category!
-        allPosts.filter((post) =>
+        allBlogPosts.filter((post) =>
             post.tags.every((tag) => tag.Type !== 'category')
         ),
     ];
@@ -246,7 +263,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
 
     for (const category of tabCategories) {
         createBlogPostPages(
-            allPosts
+            allBlogPosts
                 .filter((post) =>
                     post.tags.some((tag) => tag.Slug === category.Slug)
                 )
@@ -258,7 +275,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
     }
 
     createBlogPostPages(
-        allPosts.map((post) => post.id),
+        allBlogPosts.map((post) => post.id),
         '/blog',
         'All',
         ''
@@ -389,6 +406,50 @@ export const createPages: GatsbyNode['createPages'] = async ({
             });
         }
     }
+
+    const companyUpdatePostsQuery = await graphql<{
+        allStrapiCompanyUpdatePost: {
+            nodes: {
+                slug: string;
+                id: string;
+            }[];
+        };
+    }>(`
+        {
+            allStrapiCompanyUpdatePost(
+                sort: { publishedAt: DESC }
+                filter: { publishedAt: { ne: null } }
+            ) {
+                nodes {
+                    slug
+                    id
+                }
+            }
+        }
+    `);
+
+    if (companyUpdatePostsQuery.errors) {
+        reporter.panicOnBuild(
+            'There was an error loading your company update posts.',
+            companyUpdatePostsQuery.errors
+        );
+        return;
+    }
+
+    const allCompanyUpdatePosts =
+        companyUpdatePostsQuery.data?.allStrapiCompanyUpdatePost.nodes ?? [];
+
+    validateDataExistence(allCompanyUpdatePosts, 'Company update posts');
+
+    allCompanyUpdatePosts.forEach((post) => {
+        createPage({
+            path: `company-updates/${post.slug}`,
+            component: companyUpdatesPostTemplate,
+            context: {
+                id: post.id,
+            },
+        });
+    });
 };
 
 // Hacky hack :(
