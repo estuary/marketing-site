@@ -1,12 +1,12 @@
 import * as React from 'react';
-import EmailOutlinedIcon from '../../../svgs/share-social-icons/email-outlined.svg';
-import FacebookOutlinedIcon from '../../../svgs/share-social-icons/facebook-outlined.svg';
-import LinkedinOutlinedIcon from '../../../svgs/share-social-icons/linkedin-outlined.svg';
-import TwitterXOutlinedIcon from '../../../svgs/share-social-icons/twitter-x-outlined.svg';
-import CopyToClipboardButton from '../../../components/CopyToClipboardButton';
-import { socialShareButton } from '../../../components/styles.module.less';
-import useWindowExistence from '../../../hooks/useWindowExistence';
-import OutboundLink from '../../../components/LinksAndButtons/OutboundLink';
+import EmailOutlinedIcon from '../../svgs/share-social-icons/email-outlined.svg';
+import FacebookOutlinedIcon from '../../svgs/share-social-icons/facebook-outlined.svg';
+import LinkedinOutlinedIcon from '../../svgs/share-social-icons/linkedin-outlined.svg';
+import TwitterXOutlinedIcon from '../../svgs/share-social-icons/twitter-x-outlined.svg';
+import CopyToClipboardButton from '../CopyToClipboardButton';
+import { socialShareButton } from '../styles.module.less';
+import useWindowExistence from '../../hooks/useWindowExistence';
+import OutboundLink from '../LinksAndButtons/OutboundLink';
 import { container, socialButtonsWrapper } from './styles.module.less';
 
 type ShareArticleProps = {

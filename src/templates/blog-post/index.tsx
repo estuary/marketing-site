@@ -33,7 +33,7 @@ import Container from '../../components/Container';
 import HeroSectionDetails from '../../components/HeroSectionDetails';
 import OutboundLinkFilled from '../../components/LinksAndButtons/OutboundLinkFilled';
 import OutboundLinkOutlined from '../../components/LinksAndButtons/OutboundLinkOutlined';
-import ShareArticle from './ShareArticle';
+import ShareArticle from '../../components/ShareArticle';
 import {
     blogPost,
     blogPostHeaderWrapper,

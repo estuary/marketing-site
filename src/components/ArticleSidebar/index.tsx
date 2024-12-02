@@ -1,7 +1,7 @@
 import React from 'react';
-import ShareArticle from '../../templates/blog-post/ShareArticle';
 import { RenderToc } from '../BlogPostToc';
 import SidebarCta from '../SidebarCta';
+import ShareArticle from '../ShareArticle';
 import {
     container,
     shareArticleDesktop,
