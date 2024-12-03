@@ -11,6 +11,7 @@ import {
     episodeRight,
     episodeDescription,
     linksWrap,
+    readLink,
 } from './styles.module.less';
 
 const VerticalList = ({ items }) => {
@@ -74,7 +75,10 @@ const VerticalList = ({ items }) => {
                                         )
                                     )
                                 ) : (
-                                    <LinkFilled href={`/${item.slug}`}>
+                                    <LinkFilled
+                                        href={`/${item.slug}`}
+                                        className={readLink}
+                                    >
                                         Read
                                     </LinkFilled>
                                 )}
