@@ -12,7 +12,7 @@ import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
 import logoUrl from '../../images/estuary.png';
 import ReadingTimeIcon from '../../svgs/time.svg';
-import { dashboardRegisterUrl, getAuthorSeoJson } from '../../../shared';
+import { dashboardRegisterUrl } from '../../../shared';
 import BlogBanner from '../../components/BlogBanner';
 import ArticleSidebar from '../../components/ArticleSidebar';
 import Container from '../../components/Container';
@@ -100,7 +100,7 @@ const CompanyUpdatePostTemplate = ({ data: { post } }) => {
                             </div>
                             <HeroSectionDetails
                                 title={post.title}
-                                description={post.description}
+                                description={post.description.data.description}
                             />
                         </div>
                         {post.hero ? (
@@ -175,16 +175,8 @@ export const Head = ({
         },
     },
 }) => {
-    const mappedAuthors = post.authors.map((author) =>
-        getAuthorSeoJson(author, siteUrl)
-    );
-
-    const postTags = post.tags
-        .filter((tag) => tag.type === 'tag')
-        .map((t) => t.name);
-
-    const ogImage = post.hero
-        ? `${siteUrl}${post.hero.localFile.childImageSharp.metaImg.images.fallback.src}`
+    const ogImage = post.socialShareImage
+        ? `${siteUrl}${post.socialShareImage.localFile.childImageSharp.metaImg.images.fallback.src}`
         : undefined;
 
     return (
@@ -206,11 +198,7 @@ export const Head = ({
                     'headline': post.title,
                     'description': post.description ?? '',
                     'image': ogImage,
-                    'author':
-                        post.authors.length > 1
-                            ? mappedAuthors
-                            : mappedAuthors[0],
-                    'keywords': postTags,
+                    'author': 'Estuary',
                     'publisher': {
                         '@type': 'Organization',
                         'name': 'Estuary',
@@ -242,7 +230,11 @@ export const pageQuery = graphql`
             updatedAt(formatString: "MMMM D, YYYY")
             machineReadablePublishDate: publishedAt(formatString: "YYYY-MM-DD")
             machineReadableUpdateDate: updatedAt(formatString: "YYYY-MM-DD")
-            description
+            description {
+                data {
+                    description
+                }
+            }
             slug
             body {
                 data {

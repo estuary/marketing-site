@@ -19,7 +19,7 @@ const path = require('path');
 // Define the template for blog and blog post
 const blogPostTemplate = path.resolve('./src/templates/blog-post/index.tsx');
 const companyUpdatesPostTemplate = path.resolve(
-    './src/templates/company-updates-post/index.tsx'
+    './src/templates/company-update-post/index.tsx'
 );
 const blogTemplate = path.resolve('./src/templates/blog/index.tsx');
 

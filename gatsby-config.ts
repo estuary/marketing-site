@@ -18,6 +18,7 @@ const strapiConfig = {
     accessToken: process.env.STRAPI_TOKEN,
     collectionTypes: [
         'blog-post',
+        'company-update-post',
         'tag',
         'author',
         'connection',
@@ -177,6 +178,12 @@ const strapiConfig = {
 const rehypeSelectors = {
     STRAPI_BLOG_POST_BODY_TEXTNODE: {
         extractor: (node) => node.Body,
+        pluginOpts: {
+            enableToc: false,
+        },
+    },
+    STRAPI_COMPANY_UPDATE_POST_BODY_TEXTNODE: {
+        extractor: (node) => node.body,
         pluginOpts: {
             enableToc: false,
         },
