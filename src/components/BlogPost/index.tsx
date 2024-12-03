@@ -55,7 +55,17 @@ import {
     authorRole,
 } from './styles.module.less';
 
-const BlogPost = ({ post }) => {
+interface BlogPostProps {
+    post: any;
+    hasPopularArticlesSection?: boolean;
+    hasBodyCtaBanner?: boolean;
+}
+
+const BlogPost = ({
+    post,
+    hasPopularArticlesSection = false,
+    hasBodyCtaBanner = false,
+}: BlogPostProps) => {
     const theme = useTheme();
 
     const hasBeenUpdated = post?.updatedAt
@@ -67,6 +77,8 @@ const BlogPost = ({ post }) => {
     const hasAtLeastOneBio = post?.authors?.some(
         (author) => author?.bio?.data?.bio
     );
+
+    const shareArticleSectionTitle = `Share this ${hasPopularArticlesSection ? 'article' : 'update'}`;
 
     return (
         <article
@@ -140,6 +152,7 @@ const BlogPost = ({ post }) => {
                                 title: post.title,
                                 slug: post.slug,
                             }}
+                            sectionTitle={shareArticleSectionTitle}
                         />
                     </div>
                 </Container>
@@ -151,18 +164,20 @@ const BlogPost = ({ post }) => {
                             <ProcessedPost
                                 body={post.body.data.childHtmlRehype.html}
                             />
-                            <BlogBanner
-                                title={
-                                    <h3>
-                                        Start streaming your data{' '}
-                                        <span>for free</span>
-                                    </h3>
-                                }
-                                button={{
-                                    title: 'Build a Pipeline',
-                                    href: dashboardRegisterUrl,
-                                }}
-                            />
+                            {hasBodyCtaBanner ? (
+                                <BlogBanner
+                                    title={
+                                        <h3>
+                                            Start streaming your data{' '}
+                                            <span>for free</span>
+                                        </h3>
+                                    }
+                                    button={{
+                                        title: 'Build a Pipeline',
+                                        href: dashboardRegisterUrl,
+                                    }}
+                                />
+                            ) : null}
                         </div>
                         <ArticleSidebar
                             article={{
@@ -172,6 +187,7 @@ const BlogPost = ({ post }) => {
                             tableOfContents={
                                 post.body.data.childHtmlRehype.tableOfContents
                             }
+                            shareArticleSectionTitle={shareArticleSectionTitle}
                         />
                     </div>
                 </section>
@@ -285,10 +301,12 @@ const BlogPost = ({ post }) => {
                     </div>
                 </section>
             ) : null}
-            <section className={popularArticlesWrapper}>
-                <h2>Popular Articles</h2>
-                <PopularArticles />
-            </section>
+            {hasPopularArticlesSection ? (
+                <section className={popularArticlesWrapper}>
+                    <h2>Popular Articles</h2>
+                    <PopularArticles />
+                </section>
+            ) : null}
             <section className={bigBuildPipelineBannerSection}>
                 <div className={bigBuildPipelineBannerWrapper}>
                     <StraightLinesBackground

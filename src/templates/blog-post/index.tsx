@@ -30,7 +30,7 @@ const BlogPostTemplate = ({ data: { post } }) => {
                     },
                 ]}
             />
-            <BlogPost post={post} />
+            <BlogPost post={post} hasPopularArticlesSection hasBodyCtaBanner />
             <BlogPostPopupModal />
         </Layout>
     );

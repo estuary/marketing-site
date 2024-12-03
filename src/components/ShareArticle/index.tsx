@@ -14,9 +14,13 @@ type ShareArticleProps = {
         title: string;
         slug: string;
     };
+    sectionTitle?: string | null;
 };
 
-const ShareArticle = ({ article: { title, slug } }: ShareArticleProps) => {
+const ShareArticle = ({
+    article: { title, slug },
+    sectionTitle = 'Share this article',
+}: ShareArticleProps) => {
     const hasWindow = useWindowExistence();
 
     const shareMessage = `Check out the article "${title}"`;
@@ -28,7 +32,7 @@ const ShareArticle = ({ article: { title, slug } }: ShareArticleProps) => {
 
     return (
         <div className={container}>
-            <span>Share this article</span>
+            <span>{sectionTitle}</span>
             <div className={socialButtonsWrapper}>
                 <CopyToClipboardButton contentToCopy={articleUrl} />
                 <OutboundLink
