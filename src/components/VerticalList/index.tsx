@@ -33,12 +33,17 @@ const VerticalList = ({ items }) => {
                         <div className={episodeRight}>
                             <h3>{item.title}</h3>
                             <span>{item.postedDate}</span>
-                            <div
-                                className={episodeDescription}
-                                dangerouslySetInnerHTML={{
-                                    __html: item.description.data?.description,
-                                }}
-                            />
+                            {item.description.data?.description ? (
+                                <div
+                                    className={episodeDescription}
+                                    dangerouslySetInnerHTML={{
+                                        __html: item.description.data
+                                            ?.description,
+                                    }}
+                                />
+                            ) : (
+                                <p>{item.description}</p>
+                            )}
                             <div className={linksWrap}>
                                 {item.links?.strapi_json_value.map((link) => (
                                     <OutboundLink

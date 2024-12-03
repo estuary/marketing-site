@@ -21,11 +21,7 @@ const ListOfUpdates = () => {
                     machineReadableUpdateDate: updatedAt(
                         formatString: "YYYY-MM-DD"
                     )
-                    description {
-                        data {
-                            description
-                        }
-                    }
+                    description
                     slug
                     body {
                         data {
