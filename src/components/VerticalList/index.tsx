@@ -1,5 +1,5 @@
 import React from 'react';
-import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import OutboundLink from '../LinksAndButtons/OutboundLink';
 import ApplePodcastButton from '../../svgs/apple-podcasts.svg';
 import SpotifyButton from '../../svgs/listen-spotify.svg';
@@ -16,27 +16,20 @@ const VerticalList = ({ items }) => {
     return (
         <ul className={list}>
             {items.map((item) => {
-                const podcastPictureSrc = getImage(
+                const pictureSrc = getImage(
                     item.picture.localFile?.childImageSharp.gatsbyImageData
                 );
 
                 return (
                     <li key={item.id}>
-                        {podcastPictureSrc ? (
+                        {pictureSrc ? (
                             <div className={episodeLeft}>
                                 <GatsbyImage
                                     alt={item.picture.alternativeText}
-                                    image={podcastPictureSrc}
+                                    image={pictureSrc}
                                 />
                             </div>
-                        ) : (
-                            <StaticImage // TODO: Remove this placeholder image (Replace with null)
-                                src="../../images/partners-page/referral-program.png"
-                                alt="Card placeholder image"
-                                placeholder="blurred"
-                                className={episodeLeft}
-                            />
-                        )}
+                        ) : null}
                         <div className={episodeRight}>
                             <h3>{item.title}</h3>
                             <span>{item.postedDate}</span>

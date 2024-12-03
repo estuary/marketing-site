@@ -230,11 +230,7 @@ export const pageQuery = graphql`
             updatedAt(formatString: "MMMM D, YYYY")
             machineReadablePublishDate: publishedAt(formatString: "YYYY-MM-DD")
             machineReadableUpdateDate: updatedAt(formatString: "YYYY-MM-DD")
-            description {
-                data {
-                    description
-                }
-            }
+            description
             slug
             body {
                 data {
