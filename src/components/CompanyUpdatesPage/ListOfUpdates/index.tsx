@@ -76,11 +76,18 @@ const ListOfUpdates = () => {
         }
     `);
 
+    const companyUpdatePostsWithPrefixedSlugs = allCompanyUpdatePosts.map(
+        (post) => ({
+            ...post,
+            slug: `company-updates/${post.slug}/`,
+        })
+    );
+
     return (
         <section className={defaultWrapperGrey}>
             <Container isVertical className={container}>
                 <h2>LATEST NEWS ABOUT ESTUARY</h2>
-                <VerticalList items={allCompanyUpdatePosts} />
+                <VerticalList items={companyUpdatePostsWithPrefixedSlugs} />
             </Container>
         </section>
     );

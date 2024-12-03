@@ -4,6 +4,7 @@ import OutboundLink from '../LinksAndButtons/OutboundLink';
 import ApplePodcastButton from '../../svgs/apple-podcasts.svg';
 import SpotifyButton from '../../svgs/listen-spotify.svg';
 import WatchYoutubeButton from '../../svgs/youtube-watch.svg';
+import LinkFilled from '../LinksAndButtons/LinkFilled';
 import {
     list,
     episodeLeft,
@@ -45,26 +46,38 @@ const VerticalList = ({ items }) => {
                                 <p>{item.description}</p>
                             )}
                             <div className={linksWrap}>
-                                {item.links?.strapi_json_value.map((link) => (
-                                    <OutboundLink
-                                        key={link}
-                                        href={link}
-                                        target="_blank"
-                                    >
-                                        {link.includes('youtube.com') ||
-                                        link.includes('youtu.be') ? (
-                                            <WatchYoutubeButton />
-                                        ) : null}
+                                {item.links ? (
+                                    item.links?.strapi_json_value.map(
+                                        (link) => (
+                                            <OutboundLink
+                                                key={link}
+                                                href={link}
+                                                target="_blank"
+                                            >
+                                                {link.includes('youtube.com') ||
+                                                link.includes('youtu.be') ? (
+                                                    <WatchYoutubeButton />
+                                                ) : null}
 
-                                        {link.includes('podcasts.apple.com') ? (
-                                            <ApplePodcastButton />
-                                        ) : null}
+                                                {link.includes(
+                                                    'podcasts.apple.com'
+                                                ) ? (
+                                                    <ApplePodcastButton />
+                                                ) : null}
 
-                                        {link.includes('spotify.com') ? (
-                                            <SpotifyButton />
-                                        ) : null}
-                                    </OutboundLink>
-                                ))}
+                                                {link.includes(
+                                                    'spotify.com'
+                                                ) ? (
+                                                    <SpotifyButton />
+                                                ) : null}
+                                            </OutboundLink>
+                                        )
+                                    )
+                                ) : (
+                                    <LinkFilled href={`/${item.slug}`}>
+                                        Read
+                                    </LinkFilled>
+                                )}
                             </div>
                         </div>
                     </li>

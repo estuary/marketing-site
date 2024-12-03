@@ -100,7 +100,7 @@ const CompanyUpdatePostTemplate = ({ data: { post } }) => {
                             </div>
                             <HeroSectionDetails
                                 title={post.title}
-                                description={post.description.data.description}
+                                description={post.description}
                             />
                         </div>
                         {post.hero ? (
