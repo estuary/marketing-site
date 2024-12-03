@@ -10,8 +10,8 @@ const Hero = () => {
         <section className={defaultWrapperDarkBlue}>
             <Container>
                 <HeroSectionDetails
-                    title="STAY UP TO DATE WITH THE LATEST UPDATES ABOUT ESTUARY"
-                    description="Stay in the loop with the latest news, updates, and feature enhancements for Estuary and Flow. Be the first to discover what's new and how it can benefit you."
+                    title="STAY CURRENT WITH ESTUARY FLOW"
+                    description="Discover the newest advancements in Estuary Flow. From groundbreaking features to performance optimizations, explore how we're continually evolving to streamline real-time and batch data integration for your business. Stay informed and make the most of Flow's powerful capabilities."
                     ctaButtons={<HeroSectionActions />}
                 />
                 <StaticImage
