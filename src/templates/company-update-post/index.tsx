@@ -2,167 +2,38 @@ import { graphql } from 'gatsby';
 import * as React from 'react';
 import dayjs from 'dayjs';
 import reltime from 'dayjs/plugin/relativeTime';
-import CalendarTodayOutlined from '@mui/icons-material/CalendarTodayOutlined';
-import { GatsbyImage } from 'gatsby-plugin-image';
-import SwoopingLinesBackground from '../../components/BackgroundImages/LightSwoopingLinesRightDirectionBackground';
-import { PopularArticles } from '../../components/BlogPopularArticles';
-import { ProcessedPost } from '../../components/BlogPostProcessor';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
 import logoUrl from '../../images/estuary.png';
-import ReadingTimeIcon from '../../svgs/time.svg';
-import { dashboardRegisterUrl } from '../../../shared';
-import BlogBanner from '../../components/BlogBanner';
-import ArticleSidebar from '../../components/ArticleSidebar';
-import Container from '../../components/Container';
-import HeroSectionDetails from '../../components/HeroSectionDetails';
-import ShareArticle from '../../components/ShareArticle';
-import {
-    blogPost,
-    blogPostHeaderWrapper,
-    headerInfo,
-    postInfo,
-    dateAndReadWrapper,
-    iconInfoWrapper,
-    blogPostDate,
-    heroImage,
-    shareArticleMobile,
-    blogPostContent,
-    blogPostContentWrapper,
-    mainContent,
-    popularArticlesWrapper,
-    blogPostBreadcrumbsWrapper,
-} from './styles.module.less';
+import BlogPost from '../../components/BlogPost';
 
 dayjs.extend(reltime);
 
 const CompanyUpdatePostTemplate = ({ data: { post } }) => {
-    const hasBeenUpdated = post?.updatedAt
-        ? post?.publishedAt !== post?.updatedAt
-        : false;
+    const postWithPrefixedSlug = {
+        ...post,
+        slug: `company-updates/${post.slug}/`,
+    };
 
     return (
         <Layout>
-            <div className={blogPostBreadcrumbsWrapper}>
-                <Breadcrumbs
-                    breadcrumbs={[
-                        {
-                            title: 'Home',
-                            href: '/',
-                        },
-                        {
-                            title: 'Company Updates',
-                            href: '/company-updates',
-                        },
-                        {
-                            title: post.title,
-                        },
-                    ]}
-                />
-            </div>
-            <article
-                className={blogPost}
-                itemScope
-                itemType="http://schema.org/Article"
-            >
-                <SwoopingLinesBackground>
-                    <Container className={blogPostHeaderWrapper}>
-                        <div className={headerInfo}>
-                            <div className={postInfo}>
-                                <div className={dateAndReadWrapper}>
-                                    <div className={iconInfoWrapper}>
-                                        <ReadingTimeIcon color="#47506D" />
-                                        <span className={blogPostDate}>
-                                            {
-                                                post.body.data
-                                                    .childMarkdownRemark.fields
-                                                    .readingTime.text
-                                            }
-                                        </span>
-                                    </div>
-                                    <div className={iconInfoWrapper}>
-                                        <CalendarTodayOutlined fontSize="small" />
-                                        <span className={blogPostDate}>
-                                            <span>
-                                                {hasBeenUpdated
-                                                    ? `Published ${post.publishedAt}`
-                                                    : post.publishedAt}
-                                            </span>
-                                            {hasBeenUpdated ? (
-                                                <span>
-                                                    Updated {post.updatedAt}
-                                                </span>
-                                            ) : null}
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <HeroSectionDetails
-                                title={post.title}
-                                description={post.description}
-                            />
-                        </div>
-                        {post.hero ? (
-                            <GatsbyImage
-                                alt={post.title}
-                                className={heroImage}
-                                image={
-                                    post.hero.localFile.childImageSharp
-                                        .gatsbyImageData
-                                }
-                                loading="eager"
-                            />
-                        ) : null}
-                        <div className={shareArticleMobile}>
-                            <ShareArticle
-                                article={{
-                                    title: post.title,
-                                    slug: post.slug,
-                                }}
-                            />
-                        </div>
-                    </Container>
-                </SwoopingLinesBackground>
-
-                {post.body ? (
-                    <section className={blogPostContent}>
-                        <div className={blogPostContentWrapper}>
-                            <div className={mainContent}>
-                                <ProcessedPost
-                                    body={post.body.data.childHtmlRehype.html}
-                                />
-                                <BlogBanner
-                                    title={
-                                        <h3>
-                                            Start streaming your data{' '}
-                                            <span>for free</span>
-                                        </h3>
-                                    }
-                                    button={{
-                                        title: 'Build a Pipeline',
-                                        href: dashboardRegisterUrl,
-                                    }}
-                                />
-                            </div>
-                            <ArticleSidebar
-                                article={{
-                                    title: post.title,
-                                    slug: post.slug,
-                                }}
-                                tableOfContents={
-                                    post.body.data.childHtmlRehype
-                                        .tableOfContents
-                                }
-                            />
-                        </div>
-                    </section>
-                ) : null}
-                <section className={popularArticlesWrapper}>
-                    <h2>Popular Articles</h2>
-                    <PopularArticles />
-                </section>
-            </article>
+            <Breadcrumbs
+                breadcrumbs={[
+                    {
+                        title: 'Home',
+                        href: '/',
+                    },
+                    {
+                        title: 'Company Updates',
+                        href: '/company-updates',
+                    },
+                    {
+                        title: post.title,
+                    },
+                ]}
+            />
+            <BlogPost post={postWithPrefixedSlug} />
         </Layout>
     );
 };

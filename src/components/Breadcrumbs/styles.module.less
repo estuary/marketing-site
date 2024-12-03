@@ -1,3 +1,20 @@
+@import '../../globalStyles/sections.module.less';
+
+.container {
+    .globalMaxWidth;
+
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    @media (max-width: 809px) {
+        padding: 40px 0 20px;
+    }
+
+    @media (max-width: 768px) {
+        display: none;
+    }
+}
+
 .links {
     font-size: 1rem;
     line-height: 28.8px;
@@ -16,7 +33,7 @@
         a {
             color: #47506d;
             font-weight: 400;
-    
+
             &:hover {
                 text-decoration: underline;
             }
