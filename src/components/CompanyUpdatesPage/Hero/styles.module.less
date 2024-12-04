@@ -1,0 +1,97 @@
+.baseImage {
+  position: relative;
+}
+
+.container {
+  > :nth-child(2) {
+    flex: none;
+    max-width: 57%;
+  }
+
+  span {
+    position: absolute;
+    z-index: 1;
+    line-height: 100%;
+    color: #47506D;
+    text-align: center;
+    font-size: 0.6rem;
+
+    @media (max-width: 1600px) {
+      font-size: 0.6vw;
+    }
+
+    @media (max-width: 1024px) {
+      font-size: 1.04vw;
+    }
+
+    @media (max-width: 425px) {
+      font-size: 1.16vw;
+    }
+  }
+
+  span:nth-child(1) {
+    top: 16%;
+    left: 2.8%;
+    font-weight: 600;
+  }
+
+  span:nth-child(2) {
+    top: 16%;
+    right: 7.5%;
+    font-weight: 600;
+  }
+
+  span:nth-child(3) {
+    top: 51.5%;
+    left: 44.5%;
+    font-weight: 600;
+    max-width: 11%;
+  }
+
+  span:nth-child(4) {
+    top: 31.5%;
+    left: 6.5%;
+  }
+
+  span:nth-child(5) {
+    top: 50%;
+    left: 8%;
+  }
+
+  span:nth-child(6) {
+    top: 69%;
+    left: 9.8%;
+  }
+
+  span:nth-child(7) {
+    top: 89%;
+    left: 9.8%;
+  }
+
+  span:nth-child(8) {
+    top: 37%;
+    right: 8.5%;
+  }
+
+  span:nth-child(9) {
+    top: 62%;
+    right: 10%;
+  }
+
+  span:nth-child(10) {
+    top: 86%;
+    right: 10.7%;
+  }
+
+  @media (max-width: 1024px) {
+    > :nth-child(1) {
+      flex: none;
+      max-width: 100%;
+    }
+
+    > :nth-child(2) {
+      flex: none;
+      max-width: 100%;
+    }
+  }
+}
