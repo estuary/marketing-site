@@ -12,7 +12,8 @@ export const docsPageUrl = 'https://docs.estuary.dev';
 export const slackUrl =
     'https://estuary-dev.slack.com/join/shared_invite/zt-86nal6yr-VPbv~YfZE9Q~6Zl~gmZdFQ#/shared-invite/email';
 export const estuaryFlowGithubUrl = 'https://github.com/estuary/flow/';
-
+export const estuaryLinkedinUrl =
+    'https://www.linkedin.com/company/estuary-tech/';
 export const estuaryProductFlowVideoUrl =
     'https://www.youtube.com/embed/hlCh81ZbBik';
 

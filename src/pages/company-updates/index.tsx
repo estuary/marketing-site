@@ -3,6 +3,7 @@ import Seo from '../../components/seo';
 import Layout from '../../components/Layout';
 import Hero from '../../components/CompanyUpdatesPage/Hero';
 import ListOfUpdates from '../../components/CompanyUpdatesPage/ListOfUpdates';
+import StayUpdated from '../../components/CompanyUpdatesPage/StayUpdated';
 import SignUp from '../../components/Signup';
 
 const CompanyUpdates = () => {
@@ -10,6 +11,7 @@ const CompanyUpdates = () => {
         <Layout>
             <Hero />
             <ListOfUpdates />
+            <StayUpdated />
             <SignUp />
         </Layout>
     );
