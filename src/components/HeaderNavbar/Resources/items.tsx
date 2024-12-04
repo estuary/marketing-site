@@ -13,9 +13,23 @@ export const read = [
         Image: () => <StaticImage src="../../../svgs/blog.svg" alt="Blog" />,
     },
     {
+        name: 'Company Updates',
+        to: '/company-updates',
+        Image: () => (
+            <StaticImage src="../../../svgs/blog.svg" alt="Company Updates" />
+        ),
+    },
+    {
         name: 'Docs & Guides',
         to: 'https://docs.estuary.dev',
         Image: () => <DocIcon color="#5072EB" width={iconSize} />,
+    },
+    {
+        name: 'About us',
+        to: '/about',
+        Image: () => (
+            <StaticImage src="../../../svgs/estuary-icon.svg" alt="About us" />
+        ),
     },
     {
         name: 'Status',
@@ -27,13 +41,6 @@ export const read = [
                 height={iconSize}
                 width={iconSize}
             />
-        ),
-    },
-    {
-        name: 'About us',
-        to: '/about',
-        Image: () => (
-            <StaticImage src="../../../svgs/estuary-icon.svg" alt="About us" />
         ),
     },
 ];

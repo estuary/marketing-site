@@ -140,6 +140,12 @@ const Footer = () => {
                             Blogs
                         </FooterLink>
                         <FooterLink
+                            to="/company-updates/"
+                            ariaLabel="Explore Estuary and Flow updates."
+                        >
+                            Company Updates
+                        </FooterLink>
+                        <FooterLink
                             to="/blog/tutorial/"
                             ariaLabel="Explore blog posts with tutorials"
                         >
