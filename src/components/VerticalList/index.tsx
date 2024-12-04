@@ -34,7 +34,7 @@ const VerticalList = ({ items }) => {
                         ) : null}
                         <div className={episodeRight}>
                             <h3>{item.title}</h3>
-                            <span>{item.postedDate}</span>
+                            <span>{item.postedDate ?? item.publishedAt}</span>
                             {item.description.data?.description ? (
                                 <div
                                     className={episodeDescription}

@@ -12,9 +12,10 @@ const ListOfUpdates = () => {
         query GetCompanyUpdatePosts {
             allStrapiCompanyUpdatePost {
                 nodes {
+                    id
                     title
                     publishedAt(formatString: "MMMM D, YYYY")
-                    updatedAt(formatString: "MMMM D, YYYY")
+                    postedDate: updatedAt(formatString: "MMMM D, YYYY")
                     machineReadablePublishDate: publishedAt(
                         formatString: "YYYY-MM-DD"
                     )
@@ -23,29 +24,12 @@ const ListOfUpdates = () => {
                     )
                     description
                     slug
-                    body {
-                        data {
-                            body
-                            childHtmlRehype {
-                                html
-                                tableOfContents
-                            }
-                            childMarkdownRemark {
-                                fields {
-                                    readingTime {
-                                        text
-                                    }
-                                }
-                            }
-                        }
-                    }
                     picture: hero {
                         localFile {
                             childImageSharp {
                                 gatsbyImageData(
                                     layout: FULL_WIDTH
                                     placeholder: BLURRED
-                                    # aspectRatio: 2
                                     formats: [AUTO, WEBP, AVIF]
                                 )
                                 metaImg: gatsbyImageData(
@@ -54,22 +38,7 @@ const ListOfUpdates = () => {
                                 )
                             }
                         }
-                    }
-                    socialShareImage {
-                        localFile {
-                            childImageSharp {
-                                gatsbyImageData(
-                                    layout: FULL_WIDTH
-                                    placeholder: BLURRED
-                                    # aspectRatio: 2
-                                    formats: [AUTO, WEBP, AVIF]
-                                )
-                                metaImg: gatsbyImageData(
-                                    layout: FIXED
-                                    width: 500
-                                )
-                            }
-                        }
+                        alternativeText
                     }
                 }
             }

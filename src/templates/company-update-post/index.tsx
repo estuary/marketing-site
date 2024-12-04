@@ -125,11 +125,11 @@ export const pageQuery = graphql`
                         gatsbyImageData(
                             layout: FULL_WIDTH
                             placeholder: BLURRED
-                            # aspectRatio: 2
                             formats: [AUTO, WEBP, AVIF]
                         )
                     }
                 }
+                alternativeText
             }
             socialShareImage {
                 localFile {
