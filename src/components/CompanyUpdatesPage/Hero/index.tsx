@@ -12,7 +12,7 @@ const Hero = () => {
             <Container className={container}>
                 <HeroSectionDetails
                     title="STAY CURRENT WITH ESTUARY FLOW"
-                    description="Discover the newest advancements in Estuary Flow. From groundbreaking features to performance optimizations, explore how we're continually evolving to streamline real-time and batch data integration for your business. Stay informed and make the most of Flow's powerful capabilities."
+                    description="Stay informed and make the most of Flow's powerful capabilities."
                     ctaButtons={<HeroSectionActions />}
                 />
                 <div className={baseImage}>
