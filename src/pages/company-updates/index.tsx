@@ -3,12 +3,14 @@ import Seo from '../../components/seo';
 import Layout from '../../components/Layout';
 import Hero from '../../components/CompanyUpdatesPage/Hero';
 import ListOfUpdates from '../../components/CompanyUpdatesPage/ListOfUpdates';
+import SignUp from '../../components/Signup';
 
 const CompanyUpdates = () => {
     return (
         <Layout>
             <Hero />
             <ListOfUpdates />
+            <SignUp />
         </Layout>
     );
 };
