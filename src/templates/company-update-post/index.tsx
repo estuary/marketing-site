@@ -128,19 +128,12 @@ export const pageQuery = graphql`
                             # aspectRatio: 2
                             formats: [AUTO, WEBP, AVIF]
                         )
-                        metaImg: gatsbyImageData(layout: FIXED, width: 500)
                     }
                 }
             }
             socialShareImage {
                 localFile {
                     childImageSharp {
-                        gatsbyImageData(
-                            layout: FULL_WIDTH
-                            placeholder: BLURRED
-                            # aspectRatio: 2
-                            formats: [AUTO, WEBP, AVIF]
-                        )
                         metaImg: gatsbyImageData(layout: FIXED, width: 500)
                     }
                 }
