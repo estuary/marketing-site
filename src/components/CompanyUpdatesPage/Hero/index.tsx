@@ -28,7 +28,7 @@ const Hero = () => {
                     <span>AI</span>
                     <StaticImage
                         src="../../../images/company-updates/hero-image.png"
-                        alt="Hero image" // TODO: Ask an alternative text to Sourabh
+                        alt="Data Pipeline diagram - store, transform, and materialize processes with real-time and batch data integration."
                         quality={100}
                         placeholder="blurred"
                         loading="eager"
