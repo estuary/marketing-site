@@ -1,7 +1,7 @@
 import React from 'react';
-import ShareArticle from '../../templates/blog-post/ShareArticle';
 import { RenderToc } from '../BlogPostToc';
 import SidebarCta from '../SidebarCta';
+import ShareArticle from '../ShareArticle';
 import {
     container,
     shareArticleDesktop,
@@ -14,13 +14,21 @@ interface ArticleSidebarProps {
         slug: string;
     };
     tableOfContents: any;
+    shareArticleSectionTitle?: string;
 }
 
-const ArticleSidebar = ({ article, tableOfContents }: ArticleSidebarProps) => {
+const ArticleSidebar = ({
+    article,
+    tableOfContents,
+    shareArticleSectionTitle,
+}: ArticleSidebarProps) => {
     return (
         <div className={container}>
             <div className={shareArticleDesktop}>
-                <ShareArticle article={article} />
+                <ShareArticle
+                    article={article}
+                    sectionTitle={shareArticleSectionTitle}
+                />
             </div>
             {tableOfContents.length > 0 ? (
                 <div className={tableOfContentsWrapper}>

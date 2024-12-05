@@ -9,7 +9,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import * as React from 'react';
 
 import logoUrl from '../images/estuary.png';
-import { estuaryAddress } from '../../shared';
+import { estuaryAddress, estuaryLinkedinUrl } from '../../shared';
 
 export interface SeoProps {
     title: string;
@@ -102,7 +102,7 @@ const Seo: React.FC<SeoProps> = ({
                     'telephone': '',
                     'sameAs': [
                         'https://twitter.com/EstuaryDev',
-                        'https://www.linkedin.com/company/estuary-tech/',
+                        estuaryLinkedinUrl,
                         'https://www.youtube.com/channel/UCJ9JIjh7uaUdjcFR6xTkJXQ',
                         'https://www.crunchbase.com/organization/estuary',
                     ],

@@ -10,6 +10,7 @@ import NewsletterSignupForm from '../NewsletterSignupForm';
 import {
     docsPageUrl,
     estuaryFlowGithubUrl,
+    estuaryLinkedinUrl,
     slackUrl,
     statusPageUrl,
     webinarsUrl,
@@ -139,6 +140,12 @@ const Footer = () => {
                             Blogs
                         </FooterLink>
                         <FooterLink
+                            to="/company-updates/"
+                            ariaLabel="Explore Estuary and Flow updates."
+                        >
+                            Company Updates
+                        </FooterLink>
+                        <FooterLink
                             to="/blog/tutorial/"
                             ariaLabel="Explore blog posts with tutorials"
                         >
@@ -231,7 +238,7 @@ const Footer = () => {
                         </OutboundLink>
                         <OutboundLink
                             target="_blank"
-                            href="https://www.linkedin.com/company/estuary-tech/"
+                            href={estuaryLinkedinUrl}
                             aria-label="Linkedin Company Link"
                         >
                             <LinkedinIcon className={footerSocialIconStyle} />

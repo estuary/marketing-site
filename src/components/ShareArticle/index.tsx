@@ -1,12 +1,12 @@
 import * as React from 'react';
-import EmailOutlinedIcon from '../../../svgs/share-social-icons/email-outlined.svg';
-import FacebookOutlinedIcon from '../../../svgs/share-social-icons/facebook-outlined.svg';
-import LinkedinOutlinedIcon from '../../../svgs/share-social-icons/linkedin-outlined.svg';
-import TwitterXOutlinedIcon from '../../../svgs/share-social-icons/twitter-x-outlined.svg';
-import CopyToClipboardButton from '../../../components/CopyToClipboardButton';
-import { socialShareButton } from '../../../components/styles.module.less';
-import useWindowExistence from '../../../hooks/useWindowExistence';
-import OutboundLink from '../../../components/LinksAndButtons/OutboundLink';
+import EmailOutlinedIcon from '../../svgs/share-social-icons/email-outlined.svg';
+import FacebookOutlinedIcon from '../../svgs/share-social-icons/facebook-outlined.svg';
+import LinkedinOutlinedIcon from '../../svgs/share-social-icons/linkedin-outlined.svg';
+import TwitterXOutlinedIcon from '../../svgs/share-social-icons/twitter-x-outlined.svg';
+import CopyToClipboardButton from '../CopyToClipboardButton';
+import { socialShareButton } from '../styles.module.less';
+import useWindowExistence from '../../hooks/useWindowExistence';
+import OutboundLink from '../LinksAndButtons/OutboundLink';
 import { container, socialButtonsWrapper } from './styles.module.less';
 
 type ShareArticleProps = {
@@ -14,9 +14,13 @@ type ShareArticleProps = {
         title: string;
         slug: string;
     };
+    sectionTitle?: string | null;
 };
 
-const ShareArticle = ({ article: { title, slug } }: ShareArticleProps) => {
+const ShareArticle = ({
+    article: { title, slug },
+    sectionTitle = 'Share this article',
+}: ShareArticleProps) => {
     const hasWindow = useWindowExistence();
 
     const shareMessage = `Check out the article "${title}"`;
@@ -28,7 +32,7 @@ const ShareArticle = ({ article: { title, slug } }: ShareArticleProps) => {
 
     return (
         <div className={container}>
-            <span>Share this article</span>
+            <span>{sectionTitle}</span>
             <div className={socialButtonsWrapper}>
                 <CopyToClipboardButton contentToCopy={articleUrl} />
                 <OutboundLink

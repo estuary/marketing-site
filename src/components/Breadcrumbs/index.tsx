@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
-import { globalMaxWidth } from '../../globalStyles/sections.module.less';
-import { links, crumbTitle, divider } from './styles.module.less';
+import { links, crumbTitle, divider, container } from './styles.module.less';
 
 interface Breadcrumb {
     title: string;
@@ -13,7 +12,7 @@ interface BreadcrumbsProps {
 }
 
 const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ breadcrumbs = [] }) => (
-    <nav aria-label="breadcrumb" className={globalMaxWidth}>
+    <nav aria-label="breadcrumb" className={container}>
         <ol className={links}>
             {breadcrumbs.map(({ title, href }) => (
                 <li key={`breadCrumb_${href ?? title}`}>
