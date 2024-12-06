@@ -26,7 +26,7 @@ const tabStyling = {
     'border': '1px solid #5072EB4D',
     'borderRadius': '100px',
     'textTransform': 'none',
-    'color': '#04192B',
+    'color': 'var(--dark-blue)',
     'transition': 'var(--default-transition)',
 
     '&:hover': {
@@ -42,7 +42,7 @@ const tabStyling = {
     '&.Mui-selected': {
         backgroundColor: '#5072EB26',
         border: '2px solid #5072EB',
-        color: '#04192B',
+        color: 'var(--dark-blue)',
     },
 };
 

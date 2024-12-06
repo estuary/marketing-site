@@ -247,7 +247,9 @@ export const PricingCalculator = ({
                             inputProps={{
                                 style: {
                                     textAlign: 'center',
-                                    color: isDarkTheme ? '#fff' : '#04192B',
+                                    color: isDarkTheme
+                                        ? '#fff'
+                                        : 'var(--dark-blue)',
                                 },
                                 min: 2,
                                 max: maxConnectors,
