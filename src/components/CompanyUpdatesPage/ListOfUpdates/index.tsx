@@ -10,7 +10,10 @@ const ListOfUpdates = () => {
         allStrapiCompanyUpdatePost: { nodes: allCompanyUpdatePosts },
     } = useStaticQuery(graphql`
         query GetCompanyUpdatePosts {
-            allStrapiCompanyUpdatePost {
+            allStrapiCompanyUpdatePost(
+                sort: { publishedAt: DESC }
+                filter: { publishedAt: { ne: null } }
+            ) {
                 nodes {
                     id
                     title

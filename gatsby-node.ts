@@ -416,10 +416,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
         };
     }>(`
         {
-            allStrapiCompanyUpdatePost(
-                sort: { publishedAt: DESC }
-                filter: { publishedAt: { ne: null } }
-            ) {
+            allStrapiCompanyUpdatePost {
                 nodes {
                     slug
                     id
