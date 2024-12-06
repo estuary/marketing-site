@@ -94,7 +94,7 @@ const LpPodcats = ({
                                 </OutboundLink>
                             </div>
                             <p className={subscribeSubheading}>
-                                Subscribe to our newsletter to get the latest
+                                Sign up for our newsletter to get the latest
                                 news and updates
                             </p>
                             <NewsletterSignupForm />

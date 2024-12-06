@@ -31,8 +31,8 @@ const StayUpdated = () => {
                     </div>
                     <div className={newsletterCta}>
                         <p>
-                            Subscribe to our Newsletter for news about Estuary
-                            Flow straight into your inbox.
+                            Join our Newsletter for news about Estuary Flow
+                            straight into your inbox.
                         </p>
                         <NewsletterSignupForm />
                     </div>
