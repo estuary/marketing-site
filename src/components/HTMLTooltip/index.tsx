@@ -46,7 +46,7 @@ const HTMLTooltip = styled(
 )(
     ({
         theme,
-        backgroundColor = '#ffffff',
+        backgroundColor = 'var(--white)',
         color = 'var(--dark-blue)',
         maxWidth = 232,
         fontSize = 16,

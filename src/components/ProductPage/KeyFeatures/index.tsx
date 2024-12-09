@@ -18,7 +18,7 @@ import {
 
 const tooltipProps = {
     backgroundColor: '#091F38',
-    color: '#fff',
+    color: 'var(--white)',
     borderColor: '#A4B6F4',
     borderRadius: 36,
     padding: 20,

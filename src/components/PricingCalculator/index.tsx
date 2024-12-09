@@ -239,7 +239,7 @@ export const PricingCalculator = ({
                         disabled={selectedConnectors === 2}
                         aria-label={`decrease ${inputLabel}`}
                     >
-                        <MinusSign color="#fff" />
+                        <MinusSign color="var(--white)" />
                     </ButtonFilled>
                     <FormControl variant="outlined" className={form}>
                         <OutlinedInput
@@ -248,7 +248,7 @@ export const PricingCalculator = ({
                                 style: {
                                     textAlign: 'center',
                                     color: isDarkTheme
-                                        ? '#fff'
+                                        ? 'var(--white)'
                                         : 'var(--dark-blue)',
                                 },
                                 min: 2,
@@ -268,7 +268,7 @@ export const PricingCalculator = ({
                         disabled={selectedConnectors === maxConnectors}
                         aria-label={`increase ${inputLabel}`}
                     >
-                        <PlusSign color="#fff" />
+                        <PlusSign color="var(--white)" />
                     </ButtonFilled>
                 </div>
             </div>

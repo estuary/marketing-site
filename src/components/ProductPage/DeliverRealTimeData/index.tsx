@@ -55,7 +55,7 @@ const DeliverRealTimeData = () => {
                         </div>
                         <div className={clsx(metric, singleDataFlowMetric)}>
                             <div className={iconWrapper}>
-                                <SingleDataflowIcon color="#ffffff" />
+                                <SingleDataflowIcon color="var(--white)" />
                             </div>
                             <div className={textWrapper}>
                                 <h3>7+GB/sec</h3>

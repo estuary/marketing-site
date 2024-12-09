@@ -1,3 +1,5 @@
+@whiteColor: var(--white);
+
 .imageWrapper {
     position: relative;
     margin: auto;
@@ -14,7 +16,7 @@
     line-height: 48px;
     text-align: center;
     margin: 0;
-    color: #ffffff;
+    color: var(--white);
 
     @media (max-width: 810px) {
         font-size: 1.75rem;
@@ -95,11 +97,11 @@
 }
 
 .batchEltTitle {
-    color: #ffffff;
+    color: var(--white);
 }
 
 .streamingEtlDescription {
-    color: #ffffff;
+    color: var(--white);
 }
 
 .batchEltDescription {
@@ -124,8 +126,8 @@
             border: 2px solid transparent;
             background: linear-gradient(to bottom, #6ed5d6, #7284ff) border-box;
             mask:
-                linear-gradient(#fff 0 0) padding-box,
-                linear-gradient(#fff 0 0);
+                linear-gradient(@whiteColor 0 0) padding-box,
+                linear-gradient(@whiteColor 0 0);
             mask-composite: exclude;
 
             @media (max-width: 1280px) {

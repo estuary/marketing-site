@@ -34,7 +34,7 @@ const Hero = () => {
                     description="Learn how to build a pipeline in minutes."
                     isActive
                     href={webinarsUrl}
-                    icon={<RecordIcon color="#fff" />}
+                    icon={<RecordIcon color="var(--white)" />}
                 />
                 <Card
                     title="QUICKSTART"

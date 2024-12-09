@@ -17,7 +17,7 @@ type MainConnectorsProps = {
 
 const MainConnectors = ({ isLightTheme = false }: MainConnectorsProps) => {
     const linkClasses = clsx(link, isLightTheme && hasLightBackgroundColor);
-    const svgLogoColor = isLightTheme ? 'var(--dark-blue)' : '#ffffff';
+    const svgLogoColor = isLightTheme ? 'var(--dark-blue)' : 'var(--white)';
 
     return (
         <ul className={container}>

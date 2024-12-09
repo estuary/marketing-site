@@ -30,7 +30,7 @@ import {
     semiCircleRightSide,
 } from './styles.module.less';
 
-const metricIconColor = '#FFFFFF';
+const metricIconColor = 'var(--white)';
 
 export interface HeroProps {
     sourceConnector: Connector;

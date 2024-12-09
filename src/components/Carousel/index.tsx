@@ -39,7 +39,7 @@ const Carousel = ({
     hasArrow = false,
     dotColor,
     activeDotColor,
-    arrowColor = '#FFFFFF',
+    arrowColor = 'var(--white)',
     hasFullWidthSlide = false,
     hasMultipleItemsSlide,
     ...rest

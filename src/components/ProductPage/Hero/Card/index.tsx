@@ -39,7 +39,7 @@ const Card = ({
             <p>{description}</p>
         </div>
         <div className={chevronIconWrapper}>
-            <ChevronRightIcon width={32} color="#FFFFFF" />
+            <ChevronRightIcon width={32} color="var(--white)" />
         </div>
     </OutboundLink>
 );
