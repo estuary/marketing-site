@@ -60,7 +60,7 @@ const TestimonialsCarousel = ({
         <Carousel
             hasArrow
             aria-label="Customer testimonials carousel"
-            arrowColor={theme === 'light' ? '#ffffff' : '#47506D'}
+            arrowColor={theme === 'light' ? '#ffffff' : 'var(--grey)'}
             hasFullWidthSlide
             options={{ loop: true }}
         >

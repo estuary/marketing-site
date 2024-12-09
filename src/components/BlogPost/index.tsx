@@ -104,7 +104,7 @@ const BlogPost = ({
                             ) : null}
                             <div className={dateAndReadWrapper}>
                                 <div className={iconInfoWrapper}>
-                                    <ReadingTimeIcon color="#47506D" />
+                                    <ReadingTimeIcon color="var(--grey)" />
                                     <span className={blogPostDate}>
                                         {
                                             post.body.data.childMarkdownRemark

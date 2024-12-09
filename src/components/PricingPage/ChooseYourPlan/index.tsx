@@ -22,7 +22,7 @@ const ChooseYourPlan = () => {
                     <Carousel
                         aria-label="Pricing plan carousel"
                         hasArrow
-                        arrowColor="#47506D"
+                        arrowColor="var(--grey)"
                         options={{
                             startIndex: 1,
                         }}

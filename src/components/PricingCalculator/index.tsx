@@ -104,7 +104,7 @@ const PricingSlider = styled(Slider)(() => {
             'top': '-60px',
             'fontSize': '1.25rem',
             'fontWeight': 500,
-            'color': '#47506D',
+            'color': 'var(--grey)',
 
             '@media (max-width: 1200px)': {
                 fontSize: '1rem',

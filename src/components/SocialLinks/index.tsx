@@ -7,7 +7,7 @@ import WebsiteIcon from '../../svgs/share-social-icons/website-outlined.svg';
 import OutboundLink from '../LinksAndButtons/OutboundLink';
 import { container, highlightedIconStyle } from './styles.module.less';
 
-const iconColor = '#47506D';
+const iconColor = 'var(--grey)';
 
 interface SocialLinks {
     socialLinks: {
