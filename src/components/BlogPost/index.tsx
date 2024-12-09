@@ -271,7 +271,8 @@ const BlogPost = ({
                                                     sx={{
                                                         minHeight: '57px',
                                                         width: '1px',
-                                                        borderColor: '#d7dce5',
+                                                        borderColor:
+                                                            'var(--border-color)',
                                                         margin: '0 30px 0 20px',
                                                         [theme.breakpoints.down(
                                                             520
