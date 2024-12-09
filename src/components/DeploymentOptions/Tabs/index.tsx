@@ -7,7 +7,7 @@ const tabStyling = {
     'transition': 'var(--default-transition)',
     'opacity': '0.75',
     'textTransform': 'none',
-    'borderBottom': '1px solid #A4B6F4',
+    'borderBottom': '1px solid var(--violet300)',
     'width': '33.333%',
     '&:hover': { backgroundColor: '#ECEFFC' },
     '&:active': { backgroundColor: '#E3E8FB' },

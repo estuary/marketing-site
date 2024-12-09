@@ -19,7 +19,7 @@ import {
 const tooltipProps = {
     backgroundColor: '#091F38',
     color: 'var(--white)',
-    borderColor: '#A4B6F4',
+    borderColor: 'var(--violet300)',
     borderRadius: 36,
     padding: 20,
     maxWidth: 292,
