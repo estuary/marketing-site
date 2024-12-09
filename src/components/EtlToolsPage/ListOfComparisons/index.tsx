@@ -36,12 +36,12 @@ const tabStyling = {
 
     '&:active': {
         backgroundColor: '#E3E8FB',
-        border: '2px solid #5072EB',
+        border: '2px solid var(--blue);',
     },
 
     '&.Mui-selected': {
         backgroundColor: '#5072EB26',
-        border: '2px solid #5072EB',
+        border: '2px solid var(--blue);',
         color: 'var(--dark-blue)',
     },
 };
@@ -103,7 +103,7 @@ const ListOfComparisons = ({ estuaryVendor, vendors }: SectionThreeProps) => {
                                         {selectedVendorId === id ? (
                                             <Checkmark
                                                 width={20}
-                                                color="#5072EB"
+                                                color="var(--blue)"
                                             />
                                         ) : null}
                                     </div>

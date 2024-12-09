@@ -64,7 +64,7 @@ const DeliverRealTimeData = () => {
                         </div>
                         <div className={clsx(metric, activeUsersMetric)}>
                             <div className={iconWrapper}>
-                                <ActiveUsersIcon color="#5072EB" />
+                                <ActiveUsersIcon color="var(--blue)" />
                             </div>
                             <div className={textWrapper}>
                                 <h3>{activeUsersAmount}</h3>
@@ -73,7 +73,7 @@ const DeliverRealTimeData = () => {
                         </div>
                         <div className={clsx(metric, latencyMetric)}>
                             <div className={iconWrapper}>
-                                <LatencyIcon color="#5072EB" />
+                                <LatencyIcon color="var(--blue)" />
                             </div>
                             <div className={textWrapper}>
                                 <h3>&#60;100ms</h3>

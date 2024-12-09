@@ -24,7 +24,7 @@ const Address = () => {
         <section className={sectionTopBottomPadding}>
             <div className={container}>
                 <div className={iconWrapper}>
-                    <BuildingIcon htmlColor="#5072EB" fontSize="large" />
+                    <BuildingIcon htmlColor="var(--blue)" fontSize="large" />
                 </div>
                 <h2 className={title}>OUR OFFICE</h2>
                 <div className={card}>

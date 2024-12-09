@@ -58,7 +58,10 @@ const HeaderNavbarProduct = ({ active, setActive }) => {
                         contentFooterLink={
                             <Link to="/etl-tools">
                                 View all comparisons
-                                <ChevronRightIcon color="#5072EB" height={12} />
+                                <ChevronRightIcon
+                                    color="var(--blue)"
+                                    height={12}
+                                />
                             </Link>
                         }
                     />

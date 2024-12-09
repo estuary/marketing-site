@@ -17,7 +17,7 @@ const SecurityCertificates = ({
 }: SecurityCertificatesProps) => {
     return (
         <Advantages
-            icon={<SecureIcon color="#5072EB" />}
+            icon={<SecureIcon color="var(--blue)" />}
             title={
                 title ?? (
                     <>

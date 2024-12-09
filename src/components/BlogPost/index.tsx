@@ -322,7 +322,7 @@ const BlogPost = ({
                             <div className={rightColumnContainer}>
                                 <div>
                                     <DoneIcon
-                                        htmlColor="#5072eb"
+                                        htmlColor="var(--blue)"
                                         fontSize="large"
                                     />
                                     <span>
@@ -332,7 +332,7 @@ const BlogPost = ({
                                 </div>
                                 <div>
                                     <DoneIcon
-                                        htmlColor="#5072eb"
+                                        htmlColor="var(--blue)"
                                         fontSize="large"
                                     />
                                     <span>
@@ -342,7 +342,7 @@ const BlogPost = ({
                                 </div>
                                 <div>
                                     <DoneIcon
-                                        htmlColor="#5072eb"
+                                        htmlColor="var(--blue)"
                                         fontSize="large"
                                     />
                                     <span>

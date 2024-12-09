@@ -50,7 +50,7 @@ const Hero = ({ vendors, xVendor, yVendor }: SectionOneProps) => {
                             />
                             <InternalLink href="/etl-tools/">
                                 View all comparisons
-                                <ChevronRightIcon color="#5072EB" />
+                                <ChevronRightIcon color="var(--blue)" />
                             </InternalLink>
                         </>
                     }

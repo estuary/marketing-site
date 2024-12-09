@@ -11,7 +11,7 @@ const ExplorePrivateDeployments = () => (
     <section className={defaultWrapperGrey}>
         <Advantages
             isImageOnTheLeft
-            icon={<SecureDataIcon color="#5072EB" />}
+            icon={<SecureDataIcon color="var(--blue)" />}
             title={
                 <>
                     EXPLORE PRIVATE DEPLOYMENTS FOR{' '}

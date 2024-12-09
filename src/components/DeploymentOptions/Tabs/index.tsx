@@ -3,7 +3,7 @@ import Tab from '@mui/material/Tab';
 import TabList from '@mui/lab/TabList';
 
 const tabStyling = {
-    'color': '#5072EB',
+    'color': 'var(--blue)',
     'transition': 'var(--default-transition)',
     'opacity': '0.75',
     'textTransform': 'none',

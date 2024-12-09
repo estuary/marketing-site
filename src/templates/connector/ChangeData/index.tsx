@@ -49,7 +49,10 @@ const ChangeData = ({ connector: { id, title, type } }: ChangeDataProps) => {
                     </p>
                     <ul>
                         <li>
-                            <DoneIcon htmlColor="#5072EB" fontSize="medium" />
+                            <DoneIcon
+                                htmlColor="var(--blue)"
+                                fontSize="medium"
+                            />
                             <span>
                                 Ensure your {title} insights always reflect the
                                 latest data by connecting your databases to{' '}
@@ -57,7 +60,10 @@ const ChangeData = ({ connector: { id, title, type } }: ChangeDataProps) => {
                             </span>
                         </li>
                         <li>
-                            <DoneIcon htmlColor="#5072EB" fontSize="medium" />
+                            <DoneIcon
+                                htmlColor="var(--blue)"
+                                fontSize="medium"
+                            />
                             <span>
                                 Or connect critical SaaS apps to {title} with
                                 real-time data pipelines.

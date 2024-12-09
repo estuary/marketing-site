@@ -32,7 +32,9 @@ const DiagramDestinationConnectors = ({
                     title="Analytics"
                     description="Load data at any speed into data warehouses and lakes from real-time to hour+ intervals as in-place updates and hard deletes or append-only change data history."
                     hasTooltips={hasTooltips}
-                    icon={<AnalyticsIcon className={icon} color="#5072EB" />}
+                    icon={
+                        <AnalyticsIcon className={icon} color="var(--blue)" />
+                    }
                 />
                 <Link className={connector} to="/destination/snowflake">
                     <div className={logoWrapper}>
@@ -73,7 +75,7 @@ const DiagramDestinationConnectors = ({
                     title="Ops"
                     description="Stream in real-time to SQL or NoSQL, OLAP, time series, or ElasticSearch databases."
                     hasTooltips={hasTooltips}
-                    icon={<OpsIcon className={icon} color="#5072EB" />}
+                    icon={<OpsIcon className={icon} color="var(--blue)" />}
                 />
                 <Link className={connector} to="/destination/elasticsearch">
                     <div className={logoWrapper}>
@@ -114,7 +116,7 @@ const DiagramDestinationConnectors = ({
                     title="AI"
                     description="Build AI pipelines that load vector databases for RAG and invoke chabots like ChatGPT or use other LLM models in real-time."
                     hasTooltips={hasTooltips}
-                    icon={<AiIcon className={icon} color="#5072EB" />}
+                    icon={<AiIcon className={icon} color="var(--blue)" />}
                 />
                 <Link className={connector} to="/destination/pinecone">
                     <div className={logoWrapper}>

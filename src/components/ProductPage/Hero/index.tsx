@@ -56,7 +56,7 @@ const Hero = () => {
                         <StaticImage
                             src="../../../svgs/product-page/section-one/slack-outlined.svg"
                             alt="Join the Estuary community and receive support from experts"
-                            style={{ color: '#5072EB' }}
+                            style={{ color: 'var(--blue)' }}
                             loading="eager"
                         />
                     }

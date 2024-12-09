@@ -48,7 +48,11 @@ const FaqAccordion = ({
                         )}
                     >
                         {expanded ? (
-                            <MinusSign color="#5072EB" width={21} height={21} />
+                            <MinusSign
+                                color="var(--blue)"
+                                width={21}
+                                height={21}
+                            />
                         ) : (
                             <PlusSign
                                 color="var(--grey)"

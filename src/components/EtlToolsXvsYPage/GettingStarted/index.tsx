@@ -15,7 +15,7 @@ import Container from '../../Container';
 import { container } from './styles.module.less';
 import FeatureCard from './FeatureCard';
 
-const iconColor = '#5072EB';
+const iconColor = 'var(--blue)';
 const iconSize = 28;
 
 const GettingStarted = () => {
