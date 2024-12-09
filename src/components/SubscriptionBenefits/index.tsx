@@ -18,7 +18,7 @@ const SubscriptionBenefits = () => {
                     <CheckmarkIcon width={14} color="#fff" />
                 </div>
                 <span>
-                    30 days <span>free trial</span>
+                    30-day <span>free trial</span>
                 </span>
             </li>
         </ul>
