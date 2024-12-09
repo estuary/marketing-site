@@ -61,7 +61,7 @@ const CopyToClipboardButton = ({
                     )}
                 >
                     {isCopied ? (
-                        <CheckIcon fontSize="small" htmlColor="#00A99D" />
+                        <CheckIcon fontSize="small" htmlColor="var(--green)" />
                     ) : (
                         <CopyIcon />
                     )}
