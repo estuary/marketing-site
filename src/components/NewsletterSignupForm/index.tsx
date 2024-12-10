@@ -62,7 +62,7 @@ const NewsletterSignupForm = ({
                 />
                 <ButtonFilled type="submit" className={primaryButton}>
                     {isSubmitted ? (
-                        <CheckIcon fontSize="medium" htmlColor="#FFFFFF" />
+                        <CheckIcon fontSize="medium" htmlColor="var(--white)" />
                     ) : (
                         buttonTitle
                     )}

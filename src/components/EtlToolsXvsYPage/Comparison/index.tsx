@@ -107,7 +107,8 @@ const Comparison = ({ xVendor, yVendor, estuaryVendor }: SectionTwoProps) => {
 
                     if (position.top <= 164) {
                         if (firstDiv) {
-                            firstDiv.style.backgroundColor = '#F2F3F5';
+                            firstDiv.style.backgroundColor =
+                                'var(--light-grey)';
                             firstDiv.style.padding = '8px 24px 8px 24px';
                         }
                     } else if (firstDiv) {

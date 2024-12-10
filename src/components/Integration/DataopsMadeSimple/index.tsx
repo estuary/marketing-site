@@ -8,7 +8,7 @@ const DataopsMadeSimple = () => {
     return (
         <section className={defaultWrapperDarkBlue}>
             <Advantages
-                icon={<SingleDataflowIcon color="#5072EB" />}
+                icon={<SingleDataflowIcon color="var(--blue)" />}
                 title={
                     <>
                         <span>DATAOPS</span> MADE SIMPLE

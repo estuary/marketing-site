@@ -28,7 +28,7 @@
 
   h1 {
     width: 600px;
-    color: #04192b;
+    color: var(--dark-blue);
     margin-top: 0;
 
     @media (max-width: 810px) {
@@ -39,7 +39,7 @@
 
   p {
     font-size: 1.25rem;
-    color: #47506d;
+    color: var(--grey);
     margin-bottom: 0;
 
     @media (max-width: 810px) {
@@ -47,7 +47,7 @@
     }
 
     a {
-      color: #47506d;
+      color: var(--grey);
       font-size: 1.25rem;
       text-decoration-line: underline;
     }
@@ -94,7 +94,7 @@
   height: 64px;
   display: flex;
   background-color: white;
-  border: 1px solid #d7dce5;
+  border: 1px solid var(--border-color);
 
   & svg,
   .icon-image {
@@ -105,7 +105,7 @@
 .sectionTwo {
   .sectionTopBottomPadding;
 
-  background-color: #04192b;
+  background-color: var(--dark-blue);
   background-image: url('../../images/overlay-vector-right.svg');
   background-position: bottom right;
   background-repeat: no-repeat;
@@ -137,7 +137,7 @@
 }
 
 .sectionHeader {
-  color: #ffffff;
+  color: var(--white);
   margin-top: 12px;
 
   @media (max-width: 810px) {
@@ -190,7 +190,7 @@
   .sectionTopBottomPadding;
 
   display: flex;
-  background-color: #f9fafc;
+  background-color: var(--light-blue);
   flex-direction: column;
 }
 
@@ -199,7 +199,7 @@
 }
 
 .sectionTitle {
-  color: #04192b;
+  color: var(--dark-blue);
   margin-top: 12px;
 
   @media (max-width: 810px) {
@@ -218,7 +218,7 @@
 }
 
 .sectionThreeCard {
-  background-color: #ffffff;
+  background-color: var(--white);
   padding: 24px;
   margin: 12px;
   flex: 2 2 45%;
@@ -226,7 +226,7 @@
 
 .cardTitle {
   font-size: 1.5rem;
-  color: var(--background-color-primary);
+  color: var(--dark-blue);
   font-weight: 600;
 
   @media (max-width: 810px) {
@@ -237,7 +237,7 @@
 .referralText {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #47506d;
+  color: var(--grey);
   text-align: center;
   margin-bottom: 80px;
 
@@ -249,13 +249,13 @@
 
 .sectionFourCurrentOpenings {
   .sectionTopBottomPadding;
-  background-color: #ffffff;
+  background-color: var(--white);
 }
 
 .sectionFourCurrentOpeningsWrapper {
   .globalMaxWidth;
 
-  background-color: #ffffff;
+  background-color: var(--white);
   display: flex;
   flex-direction: column;
   margin-bottom: 100px;
@@ -264,7 +264,7 @@
 .currentOpeningsList {
   display: flex;
   flex-direction: column;
-  background-color: #f9fafc;
+  background-color: var(--light-blue);
   max-width: 300px;
   margin-right: 60px;
   height: fit-content;
@@ -289,12 +289,12 @@
   margin: 0;
   text-decoration: none;
   cursor: pointer;
-  color: #47506d;
+  color: var(--grey);
   text-align: center;
   transition: var(--default-transition);
 
   &:hover {
-    background-color: #625EFF;
+    background-color: var(--violet);
     color: white;
   }
 }
@@ -315,12 +315,12 @@
 
   p,
   ul li {
-    color: #47506d;
+    color: var(--grey);
   }
 
   h3 {
     font-size: 18px;
-    color: #47506d;
+    color: var(--grey);
     margin-bottom: 0;
   }
 }
@@ -332,9 +332,9 @@
 
   p {
     font-size: 1.5rem;
-    color: var(--background-color-primary);
+    color: var(--dark-blue);
     font-weight: 600;
-    color: #47506d;
+    color: var(--grey);
 
     @media (max-width: 810px) {
       font-size: var(--fontSize-1);
@@ -356,7 +356,7 @@
 
   p {
     margin: 0px;
-    color: #47506d;
+    color: var(--grey);
 
     @media (max-width: 810px) {
       font-size: var(--fontSize-0);
@@ -371,7 +371,7 @@
 .currentOpeningsDivider {
   width: 100%;
   margin: 40px auto 0 auto;
-  border: 1px solid #d7dce5;
+  border: 1px solid var(--border-color);
 }
 
 .getInTouchButtonMobile {
@@ -391,7 +391,7 @@
 .history {
   .sectionTopBottomPadding;
 
-  background: #f9fafc;
+  background: var(--light-blue);
   background-image: url('../../images/product-flow-vector-left.svg');
   background-repeat: no-repeat;
   background-position-y: 480px;
@@ -420,7 +420,7 @@
     text-align: center;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: #47506d;
+    color: var(--grey);
     margin-bottom: 24px;
     display: block;
 
@@ -451,7 +451,7 @@
     }
 
     a {
-      color: #47506d;
+      color: var(--grey);
       text-decoration: underline;
     }
   }
@@ -525,7 +525,7 @@
 }
 
 .mediaItem {
-  background: #f9fafc;
+  background: var(--light-blue);
   padding: 25px 24px;
 
   @media (max-width: 811px) {
@@ -542,7 +542,7 @@
   font-size: 24px;
   line-height: 30px;
   text-decoration-line: underline;
-  color: #04192b;
+  color: var(--dark-blue);
   margin-top: 24px;
   margin-bottom: 12px;
 
@@ -553,7 +553,7 @@
   }
 
   a {
-    color: #04192b;
+    color: var(--dark-blue);
   }
 }
 
@@ -562,7 +562,7 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 30px;
-  color: #47506d;
+  color: var(--grey);
 
   @media (max-width: 811px) {
     font-size: 14px;
@@ -679,7 +679,7 @@
   font-size: 24px;
   line-height: 30px;
   text-align: center;
-  color: #04192b;
+  color: var(--dark-blue);
   margin-top: 15px;
   margin-bottom: 12px;
 
@@ -697,7 +697,7 @@
   font-size: 18px;
   line-height: 30px;
   text-align: center;
-  color: #47506d;
+  color: var(--grey);
 
   @media (max-width: 811px) {
     font-size: 14px;

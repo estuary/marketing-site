@@ -22,7 +22,7 @@ const HowItWorks = () => {
                 <Carousel
                     hasArrow
                     aria-label="How Estuary Flow works carousel"
-                    arrowColor="#47506D"
+                    arrowColor="var(--grey)"
                     hasMultipleItemsSlide
                 >
                     <div className={slideStyle}>

@@ -8,7 +8,7 @@ interface KeyFeatureProps {
 const KeyFeature = ({ title }: KeyFeatureProps) => {
     return (
         <li>
-            <Checkmark width={16} color="#5072EB" />
+            <Checkmark width={16} color="var(--blue)" />
             <p>{title}</p>
         </li>
     );

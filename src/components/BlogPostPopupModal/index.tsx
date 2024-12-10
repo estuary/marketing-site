@@ -60,7 +60,7 @@ const dialogStyle = {
         'display': 'grid',
         'gridTemplateColumns': '0.6fr 0.4fr',
         'padding': 0,
-        'color': '#ffffff',
+        'color': 'var(--white)',
         'marginTop': '124px',
         'maxHeight': 'calc(100% - 160px)',
         'minHeight': '100px',

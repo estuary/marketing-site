@@ -6,7 +6,7 @@ const CheckOrCrossIcon = ({ icon }) => {
     if (icon === true) {
         return <Checkmark width={20} color="#2DA771" />;
     } else if (icon === false) {
-        return <CrossIcon width={20} color="#FF3A44" />;
+        return <CrossIcon width={20} color="var(--red)" />;
     }
     return null;
 };

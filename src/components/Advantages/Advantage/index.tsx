@@ -9,7 +9,7 @@ const Advantage = ({ title }: AdvantageProps) => {
     return (
         <li>
             <div>
-                <CheckIcon fontSize="large" htmlColor="#5072EB" />
+                <CheckIcon fontSize="large" htmlColor="var(--blue)" />
             </div>
             <p>{title}</p>
         </li>

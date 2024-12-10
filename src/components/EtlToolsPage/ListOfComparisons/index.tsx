@@ -26,7 +26,7 @@ const tabStyling = {
     'border': '1px solid #5072EB4D',
     'borderRadius': '100px',
     'textTransform': 'none',
-    'color': '#04192B',
+    'color': 'var(--dark-blue)',
     'transition': 'var(--default-transition)',
 
     '&:hover': {
@@ -36,13 +36,13 @@ const tabStyling = {
 
     '&:active': {
         backgroundColor: '#E3E8FB',
-        border: '2px solid #5072EB',
+        border: '2px solid var(--blue);',
     },
 
     '&.Mui-selected': {
         backgroundColor: '#5072EB26',
-        border: '2px solid #5072EB',
-        color: '#04192B',
+        border: '2px solid var(--blue);',
+        color: 'var(--dark-blue)',
     },
 };
 
@@ -103,7 +103,7 @@ const ListOfComparisons = ({ estuaryVendor, vendors }: SectionThreeProps) => {
                                         {selectedVendorId === id ? (
                                             <Checkmark
                                                 width={20}
-                                                color="#5072EB"
+                                                color="var(--blue)"
                                             />
                                         ) : null}
                                     </div>

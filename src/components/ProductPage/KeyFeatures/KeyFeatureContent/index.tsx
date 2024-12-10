@@ -79,7 +79,7 @@ const KeyFeatureContent = ({
                 onClick={handleAccordionOpen}
                 expandIcon={
                     <div className={chevronIconWrapper}>
-                        <ExpandMoreIcon width={24} htmlColor="#ffffff" />
+                        <ExpandMoreIcon width={24} htmlColor="var(--white)" />
                     </div>
                 }
                 sx={accordionSummaryStyles}

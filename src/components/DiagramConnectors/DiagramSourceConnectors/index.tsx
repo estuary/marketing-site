@@ -69,7 +69,10 @@ const DiagramSourceConnectors = ({
               real-time data stream."
                     hasTooltips={hasTooltips}
                     icon={
-                        <SingleDataflowIcon className={icon} color="#5072EB" />
+                        <SingleDataflowIcon
+                            className={icon}
+                            color="var(--blue)"
+                        />
                     }
                 />
             </div>
@@ -112,7 +115,7 @@ const DiagramSourceConnectors = ({
                     description="Real-time support for messaging, APIs,
               WebSockets as streaming data."
                     hasTooltips={hasTooltips}
-                    icon={<BatchIcon className={icon} color="#5072EB" />}
+                    icon={<BatchIcon className={icon} color="var(--blue)" />}
                 />
             </div>
             <div className={clsx(connectorsGroup, spacingLeft)}>
@@ -154,7 +157,7 @@ const DiagramSourceConnectors = ({
                     description="Extract exactly once from files, apps, and
               other sources as a stream."
                     hasTooltips={hasTooltips}
-                    icon={<SaasIcon className={icon} color="#5072EB" />}
+                    icon={<SaasIcon className={icon} color="var(--blue)" />}
                 />
             </div>
             <div className={clsx(connectorsGroup, spacingLeft)}>
@@ -197,7 +200,7 @@ const DiagramSourceConnectors = ({
               SaaS vendors with native connectors built
               for speed and scale."
                     hasTooltips={hasTooltips}
-                    icon={<RealTimeIcon className={icon} color="#5072EB" />}
+                    icon={<RealTimeIcon className={icon} color="var(--blue)" />}
                 />
             </div>
         </div>

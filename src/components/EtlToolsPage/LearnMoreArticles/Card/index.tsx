@@ -12,7 +12,7 @@ const Card = ({ title, buttonHref }: CardProps) => {
     return (
         <div className={container}>
             <div>
-                <FileIcon color="#5072EB" />
+                <FileIcon color="var(--blue)" />
             </div>
             <h3>{title}</h3>
             <LinkOutlined href={buttonHref} variant="secondary">

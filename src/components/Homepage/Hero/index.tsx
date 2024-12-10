@@ -16,7 +16,7 @@ import {
     metricCardsList,
 } from './styles.module.less';
 
-const metricIconColor = '#FFFFFF';
+const metricIconColor = 'var(--white)';
 
 const Hero = () => {
     return (

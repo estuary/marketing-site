@@ -33,7 +33,7 @@
       font-size: 1.5rem;
       line-height: 28.8px;
       font-weight: 700;
-      color: #5072EB;
+      color: var(--blue);
     
       @media (max-width: 768px) {
         font-size: 1.25rem;
@@ -46,7 +46,7 @@
     }
     
     h1 {
-      color: #fff;
+      color: var(--white);
       margin: 28px 0 36px 0;
     }
   }
@@ -208,7 +208,7 @@
   .centralize;
   width: 176px;
   height: 88px;
-  border: 1px solid #5072EB;
+  border: 1px solid var(--blue);
   position: relative;
 
   @media (max-width: 1280px) {
@@ -304,7 +304,7 @@
     z-index: 2;
     margin-bottom: -88px;
     border-radius: 50%;
-    border: 1px #5072EB;
+    border: 1px var(--blue);
     border-style: dashed;
 
     @media (max-width: 1280px) {
@@ -326,7 +326,7 @@
 
   &::after {
     .ring;
-    border: 1px solid #5072EB;
+    border: 1px solid var(--blue);
     margin-bottom: -88px;
 
     @media (max-width: 1280px) {
@@ -364,7 +364,7 @@
   position: absolute;
   width: 16px;
   height: 16px;
-  background-color: #5072EB;
+  background-color: var(--blue);
   border-radius: 50%;
   z-index: 2;
 }
@@ -375,14 +375,14 @@
   width: 30px;
   height: 30px;
   background-color: #0C223E;
-  border: 1px solid #5072EB;
+  border: 1px solid var(--blue);
   border-radius: 50%;
   z-index: 1;
 }
 
 .filledWhiteCircle {
-  background-color: #ffffff;
-  border: 1px solid #D7DCE5;
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
   border-radius: 50%;
   padding: 16px;
   .centralize;
@@ -498,7 +498,7 @@
   position: absolute;
   width: 1px;
   height: 22px;
-  background-color: #5072EB;
+  background-color: var(--blue);
   border-radius: 50%;
   z-index: 2;
 }

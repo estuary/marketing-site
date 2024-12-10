@@ -1,3 +1,5 @@
+@whiteColor: var(--white);
+
 .textWrapper {
     display: flex;
     flex-direction: column;
@@ -8,7 +10,7 @@
         font-weight: 600;
         line-height: 48px;
         margin: 0;
-        color: #ffffff;
+        color: var(--white);
         max-width: 600px;
 
         @media (max-width: 810px) {
@@ -24,7 +26,7 @@
         }
 
         & > span {
-            color: #5072eb;
+            color: var(--blue);
         }
     }
 
@@ -32,7 +34,7 @@
         font-size: 1.25rem;
         font-weight: 400;
         line-height: 30px;
-        color: #ffffff;
+        color: var(--white);
         margin: 0;
 
         @media (max-width: 810px) {
@@ -70,7 +72,7 @@
     margin-top: 49px;
 
     p {
-        color: #ffffff;
+        color: var(--white);
         margin: 32px 0 0 0;
         max-width: 397px;
         text-align: center;
@@ -125,8 +127,8 @@
         border: 2px solid transparent;
         background: linear-gradient(to bottom, #6ed5d6, #7284ff) border-box;
         mask:
-            linear-gradient(#fff 0 0) padding-box,
-            linear-gradient(#fff 0 0);
+            linear-gradient(@whiteColor 0 0) padding-box,
+            linear-gradient(@whiteColor 0 0);
         mask-composite: exclude;
 
         @media (max-width: 425px) {

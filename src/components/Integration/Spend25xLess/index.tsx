@@ -9,7 +9,7 @@ const Spend25xLess = () => {
     return (
         <section className={defaultWrapperDarkBlue}>
             <Advantages
-                icon={<DatabaseSavingWithLowPrice color="#5072EB" />}
+                icon={<DatabaseSavingWithLowPrice color="var(--blue)" />}
                 title={
                     <>
                         SPEND <span>2-5X</span> LESS

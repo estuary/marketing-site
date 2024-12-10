@@ -3,7 +3,7 @@ import DollarSignIcon from '../../../../svgs/dollar-sign.svg';
 import HyphenIcon from '../../../../svgs/hyphen.svg';
 import { dollarSignsWrapper } from './styles.module.less';
 
-const iconColor = '#625EFF';
+const iconColor = 'var(--violet)';
 
 const DollarSigns = ({ numberOfDollarSigns }) => {
     if (!numberOfDollarSigns) return null;

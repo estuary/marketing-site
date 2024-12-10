@@ -52,15 +52,15 @@ const Content = ({ connector }: ContentProps) => {
             />
             <ul>
                 <li>
-                    <DoneIcon htmlColor="#47506d" fontSize="small" />
+                    <DoneIcon htmlColor="var(--grey)" fontSize="small" />
                     <span>&#60;100ms</span> Data pipelines
                 </li>
                 <li>
-                    <DoneIcon htmlColor="#47506d" fontSize="small" />
+                    <DoneIcon htmlColor="var(--grey)" fontSize="small" />
                     <span>100+</span> Connectors
                 </li>
                 <li>
-                    <DoneIcon htmlColor="#47506d" fontSize="small" />
+                    <DoneIcon htmlColor="var(--grey)" fontSize="small" />
                     <span>2-5x</span> less than batch ELT
                 </li>
             </ul>

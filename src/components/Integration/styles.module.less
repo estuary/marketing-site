@@ -59,7 +59,7 @@
   width: 6.5%;
   height: 6.5%;
   border-radius: 50%;
-  background-color: #5072EB;
+  background-color: var(--blue);
   z-index: 1;
 }
 
@@ -69,7 +69,7 @@
   height: auto;
   max-width: 21%;
   max-height: 21%;
-  border: 1px solid #5072EB;
+  border: 1px solid var(--blue);
   border-radius: 50%;
   background-color: transparent;
   display: flex;
@@ -118,9 +118,9 @@
   height: auto;
   max-width: 100%;
   max-height: 100%;
-  border: 1px #5072EB;
+  border: 1px var(--blue);
   border-style: dashed;
-  background-color: #EEF1FD;
+  background-color: var(--violet200);
   display: flex;
   align-items: stretch;
   justify-content: center;
@@ -138,7 +138,7 @@
   max-width: 100%;
   max-height: 100%;
   border: 1px solid #B8C7F7;
-  background-color: #FFFFFF;
+  background-color: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -147,14 +147,14 @@
 
 .descriptionLight {
   .description;
-  color: #FFFFFF;
+  color: var(--white);
 
   p {
-    color: #FFFFFF;
+    color: var(--white);
   }
 
   a {
-    color: #FFFFFF;
+    color: var(--white);
 
     &:hover {
       color: #FFFFFFcc;
@@ -164,17 +164,17 @@
 
 .descriptionDark {
   .description;
-  color: #47506D;
+  color: var(--grey);
 
   p {
-    color: #47506D;
+    color: var(--grey);
   }
 
   a {
-    color: #47506D;
+    color: var(--grey);
 
     &:hover {
-      color: #04192B;
+      color: var(--dark-blue);
     }
   }
 }
@@ -188,7 +188,7 @@
   margin: 0;
 
   span {
-    color: #5072EB;
+    color: var(--blue);
   }
 
   @media (max-width: 768px) {
@@ -206,12 +206,12 @@
 
 .sectionTitleDark {
   .sectionTitle;
-  color: #47506D;
+  color: var(--grey);
 }
 
 .sectionTitleLight {
   .sectionTitle;
-  color: #FFFFFF;
+  color: var(--white);
 }
 
 .titleAndImages {

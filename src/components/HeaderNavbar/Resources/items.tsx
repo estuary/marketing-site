@@ -22,7 +22,7 @@ export const read = [
     {
         name: 'Docs & Guides',
         to: 'https://docs.estuary.dev',
-        Image: () => <DocIcon color="#5072EB" width={iconSize} />,
+        Image: () => <DocIcon color="var(--blue)" width={iconSize} />,
     },
     {
         name: 'About us',
@@ -86,7 +86,11 @@ export const partners = [
         to: '/partners/',
         description: 'Browse our directory of partners',
         Image: () => (
-            <SuccessIcon color="#5072EB" width={iconSize} height={iconSize} />
+            <SuccessIcon
+                color="var(--blue)"
+                width={iconSize}
+                height={iconSize}
+            />
         ),
     },
 ];

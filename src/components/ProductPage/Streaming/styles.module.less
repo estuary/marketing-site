@@ -1,3 +1,5 @@
+@whiteColor: var(--white);
+
 .imageWrapper {
     position: relative;
     margin: auto;
@@ -14,7 +16,7 @@
     line-height: 48px;
     text-align: center;
     margin: 0;
-    color: #ffffff;
+    color: var(--white);
 
     @media (max-width: 810px) {
         font-size: 1.75rem;
@@ -24,7 +26,7 @@
     }
 
     &>span {
-        color: #5072eb;
+        color: var(--blue);
     }
 }
 
@@ -58,7 +60,7 @@
 
 .batchEltColumn {
     border: 1px solid #d7dce540;
-    background-color: #04192b;
+    background-color: var(--dark-blue);
 }
 
 .textWrapper {
@@ -91,19 +93,19 @@
 }
 
 .streamingEtlTitle {
-    color: #5072eb;
+    color: var(--blue);
 }
 
 .batchEltTitle {
-    color: #ffffff;
+    color: var(--white);
 }
 
 .streamingEtlDescription {
-    color: #ffffff;
+    color: var(--white);
 }
 
 .batchEltDescription {
-    color: #d7dce5;
+    color: var(--border-color);
 }
 
 .logoWrapper {
@@ -124,8 +126,8 @@
             border: 2px solid transparent;
             background: linear-gradient(to bottom, #6ed5d6, #7284ff) border-box;
             mask:
-                linear-gradient(#fff 0 0) padding-box,
-                linear-gradient(#fff 0 0);
+                linear-gradient(@whiteColor 0 0) padding-box,
+                linear-gradient(@whiteColor 0 0);
             mask-composite: exclude;
 
             @media (max-width: 1280px) {

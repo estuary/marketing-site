@@ -26,7 +26,7 @@ const ReleaseBanner = ({ theme = 'dark' }) => {
                         Private deployments are now live! Explore how Estuary
                         Flow can fit into your environment.
                     </p>
-                    <ArrowRight color="#fff" />
+                    <ArrowRight color="var(--white)" />
                 </a>
             </div>
         </div>

@@ -104,7 +104,7 @@ const BlogPost = ({
                             ) : null}
                             <div className={dateAndReadWrapper}>
                                 <div className={iconInfoWrapper}>
-                                    <ReadingTimeIcon color="#47506D" />
+                                    <ReadingTimeIcon color="var(--grey)" />
                                     <span className={blogPostDate}>
                                         {
                                             post.body.data.childMarkdownRemark
@@ -271,7 +271,8 @@ const BlogPost = ({
                                                     sx={{
                                                         minHeight: '57px',
                                                         width: '1px',
-                                                        borderColor: '#d7dce5',
+                                                        borderColor:
+                                                            'var(--border-color)',
                                                         margin: '0 30px 0 20px',
                                                         [theme.breakpoints.down(
                                                             520
@@ -321,7 +322,7 @@ const BlogPost = ({
                             <div className={rightColumnContainer}>
                                 <div>
                                     <DoneIcon
-                                        htmlColor="#5072eb"
+                                        htmlColor="var(--blue)"
                                         fontSize="large"
                                     />
                                     <span>
@@ -331,7 +332,7 @@ const BlogPost = ({
                                 </div>
                                 <div>
                                     <DoneIcon
-                                        htmlColor="#5072eb"
+                                        htmlColor="var(--blue)"
                                         fontSize="large"
                                     />
                                     <span>
@@ -341,7 +342,7 @@ const BlogPost = ({
                                 </div>
                                 <div>
                                     <DoneIcon
-                                        htmlColor="#5072eb"
+                                        htmlColor="var(--blue)"
                                         fontSize="large"
                                     />
                                     <span>

@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   padding: 20px;
-  border: 1px solid #d7dce5;
+  border: 1px solid var(--border-color);
   border-radius: 16px;
   transition: var(--default-transition);
 
@@ -12,7 +12,7 @@
   }
 
   &:hover {
-    border: 1px solid #5072eb;
+    border: 1px solid var(--blue);
   }
 
   svg {
@@ -23,7 +23,7 @@
     font-size: 1.25rem;
     line-height: 30px;
     font-weight: 600;
-    color: #47506D;
+    color: var(--grey);
     margin: 16px 0;
 
     @media (min-width: 1049px) {
@@ -50,7 +50,7 @@
 }
 
 .articleTag {
-  color: #625eff;
+  color: var(--violet);
   font-size: 1rem;
   font-weight: 600;
   line-height: 18px;
@@ -86,7 +86,7 @@
     font-size: 0.875rem;
     font-weight: 400;
     line-height: 16.8px;
-    color: #47506d;
+    color: var(--grey);
 
   }
 }
@@ -104,7 +104,7 @@
 
   span {
     background-color: #47506d12;
-    color: #47506d;
+    color: var(--grey);
     border-radius: 36px;
     padding: 4px 16px;
     font-size: 0.875rem;

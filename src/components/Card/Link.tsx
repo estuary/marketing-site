@@ -13,12 +13,12 @@ const Link = ({ children, href, isExternal = false }: LinkProps) =>
     isExternal ? (
         <OutboundLink target="_blank" href={href}>
             {children}
-            <ChevronRightIcon color="#5072EB" />
+            <ChevronRightIcon color="var(--blue)" />
         </OutboundLink>
     ) : (
         <InternalLink href={href}>
             {children}
-            <ChevronRightIcon color="#5072EB" />
+            <ChevronRightIcon color="var(--blue)" />
         </InternalLink>
     );
 

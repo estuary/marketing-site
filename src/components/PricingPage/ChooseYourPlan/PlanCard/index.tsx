@@ -114,7 +114,7 @@ const PlanCard = ({
                     <li key={index}>
                         <div>
                             <CheckSvgIcon
-                                color="#00A99D"
+                                color="var(--green)"
                                 width={10}
                                 height={10}
                             />

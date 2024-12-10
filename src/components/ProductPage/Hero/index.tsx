@@ -34,7 +34,7 @@ const Hero = () => {
                     description="Learn how to build a pipeline in minutes."
                     isActive
                     href={webinarsUrl}
-                    icon={<RecordIcon color="#fff" />}
+                    icon={<RecordIcon color="var(--white)" />}
                 />
                 <Card
                     title="QUICKSTART"
@@ -56,7 +56,7 @@ const Hero = () => {
                         <StaticImage
                             src="../../../svgs/product-page/section-one/slack-outlined.svg"
                             alt="Join the Estuary community and receive support from experts"
-                            style={{ color: '#5072EB' }}
+                            style={{ color: 'var(--blue)' }}
                             loading="eager"
                         />
                     }

@@ -9,7 +9,7 @@ const Do4xMoreWith25xLess = () => {
     return (
         <section className={defaultWrapperGrey}>
             <Advantages
-                icon={<DatabaseSavingWithLowPrice color="#5072EB" />}
+                icon={<DatabaseSavingWithLowPrice color="var(--blue)" />}
                 title={
                     <>
                         DO <span>4X MORE </span> WITH 2-5X LESS

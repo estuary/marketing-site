@@ -12,7 +12,7 @@ const DontMissAThing = () => {
                 <div className={imageWrapper}>
                     <StaticImage
                         placeholder="none"
-                        alt="Subscribe to our newsletter"
+                        alt="Stay informed with our newsletter"
                         src="../../../images/product-page/section-thirteen/news.png"
                     />
                 </div>

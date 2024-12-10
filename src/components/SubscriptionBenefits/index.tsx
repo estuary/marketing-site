@@ -7,7 +7,7 @@ const SubscriptionBenefits = () => {
         <ul className={container}>
             <li>
                 <div>
-                    <CheckmarkIcon width={14} color="#fff" />
+                    <CheckmarkIcon width={14} color="var(--white)" />
                 </div>
                 <span>
                     <span>No credit card</span> required
@@ -15,7 +15,7 @@ const SubscriptionBenefits = () => {
             </li>
             <li>
                 <div>
-                    <CheckmarkIcon width={14} color="#fff" />
+                    <CheckmarkIcon width={14} color="var(--white)" />
                 </div>
                 <span>
                     30-day <span>free trial</span>

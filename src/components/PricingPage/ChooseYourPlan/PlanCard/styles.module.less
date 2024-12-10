@@ -1,5 +1,5 @@
 .container {
-    border: 1px solid #d7dce5;
+    border: 1px solid var(--border-color);
     border-radius: 24px;
     padding: 28px;
     display: flex;
@@ -29,7 +29,7 @@
     }
 
     h3 {
-        color: #5072eb;
+        color: var(--blue);
         font-size: 1.25rem;
         font-weight: 700;
         line-height: 24px;
@@ -44,7 +44,7 @@
         font-size: 0.875rem;
         font-weight: 600;
         padding: 7px 12px;
-        color: #5072eb;
+        color: var(--blue);
         background-color: #625eff1f;
         border-radius: 36px;
         margin-left: auto;
@@ -75,7 +75,7 @@
             justify-content: center;
             max-width: 20px;
             max-height: 20px;
-            border: 1px solid #00a99d;
+            border: 1px solid var(--green);
             border-radius: 100%;
             padding: 4px;
         }
@@ -83,7 +83,7 @@
         p {
             font-size: 1rem;
             line-height: 22.4px;
-            color: #47506d;
+            color: var(--grey);
             margin: 0;
 
             @media (max-width: 425px) {
@@ -96,7 +96,7 @@
 .price {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #04192b;
+    color: var(--dark-blue);
     line-height: 28.8px;
     white-space: nowrap;
 
@@ -126,7 +126,7 @@
     font-size: 1rem;
     font-weight: 500;
     line-height: 30px;
-    color: #47506d;
+    color: var(--grey);
 }
 
 .planDescriptionStyle {
@@ -141,12 +141,12 @@
 }
 
 .highlightedBorder {
-    border: 3px solid #5072eb;
+    border: 3px solid var(--blue);
 }
 
 .divider {
     width: 100%;
-    background: #d7dce5;
+    background: var(--border-color);
 }
 
 .pricePerConnectorWrapper {
@@ -163,7 +163,7 @@
 .plusSign {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #5072eb;
+    color: var(--blue);
     line-height: 28.8px;
     margin-left: 5px;
 }
@@ -172,7 +172,7 @@
     font-size: 1rem;
     line-height: 22.4px;
     font-weight: 700;
-    color: #47506d;
+    color: var(--grey);
 
     @media (max-width: 425px) {
         font-size: 0.875rem;

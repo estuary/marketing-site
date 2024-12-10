@@ -104,7 +104,7 @@ const PricingSlider = styled(Slider)(() => {
             'top': '-60px',
             'fontSize': '1.25rem',
             'fontWeight': 500,
-            'color': '#47506D',
+            'color': 'var(--grey)',
 
             '@media (max-width: 1200px)': {
                 fontSize: '1rem',
@@ -239,7 +239,7 @@ export const PricingCalculator = ({
                         disabled={selectedConnectors === 2}
                         aria-label={`decrease ${inputLabel}`}
                     >
-                        <MinusSign color="#fff" />
+                        <MinusSign color="var(--white)" />
                     </ButtonFilled>
                     <FormControl variant="outlined" className={form}>
                         <OutlinedInput
@@ -247,7 +247,9 @@ export const PricingCalculator = ({
                             inputProps={{
                                 style: {
                                     textAlign: 'center',
-                                    color: isDarkTheme ? '#fff' : '#04192B',
+                                    color: isDarkTheme
+                                        ? 'var(--white)'
+                                        : 'var(--dark-blue)',
                                 },
                                 min: 2,
                                 max: maxConnectors,
@@ -266,7 +268,7 @@ export const PricingCalculator = ({
                         disabled={selectedConnectors === maxConnectors}
                         aria-label={`increase ${inputLabel}`}
                     >
-                        <PlusSign color="#fff" />
+                        <PlusSign color="var(--white)" />
                     </ButtonFilled>
                 </div>
             </div>

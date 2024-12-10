@@ -18,7 +18,7 @@ import {
     sectionTitle,
 } from './styles.module.less';
 
-const iconColor = '#5072EB';
+const iconColor = 'var(--blue)';
 
 const ReadyToStart = () => {
     return (

@@ -9,13 +9,13 @@
   .sectionTopBottomPadding;
 
   // TODO: Remove this background or add it to background image component
-  background: #04192b url(../../images/lp-podcast/signup-bg.png) no-repeat center / cover;
+  background: var(--dark-blue) url(../../images/lp-podcast/signup-bg.png) no-repeat center / cover;
   width: 100%;
   height: auto;
 
   // TODO: Why is it repeating here?
   @media (max-width: 767px) {
-      background: #04192b url(../../images/lp-podcast/signup-bg.png) no-repeat center / contain;
+      background: var(--dark-blue) url(../../images/lp-podcast/signup-bg.png) no-repeat center / contain;
   }
 }
 
@@ -24,7 +24,7 @@
   font-size: 56px;
   line-height: 68px;
   text-align: center;
-  color: #fff;
+  color: var(--white);
   margin-bottom: 40px;
   max-width: 800px;
   margin-left: auto;
@@ -37,7 +37,7 @@
   }
 
   span {
-      color: #5072eb;
+      color: var(--blue);
   }
 }
 

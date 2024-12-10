@@ -10,7 +10,7 @@ const AutomateDataops = () => {
     return (
         <section className={defaultWrapperGrey}>
             <Advantages
-                icon={<SingleDataflowIcon color="#5072EB" />}
+                icon={<SingleDataflowIcon color="var(--blue)" />}
                 title={
                     <>
                         AUTOMATE <span>DATAOPS</span>

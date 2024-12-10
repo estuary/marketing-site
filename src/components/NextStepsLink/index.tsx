@@ -14,7 +14,7 @@ type NextStepsLinkProps = {
 const NextStepsLink = ({ children, href }: NextStepsLinkProps) => (
     <OutboundLink href={href} className={nextStepsLinkContainer}>
         <span className={nextStepsLinkText}>{children}</span>
-        <ChevronRight htmlColor="#5072EB" />
+        <ChevronRight htmlColor="var(--blue)" />
     </OutboundLink>
 );
 
