@@ -1,8 +1,5 @@
-/* CSS Custom Properties Definitions */
-
 @import './globalStyles/sections.module.less';
 
-// TODO: Add the variables from figma with the most used values and reuse them along all the css files
 :root {
     --spacing-0: 0;
     --spacing-1: 0.25rem;
@@ -24,11 +21,10 @@
     --fontSize-4: 1.728rem;
     --fontSize-5: 3.5rem;
     --fontSize-6: 3.75rem;
+    --default-transition: 80ms ease-in-out;
     --color-text: #2e353f;
     --color-text-light: #b7c6dd17;
-    --color-heading: #1a202c;
-    --color-heading-black: black;
-    --color-accent: #d1dce5;
+    --header-link-hover: #5072eb4d;
     --blue: #5072eb;
     --dark-blue: #04192b;
     --light-blue: #f9fafc;
@@ -42,8 +38,6 @@
     --violet300: #a4b6f4;
     --green: #00A99D;
     --red: #FF3A44;
-    --header-link-hover: #5072eb4d;
-    --default-transition: 80ms ease-in-out;
 }
 
 /* HTML elements */
@@ -83,7 +77,7 @@ div.__gatsby {
 }
 
 hr {
-    background: var(--color-accent);
+    background: var(--border-color);
     height: 1px;
     border: 0;
 }
@@ -108,7 +102,7 @@ h4,
 h5,
 h6 {
     font-weight: var(--fontWeight-bolder);
-    color: var(--color-heading);
+    color: #1a202c;
 }
 
 h1 {
@@ -238,7 +232,7 @@ table {
 }
 
 table thead tr th {
-    border-bottom: 1px solid var(--color-accent);
+    border-bottom: 1px solid var(--border-color);
 }
 
 a {
