@@ -12,7 +12,8 @@ const CustomersPage = () => {
     );
 };
 
-export const Head = () => { // TODO: Use hero image here
+export const Head = () => {
+    // TODO: Use hero image here
     const { metaImg } = useStaticQuery(graphql`
         query {
             metaImg: file(
