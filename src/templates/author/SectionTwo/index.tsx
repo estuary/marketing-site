@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Author } from '../shared';
-import AuthorBlogPostCard from '../../../components/AuthorBlogPostCard';
+import Card from '../../../components/Grid/Card';
 import ButtonFilled from '../../../components/LinksAndButtons/ButtonFilled';
-import { container, blogPostCardList } from './styles.module.less';
+import Grid from '../../../components/Grid';
+import { container } from './styles.module.less';
 
 interface SectionTwoProps {
     author: {
@@ -27,11 +28,15 @@ const SectionTwo = ({ author: { name, blogPosts } }: SectionTwoProps) => {
             <h2>
                 CONTENT FROM <span>{name}</span>
             </h2>
-            <div className={blogPostCardList}>
+            <Grid>
                 {blogPosts.slice(0, visiblePosts).map((blogPost) => (
-                    <AuthorBlogPostCard key={blogPost.id} data={blogPost} />
+                    <Card
+                        key={blogPost.id}
+                        data={blogPost}
+                        footerTag="Article"
+                    />
                 ))}
-            </div>
+            </Grid>
             {visiblePosts < blogPosts.length ? (
                 <ButtonFilled onClick={handleShowMore}>Show more</ButtonFilled>
             ) : null}
