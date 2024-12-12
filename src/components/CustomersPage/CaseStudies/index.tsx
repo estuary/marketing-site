@@ -5,7 +5,7 @@ import Container from '../../Container';
 import Grid from '../../Grid';
 import Card from '../../Grid/Card';
 import ButtonFilled from '../../LinksAndButtons/ButtonFilled';
-import { sectionTitle } from './styles.module.less';
+import { sectionTitle } from '../styles.module.less';
 
 const CaseStudies = () => {
     const {

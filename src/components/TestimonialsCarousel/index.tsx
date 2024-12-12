@@ -1,18 +1,9 @@
 import clsx from 'clsx';
 import { graphql, useStaticQuery } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
 import React from 'react';
 import Carousel from '../Carousel';
-import {
-    avatarImg,
-    avatarSvg,
-    avatarWrapper,
-    description,
-    isDarkTheme,
-    isSeattleDataGuyLogo,
-    slide,
-    title,
-} from './styles.module.less';
+import TestimonialAvatar from './TestimonialAvatar';
+import { description, isDarkTheme, slide, title } from './styles.module.less';
 
 type Testimonial = {
     id: string;
@@ -64,48 +55,20 @@ const TestimonialsCarousel = ({
             hasFullWidthSlide
             options={{ loop: true }}
         >
-            {testimonials.map(({ id, logo, name, text }: Testimonial) => {
-                const isImageSvg = logo.localFile.extension === 'svg';
-
-                return (
-                    <div key={id} className={slide}>
-                        <div className={avatarWrapper}>
-                            {isImageSvg ? (
-                                <img
-                                    src={logo.localFile.publicURL}
-                                    alt={`${name} avatar`}
-                                    width={110}
-                                    height={110}
-                                    className={avatarSvg}
-                                    loading="lazy"
-                                />
-                            ) : (
-                                <GatsbyImage
-                                    image={
-                                        logo.localFile.childImageSharp
-                                            ?.gatsbyImageData
-                                    }
-                                    alt={`${name} avatar`}
-                                    className={clsx(
-                                        avatarImg,
-                                        name === 'Seattle Data Guy' &&
-                                            isSeattleDataGuyLogo
-                                    )}
-                                />
-                            )}
-                        </div>
-                        <h3 className={title}>{name}</h3>
-                        <p
-                            className={clsx(
-                                description,
-                                theme === 'dark' && isDarkTheme
-                            )}
-                        >
-                            {text}
-                        </p>
-                    </div>
-                );
-            })}
+            {testimonials.map(({ id, logo, name, text }: Testimonial) => (
+                <div key={id} className={slide}>
+                    <TestimonialAvatar name={name} logo={logo} />
+                    <h3 className={title}>{name}</h3>
+                    <p
+                        className={clsx(
+                            description,
+                            theme === 'dark' && isDarkTheme
+                        )}
+                    >
+                        {text}
+                    </p>
+                </div>
+            ))}
         </Carousel>
     );
 };

@@ -1,0 +1,54 @@
+@avatarSizeDesktop: 160px;
+@avatarSizeMobile: 80px;
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    border: 1px solid #5072EB33;
+    border-radius: 24px;
+    background-color: #5072EB12;
+    padding: 42px 24px;
+    max-width: 31.5%;
+
+    @media (max-width: 960px) {
+        max-width: 100%;
+        min-height: 200px;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        line-height: 28px;
+        color: var(--blue);
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    p {
+        font-size: 1rem;
+        line-height: 30px;
+        margin: 0 0 auto 0;
+        text-align: center;
+    }
+}
+
+.caseStudyLogoWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    max-width: @avatarSizeDesktop;
+    max-height: @avatarSizeDesktop;
+    min-width: @avatarSizeDesktop;
+    min-height: @avatarSizeDesktop;
+
+    @media (max-width: 425px) {
+        max-width: @avatarSizeMobile;
+        max-height: @avatarSizeMobile;
+        min-width: @avatarSizeMobile;
+        min-height: @avatarSizeMobile;
+    }
+}

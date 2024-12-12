@@ -4,12 +4,14 @@ import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
 import Hero from '../../components/CustomersPage/Hero';
 import CaseStudies from '../../components/CustomersPage/CaseStudies';
+import WhatCustomersSay from '../../components/CustomersPage/WhatCustomersSay';
 
 const CustomersPage = () => {
     return (
         <Layout>
             <Hero />
             <CaseStudies />
+            <WhatCustomersSay />
         </Layout>
     );
 };

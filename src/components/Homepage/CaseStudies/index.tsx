@@ -2,12 +2,10 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import DarkSwoopingLinesLeftDirectionBackground from '../../BackgroundImages/DarkSwoopingLinesLeftDirectionBackground';
-import Carousel from '../../Carousel';
 import Container from '../../Container';
+import SlideDeckCarousel from '../../SlideDeckCarousel';
 import Card from './Card';
-import { cardsList, sectionTitle } from './styles.module.less';
-
-const cardsPerSlide = 3;
+import { sectionTitle } from './styles.module.less';
 
 const CaseStudies = () => {
     const {
@@ -16,12 +14,11 @@ const CaseStudies = () => {
         query GetAllHomepageCaseStudies {
             allStrapiCaseStudy(limit: 10) {
                 nodes {
-                    LinkOneLiner
-                    Description
-                    Title
-                    Slug
+                    description: Description
+                    title: Title
+                    slug: Slug
                     id
-                    Logo {
+                    logo: Logo {
                         localFile {
                             childImageSharp {
                                 gatsbyImageData
@@ -37,46 +34,28 @@ const CaseStudies = () => {
         <DarkSwoopingLinesLeftDirectionBackground>
             <Container isVertical>
                 <h2 className={sectionTitle}>CASE STUDIES</h2>
-                <Carousel
-                    hasArrow
-                    aria-label="Case studies carousel"
-                    hasMultipleItemsSlide
-                >
-                    {Array.from(
-                        {
-                            length: Math.ceil(
-                                allCaseStudies.length / cardsPerSlide
-                            ),
-                        },
-                        (_, index) => (
-                            <div key={index} className={cardsList}>
-                                {allCaseStudies
-                                    .slice(
-                                        index * cardsPerSlide,
-                                        index * cardsPerSlide + cardsPerSlide
-                                    )
-                                    .map((caseStudy) => (
-                                        <Card
-                                            key={caseStudy.id}
-                                            title={caseStudy.Title}
-                                            description={caseStudy.Description}
-                                            href={`/customers/${caseStudy.Slug}/`}
-                                            image={
-                                                <GatsbyImage
-                                                    image={
-                                                        caseStudy.Logo.localFile
-                                                            .childImageSharp
-                                                            .gatsbyImageData
-                                                    }
-                                                    alt={`${caseStudy.Title} logo`}
-                                                />
-                                            }
-                                        />
-                                    ))}
-                            </div>
-                        )
+                <SlideDeckCarousel
+                    items={allCaseStudies}
+                    itemsPerSlide={3}
+                    ariaLabel="Case studies carousel"
+                    renderCard={({ id, title, description, slug, logo }) => (
+                        <Card
+                            key={id}
+                            title={title}
+                            description={description}
+                            href={`/customers/${slug}/`}
+                            image={
+                                <GatsbyImage
+                                    image={
+                                        logo.localFile.childImageSharp
+                                            .gatsbyImageData
+                                    }
+                                    alt={`${title} logo`}
+                                />
+                            }
+                        />
                     )}
-                </Carousel>
+                />
             </Container>
         </DarkSwoopingLinesLeftDirectionBackground>
     );
