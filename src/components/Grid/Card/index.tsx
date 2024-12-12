@@ -6,12 +6,12 @@ import ArrowRight2 from '../../../svgs/arrow-right-2.svg';
 import Avatar from '../../Avatar';
 import {
     container,
-    popularArticlesImage,
-    articleCardHeader,
-    articleTag,
-    articleDateAndTime,
-    articleCardAuthors,
-    articleCardFooter,
+    cardImageStyle,
+    cardHeader,
+    cardTag,
+    cardDateAndTime,
+    cardAuthors,
+    cardFooter,
     dot,
     authorInfo,
     imgWrapper,
@@ -35,99 +35,127 @@ interface CardProps {
         hero: { alternativeText?: string; localFile: any };
     };
     footerTag?: string;
+    hasImgBackground?: boolean;
 }
 
-const Card = ({ data, footerTag }: CardProps) => {
-    const cardImage = data.hero.localFile?.childImageSharp?.gatsbyImageData;
-
-    const tags = data.tags
-        ? data.tags.filter((tag) => tag.type === 'tag')
-        : null;
-
-    const singleAuthorImage = data.authors
-        ? data.authors[0].picture &&
-          getImage(
-              data.authors[0].picture.localFile.childImageSharp.gatsbyImageData
-          )
-        : null;
-
-    const singleAuthor = data.authors ? data.authors[0] : null;
-
-    const readingTime = data.body
-        ? data.body.data.childMarkdownRemark.fields.readingTime.text.replace(
+const getReadingTime = (body?: CardProps['data']['body']) => {
+    return body
+        ? body.data.childMarkdownRemark.fields.readingTime.text.replace(
               'read',
               ''
           )
         : null;
+};
+
+const getCardImage = (hero: CardProps['data']['hero']) => {
+    return hero.localFile?.childImageSharp?.gatsbyImageData;
+};
+
+const renderTags = (tags?: CardProps['data']['tags']) => {
+    if (!tags || tags.length <= 1) return null;
+    return <span className={cardTag}>{tags[0].name}</span>;
+};
+
+const renderDateAndTime = (updatedAt: string, readingTime: string | null) => {
+    if (!updatedAt || !readingTime) return null;
+
+    return (
+        <div className={cardDateAndTime}>
+            <span>{updatedAt}</span>
+            <div className={dot} />
+            <span>{readingTime}</span>
+        </div>
+    );
+};
+
+const renderAuthors = (authors: CardProps['data']['authors']) => {
+    if (!authors || authors.length === 0) return null;
+
+    if (authors.length > 1) {
+        return (
+            <AvatarGroup max={3}>
+                {authors.map((author) => {
+                    const authorImage =
+                        author.picture &&
+                        getImage(
+                            author.picture.localFile.childImageSharp
+                                .gatsbyImageData
+                        );
+                    return (
+                        <Avatar
+                            key={author.id}
+                            image={authorImage}
+                            alt={`Picture of ${author.name}`}
+                            name={author.name}
+                        />
+                    );
+                })}
+            </AvatarGroup>
+        );
+    }
+
+    const singleAuthor = authors[0];
+    const singleAuthorImage =
+        singleAuthor.picture &&
+        getImage(
+            singleAuthor.picture.localFile.childImageSharp.gatsbyImageData
+        );
+
+    return (
+        <>
+            <Avatar
+                image={singleAuthorImage}
+                alt={`Picture of ${singleAuthor.name}`}
+                name={singleAuthor.name}
+            />
+            <div className={authorInfo}>
+                <span>{singleAuthor.name}</span>
+                {singleAuthor.role ? (
+                    <>
+                        <div className={dot} />
+                        <span>{singleAuthor.role}</span>
+                    </>
+                ) : null}
+            </div>
+        </>
+    );
+};
+
+const Card = ({ data, footerTag, hasImgBackground = false }: CardProps) => {
+    const cardImage = getCardImage(data.hero);
+    const readingTime = getReadingTime(data.body);
+
+    const imageProps = {
+        image: cardImage,
+        alt: data.hero.alternativeText ?? 'Card image',
+        className: cardImageStyle,
+    };
 
     return (
         <Link to={`/${data.slug}`} className={container}>
-            <div className={imgWrapper}>
-                <GatsbyImage
-                    image={cardImage}
-                    alt={data.hero.alternativeText ?? 'Card image'}
-                    className={popularArticlesImage}
-                />
-            </div>
-            {!!tags || data.updatedAt || readingTime ? (
-                <div className={articleCardHeader}>
-                    {tags && tags.length > 1 ? (
-                        <span className={articleTag}>{tags[0].name}</span>
-                    ) : null}
-                    {data.updatedAt && readingTime ? (
-                        <div className={articleDateAndTime}>
-                            <span>{data.updatedAt}</span>
-                            <div className={dot} />
-                            <span>{readingTime}</span>
-                        </div>
-                    ) : null}
+            {hasImgBackground ? (
+                <div className={imgWrapper}>
+                    <GatsbyImage {...imageProps} />
+                </div>
+            ) : (
+                <GatsbyImage {...imageProps} />
+            )}
+
+            {!!data.tags || data.updatedAt || readingTime ? (
+                <div className={cardHeader}>
+                    {renderTags(data.tags)}
+                    {renderDateAndTime(data.updatedAt, readingTime)}
                 </div>
             ) : null}
+
             <h3>{data.title}</h3>
             {data.description ? <p>{data.description}</p> : null}
-            {data.authors && singleAuthor ? (
-                <div className={articleCardAuthors}>
-                    {data.authors.length > 1 ? (
-                        <AvatarGroup max={3}>
-                            {data.authors.map((author) => {
-                                const authorImage =
-                                    author.picture &&
-                                    getImage(
-                                        author.picture.localFile.childImageSharp
-                                            .gatsbyImageData
-                                    );
 
-                                return (
-                                    <Avatar
-                                        key={author.id}
-                                        image={authorImage}
-                                        alt={`Picture of ${author.name}`}
-                                        name={author.name}
-                                    />
-                                );
-                            })}
-                        </AvatarGroup>
-                    ) : (
-                        <>
-                            <Avatar
-                                image={singleAuthorImage}
-                                alt={`Picture of ${singleAuthor.name}`}
-                                name={singleAuthor.name}
-                            />
-                            <div className={authorInfo}>
-                                <span>{singleAuthor.name}</span>
-                                {singleAuthor.role ? (
-                                    <>
-                                        <div className={dot} />
-                                        <span>{singleAuthor.role}</span>
-                                    </>
-                                ) : null}
-                            </div>
-                        </>
-                    )}
-                </div>
+            {data.authors ? (
+                <div className={cardAuthors}>{renderAuthors(data.authors)}</div>
             ) : null}
-            <div className={articleCardFooter}>
+
+            <div className={cardFooter}>
                 <span>{footerTag}</span>
                 <ArrowRight2 />
             </div>

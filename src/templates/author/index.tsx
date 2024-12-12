@@ -115,7 +115,6 @@ export const pageQuery = graphql`
                                 aspectRatio: 1.7
                                 formats: [AUTO, WEBP, AVIF]
                             )
-                            # Further below in this doc you can learn how to use these response images
                         }
                     }
                     alternativeText

@@ -26,6 +26,7 @@ const CaseStudies = () => {
                                     quality: 100
                                     placeholder: BLURRED
                                     height: 172
+                                    layout: FULL_WIDTH
                                 )
                             }
                         }
@@ -58,6 +59,7 @@ const CaseStudies = () => {
                                 key={caseStudy.id}
                                 data={caseStudy}
                                 footerTag="Case study"
+                                hasImgBackground
                             />
                         ))}
                 </Grid>

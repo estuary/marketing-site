@@ -8,7 +8,6 @@
 
   @media (max-width: 375px) {
     border: none;
-    padding: 0;
   }
 
   &:hover {
@@ -50,30 +49,39 @@
   align-items: center;
   justify-content: center;
   background-color: #A4B6F4;
-  height: 220px;
   border-radius: 8px;
-  margin-bottom: 16px;
-  padding: 24px;
+  height: 220px;
+  padding: 16px;
+
+  @media (max-width: 829px) {
+    height: 280px;
+  }
+
+  @media (max-width: 425px) {
+    height: 180px;
+  }
 }
 
-.popularArticlesImage {
-  max-width: 296px;
+.cardImageStyle {
+  border-radius: 8px;
+  width: 100%;
 }
 
-.articleCardHeader {
+.cardHeader {
   display: flex;
   justify-content: space-between;
   gap: 8px;
+  margin-top: 16px;
 }
 
-.articleTag {
+.cardTag {
   color: var(--violet);
   font-size: 1rem;
   font-weight: 600;
   line-height: 18px;
 }
 
-.articleDateAndTime {
+.cardDateAndTime {
   font-size: 0.875rem;
   line-height: 16.8px;
   font-weight: 400;
@@ -86,7 +94,7 @@
   text-align: right;
 }
 
-.articleCardAuthors {
+.cardAuthors {
   display: flex;
   gap: 8px;
   align-items: center;
@@ -108,7 +116,7 @@
   }
 }
 
-.articleCardFooter {
+.cardFooter {
   display: flex;
   justify-content: space-between;
   align-items: center;

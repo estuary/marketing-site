@@ -11,6 +11,7 @@ import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
 import SearchInput from '../../components/SearchInput';
 import FlowLogoVector from '../../components/FlowLogoVector';
+import Grid from '../../components/Grid';
 import {
     container,
     blogsIndexTabBar,
@@ -137,11 +138,11 @@ const BlogIndex = ({
                         handleQueryChange={handleQueryChange}
                     />
                 </div>
-                <div className={blogsIndexBody}>
+                <Grid className={blogsIndexBody}>
                     {(query.length > 0 ? results : posts).map((post) => (
                         <BlogPostCard key={post.slug} {...post} />
                     ))}
-                </div>
+                </Grid>
             </BigImageBackground>
             {prevPage ?? nextPage ? (
                 <>
