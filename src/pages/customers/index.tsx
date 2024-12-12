@@ -5,6 +5,10 @@ import Seo from '../../components/seo';
 import Hero from '../../components/CustomersPage/Hero';
 import CaseStudies from '../../components/CustomersPage/CaseStudies';
 import WhatCustomersSay from '../../components/CustomersPage/WhatCustomersSay';
+import SeeHowSection from '../../components/SeeHowSection';
+import OutboundLinkOutlined from '../../components/LinksAndButtons/OutboundLinkOutlined';
+import { webinarsUrl } from '../../../shared';
+import LinkFilled from '../../components/LinksAndButtons/LinkFilled';
 
 const CustomersPage = () => {
     return (
@@ -12,6 +16,20 @@ const CustomersPage = () => {
             <Hero />
             <CaseStudies />
             <WhatCustomersSay />
+            <SeeHowSection
+                buttons={
+                    <>
+                        <LinkFilled href="/contact-us/">Contact Us</LinkFilled>
+                        <OutboundLinkOutlined
+                            href={webinarsUrl}
+                            target="_blank"
+                            variant="secondary"
+                        >
+                            Watch Demo
+                        </OutboundLinkOutlined>
+                    </>
+                }
+            />
         </Layout>
     );
 };

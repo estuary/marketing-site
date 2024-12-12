@@ -6,6 +6,7 @@ import {
     buttonOutlined,
     secondaryButton,
     fullWidthStyle,
+    lightBorder,
 } from '../styles.module.less';
 
 const LinkOutlined = React.forwardRef<
@@ -18,6 +19,7 @@ const LinkOutlined = React.forwardRef<
             variant = 'primary',
             fullWidth = false,
             className,
+            hasLightBorder = false,
             ...props
         },
         ref
@@ -29,6 +31,7 @@ const LinkOutlined = React.forwardRef<
                 baseButton,
                 buttonOutlined,
                 variant === 'secondary' ? secondaryButton : null,
+                hasLightBorder ? lightBorder : null,
                 fullWidth ? fullWidthStyle : null,
                 className
             )}

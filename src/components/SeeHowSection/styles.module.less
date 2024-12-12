@@ -1,4 +1,4 @@
-@import '../../../globalStyles/sections.module.less';
+@import '../../globalStyles/sections.module.less';
 
 .wrapper {
     .sectionTopBottomPadding;
@@ -31,7 +31,7 @@
 
 .buttonsWrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     justify-content: center;
     align-items: center;
     gap: 24px;
@@ -39,18 +39,6 @@
 
     @media (max-width: 768px) {
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
         width: 100%;
     }
-}
-
-.baseButtonStyling {
-    min-width: 176px;
-    width: 100%;
-    padding: 16px 24px;
-}
-
-.hubspotButton {
-    .baseButtonStyling;
-    border-color: #D0D9F9;
 }

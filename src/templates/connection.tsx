@@ -12,7 +12,10 @@ import RealTimeAndBatch from '../components/Integration/RealTimeAndBatch';
 import DataopsMadeSimple from '../components/Integration/DataopsMadeSimple';
 import IncreaseProductivity4x from '../components/Integration/IncreaseProductivity4x';
 import Spend25xLess from '../components/Integration/Spend25xLess';
-import SeeHow from '../components/Integration/SeeHow';
+import SeeHowSection from '../components/SeeHowSection';
+import OutboundLinkFilled from '../components/LinksAndButtons/OutboundLinkFilled';
+import { dashboardRegisterUrl } from '../../shared';
+import OpenHubspotModal from '../components/HubSpot/OpenModal';
 
 export interface ConnectorProps {
     data: {
@@ -68,7 +71,23 @@ const Connector = ({
             <DataopsMadeSimple />
             <IncreaseProductivity4x />
             <Spend25xLess />
-            <SeeHow />
+            <SeeHowSection
+                buttons={
+                    <>
+                        <OutboundLinkFilled
+                            href={dashboardRegisterUrl}
+                            target="_blank"
+                        >
+                            Try Now
+                        </OutboundLinkFilled>
+                        <OpenHubspotModal
+                            buttonLabel="Let Us Show You"
+                            buttonId="integration-section-five-hubspot"
+                            formId="698e6716-f38b-4bd5-9105-df9ba220e29b"
+                        />
+                    </>
+                }
+            />
         </Layout>
     );
 };
