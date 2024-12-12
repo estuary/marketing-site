@@ -46,6 +46,16 @@ jobs:
                   key: ${{ runner.os }}-gatsby-build-preview-${{github.head_ref}}-${{ github.run_id }}
                   restore-keys: |
                       ${{ runner.os }}-gatsby-build-preview-${{github.head_ref}}-
+            -   name: Cache Gatsby files
+                id: cache-gatsby-static-files
+                uses: actions/cache@v3
+                with:
+                    path: |
+                        .cache
+                        public/static
+                    key: ${{ runner.os }}-gatsby-static-files-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}
+                    restore-keys: |
+                        ${{ runner.os }}-gatsby-static-files-
             - run: yarn install
             - name: Run ESLint
               run: yarn lint
