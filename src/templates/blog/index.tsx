@@ -24,7 +24,7 @@ import {
 } from './styles.module.less';
 
 interface BlogIndexProps {
-    // It's not a template page, it should be moved to pages folder.
+    // TODO: It's not a template page, it should be moved to pages folder.
     data: {
         allStrapiBlogPost: {
             nodes: any[];

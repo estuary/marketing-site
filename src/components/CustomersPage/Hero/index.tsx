@@ -30,7 +30,7 @@ const Hero = () => (
             />
             <StaticImage
                 src="../../../images/customers-page/hero-image.png"
-                alt="" // TODO: Ask an alternative text to Sourabh
+                alt="Estuary - ETL tool"
                 quality={100}
                 placeholder="blurred"
                 loading="eager"

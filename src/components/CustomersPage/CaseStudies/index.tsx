@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import Container from '../../Container';
 import Grid from '../../Grid';
 import Card from '../../Grid/Card';
+import ButtonFilled from '../../LinksAndButtons/ButtonFilled';
 import { sectionTitle } from './styles.module.less';
 
 const CaseStudies = () => {
@@ -11,7 +12,7 @@ const CaseStudies = () => {
         allStrapiCaseStudy: { nodes: caseStudies },
     } = useStaticQuery(graphql`
         query GetCaseStudies {
-            allStrapiCaseStudy(limit: 9) {
+            allStrapiCaseStudy {
                 nodes {
                     title: Title
                     description: Description
@@ -39,19 +40,32 @@ const CaseStudies = () => {
         slug: `customers/${post.slug}/`,
     }));
 
+    const [visiblePosts, setVisiblePosts] = useState(9);
+
+    const handleShowMore = () => {
+        setVisiblePosts((prevVisiblePosts) => prevVisiblePosts + 9);
+    };
+
     return (
         <section className={defaultWrapperGrey}>
             <Container isVertical>
                 <h2 className={sectionTitle}>CASE STUDIES</h2>
                 <Grid>
-                    {caseStudiesWithPrefixedSlugs.map((caseStudy) => (
-                        <Card
-                            key={caseStudy.id}
-                            data={caseStudy}
-                            footerTag="Case study"
-                        />
-                    ))}
+                    {caseStudiesWithPrefixedSlugs
+                        .slice(0, visiblePosts)
+                        .map((caseStudy) => (
+                            <Card
+                                key={caseStudy.id}
+                                data={caseStudy}
+                                footerTag="Case study"
+                            />
+                        ))}
                 </Grid>
+                {visiblePosts < caseStudiesWithPrefixedSlugs.length ? (
+                    <ButtonFilled onClick={handleShowMore}>
+                        Show more
+                    </ButtonFilled>
+                ) : null}
             </Container>
         </section>
     );
