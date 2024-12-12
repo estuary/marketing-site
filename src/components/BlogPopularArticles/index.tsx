@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import * as React from 'react';
 import Card from '../Grid/Card';
-import { container } from './styles.module.less';
+import Grid from '../Grid';
 
 export const PopularArticles = () => {
     const { popularArticles } = useStaticQuery(graphql`
@@ -67,12 +67,10 @@ export const PopularArticles = () => {
     `);
 
     return (
-        <ul className={container}>
+        <Grid>
             {popularArticles?.nodes?.map((article: any) => (
-                <li key={article.id}>
-                    <Card data={article} footerTag="Article" />
-                </li>
+                <Card key={article.id} data={article} footerTag="Article" />
             ))}
-        </ul>
+        </Grid>
     );
 };

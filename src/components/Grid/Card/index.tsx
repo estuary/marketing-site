@@ -18,6 +18,7 @@ import {
 } from './styles.module.less';
 
 interface CardProps {
+    key: string;
     data: {
         slug: string;
         title: string;
@@ -121,7 +122,12 @@ const renderAuthors = (authors: CardProps['data']['authors']) => {
     );
 };
 
-const Card = ({ data, footerTag, hasImgBackground = false }: CardProps) => {
+const Card = ({
+    data,
+    footerTag,
+    hasImgBackground = false,
+    key,
+}: CardProps) => {
     const cardImage = getCardImage(data.hero);
     const readingTime = getReadingTime(data.body);
 
@@ -132,34 +138,38 @@ const Card = ({ data, footerTag, hasImgBackground = false }: CardProps) => {
     };
 
     return (
-        <Link to={`/${data.slug}`} className={container}>
-            {hasImgBackground ? (
-                <div className={imgWrapper}>
+        <li key={key}>
+            <Link to={`/${data.slug}`} className={container}>
+                {hasImgBackground ? (
+                    <div className={imgWrapper}>
+                        <GatsbyImage {...imageProps} />
+                    </div>
+                ) : (
                     <GatsbyImage {...imageProps} />
+                )}
+
+                {!!data.tags || data.updatedAt || readingTime ? (
+                    <div className={cardHeader}>
+                        {renderTags(data.tags)}
+                        {renderDateAndTime(data.updatedAt, readingTime)}
+                    </div>
+                ) : null}
+
+                <h3>{data.title}</h3>
+                {data.description ? <p>{data.description}</p> : null}
+
+                {data.authors ? (
+                    <div className={cardAuthors}>
+                        {renderAuthors(data.authors)}
+                    </div>
+                ) : null}
+
+                <div className={cardFooter}>
+                    <span>{footerTag}</span>
+                    <ArrowRight2 />
                 </div>
-            ) : (
-                <GatsbyImage {...imageProps} />
-            )}
-
-            {!!data.tags || data.updatedAt || readingTime ? (
-                <div className={cardHeader}>
-                    {renderTags(data.tags)}
-                    {renderDateAndTime(data.updatedAt, readingTime)}
-                </div>
-            ) : null}
-
-            <h3>{data.title}</h3>
-            {data.description ? <p>{data.description}</p> : null}
-
-            {data.authors ? (
-                <div className={cardAuthors}>{renderAuthors(data.authors)}</div>
-            ) : null}
-
-            <div className={cardFooter}>
-                <span>{footerTag}</span>
-                <ArrowRight2 />
-            </div>
-        </Link>
+            </Link>
+        </li>
     );
 };
 
