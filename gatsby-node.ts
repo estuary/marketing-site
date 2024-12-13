@@ -23,7 +23,7 @@ const companyUpdatesPostTemplate = path.resolve(
 );
 const blogTemplate = path.resolve('./src/templates/blog/index.tsx');
 
-const caseStudyTemplate = path.resolve('./src/layouts/CaseStudy/index.tsx');
+const caseStudyTemplate = path.resolve('./src/templates/case-study/index.tsx');
 
 const connectorTemplate = path.resolve('./src/templates/connector/index.tsx');
 const connectionTemplate = path.resolve('./src/templates/connection.tsx');
