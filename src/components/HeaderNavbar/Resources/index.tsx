@@ -24,6 +24,7 @@ import SuccessIcon from '../../../svgs/success.svg';
 import { accordionStyles, accordionSummaryStyles } from '../shared';
 import LinkOutlined from '../../LinksAndButtons/LinkOutlined';
 import OutboundLinkOutlined from '../../LinksAndButtons/OutboundLinkOutlined';
+import HeaderViewAllLink from '../HeaderViewAllLink';
 import { listen, read, partners } from './items';
 import ResourcesLink from './Link';
 
@@ -95,6 +96,12 @@ const HeaderNavbarResources = ({ active, setActive }) => {
                             items={caseStudiesItems}
                             onlyContent
                             active={active}
+                            contentFooterLink={
+                                <HeaderViewAllLink
+                                    to="/customers/"
+                                    viewAllSuffix="customers"
+                                />
+                            }
                         />
                     </div>
                     <div className={columnWithTwoRows}>

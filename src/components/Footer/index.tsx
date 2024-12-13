@@ -175,6 +175,7 @@ const Footer = () => {
                         <FooterLink to="/etl-tools-list/">
                             Top ETL Tools
                         </FooterLink>
+                        <FooterLink to="/customers/">Customers</FooterLink>
                     </div>
                     <div className={globalFooterRightLinkWrapper}>
                         <p className={globalFooterSubtextTitle}>Company</p>
