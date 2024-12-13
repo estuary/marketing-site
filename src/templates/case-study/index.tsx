@@ -20,7 +20,7 @@ const CaseStudyTemplate = ({ data: { caseStudy } }) => {
     const { Title, Description, Logo, SideContent, About, Body } = caseStudy;
 
     return (
-        <Wrapper>
+        <Wrapper caseStudyTitle={Title}>
             <SectionHero
                 title={Title}
                 description={Description}
