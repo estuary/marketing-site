@@ -18,8 +18,8 @@ import {
 } from './styles.module.less';
 
 interface CardProps {
-    key: string;
     data: {
+        id: string;
         slug: string;
         title: string;
         description?: string;
@@ -122,12 +122,7 @@ const renderAuthors = (authors: CardProps['data']['authors']) => {
     );
 };
 
-const Card = ({
-    data,
-    footerTag,
-    hasImgBackground = false,
-    key,
-}: CardProps) => {
+const Card = ({ data, footerTag, hasImgBackground = false }: CardProps) => {
     const cardImage = getCardImage(data.hero);
     const readingTime = getReadingTime(data.body);
 
@@ -138,7 +133,7 @@ const Card = ({
     };
 
     return (
-        <li key={key}>
+        <li key={data.id}>
             <Link to={`/${data.slug}`} className={container}>
                 {hasImgBackground ? (
                     <div className={imgWrapper}>
