@@ -52,6 +52,17 @@ const serviceIntegrationPartners: Partner[] = [
         name: 'Corrdyn',
         href: 'https://www.corrdyn.com/',
     },
+    {
+        icon: (
+            <StaticImage
+                src="../../../images/partners-page/partner-logos/brooklyn.png"
+                alt="Brooklyn logo"
+                placeholder="blurred"
+            />
+        ),
+        name: 'Brooklyn',
+        href: 'https://www.brooklyndata.co/',
+    },
 ];
 
 const SIPartners = () => (
