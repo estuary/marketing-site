@@ -1,18 +1,25 @@
 import React from 'react';
 import { GatsbyImage } from 'gatsby-plugin-image';
+import { heroContent } from '../styles.module.less';
+import Container from '../../../components/Container';
+import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 
-const CaseStudyHero = ({ title, description, image }) => {
+const Hero = ({ title, description, image }) => {
     return (
-        <header className="above-the-fold">
-            <div className="content">
-                <h2>{title}</h2>
-                <h1>{description}</h1>
-            </div>
-            <div className="logo">
-                <GatsbyImage alt={title} image={image} loading="eager" />
-            </div>
-        </header>
+        <section className={defaultWrapperDark}>
+            <Container>
+                <div className={heroContent}>
+                    <span>{title}</span>
+                    <h1>{description}</h1>
+                </div>
+                <GatsbyImage
+                    alt={`${title} logo`}
+                    image={image}
+                    loading="eager"
+                />
+            </Container>
+        </section>
     );
 };
 
-export default CaseStudyHero;
+export default Hero;

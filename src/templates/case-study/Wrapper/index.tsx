@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Layout from '../../../components/Layout';
 import Breadcrumbs from '../../../components/Breadcrumbs';
 
@@ -21,11 +20,7 @@ const CaseStudyWrapper = ({ children, caseStudyTitle }) => {
                     },
                 ]}
             />
-            <article
-                className="case-study"
-                itemScope
-                itemType="http://schema.org/Article"
-            >
+            <article itemScope itemType="http://schema.org/Article">
                 {children}
             </article>
         </Layout>
