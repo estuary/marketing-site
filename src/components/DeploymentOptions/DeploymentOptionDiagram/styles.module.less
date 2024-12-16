@@ -2,9 +2,7 @@
 @secondaryTagColor: var(--blue);
 
 .container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
+  display: flex;
   justify-content: center;
   gap: 20px;
   position: relative;
@@ -40,7 +38,10 @@
   flex-direction: column;
   align-items: center;
   gap: 16px;
-  height: 100%;
+
+  .solidBorderBox {
+    height: 100%;
+  }
 
   @media (max-width: 600px) {
     gap: 10px;
