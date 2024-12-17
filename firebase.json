@@ -450,6 +450,41 @@
                 "source": "/etl-tools/talend-vs-striim/",
                 "destination": "/etl-tools/striim-vs-talend/",
                 "type": 301
+            },
+            {
+                "source": "/customers/casestudy/trueplatform/",
+                "destination": "/success-stories/trueplatform/",
+                "type": 301
+            },
+            {
+                "source": "/customers/casestudy/soli_&_company/",
+                "destination": "/success-stories/soli_&_company/",
+                "type": 301
+            },
+            {
+                "source": "/customers/Launchmetrics/",
+                "destination": "/success-stories/Launchmetrics/",
+                "type": 301
+            },
+            {
+                "source": "/customers/SocialHP/",
+                "destination": "/success-stories/SocialHP/",
+                "type": 301
+            },
+            {
+                "source": "/customers/connectngo/",
+                "destination": "/success-stories/connectngo/",
+                "type": 301
+            },
+            {
+                "source": "/customers/surface-ventures/",
+                "destination": "/success-stories/surface-ventures/",
+                "type": 301
+            },
+            {
+                "source": "/customers/flashpack/",
+                "destination": "/success-stories/flashpack/",
+                "type": 301
             }
         ],
         "public": "public",
