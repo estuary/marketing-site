@@ -1,0 +1,44 @@
+@import '../../globalStyles/sections.module.less';
+
+.wrapper {
+    .sectionTopBottomPadding;
+
+    h2 {
+        font-size: 4rem;
+        font-weight: 600;
+        line-height: 89.6px;
+        margin: 0;
+        text-transform: uppercase;
+        max-width: 1072px;
+        text-align: center;
+        color: var(--grey);
+
+        & span:nth-child(odd) {
+            color: var(--blue);
+        }
+
+        @media (max-width: 768px) {
+            font-size: 2.25rem;
+            line-height: 43.2px;
+        }
+
+        @media (max-width: 425px) {
+            font-size: 1.5rem;
+            line-height: 36px;
+        }
+    }
+}
+
+.buttonsWrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    margin: auto;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+}

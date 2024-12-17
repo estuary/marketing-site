@@ -24,6 +24,7 @@ import SuccessIcon from '../../../svgs/success.svg';
 import { accordionStyles, accordionSummaryStyles } from '../shared';
 import LinkOutlined from '../../LinksAndButtons/LinkOutlined';
 import OutboundLinkOutlined from '../../LinksAndButtons/OutboundLinkOutlined';
+import HeaderViewAllLink from '../HeaderViewAllLink';
 import { listen, read, partners } from './items';
 import ResourcesLink from './Link';
 
@@ -31,9 +32,9 @@ const iconSize = 16;
 
 const HeaderNavbarResources = ({ active, setActive }) => {
     const {
-        allStrapiCaseStudy: { nodes: allCaseStudies },
+        allStrapiCaseStudy: { nodes: allSuccessStories },
     } = useStaticQuery(graphql`
-        query GetAllMenuCaseStudies {
+        query GetAllMenuSuccessStories {
             allStrapiCaseStudy(limit: 7) {
                 nodes {
                     LinkOneLiner
@@ -64,10 +65,10 @@ const HeaderNavbarResources = ({ active, setActive }) => {
         }
     };
 
-    const caseStudiesItems = allCaseStudies.map((caseStudy) => ({
-        name: caseStudy.Title.toUpperCase(),
-        to: `/customers/${caseStudy.Slug}`,
-        description: caseStudy.LinkOneLiner,
+    const successStoryItems = allSuccessStories.map((successStory) => ({
+        name: successStory.Title.toUpperCase(),
+        to: `/success-stories/${successStory.Slug}`,
+        description: successStory.LinkOneLiner,
         Image: () => <SuccessIcon width={iconSize} height={iconSize} />,
     }));
 
@@ -91,10 +92,16 @@ const HeaderNavbarResources = ({ active, setActive }) => {
                         />
                         <CardItem
                             className={clsx(hideOnMobile, longLinkList)}
-                            title="CASE STUDIES"
-                            items={caseStudiesItems}
+                            title="SUCCESS STORIES"
+                            items={successStoryItems}
                             onlyContent
                             active={active}
+                            contentFooterLink={
+                                <HeaderViewAllLink
+                                    to="/success-stories/"
+                                    viewAllSuffix="success stories"
+                                />
+                            }
                         />
                     </div>
                     <div className={columnWithTwoRows}>

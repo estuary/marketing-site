@@ -19,7 +19,7 @@ module.exports = {
                 'http://localhost:9000/etl-tools/estuary-vs-fivetran/index.html',
                 'http://localhost:9000/blog/index.html',
                 'http://localhost:9000/chatgpt-for-sales/index.html',
-                'http://localhost:9000/customers/connectngo/index.html',
+                'http://localhost:9000/success-stories/connectngo/index.html',
             ],
         },
         upload: {

@@ -1,13 +1,17 @@
 import React from 'react';
 import LinkOutlined from '../LinksAndButtons/LinkOutlined';
+import LinkFilled from '../LinksAndButtons/LinkFilled';
 
 interface ContactUsProps {
     href?: string;
+    linkVariant?: 'filled' | 'outlined';
 }
 
-const ContactUsCta = ({ href }: ContactUsProps) => {
+const ContactUsCta = ({ href, linkVariant = 'outlined' }: ContactUsProps) => {
+    const LinkComponent = linkVariant === 'filled' ? LinkFilled : LinkOutlined;
+
     return (
-        <LinkOutlined href={href ?? '/contact-us/'}>Contact Us</LinkOutlined>
+        <LinkComponent href={href ?? '/contact-us/'}>Contact Us</LinkComponent>
     );
 };
 
