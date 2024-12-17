@@ -1,4 +1,4 @@
-import React from 'react';
+import { BaseHTMLAttributes } from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import clsx from 'clsx';
 import { fullWidth, backgroundImage, fullHeight } from './styles.module.less';
@@ -6,7 +6,7 @@ import { fullWidth, backgroundImage, fullHeight } from './styles.module.less';
 const CirclesBackground = ({
     children,
     className,
-}: React.BaseHTMLAttributes<HTMLDivElement>) => {
+}: BaseHTMLAttributes<HTMLDivElement>) => {
     return (
         <div className={fullWidth}>
             <StaticImage

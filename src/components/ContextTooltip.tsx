@@ -1,6 +1,6 @@
 import { styled } from '@mui/material/styles';
 import { Tooltip, TooltipProps, tooltipClasses } from '@mui/material';
-import React, { useState } from 'react';
+import { forwardRef, useState } from 'react';
 
 const HtmlTooltip = styled(({ className, ...props }: TooltipProps) => (
     <Tooltip {...props} classes={{ popper: className }} />
@@ -22,7 +22,7 @@ const HtmlTooltip = styled(({ className, ...props }: TooltipProps) => (
     },
 }));
 
-export const ContextToolTip = React.forwardRef((props: TooltipProps, ref) => {
+export const ContextToolTip = forwardRef((props: TooltipProps, ref) => {
     const [open, setOpen] = useState(false);
 
     const handleTooltipClose = () => {

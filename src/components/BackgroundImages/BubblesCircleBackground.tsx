@@ -1,4 +1,4 @@
-import React from 'react';
+import { BaseHTMLAttributes } from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import clsx from 'clsx';
 import {
@@ -10,7 +10,7 @@ import BackgroundWrapper from './BackgroundWrapper';
 const BubblesCircleBackground = ({
     children,
     className,
-}: React.BaseHTMLAttributes<HTMLDivElement>) => {
+}: BaseHTMLAttributes<HTMLDivElement>) => {
     return (
         <BackgroundWrapper>
             <StaticImage
