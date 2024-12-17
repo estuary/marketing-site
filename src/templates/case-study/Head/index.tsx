@@ -17,7 +17,7 @@ const CaseStudyHead = ({
             <Seo
                 title={caseStudy.metaTitle}
                 description={caseStudy.metaDescription}
-                url={`${siteUrl}/customers/${caseStudy.Slug}`}
+                url={`${siteUrl}/success-stories/${caseStudy.Slug}`}
                 image={
                     caseStudy.Logo
                         ? `${siteUrl}${caseStudy.Logo.localFile.childImageSharp.meta_img.gatsbyImageData}`
@@ -30,7 +30,7 @@ const CaseStudyHead = ({
                     '@type': 'Article',
                     'mainEntityOfPage': {
                         '@type': 'WebPage',
-                        '@id': `${siteUrl}/customers/${caseStudy.Slug}`,
+                        '@id': `${siteUrl}/success-stories/${caseStudy.Slug}`,
                     },
                     'headline': caseStudy.Title,
                     'description': caseStudy.Description ?? '',

@@ -108,11 +108,11 @@ export const createPages: GatsbyNode['createPages'] = async ({
 
     const allCaseStudies = caseStudyPages.data?.allStrapiCaseStudy.nodes;
 
-    validateDataExistence(allCaseStudies, 'Case Studies');
+    validateDataExistence(allCaseStudies, 'Success stories');
 
     allCaseStudies?.forEach((node) => {
         createPage({
-            path: `customers/${node.Slug}`,
+            path: `success-stories/${node.Slug}`,
             component: caseStudyTemplate,
             context: {
                 id: node.id,
@@ -175,7 +175,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
     }
     if (caseStudyPages.errors) {
         reporter.panicOnBuild(
-            'There was an error loading your case studies.',
+            'There was an error loading your success stories.',
             caseStudyPages.errors
         );
         return;

@@ -67,7 +67,7 @@ const HeaderNavbarResources = ({ active, setActive }) => {
 
     const caseStudiesItems = allCaseStudies.map((caseStudy) => ({
         name: caseStudy.Title.toUpperCase(),
-        to: `/customers/${caseStudy.Slug}`,
+        to: `/success-stories/${caseStudy.Slug}`,
         description: caseStudy.LinkOneLiner,
         Image: () => <SuccessIcon width={iconSize} height={iconSize} />,
     }));
@@ -92,14 +92,14 @@ const HeaderNavbarResources = ({ active, setActive }) => {
                         />
                         <CardItem
                             className={clsx(hideOnMobile, longLinkList)}
-                            title="CASE STUDIES"
+                            title="SUCCESS STORIES"
                             items={caseStudiesItems}
                             onlyContent
                             active={active}
                             contentFooterLink={
                                 <HeaderViewAllLink
-                                    to="/customers/"
-                                    viewAllSuffix="customers"
+                                    to="/success-stories/"
+                                    viewAllSuffix="success stories"
                                 />
                             }
                         />

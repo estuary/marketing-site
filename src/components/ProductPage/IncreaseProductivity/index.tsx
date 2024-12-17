@@ -35,7 +35,7 @@ const IncreaseProductivity = () => {
                             <div className={iconWrapper}>
                                 <StaticImage
                                     placeholder="none"
-                                    alt="Case study - Connect & Go logo"
+                                    alt="Success story - Connect & Go logo"
                                     src="../../../images/c&g-logo.png"
                                 />
                             </div>
@@ -52,7 +52,7 @@ const IncreaseProductivity = () => {
                                 <div className={iconWrapper}>
                                     <StaticImage
                                         placeholder="none"
-                                        alt="Case study - True logo"
+                                        alt="Success story - True logo"
                                         src="../../../images/true-logo.png"
                                     />
                                 </div>
@@ -69,7 +69,7 @@ const IncreaseProductivity = () => {
                                 <div className={iconWrapper}>
                                     <StaticImage
                                         placeholder="none"
-                                        alt="Case study - Soli & Company logo"
+                                        alt="Success story - Soli & Company logo"
                                         src="../../../images/soli&company-logo.png"
                                     />
                                 </div>

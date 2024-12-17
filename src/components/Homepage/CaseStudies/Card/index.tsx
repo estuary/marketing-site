@@ -17,7 +17,7 @@ const Card = ({ href, title, description, image }: CardProps) => {
             <LinkOutlined
                 href={href}
                 rel="noopener"
-                aria-label={`Read case study for ${title}`}
+                aria-label={`Read success story for ${title}`}
             >
                 Read
             </LinkOutlined>

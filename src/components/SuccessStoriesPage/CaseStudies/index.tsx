@@ -38,7 +38,7 @@ const CaseStudies = () => {
 
     const caseStudiesWithPrefixedSlugs = caseStudies.map((post) => ({
         ...post,
-        slug: `customers/${post.slug}/`,
+        slug: `success-stories/${post.slug}/`,
     }));
 
     const [visiblePosts, setVisiblePosts] = useState(9);
@@ -50,7 +50,7 @@ const CaseStudies = () => {
     return (
         <section className={defaultWrapperGrey}>
             <Container isVertical>
-                <h2 className={sectionTitle}>CASE STUDIES</h2>
+                <h2 className={sectionTitle}>SUCCESS STORIES</h2>
                 <Grid>
                     {caseStudiesWithPrefixedSlugs
                         .slice(0, visiblePosts)
@@ -58,7 +58,7 @@ const CaseStudies = () => {
                             <Card
                                 key={caseStudy.id}
                                 data={caseStudy}
-                                footerTag="Case study"
+                                footerTag="Success story"
                                 hasImgBackground
                             />
                         ))}

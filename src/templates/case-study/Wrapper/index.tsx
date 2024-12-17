@@ -12,8 +12,8 @@ const CaseStudyWrapper = ({ children, caseStudyTitle }) => {
                         href: '/',
                     },
                     {
-                        title: 'Customers',
-                        href: '/customers',
+                        title: 'Success Stories',
+                        href: '/success-stories',
                     },
                     {
                         title: caseStudyTitle,

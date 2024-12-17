@@ -33,17 +33,17 @@ const CaseStudies = () => {
     return (
         <DarkSwoopingLinesLeftDirectionBackground>
             <Container isVertical>
-                <h2 className={sectionTitle}>CASE STUDIES</h2>
+                <h2 className={sectionTitle}>SUCCESS STORIES</h2>
                 <SlideDeckCarousel
                     items={allCaseStudies}
                     itemsPerSlide={3}
-                    ariaLabel="Case studies carousel"
+                    ariaLabel="Success stories carousel"
                     renderCard={({ id, title, description, slug, logo }) => (
                         <Card
                             key={id}
                             title={title}
                             description={description}
-                            href={`/customers/${slug}/`}
+                            href={`/success-stories/${slug}/`}
                             image={
                                 <GatsbyImage
                                     image={
