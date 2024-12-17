@@ -7,11 +7,11 @@ import SlideDeckCarousel from '../../SlideDeckCarousel';
 import Card from './Card';
 import { sectionTitle } from './styles.module.less';
 
-const CaseStudies = () => {
+const SuccessStories = () => {
     const {
-        allStrapiCaseStudy: { nodes: allCaseStudies },
+        allStrapiCaseStudy: { nodes: allSuccessStories },
     } = useStaticQuery(graphql`
-        query GetAllHomepageCaseStudies {
+        query GetAllHomepageSuccessStories {
             allStrapiCaseStudy(limit: 10) {
                 nodes {
                     description: Description
@@ -35,7 +35,7 @@ const CaseStudies = () => {
             <Container isVertical>
                 <h2 className={sectionTitle}>SUCCESS STORIES</h2>
                 <SlideDeckCarousel
-                    items={allCaseStudies}
+                    items={allSuccessStories}
                     itemsPerSlide={3}
                     ariaLabel="Success stories carousel"
                     renderCard={({ id, title, description, slug, logo }) => (
@@ -61,4 +61,4 @@ const CaseStudies = () => {
     );
 };
 
-export default CaseStudies;
+export default SuccessStories;

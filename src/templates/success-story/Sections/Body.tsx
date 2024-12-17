@@ -2,7 +2,7 @@ import React from 'react';
 import { body, dynamicHtml } from '../styles.module.less';
 import { ProcessedPost } from '../../../components/BlogPostProcessor';
 
-const CaseStudyBody = ({ content }) => {
+const SuccessStoryBody = ({ content }) => {
     return (
         <section className={body}>
             <ProcessedPost
@@ -13,4 +13,4 @@ const CaseStudyBody = ({ content }) => {
     );
 };
 
-export default CaseStudyBody;
+export default SuccessStoryBody;

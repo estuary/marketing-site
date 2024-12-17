@@ -4,9 +4,9 @@ import Seo from '../../../components/seo';
 
 import logoUrl from '../../../images/estuary.png';
 
-const CaseStudyHead = ({
+const SuccessStoryHead = ({
     data: {
-        caseStudy,
+        successStory,
         site: {
             siteMetadata: { siteUrl },
         },
@@ -15,12 +15,12 @@ const CaseStudyHead = ({
     return (
         <>
             <Seo
-                title={caseStudy.metaTitle}
-                description={caseStudy.metaDescription}
-                url={`${siteUrl}/success-stories/${caseStudy.Slug}`}
+                title={successStory.metaTitle}
+                description={successStory.metaDescription}
+                url={`${siteUrl}/success-stories/${successStory.Slug}`}
                 image={
-                    caseStudy.Logo
-                        ? `${siteUrl}${caseStudy.Logo.localFile.childImageSharp.meta_img.gatsbyImageData}`
+                    successStory.Logo
+                        ? `${siteUrl}${successStory.Logo.localFile.childImageSharp.meta_img.gatsbyImageData}`
                         : undefined
                 }
             />
@@ -30,13 +30,13 @@ const CaseStudyHead = ({
                     '@type': 'Article',
                     'mainEntityOfPage': {
                         '@type': 'WebPage',
-                        '@id': `${siteUrl}/success-stories/${caseStudy.Slug}`,
+                        '@id': `${siteUrl}/success-stories/${successStory.Slug}`,
                     },
-                    'headline': caseStudy.Title,
-                    'description': caseStudy.Description ?? '',
+                    'headline': successStory.Title,
+                    'description': successStory.Description ?? '',
                     'image':
-                        caseStudy.Logo &&
-                        `${siteUrl}${caseStudy.Logo.localFile.childImageSharp.meta_img.src}`,
+                        successStory.Logo &&
+                        `${siteUrl}${successStory.Logo.localFile.childImageSharp.meta_img.src}`,
                     'publisher': {
                         '@type': 'Organization',
                         'name': 'Estuary',
@@ -45,11 +45,11 @@ const CaseStudyHead = ({
                             'url': `${siteUrl}${logoUrl}`,
                         },
                     },
-                    'datePublished': caseStudy.machineReadablePublishDate,
+                    'datePublished': successStory.machineReadablePublishDate,
                 })}
             </script>
         </>
     );
 };
 
-export default CaseStudyHead;
+export default SuccessStoryHead;

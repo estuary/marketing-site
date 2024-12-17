@@ -5,12 +5,12 @@ import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import Advantages from '../../Advantages';
 import { sectionEightAdvantages } from '../advantages';
 import {
-    bottomCaseStudies,
-    caseStudyBase,
-    bottomCaseStudy,
-    caseStudies,
+    bottomSuccessStories,
+    successStoryBase,
+    bottomSuccessStory,
+    successStories,
     iconWrapper,
-    topCaseStudy,
+    topSuccessStory,
 } from './styles.module.less';
 
 const IncreaseProductivity = () => {
@@ -30,8 +30,10 @@ const IncreaseProductivity = () => {
                     </>
                 }
                 image={
-                    <div className={caseStudies}>
-                        <div className={clsx(caseStudyBase, topCaseStudy)}>
+                    <div className={successStories}>
+                        <div
+                            className={clsx(successStoryBase, topSuccessStory)}
+                        >
                             <div className={iconWrapper}>
                                 <StaticImage
                                     placeholder="none"
@@ -45,9 +47,12 @@ const IncreaseProductivity = () => {
                                 to 180x, improves productivity 4x with Estuary.
                             </p>
                         </div>
-                        <div className={bottomCaseStudies}>
+                        <div className={bottomSuccessStories}>
                             <div
-                                className={clsx(caseStudyBase, bottomCaseStudy)}
+                                className={clsx(
+                                    successStoryBase,
+                                    bottomSuccessStory
+                                )}
                             >
                                 <div className={iconWrapper}>
                                     <StaticImage
@@ -64,7 +69,10 @@ const IncreaseProductivity = () => {
                                 </p>
                             </div>
                             <div
-                                className={clsx(caseStudyBase, bottomCaseStudy)}
+                                className={clsx(
+                                    successStoryBase,
+                                    bottomSuccessStory
+                                )}
                             >
                                 <div className={iconWrapper}>
                                     <StaticImage

@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
 import Hero from '../../components/SuccessStoriesPage/Hero';
-import CaseStudies from '../../components/SuccessStoriesPage/CaseStudies';
+import SuccessStories from '../../components/SuccessStoriesPage/SuccessStories';
 import WhatCustomersSay from '../../components/SuccessStoriesPage/WhatCustomersSay';
 import SeeHowSection from '../../components/SeeHowSection';
 import OutboundLinkOutlined from '../../components/LinksAndButtons/OutboundLinkOutlined';
@@ -14,7 +14,7 @@ const SuccessStoriesPage = () => {
     return (
         <Layout>
             <Hero />
-            <CaseStudies />
+            <SuccessStories />
             <WhatCustomersSay />
             <SeeHowSection
                 buttons={

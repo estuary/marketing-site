@@ -23,7 +23,9 @@ const companyUpdatesPostTemplate = path.resolve(
 );
 const blogTemplate = path.resolve('./src/templates/blog/index.tsx');
 
-const caseStudyTemplate = path.resolve('./src/templates/case-study/index.tsx');
+const successStoryTemplate = path.resolve(
+    './src/templates/success-story/index.tsx'
+);
 
 const connectorTemplate = path.resolve('./src/templates/connector/index.tsx');
 const connectionTemplate = path.resolve('./src/templates/connection.tsx');
@@ -88,7 +90,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
         }
     `);
 
-    const caseStudyPages = await graphql<{
+    const successStoryPages = await graphql<{
         allStrapiCaseStudy: {
             nodes: {
                 Slug: string;
@@ -106,14 +108,14 @@ export const createPages: GatsbyNode['createPages'] = async ({
         }
     `);
 
-    const allCaseStudies = caseStudyPages.data?.allStrapiCaseStudy.nodes;
+    const allSuccessStories = successStoryPages.data?.allStrapiCaseStudy.nodes;
 
-    validateDataExistence(allCaseStudies, 'Success stories');
+    validateDataExistence(allSuccessStories, 'Success stories');
 
-    allCaseStudies?.forEach((node) => {
+    allSuccessStories?.forEach((node) => {
         createPage({
             path: `success-stories/${node.Slug}`,
-            component: caseStudyTemplate,
+            component: successStoryTemplate,
             context: {
                 id: node.id,
             },
@@ -173,10 +175,10 @@ export const createPages: GatsbyNode['createPages'] = async ({
         );
         return;
     }
-    if (caseStudyPages.errors) {
+    if (successStoryPages.errors) {
         reporter.panicOnBuild(
             'There was an error loading your success stories.',
-            caseStudyPages.errors
+            successStoryPages.errors
         );
         return;
     }

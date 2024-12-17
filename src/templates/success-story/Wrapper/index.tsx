@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '../../../components/Layout';
 import Breadcrumbs from '../../../components/Breadcrumbs';
 
-const CaseStudyWrapper = ({ children, caseStudyTitle }) => {
+const SuccessStoryWrapper = ({ children, successStoryTitle }) => {
     return (
         <Layout>
             <Breadcrumbs
@@ -16,7 +16,7 @@ const CaseStudyWrapper = ({ children, caseStudyTitle }) => {
                         href: '/success-stories',
                     },
                     {
-                        title: caseStudyTitle,
+                        title: successStoryTitle,
                     },
                 ]}
             />
@@ -27,4 +27,4 @@ const CaseStudyWrapper = ({ children, caseStudyTitle }) => {
     );
 };
 
-export default CaseStudyWrapper;
+export default SuccessStoryWrapper;

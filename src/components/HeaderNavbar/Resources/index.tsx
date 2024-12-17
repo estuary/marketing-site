@@ -32,9 +32,9 @@ const iconSize = 16;
 
 const HeaderNavbarResources = ({ active, setActive }) => {
     const {
-        allStrapiCaseStudy: { nodes: allCaseStudies },
+        allStrapiCaseStudy: { nodes: allSuccessStories },
     } = useStaticQuery(graphql`
-        query GetAllMenuCaseStudies {
+        query GetAllMenuSuccessStories {
             allStrapiCaseStudy(limit: 7) {
                 nodes {
                     LinkOneLiner
@@ -65,10 +65,10 @@ const HeaderNavbarResources = ({ active, setActive }) => {
         }
     };
 
-    const caseStudiesItems = allCaseStudies.map((caseStudy) => ({
-        name: caseStudy.Title.toUpperCase(),
-        to: `/success-stories/${caseStudy.Slug}`,
-        description: caseStudy.LinkOneLiner,
+    const successStoryItems = allSuccessStories.map((successStory) => ({
+        name: successStory.Title.toUpperCase(),
+        to: `/success-stories/${successStory.Slug}`,
+        description: successStory.LinkOneLiner,
         Image: () => <SuccessIcon width={iconSize} height={iconSize} />,
     }));
 
@@ -93,7 +93,7 @@ const HeaderNavbarResources = ({ active, setActive }) => {
                         <CardItem
                             className={clsx(hideOnMobile, longLinkList)}
                             title="SUCCESS STORIES"
-                            items={caseStudiesItems}
+                            items={successStoryItems}
                             onlyContent
                             active={active}
                             contentFooterLink={

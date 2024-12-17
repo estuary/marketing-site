@@ -4,20 +4,20 @@ import React from 'react';
 import dayjs from 'dayjs';
 import reltime from 'dayjs/plugin/relativeTime';
 
-import Header from './Head';
 import Wrapper from './Wrapper';
 
 import SectionBody from './Sections/Body';
 import Hero from './Sections/Hero';
 import Content from './Sections/Content';
+import SuccessStoryHead from './Head';
 
 dayjs.extend(reltime);
 
-const CaseStudyTemplate = ({ data: { caseStudy } }) => {
-    const { Title, Description, Logo, SideContent, About, Body } = caseStudy;
+const SuccessStoryTemplate = ({ data: { successStory } }) => {
+    const { Title, Description, Logo, SideContent, About, Body } = successStory;
 
     return (
-        <Wrapper caseStudyTitle={Title}>
+        <Wrapper successStoryTitle={Title}>
             <Hero
                 title={Title}
                 description={Description}
@@ -29,18 +29,18 @@ const CaseStudyTemplate = ({ data: { caseStudy } }) => {
     );
 };
 
-export default CaseStudyTemplate;
+export default SuccessStoryTemplate;
 
-export const Head = Header;
+export const Head = SuccessStoryHead;
 
 export const pageQuery = graphql`
-    query CaseStudyQueryById($id: String!) {
+    query SuccessStoryQueryById($id: String!) {
         site {
             siteMetadata {
                 siteUrl
             }
         }
-        caseStudy: strapiCaseStudy(id: { eq: $id }) {
+        successStory: strapiCaseStudy(id: { eq: $id }) {
             machineReadablePublishDate: publishedAt(formatString: "YYYY-MM-DD")
             metaTitle
             metaDescription

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { caseStudyLogoWrapper, container } from './styles.module.less';
+import { successStoryLogoWrapper, container } from './styles.module.less';
 
 type CardProps = {
     name: string;
@@ -10,7 +10,7 @@ type CardProps = {
 const Card = ({ name, description, avatar }: CardProps) => {
     return (
         <div className={container}>
-            <div className={caseStudyLogoWrapper}>{avatar}</div>
+            <div className={successStoryLogoWrapper}>{avatar}</div>
             <h3>{name}</h3>
             <p>{description}</p>
         </div>

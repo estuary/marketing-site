@@ -4,7 +4,7 @@ import Layout from '../components/Layout';
 import Seo from '../components/seo';
 import Hero from '../components/Homepage/Hero';
 import MoveAndTransform from '../components/Homepage/MoveAndTransform';
-import CaseStudies from '../components/Homepage/CaseStudies';
+import SuccessStories from '../components/Homepage/SuccessStories';
 import SecureYourData from '../components/Homepage/SecureYourData';
 import TheBestRealTimeCdc from '../components/Homepage/TheBestRealTimeCdc';
 import BuildInMinutes from '../components/Homepage/BuildInMinutes';
@@ -24,7 +24,7 @@ const IndexPage = () => {
         <Layout showReleaseBanner>
             <Hero />
             <MoveAndTransform />
-            <CaseStudies />
+            <SuccessStories />
             <DeploymentModes />
             <SecureYourData />
             <TheBestRealTimeCdc />

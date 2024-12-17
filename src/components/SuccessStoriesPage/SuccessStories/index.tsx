@@ -7,11 +7,11 @@ import Card from '../../Grid/Card';
 import ButtonFilled from '../../LinksAndButtons/ButtonFilled';
 import { sectionTitle } from '../styles.module.less';
 
-const CaseStudies = () => {
+const SuccessStories = () => {
     const {
-        allStrapiCaseStudy: { nodes: caseStudies },
+        allStrapiCaseStudy: { nodes: successStories },
     } = useStaticQuery(graphql`
-        query GetCaseStudies {
+        query GetSuccessStories {
             allStrapiCaseStudy {
                 nodes {
                     title: Title
@@ -36,7 +36,7 @@ const CaseStudies = () => {
         }
     `);
 
-    const caseStudiesWithPrefixedSlugs = caseStudies.map((post) => ({
+    const successStoriesWithPrefixedSlugs = successStories.map((post) => ({
         ...post,
         slug: `success-stories/${post.slug}/`,
     }));
@@ -52,18 +52,18 @@ const CaseStudies = () => {
             <Container isVertical>
                 <h2 className={sectionTitle}>SUCCESS STORIES</h2>
                 <Grid>
-                    {caseStudiesWithPrefixedSlugs
+                    {successStoriesWithPrefixedSlugs
                         .slice(0, visiblePosts)
-                        .map((caseStudy) => (
+                        .map((successStory) => (
                             <Card
-                                key={caseStudy.id}
-                                data={caseStudy}
+                                key={successStory.id}
+                                data={successStory}
                                 footerTag="Success story"
                                 hasImgBackground
                             />
                         ))}
                 </Grid>
-                {visiblePosts < caseStudiesWithPrefixedSlugs.length ? (
+                {visiblePosts < successStoriesWithPrefixedSlugs.length ? (
                     <ButtonFilled onClick={handleShowMore}>
                         Show more
                     </ButtonFilled>
@@ -73,4 +73,4 @@ const CaseStudies = () => {
     );
 };
 
-export default CaseStudies;
+export default SuccessStories;
