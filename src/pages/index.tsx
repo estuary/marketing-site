@@ -4,7 +4,7 @@ import Layout from '../components/Layout';
 import Seo from '../components/seo';
 import Hero from '../components/Homepage/Hero';
 import MoveAndTransform from '../components/Homepage/MoveAndTransform';
-import CaseStudies from '../components/Homepage/CaseStudies';
+import SuccessStories from '../components/Homepage/SuccessStories';
 import SecureYourData from '../components/Homepage/SecureYourData';
 import TheBestRealTimeCdc from '../components/Homepage/TheBestRealTimeCdc';
 import BuildInMinutes from '../components/Homepage/BuildInMinutes';
@@ -12,15 +12,19 @@ import AutomateDataops from '../components/Homepage/AutomateDataops';
 import InnovateFaster from '../components/Homepage/InnovateFaster';
 import Do4xMoreWith25xLess from '../components/Homepage/Do4xMoreWith25xLess';
 import WhatPeopleAreSaying from '../components/Homepage/WhatPeopleAreSaying';
-import SeeHow from '../components/Homepage/SeeHow';
 import DeploymentModes from '../components/Homepage/DeploymentModes';
+import SeeHowSection from '../components/SeeHowSection';
+import OutboundLinkFilled from '../components/LinksAndButtons/OutboundLinkFilled';
+import OutboundLinkOutlined from '../components/LinksAndButtons/OutboundLinkOutlined';
+import LinkOutlined from '../components/LinksAndButtons/LinkOutlined';
+import { dashboardRegisterUrl, webinarsUrl } from '../../shared';
 
 const IndexPage = () => {
     return (
         <Layout showReleaseBanner>
             <Hero />
             <MoveAndTransform />
-            <CaseStudies />
+            <SuccessStories />
             <DeploymentModes />
             <SecureYourData />
             <TheBestRealTimeCdc />
@@ -29,7 +33,32 @@ const IndexPage = () => {
             <InnovateFaster />
             <Do4xMoreWith25xLess />
             <WhatPeopleAreSaying />
-            <SeeHow />
+            <SeeHowSection
+                buttons={
+                    <>
+                        <OutboundLinkFilled
+                            href={dashboardRegisterUrl}
+                            target="_blank"
+                        >
+                            Try Now
+                        </OutboundLinkFilled>
+                        <OutboundLinkOutlined
+                            href={webinarsUrl}
+                            target="_blank"
+                            variant="secondary"
+                        >
+                            Watch Demo
+                        </OutboundLinkOutlined>
+                        <LinkOutlined
+                            href="/contact-us/"
+                            variant="secondary"
+                            hasLightBorder
+                        >
+                            Contact Us
+                        </LinkOutlined>
+                    </>
+                }
+            />
         </Layout>
     );
 };

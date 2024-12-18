@@ -1,10 +1,16 @@
+import clsx from 'clsx';
 import * as React from 'react';
 
-export const ProcessedPost = ({ body }: { body: string }) => {
-    // return (JSON.stringify(body,null,4))
+export const ProcessedPost = ({
+    body,
+    className,
+}: {
+    body: string;
+    className?: string;
+}) => {
     return (
         <div
-            className="dynamic-html"
+            className={clsx('dynamic-html', className)}
             dangerouslySetInnerHTML={{ __html: body }}
         />
     );

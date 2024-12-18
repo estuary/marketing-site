@@ -106,10 +106,10 @@ import {
           path: '/blog/data-engineering',
         },
         {
-          title: 'Case Study',
-          children: queryResults.allStrapiCaseStudy.nodes.map((caseStudy) => ({
-            title: caseStudy.Title,
-            path: `/customers/${caseStudy.Slug}`,
+          title: 'Success Story',
+          children: queryResults.allStrapiCaseStudy.nodes.map((successStory) => ({
+            title: successStory.Title,
+            path: `/success-stories/${successStory.Slug}`,
           })),
         },
         {

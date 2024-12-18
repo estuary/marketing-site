@@ -5,12 +5,12 @@ import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import Advantages from '../../Advantages';
 import { sectionEightAdvantages } from '../advantages';
 import {
-    bottomCaseStudies,
-    caseStudyBase,
-    bottomCaseStudy,
-    caseStudies,
+    bottomSuccessStories,
+    successStoryBase,
+    bottomSuccessStory,
+    successStories,
     iconWrapper,
-    topCaseStudy,
+    topSuccessStory,
 } from './styles.module.less';
 
 const IncreaseProductivity = () => {
@@ -30,12 +30,14 @@ const IncreaseProductivity = () => {
                     </>
                 }
                 image={
-                    <div className={caseStudies}>
-                        <div className={clsx(caseStudyBase, topCaseStudy)}>
+                    <div className={successStories}>
+                        <div
+                            className={clsx(successStoryBase, topSuccessStory)}
+                        >
                             <div className={iconWrapper}>
                                 <StaticImage
                                     placeholder="none"
-                                    alt="Case study - Connect & Go logo"
+                                    alt="Success story - Connect & Go logo"
                                     src="../../../images/c&g-logo.png"
                                 />
                             </div>
@@ -45,14 +47,17 @@ const IncreaseProductivity = () => {
                                 to 180x, improves productivity 4x with Estuary.
                             </p>
                         </div>
-                        <div className={bottomCaseStudies}>
+                        <div className={bottomSuccessStories}>
                             <div
-                                className={clsx(caseStudyBase, bottomCaseStudy)}
+                                className={clsx(
+                                    successStoryBase,
+                                    bottomSuccessStory
+                                )}
                             >
                                 <div className={iconWrapper}>
                                     <StaticImage
                                         placeholder="none"
-                                        alt="Case study - True logo"
+                                        alt="Success story - True logo"
                                         src="../../../images/true-logo.png"
                                     />
                                 </div>
@@ -64,12 +69,15 @@ const IncreaseProductivity = () => {
                                 </p>
                             </div>
                             <div
-                                className={clsx(caseStudyBase, bottomCaseStudy)}
+                                className={clsx(
+                                    successStoryBase,
+                                    bottomSuccessStory
+                                )}
                             >
                                 <div className={iconWrapper}>
                                     <StaticImage
                                         placeholder="none"
-                                        alt="Case study - Soli & Company logo"
+                                        alt="Success story - Soli & Company logo"
                                         src="../../../images/soli&company-logo.png"
                                     />
                                 </div>
