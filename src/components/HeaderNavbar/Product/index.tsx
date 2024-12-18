@@ -54,6 +54,7 @@ const HeaderNavbarProduct = ({ active, setActive }) => {
                     <CardItem
                         title="COMPARE"
                         items={compare}
+                        hasSeeMoreButton
                         contentFooterLink={
                             <HeaderViewAllLink
                                 to="/etl-tools"

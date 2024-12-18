@@ -47,6 +47,7 @@ const HeaderCardItem = ({
     onlyContent,
     active,
     contentFooterLink,
+    hasSeeMoreButton = false,
     ...props
 }: any) => {
     const [showAll, setShowAll] = React.useState(false);
@@ -65,7 +66,7 @@ const HeaderCardItem = ({
                 className={clsx(cardTitle, onlyContent ? hideOnMobile : null)}
             >
                 {title}
-                {items.length > 4 ? (
+                {hasSeeMoreButton && items.length > 4 ? (
                     <button
                         className={seeAllButton}
                         onClick={handleSeeAllButtonClick}
