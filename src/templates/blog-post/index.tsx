@@ -2,7 +2,6 @@ import { graphql } from 'gatsby';
 import * as React from 'react';
 import dayjs from 'dayjs';
 import reltime from 'dayjs/plugin/relativeTime';
-import BlogPostPopupModal from '../../components/BlogPostPopupModal';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
@@ -31,7 +30,7 @@ const BlogPostTemplate = ({ data: { post } }) => {
                 ]}
             />
             <BlogPost post={post} hasPopularArticlesSection hasBodyCtaBanner />
-            <BlogPostPopupModal />
+            {/* <BlogPostPopupModal /> */}
         </Layout>
     );
 };
