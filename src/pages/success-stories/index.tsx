@@ -50,7 +50,7 @@ export const Head = () => {
     return (
         <Seo
             title="Our Customers and Success Stories | Estuary Flow"
-            description="See how Estuary Flow solves complex data integration challenges for businesses around the world. Check out our success stories for proven success stories."
+            description="See how Estuary Flow solves complex data integration challenges for businesses around the world. Check out our proven success stories."
             image={metaImg.childImageSharp.gatsbyImageData.images.fallback.src}
         />
     );
