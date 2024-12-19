@@ -1,4 +1,3 @@
-import React from 'react';
 import { menuBackground } from './styles.module.less';
 
 const HeaderNavBarBackground = ({ menuOpen }) => {

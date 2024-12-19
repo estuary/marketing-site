@@ -1,4 +1,3 @@
-import React from 'react';
 import Checkmark from '../../../../svgs/checkmark.svg';
 import CrossIcon from '../../../../svgs/cross.svg';
 

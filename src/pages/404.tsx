@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Layout from '../components/Layout';
 import Seo from '../components/seo';
 import { globalMaxWidth } from '../globalStyles/sections.module.less';

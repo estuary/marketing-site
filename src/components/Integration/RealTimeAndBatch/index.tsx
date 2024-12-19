@@ -1,5 +1,4 @@
 import { StaticImage } from 'gatsby-plugin-image';
-import React from 'react';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import RealTimeCdc from '../../../svgs/real-time-cdc.svg';
 import Advantages from '../../Advantages';

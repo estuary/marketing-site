@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { Typography } from '@mui/material';
 import clsx from 'clsx';
 import { featureWrapper, withTooltips } from '../styles.module.less';

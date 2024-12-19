@@ -1,7 +1,4 @@
-import React from 'react';
-
 import Seo from '../../../components/seo';
-
 import logoUrl from '../../../images/estuary.png';
 
 const SuccessStoryHead = ({

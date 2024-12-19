@@ -1,6 +1,5 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import React from 'react';
 import Marquee from 'react-fast-marquee';
 import './styles.less';
 

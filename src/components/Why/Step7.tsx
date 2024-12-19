@@ -1,4 +1,3 @@
-import * as React from 'react';
 import clsx from 'clsx';
 import { calculatePrice, currencyFormatter } from '../../utils';
 import { dashboardRegisterUrl } from '../../../shared';

@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import SubscriptionBenefits from '../SubscriptionBenefits';
 import { container, buttonsWrapper } from './styles.module.less';
 

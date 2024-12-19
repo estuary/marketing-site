@@ -1,4 +1,3 @@
-import React from 'react';
 import RegisterCta from './RegisterCta';
 import ContactUsCta from './ContactUsCta';
 

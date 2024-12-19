@@ -1,6 +1,4 @@
 import { StaticImage } from 'gatsby-plugin-image';
-import React from 'react';
-
 import DoneIcon from '@mui/icons-material/Done';
 import { ConnectorType, dashboardRegisterUrl } from '../../../../../shared';
 import HeroSectionDetails from '../../../../components/HeroSectionDetails';

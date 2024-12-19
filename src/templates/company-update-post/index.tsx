@@ -1,5 +1,4 @@
 import { graphql } from 'gatsby';
-import * as React from 'react';
 import dayjs from 'dayjs';
 import reltime from 'dayjs/plugin/relativeTime';
 import Breadcrumbs from '../../components/Breadcrumbs';

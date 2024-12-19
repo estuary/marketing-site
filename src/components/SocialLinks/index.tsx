@@ -1,4 +1,3 @@
-import React from 'react';
 import GithubIcon from '@mui/icons-material/GitHub';
 import YoutubeIcon from '@mui/icons-material/YouTube';
 import LinkedinIcon from '../../svgs/share-social-icons/linkedin-outlined.svg';

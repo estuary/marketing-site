@@ -1,4 +1,3 @@
-import React from 'react';
 import InternalLink from '../InternalLink';
 import ChevronRightIcon from '../../svgs/chevron-right.svg';
 import OutboundLink from '../LinksAndButtons/OutboundLink';

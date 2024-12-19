@@ -1,4 +1,3 @@
-import React from 'react';
 import DocsIcon from '../../../svgs/file.svg';
 import BlogIcon from '../../../svgs/book.svg';
 import SlackOutlineIcon from '../../../svgs/slack-outline-2.svg';

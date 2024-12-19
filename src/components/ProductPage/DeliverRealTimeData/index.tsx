@@ -1,4 +1,3 @@
-import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import clsx from 'clsx';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';

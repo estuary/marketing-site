@@ -1,4 +1,4 @@
-import React, { SyntheticEvent, useState } from 'react';
+import { SyntheticEvent, useState } from 'react';
 import { Tab, Tabs } from '@mui/material';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import TabPanel from '@mui/lab/TabPanel';

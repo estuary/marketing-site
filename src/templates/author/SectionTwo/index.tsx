@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Author } from '../shared';
 import Card from '../../../components/Grid/Card';
 import ButtonFilled from '../../../components/LinksAndButtons/ButtonFilled';

@@ -1,4 +1,3 @@
-import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import { IStaticImageProps } from 'gatsby-plugin-image/dist/src/components/static-image.server';
 import Container from '../../Container';

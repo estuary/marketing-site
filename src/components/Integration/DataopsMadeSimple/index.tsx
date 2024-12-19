@@ -1,5 +1,4 @@
 import { StaticImage } from 'gatsby-plugin-image';
-import React from 'react';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import SingleDataflowIcon from '../../../svgs/metric-single-dataflow.svg';
 import Advantages from '../../Advantages';

@@ -1,5 +1,4 @@
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
-import * as React from 'react';
 import { Avatar as MuiAvatar } from '@mui/material';
 import { avatar } from './styles.module.less';
 

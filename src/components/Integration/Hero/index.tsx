@@ -1,5 +1,4 @@
 import { GatsbyImage, StaticImage, getImage } from 'gatsby-plugin-image';
-import React from 'react';
 import ActiveUsersIcon from '../../../svgs/metric-active-users.svg';
 import LatencyIcon from '../../../svgs/metric-latency.svg';
 import OfConnectorsIcon from '../../../svgs/metric-of-connectors.svg';

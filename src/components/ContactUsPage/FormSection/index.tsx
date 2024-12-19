@@ -1,4 +1,3 @@
-import React from 'react';
 import ContactUsForm from '../../ContactUsForm';
 import { section } from './styles.module.less';
 

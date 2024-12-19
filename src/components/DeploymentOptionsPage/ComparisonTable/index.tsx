@@ -1,4 +1,3 @@
-import React from 'react';
 import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import Table from '../../Table';
 import Container from '../../Container';

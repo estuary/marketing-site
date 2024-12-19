@@ -1,4 +1,3 @@
-import React from 'react';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import OutboundLink from '../LinksAndButtons/OutboundLink';
 import ApplePodcastButton from '../../svgs/apple-podcasts.svg';

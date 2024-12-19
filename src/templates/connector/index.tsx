@@ -1,5 +1,5 @@
 import { graphql } from 'gatsby';
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import { ConnectorType } from '../../../shared';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import Layout from '../../components/Layout';

@@ -1,6 +1,5 @@
 import { Divider } from '@mui/material';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import React from 'react';
 import { getComparisonSlug, Vendor } from '../../../../../shared';
 import {
     container,

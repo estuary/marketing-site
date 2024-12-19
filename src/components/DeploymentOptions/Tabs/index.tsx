@@ -1,4 +1,3 @@
-import React from 'react';
 import Tab from '@mui/material/Tab';
 import TabList from '@mui/lab/TabList';
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import TitledTableCell from './TitledTableCell';
 import { table } from './styles.module.less';
 

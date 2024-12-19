@@ -1,4 +1,3 @@
-import React from 'react';
 import { useMediaQuery } from '@mui/material';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import Carousel from '../../Carousel';

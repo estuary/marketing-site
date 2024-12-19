@@ -1,4 +1,3 @@
-import React from 'react';
 import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import PipelinesTable from '../../PipelinesTable';
 import Container from '../../Container';

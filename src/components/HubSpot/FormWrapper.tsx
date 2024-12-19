@@ -1,5 +1,4 @@
 import { LinearProgress } from '@mui/material';
-import * as React from 'react';
 import HubspotForm from 'react-hubspot-form';
 
 const handleSubmit = (event) => {

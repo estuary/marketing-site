@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import { Link } from 'gatsby';
-import * as React from 'react';
 import { useEffect, useRef, useState } from 'react';
 import ColoredLogo from '../../svgs/colored-logo.svg';
 import GithubIcon from '../../svgs/github-outline.svg';

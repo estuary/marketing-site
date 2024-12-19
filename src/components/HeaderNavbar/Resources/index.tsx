@@ -5,7 +5,6 @@ import {
     AccordionSummary,
 } from '@mui/material';
 import { StaticImage } from 'gatsby-plugin-image';
-import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import clsx from 'clsx';
 import { webinarsUrl } from '../../../../shared';

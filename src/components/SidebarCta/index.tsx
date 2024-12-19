@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { dashboardRegisterUrl } from '../../../shared';
 import OutboundLinkFilled from '../LinksAndButtons/OutboundLinkFilled';
 import { container, image } from './styles.module.less';

@@ -1,6 +1,6 @@
 import CheckIcon from '@mui/icons-material/Check';
 import { StaticImage } from 'gatsby-plugin-image';
-import React, { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import ButtonFilled from '../LinksAndButtons/ButtonFilled';
 import {
     emailInput,

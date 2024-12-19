@@ -1,4 +1,3 @@
-import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Container from '../../Container';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';

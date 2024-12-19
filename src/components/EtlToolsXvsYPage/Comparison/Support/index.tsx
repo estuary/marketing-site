@@ -1,4 +1,3 @@
-import React from 'react';
 import { ComparisonVendors } from '../shared';
 import TableRows from '../TableRows';
 

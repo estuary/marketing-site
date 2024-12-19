@@ -1,4 +1,3 @@
-import React from 'react';
 import CardsSection from '../../CardsSection';
 import Card from '../../Card';
 import InfrastructureIcon from '../../../svgs/infrastructure.svg';

@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import { graphql, useStaticQuery } from 'gatsby';
-import React from 'react';
 import Carousel from '../Carousel';
 import TestimonialAvatar from './TestimonialAvatar';
 import { description, isDarkTheme, slide, title } from './styles.module.less';
