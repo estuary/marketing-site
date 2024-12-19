@@ -7859,6 +7859,11 @@ gatsby-plugin-preconnect@^1.4.0:
   dependencies:
     "@babel/runtime" "^7.4.3"
 
+gatsby-plugin-provide-react@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-provide-react/-/gatsby-plugin-provide-react-1.0.2.tgz#e50bb311cd8ef5855c6d94f708266ab117c77a15"
+  integrity sha512-Zkbs0uiniXDvtGT86+bTCdj0cuT9REpGJxJTIKLQJW3AvmAdh/MAMwWzMdyMrX1cwjqDPZBFC7bw7A49iP/fyw==
+
 gatsby-plugin-react-svg@^3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-react-svg/-/gatsby-plugin-react-svg-3.3.0.tgz#1dad8594ecd6ffd86e5ff45e1b9365367c999c44"
