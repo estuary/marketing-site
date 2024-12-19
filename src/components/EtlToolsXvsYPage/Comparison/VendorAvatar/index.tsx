@@ -1,5 +1,5 @@
 import { GatsbyImage } from 'gatsby-plugin-image';
-import React from 'react';
+import { forwardRef } from 'react';
 import { Vendor } from '../../../../../shared';
 import { tableHeaderVendor, tableLogoWrapper } from './styles.module.less';
 
@@ -7,7 +7,7 @@ interface VendorAvatarProps {
     vendor: Partial<Vendor>;
 }
 
-const VendorAvatar = React.forwardRef<HTMLTableCellElement, VendorAvatarProps>(
+const VendorAvatar = forwardRef<HTMLTableCellElement, VendorAvatarProps>(
     ({ vendor }, ref) => {
         return (
             <th ref={ref}>

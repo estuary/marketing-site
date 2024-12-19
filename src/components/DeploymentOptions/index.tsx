@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode, useState, SyntheticEvent } from 'react';
 import TabContext from '@mui/lab/TabContext';
 import Container from '../Container';
 import { DeploymentOption } from '../../../shared';
@@ -29,11 +29,10 @@ const DeploymentOptions = ({
     optionsDescription,
     keyFeatures,
 }: DeploymentOptionsProps) => {
-    const [selectedTab, setSelectedTab] =
-        React.useState<DeploymentOption>('public');
+    const [selectedTab, setSelectedTab] = useState<DeploymentOption>('public');
 
     const handleTabChange = (
-        event: React.SyntheticEvent,
+        event: SyntheticEvent,
         newValue: DeploymentOption
     ) => {
         setSelectedTab(newValue);

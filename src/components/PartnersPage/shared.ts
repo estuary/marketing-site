@@ -1,7 +1,7 @@
-import React from 'react';
+import { ReactNode } from 'react';
 
 export interface Partner {
-    icon: React.ReactNode;
+    icon: ReactNode;
     name: string;
     href: string;
 }

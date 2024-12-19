@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState } from 'react';
 import { Navigation, Step } from '../../components/Why';
 import Seo from '../../components/seo';
 import CirclesBackground from '../../components/BackgroundImages/CirclesBackground';
@@ -16,7 +16,7 @@ import {
 export const Head = () => <Seo title="Automate Data Streaming" />;
 
 const WhyEstuary = () => {
-    const [activePage, setActivePage] = React.useState(0);
+    const [activePage, setActivePage] = useState(0);
 
     return (
         <main className={container}>

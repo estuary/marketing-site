@@ -1,11 +1,11 @@
-import React from 'react';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { graphql, useStaticQuery } from 'gatsby';
+import { BaseHTMLAttributes } from 'react';
 import { backgroundImage } from './styles.module.less';
 import BackgroundWrapper from './BackgroundWrapper';
 
 interface WhyPageStepsBackgroundProps
-    extends React.BaseHTMLAttributes<HTMLDivElement> {
+    extends BaseHTMLAttributes<HTMLDivElement> {
     activePage: number;
 }
 

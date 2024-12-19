@@ -1,9 +1,9 @@
-import React from 'react';
+import { forwardRef, HTMLProps } from 'react';
 import { handleOutboundLinkClick } from '../utils';
 
-const OutboundLink = React.forwardRef<
+const OutboundLink = forwardRef<
     HTMLAnchorElement,
-    React.HTMLProps<HTMLAnchorElement>
+    HTMLProps<HTMLAnchorElement>
 >(({ children, ...props }, ref) => {
     return (
         <a

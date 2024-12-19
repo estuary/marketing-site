@@ -1,4 +1,4 @@
-import React from 'react';
+import { ButtonHTMLAttributes } from 'react';
 import clsx from 'clsx';
 import { baseButton } from '../styles.module.less';
 
@@ -6,7 +6,7 @@ const ButtonFilled = ({
     children,
     className,
     ...props
-}: React.ButtonHTMLAttributes<HTMLButtonElement>) => {
+}: ButtonHTMLAttributes<HTMLButtonElement>) => {
     return (
         <button className={clsx(baseButton, className)} {...props}>
             {children}

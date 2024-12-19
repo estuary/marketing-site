@@ -1,9 +1,9 @@
-import React, { ReactNode } from 'react';
+import { FunctionComponent, ReactNode, SVGAttributes } from 'react';
 import clsx from 'clsx';
 import { container, darkTheme } from './styles.module.less';
 
 interface CardProps {
-    Icon: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
+    Icon: FunctionComponent<SVGAttributes<SVGElement>>;
     title: string;
     children: string;
     isDarkTheme?: boolean;

@@ -1,7 +1,7 @@
 import Chevron from '@mui/icons-material/ChevronRight';
 import { Link } from 'gatsby';
-import * as React from 'react';
 import clsx from 'clsx';
+import { useState, useEffect } from 'react';
 import { hideOnMobile, seeAllButton } from '../styles.module.less';
 import OutboundLink from '../../LinksAndButtons/OutboundLink';
 import {
@@ -49,9 +49,9 @@ const HeaderCardItem = ({
     contentFooterLink,
     ...props
 }: any) => {
-    const [showAll, setShowAll] = React.useState(false);
+    const [showAll, setShowAll] = useState(false);
 
-    React.useEffect(() => {
+    useEffect(() => {
         setShowAll(false);
     }, [active]);
 

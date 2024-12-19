@@ -1,4 +1,4 @@
-import React from 'react';
+import { memo } from 'react';
 import FeatureData from '../FeatureData';
 import TitledTableCell from '../../../Table/TitledTableCell';
 
@@ -25,7 +25,7 @@ const getNestedProperty = (obj: Record<string, any>, path: string) => {
     return path.split('.').reduce((acc, key) => acc?.[key], obj);
 };
 
-const TableRows = React.memo(
+const TableRows = memo(
     ({
         title,
         rows,

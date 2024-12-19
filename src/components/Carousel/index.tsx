@@ -1,8 +1,8 @@
-import React from 'react';
 import { EmblaOptionsType } from 'embla-carousel';
 import useEmblaCarousel from 'embla-carousel-react';
 import CircleIcon from '@mui/icons-material/Circle';
 import clsx from 'clsx';
+import { Children, HTMLAttributes, ReactNode } from 'react';
 import ChevronLeftIcon from '../../svgs/chevron-left.svg';
 import ChevronRightIcon from '../../svgs/chevron-right.svg';
 import { useDotButton } from './hooks/useDotButton';
@@ -22,8 +22,8 @@ import {
     dotSelected,
 } from './styles.module.less';
 
-type CarouselProps = React.HTMLAttributes<HTMLDivElement> & {
-    children: React.ReactNode;
+type CarouselProps = HTMLAttributes<HTMLDivElement> & {
+    children: ReactNode;
     options?: EmblaOptionsType;
     hasArrow?: boolean;
     dotColor?: string;
@@ -65,7 +65,7 @@ const Carousel = ({
         >
             <div className={viewport} ref={emblaRef}>
                 <div className={slideWrapper}>
-                    {React.Children.map(children, (child, index) => (
+                    {Children.map(children, (child, index) => (
                         <div
                             className={clsx(
                                 slide,
@@ -90,7 +90,7 @@ const Carousel = ({
                         <ChevronLeftIcon color={arrowColor} />
                     </button>
                 ) : null}
-                {React.Children.count(children) > 1 ? (
+                {Children.count(children) > 1 ? (
                     <ul className={dots}>
                         {scrollSnaps.map((_, index) => (
                             <li

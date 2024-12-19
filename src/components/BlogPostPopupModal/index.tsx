@@ -1,6 +1,6 @@
 import { IconButton, Dialog } from '@mui/material';
 import { StaticImage } from 'gatsby-plugin-image';
-import * as React from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 import { webinarsUrl } from '../../../shared';
 import EstuaryLogo from '../../svgs/colored-logo.svg';
@@ -75,11 +75,11 @@ const dialogStyle = {
 };
 
 const BlogPostPopupModal = () => {
-    const [openDialog, setOpenDialog] = React.useState(false);
+    const [openDialog, setOpenDialog] = useState(false);
 
-    const hasOpened = React.useRef(false);
+    const hasOpened = useRef(false);
 
-    const handleExitIntent = React.useCallback((e: MouseEvent) => {
+    const handleExitIntent = useCallback((e: MouseEvent) => {
         const isPopupRejected = localStorage.getItem(STORAGE_KEY);
 
         if (!isPopupRejected && !hasOpened.current && e.clientY <= 0) {
@@ -88,7 +88,7 @@ const BlogPostPopupModal = () => {
         }
     }, []);
 
-    React.useEffect(() => {
+    useEffect(() => {
         window.addEventListener('mouseout', handleExitIntent);
 
         return () => {

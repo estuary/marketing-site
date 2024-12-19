@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { Suspense } from 'react';
 import ActiveUsersIcon from '../../../svgs/metric-active-users.svg';
 import LatencyIcon from '../../../svgs/metric-latency.svg';
 import SingleDataflowIcon from '../../../svgs/metric-single-dataflow.svg';
@@ -38,9 +38,9 @@ const Hero = () => {
                     hasSubscriptionBenefits
                 />
                 <div className={flowAnimationContainer}>
-                    <React.Suspense fallback={AnimFallback}>
+                    <Suspense fallback={AnimFallback}>
                         <AnimatedHero />
-                    </React.Suspense>
+                    </Suspense>
                 </div>
             </div>
             <ul className={metricCardsList}>

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { Dispatch, SetStateAction, memo } from 'react';
 import Step0 from './Step0';
 import Step1 from './Step1';
 import Step2 from './Step2';
@@ -10,10 +10,10 @@ import Step7 from './Step7';
 
 type StepProps = {
     activePage: number;
-    setActivePage: React.Dispatch<React.SetStateAction<number>>;
+    setActivePage: Dispatch<SetStateAction<number>>;
 };
 
-const Step = React.memo(({ activePage, setActivePage }: StepProps) => {
+const Step = memo(({ activePage, setActivePage }: StepProps) => {
     switch (activePage) {
         case 0:
             return <Step0 activePage={activePage} setState={setActivePage} />;
