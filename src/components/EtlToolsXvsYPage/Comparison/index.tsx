@@ -25,22 +25,20 @@ interface SectionTwoProps {
     estuaryVendor: Vendor;
 }
 
-const articleBody = {
+const articleBody = (xVendorName, yVendorName, estuaryVendorName) => ({
     intro: {
         id: 'intro',
         heading: 'Introduction',
     },
     comparisonMatrix: {
         id: 'comparison-matrix',
-        heading: 'Comparison Matrix',
+        heading: `Comparison Matrix: ${xVendorName} vs ${yVendorName}${estuaryVendorName ? ` vs ${estuaryVendorName}` : ''}`,
     },
     howToChoose: {
         id: 'how-to-choose',
         heading: 'How to choose the best option',
     },
-};
-
-const { intro, comparisonMatrix, howToChoose } = articleBody;
+});
 
 const tableBodyComponents = [
     UseCases,
@@ -57,6 +55,16 @@ const Comparison = ({ xVendor, yVendor, estuaryVendor }: SectionTwoProps) => {
     const isThreeVendorComparison = useMemo(() => {
         return ![xVendor.id, yVendor.id].includes(estuaryVendor.id);
     }, [xVendor.id, yVendor.id, estuaryVendor.id]);
+
+    const { intro, comparisonMatrix, howToChoose } = useMemo(
+        () =>
+            articleBody(
+                xVendor.name,
+                yVendor.name,
+                isThreeVendorComparison ? estuaryVendor.name : null
+            ),
+        [xVendor.name, yVendor.name, isThreeVendorComparison, estuaryVendor]
+    );
 
     const stickyRef1 = useRef<HTMLTableCellElement>(null);
     const stickyRef2 = useRef<HTMLTableCellElement>(null);
@@ -94,7 +102,15 @@ const Comparison = ({ xVendor, yVendor, estuaryVendor }: SectionTwoProps) => {
             ...vendors,
             { id: howToChoose.id, heading: howToChoose.heading },
         ];
-    }, [xVendor, yVendor, estuaryVendor, isThreeVendorComparison]);
+    }, [
+        xVendor,
+        yVendor,
+        estuaryVendor,
+        isThreeVendorComparison,
+        intro,
+        comparisonMatrix,
+        howToChoose,
+    ]);
 
     useEffect(() => {
         const handleScroll = () => {
