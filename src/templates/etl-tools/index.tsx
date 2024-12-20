@@ -33,6 +33,11 @@ const EtlTools = ({
                 xVendor={xVendor}
                 yVendor={yVendor}
                 estuaryVendor={estuaryVendor}
+                allVendors={vendors.map((vendor) => ({
+                    id: vendor.id,
+                    name: vendor.name,
+                    slugKey: vendor.slugKey,
+                }))}
             />
             <GettingStarted />
         </Layout>
