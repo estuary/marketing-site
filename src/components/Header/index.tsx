@@ -80,10 +80,6 @@ import {
             },
           ],
         },
-        {
-          title: 'Solutions',
-          path: '/solutions',
-        },
       ].filter(Boolean),
     },
     {
