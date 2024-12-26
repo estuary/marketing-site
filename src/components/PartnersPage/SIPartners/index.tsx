@@ -55,12 +55,12 @@ const serviceIntegrationPartners: Partner[] = [
     {
         icon: (
             <StaticImage
-                src="../../../images/partners-page/partner-logos/brooklyn.png"
-                alt="Brooklyn logo"
+                src="../../../images/partners-page/partner-logos/brooklyn-data-co.png"
+                alt="Brooklyn Data Co. logo"
                 placeholder="blurred"
             />
         ),
-        name: 'Brooklyn',
+        name: 'Brooklyn Data Co.',
         href: 'https://www.brooklyndata.co/',
     },
 ];
