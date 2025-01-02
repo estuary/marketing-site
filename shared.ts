@@ -17,6 +17,8 @@ export const estuaryLinkedinUrl =
 export const estuaryProductFlowVideoUrl =
     'https://www.youtube.com/embed/hlCh81ZbBik';
 
+export const socTwoLink = 'https://www.aicpa.org/soc4so';
+
 export type ConnectorType = 'capture' | 'materialization';
 
 export type ButtonStyleVariants =

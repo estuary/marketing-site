@@ -3,6 +3,8 @@ import { StaticImage } from 'gatsby-plugin-image';
 import Advantages from '../Advantages';
 import SecureIcon from '../../svgs/secure-data.svg';
 import OpenHubspotModal from '../HubSpot/OpenModal';
+import { socTwoLink } from '../../../shared';
+import OutboundLink from '../LinksAndButtons/OutboundLink';
 
 interface SecurityCertificatesProps {
     isDarkTheme?: boolean;
@@ -30,12 +32,18 @@ const SecurityCertificates = ({
                 'Estuary Flow is designed and tested to make sure your data and your systems stay secure.'
             }
             image={
-                <StaticImage
-                    placeholder="none"
-                    alt="Secure Your Data with Estuary Flow: Compliance and Certification"
-                    src="../../images/product-page/section-ten/gdpr-ccpa-cpra-soc2-type2-compliant.png"
-                    quality={100}
-                />
+                <OutboundLink
+                    target="_blank"
+                    href={socTwoLink}
+                    aria-label="Link to AICPA SOC for Service Organizations Engagements overview"
+                >
+                    <StaticImage
+                        placeholder="none"
+                        alt="Secure Your Data with Estuary Flow: Compliance and Certification"
+                        src="../../images/product-page/section-ten/gdpr-ccpa-cpra-soc2-type2-compliant.png"
+                        quality={100}
+                    />
+                </OutboundLink>
             }
             advantages={[
                 {
