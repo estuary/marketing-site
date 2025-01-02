@@ -1,6 +1,6 @@
 import CloseIcon from '@mui/icons-material/Close';
 import IconButton from '@mui/material/IconButton';
-import React, { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import OutboundLink from '../LinksAndButtons/OutboundLink';
 import { container } from './styles.module.less';
 

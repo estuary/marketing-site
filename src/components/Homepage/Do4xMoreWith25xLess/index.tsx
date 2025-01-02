@@ -1,4 +1,3 @@
-import * as React from 'react';
 import DatabaseSavingWithLowPrice from '../../../svgs/database-saving-with-low-price.svg';
 import { PricingCalculator } from '../../PricingCalculator';
 import Advantages from '../../Advantages';

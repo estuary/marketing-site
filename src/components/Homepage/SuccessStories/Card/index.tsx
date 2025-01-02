@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { ReactNode } from 'react';
 import LinkOutlined from '../../../LinksAndButtons/LinkOutlined';
 import { successStoryLogoWrapper, container } from './styles.module.less';
 
@@ -6,7 +6,7 @@ type CardProps = {
     href: string;
     title: string;
     description: string;
-    image: React.ReactNode;
+    image: ReactNode;
 };
 
 const Card = ({ href, title, description, image }: CardProps) => {

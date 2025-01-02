@@ -1,5 +1,4 @@
 import { StaticImage } from 'gatsby-plugin-image';
-import * as React from 'react';
 import SingleDataflowIcon from '../../../svgs/metric-single-dataflow.svg';
 import { docsPageUrl } from '../../../../shared';
 import Advantages from '../../Advantages';

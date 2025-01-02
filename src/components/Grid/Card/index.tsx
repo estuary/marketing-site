@@ -1,6 +1,5 @@
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { Link } from 'gatsby';
-import React from 'react';
 import { AvatarGroup } from '@mui/material';
 import ArrowRight2 from '../../../svgs/arrow-right-2.svg';
 import Avatar from '../../Avatar';

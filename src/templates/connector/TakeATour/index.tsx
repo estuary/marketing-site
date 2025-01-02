@@ -1,5 +1,4 @@
 import { StaticImage } from 'gatsby-plugin-image';
-import React from 'react';
 import ReactPlayer from 'react-player';
 import { estuaryProductFlowVideoUrl } from '../../../../shared';
 import useWindowExistence from '../../../hooks/useWindowExistence';

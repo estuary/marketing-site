@@ -1,4 +1,3 @@
-import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import CalendarIcon from '../../../svgs/product-page/section-fourteen/calendar.svg';

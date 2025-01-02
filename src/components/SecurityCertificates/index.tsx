@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import Advantages from '../Advantages';
 import SecureIcon from '../../svgs/secure-data.svg';

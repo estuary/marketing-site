@@ -1,4 +1,3 @@
-import React from 'react';
 import TopPlatformIcon from '../../../svgs/success.svg';
 import IndustryTrendsIcon from '../../../svgs/industry-trends.svg';
 import PartnerBenefitsIcon from '../../../svgs/give-access.svg';

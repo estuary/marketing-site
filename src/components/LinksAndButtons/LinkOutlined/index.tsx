@@ -1,5 +1,5 @@
-import React from 'react';
 import clsx from 'clsx';
+import { forwardRef, AnchorHTMLAttributes } from 'react';
 import { CustomProps } from '../shared';
 import {
     baseButton,
@@ -9,9 +9,9 @@ import {
     lightBorder,
 } from '../styles.module.less';
 
-const LinkOutlined = React.forwardRef<
+const LinkOutlined = forwardRef<
     HTMLAnchorElement,
-    React.AnchorHTMLAttributes<HTMLAnchorElement> & CustomProps
+    AnchorHTMLAttributes<HTMLAnchorElement> & CustomProps
 >(
     (
         {

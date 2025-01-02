@@ -1,5 +1,5 @@
 import { Link } from 'gatsby';
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import OutboundLink from '../../LinksAndButtons/OutboundLink';
 import { globalFooterRightLink } from '../styles.module.less';
 

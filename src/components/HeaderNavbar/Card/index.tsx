@@ -1,4 +1,3 @@
-import React from 'react';
 import { wrapper, divider, container } from './styles.module.less';
 
 const HeaderCard = ({ children, ...props }) => {

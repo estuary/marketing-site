@@ -1,5 +1,5 @@
 import { graphql } from 'gatsby';
-import React from 'react';
+import { useMemo } from 'react';
 import { ConnectorType } from '../../../shared';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import Layout from '../../components/Layout';
@@ -97,7 +97,7 @@ export const Head = ({
 }) => {
     const mappedConnector = normalizeConnector(connector);
 
-    const [title, description] = React.useMemo(() => {
+    const [title, description] = useMemo(() => {
         switch (connectorType) {
             case 'capture':
                 return [

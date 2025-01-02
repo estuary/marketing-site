@@ -1,5 +1,4 @@
 import { GatsbyImage } from 'gatsby-plugin-image';
-import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import DarkSwoopingLinesLeftDirectionBackground from '../../BackgroundImages/DarkSwoopingLinesLeftDirectionBackground';
 import Container from '../../Container';

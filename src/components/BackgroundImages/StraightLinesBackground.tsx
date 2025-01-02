@@ -1,4 +1,4 @@
-import React from 'react';
+import { HTMLAttributes } from 'react';
 import clsx from 'clsx';
 import { StaticImage } from 'gatsby-plugin-image';
 import { backgroundImage, fullHeight } from './styles.module.less';
@@ -8,7 +8,7 @@ import BackgroundWrapper from './BackgroundWrapper';
 const StraightLinesBackground = ({
     children,
     className,
-}: React.HTMLAttributes<HTMLDivElement>) => {
+}: HTMLAttributes<HTMLDivElement>) => {
     return (
         <BackgroundWrapper>
             <StaticImage

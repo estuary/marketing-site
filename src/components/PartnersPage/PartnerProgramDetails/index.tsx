@@ -1,4 +1,3 @@
-import React from 'react';
 import clsx from 'clsx';
 import Container from '../../Container';
 import { Partner } from '../shared';

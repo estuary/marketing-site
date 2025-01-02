@@ -1,7 +1,6 @@
 import Chevron from '@mui/icons-material/ChevronRight';
 import clsx from 'clsx';
 import { Link } from 'gatsby';
-import React from 'react';
 import { globalHeaderLink } from '../../styles.module.less';
 import { menuChevron, activeHeaderLink } from '../styles.module.less';
 

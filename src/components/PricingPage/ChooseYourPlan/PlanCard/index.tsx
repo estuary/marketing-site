@@ -1,5 +1,5 @@
-import React from 'react';
 import clsx from 'clsx';
+import { ReactNode } from 'react';
 import CheckSvgIcon from '../../../../svgs/checkmark.svg';
 import OutboundLinkFilled from '../../../LinksAndButtons/OutboundLinkFilled';
 import OutboundLinkOutlined from '../../../LinksAndButtons/OutboundLinkOutlined';
@@ -21,7 +21,7 @@ import {
 } from './styles.module.less';
 
 interface PlanCardProps {
-    icon: React.ReactNode;
+    icon: ReactNode;
     title: string;
     pricePerGb?: number;
     pricePerConnector?: number;

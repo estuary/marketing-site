@@ -1,4 +1,3 @@
-import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import Advantages from '../../Advantages';

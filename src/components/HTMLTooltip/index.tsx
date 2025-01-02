@@ -1,7 +1,6 @@
 import Fade from '@mui/material/Fade';
 import Tooltip, { TooltipProps, tooltipClasses } from '@mui/material/Tooltip';
 import { styled } from '@mui/material/styles';
-import React from 'react';
 
 export interface HTMLTooltipProps extends TooltipProps {
     backgroundColor?: string;

@@ -6,8 +6,8 @@
  */
 
 import { graphql, useStaticQuery } from 'gatsby';
-import * as React from 'react';
 
+import { FC, ReactElement } from 'react';
 import logoUrl from '../images/estuary.png';
 import { estuaryAddress, estuaryLinkedinUrl } from '../../shared';
 
@@ -16,16 +16,10 @@ export interface SeoProps {
     description?: string;
     image?: string;
     url?: string;
-    children?: React.ReactElement;
+    children?: ReactElement;
 }
 
-const Seo: React.FC<SeoProps> = ({
-    description,
-    title,
-    image,
-    url,
-    children,
-}) => {
+const Seo: FC<SeoProps> = ({ description, title, image, url, children }) => {
     const { site, defaultMetaImg } = useStaticQuery(graphql`
         query SeoData {
             site {

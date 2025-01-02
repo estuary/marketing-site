@@ -1,4 +1,3 @@
-import * as React from 'react';
 import DarkSwoopingLinesLeftDirectionBackground from '../../BackgroundImages/DarkSwoopingLinesLeftDirectionBackground';
 import MainConnectors from '../../MainConnectors';
 import { textWrapper } from '../styles.module.less';

@@ -1,4 +1,3 @@
-import React from 'react';
 import CalendarTodayOutlined from '@mui/icons-material/CalendarTodayOutlined';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import DoneIcon from '@mui/icons-material/Done';

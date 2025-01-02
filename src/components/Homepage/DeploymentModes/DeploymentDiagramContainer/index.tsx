@@ -1,4 +1,3 @@
-import React from 'react';
 import DeploymentOptionDiagram from '../../../DeploymentOptions/DeploymentOptionDiagram';
 import { DeploymentOption } from '../../../../../shared';
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import BuildingIcon from '@mui/icons-material/Apartment';
 import { sectionTopBottomPadding } from '../../../globalStyles/wrappers.module.less';
 import { estuaryAddress } from '../../../../shared';

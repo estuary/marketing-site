@@ -1,5 +1,4 @@
 import { Link } from 'gatsby';
-import React from 'react';
 import ChevronRightIcon from '../../../svgs/chevron-right.svg';
 
 interface HeaderViewAllLinkProps {

@@ -1,4 +1,3 @@
-import React from 'react';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import MainConnectors from '../../MainConnectors';
 import { container, description, title } from './styles.module.less';

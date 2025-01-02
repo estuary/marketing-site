@@ -1,5 +1,5 @@
-import React from 'react';
 import clsx from 'clsx';
+import { ReactNode } from 'react';
 import ChevronRightIcon from '../../../../svgs/chevron-right.svg';
 import OutboundLink from '../../../LinksAndButtons/OutboundLink';
 import {
@@ -14,7 +14,7 @@ import {
 type CardProps = {
     title: string;
     description: string;
-    icon: React.ReactNode;
+    icon: ReactNode;
     href: string;
     isActive?: boolean;
 };

@@ -1,6 +1,4 @@
 import { StaticImage } from 'gatsby-plugin-image';
-import * as React from 'react';
-
 import DiagramSourceConnectors from '../../DiagramConnectors/DiagramSourceConnectors';
 import DiagramDestinationConnectors from '../../DiagramConnectors/DiagramDestinationConnectors';
 import FlowCycle from '../../../svgs/flow-cycle.svg';

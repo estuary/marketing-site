@@ -1,4 +1,3 @@
-import React from 'react';
 import LinkOutlined from '../LinksAndButtons/LinkOutlined';
 import LinkFilled from '../LinksAndButtons/LinkFilled';
 

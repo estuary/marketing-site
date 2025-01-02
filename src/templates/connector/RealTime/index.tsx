@@ -1,5 +1,4 @@
 import { StaticImage } from 'gatsby-plugin-image';
-import React from 'react';
 import { dashboardRegisterUrl } from '../../../../shared';
 import StraightLinesBackground from '../../../components/BackgroundImages/StraightLinesBackground';
 import OutboundLinkFilled from '../../../components/LinksAndButtons/OutboundLinkFilled';

@@ -1,10 +1,10 @@
 import { Script } from 'gatsby';
-import * as React from 'react';
 import { isMobile } from 'react-device-detect';
+import { useMemo, useState, useEffect } from 'react';
 import { ZD_KEY } from './utils';
 
 const WrapPageElementComponent = ({ children }) => {
-    const screenSize = React.useMemo(
+    const screenSize = useMemo(
         () => ({
             width: window.innerWidth,
             height: window.innerHeight,
@@ -12,9 +12,9 @@ const WrapPageElementComponent = ({ children }) => {
         []
     );
 
-    const [dimensions, setDimensions] = React.useState(screenSize);
+    const [dimensions, setDimensions] = useState(screenSize);
 
-    React.useEffect(() => {
+    useEffect(() => {
         const subscriber = () => setDimensions(screenSize);
         window.addEventListener('load', subscriber);
         return () => window.removeEventListener('load', subscriber);

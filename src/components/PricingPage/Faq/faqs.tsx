@@ -1,4 +1,3 @@
-import React from 'react';
 import clsx from 'clsx';
 import { StaticImage } from 'gatsby-plugin-image';
 import {

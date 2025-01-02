@@ -1,4 +1,3 @@
-import React from 'react';
 import FileIcon from '../../../../svgs/file.svg';
 import LinkOutlined from '../../../LinksAndButtons/LinkOutlined';
 import { container } from './styles.module.less';

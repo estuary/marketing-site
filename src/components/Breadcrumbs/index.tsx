@@ -1,5 +1,5 @@
-import * as React from 'react';
 import { Link } from 'gatsby';
+import { FC } from 'react';
 import { links, crumbTitle, divider, container } from './styles.module.less';
 
 interface Breadcrumb {
@@ -11,7 +11,7 @@ interface BreadcrumbsProps {
     breadcrumbs: Breadcrumb[];
 }
 
-const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ breadcrumbs = [] }) => (
+const Breadcrumbs: FC<BreadcrumbsProps> = ({ breadcrumbs = [] }) => (
     <nav aria-label="breadcrumb" className={container}>
         <ol className={links}>
             {breadcrumbs.map(({ title, href }) => (

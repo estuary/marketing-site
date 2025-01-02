@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { currencyFormatter } from '../../utils';
 import { brandName, brandPrice, brandWrapper } from './styles.module.less';
 

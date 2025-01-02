@@ -1,4 +1,3 @@
-import React from 'react';
 import clsx from 'clsx';
 import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import { PricingCalculator } from '../../PricingCalculator';

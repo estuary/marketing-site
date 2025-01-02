@@ -1,4 +1,3 @@
-import React from 'react';
 import { Connectors } from '../components/Connectors';
 import Layout from '../components/Layout';
 import Seo from '../components/seo';

@@ -14,7 +14,15 @@ import {
     bindMenu,
     usePopupState,
 } from 'material-ui-popup-state/hooks';
-import * as React from 'react';
+import {
+    createContext,
+    ComponentProps,
+    useContext,
+    useCallback,
+    Fragment,
+    useMemo,
+    useState,
+} from 'react';
 import {
     globalHeaderLink,
     globalHeaderMenuLink,
@@ -22,7 +30,7 @@ import {
     globalHeaderMenuChevronDown,
 } from './styles.module.less';
 
-const CascadingContext = React.createContext<{
+const CascadingContext = createContext<{
     parentPopupState: any;
     rootPopupState: any;
 }>({
@@ -33,10 +41,10 @@ const CascadingContext = React.createContext<{
 export function CascadingMenuItem({
     onClick,
     ...props
-}: React.ComponentProps<typeof MenuItem>) {
-    const { rootPopupState } = React.useContext(CascadingContext);
+}: ComponentProps<typeof MenuItem>) {
+    const { rootPopupState } = useContext(CascadingContext);
     if (!rootPopupState) throw new Error('must be used inside a CascadingMenu');
-    const handleClick = React.useCallback(
+    const handleClick = useCallback(
         (event) => {
             rootPopupState.close(event);
             if (onClick) onClick(event);
@@ -52,17 +60,17 @@ export function CascadingSubmenu({
     popupId,
     ...props
 }: Omit<
-    React.ComponentProps<typeof CascadingMenu> & { popupId: string },
+    ComponentProps<typeof CascadingMenu> & { popupId: string },
     'popupState'
 >) {
-    const { parentPopupState } = React.useContext(CascadingContext);
+    const { parentPopupState } = useContext(CascadingContext);
     const popupState = usePopupState({
         popupId,
         variant: 'popover',
         parentPopupState,
     });
     return (
-        <React.Fragment>
+        <Fragment>
             <MenuItem
                 style={{ paddingRight: 0 }}
                 {...bindHover(popupState)}
@@ -80,7 +88,7 @@ export function CascadingSubmenu({
                 transformOrigin={{ vertical: 'top', horizontal: 'left' }}
                 popupState={popupState}
             />
-        </React.Fragment>
+        </Fragment>
     );
 }
 
@@ -88,13 +96,13 @@ export function CascadingMenu({
     popupState,
     ...props
 }: Omit<
-    React.ComponentProps<typeof HoverMenu> & {
+    ComponentProps<typeof HoverMenu> & {
         popupState: Parameters<typeof bindMenu>[0];
     },
     keyof ReturnType<typeof bindMenu>
 >) {
-    const { rootPopupState } = React.useContext(CascadingContext);
-    const context = React.useMemo(
+    const { rootPopupState } = useContext(CascadingContext);
+    const context = useMemo(
         () => ({
             rootPopupState: rootPopupState ?? popupState,
             parentPopupState: popupState,
@@ -185,7 +193,7 @@ export const NavMenuTopLevel = ({ item }: { item: NavItem }) => {
 };
 
 export const NavMenuList = ({ item }: { item: NavItem }) => {
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
 
     const button = (
         <ListItemButton

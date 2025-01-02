@@ -1,4 +1,3 @@
-import React from 'react';
 import DoneIcon from '@mui/icons-material/Done';
 import { useMediaQuery } from '@mui/material';
 import { ConnectorType } from '../../../../shared';

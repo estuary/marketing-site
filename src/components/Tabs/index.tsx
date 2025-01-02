@@ -1,5 +1,5 @@
 // src/components/Tabs.tsx
-import React, { ReactNode, useState } from 'react';
+import { ReactNode, useState } from 'react';
 import clsx from 'clsx';
 import {
     tabStyle,

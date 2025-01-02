@@ -1,11 +1,11 @@
-import React from 'react';
 import clsx from 'clsx';
+import { forwardRef, HTMLProps } from 'react';
 import { handleOutboundLinkClick } from '../utils';
 import { baseButton } from '../styles.module.less';
 
-const OutboundLinkFilled = React.forwardRef<
+const OutboundLinkFilled = forwardRef<
     HTMLAnchorElement,
-    React.HTMLProps<HTMLAnchorElement>
+    HTMLProps<HTMLAnchorElement>
 >(({ children, className, ...props }, ref) => (
     <a
         ref={ref}

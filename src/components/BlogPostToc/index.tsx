@@ -5,7 +5,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import clsx from 'clsx';
 import { Link } from 'gatsby';
-import * as React from 'react';
+import { MouseEvent, useEffect, useMemo, useRef, useState } from 'react';
 import {
     tableOfContents,
     accordion,
@@ -40,7 +40,7 @@ const RenderTocItem = ({
     const isSelected = selectKey === selectedItem;
 
     const handleLinkClick = (
-        event: React.MouseEvent<HTMLAnchorElement, globalThis.MouseEvent>
+        event: MouseEvent<HTMLAnchorElement, globalThis.MouseEvent>
     ) => {
         if (!isSelected) {
             handleItemClick(selectKey);
@@ -58,7 +58,7 @@ const RenderTocItem = ({
         }
     };
 
-    const renderedItems = React.useMemo(
+    const renderedItems = useMemo(
         () =>
             item.items && item.items.length > 0 ? (
                 <ol role="list" style={{ padding: 0 }}>
@@ -112,14 +112,12 @@ const observeItems = (
 };
 
 export const RenderToc = ({ items }: { items: TocItem[] }) => {
-    const [selectedItem, setSelectedItem] = React.useState<string | null>(null);
-    const intersectionObserver = React.useRef<IntersectionObserver | null>(
-        null
-    );
-    const timeoutRef = React.useRef<NodeJS.Timeout | null>(null);
+    const [selectedItem, setSelectedItem] = useState<string | null>(null);
+    const intersectionObserver = useRef<IntersectionObserver | null>(null);
+    const timeoutRef = useRef<NodeJS.Timeout | null>(null);
     const isMobile = useMediaQuery('(max-width: 768px) or (max-height: 790px)');
 
-    React.useEffect(() => {
+    useEffect(() => {
         intersectionObserver.current = new IntersectionObserver(
             (entries) => {
                 let lastVisibleId: string | undefined;
@@ -166,7 +164,7 @@ export const RenderToc = ({ items }: { items: TocItem[] }) => {
         }, 10);
     };
 
-    const renderedItems = React.useMemo(
+    const renderedItems = useMemo(
         () =>
             items.map((item) => (
                 <RenderTocItem

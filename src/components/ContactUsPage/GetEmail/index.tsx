@@ -1,4 +1,3 @@
-import React from 'react';
 import NewsletterSignupForm from '../../NewsletterSignupForm';
 import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import { dashboardRegisterUrl } from '../../../../shared';

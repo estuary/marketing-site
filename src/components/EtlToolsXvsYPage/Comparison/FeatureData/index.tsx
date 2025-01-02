@@ -1,4 +1,3 @@
-import React from 'react';
 import { SubText } from '../../../../../shared';
 import CheckOrCrossIcon from './CheckOrCrossIcon';
 import DollarSigns from './DollarSigns';

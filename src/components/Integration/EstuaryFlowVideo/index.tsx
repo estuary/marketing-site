@@ -1,4 +1,3 @@
-import React from 'react';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import FlowDemoVideo from '../../FlowDemoVideo';
 import { dashboardRegisterUrl } from '../../../../shared';

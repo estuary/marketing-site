@@ -1,22 +1,22 @@
-import * as React from 'react';
 import LottiePlayerLight from 'react-lottie-player/dist/LottiePlayerLight';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import AnimFallback from './AnimFallback';
 import { flowAnimationPlaceholderContainer } from './styles.module.less';
 
 const AnimatedHero = () => {
-    const [animationData, setAnimationData] = React.useState<object>();
+    const [animationData, setAnimationData] = useState<object>();
 
-    React.useEffect(() => {
+    useEffect(() => {
         import('../../../images/hero-animation.min.json')
             .then(setAnimationData)
             .catch((error) => console.error(error));
     }, []);
 
-    const [showAnimation, setShowAnimation] = React.useState(false);
-    const [lottieLoaded, setLottieLoaded] = React.useState(false);
-    const lottieRef: any = React.useRef();
+    const [showAnimation, setShowAnimation] = useState(false);
+    const [lottieLoaded, setLottieLoaded] = useState(false);
+    const lottieRef: any = useRef();
 
-    React.useEffect(() => {
+    useEffect(() => {
         let playTimeout;
         if (lottieLoaded) {
             setShowAnimation(true);
@@ -32,7 +32,7 @@ const AnimatedHero = () => {
         };
     }, [lottieLoaded]);
 
-    const handleLottieLoaded = React.useCallback(() => {
+    const handleLottieLoaded = useCallback(() => {
         setLottieLoaded(true);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [lottieRef]);

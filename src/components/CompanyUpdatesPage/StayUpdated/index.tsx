@@ -1,4 +1,3 @@
-import React from 'react';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import LinkedinIcon from '../../../svgs/linkedin-outline.svg';
 import Container from '../../Container';

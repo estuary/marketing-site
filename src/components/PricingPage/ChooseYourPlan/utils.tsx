@@ -1,4 +1,3 @@
-import React from 'react';
 import LockSvgIcon from '../../../svgs/pricing-page/lock.svg';
 import CloudSvgIcon from '../../../svgs/pricing-page/cloud.svg';
 import EnterpriseSvgIcon from '../../../svgs/pricing-page/enterprise.svg';

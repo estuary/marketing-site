@@ -1,5 +1,4 @@
 import { IGatsbyImageData } from 'gatsby-plugin-image';
-import * as React from 'react';
 import { graphql } from 'gatsby';
 import NewsletterSignupForm from '../../components/NewsletterSignupForm';
 import Layout from '../../components/Layout';

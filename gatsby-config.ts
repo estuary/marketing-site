@@ -607,6 +607,7 @@ const cfg: GatsbyConfig = {
         //     ],
         //   },
         // },
+        `gatsby-plugin-provide-react`,
     ],
 };
 
