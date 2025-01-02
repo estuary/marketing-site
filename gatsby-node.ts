@@ -18,6 +18,9 @@ const path = require('path');
 
 // Define the template for blog and blog post
 const blogPostTemplate = path.resolve('./src/templates/blog-post/index.tsx');
+const useCaseSolutionsTemplate = path.resolve(
+    './src/templates/use-case-solutions/index.tsx'
+);
 const companyUpdatesPostTemplate = path.resolve(
     './src/templates/company-update-post/index.tsx'
 );
@@ -449,6 +452,112 @@ export const createPages: GatsbyNode['createPages'] = async ({
             },
         });
     });
+
+    const useCaseSolutions = [
+        {
+            slug: '/solutions/use-cases/data-movement',
+            sections: {
+                hero: {
+                    title: 'Data Movement',
+                },
+                testimonial: {
+                    title: {
+                        highlightedText: 'Effortless ETL and ELT ',
+                        normalText: 'for all your data pipelines',
+                    },
+                    description:
+                        'Estuary Flow empowers businesses to execute data pipelines with ease. Whether you&apos;re leveraging a one-to-many ELT flow or traditional ETL, our platform&apos;s flexibility ensures your data is always where it needs to be, in real-time or batch mode.',
+                    quote: {
+                        author: {
+                            name: 'Tony Tushar',
+                            role: 'Principal Data Consultant, Soli & Co',
+                        },
+                        text: '“Estuary is a very productive product with a great pricing model given the current climate that we&apos;re in. I think a lot of cost-conscious data practitioners could benefit from giving it a try.”',
+                    },
+                },
+            },
+        },
+        {
+            slug: '/solutions/use-cases/data-lakes-warehouses',
+            sections: {
+                hero: {
+                    title: 'Data Lakes and Warehouses',
+                },
+                testimonial: {
+                    title: {
+                        highlightedText: 'Maximize the Power ',
+                        normalText: 'of Your Data Lakes and Warehouses',
+                    },
+                    description:
+                        'Integrate Estuary Flow seamlessly with all major data warehouses to enable real-time and batch data flows. Our support for ELT and dbt cloud integration streamlines operations, giving your team the tools they need to transform and load data efficiently.',
+                    quote: {
+                        author: {
+                            name: 'Tony Tushar',
+                            role: 'Principal Data Consultant, Soli & Co',
+                        },
+                        text: '“Estuary is a very productive product with a great pricing model given the current climate that we&apos;re in. I think a lot of cost-conscious data practitioners could benefit from giving it a try.”',
+                    },
+                },
+            },
+        },
+        {
+            slug: '/solutions/use-cases/ai',
+            sections: {
+                hero: {
+                    title: 'Artificial Intelligence',
+                },
+                testimonial: {
+                    title: {
+                        highlightedText: 'Fuel AI and Machine Learning ',
+                        normalText: 'with the Right Data, at the Right Time',
+                    },
+                    description:
+                        'Harness the power of Estuary Flow to unify and prepare data from various sources for AI and Retrieval-Augmented Generation (RAG) applications. With built-in connectors for leading platforms like Salesforce, HubSpot, and Pinecone, your data flows are fully optimized for AI-driven workloads.',
+                    quote: {
+                        author: {
+                            name: 'Tony Tushar',
+                            role: 'Principal Data Consultant, Soli & Co',
+                        },
+                        text: '“Estuary is a very productive product with a great pricing model given the current climate that we&apos;re in. I think a lot of cost-conscious data practitioners could benefit from giving it a try.”',
+                    },
+                },
+            },
+        },
+        {
+            slug: '/solutions/use-cases/real-time-analytics',
+            sections: {
+                hero: {
+                    title: 'Real Time Analytics',
+                },
+                testimonial: {
+                    title: {
+                        highlightedText: '',
+                        normalText:
+                            'Turn Data into Actionable Insights in Real Time',
+                    },
+                    description:
+                        'Estuary Flow enables real-time analytics by allowing seamless integration with the tools you trust. With the Kafka-compatible Dekaf API, Flow makes it easy to tap into the Kafka ecosystem. Our partnerships with Tinybird and StarTree further enhance your ability to build powerful real-time analytics platforms.',
+                    quote: {
+                        author: {
+                            name: 'Tony Tushar',
+                            role: 'Principal Data Consultant, Soli & Co',
+                        },
+                        text: '“Estuary is a very productive product with a great pricing model given the current climate that we&apos;re in. I think a lot of cost-conscious data practitioners could benefit from giving it a try.”',
+                    },
+                },
+            },
+        },
+    ];
+
+    for (const useCaseSolution of useCaseSolutions) {
+        createPage({
+            path: useCaseSolution.slug,
+            component: useCaseSolutionsTemplate,
+            context: {
+                useCaseSolution,
+            },
+        });
+    }
 };
 
 // Hacky hack :(
