@@ -462,7 +462,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
                 },
                 testimonial: {
                     title: {
-                        highlightedText: 'Effortless ETL and ELT ',
+                        highlightedText: 'Effortless ETL and ELT',
                         normalText: 'for all your data pipelines',
                     },
                     description:
@@ -475,6 +475,19 @@ export const createPages: GatsbyNode['createPages'] = async ({
                         text: '“Estuary is a very productive product with a great pricing model given the current climate that we&apos;re in. I think a lot of cost-conscious data practitioners could benefit from giving it a try.”',
                     },
                 },
+                highlights: {
+                    title: {
+                        highlightedText: 'Reliability',
+                        normalText: 'without maintenance',
+                    },
+                    description:
+                        'Estuary Flow delivers enterprise-grade stability, requiring no ongoing maintenance or complex configurations. Designed for high availability, our platform leverages the cloud for durability, so you can focus on building features, not troubleshooting pipelines.',
+                    highlightItems: [
+                        'Always-on architecture.',
+                        'Minimal operational overhead.',
+                        'Automatic error recovery.',
+                    ],
+                },
             },
         },
         {
@@ -485,7 +498,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
                 },
                 testimonial: {
                     title: {
-                        highlightedText: 'Maximize the Power ',
+                        highlightedText: 'Maximize the Power',
                         normalText: 'of Your Data Lakes and Warehouses',
                     },
                     description:
@@ -498,6 +511,19 @@ export const createPages: GatsbyNode['createPages'] = async ({
                         text: '“Estuary is a very productive product with a great pricing model given the current climate that we&apos;re in. I think a lot of cost-conscious data practitioners could benefit from giving it a try.”',
                     },
                 },
+                highlights: {
+                    title: {
+                        highlightedText: 'Real-Time and Batch',
+                        normalText: 'Data Integration',
+                    },
+                    description:
+                        'Estuary Flow bridges the gap between real-time and batch workflows, enabling seamless data movement into lakes and warehouses. Power real-time analytics and historical reporting with unified pipelines that adapt to your needs.',
+                    highlightItems: [
+                        'Support for both real-time streams and scheduled batch ingestion.',
+                        'Low-latency updates to ensure your data warehouse is always current.',
+                        'Unified pipelines for simplified management across diverse workloads.',
+                    ],
+                },
             },
         },
         {
@@ -508,7 +534,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
                 },
                 testimonial: {
                     title: {
-                        highlightedText: 'Fuel AI and Machine Learning ',
+                        highlightedText: 'Fuel AI and Machine Learning',
                         normalText: 'with the Right Data, at the Right Time',
                     },
                     description:
@@ -520,6 +546,19 @@ export const createPages: GatsbyNode['createPages'] = async ({
                         },
                         text: '“Estuary is a very productive product with a great pricing model given the current climate that we&apos;re in. I think a lot of cost-conscious data practitioners could benefit from giving it a try.”',
                     },
+                },
+                highlights: {
+                    title: {
+                        highlightedText: 'Real-Time Data',
+                        normalText: 'for AI Workflows',
+                    },
+                    description:
+                        'Estuary Flow ensures your AI models are always powered by the freshest data, enabling smarter decision-making and better predictions. Whether you&apos;re training, fine-tuning, or deploying AI models, our platform delivers the right data precisely when you need it.',
+                    highlightItems: [
+                        'Continuous real-time data integration for AI and machine learning pipelines.',
+                        'Seamless synchronization of data sources to eliminate lag.',
+                        'Supports high-velocity data for time-sensitive AI applications.',
+                    ],
                 },
             },
         },
@@ -544,6 +583,19 @@ export const createPages: GatsbyNode['createPages'] = async ({
                         },
                         text: '“Estuary is a very productive product with a great pricing model given the current climate that we&apos;re in. I think a lot of cost-conscious data practitioners could benefit from giving it a try.”',
                     },
+                },
+                highlights: {
+                    title: {
+                        highlightedText: 'Real-Time Analytics',
+                        normalText: 'Made Simple',
+                    },
+                    description:
+                        'Estuary Flow delivers instant insights by enabling real-time data integration across your analytics stack. With second-level latency, your dashboards and analytics tools are always powered by up-to-date information, ensuring faster decision-making.',
+                    highlightItems: [
+                        'Seamless real-time data delivery for instant analytics.',
+                        'Support for complex aggregations and event-driven insights.',
+                        'Works with existing tools to minimize disruption and maximize ROI.',
+                    ],
                 },
             },
         },

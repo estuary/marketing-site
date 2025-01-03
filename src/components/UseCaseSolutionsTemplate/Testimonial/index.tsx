@@ -2,7 +2,8 @@ import React from 'react';
 import Container from '../../Container';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import { TestimonialSectionContent } from '../../../templates/use-case-solutions';
-import { container, quoteBox } from './styles.module.less';
+import { container } from '../styles.module.less';
+import { quoteBox } from './styles.module.less';
 
 interface TestimonialProps {
     data: TestimonialSectionContent;

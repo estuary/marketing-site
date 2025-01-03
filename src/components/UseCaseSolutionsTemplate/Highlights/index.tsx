@@ -1,0 +1,46 @@
+import React from 'react';
+import { StaticImage } from 'gatsby-plugin-image';
+import clsx from 'clsx';
+import { HighlightsSectionContent } from '../../../templates/use-case-solutions';
+import Container from '../../Container';
+import { container, noPadding } from '../styles.module.less';
+import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
+import Card from './Card';
+import { wrapper } from './styles.module.less';
+
+interface HighlightsProps {
+    data: HighlightsSectionContent;
+}
+
+const Highlights = ({ data }: HighlightsProps) => {
+    return (
+        <section className={defaultWrapperDarkBlue}>
+            <Container className={wrapper} isDarkTheme isVertical>
+                <Container className={clsx(container, noPadding)}>
+                    <div>
+                        <h2>
+                            <span>{data.title.highlightedText}</span>{' '}
+                            {data.title.normalText}
+                        </h2>
+                        <p>{data.description}</p>
+                    </div>
+                    <StaticImage
+                        src="../../../images/use-case-solutions-template/estuary-solutions-highlights.png"
+                        alt="Estuary solutions highlights" // TODO: Ask alt text to Sourabh.
+                        quality={100}
+                        placeholder="blurred"
+                    />
+                </Container>
+                <ul>
+                    {data.highlightItems.map((highlight, index) => (
+                        <li key={index}>
+                            <Card highlight={highlight} />
+                        </li>
+                    ))}
+                </ul>
+            </Container>
+        </section>
+    );
+};
+
+export default Highlights;

@@ -3,6 +3,7 @@ import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
 import Hero from '../../components/UseCaseSolutionsTemplate/Hero';
 import Testimonial from '../../components/UseCaseSolutionsTemplate/Testimonial';
+import Highlights from '../../components/UseCaseSolutionsTemplate/Highlights';
 
 export interface TestimonialSectionContent {
     title: {
@@ -19,6 +20,15 @@ export interface TestimonialSectionContent {
     };
 }
 
+export interface HighlightsSectionContent {
+    title: {
+        highlightedText: string;
+        normalText: string;
+    };
+    description: string;
+    highlightItems: string[];
+}
+
 interface UseCaseSolution {
     slug: string;
     sections: {
@@ -26,6 +36,7 @@ interface UseCaseSolution {
             title: string;
         };
         testimonial: TestimonialSectionContent;
+        highlights: HighlightsSectionContent;
     };
 }
 
@@ -41,6 +52,9 @@ const UseCaseSolutions = ({ pageContext }: UseCaseSolutionsProps) => {
             <Hero title={pageContext.useCaseSolution.sections.hero.title} />
             <Testimonial
                 data={pageContext.useCaseSolution.sections.testimonial}
+            />
+            <Highlights
+                data={pageContext.useCaseSolution.sections.highlights}
             />
         </Layout>
     );
