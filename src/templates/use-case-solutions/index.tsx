@@ -4,12 +4,15 @@ import Seo from '../../components/seo';
 import Hero from '../../components/UseCaseSolutionsTemplate/Hero';
 import Testimonial from '../../components/UseCaseSolutionsTemplate/Testimonial';
 import Highlights from '../../components/UseCaseSolutionsTemplate/Highlights';
+import Benefits from '../../components/UseCaseSolutionsTemplate/Benefits';
+
+interface SectionTitle {
+    highlightedText: string;
+    normalText: string;
+}
 
 export interface TestimonialSectionContent {
-    title: {
-        highlightedText: string;
-        normalText: string;
-    };
+    title: SectionTitle;
     description: string;
     quote: {
         author: {
@@ -21,12 +24,15 @@ export interface TestimonialSectionContent {
 }
 
 export interface HighlightsSectionContent {
-    title: {
-        highlightedText: string;
-        normalText: string;
-    };
+    title: SectionTitle;
     description: string;
     highlightItems: string[];
+}
+
+export interface BenefitsSectionContent {
+    title: SectionTitle;
+    description: string;
+    benefitItems: string[];
 }
 
 interface UseCaseSolution {
@@ -37,6 +43,7 @@ interface UseCaseSolution {
         };
         testimonial: TestimonialSectionContent;
         highlights: HighlightsSectionContent;
+        benefits: BenefitsSectionContent;
     };
 }
 
@@ -56,6 +63,7 @@ const UseCaseSolutions = ({ pageContext }: UseCaseSolutionsProps) => {
             <Highlights
                 data={pageContext.useCaseSolution.sections.highlights}
             />
+            <Benefits data={pageContext.useCaseSolution.sections.benefits} />
         </Layout>
     );
 };

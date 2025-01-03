@@ -5,7 +5,7 @@ import { HighlightsSectionContent } from '../../../templates/use-case-solutions'
 import Container from '../../Container';
 import { container, noPadding } from '../styles.module.less';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
-import Card from './Card';
+import Card from '../Card';
 import { wrapper } from './styles.module.less';
 
 interface HighlightsProps {
@@ -34,7 +34,11 @@ const Highlights = ({ data }: HighlightsProps) => {
                 <ul>
                     {data.highlightItems.map((highlight, index) => (
                         <li key={index}>
-                            <Card highlight={highlight} />
+                            <Card
+                                text={highlight}
+                                tag="Highlights"
+                                isDarkTheme
+                            />
                         </li>
                     ))}
                 </ul>

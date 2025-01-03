@@ -15,14 +15,24 @@
     background-color: #37C0C126;
     padding: 4px 16px;
     border-radius: 36px;
-    width: fit-content;
+    margin-right: auto;
   }
 
   p {
     margin: 0;
-    color: var(--white);
+    color: var(--grey);
     font-size: 1.25rem;
     font-weight: 700;
     line-height: 24px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 16px;
+  }
+}
+
+.darkTheme {
+  p {
+    color: var(--white);
   }
 }

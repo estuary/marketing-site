@@ -475,17 +475,56 @@ export const createPages: GatsbyNode['createPages'] = async ({
                         text: '“Estuary is a very productive product with a great pricing model given the current climate that we&apos;re in. I think a lot of cost-conscious data practitioners could benefit from giving it a try.”',
                     },
                 },
-                highlights: {
+                benefits: {
                     title: {
                         highlightedText: 'Reliability',
                         normalText: 'without maintenance',
                     },
                     description:
                         'Estuary Flow delivers enterprise-grade stability, requiring no ongoing maintenance or complex configurations. Designed for high availability, our platform leverages the cloud for durability, so you can focus on building features, not troubleshooting pipelines.',
-                    highlightItems: [
+                    benefitItems: [
                         'Always-on architecture.',
                         'Minimal operational overhead.',
                         'Automatic error recovery.',
+                    ],
+                },
+                highlights: {
+                    title: {
+                        highlightedText: 'Real-Time Change',
+                        normalText: 'Data Capture (CDC)',
+                    },
+                    description:
+                        'Keep your data pipelines fast and reliable with Estuary&apos;s real-time CDC capabilities. Stream changes from transactional databases like PostgreSQL directly to analytics platforms like Elasticsearch, ensuring second-level latency and zero data loss.',
+                    highlightItems: [
+                        'Streams inserts, updates, and deletes in real time.',
+                        'Guarantees data consistency across source and destination.',
+                        'Scales effortlessly to handle high-velocity data.',
+                    ],
+                },
+                capabilities: {
+                    title: {
+                        highlightedText: 'Built for Growth',
+                        normalText: '',
+                    },
+                    description:
+                        'As your business scales, so does Estuary Flow. Whether you&apos;re expanding your data volumes or integrating new features, our platform evolves with your needs, ensuring consistent performance at any scale.',
+                    capabilityItems: [
+                        'Effortless scaling for growing datasets and users.',
+                        'Real-time analytics enable faster feature rollouts.',
+                        'Flexible integrations with modern data ecosystems.',
+                    ],
+                },
+                keyFeatures: {
+                    title: {
+                        highlightedText: 'Transformations',
+                        normalText: 'Made Simple',
+                    },
+                    description:
+                        'Simplify your data workflows with built-in transformation capabilities. Estuary Flow supports SQL and TypeScript transformations, empowering teams to reshape data on the fly for analytics or reporting.',
+                    keyFeatureItems: [
+                        'Real-time transformations at the source or destination.',
+                        'Declarative pipeline definitions for consistent results.',
+                        'Supports business logic integration directly within the pipeline.',
                     ],
                 },
             },
@@ -524,6 +563,45 @@ export const createPages: GatsbyNode['createPages'] = async ({
                         'Unified pipelines for simplified management across diverse workloads.',
                     ],
                 },
+                benefits: {
+                    title: {
+                        highlightedText: 'Native Warehouse Integration',
+                        normalText: '',
+                    },
+                    description:
+                        'Estuary Flow integrates natively with industry-leading data warehouses, ensuring compatibility and optimized performance. Whether you&apos;re using Snowflake, Databricks, or BigQuery, our platform makes connecting and managing your data straightforward.',
+                    benefitItems: [
+                        'Optimized connectors for major cloud data warehouses.',
+                        'Real-time ingestion to support time-sensitive analytics.',
+                        'Simplified ELT workflows for scalable transformations.',
+                    ],
+                },
+                keyFeatures: {
+                    title: {
+                        highlightedText: 'Streamlined ELT',
+                        normalText: 'with dbt Cloud',
+                    },
+                    description:
+                        'Leverage dbt Cloud directly within your data pipelines to transform raw data into actionable insights. Estuary Flow ensures efficient ELT workflows, reducing complexity and increasing agility.',
+                    keyFeatureItems: [
+                        'Declarative transformations using dbt models.',
+                        'Automated integration with dbt Cloud for seamless deployments.',
+                        'Real-time pipeline updates trigger transformations immediately.',
+                    ],
+                },
+                capabilities: {
+                    title: {
+                        highlightedText: 'Data Lakes Made Real-Time',
+                        normalText: '',
+                    },
+                    description:
+                        'Supercharge your data lake architecture with real-time streaming capabilities. Estuary Flow supports data lake formats like Apache Iceberg, enabling businesses to build scalable lakehouses that combine the best of lakes and warehouses.',
+                    capabilityItems: [
+                        'Real-time writes to data lakes with schema evolution.',
+                        'Support for Apache Iceberg and other modern lake formats.',
+                        'Power both analytics and operational workloads from a single source.',
+                    ],
+                },
             },
         },
         {
@@ -558,6 +636,32 @@ export const createPages: GatsbyNode['createPages'] = async ({
                         'Continuous real-time data integration for AI and machine learning pipelines.',
                         'Seamless synchronization of data sources to eliminate lag.',
                         'Supports high-velocity data for time-sensitive AI applications.',
+                    ],
+                },
+                capabilities: {
+                    title: {
+                        highlightedText: 'Optimized',
+                        normalText: 'for Retrieval-Augmented Generation (RAG)',
+                    },
+                    description:
+                        'Power RAG applications with real-time, unified data pipelines. Estuary Flow integrates effortlessly with vector databases like Pinecone, ensuring your AI systems can access and retrieve the most relevant information in milliseconds.',
+                    capabilityItems: [
+                        'Direct materialization to vector databases for RAG workflows.',
+                        'Low-latency data feeds to enhance query accuracy and speed.',
+                        'Reliable updates ensure AI models use the latest data.',
+                    ],
+                },
+                benefits: {
+                    title: {
+                        highlightedText: 'AI-Ready Data Preparation',
+                        normalText: '',
+                    },
+                    description:
+                        'With Estuary Flow, data preparation for AI becomes effortless. Built-in transformations and schema evolution allow you to align incoming data with your model requirements, minimizing preprocessing time.',
+                    benefitItems: [
+                        'Declarative transformations using SQL and TypeScript.',
+                        'Automated schema evolution for evolving AI datasets.',
+                        'Unified pipelines for consistent, high-quality data ingestion.',
                     ],
                 },
             },
@@ -595,6 +699,45 @@ export const createPages: GatsbyNode['createPages'] = async ({
                         'Seamless real-time data delivery for instant analytics.',
                         'Support for complex aggregations and event-driven insights.',
                         'Works with existing tools to minimize disruption and maximize ROI.',
+                    ],
+                },
+                capabilities: {
+                    title: {
+                        highlightedText: 'Kafka Compatibility',
+                        normalText: '',
+                    },
+                    description:
+                        'Leverage the power of Kafka without the operational overhead. Estuary Flow&apos;s Kafka-compatible Dekaf API allows you to seamlessly integrate with the Kafka ecosystem, providing the flexibility to stream data to and from existing Kafka-based systems.',
+                    capabilityItems: [
+                        'Kafka API compatibility for data consumers.',
+                        'Simplified setup with no brokers to manage.',
+                        'Effortless scaling for high-throughput use cases.',
+                    ],
+                },
+                benefits: {
+                    title: {
+                        highlightedText: 'Enhanced Real-Time Analytics',
+                        normalText: 'with Key Partnerships',
+                    },
+                    description:
+                        'Estuary Flow integrates with leading platforms like Tinybird and StarTree to supercharge your real-time analytics capabilities. Whether you&apos;re building interactive dashboards or event-driven applications, our partnerships provide powerful solutions tailored to your needs.',
+                    benefitItems: [
+                        'Accelerated query performance with Tinybird for real-time aggregation and visualization.',
+                        'Seamless integration with StarTree for personalized analytics and anomaly detection.',
+                        'End-to-end real-time analytics pipelines with minimal development effort.',
+                    ],
+                },
+                keyFeatures: {
+                    title: {
+                        highlightedText: 'Powerful Data Flow Control',
+                        normalText: '',
+                    },
+                    description:
+                        'Gain full control over your data streams with Estuary Flow&apos;s advanced features. Real-time transformations, filtering, and schema evolution ensure your analytics pipelines are both flexible and robust.',
+                    keyFeatureItems: [
+                        'Real-time filtering and transformation using SQL or TypeScript.',
+                        'Built-in schema evolution for seamless integration with changing datasets.',
+                        'High-performance pipelines optimized for demanding analytics workloads.',
                     ],
                 },
             },
