@@ -6,7 +6,6 @@ import Container from '../../Container';
 import Hover from './Hover';
 import {
     wrapper,
-    sectionTitle,
     slideStyle,
     tabletImageWrapper,
     desktopImageWrapper,
@@ -18,7 +17,7 @@ const HowItWorks = () => {
     return (
         <section className={wrapper}>
             <Container isVertical>
-                <h2 className={sectionTitle}>HOW IT WORKS</h2>
+                <h2>HOW IT WORKS</h2>
                 <Carousel
                     hasArrow
                     aria-label="How Estuary Flow works carousel"

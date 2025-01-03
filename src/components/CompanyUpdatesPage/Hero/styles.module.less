@@ -1,12 +1,24 @@
-.baseImage {
-  position: relative;
-}
-
 .container {
   > :nth-child(2) {
     flex: none;
     max-width: 57%;
   }
+
+  @media (max-width: 1024px) {
+    > :nth-child(1) {
+      flex: none;
+      max-width: 100%;
+    }
+
+    > :nth-child(2) {
+      flex: none;
+      max-width: 100%;
+    }
+  }
+}
+
+.baseImage {
+  position: relative;
 
   span {
     position: absolute;
@@ -81,17 +93,5 @@
   span:nth-child(10) {
     top: 86%;
     right: 10.7%;
-  }
-
-  @media (max-width: 1024px) {
-    > :nth-child(1) {
-      flex: none;
-      max-width: 100%;
-    }
-
-    > :nth-child(2) {
-      flex: none;
-      max-width: 100%;
-    }
   }
 }

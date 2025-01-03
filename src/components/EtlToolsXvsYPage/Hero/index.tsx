@@ -24,12 +24,11 @@ interface SectionOneProps {
 const Hero = ({ vendors, xVendor, yVendor }: SectionOneProps) => {
     return (
         <section className={defaultWrapperDarkBlue}>
-            <Container>
+            <Container isDarkTheme>
                 <HeroSectionDetails
                     title={
                         <>
-                            <span>{xVendor.name}</span> <span>VS</span>{' '}
-                            <span>{yVendor.name}</span>
+                            {xVendor.name} <span>VS</span> {yVendor.name}
                         </>
                     }
                     description={
