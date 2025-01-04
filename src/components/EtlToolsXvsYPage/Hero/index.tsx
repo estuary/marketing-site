@@ -33,10 +33,11 @@ const Hero = ({ vendors, xVendor, yVendor }: SectionOneProps) => {
                     }
                     description={
                         <>
-                            Read this detailed 2025 comparison of {xVendor.name}{' '}
-                            vs {yVendor.name}. Understand their key differences,
-                            core features, and pricing to choose the right
-                            platform for your data integration needs.
+                            Read this detailed {new Date().getFullYear()}{' '}
+                            comparison of {xVendor.name} vs {yVendor.name}.
+                            Understand their key differences, core features, and
+                            pricing to choose the right platform for your data
+                            integration needs.
                         </>
                     }
                     additionalElements={
