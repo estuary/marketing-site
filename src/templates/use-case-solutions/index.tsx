@@ -5,6 +5,7 @@ import Hero from '../../components/UseCaseSolutionsTemplate/Hero';
 import Testimonial from '../../components/UseCaseSolutionsTemplate/Testimonial';
 import Highlights from '../../components/UseCaseSolutionsTemplate/Highlights';
 import Benefits from '../../components/UseCaseSolutionsTemplate/Benefits';
+import Capabilities from '../../components/UseCaseSolutionsTemplate/Capabilities';
 
 interface SectionTitle {
     highlightedText: string;
@@ -35,6 +36,12 @@ export interface BenefitsSectionContent {
     benefitItems: string[];
 }
 
+export interface CapabilitiesSectionContent {
+    title: SectionTitle;
+    description: string;
+    capabilityItems: string[];
+}
+
 interface UseCaseSolution {
     slug: string;
     sections: {
@@ -44,6 +51,7 @@ interface UseCaseSolution {
         testimonial: TestimonialSectionContent;
         highlights: HighlightsSectionContent;
         benefits: BenefitsSectionContent;
+        capabilities: CapabilitiesSectionContent;
     };
 }
 
@@ -64,6 +72,9 @@ const UseCaseSolutions = ({ pageContext }: UseCaseSolutionsProps) => {
                 data={pageContext.useCaseSolution.sections.highlights}
             />
             <Benefits data={pageContext.useCaseSolution.sections.benefits} />
+            <Capabilities
+                data={pageContext.useCaseSolution.sections.capabilities}
+            />
         </Layout>
     );
 };

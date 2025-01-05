@@ -466,13 +466,13 @@ export const createPages: GatsbyNode['createPages'] = async ({
                         normalText: 'for all your data pipelines',
                     },
                     description:
-                        'Estuary Flow empowers businesses to execute data pipelines with ease. Whether you&apos;re leveraging a one-to-many ELT flow or traditional ETL, our platform&apos;s flexibility ensures your data is always where it needs to be, in real-time or batch mode.',
+                        "Estuary Flow empowers businesses to execute data pipelines with ease. Whether you're leveraging a one-to-many ELT flow or traditional ETL, our platform's flexibility ensures your data is always where it needs to be, in real-time or batch mode.",
                     quote: {
                         author: {
                             name: 'Tony Tushar',
                             role: 'Principal Data Consultant, Soli & Co',
                         },
-                        text: '“Estuary is a very productive product with a great pricing model given the current climate that we&apos;re in. I think a lot of cost-conscious data practitioners could benefit from giving it a try.”',
+                        text: "“Estuary is a very productive product with a great pricing model given the current climate that we're in. I think a lot of cost-conscious data practitioners could benefit from giving it a try.”",
                     },
                 },
                 benefits: {
@@ -494,7 +494,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
                         normalText: 'Data Capture (CDC)',
                     },
                     description:
-                        'Keep your data pipelines fast and reliable with Estuary&apos;s real-time CDC capabilities. Stream changes from transactional databases like PostgreSQL directly to analytics platforms like Elasticsearch, ensuring second-level latency and zero data loss.',
+                        "Keep your data pipelines fast and reliable with Estuary's real-time CDC capabilities. Stream changes from transactional databases like PostgreSQL directly to analytics platforms like Elasticsearch, ensuring second-level latency and zero data loss.",
                     highlightItems: [
                         'Streams inserts, updates, and deletes in real time.',
                         'Guarantees data consistency across source and destination.',
@@ -507,7 +507,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
                         normalText: '',
                     },
                     description:
-                        'As your business scales, so does Estuary Flow. Whether you&apos;re expanding your data volumes or integrating new features, our platform evolves with your needs, ensuring consistent performance at any scale.',
+                        "As your business scales, so does Estuary Flow. Whether you're expanding your data volumes or integrating new features, our platform evolves with your needs, ensuring consistent performance at any scale.",
                     capabilityItems: [
                         'Effortless scaling for growing datasets and users.',
                         'Real-time analytics enable faster feature rollouts.',
@@ -547,7 +547,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
                             name: 'Tony Tushar',
                             role: 'Principal Data Consultant, Soli & Co',
                         },
-                        text: '“Estuary is a very productive product with a great pricing model given the current climate that we&apos;re in. I think a lot of cost-conscious data practitioners could benefit from giving it a try.”',
+                        text: "“Estuary is a very productive product with a great pricing model given the current climate that we'''re in. I think a lot of cost-conscious data practitioners could benefit from giving it a try.”",
                     },
                 },
                 highlights: {
@@ -569,7 +569,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
                         normalText: '',
                     },
                     description:
-                        'Estuary Flow integrates natively with industry-leading data warehouses, ensuring compatibility and optimized performance. Whether you&apos;re using Snowflake, Databricks, or BigQuery, our platform makes connecting and managing your data straightforward.',
+                        "Estuary Flow integrates natively with industry-leading data warehouses, ensuring compatibility and optimized performance. Whether you're using Snowflake, Databricks, or BigQuery, our platform makes connecting and managing your data straightforward.",
                     benefitItems: [
                         'Optimized connectors for major cloud data warehouses.',
                         'Real-time ingestion to support time-sensitive analytics.',
@@ -622,7 +622,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
                             name: 'Tony Tushar',
                             role: 'Principal Data Consultant, Soli & Co',
                         },
-                        text: '“Estuary is a very productive product with a great pricing model given the current climate that we&apos;re in. I think a lot of cost-conscious data practitioners could benefit from giving it a try.”',
+                        text: "“Estuary is a very productive product with a great pricing model given the current climate that we're in. I think a lot of cost-conscious data practitioners could benefit from giving it a try.”",
                     },
                 },
                 highlights: {
@@ -631,7 +631,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
                         normalText: 'for AI Workflows',
                     },
                     description:
-                        'Estuary Flow ensures your AI models are always powered by the freshest data, enabling smarter decision-making and better predictions. Whether you&apos;re training, fine-tuning, or deploying AI models, our platform delivers the right data precisely when you need it.',
+                        "Estuary Flow ensures your AI models are always powered by the freshest data, enabling smarter decision-making and better predictions. Whether you're training, fine-tuning, or deploying AI models, our platform delivers the right data precisely when you need it.",
                     highlightItems: [
                         'Continuous real-time data integration for AI and machine learning pipelines.',
                         'Seamless synchronization of data sources to eliminate lag.',
@@ -685,7 +685,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
                             name: 'Tony Tushar',
                             role: 'Principal Data Consultant, Soli & Co',
                         },
-                        text: '“Estuary is a very productive product with a great pricing model given the current climate that we&apos;re in. I think a lot of cost-conscious data practitioners could benefit from giving it a try.”',
+                        text: "“Estuary is a very productive product with a great pricing model given the current climate that we're in. I think a lot of cost-conscious data practitioners could benefit from giving it a try.”",
                     },
                 },
                 highlights: {
@@ -707,7 +707,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
                         normalText: '',
                     },
                     description:
-                        'Leverage the power of Kafka without the operational overhead. Estuary Flow&apos;s Kafka-compatible Dekaf API allows you to seamlessly integrate with the Kafka ecosystem, providing the flexibility to stream data to and from existing Kafka-based systems.',
+                        "Leverage the power of Kafka without the operational overhead. Estuary Flow's Kafka-compatible Dekaf API allows you to seamlessly integrate with the Kafka ecosystem, providing the flexibility to stream data to and from existing Kafka-based systems.",
                     capabilityItems: [
                         'Kafka API compatibility for data consumers.',
                         'Simplified setup with no brokers to manage.',
@@ -720,7 +720,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
                         normalText: 'with Key Partnerships',
                     },
                     description:
-                        'Estuary Flow integrates with leading platforms like Tinybird and StarTree to supercharge your real-time analytics capabilities. Whether you&apos;re building interactive dashboards or event-driven applications, our partnerships provide powerful solutions tailored to your needs.',
+                        "Estuary Flow integrates with leading platforms like Tinybird and StarTree to supercharge your real-time analytics capabilities. Whether you're building interactive dashboards or event-driven applications, our partnerships provide powerful solutions tailored to your needs.",
                     benefitItems: [
                         'Accelerated query performance with Tinybird for real-time aggregation and visualization.',
                         'Seamless integration with StarTree for personalized analytics and anomaly detection.',
@@ -733,7 +733,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
                         normalText: '',
                     },
                     description:
-                        'Gain full control over your data streams with Estuary Flow&apos;s advanced features. Real-time transformations, filtering, and schema evolution ensure your analytics pipelines are both flexible and robust.',
+                        "Gain full control over your data streams with Estuary Flow's advanced features. Real-time transformations, filtering, and schema evolution ensure your analytics pipelines are both flexible and robust.",
                     keyFeatureItems: [
                         'Real-time filtering and transformation using SQL or TypeScript.',
                         'Built-in schema evolution for seamless integration with changing datasets.',

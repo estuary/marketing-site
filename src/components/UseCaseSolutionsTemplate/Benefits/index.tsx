@@ -11,6 +11,8 @@ interface BenefitsProps {
     data: BenefitsSectionContent;
 }
 
+const NON_ALPHANUMERIC_EXCEPT_DOT_REGEX = /[^a-z0-9.]+/g;
+
 const Benefits = ({ data }: BenefitsProps) => {
     const images = useStaticQuery(graphql`
         query {
@@ -64,7 +66,7 @@ const Benefits = ({ data }: BenefitsProps) => {
                 </div>
                 <ul>
                     {data.benefitItems.map((benefit) => {
-                        const imageTitle = `${benefit.toLowerCase().replaceAll(/[^a-z0-9.]+/g, '-')}png`;
+                        const imageTitle = `${benefit.toLowerCase().replaceAll(NON_ALPHANUMERIC_EXCEPT_DOT_REGEX, '-')}png`;
                         const imageData = imageMap[imageTitle];
 
                         return (
