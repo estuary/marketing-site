@@ -3,7 +3,8 @@ import clsx from 'clsx';
 import { CapabilitiesSectionContent } from '../../../templates/use-case-solutions';
 import Container from '../../Container';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
-import { container, tagStyle } from '../styles.module.less';
+import { container } from '../styles.module.less';
+import Tag from '../Tag';
 import Card from './Card';
 import { wrapper, box } from './styles.module.less';
 
@@ -28,7 +29,7 @@ const Capabilities = ({ data }: CapabilitiesProps) => {
                 </div>
                 <div>
                     <div className={box}>
-                        <span className={tagStyle}>Capabilities</span>
+                        <Tag>Capabilities</Tag>
                         <ul>
                             {data.capabilityItems.map((capability, index) => (
                                 <li key={index}>

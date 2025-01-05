@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import clsx from 'clsx';
-import { tagStyle } from '../styles.module.less';
+import Tag from '../Tag';
 import { container, darkTheme } from './styles.module.less';
 
 interface CardProps {
@@ -13,7 +13,7 @@ interface CardProps {
 const Card = ({ text, tag, isDarkTheme = false, image }: CardProps) => {
     return (
         <div className={clsx(container, isDarkTheme ? darkTheme : null)}>
-            <span className={tagStyle}>{tag}</span>
+            <Tag>{tag}</Tag>
             {image}
             <p>{text}</p>
         </div>
