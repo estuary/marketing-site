@@ -1,4 +1,3 @@
-import React from 'react';
 import CheckmarkIcon from '../../svgs/checkmark.svg';
 import { container } from './styles.module.less';
 

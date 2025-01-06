@@ -1,4 +1,3 @@
-import React from 'react';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import DatabaseSavingWithLowPrice from '../../../svgs/database-saving-with-low-price.svg';
 import Advantages from '../../Advantages';

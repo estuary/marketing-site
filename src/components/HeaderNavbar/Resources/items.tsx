@@ -1,5 +1,4 @@
 import { StaticImage } from 'gatsby-plugin-image';
-import * as React from 'react';
 import { statusPageUrl, webinarsUrl } from '../../../../shared';
 import DocIcon from '../../../svgs/file.svg';
 import SuccessIcon from '../../../svgs/success.svg';

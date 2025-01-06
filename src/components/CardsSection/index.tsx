@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { defaultWrapperGrey } from '../../globalStyles/wrappers.module.less';
 import { container, cardList } from './styles.module.less';
 

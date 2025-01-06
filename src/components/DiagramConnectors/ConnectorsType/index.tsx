@@ -1,4 +1,4 @@
-import React from 'react';
+import { ReactNode } from 'react';
 import { Typography } from '@mui/material';
 import clsx from 'clsx';
 import { featureWrapper, withTooltips } from '../styles.module.less';
@@ -7,7 +7,7 @@ import HTMLTooltip from '../../HTMLTooltip';
 interface ConnectorsTypeProps {
     hasTooltips: boolean;
     title: string;
-    icon: React.ReactNode;
+    icon: ReactNode;
     description: string;
 }
 

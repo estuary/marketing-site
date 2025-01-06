@@ -1,5 +1,4 @@
 import { StaticImage } from 'gatsby-plugin-image';
-import React from 'react';
 import Carousel from '../../Carousel';
 import FlowCycle from '../../../svgs/flow-cycle.svg';
 import Container from '../../Container';

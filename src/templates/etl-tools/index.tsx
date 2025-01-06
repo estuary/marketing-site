@@ -1,4 +1,3 @@
-import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
@@ -33,6 +32,11 @@ const EtlTools = ({
                 xVendor={xVendor}
                 yVendor={yVendor}
                 estuaryVendor={estuaryVendor}
+                allVendors={vendors.map((vendor) => ({
+                    id: vendor.id,
+                    name: vendor.name,
+                    slugKey: vendor.slugKey,
+                }))}
             />
             <GettingStarted />
         </Layout>

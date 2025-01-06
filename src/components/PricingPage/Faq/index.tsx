@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState, SyntheticEvent } from 'react';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import Container from '../../Container';
 import { title, questionsList } from './styles.module.less';
@@ -6,11 +6,10 @@ import FaqAccordion from './FaqAccordion';
 import { faqs } from './faqs';
 
 const Faq = () => {
-    const [expanded, setExpanded] = React.useState<string | null>(null);
+    const [expanded, setExpanded] = useState<string | null>(null);
 
     const handleChange =
-        (panel: string) =>
-        (_event: React.SyntheticEvent, isExpanded: boolean) => {
+        (panel: string) => (_event: SyntheticEvent, isExpanded: boolean) => {
             setExpanded(isExpanded ? panel : null);
         };
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import { RenderToc } from '../BlogPostToc';
 import SidebarCta from '../SidebarCta';
 import ShareArticle from '../ShareArticle';

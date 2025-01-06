@@ -1,4 +1,3 @@
-import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import Container from '../../Container';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';

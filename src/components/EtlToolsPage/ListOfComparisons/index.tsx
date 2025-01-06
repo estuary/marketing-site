@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { SyntheticEvent, useState } from 'react';
 import { Tab, Tabs } from '@mui/material';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import TabPanel from '@mui/lab/TabPanel';
@@ -55,7 +55,7 @@ const ListOfComparisons = ({ estuaryVendor, vendors }: SectionThreeProps) => {
     const [selectedVendorId, setSelectedVendorId] = useState(estuaryVendor.id);
 
     const handleChangeSelectedVendor = (
-        event: React.SyntheticEvent,
+        event: SyntheticEvent,
         newVendorId: string
     ) => {
         setSelectedVendorId(newVendorId);

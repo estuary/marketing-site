@@ -1,4 +1,3 @@
-import React from 'react';
 import { dashboardRegisterUrl } from '../../../shared';
 import OutboundLinkFilled from '../LinksAndButtons/OutboundLinkFilled';
 

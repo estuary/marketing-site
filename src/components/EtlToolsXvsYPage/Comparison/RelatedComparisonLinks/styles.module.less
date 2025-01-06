@@ -1,0 +1,19 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  margin-top: 20px;
+  row-gap: 8px;
+  column-gap: 24px;
+
+  a {
+    color: var(--blue);
+    font-weight: 500;
+    width: fit-content;
+
+    &:hover {
+      color: var(--blue);
+      text-underline-offset: 4px;
+      text-decoration: underline;
+    }
+  }
+}

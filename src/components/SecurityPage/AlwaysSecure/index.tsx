@@ -1,4 +1,3 @@
-import React from 'react';
 import SecurityCertificates from '../../SecurityCertificates';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 

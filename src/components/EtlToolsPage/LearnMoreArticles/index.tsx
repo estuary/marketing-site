@@ -1,4 +1,3 @@
-import React from 'react';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import { container } from '../styles.module.less';
 import Container from '../../Container';

@@ -1,4 +1,3 @@
-import React from 'react';
 import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import EstuaryLogo from '../../../svgs/estuary-icon.svg';
 import FileIcon from '../../../svgs/file.svg';

@@ -1,6 +1,6 @@
 import { useMediaQuery } from '@mui/material';
 import { StaticImage } from 'gatsby-plugin-image';
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import clsx from 'clsx';
 import { HTMLTooltipProps } from '../../HTMLTooltip';
 import Container from '../../Container';

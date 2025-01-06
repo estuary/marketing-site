@@ -1,4 +1,3 @@
-import React from 'react';
 import TabPanel from '@mui/lab/TabPanel';
 import DeploymentOptionDetails from '../DeploymentOptionDetails';
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import CheckmarkDefault from '../../svgs/checkmark.svg';
 import CloseDefault from '../../svgs/close.svg';
 import { container, checkmarkIcon, closeIcon } from './style.module.less';

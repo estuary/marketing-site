@@ -1,5 +1,5 @@
 import { graphql, useStaticQuery } from 'gatsby';
-import React, { useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { normalizeConnector } from '../../utils';
 
 import { ConnectorType } from '../../../shared';

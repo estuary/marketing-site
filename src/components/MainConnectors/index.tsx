@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
-import React from 'react';
 import OpenaiLogo from '../../svgs/openai-logo.svg';
 import PineconeLogo from '../../svgs/pinecone-logo.svg';
 import {

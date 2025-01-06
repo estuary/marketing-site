@@ -1,5 +1,4 @@
 import { StaticImage } from 'gatsby-plugin-image';
-import React from 'react';
 import clsx from 'clsx';
 import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import Advantages from '../../Advantages';

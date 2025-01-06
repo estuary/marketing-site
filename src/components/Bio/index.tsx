@@ -1,6 +1,6 @@
 import { getImage } from 'gatsby-plugin-image';
-import * as React from 'react';
 import { Link } from 'gatsby';
+import { Fragment } from 'react';
 import Avatar from '../Avatar';
 import { getAuthorPathBySlug } from '../../../shared';
 import { container, avatarWrapper, authorName } from './styles.module.less';
@@ -52,7 +52,7 @@ const Bio = ({ authors }: BioProps) => {
                     </Link>
                 );
 
-                return <React.Fragment key={name}>{combined}</React.Fragment>;
+                return <Fragment key={name}>{combined}</Fragment>;
             })}
         </div>
     );

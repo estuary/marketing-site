@@ -4,7 +4,6 @@ import {
     StaticImage,
     getImage,
 } from 'gatsby-plugin-image';
-import React from 'react';
 import clsx from 'clsx';
 import { ConnectorType } from '../../../../shared';
 import LightSwoopingLinesRightDirectionBackground from '../../../components/BackgroundImages/LightSwoopingLinesRightDirectionBackground';

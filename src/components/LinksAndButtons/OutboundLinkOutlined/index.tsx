@@ -1,5 +1,5 @@
-import React from 'react';
 import clsx from 'clsx';
+import { forwardRef, AnchorHTMLAttributes } from 'react';
 import { handleOutboundLinkClick } from '../utils';
 import { CustomProps } from '../shared';
 import {
@@ -9,9 +9,9 @@ import {
     fullWidthStyle,
 } from '../styles.module.less';
 
-const OutboundLinkOutlined = React.forwardRef<
+const OutboundLinkOutlined = forwardRef<
     HTMLAnchorElement,
-    React.AnchorHTMLAttributes<HTMLAnchorElement> & CustomProps
+    AnchorHTMLAttributes<HTMLAnchorElement> & CustomProps
 >(
     (
         {

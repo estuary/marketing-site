@@ -1,5 +1,4 @@
 import { StaticImage } from 'gatsby-plugin-image';
-import React from 'react';
 import { Link } from 'gatsby';
 import clsx from 'clsx';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';

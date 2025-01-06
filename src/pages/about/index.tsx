@@ -1,6 +1,5 @@
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
-import * as React from 'react';
 import { ProcessedPost } from '../../components/BlogPostProcessor';
 import Layout from '../../components/Layout';
 import Seo from '../../components/seo';

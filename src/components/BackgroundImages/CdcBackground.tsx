@@ -1,4 +1,4 @@
-import React from 'react';
+import { BaseHTMLAttributes } from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import clsx from 'clsx';
 import { backgroundImage, cdcBackgroundImage } from './styles.module.less';
@@ -7,7 +7,7 @@ import BackgroundWrapper from './BackgroundWrapper';
 const CdcBackground = ({
     children,
     className,
-}: React.BaseHTMLAttributes<HTMLDivElement>) => {
+}: BaseHTMLAttributes<HTMLDivElement>) => {
     return (
         <BackgroundWrapper>
             <StaticImage

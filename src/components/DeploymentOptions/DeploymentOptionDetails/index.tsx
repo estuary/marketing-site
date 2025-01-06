@@ -1,4 +1,3 @@
-import React from 'react';
 import KeyFeature from '../KeyFeature';
 import { wrapper } from './styles.module.less';
 

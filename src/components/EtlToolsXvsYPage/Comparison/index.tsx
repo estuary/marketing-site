@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import {
     dashboardRegisterUrl,
     getComparisonSlug,
@@ -18,29 +18,49 @@ import Support from './Support';
 import Cost from './Cost';
 import VendorAvatar from './VendorAvatar';
 import IntroductoryDetails from './IntroductoryDetails';
+import RelatedComparisonLinks from './RelatedComparisonLinks';
 
 interface SectionTwoProps {
     xVendor: Vendor;
     yVendor: Vendor;
     estuaryVendor: Vendor;
+    allVendors: Partial<Vendor>[];
 }
 
-const articleBody = {
+const generateVendorRelatedComparisonsObject = (
+    vendorKey: string,
+    vendorName: string
+) => ({
+    id: `${vendorKey}-related-comparisons`,
+    heading: `Related comparisons to ${vendorName}`,
+});
+
+const articleBody = (
+    xVendorName: string,
+    yVendorName: string,
+    estuaryVendorName: string | null
+) => ({
     intro: {
         id: 'intro',
         heading: 'Introduction',
     },
     comparisonMatrix: {
         id: 'comparison-matrix',
-        heading: 'Comparison Matrix',
+        heading: `Comparison Matrix: ${xVendorName} vs ${yVendorName}${estuaryVendorName ? ` vs ${estuaryVendorName}` : ''}`,
     },
     howToChoose: {
         id: 'how-to-choose',
         heading: 'How to choose the best option',
     },
-};
-
-const { intro, comparisonMatrix, howToChoose } = articleBody;
+    xVendorRelatedComparisons: generateVendorRelatedComparisonsObject(
+        'x-vendor',
+        xVendorName
+    ),
+    yVendorRelatedComparisons: generateVendorRelatedComparisonsObject(
+        'y-vendor',
+        yVendorName
+    ),
+});
 
 const tableBodyComponents = [
     UseCases,
@@ -53,10 +73,36 @@ const tableBodyComponents = [
     Cost,
 ];
 
-const Comparison = ({ xVendor, yVendor, estuaryVendor }: SectionTwoProps) => {
+const Comparison = ({
+    xVendor,
+    yVendor,
+    estuaryVendor,
+    allVendors,
+}: SectionTwoProps) => {
     const isThreeVendorComparison = useMemo(() => {
         return ![xVendor.id, yVendor.id].includes(estuaryVendor.id);
     }, [xVendor.id, yVendor.id, estuaryVendor.id]);
+
+    const excludeVendorIds = useMemo(
+        () => [xVendor.id, yVendor.id],
+        [xVendor.id, yVendor.id]
+    );
+
+    const {
+        intro,
+        comparisonMatrix,
+        howToChoose,
+        xVendorRelatedComparisons,
+        yVendorRelatedComparisons,
+    } = useMemo(
+        () =>
+            articleBody(
+                xVendor.name,
+                yVendor.name,
+                isThreeVendorComparison ? estuaryVendor.name : null
+            ),
+        [xVendor.name, yVendor.name, isThreeVendorComparison, estuaryVendor]
+    );
 
     const stickyRef1 = useRef<HTMLTableCellElement>(null);
     const stickyRef2 = useRef<HTMLTableCellElement>(null);
@@ -82,19 +128,37 @@ const Comparison = ({ xVendor, yVendor, estuaryVendor }: SectionTwoProps) => {
             ],
         });
 
-        const vendors = [xVendor, yVendor].map(createVendorItem);
+        const comparedVendors = [xVendor, yVendor].map(createVendorItem);
 
         if (isThreeVendorComparison) {
-            vendors.unshift(createVendorItem(estuaryVendor));
+            comparedVendors.unshift(createVendorItem(estuaryVendor));
         }
 
         return [
             { id: intro.id, heading: intro.heading },
             { id: comparisonMatrix.id, heading: comparisonMatrix.heading },
-            ...vendors,
+            ...comparedVendors,
             { id: howToChoose.id, heading: howToChoose.heading },
+            {
+                id: xVendorRelatedComparisons.id,
+                heading: xVendorRelatedComparisons.heading,
+            },
+            {
+                id: yVendorRelatedComparisons.id,
+                heading: yVendorRelatedComparisons.heading,
+            },
         ];
-    }, [xVendor, yVendor, estuaryVendor, isThreeVendorComparison]);
+    }, [
+        xVendor,
+        yVendor,
+        estuaryVendor,
+        isThreeVendorComparison,
+        intro,
+        comparisonMatrix,
+        howToChoose,
+        xVendorRelatedComparisons,
+        yVendorRelatedComparisons,
+    ]);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -256,6 +320,24 @@ const Comparison = ({ xVendor, yVendor, estuaryVendor }: SectionTwoProps) => {
                         needs, and use this information to a good short-term and
                         long-term solution for you.
                     </p>
+
+                    <h2 id={xVendorRelatedComparisons.id}>
+                        {xVendorRelatedComparisons.heading}
+                    </h2>
+                    <RelatedComparisonLinks
+                        vendors={allVendors}
+                        baseVendor={xVendor}
+                        excludeVendorIds={excludeVendorIds}
+                    />
+
+                    <h2 id={yVendorRelatedComparisons.id}>
+                        {yVendorRelatedComparisons.heading}
+                    </h2>
+                    <RelatedComparisonLinks
+                        vendors={allVendors}
+                        baseVendor={yVendor}
+                        excludeVendorIds={excludeVendorIds}
+                    />
                 </div>
             </div>
         </section>

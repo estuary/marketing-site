@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image';
-import React from 'react';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import EstuaryLogo from '../../../svgs/colored-logo.svg';
 import { Connector } from '../shared';

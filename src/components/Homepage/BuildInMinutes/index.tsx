@@ -1,4 +1,3 @@
-import * as React from 'react';
 import DarkSwoopingLinesLeftDirectionBackground from '../../BackgroundImages/DarkSwoopingLinesLeftDirectionBackground';
 import FlowDemoVideo from '../../FlowDemoVideo';
 import Container from '../../Container';

@@ -1,4 +1,3 @@
-import React from 'react';
 import { InputLabel, FormControl, MenuItem, Select } from '@mui/material';
 import clsx from 'clsx';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';

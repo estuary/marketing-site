@@ -1,4 +1,3 @@
-import * as React from 'react';
 import DarkSwoopingLinesLeftDirectionBackground from '../../BackgroundImages/DarkSwoopingLinesLeftDirectionBackground';
 import TestimonialsCarousel from '../../TestimonialsCarousel';
 import Container from '../../Container';

@@ -1,4 +1,3 @@
-import React from 'react';
 import FlowLogo from '../../svgs/flow-logo.svg';
 import {
     blogPostHeaderVectors,

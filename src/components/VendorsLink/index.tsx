@@ -1,4 +1,10 @@
-import React, { useState, useMemo, useCallback } from 'react';
+import {
+    useState,
+    useMemo,
+    useCallback,
+    Dispatch,
+    SetStateAction,
+} from 'react';
 import XvsYFilter from '../XvsYFilter';
 import { getComparisonSlug, Vendor } from '../../../shared';
 
@@ -35,10 +41,9 @@ const VendorsLink = ({
     const [secondVendorId, setSecondVendorId] = useState(defaultYVendorId);
 
     const handleVendorChange = useCallback(
-        (setVendor: React.Dispatch<React.SetStateAction<string>>) =>
-            (value: string) => {
-                setVendor(value);
-            },
+        (setVendor: Dispatch<SetStateAction<string>>) => (value: string) => {
+            setVendor(value);
+        },
         []
     );
 

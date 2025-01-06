@@ -1,6 +1,6 @@
 import { Link } from 'gatsby';
-import * as React from 'react';
 import clsx from 'clsx';
+import { Fragment } from 'react';
 import ColoredLogo from '../../svgs/colored-logo.svg';
 import {
     globalHeaderLogoLink,
@@ -35,7 +35,7 @@ const Navigation = ({ activePage, setActivePage }) => (
             </div>
             <div>
                 {navItems.map((item, index) => (
-                    <React.Fragment key={index}>
+                    <Fragment key={index}>
                         <div
                             className={clsx(
                                 navItem,
@@ -60,7 +60,7 @@ const Navigation = ({ activePage, setActivePage }) => (
                                 ))}
                             </ul>
                         ) : null}
-                    </React.Fragment>
+                    </Fragment>
                 ))}
             </div>
         </div>

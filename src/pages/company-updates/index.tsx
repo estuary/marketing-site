@@ -1,4 +1,3 @@
-import React from 'react';
 import Seo from '../../components/seo';
 import Layout from '../../components/Layout';
 import Hero from '../../components/CompanyUpdatesPage/Hero';

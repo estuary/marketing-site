@@ -1,4 +1,3 @@
-import React from 'react';
 import HTMLTooltip from '../../../HTMLTooltip';
 import KeyFeatureContent from '../KeyFeatureContent';
 import { descriptionWrapper } from './styles.module.less';

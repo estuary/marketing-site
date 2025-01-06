@@ -1,5 +1,5 @@
 import CheckIcon from '@mui/icons-material/Check';
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 
 interface AdvantageProps {
     title: ReactNode;

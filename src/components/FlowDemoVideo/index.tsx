@@ -1,6 +1,6 @@
 import { StaticImage } from 'gatsby-plugin-image';
-import * as React from 'react';
 import ReactPlayer from 'react-player';
+import { useMemo } from 'react';
 import { estuaryProductFlowVideoUrl } from '../../../shared';
 import useWindowExistence from '../../hooks/useWindowExistence';
 import PlayIcon from '../../svgs/play.svg';
@@ -10,7 +10,7 @@ import { container, videoTextAndButtonsWrapper } from './styles.module.less';
 const FlowDemoVideo = () => {
     const hasWindow = useWindowExistence();
 
-    const thumbnailComponent = React.useMemo(
+    const thumbnailComponent = useMemo(
         () => (
             <StaticImage
                 placeholder="none"

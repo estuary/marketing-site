@@ -1,10 +1,9 @@
 import { Link, graphql } from 'gatsby';
-import * as React from 'react';
 
 import { Divider } from '@mui/material';
 import clsx from 'clsx';
 import lunr, { type Index } from 'lunr';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import BigImageBackground from '../../components/BackgroundImages/BigImageBackground';
 import { BlogPostCard } from '../../components/BlogPostCard';
 import Layout from '../../components/Layout';
@@ -63,12 +62,12 @@ const BlogIndex = ({
 }: BlogIndexProps) => {
     const posts = data.allStrapiBlogPost.nodes;
 
-    const index: Index = React.useMemo(
+    const index: Index = useMemo(
         () => lunr.Index.load(JSON.parse(data.localSearchPosts.index)),
         [data.localSearchPosts.index]
     );
 
-    const [query, setQuery] = React.useState('');
+    const [query, setQuery] = useState('');
 
     const handleQueryChange = (evt) => setQuery(evt.target.value);
 

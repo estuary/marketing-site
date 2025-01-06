@@ -1,4 +1,3 @@
-import React from 'react';
 import clsx from 'clsx';
 import CloudProviderIcon from '../../../svgs/cloud-provider-icon.svg';
 import CustomerCloudIcon from '../../../svgs/customer-cloud-icon.svg';

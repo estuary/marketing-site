@@ -1,5 +1,5 @@
 import { Link } from 'gatsby';
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 import { globalHeaderLink } from '../styles.module.less';
 import OutboundLink from '../LinksAndButtons/OutboundLink';
 import LinkProduct from './Product';

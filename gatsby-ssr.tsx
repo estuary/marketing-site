@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { GA_ANALYTICS_ENDPOINT, GA_MEASUREMENT_ID, GA_ORIGIN } from './shared';
 
 /**

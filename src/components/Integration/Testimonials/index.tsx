@@ -1,4 +1,3 @@
-import React from 'react';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import TestimonialsCarousel from '../../TestimonialsCarousel';
 import { container, title } from './styles.module.less';

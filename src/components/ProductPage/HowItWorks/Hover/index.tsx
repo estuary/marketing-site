@@ -1,4 +1,4 @@
-import React, { ReactNode, useCallback, useState } from 'react';
+import { memo, ReactNode, useCallback, useState } from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import Fade from '@mui/material/Fade';
 import clsx from 'clsx';
@@ -350,4 +350,4 @@ const Hover = ({ slide, children }: HoverProps) => {
     );
 };
 
-export default React.memo(Hover);
+export default memo(Hover);

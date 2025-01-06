@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { container, iconWrapper } from './styles.module.less';
 
 type StepProps = {

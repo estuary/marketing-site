@@ -1,4 +1,3 @@
-import React from 'react';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { Author } from '../shared';
 import SocialLinks from '../../../components/SocialLinks';

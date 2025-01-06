@@ -1,4 +1,3 @@
-import React from 'react';
 import { webinarsUrl } from '../../../../../shared';
 import LinkFilled from '../../../../components/LinksAndButtons/LinkFilled';
 import OutboundLinkOutlined from '../../../../components/LinksAndButtons/OutboundLinkOutlined';

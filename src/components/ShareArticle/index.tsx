@@ -1,4 +1,3 @@
-import * as React from 'react';
 import EmailOutlinedIcon from '../../svgs/share-social-icons/email-outlined.svg';
 import FacebookOutlinedIcon from '../../svgs/share-social-icons/facebook-outlined.svg';
 import LinkedinOutlinedIcon from '../../svgs/share-social-icons/linkedin-outlined.svg';

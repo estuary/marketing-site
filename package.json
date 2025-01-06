@@ -33,6 +33,7 @@
     "gatsby-plugin-lunr": "^1.5.2",
     "gatsby-plugin-manifest": "^5.13.1",
     "gatsby-plugin-preconnect": "^1.4.0",
+    "gatsby-plugin-provide-react": "^1.0.2",
     "gatsby-plugin-react-svg": "^3.3.0",
     "gatsby-plugin-robots-txt": "^1.8.0",
     "gatsby-plugin-sharp": "^5.13.1",

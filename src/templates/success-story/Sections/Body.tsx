@@ -1,4 +1,3 @@
-import React from 'react';
 import { body, bodyWrapper, dynamicHtml } from '../styles.module.less';
 import { ProcessedPost } from '../../../components/BlogPostProcessor';
 

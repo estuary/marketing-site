@@ -1,5 +1,5 @@
-import React from 'react';
 import clsx from 'clsx';
+import { FC, ButtonHTMLAttributes } from 'react';
 import { CustomProps } from '../shared';
 import {
     baseButton,
@@ -8,8 +8,8 @@ import {
     fullWidthStyle,
 } from '../styles.module.less';
 
-const ButtonOutlinedPrimary: React.FC<
-    React.ButtonHTMLAttributes<HTMLButtonElement> & CustomProps
+const ButtonOutlinedPrimary: FC<
+    ButtonHTMLAttributes<HTMLButtonElement> & CustomProps
 > = ({ fullWidth, variant = 'primary', children, className, ...props }) => {
     return (
         <button

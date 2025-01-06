@@ -1,4 +1,3 @@
-import React from 'react';
 import { docsPageUrl } from '../../../../shared';
 import OutboundLink from '../../LinksAndButtons/OutboundLink';
 import { tooltipLink } from './styles.module.less';
