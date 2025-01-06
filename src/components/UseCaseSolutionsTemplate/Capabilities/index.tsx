@@ -1,10 +1,10 @@
 import React from 'react';
 import clsx from 'clsx';
-import { CapabilitiesSectionContent } from '../../../templates/use-case-solutions';
 import Container from '../../Container';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
-import { container } from '../styles.module.less';
+import { sectionText } from '../styles.module.less';
 import Tag from '../Tag';
+import { CapabilitiesSectionContent } from '../../../templates/use-case-solutions/shared';
 import Card from './Card';
 import { wrapper, box } from './styles.module.less';
 
@@ -16,7 +16,7 @@ const Capabilities = ({ data }: CapabilitiesProps) => {
     return (
         <section className={clsx(defaultWrapperDarkBlue, wrapper)}>
             <Container
-                className={container}
+                className={sectionText}
                 isDarkTheme
                 isReverseColumnOnMobile
             >

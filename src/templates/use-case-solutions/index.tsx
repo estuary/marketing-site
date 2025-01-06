@@ -6,41 +6,14 @@ import Testimonial from '../../components/UseCaseSolutionsTemplate/Testimonial';
 import Highlights from '../../components/UseCaseSolutionsTemplate/Highlights';
 import Benefits from '../../components/UseCaseSolutionsTemplate/Benefits';
 import Capabilities from '../../components/UseCaseSolutionsTemplate/Capabilities';
-
-interface SectionTitle {
-    highlightedText: string;
-    normalText: string;
-}
-
-export interface TestimonialSectionContent {
-    title: SectionTitle;
-    description: string;
-    quote: {
-        author: {
-            name: string;
-            role: string;
-        };
-        text: string;
-    };
-}
-
-export interface HighlightsSectionContent {
-    title: SectionTitle;
-    description: string;
-    highlightItems: string[];
-}
-
-export interface BenefitsSectionContent {
-    title: SectionTitle;
-    description: string;
-    benefitItems: string[];
-}
-
-export interface CapabilitiesSectionContent {
-    title: SectionTitle;
-    description: string;
-    capabilityItems: string[];
-}
+import KeyFeatures from '../../components/UseCaseSolutionsTemplate/KeyFeatures';
+import {
+    TestimonialSectionContent,
+    HighlightsSectionContent,
+    BenefitsSectionContent,
+    CapabilitiesSectionContent,
+    KeyFeaturesSectionContent,
+} from './shared';
 
 interface UseCaseSolution {
     slug: string;
@@ -52,6 +25,7 @@ interface UseCaseSolution {
         highlights: HighlightsSectionContent;
         benefits: BenefitsSectionContent;
         capabilities: CapabilitiesSectionContent;
+        keyFeatures: KeyFeaturesSectionContent;
     };
 }
 
@@ -74,6 +48,9 @@ const UseCaseSolutions = ({ pageContext }: UseCaseSolutionsProps) => {
             <Benefits data={pageContext.useCaseSolution.sections.benefits} />
             <Capabilities
                 data={pageContext.useCaseSolution.sections.capabilities}
+            />
+            <KeyFeatures
+                data={pageContext.useCaseSolution.sections.keyFeatures}
             />
         </Layout>
     );

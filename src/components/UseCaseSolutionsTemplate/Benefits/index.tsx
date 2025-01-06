@@ -1,10 +1,11 @@
 import React from 'react';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { graphql, useStaticQuery } from 'gatsby';
-import { BenefitsSectionContent } from '../../../templates/use-case-solutions';
 import Container from '../../Container';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import Card from '../Card';
+import { sectionText } from '../styles.module.less';
+import { BenefitsSectionContent } from '../../../templates/use-case-solutions/shared';
 import { wrapper } from './styles.module.less';
 
 interface BenefitsProps {
@@ -57,7 +58,7 @@ const Benefits = ({ data }: BenefitsProps) => {
     return (
         <section className={defaultWrapperGrey}>
             <Container className={wrapper} isVertical>
-                <div>
+                <div className={sectionText}>
                     <h2>
                         <span>{data.title.highlightedText}</span>{' '}
                         {data.title.normalText}

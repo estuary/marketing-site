@@ -1,11 +1,10 @@
 import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
-import clsx from 'clsx';
-import { HighlightsSectionContent } from '../../../templates/use-case-solutions';
 import Container from '../../Container';
 import { container, noPadding } from '../styles.module.less';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import Card from '../Card';
+import { HighlightsSectionContent } from '../../../templates/use-case-solutions/shared';
 import { wrapper } from './styles.module.less';
 
 interface HighlightsProps {
@@ -16,8 +15,8 @@ const Highlights = ({ data }: HighlightsProps) => {
     return (
         <section className={defaultWrapperDarkBlue}>
             <Container className={wrapper} isDarkTheme isVertical>
-                <Container className={clsx(container, noPadding)}>
-                    <div>
+                <Container className={noPadding}>
+                    <div className={container}>
                         <h2>
                             <span>{data.title.highlightedText}</span>{' '}
                             {data.title.normalText}
