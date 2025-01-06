@@ -1,4 +1,3 @@
-import React from 'react';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import { sectionText } from '../styles.module.less';
 import KeyFeature1 from '../../../svgs/use-case-solutions-template/key-features/key-feature-1.svg';

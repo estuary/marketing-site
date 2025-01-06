@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import clsx from 'clsx';
 import Tag from '../Tag';
 import { container, darkTheme } from './styles.module.less';

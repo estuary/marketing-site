@@ -1,8 +1,7 @@
-import React from 'react';
 import Container from '../../Container';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
-import { TestimonialSectionContent } from '../../../templates/use-case-solutions';
-import { container } from '../styles.module.less';
+import { sectionText } from '../styles.module.less';
+import { TestimonialSectionContent } from '../../../templates/use-case-solutions/shared';
 import { quoteBox } from './styles.module.less';
 
 interface TestimonialProps {
@@ -12,7 +11,7 @@ interface TestimonialProps {
 const Testimonial = ({ data }: TestimonialProps) => {
     return (
         <section className={defaultWrapperGrey}>
-            <Container className={container}>
+            <Container className={sectionText}>
                 <div className={quoteBox}>
                     <div>
                         <h3>{data.quote.author.name}</h3>

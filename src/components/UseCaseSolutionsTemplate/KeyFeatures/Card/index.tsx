@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import Tag from '../../Tag';
 import { container } from './styles.module.less';
 

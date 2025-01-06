@@ -1,4 +1,4 @@
-import React from 'react';
+import { useMemo } from 'react';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { graphql, useStaticQuery } from 'gatsby';
 import Container from '../../Container';
@@ -39,7 +39,7 @@ const Benefits = ({ data }: BenefitsProps) => {
         }
     `);
 
-    const imageMap = React.useMemo(() => {
+    const imageMap = useMemo(() => {
         const map: Record<string, any> = {};
         images.allFile.edges.forEach(({ node }) => {
             const imageData = getImage(node.childImageSharp);
