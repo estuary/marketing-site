@@ -14,15 +14,16 @@ const Demo = () => {
     return (
         <Layout>
             <div className={container}>
-                <iframe
-                    allow="clipboard-write"
-                    allowFullScreen
-                    frameBorder="0"
-                    loading="lazy"
-                    sandbox={sandBoxProps}
-                    src="https://demo.arcade.software/WkrVMY9VKYWmhaJmC9Ib?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true"
-                    title="Estuary Flow Demo"
-                />
+                <div>
+                    <iframe
+                        allow="clipboard-write"
+                        allowFullScreen
+                        frameBorder="0"
+                        sandbox={sandBoxProps}
+                        src="https://demo.arcade.software/WkrVMY9VKYWmhaJmC9Ib?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true"
+                        title="Estuary Flow Demo"
+                    />
+                </div>
             </div>
         </Layout>
     );
