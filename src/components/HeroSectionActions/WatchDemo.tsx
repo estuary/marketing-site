@@ -1,11 +1,7 @@
 import LinkOutlined from '../LinksAndButtons/LinkOutlined';
-import LinkFilled from '../LinksAndButtons/LinkFilled';
-import { CommonCtaProps } from './types';
 
-const WatchDemoCta = ({ linkVariant = 'outlined' }: CommonCtaProps) => {
-    const LinkComponent = linkVariant === 'filled' ? LinkFilled : LinkOutlined;
-
-    return <LinkComponent href="/demo/">Watch Demo</LinkComponent>;
+const WatchDemoCta = () => {
+    return <LinkOutlined href="/demo/">Watch Demo</LinkOutlined>;
 };
 
 export default WatchDemoCta;
