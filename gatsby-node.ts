@@ -664,6 +664,19 @@ export const createPages: GatsbyNode['createPages'] = async ({
                         'Unified pipelines for consistent, high-quality data ingestion.',
                     ],
                 },
+                keyFeatures: {
+                    title: {
+                        highlightedText: 'Broad Integration Ecosystem',
+                        normalText: '',
+                    },
+                    description:
+                        'Estuary Flow connects to a wide range of data sources, including Salesforce and HubSpot, to centralize and streamline your AI data preparation. Materialization connectors for specialized tools like Pinecone further simplify AI integration.',
+                    keyFeatureItems: [
+                        'Native connectors for CRM, marketing, and operational data.',
+                        'Real-time transformation and enrichment for AI readiness.',
+                        'Flexible architecture to support future AI tools and platforms.',
+                    ],
+                },
             },
         },
         {
