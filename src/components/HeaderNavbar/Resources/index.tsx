@@ -122,7 +122,7 @@ const HeaderNavbarResources = ({ active, setActive }) => {
                                 </div>
                                 <LinkOutlined
                                     target="_blank"
-                                    href="/why/"
+                                    href="/demo/"
                                     fullWidth
                                 >
                                     Watch Product Tour (2 min)

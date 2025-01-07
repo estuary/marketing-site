@@ -59,7 +59,7 @@ import {
       children: [
         isDesktop && {
           title: 'Product Tour',
-          path: '/why',
+          path: '/demo',
         },
         {
           title: 'About Flow',
