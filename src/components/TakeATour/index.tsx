@@ -5,7 +5,7 @@ import OutboundLink from '../LinksAndButtons/OutboundLink';
 import { container } from './styles.module.less';
 
 const DEFAULTS = {
-    href: '/why/',
+    href: '/demo/',
     message: 'Take a Product Tour',
     version: '',
 };

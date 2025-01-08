@@ -485,6 +485,11 @@
                 "source": "/customers/flashpack/",
                 "destination": "/success-stories/flashpack/",
                 "type": 301
+            },
+            {
+                "source": "/why/",
+                "destination": "/demo/",
+                "type": 301
             }
         ],
         "public": "public",

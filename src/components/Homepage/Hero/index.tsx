@@ -34,7 +34,7 @@ const Hero = () => {
                     description="Estuary is the only platform built from the ground up
                         for truly real-time ETL and ELT data integration, set up
                         in minutes."
-                    ctaButtons={<HeroSectionActions />}
+                    ctaButtons={<HeroSectionActions showDemoCta />}
                     hasSubscriptionBenefits
                 />
                 <div className={flowAnimationContainer}>

@@ -71,7 +71,7 @@ export const listen = [
 export const tours = [
     {
         name: 'Product Tour [2 min]',
-        to: '/why',
+        to: '/demo/',
     },
     {
         name: 'Real-time 101 [30 min]',

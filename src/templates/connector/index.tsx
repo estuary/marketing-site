@@ -9,7 +9,6 @@ import ChangeData from './ChangeData';
 import Hero from './Hero';
 import Pipelines from './Pipelines';
 import RealTime from './RealTime';
-import TakeATour from './TakeATour';
 
 export interface ConnectorProps {
     data: {
@@ -76,7 +75,7 @@ const Connector = ({
                 />
                 <Pipelines />
                 <RealTime />
-                <TakeATour />
+                {/*<TakeATour />*/}
             </article>
         </Layout>
     );
