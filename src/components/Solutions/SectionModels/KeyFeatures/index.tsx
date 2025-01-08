@@ -1,9 +1,9 @@
-import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
-import { sectionText } from '../styles.module.less';
-import KeyFeature1 from '../../../svgs/use-case-solutions-template/key-features/key-feature-1.svg';
-import KeyFeature2 from '../../../svgs/use-case-solutions-template/key-features/key-feature-2.svg';
-import KeyFeature3 from '../../../svgs/use-case-solutions-template/key-features/key-feature-3.svg';
-import { KeyFeaturesSectionContent } from '../../../templates/use-case-solutions/shared';
+import { defaultWrapperGrey } from '../../../../globalStyles/wrappers.module.less';
+import { sectionText } from '../../styles.module.less';
+import KeyFeature1 from '../../../../svgs/use-case-solutions-template/key-features/key-feature-1.svg';
+import KeyFeature2 from '../../../../svgs/use-case-solutions-template/key-features/key-feature-2.svg';
+import KeyFeature3 from '../../../../svgs/use-case-solutions-template/key-features/key-feature-3.svg';
+import { KeyFeaturesSectionContent } from '../../../../templates/solutions/shared';
 import Card from './Card';
 import { grid } from './styles.module.less';
 

@@ -3,7 +3,7 @@ import Container from '../../Container';
 import { sectionText, noPadding } from '../styles.module.less';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import Card from '../Card';
-import { HighlightsSectionContent } from '../../../templates/use-case-solutions/shared';
+import { HighlightsSectionContent } from '../../../templates/solutions/shared';
 import { wrapper } from './styles.module.less';
 
 interface HighlightsProps {

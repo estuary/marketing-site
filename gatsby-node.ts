@@ -19,7 +19,10 @@ const path = require('path');
 // Define the template for blog and blog post
 const blogPostTemplate = path.resolve('./src/templates/blog-post/index.tsx');
 const useCaseSolutionsTemplate = path.resolve(
-    './src/templates/use-case-solutions/index.tsx'
+    './src/templates/solutions/use-cases/index.tsx'
+);
+const industrySolutionsTemplate = path.resolve(
+    './src/templates/solutions/industry/index.tsx'
 );
 const companyUpdatesPostTemplate = path.resolve(
     './src/templates/company-update-post/index.tsx'
@@ -757,12 +760,251 @@ export const createPages: GatsbyNode['createPages'] = async ({
         },
     ];
 
+    const industrySolutions = [
+        {
+            slug: '/solutions/industry/finance',
+            sections: {
+                hero: {
+                    title: 'Finance',
+                },
+                testimonial: {
+                    title: {
+                        highlightedText: 'Empowering Financial Institutions',
+                        normalText: 'with Real-time Data Integration',
+                    },
+                    description:
+                        'Estuary Flow enables banks, insurers, and financial firms to process high-velocity transactions and risk analytics with minimal latency. Achieve secure and fast data integration while maintaining compliance with industry regulations.',
+                    quote: {
+                        author: {
+                            name: 'Tony Tushar',
+                            role: 'Principal Data Consultant, Soli & Co',
+                        },
+                        text: "“Estuary is a very productive product with a great pricing model given the current climate that we're in. I think a lot of cost-conscious data practitioners could benefit from giving it a try.”",
+                    },
+                },
+                highlights: {
+                    title: {
+                        highlightedText: 'Streamlined',
+                        normalText: 'Risk and Compliance',
+                    },
+                    description:
+                        'Seamlessly integrate data to power predictive risk models and ensure compliance with industry regulations. Estuary Flow simplifies audit processes while keeping risk assessments up to date.',
+                    highlightItems: [
+                        'Automated audit logs and schema evolution.',
+                        'Support for multi-source data aggregation and transformation.',
+                        'Real-time and batch workflows for hybrid financial use cases.',
+                    ],
+                },
+                capabilities: {
+                    title: {
+                        highlightedText: 'Scalable Solutions',
+                        normalText: 'for Financial Growth',
+                    },
+                    description:
+                        "Estuary Flow's flexible architecture adapts to evolving financial needs, handling increasing transaction volumes with ease. Optimize financial workflows and accelerate innovation for new products and services.",
+                    capabilityItems: [
+                        'High availability and fault-tolerant pipelines.',
+                        'Compatibility with legacy and modern systems.',
+                        'Hybrid and multi-cloud deployment support.',
+                    ],
+                },
+                benefits: {
+                    title: {
+                        highlightedText: 'Unlocking Growth Potential',
+                        normalText: 'with Real-time Data',
+                    },
+                    description:
+                        "Estuary Flow's architecture adapts to evolving financial demands, making it a reliable solution for increasing transaction volumes while ensuring compliance and operational efficiency.",
+                    benefitItems: [
+                        'High Availability: Fault-tolerant pipelines for uninterrupted operations.',
+                        'System Compatibility: Integrates with both legacy and modern systems.',
+                        'Deployment Flexibility: Hybrid and multi-cloud options tailored to financial needs.',
+                    ],
+                },
+                keyFeatures: {
+                    title: {
+                        highlightedText: 'Real-Time',
+                        normalText: 'Financial Data Integration',
+                    },
+                    description:
+                        'Estuary Flow empowers financial institutions to process high-velocity transactions and risk analytics with second-level latency. Our platform enables secure, real-time data pipelines for fraud detection, risk analysis, and compliance reporting.',
+                    keyFeatureItems: [
+                        'Reliable real-time updates for critical decisions.',
+                        'End-to-end encryption and SOC 2 compliance.',
+                        'Continuous data synchronization across diverse systems.',
+                    ],
+                },
+            },
+        },
+        {
+            slug: '/solutions/industry/supply-chain',
+            sections: {
+                hero: {
+                    title: 'Supply Chain and Logistics',
+                },
+                testimonial: {
+                    title: {
+                        highlightedText: 'Optimize Your Supply Chain',
+                        normalText: 'with Real-time Data',
+                    },
+                    description:
+                        'Supply chain organizations rely on Estuary Flow to streamline logistics, track shipments, and optimize routes in real time. With real-time change data capture, logistics companies can make smarter, faster decisions to reduce costs and delays.',
+                    quote: {
+                        author: {
+                            name: 'Tony Tushar',
+                            role: 'Principal Data Consultant, Soli & Co',
+                        },
+                        text: "“Estuary is a very productive product with a great pricing model given the current climate that we'''re in. I think a lot of cost-conscious data practitioners could benefit from giving it a try.”",
+                    },
+                },
+                highlights: {
+                    title: {
+                        highlightedText: 'Cost Reduction',
+                        normalText: 'Through Smarter Decisions',
+                    },
+                    description:
+                        'Harness real-time data to optimize logistics and reduce operational costs. Estuary Flow enables faster reactions to disruptions, ensuring supply chains remain agile and efficient.',
+                    highlightItems: [
+                        'Real-time change data capture for immediate insights.',
+                        'Scalable pipelines for high-volume data streams.',
+                        'Integration with ERP and logistics platforms for seamless workflows.',
+                    ],
+                },
+                benefits: {
+                    title: {
+                        highlightedText: 'Smarter Decisions',
+                        normalText: 'Powered by Real-time Data',
+                    },
+                    description:
+                        'Estuary Flow allows supply chain operators to avoid disruptions, reduce delays, and optimize costs with instant access to actionable data.',
+                    benefitItems: [
+                        'Real-Time Insights: Immediate visibility into key logistics metrics.',
+                        'Scalable Pipelines: Handles growing global data streams with ease.',
+                        'Seamless Workflows: Automated updates across all operations systems.',
+                    ],
+                },
+                keyFeatures: {
+                    title: {
+                        highlightedText: 'Real-Time Insights',
+                        normalText: 'for Supply Chain Efficiency',
+                    },
+                    description:
+                        'Estuary Flow empowers supply chain organizations to track shipments, manage inventory, and optimize routes in real time. Gain instant visibility into operations to reduce delays and improve decision-making.',
+                    keyFeatureItems: [
+                        'Real-time data synchronization for shipment tracking and route optimization.',
+                        'Instant updates for inventory management and demand forecasting.',
+                        'Low-latency pipelines to support dynamic supply chain workflows.',
+                    ],
+                },
+                capabilities: {
+                    title: {
+                        highlightedText: 'Scalable Solutions',
+                        normalText: 'for Supply Chain Growth',
+                    },
+                    description:
+                        'As supply chain operations scale, Estuary Flow provides the flexibility to manage growing data demands. From global logistics to regional distribution, our platform ensures high availability and reliable performance.',
+                    capabilityItems: [
+                        'Support for multi-cloud and hybrid deployments.',
+                        'Automated schema evolution for fast-changing supply chain data.',
+                        'End-to-end data security for compliance and reliability.',
+                    ],
+                },
+            },
+        },
+        {
+            slug: '/solutions/industry/marketing',
+            sections: {
+                hero: {
+                    title: 'Marketing',
+                },
+                testimonial: {
+                    title: {
+                        highlightedText: 'Supercharge Marketing Efforts',
+                        normalText: 'with Unified Data',
+                    },
+                    description:
+                        'Estuary Flow allows marketing teams to gain actionable insights by integrating data from all your marketing platforms, whether it’s ad performance, customer interactions, or email campaigns. With real-time updates, marketers can fine-tune campaigns on the fly.',
+                    quote: {
+                        author: {
+                            name: 'Tony Tushar',
+                            role: 'Principal Data Consultant, Soli & Co',
+                        },
+                        text: "“Estuary is a very productive product with a great pricing model given the current climate that we're in. I think a lot of cost-conscious data practitioners could benefit from giving it a try.”",
+                    },
+                },
+                highlights: {
+                    title: {
+                        highlightedText: 'Enhance Customer Engagement',
+                        normalText: '',
+                    },
+                    description:
+                        'Leverage real-time data to personalize and optimize customer journeys. Estuary Flow enables marketers to target the right audience, adjust strategies, and improve conversion rates with accurate, real-time insights.',
+                    highlightItems: [
+                        'CReal-time data for audience segmentation and campaign targeting.',
+                        'Integration with major marketing tools like Salesforce, HubSpot, and more.',
+                        'Built-in transformations for enriching customer data.',
+                    ],
+                },
+                capabilities: {
+                    title: {
+                        highlightedText: 'Scalable and Flexible',
+                        normalText: 'Marketing Data Solutions',
+                    },
+                    description:
+                        'As your marketing efforts grow, Estuary Flow scales with your needs, integrating new platforms and expanding data pipelines to support increasing marketing volumes.',
+                    capabilityItems: [
+                        'Seamless integration with existing marketing tech stack.',
+                        'Scalable data flows to handle growing data volumes.',
+                        'Built-in compliance and security features to protect customer data.',
+                    ],
+                },
+                benefits: {
+                    title: {
+                        highlightedText:
+                            'Adapting to Evolving Marketing Demands',
+                        normalText: '',
+                    },
+                    description:
+                        'Estuary Flow scales to support growing data needs while maintaining performance, empowering marketing teams to integrate new tools and platforms seamlessly.',
+                    benefitItems: [
+                        'Seamless Integration: Works with existing tech stacks, like HubSpot and Salesforce.',
+                        'Data Volume Scaling: Handles growing customer and campaign data.',
+                        'Built-in Compliance: Ensures data security for marketing analytics with private deployments.',
+                    ],
+                },
+                keyFeatures: {
+                    title: {
+                        highlightedText: 'Actionable Insights',
+                        normalText: 'for Smarter Marketing',
+                    },
+                    description:
+                        'Estuary Flow empowers marketing teams to integrate data from all platforms in real-time, providing actionable insights on ad performance, customer interactions, and email campaigns. Drive more effective campaigns with up-to-date data at your fingertips.',
+                    keyFeatureItems: [
+                        'Real-time data integration from ad platforms, CRMs, and email tools.',
+                        'Instant updates to optimize campaigns on the fly.',
+                        'Support for both streaming and batch data flows.',
+                    ],
+                },
+            },
+        },
+    ];
+
     for (const useCaseSolution of useCaseSolutions) {
         createPage({
             path: useCaseSolution.slug,
             component: useCaseSolutionsTemplate,
             context: {
                 useCaseSolution,
+            },
+        });
+    }
+
+    for (const industrySolution of industrySolutions) {
+        createPage({
+            path: industrySolution.slug,
+            component: industrySolutionsTemplate,
+            context: {
+                industrySolution,
             },
         });
     }

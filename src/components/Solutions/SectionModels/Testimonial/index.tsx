@@ -1,7 +1,7 @@
-import Container from '../../Container';
-import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
-import { sectionText } from '../styles.module.less';
-import { TestimonialSectionContent } from '../../../templates/use-case-solutions/shared';
+import Container from '../../../Container';
+import { defaultWrapperGrey } from '../../../../globalStyles/wrappers.module.less';
+import { sectionText } from '../../styles.module.less';
+import { TestimonialSectionContent } from '../../../../templates/solutions/shared';
 import { quoteBox } from './styles.module.less';
 
 interface TestimonialProps {

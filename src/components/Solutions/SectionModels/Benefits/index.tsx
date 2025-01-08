@@ -1,8 +1,8 @@
-import Container from '../../Container';
-import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
-import Card from '../Card';
-import { sectionText } from '../styles.module.less';
-import { BenefitsSectionContent } from '../../../templates/use-case-solutions/shared';
+import Container from '../../../Container';
+import { defaultWrapperGrey } from '../../../../globalStyles/wrappers.module.less';
+import Card from '../../Card';
+import { sectionText } from '../../styles.module.less';
+import { BenefitsSectionContent } from '../../../../templates/solutions/shared';
 import { wrapper } from './styles.module.less';
 
 interface BenefitsProps {

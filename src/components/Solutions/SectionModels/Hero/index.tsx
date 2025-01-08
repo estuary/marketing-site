@@ -1,8 +1,8 @@
 import { StaticImage } from 'gatsby-plugin-image';
-import Container from '../../Container';
-import HeroSectionDetails from '../../HeroSectionDetails';
-import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
-import HeroSectionActions from '../../HeroSectionActions';
+import Container from '../../../Container';
+import HeroSectionDetails from '../../../HeroSectionDetails';
+import { defaultWrapperDarkBlue } from '../../../../globalStyles/wrappers.module.less';
+import HeroSectionActions from '../../../HeroSectionActions';
 
 interface HeroProps {
     title: string;
@@ -17,7 +17,7 @@ const Hero = ({ title }: HeroProps) => {
                     ctaButtons={<HeroSectionActions />}
                 />
                 <StaticImage
-                    src="../../../images/use-case-solutions-template/use-cases-hero-image.png"
+                    src="../../../../images/use-case-solutions-template/use-cases-hero-image.png"
                     alt="Estuary Partner Program" // TODO: Ask alt text to Sourabh.
                     quality={100}
                     placeholder="blurred"

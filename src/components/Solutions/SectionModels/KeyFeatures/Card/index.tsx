@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import Tag from '../../Tag';
+import Tag from '../../../Tag';
 import { container } from './styles.module.less';
 
 interface CardProps {

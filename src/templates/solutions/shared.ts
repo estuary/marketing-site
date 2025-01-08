@@ -33,3 +33,17 @@ export interface CapabilitiesSectionContent extends SectionText {
 export interface KeyFeaturesSectionContent extends SectionText {
     keyFeatureItems: string[];
 }
+
+export interface TemplatePageProps {
+    slug: string;
+    sections: {
+        hero: {
+            title: string;
+        };
+        testimonial: TestimonialSectionContent;
+        highlights: HighlightsSectionContent;
+        benefits: BenefitsSectionContent;
+        capabilities: CapabilitiesSectionContent;
+        keyFeatures: KeyFeaturesSectionContent;
+    };
+}
