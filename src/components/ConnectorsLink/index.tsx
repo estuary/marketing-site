@@ -59,7 +59,7 @@ const ConnectorsLink = ({
                 (connector) =>
                     connector?.connectorTagsByConnectorIdList?.length > 0
             )
-            .map(normalizeConnector);
+            .flatMap(normalizeConnector);
 
         return [
             mapped.filter((connector) => connector.type === 'capture'),
