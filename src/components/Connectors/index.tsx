@@ -162,7 +162,8 @@ export const Connectors = ({
                     (connector) =>
                         connector?.connectorTagsByConnectorIdList?.length > 0
                 )
-                .flatMap(normalizeConnector)
+                .map(normalizeConnector)
+                .filter((connector) => connector !== undefined)
                 .filter((connector) =>
                     connectorType ? connector.type === connectorType : true
                 )

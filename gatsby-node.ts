@@ -346,7 +346,8 @@ export const createPages: GatsbyNode['createPages'] = async ({
     const mapped_connectors =
         connectors.data?.postgres.allConnectors.nodes
             .filter((conn) => conn?.connectorTagsByConnectorIdList?.length > 0)
-            .flatMap(normalizeConnector) ?? [];
+            .map(normalizeConnector)
+            .filter((connector) => connector !== undefined) ?? [];
 
     validateDataExistence(mapped_connectors, 'Connectors');
 
