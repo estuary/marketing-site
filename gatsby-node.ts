@@ -473,8 +473,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
                         "Estuary Flow empowers businesses to execute data pipelines with ease. Whether you're leveraging a one-to-many ELT flow or traditional ETL, our platform's flexibility ensures your data is always where it needs to be, in real-time or batch mode.",
                     quote: {
                         company: 'Connect&GO',
-                        successStoryUrl:
-                            'https://estuary.dev/success-stories/connectngo/',
+                        successStoryUrl: '/success-stories/connectngo/',
                         text: '“Connect&GO replaced its self-hosted batch ELT solution with Estuary Flow, enabling real-time MySQL-to-Snowflake replication with 15-second latency. This improved client visibility, boosted productivity 4x, and reduced costs 5x, empowering attractions to optimize operations and enhance guest experiences.”',
                     },
                 },
@@ -547,8 +546,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
                         'Integrate Estuary Flow seamlessly with all major data warehouses to enable real-time and batch data flows. Our support for ELT and dbt cloud integration streamlines operations, giving your team the tools they need to transform and load data efficiently.',
                     quote: {
                         company: 'Flash Pack',
-                        successStoryUrl:
-                            'https://estuary.dev/success-stories/flashpack/',
+                        successStoryUrl: '/success-stories/flashpack/',
                         text: '“Flash Pack, a solo travel company, used Estuary to build a scalable, real-time data pipeline in two weeks, enabling reliable analytics with minimal engineering effort while reducing costs and complexity.”',
                     },
                 },
@@ -695,8 +693,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
                         'Estuary Flow enables real-time analytics by allowing seamless integration with the tools you trust. With the Kafka-compatible Dekaf API, Flow makes it easy to tap into the Kafka ecosystem. Our partnerships with Tinybird and StarTree further enhance your ability to build powerful real-time analytics platforms.',
                     quote: {
                         company: 'SocialHP',
-                        successStoryUrl:
-                            'https://estuary.dev/success-stories/SocialHP/',
+                        successStoryUrl: '/success-stories/SocialHP/',
                         text: '“SocialHP leveraged Estuary to build a real-time CDC pipeline from Postgres to ElasticSearch in just two days, achieving second-level latency and enabling advanced analytics on their social media platform. This upgrade resolved performance and scalability challenges, required no maintenance, and supported rapid growth with high-quality support from Estuary.”',
                     },
                 },
@@ -918,8 +915,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
                         "Estuary Flow allows marketing teams to gain actionable insights by integrating data from all your marketing platforms, whether it's ad performance, customer interactions, or email campaigns. With real-time updates, marketers can fine-tune campaigns on the fly.",
                     quote: {
                         company: 'SocialHP',
-                        successStoryUrl:
-                            'https://estuary.dev/success-stories/SocialHP/',
+                        successStoryUrl: '/success-stories/SocialHP/',
                         text: "“Estuary delivered enterprise-grade analytics in days, transforming our platform's capabilities.” — Shane Iseminger, CTO, SocialHP",
                     },
                 },

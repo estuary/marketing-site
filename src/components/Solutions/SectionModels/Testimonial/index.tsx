@@ -3,7 +3,11 @@ import { defaultWrapperGrey } from '../../../../globalStyles/wrappers.module.les
 import { sectionText } from '../../styles.module.less';
 import { TestimonialSectionContent } from '../../../../templates/solutions/shared';
 import LinkOutlined from '../../../LinksAndButtons/LinkOutlined';
-import { quoteBox } from './styles.module.less';
+import {
+    quoteBox,
+    quoteTextMargin,
+    additionalQuoteTextMargin,
+} from './styles.module.less';
 
 interface TestimonialProps {
     data: TestimonialSectionContent;
@@ -16,7 +20,15 @@ const Testimonial = ({ data }: TestimonialProps) => {
                 <div className={quoteBox}>
                     <div>
                         <h3>{data.quote.company}</h3>
-                        <p>{data.quote.text}</p>
+                        <p
+                            className={
+                                !!data.quote.company
+                                    ? additionalQuoteTextMargin
+                                    : quoteTextMargin
+                            }
+                        >
+                            {data.quote.text}
+                        </p>
                         {data.quote.company ? (
                             <LinkOutlined
                                 href={data.quote.successStoryUrl}
