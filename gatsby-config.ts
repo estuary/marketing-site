@@ -525,7 +525,9 @@ const cfg: GatsbyConfig = {
                 // containing properties to index. The objects must contain the `ref`
                 // field above (default: 'id'). This is required.
                 normalizer: ({ data }) =>
-                    data.postgres.allConnectors.nodes.map(normalizeConnector),
+                    data.postgres.allConnectors.nodes
+                        .map(normalizeConnector)
+                        .filter((connector) => connector !== undefined),
             },
         },
         {
