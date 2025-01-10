@@ -10,10 +10,8 @@ interface SectionText {
 
 export interface TestimonialSectionContent extends SectionText {
     quote: {
-        author: {
-            name: string;
-            role: string;
-        };
+        company?: string;
+        successStoryUrl?: string;
         text: string;
     };
 }

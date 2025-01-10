@@ -472,11 +472,10 @@ export const createPages: GatsbyNode['createPages'] = async ({
                     description:
                         "Estuary Flow empowers businesses to execute data pipelines with ease. Whether you're leveraging a one-to-many ELT flow or traditional ETL, our platform's flexibility ensures your data is always where it needs to be, in real-time or batch mode.",
                     quote: {
-                        author: {
-                            name: 'Tony Tushar',
-                            role: 'Principal Data Consultant, Soli & Co',
-                        },
-                        text: "“Estuary is a very productive product with a great pricing model given the current climate that we're in. I think a lot of cost-conscious data practitioners could benefit from giving it a try.”",
+                        company: 'Connect&GO',
+                        successStoryUrl:
+                            'https://estuary.dev/success-stories/connectngo/',
+                        text: '“Connect&GO replaced its self-hosted batch ELT solution with Estuary Flow, enabling real-time MySQL-to-Snowflake replication with 15-second latency. This improved client visibility, boosted productivity 4x, and reduced costs 5x, empowering attractions to optimize operations and enhance guest experiences.”',
                     },
                 },
                 benefits: {
@@ -547,11 +546,10 @@ export const createPages: GatsbyNode['createPages'] = async ({
                     description:
                         'Integrate Estuary Flow seamlessly with all major data warehouses to enable real-time and batch data flows. Our support for ELT and dbt cloud integration streamlines operations, giving your team the tools they need to transform and load data efficiently.',
                     quote: {
-                        author: {
-                            name: 'Tony Tushar',
-                            role: 'Principal Data Consultant, Soli & Co',
-                        },
-                        text: "“Estuary is a very productive product with a great pricing model given the current climate that we'''re in. I think a lot of cost-conscious data practitioners could benefit from giving it a try.”",
+                        company: 'Flash Pack',
+                        successStoryUrl:
+                            'https://estuary.dev/success-stories/flashpack/',
+                        text: '“Flash Pack, a solo travel company, used Estuary to build a scalable, real-time data pipeline in two weeks, enabling reliable analytics with minimal engineering effort while reducing costs and complexity.”',
                     },
                 },
                 highlights: {
@@ -622,11 +620,9 @@ export const createPages: GatsbyNode['createPages'] = async ({
                     description:
                         'Harness the power of Estuary Flow to unify and prepare data from various sources for AI and Retrieval-Augmented Generation (RAG) applications. With built-in connectors for leading platforms like Salesforce, HubSpot, and Pinecone, your data flows are fully optimized for AI-driven workloads.',
                     quote: {
-                        author: {
-                            name: 'Tony Tushar',
-                            role: 'Principal Data Consultant, Soli & Co',
-                        },
-                        text: "“Estuary is a very productive product with a great pricing model given the current climate that we're in. I think a lot of cost-conscious data practitioners could benefit from giving it a try.”",
+                        company: '',
+                        successStoryUrl: '',
+                        text: 'An AI-driven RAG (Retrieval-Augmented Generation) app leveraged Estuary Flow to enable real-time data processing and enhance AI model responsiveness. By integrating seamlessly with Pinecone, the app achieved low-latency, real-time data retrieval, enabling more accurate and dynamic AI-generated responses.',
                     },
                 },
                 highlights: {
@@ -698,11 +694,10 @@ export const createPages: GatsbyNode['createPages'] = async ({
                     description:
                         'Estuary Flow enables real-time analytics by allowing seamless integration with the tools you trust. With the Kafka-compatible Dekaf API, Flow makes it easy to tap into the Kafka ecosystem. Our partnerships with Tinybird and StarTree further enhance your ability to build powerful real-time analytics platforms.',
                     quote: {
-                        author: {
-                            name: 'Tony Tushar',
-                            role: 'Principal Data Consultant, Soli & Co',
-                        },
-                        text: "“Estuary is a very productive product with a great pricing model given the current climate that we're in. I think a lot of cost-conscious data practitioners could benefit from giving it a try.”",
+                        company: 'SocialHP',
+                        successStoryUrl:
+                            'https://estuary.dev/success-stories/SocialHP/',
+                        text: '“SocialHP leveraged Estuary to build a real-time CDC pipeline from Postgres to ElasticSearch in just two days, achieving second-level latency and enabling advanced analytics on their social media platform. This upgrade resolved performance and scalability challenges, required no maintenance, and supported rapid growth with high-quality support from Estuary.”',
                     },
                 },
                 highlights: {
@@ -776,11 +771,9 @@ export const createPages: GatsbyNode['createPages'] = async ({
                     description:
                         'Estuary Flow enables banks, insurers, and financial firms to process high-velocity transactions and risk analytics with minimal latency. Achieve secure and fast data integration while maintaining compliance with industry regulations.',
                     quote: {
-                        author: {
-                            name: 'Tony Tushar',
-                            role: 'Principal Data Consultant, Soli & Co',
-                        },
-                        text: "“Estuary is a very productive product with a great pricing model given the current climate that we're in. I think a lot of cost-conscious data practitioners could benefit from giving it a try.”",
+                        company: '',
+                        successStoryUrl: '',
+                        text: 'Estuary Flow enables financial institutions to streamline transactions, risk analytics, and fraud detection in real-time. Whether it’s second-level latency pipelines or compliance-ready integrations, Estuary Flow provides the tools for modern finance.',
                     },
                 },
                 highlights: {
@@ -851,11 +844,9 @@ export const createPages: GatsbyNode['createPages'] = async ({
                     description:
                         'Supply chain organizations rely on Estuary Flow to streamline logistics, track shipments, and optimize routes in real time. With real-time change data capture, logistics companies can make smarter, faster decisions to reduce costs and delays.',
                     quote: {
-                        author: {
-                            name: 'Tony Tushar',
-                            role: 'Principal Data Consultant, Soli & Co',
-                        },
-                        text: "“Estuary is a very productive product with a great pricing model given the current climate that we'''re in. I think a lot of cost-conscious data practitioners could benefit from giving it a try.”",
+                        company: '',
+                        successStoryUrl: '',
+                        text: 'Estuary Flow empowers supply chain businesses to track inventory, shipments, and routes with real-time data integration, enabling cost-efficient and agile decision-making.',
                     },
                 },
                 highlights: {
@@ -924,13 +915,12 @@ export const createPages: GatsbyNode['createPages'] = async ({
                         normalText: 'with Unified Data',
                     },
                     description:
-                        'Estuary Flow allows marketing teams to gain actionable insights by integrating data from all your marketing platforms, whether it’s ad performance, customer interactions, or email campaigns. With real-time updates, marketers can fine-tune campaigns on the fly.',
+                        "Estuary Flow allows marketing teams to gain actionable insights by integrating data from all your marketing platforms, whether it's ad performance, customer interactions, or email campaigns. With real-time updates, marketers can fine-tune campaigns on the fly.",
                     quote: {
-                        author: {
-                            name: 'Tony Tushar',
-                            role: 'Principal Data Consultant, Soli & Co',
-                        },
-                        text: "“Estuary is a very productive product with a great pricing model given the current climate that we're in. I think a lot of cost-conscious data practitioners could benefit from giving it a try.”",
+                        company: 'SocialHP',
+                        successStoryUrl:
+                            'https://estuary.dev/success-stories/SocialHP/',
+                        text: "“Estuary delivered enterprise-grade analytics in days, transforming our platform's capabilities.” — Shane Iseminger, CTO, SocialHP",
                     },
                 },
                 highlights: {

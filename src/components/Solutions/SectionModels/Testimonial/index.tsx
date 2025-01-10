@@ -2,6 +2,7 @@ import Container from '../../../Container';
 import { defaultWrapperGrey } from '../../../../globalStyles/wrappers.module.less';
 import { sectionText } from '../../styles.module.less';
 import { TestimonialSectionContent } from '../../../../templates/solutions/shared';
+import LinkOutlined from '../../../LinksAndButtons/LinkOutlined';
 import { quoteBox } from './styles.module.less';
 
 interface TestimonialProps {
@@ -14,9 +15,16 @@ const Testimonial = ({ data }: TestimonialProps) => {
             <Container className={sectionText}>
                 <div className={quoteBox}>
                     <div>
-                        <h3>{data.quote.author.name}</h3>
-                        <span>{data.quote.author.role}</span>
+                        <h3>{data.quote.company}</h3>
                         <p>{data.quote.text}</p>
+                        {data.quote.company ? (
+                            <LinkOutlined
+                                href={data.quote.successStoryUrl}
+                                variant="secondary"
+                            >
+                                Success Story
+                            </LinkOutlined>
+                        ) : null}
                     </div>
                 </div>
                 <div>
