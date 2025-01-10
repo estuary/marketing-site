@@ -3,15 +3,14 @@ import TableRows from '../TableRows';
 
 const rows = [
     {
-        label: 'Database replication (CDC) - sources',
+        label: 'Database replication (CDC)',
         key: 'databaseReplication',
     },
-    { label: 'Replication to ODS', key: 'odsReplication' },
-    { label: 'Op. data integration', key: 'dataIntegration' },
+    { label: 'Operational integration', key: 'dataIntegration' },
     { label: 'Data migration', key: 'dataMigration' },
     { label: 'Stream processing', key: 'streamProcessing' },
-    { label: 'Operational Analytics', key: 'operationalAnalytics' },
-    { label: 'AI Pipelines', key: 'aiPipelines' },
+    { label: 'Operational analytics', key: 'operationalAnalytics' },
+    { label: 'AI pipelines', key: 'aiPipelines' },
 ];
 
 const UseCases = ({ xVendor, yVendor, estuaryVendor }: ComparisonVendors) => {

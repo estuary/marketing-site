@@ -2,7 +2,7 @@ import { ComparisonVendors } from '../shared';
 import TableRows from '../TableRows';
 
 const rows = [
-    { label: 'Data Source Authentication', key: 'dataSourceAuth' },
+    { label: 'Data source authentication', key: 'dataSourceAuth' },
     { label: 'Encryption', key: 'encryption' },
 ];
 

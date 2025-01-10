@@ -14,7 +14,7 @@ const TheAbilities = ({
 }: ComparisonVendors) => {
     return (
         <TableRows
-            title="The abilities"
+            title="Abilities"
             rows={rows}
             xVendor={xVendor}
             yVendor={yVendor}

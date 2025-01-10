@@ -4,9 +4,8 @@ import TableRows from '../TableRows';
 const rows = [
     { label: 'Number of connectors', key: 'count' },
     { label: 'Streaming connectors', key: 'streaming' },
-    { label: 'Support for 3rd party connectors', key: 'thirdParty' },
+    { label: '3rd party connectors', key: 'thirdParty' },
     { label: 'Custom SDK', key: 'customSdk' },
-    { label: 'API (for admin)', key: 'adminApi' },
 ];
 
 const Connectors = ({ xVendor, yVendor, estuaryVendor }: ComparisonVendors) => {
