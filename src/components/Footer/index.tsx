@@ -106,7 +106,7 @@ const Footer = () => {
                             Pricing
                         </FooterLink>
                         <FooterLink
-                            to="/why/"
+                            to="/demo/"
                             ariaLabel="Explore a tour of Estuary Flow"
                         >
                             Product Tour

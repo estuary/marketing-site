@@ -163,8 +163,12 @@ export const Connectors = ({
                         connector?.connectorTagsByConnectorIdList?.length > 0
                 )
                 .map(normalizeConnector)
-                .filter((connector) =>
-                    connectorType ? connector.type === connectorType : true
+                .filter(
+                    (connector) =>
+                        connector !== undefined &&
+                        (connectorType
+                            ? connector.type === connectorType
+                            : true)
                 )
                 // eslint-disable-next-line array-callback-return
                 .sort((a, b) => {
