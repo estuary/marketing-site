@@ -1017,6 +1017,10 @@ export const createPages: GatsbyNode['createPages'] = async ({
     const technologySolutions = [
         {
             slug: '/technology/private-deployments/',
+            metadata: {
+                title: '',
+                description: '',
+            },
             sections: {
                 hero: {
                     title: 'Supply Chain and Logistics',
@@ -1092,6 +1096,10 @@ export const createPages: GatsbyNode['createPages'] = async ({
         },
         {
             slug: '/technology/apache-iceberg/',
+            metadata: {
+                title: '',
+                description: '',
+            },
             sections: {
                 hero: {
                     title: 'Supply Chain and Logistics',
@@ -1166,6 +1174,10 @@ export const createPages: GatsbyNode['createPages'] = async ({
         },
         {
             slug: '/technology/netsuite/',
+            metadata: {
+                title: '',
+                description: '',
+            },
             sections: {
                 hero: {
                     title: 'Netsuite',
@@ -1239,6 +1251,10 @@ export const createPages: GatsbyNode['createPages'] = async ({
         },
         {
             slug: '/technology/kafka/',
+            metadata: {
+                title: '',
+                description: '',
+            },
             sections: {
                 hero: {
                     title: 'Kafka',
