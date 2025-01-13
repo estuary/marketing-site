@@ -1,4 +1,5 @@
 @import '../../globalStyles/sections.module.less';
+@import '../breakpoints.less';
 
 .globalHeader {
   .globalMaxWidth;
@@ -11,12 +12,12 @@
   top: 0;
   background: var(--dark-blue);
 
-  @media (max-width: 1400px) {
+  @media (max-width: 1530px) {
     padding-left: ~'calc(min(2vw,160px))';
     padding-right: ~'calc(min(2vw,160px))';
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: @menuTransitionMaxWidthBreakpoint) {
     padding-left: ~'calc(min(10vw,160px))';
     padding-right: ~'calc(min(10vw,160px))';
   }
@@ -51,7 +52,7 @@
   gap: 35px;
   justify-content: flex-start;
 
-  @media (max-width: 1024px) {
+  @media (max-width: @menuTransitionMaxWidthBreakpoint) {
     .globalMaxWidth;
 
     display: none;
@@ -64,7 +65,7 @@
 }
 
 .isOpen {
-  @media (max-width: 1024px) {
+  @media (max-width: @menuTransitionMaxWidthBreakpoint) {
     display: flex;
   }
 }
@@ -92,7 +93,7 @@
 .globalHeaderLoginTry {
   display: flex;
 
-  @media (max-width: 1024px) {
+  @media (max-width: @menuTransitionMaxWidthBreakpoint) {
     display: none;
   }
 }
@@ -114,7 +115,7 @@
 .globalHeaderMobileMenuWrapper {
   display: none;
 
-  @media (max-width: 1024px) {
+  @media (max-width: @menuTransitionMaxWidthBreakpoint) {
     display: flex;
   }
 }
@@ -144,12 +145,12 @@
   padding: 10px;
 
   &:hover {
-      @media (min-width: 1025px) {
+      @media (min-width: @menuTransitionMinWidthBreakpoint) {
           background-color: var(--header-link-hover);
       }
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: @menuTransitionMaxWidthBreakpoint) {
     display: none;
   }
 }

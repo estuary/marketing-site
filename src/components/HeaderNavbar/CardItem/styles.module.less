@@ -1,3 +1,5 @@
+@import '../../breakpoints.less';
+
 @textColor: var(--white);
 
 .cardItem {
@@ -13,11 +15,11 @@
     display: none;
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: @menuTransitionMaxWidthBreakpoint) {
     padding: 0;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: @menuTransitionMaxWidthBreakpoint) {
     &:hover {
       border-color: var(--violet);
 
@@ -66,7 +68,7 @@
       font-weight: 700;
       line-height: 28px;
 
-      @media (max-width: 1024px) {
+      @media (max-width: @menuTransitionMaxWidthBreakpoint) {
         font-size: 0.875rem;
       }
     }
@@ -78,7 +80,7 @@
       color: @textColor;
       margin: 0;
 
-      @media (max-width: 1024px) {
+      @media (max-width: @menuTransitionMaxWidthBreakpoint) {
         font-size: 0.75rem;
       }
     }
@@ -92,7 +94,7 @@
   margin: 0 0 16px 0;
   font-weight: 600;
 
-  @media (max-width: 1024px) {
+  @media (max-width: @menuTransitionMaxWidthBreakpoint) {
     font-size: 0.875rem;
     margin-top: 8px;
   }

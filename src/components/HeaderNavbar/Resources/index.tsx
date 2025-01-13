@@ -24,8 +24,8 @@ import { accordionStyles, accordionSummaryStyles } from '../shared';
 import LinkOutlined from '../../LinksAndButtons/LinkOutlined';
 import OutboundLinkOutlined from '../../LinksAndButtons/OutboundLinkOutlined';
 import HeaderViewAllLink from '../HeaderViewAllLink';
+import MenuLink from '../MenuLink';
 import { listen, read, partners } from './items';
-import ResourcesLink from './Link';
 
 const iconSize = 16;
 
@@ -46,7 +46,7 @@ const HeaderNavbarResources = ({ active, setActive }) => {
         }
     `);
 
-    const isMobile = useMediaQuery('(max-width:1024px)');
+    const isMobile = useMediaQuery('(max-width:1142px)');
 
     const onClick = (ev: { preventDefault: () => void }) => {
         if (isMobile) {
@@ -78,7 +78,7 @@ const HeaderNavbarResources = ({ active, setActive }) => {
                 onMouseEnter={onMouseEnter}
                 sx={accordionSummaryStyles}
             >
-                <ResourcesLink active={active} />
+                <MenuLink title="Resources" active={active} />
             </AccordionSummary>
             <AccordionDetails className={accordionDetails}>
                 <Card>

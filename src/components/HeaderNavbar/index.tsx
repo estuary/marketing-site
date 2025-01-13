@@ -4,6 +4,7 @@ import { globalHeaderLink } from '../styles.module.less';
 import OutboundLink from '../LinksAndButtons/OutboundLink';
 import LinkProduct from './Product';
 import LinkResources from './Resources';
+import LinkSolutions from './Solutions';
 import { globalHeaderLinks } from './styles.module.less';
 
 const HeaderNavbar = ({ activeMenu, setActiveMenu }) => {
@@ -31,6 +32,10 @@ const HeaderNavbar = ({ activeMenu, setActiveMenu }) => {
             </Link>
             <LinkResources
                 active={activeMenu === 'resources'}
+                setActive={setActiveMenu}
+            />
+            <LinkSolutions
+                active={activeMenu === 'solutions'}
                 setActive={setActiveMenu}
             />
             <OutboundLink

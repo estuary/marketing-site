@@ -1,12 +1,12 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import Layout from '../../../components/Layout';
 import Seo from '../../../components/seo';
-import Hero from '../../../components/Solutions/SectionModels/Hero';
-import Testimonial from '../../../components/Solutions/SectionModels/Testimonial';
-import Highlights from '../../../components/Solutions/SectionModels/Highlights';
-import Benefits from '../../../components/Solutions/SectionModels/Benefits';
-import Capabilities from '../../../components/Solutions/SectionModels/Capabilities';
-import KeyFeatures from '../../../components/Solutions/SectionModels/KeyFeatures';
+import Hero from '../../../components/Solutions/Sections/Hero';
+import Testimonial from '../../../components/Solutions/Sections/Testimonial';
+import Highlights from '../../../components/Solutions/Sections/Highlights';
+import Benefits from '../../../components/Solutions/Sections/Benefits';
+import Capabilities from '../../../components/Solutions/Sections/Capabilities';
+import KeyFeatures from '../../../components/Solutions/Sections/KeyFeatures';
 import { TemplatePageProps } from '../shared';
 
 interface TechnologySolutionsProps {

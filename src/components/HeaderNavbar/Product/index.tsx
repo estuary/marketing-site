@@ -18,11 +18,11 @@ import Carousel from '../../Carousel';
 import { accordionStyles, accordionSummaryStyles } from '../shared';
 import OutboundLinkOutlined from '../../LinksAndButtons/OutboundLinkOutlined';
 import HeaderViewAllLink from '../HeaderViewAllLink';
+import MenuLink from '../MenuLink';
 import { compare, products } from './items';
-import ProductLink from './Link';
 
 const HeaderNavbarProduct = ({ active, setActive }) => {
-    const isMobile = useMediaQuery('(max-width:1024px)');
+    const isMobile = useMediaQuery('(max-width:1142px)');
 
     const onClick = (ev: { preventDefault: () => void }) => {
         if (isMobile) {
@@ -45,11 +45,11 @@ const HeaderNavbarProduct = ({ active, setActive }) => {
                 onMouseEnter={onMouseEnter}
                 sx={accordionSummaryStyles}
             >
-                <ProductLink active={active} />
+                <MenuLink title="Product" active={active} />
             </AccordionSummary>
             <AccordionDetails className={accordionDetails}>
                 <Card>
-                    <CardItem title="PRODUCT" items={products} onlyContent />
+                    <CardItem title="PRODUCT" items={products} />
                     <CardItem
                         title="COMPARE"
                         items={compare}

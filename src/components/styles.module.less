@@ -1,3 +1,5 @@
+@import './breakpoints.less';
+
 .globalHeaderLink {
   display: flex;
   gap: 5px;
@@ -11,13 +13,13 @@
   transition: background-color 150ms;
   text-wrap: nowrap;
 
-  @media (min-width: 1025px) {
+  @media (min-width: @menuTransitionMinWidthBreakpoint) {
     &:hover {
       background-color: var(--header-link-hover);
     }
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: @menuTransitionMaxWidthBreakpoint) {
     padding: 12px 0;
     width: 100%;
     justify-content: space-between;

@@ -1023,7 +1023,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
             },
             sections: {
                 hero: {
-                    title: 'Supply Chain and Logistics',
+                    title: 'Private Deployments',
                 },
                 testimonial: {
                     title: {
@@ -1102,7 +1102,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
             },
             sections: {
                 hero: {
-                    title: 'Supply Chain and Logistics',
+                    title: 'Apache Iceberg',
                 },
                 testimonial: {
                     title: {
