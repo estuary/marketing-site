@@ -1,13 +1,22 @@
 .wrapper {
   ul {
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     list-style: none;
     gap: 24px;
     margin: 0;
 
     li {
       margin: 0;
+
+
+      @media(max-width: 1024px) {
+        div {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+        }
+      }
     }
   }
 }
