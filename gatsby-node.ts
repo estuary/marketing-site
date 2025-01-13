@@ -981,6 +981,81 @@ export const createPages: GatsbyNode['createPages'] = async ({
 
     const technologySolutions = [
         {
+            slug: '/technology/private-deployments/',
+            sections: {
+                hero: {
+                    title: 'Supply Chain and Logistics',
+                },
+                testimonial: {
+                    title: {
+                        highlightedText: 'Secure and Scalable Data Integration',
+                        normalText: 'with Private Deployments',
+                    },
+                    description:
+                        "Estuary Flow's Private Deployment model provides a secure, high-performance solution for enterprises needing stringent data governance and control. By leveraging private networking and BYOC (Bring Your Own Cloud) architecture, Estuary Flow ensures that data processing remains within your trusted environment while maintaining real-time capabilities.",
+                    quote: {
+                        company: 'Prodege',
+                        successStoryUrl: '/success-stories/prodege/',
+                        text: 'Prodege built their data integration pipelines using Estuary Flow for Apache Iceberg using private deployments to ensure their data never leaves their secure environment.',
+                    },
+                },
+                highlights: {
+                    title: {
+                        highlightedText: 'High-Performance Data Integration',
+                        normalText: 'for Enterprise Environments',
+                    },
+                    description:
+                        "Estuary Flow's Private Deployments provide low-latency, secure data processing within your enterprise’s private networking environment, ensuring operational efficiency without compromising data security.",
+                    highlightItems: [
+                        'Real-time change data capture with low latency.',
+                        'Seamless integration with private VPC and hybrid cloud architectures.',
+                        'Optimized for enterprise-grade performance and reliability.',
+                    ],
+                },
+                benefits: {
+                    title: {
+                        highlightedText:
+                            'Empowering Enterprise Data Governance and Control',
+                        normalText: '',
+                    },
+                    description:
+                        'Estuary Flow ensures your data remains secure while delivering high-performance integration for even the most stringent enterprise requirements.',
+                    benefitItems: [
+                        'Enhanced Security: Fully private deployments within enterprise-controlled networks.',
+                        'Operational Scalability: Scalable architecture for high-volume, real-time data pipelines.',
+                        'Cost Efficiency: Flexible pricing for optimized resource utilization.',
+                    ],
+                },
+                keyFeatures: {
+                    title: {
+                        highlightedText:
+                            'Build Secure and Scalable Data Pipelines',
+                        normalText: 'with Private Deployments',
+                    },
+                    description:
+                        "Estuary Flow's Private Deployment model enables enterprises to maintain control of their data within private networking environments, combining security with real-time performance. Designed for organizations with strict governance needs, it ensures your data integration processes are efficient, reliable, and fully compliant.",
+                    keyFeatureItems: [
+                        'Fully isolated data processing within private VPCs.',
+                        'Real-time and batch data integration capabilities.',
+                        'Customizable deployment to fit enterprise infrastructure requirements.',
+                    ],
+                },
+                capabilities: {
+                    title: {
+                        highlightedText: 'Flexible and Cost-Effective',
+                        normalText: 'Deployment Options',
+                    },
+                    description:
+                        "With Estuary Flow's BYOC model, enterprises can deploy in their preferred cloud environment while benefiting from flexible pricing and scalable architecture, tailored for complex and high-volume workloads.",
+                    capabilityItems: [
+                        'Flexible deployment in AWS, GCP, or Azure private networks.',
+                        'Cost-efficient architecture optimized for enterprise-scale data processing.',
+                        'Scalable solutions to support growing data and business needs.',
+                    ],
+                },
+            },
+        },
+        {
             slug: '/technology/apache-iceberg/',
             sections: {
                 hero: {
@@ -995,8 +1070,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
                         "Estuary Flow's Iceberg Materialization Connector supports streaming or batch data loads into Iceberg, with REST catalog support and integrations with platforms like Dremio and AWS Glue. Build a future-proof streaming lakehouse architecture with ease.",
                     quote: {
                         company: 'Prodege',
-                        successStoryUrl:
-                            'https://estuary.dev/success-stories/prodege/',
+                        successStoryUrl: '/success-stories/prodege/',
                         text: 'Prodege adopted Estuary Flow for Apache Iceberg data integration to build a modern data lakehouse. Estuary Flow enabled the continuous loading of data into Iceberg tables, leveraging its native support for schema evolution and partitioning.',
                     },
                 },
