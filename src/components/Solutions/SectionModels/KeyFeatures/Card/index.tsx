@@ -18,7 +18,7 @@ const Card = ({
     return (
         <div className={container} style={{ backgroundColor, borderColor }}>
             <div>
-                <Tag>Key features</Tag>
+                <Tag>Key feature</Tag>
                 <p>{description}</p>
             </div>
             {svg}

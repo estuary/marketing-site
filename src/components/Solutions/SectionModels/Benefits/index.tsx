@@ -24,7 +24,7 @@ const Benefits = ({ data }: BenefitsProps) => {
                     {data.benefitItems.map((benefit, index) => (
                         <li key={index}>
                             <Card
-                                tag="Benefits"
+                                tag="Benefit"
                                 text={benefit}
                                 imageIndex={index + 1}
                             />

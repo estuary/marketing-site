@@ -2,15 +2,16 @@ import { StaticImage } from 'gatsby-plugin-image';
 
 interface CardImageProps {
     imageIndex: number;
+    altText: string;
 }
 
-const CardImage = ({ imageIndex }: CardImageProps) => {
+const CardImage = ({ imageIndex, altText }: CardImageProps) => {
     switch (imageIndex) {
         case 1:
             return (
                 <StaticImage
                     src="../../../images/use-case-solutions-template/benefits/benefit-1.png"
-                    alt="" // TODO: Ask alt text to Sourabh
+                    alt={altText}
                     placeholder="blurred"
                     quality={100}
                 />
@@ -19,7 +20,7 @@ const CardImage = ({ imageIndex }: CardImageProps) => {
             return (
                 <StaticImage
                     src="../../../images/use-case-solutions-template/benefits/benefit-2.png"
-                    alt="" // TODO: Ask alt text to Sourabh
+                    alt={altText}
                     placeholder="blurred"
                     quality={100}
                 />
@@ -28,7 +29,7 @@ const CardImage = ({ imageIndex }: CardImageProps) => {
             return (
                 <StaticImage
                     src="../../../images/use-case-solutions-template/benefits/benefit-3.png"
-                    alt="" // TODO: Ask alt text to Sourabh
+                    alt={altText}
                     placeholder="blurred"
                     quality={100}
                 />

@@ -1,3 +1,4 @@
+import { StaticImage } from 'gatsby-plugin-image';
 import Layout from '../../../components/Layout';
 import Seo from '../../../components/seo';
 import Hero from '../../../components/Solutions/SectionModels/Hero';
@@ -17,12 +18,31 @@ interface UseCaseSolutionsProps {
 const UseCaseSolutions = ({ pageContext }: UseCaseSolutionsProps) => {
     return (
         <Layout>
-            <Hero title={pageContext.useCaseSolution.sections.hero.title} />
+            <Hero
+                title={pageContext.useCaseSolution.sections.hero.title}
+                heroImage={
+                    <StaticImage
+                        src="../../../images/use-case-solutions-template/hero-image.png"
+                        alt="Seamless data flow between systems for real-time integration"
+                        quality={100}
+                        placeholder="blurred"
+                        loading="eager"
+                    />
+                }
+            />
             <Testimonial
                 data={pageContext.useCaseSolution.sections.testimonial}
             />
             <Highlights
                 data={pageContext.useCaseSolution.sections.highlights}
+                image={
+                    <StaticImage
+                        src="../../../images/use-case-solutions-template/estuary-solutions-highlights.png"
+                        alt="Highly available and reliable cloud data pipeline architecture"
+                        quality={100}
+                        placeholder="blurred"
+                    />
+                }
             />
             <Benefits data={pageContext.useCaseSolution.sections.benefits} />
             <Capabilities
@@ -35,12 +55,11 @@ const UseCaseSolutions = ({ pageContext }: UseCaseSolutionsProps) => {
     );
 };
 
-export const Head = () => {
-    // TODO: Ask SEO page title and meta description to Sourabh.
+export const Head = ({ pageContext }: UseCaseSolutionsProps) => {
     return (
         <Seo
-            title="Data Movement - Estuary"
-            description="View all the use case solutions."
+            title={pageContext.useCaseSolution.metadata.title}
+            description={pageContext.useCaseSolution.metadata.description}
         />
     );
 };

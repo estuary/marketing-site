@@ -1,4 +1,4 @@
-import { StaticImage } from 'gatsby-plugin-image';
+import { ReactNode } from 'react';
 import Container from '../../../Container';
 import HeroSectionDetails from '../../../HeroSectionDetails';
 import { defaultWrapperDarkBlue } from '../../../../globalStyles/wrappers.module.less';
@@ -6,9 +6,10 @@ import HeroSectionActions from '../../../HeroSectionActions';
 
 interface HeroProps {
     title: string;
+    heroImage: ReactNode;
 }
 
-const Hero = ({ title }: HeroProps) => {
+const Hero = ({ title, heroImage }: HeroProps) => {
     return (
         <section className={defaultWrapperDarkBlue}>
             <Container isDarkTheme>
@@ -16,13 +17,7 @@ const Hero = ({ title }: HeroProps) => {
                     title={title}
                     ctaButtons={<HeroSectionActions />}
                 />
-                <StaticImage
-                    src="../../../../images/use-case-solutions-template/use-cases-hero-image.png"
-                    alt="Estuary Partner Program" // TODO: Ask alt text to Sourabh.
-                    quality={100}
-                    placeholder="blurred"
-                    loading="eager"
-                />
+                {heroImage}
             </Container>
         </section>
     );

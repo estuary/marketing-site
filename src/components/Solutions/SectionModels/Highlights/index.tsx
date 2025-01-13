@@ -1,4 +1,4 @@
-import { StaticImage } from 'gatsby-plugin-image';
+import { ReactNode } from 'react';
 import Container from '../../../Container';
 import { sectionText, noPadding } from '../../styles.module.less';
 import { defaultWrapperDarkBlue } from '../../../../globalStyles/wrappers.module.less';
@@ -8,9 +8,10 @@ import { wrapper } from './styles.module.less';
 
 interface HighlightsProps {
     data: HighlightsSectionContent;
+    image: ReactNode;
 }
 
-const Highlights = ({ data }: HighlightsProps) => {
+const Highlights = ({ data, image }: HighlightsProps) => {
     return (
         <section className={defaultWrapperDarkBlue}>
             <Container className={wrapper} isDarkTheme isVertical>
@@ -22,19 +23,14 @@ const Highlights = ({ data }: HighlightsProps) => {
                         </h2>
                         <p>{data.description}</p>
                     </div>
-                    <StaticImage
-                        src="../../../../images/use-case-solutions-template/estuary-solutions-highlights.png"
-                        alt="Estuary solutions highlights" // TODO: Ask alt text to Sourabh.
-                        quality={100}
-                        placeholder="blurred"
-                    />
+                    {image}
                 </Container>
                 <ul>
                     {data.highlightItems.map((highlight, index) => (
                         <li key={index}>
                             <Card
                                 text={highlight}
-                                tag="Highlights"
+                                tag="Highlight"
                                 isDarkTheme
                             />
                         </li>

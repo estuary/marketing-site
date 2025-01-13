@@ -1,3 +1,4 @@
+import { StaticImage } from 'gatsby-plugin-image';
 import Layout from '../../../components/Layout';
 import Seo from '../../../components/seo';
 import Hero from '../../../components/Solutions/SectionModels/Hero';
@@ -17,12 +18,31 @@ interface TechnologySolutionsProps {
 const TechnologySolutions = ({ pageContext }: TechnologySolutionsProps) => {
     return (
         <Layout>
-            <Hero title={pageContext.technologySolution.sections.hero.title} />
+            <Hero
+                title={pageContext.technologySolution.sections.hero.title}
+                heroImage={
+                    <StaticImage
+                        src="../../../images/technology-solutions-template/hero-image.png"
+                        alt="Estuary Flow's Iceberg Materialization Connector enabling streaming and batch data loads into Iceberg"
+                        quality={100}
+                        placeholder="blurred"
+                        loading="eager"
+                    />
+                }
+            />
             <Testimonial
                 data={pageContext.technologySolution.sections.testimonial}
             />
             <Highlights
                 data={pageContext.technologySolution.sections.highlights}
+                image={
+                    <StaticImage
+                        src="../../../images/industry-solutions-template/apache-iceberg-integration.png"
+                        alt="Visualizing real-time data lake capabilities with Apache Iceberg integration"
+                        quality={100}
+                        placeholder="blurred"
+                    />
+                }
             />
             <Benefits data={pageContext.technologySolution.sections.benefits} />
             <Capabilities
@@ -35,12 +55,11 @@ const TechnologySolutions = ({ pageContext }: TechnologySolutionsProps) => {
     );
 };
 
-export const Head = () => {
-    // TODO: Ask SEO page title and meta description to Sourabh.
+export const Head = ({ pageContext }: TechnologySolutionsProps) => {
     return (
         <Seo
-            title="Data Movement - Estuary"
-            description="View all the use case solutions."
+            title={pageContext.technologySolution.metadata.title}
+            description={pageContext.technologySolution.metadata.description}
         />
     );
 };

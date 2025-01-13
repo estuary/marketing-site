@@ -28,7 +28,7 @@ const Capabilities = ({ data }: CapabilitiesProps) => {
                 </div>
                 <div>
                     <div className={box}>
-                        <Tag>Capabilities</Tag>
+                        <Tag>Capability</Tag>
                         <ul>
                             {data.capabilityItems.map((capability, index) => (
                                 <li key={index}>

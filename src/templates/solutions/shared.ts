@@ -33,6 +33,10 @@ export interface KeyFeaturesSectionContent extends SectionText {
 }
 
 export interface TemplatePageProps {
+    metadata: {
+        title: string;
+        description: string;
+    };
     slug: string;
     sections: {
         hero: {

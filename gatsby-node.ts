@@ -463,6 +463,11 @@ export const createPages: GatsbyNode['createPages'] = async ({
     const useCaseSolutions = [
         {
             slug: '/use-cases/data-movement/',
+            metadata: {
+                title: 'Real-Time Data Pipelines & CDC for Fast Integration | Estuary Flow',
+                description:
+                    "Estuary Flow's real-time data pipeline & CDC solutions simplify data movement for fast, seamless integration & high performance.",
+            },
             sections: {
                 hero: {
                     title: 'Data Movement',
@@ -536,6 +541,11 @@ export const createPages: GatsbyNode['createPages'] = async ({
         },
         {
             slug: '/use-cases/data-lakes-warehouses/',
+            metadata: {
+                title: 'Modern Data Lake & Warehouse Integration | Estuary Flow',
+                description:
+                    "Modernize your data architecture with Estuary Flow's lake & warehouse integration solutions. Real-time & batch processing, ELT, and dbt Cloud support.",
+            },
             sections: {
                 hero: {
                     title: 'Data Lakes and Warehouses',
@@ -609,6 +619,11 @@ export const createPages: GatsbyNode['createPages'] = async ({
         },
         {
             slug: '/use-cases/ai/',
+            metadata: {
+                title: 'Real-Time Data Pipelines for AI & Machine Learning | Estuary Flow',
+                description:
+                    "Power your AI/ML with Estuary Flow's real-time data pipelines. Stream data seamlessly, reduce latency, and accelerate model training and deployment for faster insights.",
+            },
             sections: {
                 hero: {
                     title: 'Artificial Intelligence',
@@ -682,6 +697,11 @@ export const createPages: GatsbyNode['createPages'] = async ({
         },
         {
             slug: '/use-cases/real-time-analytics/',
+            metadata: {
+                title: 'Real-Time Data Analytics for Modern Businesses | Estuary Flow',
+                description:
+                    "Get instant real-time insights with Estuary Flow's real-time analytics solutions. Seamlessly integrate data, leverage Kafka, and partner with Tinybird & StarTree for rapid analysis.",
+            },
             sections: {
                 hero: {
                     title: 'Real Time Analytics',
@@ -759,6 +779,11 @@ export const createPages: GatsbyNode['createPages'] = async ({
     const industrySolutions = [
         {
             slug: '/industry/finance/',
+            metadata: {
+                title: 'Financial Data Integration & Compliance | Estuary Flow',
+                description:
+                    'Struggling with slow, insecure financial data integration? Estuary Flow delivers real-time pipelines for secure transactions, risk analysis, and compliance reporting.',
+            },
             sections: {
                 hero: {
                     title: 'Finance',
@@ -832,6 +857,11 @@ export const createPages: GatsbyNode['createPages'] = async ({
         },
         {
             slug: '/industry/supply-chain/',
+            metadata: {
+                title: 'Real-Time Supply Chain Data Integration | Estuary Flow',
+                description:
+                    'Struggling with supply chain visibility and delays? Estuary Flow provides real-time data integration for optimized logistics and faster decision-making.',
+            },
             sections: {
                 hero: {
                     title: 'Supply Chain and Logistics',
@@ -905,6 +935,11 @@ export const createPages: GatsbyNode['createPages'] = async ({
         },
         {
             slug: '/industry/marketing/',
+            metadata: {
+                title: 'Marketing Data Integration & Analytics | Estuary Flow',
+                description:
+                    'Stop guessing with your marketing campaigns. Estuary Flow provides real-time data integration for actionable insights and optimized marketing performance.',
+            },
             sections: {
                 hero: {
                     title: 'Marketing',

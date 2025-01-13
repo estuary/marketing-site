@@ -1,3 +1,4 @@
+import { StaticImage } from 'gatsby-plugin-image';
 import Layout from '../../../components/Layout';
 import Seo from '../../../components/seo';
 import Hero from '../../../components/Solutions/SectionModels/Hero';
@@ -17,12 +18,31 @@ interface IndustrySolutionsProps {
 const IndustrySolutions = ({ pageContext }: IndustrySolutionsProps) => {
     return (
         <Layout>
-            <Hero title={pageContext.industrySolution.sections.hero.title} />
+            <Hero
+                title={pageContext.industrySolution.sections.hero.title}
+                heroImage={
+                    <StaticImage
+                        src="../../../images/industry-solutions-template/hero-image.png"
+                        alt="Unified data flow for data lake and warehouse solutions"
+                        quality={100}
+                        placeholder="blurred"
+                        loading="eager"
+                    />
+                }
+            />
             <Testimonial
                 data={pageContext.industrySolution.sections.testimonial}
             />
             <Highlights
                 data={pageContext.industrySolution.sections.highlights}
+                image={
+                    <StaticImage
+                        src="../../../images/industry-solutions-template/apache-iceberg-integration.png"
+                        alt="Visualizing real-time data lake capabilities with Apache Iceberg integration"
+                        quality={100}
+                        placeholder="blurred"
+                    />
+                }
             />
             <Benefits data={pageContext.industrySolution.sections.benefits} />
             <Capabilities
@@ -35,12 +55,11 @@ const IndustrySolutions = ({ pageContext }: IndustrySolutionsProps) => {
     );
 };
 
-export const Head = () => {
-    // TODO: Ask SEO page title and meta description to Sourabh.
+export const Head = ({ pageContext }: IndustrySolutionsProps) => {
     return (
         <Seo
-            title="Data Movement - Estuary"
-            description="View all the use case solutions."
+            title={pageContext.industrySolution.metadata.title}
+            description={pageContext.industrySolution.metadata.description}
         />
     );
 };

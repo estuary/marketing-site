@@ -14,7 +14,9 @@ const Card = ({ text, tag, isDarkTheme = false, imageIndex }: CardProps) => {
     return (
         <div className={clsx(container, isDarkTheme ? darkTheme : null)}>
             <Tag>{tag}</Tag>
-            {imageIndex ? <CardImage imageIndex={imageIndex} /> : null}
+            {imageIndex ? (
+                <CardImage imageIndex={imageIndex} altText={text} />
+            ) : null}
             <p>{text}</p>
         </div>
     );
