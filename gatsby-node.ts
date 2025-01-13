@@ -24,6 +24,9 @@ const useCaseSolutionsTemplate = path.resolve(
 const industrySolutionsTemplate = path.resolve(
     './src/templates/solutions/industry/index.tsx'
 );
+const technologySolutionsTemplate = path.resolve(
+    './src/templates/solutions/technology/index.tsx'
+);
 const companyUpdatesPostTemplate = path.resolve(
     './src/templates/company-update-post/index.tsx'
 );
@@ -459,7 +462,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
 
     const useCaseSolutions = [
         {
-            slug: '/solutions/use-cases/data-movement',
+            slug: '/use-cases/data-movement/',
             sections: {
                 hero: {
                     title: 'Data Movement',
@@ -532,7 +535,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
             },
         },
         {
-            slug: '/solutions/use-cases/data-lakes-warehouses',
+            slug: '/use-cases/data-lakes-warehouses/',
             sections: {
                 hero: {
                     title: 'Data Lakes and Warehouses',
@@ -605,7 +608,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
             },
         },
         {
-            slug: '/solutions/use-cases/ai',
+            slug: '/use-cases/ai/',
             sections: {
                 hero: {
                     title: 'Artificial Intelligence',
@@ -678,7 +681,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
             },
         },
         {
-            slug: '/solutions/use-cases/real-time-analytics',
+            slug: '/use-cases/real-time-analytics/',
             sections: {
                 hero: {
                     title: 'Real Time Analytics',
@@ -755,7 +758,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
 
     const industrySolutions = [
         {
-            slug: '/solutions/industry/finance',
+            slug: '/industry/finance/',
             sections: {
                 hero: {
                     title: 'Finance',
@@ -828,7 +831,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
             },
         },
         {
-            slug: '/solutions/industry/supply-chain',
+            slug: '/industry/supply-chain/',
             sections: {
                 hero: {
                     title: 'Supply Chain and Logistics',
@@ -901,7 +904,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
             },
         },
         {
-            slug: '/solutions/industry/marketing',
+            slug: '/industry/marketing/',
             sections: {
                 hero: {
                     title: 'Marketing',
@@ -927,7 +930,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
                     description:
                         'Leverage real-time data to personalize and optimize customer journeys. Estuary Flow enables marketers to target the right audience, adjust strategies, and improve conversion rates with accurate, real-time insights.',
                     highlightItems: [
-                        'CReal-time data for audience segmentation and campaign targeting.',
+                        'Real-time data for audience segmentation and campaign targeting.',
                         'Integration with major marketing tools like Salesforce, HubSpot, and more.',
                         'Built-in transformations for enriching customer data.',
                     ],
@@ -976,25 +979,262 @@ export const createPages: GatsbyNode['createPages'] = async ({
         },
     ];
 
-    for (const useCaseSolution of useCaseSolutions) {
-        createPage({
-            path: useCaseSolution.slug,
-            component: useCaseSolutionsTemplate,
-            context: {
-                useCaseSolution,
+    const technologySolutions = [
+        {
+            slug: '/technology/apache-iceberg/',
+            sections: {
+                hero: {
+                    title: 'Supply Chain and Logistics',
+                },
+                testimonial: {
+                    title: {
+                        highlightedText: 'Streaming Lakehouse',
+                        normalText: 'with Apache Iceberg',
+                    },
+                    description:
+                        "Estuary Flow's Iceberg Materialization Connector supports streaming or batch data loads into Iceberg, with REST catalog support and integrations with platforms like Dremio and AWS Glue. Build a future-proof streaming lakehouse architecture with ease.",
+                    quote: {
+                        company: 'Prodege',
+                        successStoryUrl:
+                            'https://estuary.dev/success-stories/prodege/',
+                        text: 'Prodege adopted Estuary Flow for Apache Iceberg data integration to build a modern data lakehouse. Estuary Flow enabled the continuous loading of data into Iceberg tables, leveraging its native support for schema evolution and partitioning.',
+                    },
+                },
+                highlights: {
+                    title: {
+                        highlightedText: 'Efficient Data Loads',
+                        normalText: 'with Low Latency',
+                    },
+                    description:
+                        "Accelerate your data pipeline with Estuary Flow's high-performance materialization capabilities, ensuring data is ingested and processed in real time or in batch without compromising on efficiency or scalability.",
+                    highlightItems: [
+                        'Support for real-time change data capture and batch processing.',
+                        'Reliable, low-latency data movement into Iceberg tables.',
+                        'Enhanced metadata management with REST catalog support.',
+                    ],
+                },
+                benefits: {
+                    title: {
+                        highlightedText: 'Flexible and Efficient',
+                        normalText: 'Iceberg Workflows',
+                    },
+                    description:
+                        'From Snowflake to AWS Glue, Estuary Flow integrates smoothly with your Iceberg ecosystem, delivering scalable and reliable performance for all use cases.',
+                    benefitItems: [
+                        'Multi-Platform Integration: Supports Snowflake, Dremio, and AWS Glue.',
+                        'Unified Workflows: Combines streaming and batch capabilities seamlessly.',
+                        'Reliability at Scale: Optimized for high-volume data environments.',
+                    ],
+                },
+                keyFeatures: {
+                    title: {
+                        highlightedText:
+                            'Build a Future-Proof Streaming Lakehouse Architecture',
+                        normalText: '',
+                    },
+                    description:
+                        "Estuary Flow's Iceberg Materialization Connector allows seamless integration of real-time or batch data into Apache Iceberg, empowering you to build a robust, scalable streaming lakehouse architecture.",
+                    keyFeatureItems: [
+                        'Iceberg materialization for both streaming and batch workflows.',
+                        'REST catalog support for streamlined metadata management.',
+                        'Seamless integration with Dremio, AWS Glue, and Snowflake Unity Catalog and other catalogs.',
+                    ],
+                },
+                capabilities: {
+                    title: {
+                        highlightedText: 'Seamless Integration',
+                        normalText: 'Across Your Data Ecosystem',
+                    },
+                    description:
+                        'Estuary Flow integrates smoothly with major data platforms, ensuring your Iceberg-based lakehouse architecture fits seamlessly into your existing ecosystem and workflows.',
+                    capabilityItems: [
+                        'Compatibility with leading data platforms like Dremio, AWS Glue and Snowflake Iceberg tables.',
+                        'Unified architecture for both streaming and batch data pipelines.',
+                        'Scalable and flexible to accommodate growing data environments.',
+                    ],
+                },
             },
-        });
-    }
+        },
+        {
+            slug: '/technology/netsuite/',
+            sections: {
+                hero: {
+                    title: 'Netsuite',
+                },
+                testimonial: {
+                    title: {
+                        highlightedText: 'Easy Data Integration',
+                        normalText: 'for NetSuite',
+                    },
+                    description:
+                        "Estuary Flow's NetSuite capture connector provides unparalleled scalability, reliability, and low-latency data integration. Whether your organization is scaling rapidly or managing high volumes of financial transactions, our connector ensures your data pipelines run smoothly and cost-effectively.",
+                    quote: {
+                        company: '',
+                        successStoryUrl: '',
+                        text: 'A leading fashion brand reduced costs by 50% and unlocked real-time analytics by transitioning from a traditional data integration tool to Estuary Flow, with support from a trusted analytics consultancy. This shift eliminated delays, simplified operations, and enabled timely, data-driven decision-making, empowering the brand to focus on growth and innovation.',
+                    },
+                },
+                highlights: {
+                    title: {
+                        highlightedText: 'Reliable, High-Performance',
+                        normalText: 'Data Flows',
+                    },
+                    description:
+                        'With Estuary Flow, your NetSuite data pipelines run smoothly with zero data loss, ensuring accurate and real-time insights across all your business operations.',
+                    highlightItems: [
+                        'Consistent, reliable data movement from NetSuite with change data capture (CDC).',
+                        'Real-time updates for financial reporting and analytics.',
+                        'Proven reliability for mission-critical systems.',
+                    ],
+                },
+                capabilities: {
+                    title: {
+                        highlightedText: 'Cost-Effective Scalability',
+                        normalText: 'for High-Volume Operations',
+                    },
+                    description:
+                        'Estuary Flow offers flexible pricing designed to support large-scale NetSuite integrations, making it a cost-effective solution for enterprises managing high-volume data environments.',
+                    capabilityItems: [
+                        'Scalable architecture to accommodate large transaction volumes.',
+                        'Optimized pricing to ensure cost efficiency at scale.',
+                        'Built to support complex enterprise requirements without compromising performance.',
+                    ],
+                },
+                benefits: {
+                    title: {
+                        highlightedText: 'Powering Financial Insights',
+                        normalText: 'with Scalable Integration',
+                    },
+                    description:
+                        "Estuary Flow's architecture ensures consistent performance for mission-critical NetSuite integrations, with cost-effective and reliable solutions for growing enterprises.",
+                    benefitItems: [
+                        'Scalable Pipelines: Handles massive data transaction volumes.',
+                        'Optimized Costs: Designed for efficiency in high-volume operations.',
+                        'Robust Performance: Ensures zero data loss and real-time reporting.',
+                    ],
+                },
+                keyFeatures: {
+                    title: {
+                        highlightedText: 'Effortless Data Integration',
+                        normalText: 'for NetSuite',
+                    },
+                    description:
+                        "Estuary Flow's NetSuite capture connector delivers high-performance, low-latency data integration for seamless synchronization with your ERP system. Whether you're handling large volumes of financial transactions or scaling rapidly, our connector ensures efficient and reliable data flows.",
+                    keyFeatureItems: [
+                        'Enterprise-grade scalability for growing data demands.',
+                        'Low-latency data capture and integration.',
+                        'Cost-effective solutions for large-scale NetSuite operations.',
+                    ],
+                },
+            },
+        },
+        {
+            slug: '/technology/kafka/',
+            sections: {
+                hero: {
+                    title: 'Kafka',
+                },
+                testimonial: {
+                    title: {
+                        highlightedText: 'Streamlined Data Integration',
+                        normalText: 'with Kafka Compatibility',
+                    },
+                    description:
+                        "With Dekaf, Estuary Flow makes it easy for tools to consume data using Kafka consumers. Leverage your existing Kafka infrastructure with Flow's robust and scalable data integration platform.",
+                    quote: {
+                        company: '',
+                        successStoryUrl: '',
+                        text: "A logistics company leveraged Estuary Flow's Dekaf feature to power real-time analytics, enabling second-level insights into supply chain operations. By replacing a complex Kafka stack with Estuary's Kafka-API compatibility layer, they reduced operational overhead, improved data reliability, and optimized fleet management, leading to faster deliveries and improved customer satisfaction.",
+                    },
+                },
+                highlights: {
+                    title: {
+                        highlightedText: 'Efficient Real-Time Data Streaming',
+                        normalText: '',
+                    },
+                    description:
+                        'Dekaf optimizes your real-time data architecture, enabling rapid data consumption with minimal latency. Perfect for services that rely on real-time insights, such as analytics platforms or monitoring tools.',
+                    highlightItems: [
+                        'Real-time data streaming with minimal latency for high-performance services.',
+                        'Seamlessly connect to real-time data feeds with Kafka-based services.',
+                    ],
+                },
+                capabilities: {
+                    title: {
+                        highlightedText:
+                            'Leverage Existing Kafka Infrastructure',
+                        normalText: '',
+                    },
+                    description:
+                        'With Dekaf, you can easily integrate Estuary Flow into your Kafka ecosystem, empowering real-time services to consume data without the need for complex configurations or new infrastructure.',
+                    capabilityItems: [
+                        'Simple, out-of-the-box integration with existing Kafka consumers.',
+                        'Maximize your Kafka investment by extending its real-time capabilities to new services.',
+                    ],
+                },
+                benefits: {
+                    title: {
+                        highlightedText: 'Smarter Real-time Pipelines',
+                        normalText: 'for Any Scale',
+                    },
+                    description:
+                        "Replace traditional Kafka complexities with Estuary Flow's simplified, scalable architecture, delivering consistent performance for growing businesses.",
+                    benefitItems: [
+                        'Operational Efficiency: Reduce the overhead of managing Kafka brokers.',
+                        'High Throughput: Easily handles massive real-time data streams.',
+                        'Simplified Scaling: Adapts to enterprise-level demands effortlessly.',
+                    ],
+                },
+                keyFeatures: {
+                    title: {
+                        highlightedText:
+                            'Streamline Real-Time Data Integration',
+                        normalText: 'with Kafka Compatibility',
+                    },
+                    description:
+                        "Estuary Flow's Dekaf ensures seamless Kafka API compatibility, allowing services and tools to easily consume real-time data streams using existing Kafka consumers. Effortlessly integrate real-time data into your workflows and unlock faster insights.",
+                    keyFeatureItems: [
+                        'Full Kafka API compatibility with Dekaf for smooth real-time data consumption.',
+                        'Effortlessly consume real-time data with existing Kafka-based services and tools.',
+                    ],
+                },
+            },
+        },
+    ];
 
-    for (const industrySolution of industrySolutions) {
-        createPage({
-            path: industrySolution.slug,
-            component: industrySolutionsTemplate,
-            context: {
-                industrySolution,
-            },
-        });
-    }
+    const solutionsUrlPrefix = '/solutions';
+
+    await Promise.all([
+        Promise.all(
+            useCaseSolutions.map((useCaseSolution) =>
+                createPage({
+                    path: solutionsUrlPrefix + useCaseSolution.slug,
+                    component: useCaseSolutionsTemplate,
+                    context: { useCaseSolution },
+                })
+            )
+        ),
+
+        Promise.all(
+            industrySolutions.map((industrySolution) =>
+                createPage({
+                    path: solutionsUrlPrefix + industrySolution.slug,
+                    component: industrySolutionsTemplate,
+                    context: { industrySolution },
+                })
+            )
+        ),
+
+        Promise.all(
+            technologySolutions.map((technologySolution) =>
+                createPage({
+                    path: solutionsUrlPrefix + technologySolution.slug,
+                    component: technologySolutionsTemplate,
+                    context: { technologySolution },
+                })
+            )
+        ),
+    ]);
 };
 
 // Hacky hack :(
