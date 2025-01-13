@@ -124,7 +124,6 @@ export interface Vendor {
     logo: any;
     slugKey: string;
     useCases: {
-        odsReplication: HasFeature;
         databaseReplication: string;
         dataMigration: HasFeature;
         dataIntegration: HasFeature;
@@ -137,7 +136,6 @@ export interface Vendor {
         streaming: string;
         thirdParty: HasFeature;
         customSdk: HasFeature;
-        adminApi: HasFeature;
     };
     features: {
         batchingStreaming: string;

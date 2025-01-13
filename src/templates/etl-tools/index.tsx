@@ -72,14 +72,6 @@ export const pageQuery = graphql`
             }
             slugKey
             useCases: UseCases {
-                odsReplication: ODS_Replication {
-                    icon: Icon
-                    subText: Sub_Text {
-                        data {
-                            subText: Sub_Text
-                        }
-                    }
-                }
                 databaseReplication: Database_Replication
                 dataMigration: Data_Migration {
                     icon: Icon
@@ -134,14 +126,6 @@ export const pageQuery = graphql`
                     }
                 }
                 customSdk: Custom_SDK {
-                    icon: Icon
-                    subText: Sub_Text {
-                        data {
-                            subText: Sub_Text
-                        }
-                    }
-                }
-                adminApi: Admin_API {
                     icon: Icon
                     subText: Sub_Text {
                         data {
@@ -308,14 +292,6 @@ export const pageQuery = graphql`
             }
             slugKey
             useCases: UseCases {
-                odsReplication: ODS_Replication {
-                    icon: Icon
-                    subText: Sub_Text {
-                        data {
-                            subText: Sub_Text
-                        }
-                    }
-                }
                 databaseReplication: Database_Replication
                 dataMigration: Data_Migration {
                     icon: Icon
@@ -370,14 +346,6 @@ export const pageQuery = graphql`
                     }
                 }
                 customSdk: Custom_SDK {
-                    icon: Icon
-                    subText: Sub_Text {
-                        data {
-                            subText: Sub_Text
-                        }
-                    }
-                }
-                adminApi: Admin_API {
                     icon: Icon
                     subText: Sub_Text {
                         data {
@@ -544,14 +512,6 @@ export const pageQuery = graphql`
             }
             slugKey
             useCases: UseCases {
-                odsReplication: ODS_Replication {
-                    icon: Icon
-                    subText: Sub_Text {
-                        data {
-                            subText: Sub_Text
-                        }
-                    }
-                }
                 databaseReplication: Database_Replication
                 dataMigration: Data_Migration {
                     icon: Icon
@@ -606,14 +566,6 @@ export const pageQuery = graphql`
                     }
                 }
                 customSdk: Custom_SDK {
-                    icon: Icon
-                    subText: Sub_Text {
-                        data {
-                            subText: Sub_Text
-                        }
-                    }
-                }
-                adminApi: Admin_API {
                     icon: Icon
                     subText: Sub_Text {
                         data {
