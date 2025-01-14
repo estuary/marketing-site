@@ -1018,8 +1018,9 @@ export const createPages: GatsbyNode['createPages'] = async ({
         {
             slug: '/technology/private-deployments/',
             metadata: {
-                title: '',
-                description: '',
+                title: 'Secure Data Integration with Private Deployments | Estuary Flow',
+                description:
+                    "Achieve secure, scalable data integration with Estuary Flow's private deployment model. Benefit from private VPCs, real-time data pipelines, and cost-efficient solutions.",
             },
             sections: {
                 hero: {
@@ -1097,8 +1098,9 @@ export const createPages: GatsbyNode['createPages'] = async ({
         {
             slug: '/technology/apache-iceberg/',
             metadata: {
-                title: '',
-                description: '',
+                title: 'Modern Apache Iceberg Integration Solutions | Estuary Flow',
+                description:
+                    'Streamline Apache Iceberg integration with Estuary Flow. Enable real-time and batch data loading with REST catalog support and effortless platform integration.',
             },
             sections: {
                 hero: {
@@ -1175,8 +1177,9 @@ export const createPages: GatsbyNode['createPages'] = async ({
         {
             slug: '/technology/netsuite/',
             metadata: {
-                title: '',
-                description: '',
+                title: 'Maximize Efficiency with NetSuite Data Integration | Estuary Flow',
+                description:
+                    'Integrate NetSuite effortlessly with Estuary Flow. Real-time, low-latency data capture ensures reliable, scalable, and cost-effective data integration for high-volume operations.',
             },
             sections: {
                 hero: {
@@ -1252,8 +1255,9 @@ export const createPages: GatsbyNode['createPages'] = async ({
         {
             slug: '/technology/kafka/',
             metadata: {
-                title: '',
-                description: '',
+                title: 'Effortless Kafka Data Integration with Dekaf | Estuary Flow',
+                description:
+                    "Estuary Flow's Dekaf simplifies Kafka integration. Consume real-time data effortlessly and reduce overhead with minimal latency, optimizing your data pipelines.",
             },
             sections: {
                 hero: {
