@@ -104,7 +104,13 @@ const HeaderNavbarResources = ({ active, setActive }) => {
                         />
                     </div>
                     <div className={columnWithTwoRows}>
-                        <CardItem title="READ" items={read} onlyContent />
+                        <CardItem
+                            title="READ"
+                            items={read}
+                            onlyContent
+                            hasSeeMoreButton
+                            maxNumberOfLinks={5}
+                        />
                         <CardItem title="LISTEN" items={listen} onlyContent />
                     </div>
                     <CardItem

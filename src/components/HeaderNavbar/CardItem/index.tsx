@@ -1,7 +1,7 @@
 import Chevron from '@mui/icons-material/ChevronRight';
 import { Link } from 'gatsby';
 import clsx from 'clsx';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ReactNode, HTMLAttributes } from 'react';
 import { hideOnMobile, seeAllButton } from '../styles.module.less';
 import OutboundLink from '../../LinksAndButtons/OutboundLink';
 import {
@@ -14,9 +14,18 @@ import {
     contentFooter,
 } from './styles.module.less';
 
-const ItemLink = ({ name, description, Image, to }) => {
-    const LinkElement: any = to[0] === '/' ? Link : OutboundLink;
-    const linkProps = to[0] === '/' ? { to } : { href: to, target: '_blank' };
+interface Item {
+    name: string;
+    description?: string;
+    to: string;
+    Image?: () => JSX.Element;
+}
+
+const ItemLink = ({ name, description, Image, to }: Item) => {
+    const LinkElement: any = to.startsWith('/') ? Link : OutboundLink;
+    const linkProps = to.startsWith('/')
+        ? { to }
+        : { href: to, target: '_blank' };
 
     return (
         <LinkElement {...linkProps} aria-label={`Read content of ${name}`}>
@@ -40,6 +49,17 @@ const ItemLink = ({ name, description, Image, to }) => {
     );
 };
 
+interface HeaderCardItemProps extends HTMLAttributes<HTMLDivElement> {
+    title: string;
+    items?: Item[];
+    children?: ReactNode;
+    onlyContent?: boolean;
+    active?: boolean;
+    contentFooterLink?: ReactNode;
+    hasSeeMoreButton?: boolean;
+    maxNumberOfLinks?: number;
+}
+
 const HeaderCardItem = ({
     title,
     items = [],
@@ -48,8 +68,9 @@ const HeaderCardItem = ({
     active,
     contentFooterLink,
     hasSeeMoreButton = false,
+    maxNumberOfLinks = 4,
     ...props
-}: any) => {
+}: HeaderCardItemProps) => {
     const [showAll, setShowAll] = useState(false);
 
     useEffect(() => {
@@ -66,7 +87,7 @@ const HeaderCardItem = ({
                 className={clsx(cardTitle, onlyContent ? hideOnMobile : null)}
             >
                 {title}
-                {hasSeeMoreButton && items.length > 4 ? (
+                {hasSeeMoreButton && items.length > maxNumberOfLinks ? (
                     <button
                         className={seeAllButton}
                         onClick={handleSeeAllButtonClick}
@@ -77,7 +98,7 @@ const HeaderCardItem = ({
             </span>
             <div className={content}>
                 {items
-                    .slice(0, showAll ? items.length : 4)
+                    .slice(0, showAll ? items.length : maxNumberOfLinks)
                     .map((item, index) => (
                         <ItemLink key={index} {...item} />
                     ))}
