@@ -37,7 +37,7 @@ const TechnologySolutions = ({ pageContext }: TechnologySolutionsProps) => {
                 data={pageContext.technologySolution.sections.highlights}
                 image={
                     <StaticImage
-                        src="../../../images/industry-solutions-template/apache-iceberg-integration.png"
+                        src="../../../images/industry-solutions-template/graphic.png"
                         alt="Visualizing real-time data lake capabilities with Apache Iceberg integration"
                         quality={100}
                         placeholder="blurred"
