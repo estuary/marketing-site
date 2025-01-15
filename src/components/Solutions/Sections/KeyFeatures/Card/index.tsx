@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-import Tag from '../../../Tag';
 import { container } from './styles.module.less';
 
 interface CardProps {
@@ -18,7 +17,6 @@ const Card = ({
     return (
         <div className={container} style={{ backgroundColor, borderColor }}>
             <div>
-                <Tag>Key feature</Tag>
                 <p>{description}</p>
             </div>
             {svg}

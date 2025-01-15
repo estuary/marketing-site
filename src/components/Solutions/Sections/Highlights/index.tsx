@@ -28,11 +28,7 @@ const Highlights = ({ data, image }: HighlightsProps) => {
                 <ul>
                     {data.highlightItems.map((highlight, index) => (
                         <li key={index}>
-                            <Card
-                                text={highlight}
-                                tag="Highlight"
-                                isDarkTheme
-                            />
+                            <Card text={highlight} isDarkTheme />
                         </li>
                     ))}
                 </ul>

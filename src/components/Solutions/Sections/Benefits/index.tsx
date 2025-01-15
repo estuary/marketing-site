@@ -23,11 +23,7 @@ const Benefits = ({ data }: BenefitsProps) => {
                 <ul>
                     {data.benefitItems.map((benefit, index) => (
                         <li key={index}>
-                            <Card
-                                tag="Benefit"
-                                text={benefit}
-                                imageIndex={index + 1}
-                            />
+                            <Card text={benefit} imageIndex={index + 1} />
                         </li>
                     ))}
                 </ul>
