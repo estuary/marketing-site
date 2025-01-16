@@ -1,7 +1,6 @@
 import { Link } from 'gatsby';
 import { useCallback } from 'react';
 import { globalHeaderLink } from '../styles.module.less';
-import OutboundLink from '../LinksAndButtons/OutboundLink';
 import LinkProduct from './Product';
 import LinkResources from './Resources';
 import { globalHeaderLinks } from './styles.module.less';
@@ -33,14 +32,6 @@ const HeaderNavbar = ({ activeMenu, setActiveMenu }) => {
                 active={activeMenu === 'resources'}
                 setActive={setActiveMenu}
             />
-            {/* <OutboundLink
-                target="_blank"
-                className={globalHeaderLink}
-                href="https://docs.estuary.dev"
-                onMouseEnter={closeMenus}
-            >
-                Docs
-            </OutboundLink> */}
         </div>
     );
 };

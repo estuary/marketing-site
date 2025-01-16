@@ -44,7 +44,9 @@ const Advantages = ({
             isReverseColumnOnMobile={isReverseColumnOnMobile}
         >
             <div className={clsx(leftColumn, isDarkTheme ? darkTheme : null)}>
-                {icon && !isDarkTheme ? <div className={iconWrapper}>{icon}</div> : null}
+                {icon && !isDarkTheme ? (
+                    <div className={iconWrapper}>{icon}</div>
+                ) : null}
                 <h2>{title}</h2>
                 {subtitle ? <p>{subtitle}</p> : null}
                 {advantages ? (

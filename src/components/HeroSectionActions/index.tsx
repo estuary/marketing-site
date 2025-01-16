@@ -1,17 +1,11 @@
 import RegisterCta from './RegisterCta';
 import ContactUsCta from './ContactUsCta';
-// import WatchDemoCta from './WatchDemo';
 
-interface HeroSectionActionsProps {
-    showDemoCta?: boolean;
-}
-
-function HeroSectionActions({ showDemoCta }: HeroSectionActionsProps) {
+function HeroSectionActions() {
     return (
         <>
             <RegisterCta />
             <ContactUsCta />
-            {/* {showDemoCta ? <WatchDemoCta /> : null} */}
         </>
     );
 }

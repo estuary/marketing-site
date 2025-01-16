@@ -2,15 +2,11 @@ import { StaticImage } from 'gatsby-plugin-image';
 import DiagramSourceConnectors from '../../DiagramConnectors/DiagramSourceConnectors';
 import DiagramDestinationConnectors from '../../DiagramConnectors/DiagramDestinationConnectors';
 import FlowCycle from '../../../svgs/flow-cycle.svg';
-import CaptureIcon from '../../../svgs/capture.svg';
-import RealTimeDelivery from '../../../svgs/real-time-delivery.svg';
-import StoreAndTransformIcon from '../../../svgs/store-and-transform.svg';
 import {
     container,
     desktopDiagramWrapper,
     header,
     step,
-    StepIconWrapper,
     steps,
     mobileImage,
     connectorsGroups,
@@ -25,21 +21,20 @@ const MoveAndTransform = () => {
                     <span>Move and transform data across 200+ systems</span>
                 </h2>
                 <p>
-                    Integrate with millisecond latency for an exact view of your data to power analytics and operations.
+                    Integrate with millisecond latency for an exact view of your
+                    data to power analytics and operations.
                 </p>
             </div>
             <div className={steps}>
                 <div className={step}>
                     {/* <div className={StepIconWrapper}> */}
-                        {/* <CaptureIcon /> */}
+                    {/* <CaptureIcon /> */}
                     {/* </div> */}
                     <div>
                         <h3>
                             <span>01</span>Ingest
                         </h3>
-                        <p>
-                            200+ no-code connectors. Real-time or batch.
-                        </p>
+                        <p>200+ no-code connectors. Real-time or batch.</p>
                     </div>
                 </div>
 
@@ -51,9 +46,7 @@ const MoveAndTransform = () => {
                         <h3>
                             <span>02</span>Transform
                         </h3>
-                        <p>
-                            Transform and store data in storage owned by you.
-                        </p>
+                        <p>Transform and store data in storage owned by you.</p>
                     </div>
                 </div>
 

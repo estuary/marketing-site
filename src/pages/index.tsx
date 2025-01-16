@@ -5,10 +5,8 @@ import Hero from '../components/Homepage/Hero';
 import MoveAndTransform from '../components/Homepage/MoveAndTransform';
 import SuccessStories from '../components/Homepage/SuccessStories';
 import SecureYourData from '../components/Homepage/SecureYourData';
-import TheBestRealTimeCdc from '../components/Homepage/TheBestRealTimeCdc';
 import BuildInMinutes from '../components/Homepage/BuildInMinutes';
 import AutomateDataops from '../components/Homepage/AutomateDataops';
-import InnovateFaster from '../components/Homepage/InnovateFaster';
 import Do4xMoreWith25xLess from '../components/Homepage/Do4xMoreWith25xLess';
 import WhatPeopleAreSaying from '../components/Homepage/WhatPeopleAreSaying';
 import DeploymentModes from '../components/Homepage/DeploymentModes';
@@ -20,7 +18,7 @@ import { dashboardRegisterUrl, webinarsUrl } from '../../shared';
 
 const IndexPage = () => {
     return (
-        <Layout showReleaseBanner>
+        <Layout>
             <Hero />
             <MoveAndTransform />
             <SuccessStories />
@@ -28,8 +26,6 @@ const IndexPage = () => {
             <BuildInMinutes />
             <AutomateDataops />
             <SecureYourData />
-            {/* <TheBestRealTimeCdc /> */}
-            {/* <InnovateFaster /> */}
             <Do4xMoreWith25xLess />
             <WhatPeopleAreSaying />
             <SeeHowSection

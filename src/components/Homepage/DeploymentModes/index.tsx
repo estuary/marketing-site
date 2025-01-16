@@ -3,7 +3,8 @@ import DeploymentOptions from '../../DeploymentOptions';
 
 const optionsDescription = {
     public: "Estuary's standard option, fully managed for quick, hassle-free setup.",
-    private: 'Enhanced security by hosting Estuary within a private network, combining ease with more security.',
+    private:
+        'Enhanced security by hosting Estuary within a private network, combining ease with more security.',
     byoc: 'Deploy Estuary on your cloud infrastructure for complete control.',
 };
 
