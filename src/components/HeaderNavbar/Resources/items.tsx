@@ -66,6 +66,13 @@ export const listen = [
             <StaticImage src="../../../svgs/youtube.svg" alt="Youtube" />
         ),
     },
+    {
+        name: 'Demo',
+        to: '/demo/',
+        Image: () => (
+            <StaticImage src="../../../svgs/webinars.svg" alt="Demo" />
+        ),
+    },
 ];
 
 export const tours = [
