@@ -62,6 +62,17 @@ const serviceIntegrationPartners: Partner[] = [
         name: 'Brooklyn Data Co.',
         href: 'https://www.brooklyndata.co/',
     },
+    {
+        icon: (
+            <StaticImage
+                src="../../../images/partners-page/partner-logos/dashlytix.png"
+                alt="Dashlytix logo"
+                placeholder="blurred"
+            />
+        ),
+        name: 'Dashlytix',
+        href: 'https://www.dashlytix.com/',
+    },
 ];
 
 const SIPartners = () => (
