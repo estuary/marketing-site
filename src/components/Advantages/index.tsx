@@ -13,7 +13,7 @@ import {
 } from './styles.module.less';
 
 type AdvantagesProps = {
-    icon: ReactNode;
+    icon?: ReactNode;
     image?: ReactNode;
     title: ReactNode;
     subtitle?: string;
@@ -44,7 +44,7 @@ const Advantages = ({
             isReverseColumnOnMobile={isReverseColumnOnMobile}
         >
             <div className={clsx(leftColumn, isDarkTheme ? darkTheme : null)}>
-                <div className={iconWrapper}>{icon}</div>
+                {icon && !isDarkTheme ? <div className={iconWrapper}>{icon}</div> : null}
                 <h2>{title}</h2>
                 {subtitle ? <p>{subtitle}</p> : null}
                 {advantages ? (

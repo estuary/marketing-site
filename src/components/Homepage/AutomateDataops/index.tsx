@@ -9,16 +9,17 @@ const AutomateDataops = () => {
     return (
         <section className={defaultWrapperGrey}>
             <Advantages
-                icon={<SingleDataflowIcon color="var(--blue)" />}
                 title={
                     <>
-                        AUTOMATE <span>DATAOPS</span>
+                        AUTOMATE DATAOPS
                     </>
                 }
-                subtitle="Use schema inference, evolution, and automation along
-                        with a complete CLI and API to implement true agile
-                        DataOps that can handle constant change without breaking
-                        pipelines."
+                subtitle="
+                            ✅ Automated Schema Inference and Evolution
+                            ✅ Fully-featured CLI
+                            ✅ Declarative pipelines with YAML
+                            ✅ Detailed logging and monitoring
+                ."
                 image={
                     <StaticImage
                         quality={100}
@@ -29,7 +30,7 @@ const AutomateDataops = () => {
                 }
                 ctaButtons={
                     <OutboundLinkFilled href={docsPageUrl} target="_blank">
-                        See the Docs
+                        Register Now for Free
                     </OutboundLinkFilled>
                 }
                 isImageOnTheLeft

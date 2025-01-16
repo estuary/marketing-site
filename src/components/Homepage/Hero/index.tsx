@@ -25,15 +25,10 @@ const Hero = () => {
                 <HeroSectionDetails
                     title={
                         <>
-                            <span className="white-text">MEET</span>{' '}
-                            <span>THE FASTEST</span>
-                            <span>,</span> <span>MOST RELIABLE</span>{' '}
-                            <span className="white-text">ETL</span>
+                            <span className="white-text">YOUR DATA. <br /> ANYTIME, ANYWHERE.</span>
                         </>
                     }
-                    description="Estuary is the only platform built from the ground up
-                        for truly real-time ETL and ELT data integration, set up
-                        in minutes."
+                    description="Effortless data integration with Estuary - the data movement platform for real-time streaming and batch processing."
                     ctaButtons={<HeroSectionActions showDemoCta />}
                     hasSubscriptionBenefits
                 />
@@ -47,7 +42,7 @@ const Hero = () => {
                 <MetricCard
                     icon={<ActiveUsersIcon color={metricIconColor} />}
                     value={activeUsersAmount}
-                    label="Active users"
+                    label="Users"
                 />
                 <MetricCard
                     icon={<LatencyIcon color={metricIconColor} />}
@@ -57,7 +52,7 @@ const Hero = () => {
                 <MetricCard
                     icon={<SingleDataflowIcon color={metricIconColor} />}
                     value="7+gb/sec"
-                    label="Single dataflow"
+                    label="Dataflow"
                 />
             </ul>
             <VanityLogosMarquee />

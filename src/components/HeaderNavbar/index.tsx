@@ -33,14 +33,14 @@ const HeaderNavbar = ({ activeMenu, setActiveMenu }) => {
                 active={activeMenu === 'resources'}
                 setActive={setActiveMenu}
             />
-            <OutboundLink
+            {/* <OutboundLink
                 target="_blank"
                 className={globalHeaderLink}
                 href="https://docs.estuary.dev"
                 onMouseEnter={closeMenus}
             >
                 Docs
-            </OutboundLink>
+            </OutboundLink> */}
         </div>
     );
 };

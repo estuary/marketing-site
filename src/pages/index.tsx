@@ -25,11 +25,11 @@ const IndexPage = () => {
             <MoveAndTransform />
             <SuccessStories />
             <DeploymentModes />
-            <SecureYourData />
-            <TheBestRealTimeCdc />
             <BuildInMinutes />
             <AutomateDataops />
-            <InnovateFaster />
+            <SecureYourData />
+            {/* <TheBestRealTimeCdc /> */}
+            {/* <InnovateFaster /> */}
             <Do4xMoreWith25xLess />
             <WhatPeopleAreSaying />
             <SeeHowSection

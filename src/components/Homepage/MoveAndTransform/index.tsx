@@ -22,66 +22,51 @@ const MoveAndTransform = () => {
         <section className={container}>
             <div className={header}>
                 <h2>
-                    <span>Move </span>
-                    <span>and </span>
-                    <span>transform </span>
-                    <span>
-                        data in real-time with the only platform built for{' '}
-                    </span>
-                    <span>ops</span>
-                    <span>, </span>
-                    <span>analytics</span>
-                    <span>, and </span>
-                    <span>AI</span>
+                    <span>Move and transform data across 200+ systems</span>
                 </h2>
                 <p>
-                    Capture, transform, and materialize with millisecond latency
-                    using ETL and ELT data integration, for an exact view of
-                    your data that powers analytics and operations.
+                    Integrate with millisecond latency for an exact view of your data to power analytics and operations.
                 </p>
             </div>
             <div className={steps}>
                 <div className={step}>
-                    <div className={StepIconWrapper}>
-                        <CaptureIcon />
-                    </div>
+                    {/* <div className={StepIconWrapper}> */}
+                        {/* <CaptureIcon /> */}
+                    {/* </div> */}
                     <div>
                         <h3>
-                            <span>01</span>Capture
+                            <span>01</span>Ingest
                         </h3>
                         <p>
-                            Use 100s of no-code connectors for streaming CDC,
-                            real-time, or batch.
+                            200+ no-code connectors. Real-time or batch.
                         </p>
                     </div>
                 </div>
 
                 <div className={step}>
-                    <div className={StepIconWrapper}>
+                    {/* <div className={StepIconWrapper}>
                         <StoreAndTransformIcon />
-                    </div>
+                    </div> */}
                     <div>
                         <h3>
-                            <span>02</span>Stream-store-replay
+                            <span>02</span>Transform
                         </h3>
                         <p>
-                            Stream and store in your own storage, then replay
-                            any time.
+                            Transform and store data in storage owned by you.
                         </p>
                     </div>
                 </div>
 
                 <div className={step}>
-                    <div className={StepIconWrapper}>
+                    {/* <div className={StepIconWrapper}>
                         <RealTimeDelivery />
-                    </div>
+                    </div> */}
                     <div>
                         <h3>
-                            <span>03</span>Materialize
+                            <span>03</span>Load
                         </h3>
                         <p>
-                            Load data at different speeds into many destinations
-                            for analytics, ops, and AI.
+                            Materialize data to your destination at any cadence.
                         </p>
                     </div>
                 </div>

@@ -27,7 +27,7 @@ const Layout = ({
             </Suspense>*/}
             <Header fixedHeader={fixedHeader} />
             <main className={clsx(fixedHeader && globalMainFixedHeader)}>
-                {showReleaseBanner ? <ReleaseBanner /> : null}
+                {/* {showReleaseBanner ? <ReleaseBanner /> : null} */}
                 {children}
             </main>
             {hideFooter ? null : <Footer />}

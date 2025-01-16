@@ -1,6 +1,6 @@
 import RegisterCta from './RegisterCta';
 import ContactUsCta from './ContactUsCta';
-import WatchDemoCta from './WatchDemo';
+// import WatchDemoCta from './WatchDemo';
 
 interface HeroSectionActionsProps {
     showDemoCta?: boolean;
@@ -11,7 +11,7 @@ function HeroSectionActions({ showDemoCta }: HeroSectionActionsProps) {
         <>
             <RegisterCta />
             <ContactUsCta />
-            {showDemoCta ? <WatchDemoCta /> : null}
+            {/* {showDemoCta ? <WatchDemoCta /> : null} */}
         </>
     );
 }
