@@ -8,7 +8,7 @@ const iconSize = 16;
 export const read = [
     {
         name: 'Blog',
-        to: '/blog/data-engineering',
+        to: '/blog',
         Image: () => <StaticImage src="../../../svgs/blog.svg" alt="Blog" />,
     },
     {
@@ -61,7 +61,7 @@ export const listen = [
     },
     {
         name: 'YouTube',
-        to: 'https://www.youtube.com/watch?v=Ys5BoNqKljc',
+        to: 'https://www.youtube.com/@estuarydev',
         Image: () => (
             <StaticImage src="../../../svgs/youtube.svg" alt="Youtube" />
         ),
