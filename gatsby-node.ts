@@ -495,9 +495,9 @@ export const createPages: GatsbyNode['createPages'] = async ({
                     description:
                         'Estuary Flow delivers enterprise-grade stability, requiring no ongoing maintenance or complex configurations. Designed for high availability, Flow the cloud for durability, so you can focus on building features, not troubleshooting pipelines.',
                     benefitItems: [
-                        'Always-on architecture.',
-                        'Automatic error recovery.',
-                        'Zero operational overhead.',
+                        'Streams inserts, updates, and deletes in real time.',
+                        'Guarantees data consistency across source and destination.',
+                        'Scales effortlessly to handle high-velocity data.',
                     ],
                 },
                 highlights: {
@@ -508,9 +508,9 @@ export const createPages: GatsbyNode['createPages'] = async ({
                     description:
                         "Keep your data pipelines fast and reliable with Estuary's real-time CDC capabilities. Stream changes from transactional databases like PostgreSQL with second-level latency and zero data loss.",
                     highlightItems: [
-                        'Streams inserts, updates, and deletes in real time.',
-                        'Guarantees data consistency across source and destination.',
-                        'Scales effortlessly to handle high-velocity data.',
+                        'Always-on architecture.',
+                        'Automatic error recovery.',
+                        'Zero operational overhead.',
                     ],
                 },
                 capabilities: {
