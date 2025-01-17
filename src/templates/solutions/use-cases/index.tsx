@@ -1,4 +1,5 @@
 import { StaticImage } from 'gatsby-plugin-image';
+import { graphql } from 'gatsby';
 import Layout from '../../../components/Layout';
 import Seo from '../../../components/seo';
 import Hero from '../../../components/Solutions/Sections/Hero';
@@ -9,17 +10,18 @@ import Capabilities from '../../../components/Solutions/Sections/Capabilities';
 import KeyFeatures from '../../../components/Solutions/Sections/KeyFeatures';
 import { TemplatePageProps } from '../shared';
 
-interface UseCaseSolutionsProps {
-    pageContext: {
-        useCaseSolution: TemplatePageProps;
+interface SolutionProps {
+    data: {
+        solution: TemplatePageProps;
     };
 }
 
-const UseCaseSolutions = ({ pageContext }: UseCaseSolutionsProps) => {
+const Solutions = ({ data: { solution } }: SolutionProps) => {
     return (
         <Layout>
             <Hero
-                title={pageContext.useCaseSolution.sections.hero.title}
+                title={solution.hero.title}
+                description={solution.hero.description}
                 heroImage={
                     <StaticImage
                         src="../../../images/use-case-solutions-template/hero-image.png"
@@ -30,11 +32,9 @@ const UseCaseSolutions = ({ pageContext }: UseCaseSolutionsProps) => {
                     />
                 }
             />
-            <Testimonial
-                data={pageContext.useCaseSolution.sections.testimonial}
-            />
+            <Testimonial data={solution.testimonial} />
             <Highlights
-                data={pageContext.useCaseSolution.sections.highlights}
+                data={solution.highlights}
                 image={
                     <StaticImage
                         src="../../../images/use-case-solutions-template/estuary-solutions-highlights.png"
@@ -44,24 +44,107 @@ const UseCaseSolutions = ({ pageContext }: UseCaseSolutionsProps) => {
                     />
                 }
             />
-            <Benefits data={pageContext.useCaseSolution.sections.benefits} />
-            <Capabilities
-                data={pageContext.useCaseSolution.sections.capabilities}
-            />
-            <KeyFeatures
-                data={pageContext.useCaseSolution.sections.keyFeatures}
-            />
+            <Benefits data={solution.benefits} />
+            <Capabilities data={solution.capabilities} />
+            <KeyFeatures data={solution.keyFeatures} />
         </Layout>
     );
 };
 
-export const Head = ({ pageContext }: UseCaseSolutionsProps) => {
+export const Head = ({ data: { solution } }: SolutionProps) => {
     return (
         <Seo
-            title={pageContext.useCaseSolution.metadata.title}
-            description={pageContext.useCaseSolution.metadata.description}
+            title={solution.metadata.title}
+            description={solution.metadata.description}
         />
     );
 };
 
-export default UseCaseSolutions;
+export default Solutions;
+
+export const pageQuery = graphql`
+    query GetSolution($id: String!) {
+        solution: strapiSolution(id: { eq: $id }) {
+            slug
+            metadata {
+                title
+                description
+            }
+            hero {
+                title
+                description
+            }
+            testimonial {
+                sectionTitle: section_title {
+                    highlightedText
+                    normalText
+                }
+                description
+                quote {
+                    companyName
+                    successStoryUrl
+                    companyLogo {
+                        alternativeText
+                        localFile {
+                            childImageSharp {
+                                gatsbyImageData(
+                                    quality: 100
+                                    placeholder: BLURRED
+                                )
+                            }
+                        }
+                    }
+                    text
+                }
+            }
+            benefits {
+                sectionTitle: section_title {
+                    highlightedText
+                    normalText
+                }
+                description
+                benefitItems {
+                    strapi_json_value
+                }
+                images {
+                    alternativeText
+                    localFile {
+                        childrenImageSharp {
+                            gatsbyImageData
+                        }
+                    }
+                }
+            }
+            highlights {
+                sectionTitle: section_title {
+                    highlightedText
+                    normalText
+                }
+                description
+                highlightItems {
+                    strapi_json_value
+                }
+            }
+            keyFeatures {
+                sectionTitle: section_title {
+                    highlightedText
+                    normalText
+                }
+                description
+                keyFeatureItems {
+                    strapi_json_value
+                }
+            }
+            capabilities {
+                sectionTitle: section_title {
+                    highlightedText
+                    normalText
+                }
+                description
+                capabilityItems {
+                    strapi_json_value
+                }
+            }
+        }
+    }
+`;

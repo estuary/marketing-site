@@ -4,48 +4,52 @@ interface SectionTitle {
 }
 
 interface SectionText {
-    title: SectionTitle;
+    sectionTitle: SectionTitle;
     description: string;
+}
+
+interface StrapiJsonValue {
+    strapi_json_value: string[];
 }
 
 export interface TestimonialSectionContent extends SectionText {
     quote: {
-        company?: string;
+        companyName?: string;
+        companyLogo?: any; // TODO: Check this type
         successStoryUrl?: string;
         text: string;
     };
 }
 
 export interface HighlightsSectionContent extends SectionText {
-    highlightItems: string[];
+    highlightItems: StrapiJsonValue;
 }
 
 export interface BenefitsSectionContent extends SectionText {
-    benefitItems: string[];
+    benefitItems: StrapiJsonValue;
 }
 
 export interface CapabilitiesSectionContent extends SectionText {
-    capabilityItems: string[];
+    capabilityItems: StrapiJsonValue;
 }
 
 export interface KeyFeaturesSectionContent extends SectionText {
-    keyFeatureItems: string[];
+    keyFeatureItems: StrapiJsonValue;
 }
 
 export interface TemplatePageProps {
+    slug: string;
     metadata: {
         title: string;
         description: string;
     };
-    slug: string;
-    sections: {
-        hero: {
-            title: string;
-        };
-        testimonial: TestimonialSectionContent;
-        highlights: HighlightsSectionContent;
-        benefits: BenefitsSectionContent;
-        capabilities: CapabilitiesSectionContent;
-        keyFeatures: KeyFeaturesSectionContent;
+    hero: {
+        title: string;
+        description: string;
     };
+    testimonial: TestimonialSectionContent;
+    highlights: HighlightsSectionContent;
+    benefits: BenefitsSectionContent;
+    capabilities: CapabilitiesSectionContent;
+    keyFeatures: KeyFeaturesSectionContent;
 }

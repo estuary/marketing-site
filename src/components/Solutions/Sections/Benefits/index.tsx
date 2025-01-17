@@ -15,17 +15,19 @@ const Benefits = ({ data }: BenefitsProps) => {
             <Container className={wrapper} isVertical>
                 <div className={sectionText}>
                     <h2>
-                        <span>{data.title.highlightedText}</span>{' '}
-                        {data.title.normalText}
+                        <span>{data.sectionTitle.highlightedText}</span>{' '}
+                        {data.sectionTitle.normalText}
                     </h2>
                     <p>{data.description}</p>
                 </div>
                 <ul>
-                    {data.benefitItems.map((benefit, index) => (
-                        <li key={index}>
-                            <Card text={benefit} imageIndex={index + 1} />
-                        </li>
-                    ))}
+                    {data.benefitItems.strapi_json_value.map(
+                        (benefit, index) => (
+                            <li key={index}>
+                                <Card text={benefit} imageIndex={index + 1} />
+                            </li>
+                        )
+                    )}
                 </ul>
             </Container>
         </section>

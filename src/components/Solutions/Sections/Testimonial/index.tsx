@@ -1,3 +1,4 @@
+import { GatsbyImage } from 'gatsby-plugin-image';
 import Container from '../../../Container';
 import { defaultWrapperGrey } from '../../../../globalStyles/wrappers.module.less';
 import { sectionText } from '../../styles.module.less';
@@ -7,6 +8,7 @@ import {
     quoteBox,
     quoteTextMargin,
     additionalQuoteTextMargin,
+    companyLogo,
 } from './styles.module.less';
 
 interface TestimonialProps {
@@ -19,17 +21,25 @@ const Testimonial = ({ data }: TestimonialProps) => {
             <Container className={sectionText}>
                 <div className={quoteBox}>
                     <div>
-                        <h3>{data.quote.company}</h3>
+                        <GatsbyImage
+                            image={
+                                data.quote.companyLogo?.localFile
+                                    ?.childImageSharp?.gatsbyImageData
+                            }
+                            alt={data.quote.companyLogo.alternativeText}
+                            className={companyLogo}
+                        />
+                        <h3>{data.quote.companyName}</h3>
                         <p
                             className={
-                                !!data.quote.company
+                                !!data.quote.companyName
                                     ? additionalQuoteTextMargin
                                     : quoteTextMargin
                             }
                         >
                             {data.quote.text}
                         </p>
-                        {data.quote.company ? (
+                        {data.quote.companyName ? (
                             <LinkOutlined
                                 href={data.quote.successStoryUrl}
                                 variant="secondary"
@@ -41,8 +51,8 @@ const Testimonial = ({ data }: TestimonialProps) => {
                 </div>
                 <div>
                     <h2>
-                        <span>{data.title.highlightedText}</span>{' '}
-                        {data.title.normalText}
+                        <span>{data.sectionTitle.highlightedText}</span>{' '}
+                        {data.sectionTitle.normalText}
                     </h2>
                     <p>{data.description}</p>
                 </div>

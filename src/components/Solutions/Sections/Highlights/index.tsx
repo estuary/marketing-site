@@ -18,19 +18,21 @@ const Highlights = ({ data, image }: HighlightsProps) => {
                 <Container className={noPadding}>
                     <div className={sectionText}>
                         <h2>
-                            <span>{data.title.highlightedText}</span>{' '}
-                            {data.title.normalText}
+                            <span>{data.sectionTitle.highlightedText}</span>{' '}
+                            {data.sectionTitle.normalText}
                         </h2>
                         <p>{data.description}</p>
                     </div>
                     {image}
                 </Container>
                 <ul>
-                    {data.highlightItems.map((highlight, index) => (
-                        <li key={index}>
-                            <Card text={highlight} isDarkTheme />
-                        </li>
-                    ))}
+                    {data.highlightItems.strapi_json_value.map(
+                        (highlight, index) => (
+                            <li key={index}>
+                                <Card text={highlight} isDarkTheme />
+                            </li>
+                        )
+                    )}
                 </ul>
             </Container>
         </section>

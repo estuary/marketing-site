@@ -7,15 +7,17 @@ import { container } from './styles.module.less';
 
 interface HeroProps {
     title: string;
+    description: string;
     heroImage: ReactNode;
 }
 
-const Hero = ({ title, heroImage }: HeroProps) => {
+const Hero = ({ title, description, heroImage }: HeroProps) => {
     return (
         <section className={defaultWrapperDarkBlue}>
             <Container isDarkTheme className={container}>
                 <HeroSectionDetails
                     title={title}
+                    description={description}
                     ctaButtons={<HeroSectionActions />}
                 />
                 {heroImage}

@@ -20,19 +20,21 @@ const Capabilities = ({ data }: CapabilitiesProps) => {
             >
                 <div>
                     <h2>
-                        <span>{data.title.highlightedText}</span>{' '}
-                        {data.title.normalText}
+                        <span>{data.sectionTitle.highlightedText}</span>{' '}
+                        {data.sectionTitle.normalText}
                     </h2>
                     <p>{data.description}</p>
                 </div>
                 <div>
                     <div className={box}>
                         <ul>
-                            {data.capabilityItems.map((capability, index) => (
-                                <li key={index}>
-                                    <Card text={capability} isDarkTheme />
-                                </li>
-                            ))}
+                            {data.capabilityItems.strapi_json_value.map(
+                                (capability, index) => (
+                                    <li key={index}>
+                                        <Card text={capability} isDarkTheme />
+                                    </li>
+                                )
+                            )}
                         </ul>
                     </div>
                 </div>

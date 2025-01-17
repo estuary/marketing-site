@@ -17,8 +17,8 @@ const KeyFeatures = ({ data }: KeyFeaturesProps) => {
             <div className={grid}>
                 <div className={sectionText}>
                     <h2>
-                        <span>{data.title.highlightedText}</span>{' '}
-                        {data.title.normalText}
+                        <span>{data.sectionTitle.highlightedText}</span>{' '}
+                        {data.sectionTitle.normalText}
                     </h2>
                     <p>{data.description}</p>
                 </div>
