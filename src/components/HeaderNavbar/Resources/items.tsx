@@ -8,12 +8,12 @@ const iconSize = 16;
 export const read = [
     {
         name: 'Blog',
-        to: '/blog',
+        to: '/blog/',
         Image: () => <StaticImage src="../../../svgs/blog.svg" alt="Blog" />,
     },
     {
         name: 'Company Updates',
-        to: '/company-updates',
+        to: '/company-updates/',
         Image: () => (
             <StaticImage src="../../../svgs/blog.svg" alt="Company Updates" />
         ),
@@ -25,7 +25,7 @@ export const read = [
     },
     {
         name: 'About us',
-        to: '/about',
+        to: '/about/',
         Image: () => (
             <StaticImage src="../../../svgs/estuary-icon.svg" alt="About us" />
         ),
@@ -47,7 +47,7 @@ export const read = [
 export const listen = [
     {
         name: 'Podcasts',
-        to: '/podcasts',
+        to: '/podcasts/',
         Image: () => (
             <StaticImage src="../../../svgs/microphone.svg" alt="Podcasts" />
         ),
