@@ -40,8 +40,6 @@ const ItemLink = ({ name, description, Image, to }) => {
     );
 };
 
-const maxLinkItems = 5;
-
 const HeaderCardItem = ({
     title,
     items = [],
@@ -68,7 +66,7 @@ const HeaderCardItem = ({
                 className={clsx(cardTitle, onlyContent ? hideOnMobile : null)}
             >
                 {title}
-                {hasSeeMoreButton && items.length > maxLinkItems ? (
+                {hasSeeMoreButton && items.length > 4 ? (
                     <button
                         className={seeAllButton}
                         onClick={handleSeeAllButtonClick}
@@ -79,7 +77,7 @@ const HeaderCardItem = ({
             </span>
             <div className={content}>
                 {items
-                    .slice(0, showAll ? items.length : maxLinkItems)
+                    .slice(0, showAll ? items.length : 4)
                     .map((item, index) => (
                         <ItemLink key={index} {...item} />
                     ))}
