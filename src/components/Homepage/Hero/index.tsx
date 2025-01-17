@@ -37,6 +37,7 @@ const Hero = () => {
                 <MetricCard value={activeUsersAmount} label="Users" />
                 <MetricCard value="&#60;100ms" label="Latency" />
                 <MetricCard value="7+gb/sec" label="Dataflow" />
+                <MetricCard value="99.9%" label="Uptime" />
             </ul>
             <VanityLogosMarquee />
         </section>
