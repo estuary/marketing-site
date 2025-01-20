@@ -1,6 +1,18 @@
-import BookIcon from '../../../svgs/book.svg';
+import DocIcon from '../../../svgs/document.svg';
+import PieChartIcon from '../../../svgs/pie-chart.svg';
+import NoCodeIcon from '../../../svgs/no-code.svg';
 
-const BookHeaderIcon = () => <BookIcon width={11} height={14} />;
+const iconSize = 15;
+
+const AdaptedDocIcon = () => (
+    <DocIcon width={iconSize} height={iconSize} color="#5072EB" />
+);
+const AdaptedPieChartIcon = () => (
+    <PieChartIcon width={iconSize} height={iconSize} color="#5072EB" />
+);
+const AdaptedNoCodeIcon = () => (
+    <NoCodeIcon width={iconSize} height={iconSize} color="#5072EB" />
+);
 
 const urlPrefix = '/solutions';
 
@@ -9,25 +21,25 @@ export const useCaseSolutions = [
         name: 'DATA MOVEMENT',
         to: `${urlPrefix}/use-cases/data-movement/`,
         description: '',
-        Image: () => <BookHeaderIcon />,
+        Image: () => <AdaptedDocIcon />,
     },
     {
         name: 'DATA LAKES AND WAREHOUSES',
         to: `${urlPrefix}/use-cases/data-lakes-warehouses/`,
         description: '',
-        Image: () => <BookHeaderIcon />,
+        Image: () => <AdaptedDocIcon />,
     },
     {
         name: 'AI',
         to: `${urlPrefix}/use-cases/ai/`,
         description: '',
-        Image: () => <BookHeaderIcon />,
+        Image: () => <AdaptedDocIcon />,
     },
     {
         name: 'REAL-TIME ANALYTICS',
         to: `${urlPrefix}/use-cases/real-time-analytics/`,
         description: '',
-        Image: () => <BookHeaderIcon />,
+        Image: () => <AdaptedDocIcon />,
     },
 ];
 
@@ -36,19 +48,19 @@ export const industrySolutions = [
         name: 'FINANCE',
         to: `${urlPrefix}/industry/finance/`,
         description: '',
-        Image: () => <BookHeaderIcon />,
+        Image: () => <AdaptedPieChartIcon />,
     },
     {
         name: 'SUPPLY CHAIN AND LOGISTICS',
         to: `${urlPrefix}/industry/supply-chain/`,
         description: '',
-        Image: () => <BookHeaderIcon />,
+        Image: () => <AdaptedPieChartIcon />,
     },
     {
         name: 'MARKETING',
         to: `${urlPrefix}/industry/marketing/`,
         description: '',
-        Image: () => <BookHeaderIcon />,
+        Image: () => <AdaptedPieChartIcon />,
     },
 ];
 
@@ -57,24 +69,24 @@ export const technologySolutions = [
         name: 'PRIVATE DEPLOYMENTS',
         to: `${urlPrefix}/technology/private-deployments/`,
         description: '',
-        Image: () => <BookHeaderIcon />,
+        Image: () => <AdaptedNoCodeIcon />,
     },
     {
         name: 'APACHE ICEBERG',
         to: `${urlPrefix}/technology/apache-iceberg/`,
         description: '',
-        Image: () => <BookHeaderIcon />,
+        Image: () => <AdaptedNoCodeIcon />,
     },
     {
         name: 'NETSUITE',
         to: `${urlPrefix}/technology/netsuite/`,
         description: '',
-        Image: () => <BookHeaderIcon />,
+        Image: () => <AdaptedNoCodeIcon />,
     },
     {
         name: 'KAFKA',
         to: `${urlPrefix}/technology/kafka/`,
         description: '',
-        Image: () => <BookHeaderIcon />,
+        Image: () => <AdaptedNoCodeIcon />,
     },
 ];
