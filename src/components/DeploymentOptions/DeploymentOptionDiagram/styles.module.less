@@ -44,11 +44,6 @@
   }
 
   @media (max-width: 600px) {
-    gap: 10px;
-    padding: 10px;
-  }
-
-  @media (max-width: 450px) {
     gap: 6px;
     padding: 6px;
   }
@@ -78,11 +73,6 @@
   height: 100%;
 
   @media (max-width: 600px) {
-    gap: 10px;
-    padding: 10px;
-  }
-
-  @media (max-width: 450px) {
     gap: 6px;
     padding: 6px;
   }
@@ -101,7 +91,7 @@
 .middleTag {
   position: absolute;
   top: 46%;
-  left: -55%;
+  left: -50%;
   text-align: center;
   display: flex;
   align-items: center;
@@ -163,10 +153,6 @@
   gap: 16px;
 
   @media (max-width: 600px) {
-    gap: 10px;
-  }
-
-  @media (max-width: 450px) {
     gap: 6px;
   }
 }
@@ -180,11 +166,12 @@
 }
 
 .privateLinkTag {
-  top: 41%;
-  left: -2%;
+  top: 39%;
+  left: 6%;
 
   @media (max-width: 600px) {
-    top: 44.5%;
+    top: 42%;
+    left: 10%;
   }
 }
 
@@ -197,7 +184,7 @@
 }
 
 .metadataOnlyDarkerBlueTag {
-  top: 85%;
+  top: 70%;
 
   span {
     background-color: @secondaryTagColor;
@@ -212,6 +199,9 @@
   }
 
   @media (max-width: 600px) {
+    left: -60%;
+    top: 89%;
+
     span {
       min-width: 80px;
     }
@@ -222,10 +212,12 @@
   position: relative;
 }
 
-.privateDeploymentVpcBox {
-  margin-bottom: 26px;
+.ownedByEstuaryBox {
+  border-radius: 100px;
+  height: fit-content;
+  padding: 8px;
 
-  @media (max-width: 600px) {
-    margin-bottom: 25px;
+  @media (min-width: 601px) {
+    min-width: 100px;
   }
 }

@@ -25,7 +25,7 @@ import {
     privateDeploymentTag,
     metadataOnlyDarkerBlueTag,
     relativePosition,
-    privateDeploymentVpcBox,
+    ownedByEstuaryBox,
 } from './styles.module.less';
 
 const iconSize = 30;
@@ -86,22 +86,28 @@ const DeploymentOptionDiagram = ({
                             : 'Customer Cloud & Region'}
                     </span>
                     <div className={horizontalWrapper}>
-                        {deploymentOption === 'private' ? (
+                        {['private', 'byoc'].includes(deploymentOption) ? (
                             <div
                                 className={clsx(
                                     solidBorderBox,
                                     secondLevelSolidBorderBox
                                 )}
                             >
-                                <VpcIcon width={iconSize} />
-                                <span
+                                <div
                                     className={clsx(
-                                        privateDeploymentVpcBox,
-                                        vpcMarginBottom
+                                        dashedBorderBox,
+                                        ownedByEstuaryBox
                                     )}
                                 >
-                                    Private Deployment VPC
-                                </span>
+                                    <span>
+                                        Owned by <br />{' '}
+                                        {deploymentOption === 'private'
+                                            ? 'Estuary'
+                                            : 'Customer'}
+                                    </span>
+                                </div>
+                                <VpcIcon width={iconSize} />
+                                <span>Private Deployment VPC</span>
                                 <div className={dashedBorderBox}>
                                     <PrivateDataPlaneIcon width={iconSize} />
                                     <span>Private Data Plane</span>
@@ -117,7 +123,9 @@ const DeploymentOptionDiagram = ({
                             <VpcIcon width={iconSize} />
                             <span
                                 className={
-                                    deploymentOption === 'private'
+                                    ['private', 'byoc'].includes(
+                                        deploymentOption
+                                    )
                                         ? vpcMarginBottom
                                         : null
                                 }
@@ -125,14 +133,6 @@ const DeploymentOptionDiagram = ({
                                 Customer VPC
                             </span>
                             <div className={horizontalWrapper}>
-                                {deploymentOption === 'byoc' ? (
-                                    <div className={dashedBorderBox}>
-                                        <PrivateDataPlaneIcon
-                                            width={iconSize}
-                                        />
-                                        <span>Private Data Plane</span>
-                                    </div>
-                                ) : null}
                                 <div
                                     className={clsx(
                                         solidBorderBox,
@@ -150,18 +150,14 @@ const DeploymentOptionDiagram = ({
                         </div>
                     </div>
                 </div>
-                {['public', 'byoc'].includes(deploymentOption) ? (
+                {deploymentOption === 'public' ? (
                     <div className={middleTag}>
                         <div className={clsx(tagArrow, tagArrowLeft)} />
-                        <span>
-                            {deploymentOption === 'public'
-                                ? 'Internet'
-                                : 'metadata only'}
-                        </span>
+                        <span>Internet</span>
                         <div className={clsx(tagArrow, tagArrowRight)} />
                     </div>
                 ) : null}
-                {deploymentOption === 'private' ? (
+                {['private', 'byoc'].includes(deploymentOption) ? (
                     <>
                         <div
                             className={clsx(
