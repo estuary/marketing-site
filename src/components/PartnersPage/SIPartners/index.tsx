@@ -73,6 +73,17 @@ const serviceIntegrationPartners: Partner[] = [
         name: 'Dashlytix',
         href: 'https://www.dashlytix.com/',
     },
+    {
+        icon: (
+            <StaticImage
+                src="../../../images/partners-page/partner-logos/fornax.png"
+                alt="Fornax logo"
+                placeholder="blurred"
+            />
+        ),
+        name: 'Fornax',
+        href: 'https://www.fornaxhq.co/?utm_source=estuary&utm_medium=partnership',
+    },
 ];
 
 const SIPartners = () => (
