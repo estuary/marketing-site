@@ -2,7 +2,7 @@ import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import DeploymentOptions from '../../DeploymentOptions';
 
 const optionsDescription = {
-    public: "Our standard option, fully managed for quick, hassle-free setup",
+    public: 'Our standard option, fully managed for quick, hassle-free setup',
     private: 'Enhanced security by hosting Estuary within a private network',
     byoc: 'Deploy Estuary on your cloud infrastructure for complete control',
 };

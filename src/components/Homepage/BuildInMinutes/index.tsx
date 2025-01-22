@@ -14,7 +14,8 @@ const BuildInMinutes = () => {
                         in minutes
                     </h2>
                     <p>
-                        Eliminate data silos, streamline workflows, and accelerate operations
+                        Eliminate data silos, streamline workflows, and
+                        accelerate operations
                     </p>
                 </div>
                 <div>

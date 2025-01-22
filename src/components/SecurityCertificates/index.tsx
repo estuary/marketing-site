@@ -57,7 +57,7 @@ const SecurityCertificates = ({
                 {
                     id: 16,
                     title: 'SOC 2 Type II certified',
-                }
+                },
             ]}
             isDarkTheme={isDarkTheme}
             ctaButtons={

@@ -19,9 +19,12 @@ const Hero = () => {
             <div className={mainContent}>
                 <HeroSectionDetails
                     title={
-                        <span>
-                            YOUR DATA. <br /> ANYTIME, ANYWHERE.
-                        </span>
+                        <>
+                            <span>
+                                YOUR DATA. <br /> ANYTIME,
+                            </span>{' '}
+                            <span>ANYWHERE.</span>
+                        </>
                     }
                     description="Secure data integration with Estuary Flow - the enterprise data movement platform for real-time streaming and batch processing."
                     ctaButtons={<HeroSectionActions />}

@@ -12,9 +12,8 @@ import WhatPeopleAreSaying from '../components/Homepage/WhatPeopleAreSaying';
 import DeploymentModes from '../components/Homepage/DeploymentModes';
 import SeeHowSection from '../components/SeeHowSection';
 import OutboundLinkFilled from '../components/LinksAndButtons/OutboundLinkFilled';
-import OutboundLinkOutlined from '../components/LinksAndButtons/OutboundLinkOutlined';
 import LinkOutlined from '../components/LinksAndButtons/LinkOutlined';
-import { dashboardRegisterUrl, webinarsUrl } from '../../shared';
+import { dashboardRegisterUrl } from '../../shared';
 
 const IndexPage = () => {
     return (

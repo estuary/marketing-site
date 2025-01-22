@@ -10,8 +10,6 @@ import TransformIcon from '../../../svgs/homepage/transform.svg';
 import {
     container,
     header,
-    step,
-    steps,
     mobileImage,
     diagram,
     card,
@@ -26,7 +24,7 @@ const MoveAndTransform = () => {
                 </h2>
                 <p>
                     Integrate with millisecond latency for an exact view of your
-                    data to power analytics, operations and AI
+                    data to power analytics, operations and AI.
                 </p>
             </div>
             <div className={diagram}>
