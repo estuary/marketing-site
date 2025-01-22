@@ -1,4 +1,5 @@
 import { StaticImage } from 'gatsby-plugin-image';
+import clsx from 'clsx';
 import RealTimeIcon from '../../../svgs/homepage/real-time.svg';
 import BatchIcon from '../../../svgs/homepage/batch.svg';
 import SaasIcon from '../../../svgs/homepage/saas.svg';
@@ -10,9 +11,19 @@ import TransformIcon from '../../../svgs/homepage/transform.svg';
 import {
     container,
     header,
+    desktopImage,
     mobileImage,
     diagram,
     card,
+    analytics,
+    ops,
+    ai,
+    realTime,
+    batch,
+    saas,
+    storeAndTransform,
+    firstColumnHeading,
+    secondColumnHeading,
 } from './styles.module.less';
 
 const MoveAndTransform = () => {
@@ -28,33 +39,35 @@ const MoveAndTransform = () => {
                 </p>
             </div>
             <div className={diagram}>
-                <h4>Connect to Any Data Source</h4>
-                <h4>Put Your Data to Work</h4>
-                <div className={card}>
+                <h4 className={firstColumnHeading}>
+                    Connect to Any Data Source
+                </h4>
+                <h4 className={secondColumnHeading}>Put Your Data to Work</h4>
+                <div className={clsx(card, realTime)}>
                     <RealTimeIcon />
                     <span>Real-time Streams</span>
                 </div>
-                <div className={card}>
+                <div className={clsx(card, batch)}>
                     <BatchIcon />
                     <span>Files & Databases</span>
                 </div>
-                <div className={card}>
+                <div className={clsx(card, saas)}>
                     <SaasIcon />
                     <span>Apps & Cloud Services</span>
                 </div>
-                <div className={card}>
+                <div className={clsx(card, analytics)}>
                     <AnalyticsIcon />
                     <span>Analytics</span>
                 </div>
-                <div className={card}>
+                <div className={clsx(card, ops)}>
                     <OpsIcon />
                     <span>Operations</span>
                 </div>
-                <div className={card}>
+                <div className={clsx(card, ai)}>
                     <AiIcon />
                     <span>AI</span>
                 </div>
-                <div className={card}>
+                <div className={clsx(card, storeAndTransform)}>
                     <div>
                         <StoreIcon />
                         <TransformIcon />
@@ -68,15 +81,17 @@ const MoveAndTransform = () => {
                     alt=""
                     src="../../../images/homepage/move-and-transform-data.png"
                     quality={100}
+                    className={desktopImage}
+                />
+                <StaticImage
+                    placeholder="blurred"
+                    alt=""
+                    src="../../../images/homepage/move-and-transform-data-mobile.png"
+                    quality={100}
+                    className={mobileImage}
+                    layout="fullWidth"
                 />
             </div>
-            <StaticImage
-                placeholder="none"
-                alt="Estuary Flow streamlines complex data workflows by integrating diverse data sources and destinations"
-                src="../../../images/flow-mobile.png"
-                quality={100}
-                className={mobileImage}
-            />
         </section>
     );
 };
