@@ -35,15 +35,8 @@ const IndexPage = () => {
                             href={dashboardRegisterUrl}
                             target="_blank"
                         >
-                            Try Now
+                            Try Now For Free
                         </OutboundLinkFilled>
-                        <OutboundLinkOutlined
-                            href={webinarsUrl}
-                            target="_blank"
-                            variant="secondary"
-                        >
-                            Watch Demo
-                        </OutboundLinkOutlined>
                         <LinkOutlined
                             href="/contact-us/"
                             variant="secondary"

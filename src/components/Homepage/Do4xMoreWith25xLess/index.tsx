@@ -14,7 +14,7 @@ const Do4xMoreWith25xLess = () => {
                         DO <span>MORE </span> WITH <span>LESS</span>
                     </>
                 }
-                subtitle="We combine agentless CDC, zero-code pipelines, and enterprise-grade governance to simplify data integration, and drive business agility at a fraction of the cost."
+                subtitle="We combine agentless CDC, zero-code pipelines, and enterprise-grade governance to simplify data integration, and drive business agility at a fraction of the cost"
                 image={<PricingCalculator />}
                 ctaButtons={
                     <LinkFilled href="/pricing/">See Pricing</LinkFilled>
