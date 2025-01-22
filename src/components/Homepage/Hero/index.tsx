@@ -19,11 +19,14 @@ const Hero = () => {
             <div className={mainContent}>
                 <HeroSectionDetails
                     title={
-                        <span>
-                            YOUR DATA. <br /> ANYTIME, ANYWHERE.
-                        </span>
+                        <>
+                            <span>
+                                YOUR DATA. <br /> ANYTIME,
+                            </span>{' '}
+                            <span>ANYWHERE.</span>
+                        </>
                     }
-                    description="Effortless data integration with Estuary - the data movement platform for real-time streaming and batch processing."
+                    description="Secure data integration with Estuary Flow - the enterprise data movement platform for real-time streaming and batch processing."
                     ctaButtons={<HeroSectionActions />}
                     hasSubscriptionBenefits
                 />
@@ -35,8 +38,8 @@ const Hero = () => {
             </div>
             <ul className={metricCardsList}>
                 <MetricCard value={activeUsersAmount} label="Users" />
-                <MetricCard value="&#60;100ms" label="Latency" />
-                <MetricCard value="7+gb/sec" label="Dataflow" />
+                <MetricCard value="&#60;100 ms" label="Latency" />
+                <MetricCard value="7+ gb/s" label="Throughput" />
                 <MetricCard value="99.9%" label="Uptime" />
             </ul>
             <VanityLogosMarquee />

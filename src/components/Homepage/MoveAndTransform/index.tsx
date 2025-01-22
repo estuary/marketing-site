@@ -11,18 +11,16 @@ import TransformIcon from '../../../svgs/homepage/transform.svg';
 import {
     container,
     header,
-    step,
-    steps,
     desktopImage,
     mobileImage,
     diagram,
     card,
     analytics,
-    ops,
+    operations,
     ai,
-    realTime,
-    batch,
-    saas,
+    realTimeStreams,
+    filesAndDatabases,
+    appsAndCloudServices,
     storeAndTransform,
     firstColumnHeading,
     secondColumnHeading,
@@ -37,43 +35,33 @@ const MoveAndTransform = () => {
                 </h2>
                 <p>
                     Integrate with millisecond latency for an exact view of your
-                    data to power analytics and operations.
+                    data to power analytics, operations and AI.
                 </p>
-            </div>
-            <div className={steps}>
-                <div className={step}>
-                    <h3>Move</h3>
-                    <p>200+ no-code connectors. Real-time or batch.</p>
-                </div>
-                <div className={step}>
-                    <h3>Transform</h3>
-                    <p>Transform and store data in storage owned by you.</p>
-                </div>
             </div>
             <div className={diagram}>
                 <h4 className={firstColumnHeading}>
-                    Connect to Any Data <br /> Source
+                    Connect to Any Data Source
                 </h4>
-                <h4 className={secondColumnHeading}>Activate Data</h4>
-                <div className={clsx(card, realTime)}>
+                <h4 className={secondColumnHeading}>Put Your Data to Work</h4>
+                <div className={clsx(card, realTimeStreams)}>
                     <RealTimeIcon />
-                    <span>Real-time</span>
+                    <span>Real-time Streams</span>
                 </div>
-                <div className={clsx(card, batch)}>
+                <div className={clsx(card, filesAndDatabases)}>
                     <BatchIcon />
-                    <span>Batch</span>
+                    <span>Files & Databases</span>
                 </div>
-                <div className={clsx(card, saas)}>
+                <div className={clsx(card, appsAndCloudServices)}>
                     <SaasIcon />
-                    <span>Saas</span>
+                    <span>Apps & Cloud Services</span>
                 </div>
                 <div className={clsx(card, analytics)}>
                     <AnalyticsIcon />
                     <span>Analytics</span>
                 </div>
-                <div className={clsx(card, ops)}>
+                <div className={clsx(card, operations)}>
                     <OpsIcon />
-                    <span>Ops</span>
+                    <span>Operations</span>
                 </div>
                 <div className={clsx(card, ai)}>
                     <AiIcon />

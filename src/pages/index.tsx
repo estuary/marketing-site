@@ -12,9 +12,8 @@ import WhatPeopleAreSaying from '../components/Homepage/WhatPeopleAreSaying';
 import DeploymentModes from '../components/Homepage/DeploymentModes';
 import SeeHowSection from '../components/SeeHowSection';
 import OutboundLinkFilled from '../components/LinksAndButtons/OutboundLinkFilled';
-import OutboundLinkOutlined from '../components/LinksAndButtons/OutboundLinkOutlined';
 import LinkOutlined from '../components/LinksAndButtons/LinkOutlined';
-import { dashboardRegisterUrl, webinarsUrl } from '../../shared';
+import { dashboardRegisterUrl } from '../../shared';
 
 const IndexPage = () => {
     return (
@@ -35,15 +34,8 @@ const IndexPage = () => {
                             href={dashboardRegisterUrl}
                             target="_blank"
                         >
-                            Try Now
+                            Try Now For Free
                         </OutboundLinkFilled>
-                        <OutboundLinkOutlined
-                            href={webinarsUrl}
-                            target="_blank"
-                            variant="secondary"
-                        >
-                            Watch Demo
-                        </OutboundLinkOutlined>
                         <LinkOutlined
                             href="/contact-us/"
                             variant="secondary"
