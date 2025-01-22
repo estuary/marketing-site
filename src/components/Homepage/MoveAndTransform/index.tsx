@@ -16,11 +16,11 @@ import {
     diagram,
     card,
     analytics,
-    ops,
+    operations,
     ai,
-    realTime,
-    batch,
-    saas,
+    realTimeStreams,
+    filesAndDatabases,
+    appsAndCloudServices,
     storeAndTransform,
     firstColumnHeading,
     secondColumnHeading,
@@ -43,15 +43,15 @@ const MoveAndTransform = () => {
                     Connect to Any Data Source
                 </h4>
                 <h4 className={secondColumnHeading}>Put Your Data to Work</h4>
-                <div className={clsx(card, realTime)}>
+                <div className={clsx(card, realTimeStreams)}>
                     <RealTimeIcon />
                     <span>Real-time Streams</span>
                 </div>
-                <div className={clsx(card, batch)}>
+                <div className={clsx(card, filesAndDatabases)}>
                     <BatchIcon />
                     <span>Files & Databases</span>
                 </div>
-                <div className={clsx(card, saas)}>
+                <div className={clsx(card, appsAndCloudServices)}>
                     <SaasIcon />
                     <span>Apps & Cloud Services</span>
                 </div>
@@ -59,7 +59,7 @@ const MoveAndTransform = () => {
                     <AnalyticsIcon />
                     <span>Analytics</span>
                 </div>
-                <div className={clsx(card, ops)}>
+                <div className={clsx(card, operations)}>
                     <OpsIcon />
                     <span>Operations</span>
                 </div>
