@@ -9,12 +9,12 @@ const BuildInMinutes = () => {
             <Container isVertical>
                 <div className={textWrapper}>
                     <h2>
-                        <span>Build </span>
+                        Deliver
+                        <span> Value </span>
                         in minutes
                     </h2>
                     <p>
-                        Use the UI to quickly build end-to-end pipelines using
-                        no-code connectors. Estuary Flow does the rest.
+                        Eliminate data silos, streamline workflows, and accelerate operations
                     </p>
                 </div>
                 <div>

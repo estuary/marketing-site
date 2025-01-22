@@ -26,35 +26,23 @@ const MoveAndTransform = () => {
                 </h2>
                 <p>
                     Integrate with millisecond latency for an exact view of your
-                    data to power analytics and operations.
+                    data to power analytics, operations and AI.
                 </p>
             </div>
-            <div className={steps}>
-                <div className={step}>
-                    <h3>Move</h3>
-                    <p>200+ no-code connectors. Real-time or batch.</p>
-                </div>
-                <div className={step}>
-                    <h3>Transform</h3>
-                    <p>Transform and store data in storage owned by you.</p>
-                </div>
-            </div>
             <div className={diagram}>
-                <h4>
-                    Connect to Any Data <br /> Source
-                </h4>
-                <h4>Activate Data</h4>
+                <h4>Connect to Any Data Source</h4>
+                <h4>Put Your Data to Work</h4>
                 <div className={card}>
                     <RealTimeIcon />
-                    <span>Real-time</span>
+                    <span>Real-time Streams</span>
                 </div>
                 <div className={card}>
                     <BatchIcon />
-                    <span>Batch</span>
+                    <span>Files & Databases</span>
                 </div>
                 <div className={card}>
                     <SaasIcon />
-                    <span>Saas</span>
+                    <span>Apps & Cloud Services</span>
                 </div>
                 <div className={card}>
                     <AnalyticsIcon />
@@ -62,7 +50,7 @@ const MoveAndTransform = () => {
                 </div>
                 <div className={card}>
                     <OpsIcon />
-                    <span>Ops</span>
+                    <span>Operations</span>
                 </div>
                 <div className={card}>
                     <AiIcon />
