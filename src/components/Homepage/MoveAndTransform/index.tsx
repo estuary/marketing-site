@@ -1,16 +1,20 @@
 import { StaticImage } from 'gatsby-plugin-image';
-import DiagramSourceConnectors from '../../DiagramConnectors/DiagramSourceConnectors';
-import DiagramDestinationConnectors from '../../DiagramConnectors/DiagramDestinationConnectors';
-import FlowCycle from '../../../svgs/flow-cycle.svg';
+import RealTimeIcon from '../../../svgs/homepage/real-time.svg';
+import BatchIcon from '../../../svgs/homepage/batch.svg';
+import SaasIcon from '../../../svgs/homepage/saas.svg';
+import AnalyticsIcon from '../../../svgs/homepage/analytics.svg';
+import OpsIcon from '../../../svgs/homepage/ops.svg';
+import AiIcon from '../../../svgs/homepage/ai.svg';
+import StoreIcon from '../../../svgs/homepage/store.svg';
+import TransformIcon from '../../../svgs/homepage/transform.svg';
 import {
     container,
-    desktopDiagramWrapper,
     header,
     step,
     steps,
     mobileImage,
-    connectorsGroups,
-    flowCycleMiddleImage,
+    diagram,
+    card,
 } from './styles.module.less';
 
 const MoveAndTransform = () => {
@@ -27,54 +31,57 @@ const MoveAndTransform = () => {
             </div>
             <div className={steps}>
                 <div className={step}>
-                    {/* <div className={StepIconWrapper}> */}
-                    {/* <CaptureIcon /> */}
-                    {/* </div> */}
-                    <div>
-                        <h3>
-                            <span>01</span>Ingest
-                        </h3>
-                        <p>200+ no-code connectors. Real-time or batch.</p>
-                    </div>
+                    <h3>Move</h3>
+                    <p>200+ no-code connectors. Real-time or batch.</p>
                 </div>
-
                 <div className={step}>
-                    {/* <div className={StepIconWrapper}>
-                        <StoreAndTransformIcon />
-                    </div> */}
-                    <div>
-                        <h3>
-                            <span>02</span>Transform
-                        </h3>
-                        <p>Transform and store data in storage owned by you.</p>
-                    </div>
-                </div>
-
-                <div className={step}>
-                    {/* <div className={StepIconWrapper}>
-                        <RealTimeDelivery />
-                    </div> */}
-                    <div>
-                        <h3>
-                            <span>03</span>Load
-                        </h3>
-                        <p>
-                            Materialize data to your destination at any cadence.
-                        </p>
-                    </div>
+                    <h3>Transform</h3>
+                    <p>Transform and store data in storage owned by you.</p>
                 </div>
             </div>
-            <div className={desktopDiagramWrapper}>
-                <DiagramSourceConnectors
-                    connectorsGroupsClassName={connectorsGroups}
-                />
-                <FlowCycle
-                    width="100%"
-                    height="100%"
-                    className={flowCycleMiddleImage}
-                />
-                <DiagramDestinationConnectors
-                    connectorsGroupsClassName={connectorsGroups}
+            <div className={diagram}>
+                <h4>
+                    Connect to Any Data <br /> Source
+                </h4>
+                <h4>Activate Data</h4>
+                <div className={card}>
+                    <RealTimeIcon />
+                    <span>Real-time</span>
+                </div>
+                <div className={card}>
+                    <BatchIcon />
+                    <span>Batch</span>
+                </div>
+                <div className={card}>
+                    <SaasIcon />
+                    <span>Saas</span>
+                </div>
+                <div className={card}>
+                    <AnalyticsIcon />
+                    <span>Analytics</span>
+                </div>
+                <div className={card}>
+                    <OpsIcon />
+                    <span>Ops</span>
+                </div>
+                <div className={card}>
+                    <AiIcon />
+                    <span>AI</span>
+                </div>
+                <div className={card}>
+                    <div>
+                        <StoreIcon />
+                        <TransformIcon />
+                    </div>
+                    <h4>
+                        Store and <br /> Transform
+                    </h4>
+                </div>
+                <StaticImage
+                    placeholder="blurred"
+                    alt=""
+                    src="../../../images/homepage/move-and-transform-data.png"
+                    quality={100}
                 />
             </div>
             <StaticImage
