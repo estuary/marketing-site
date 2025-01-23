@@ -2,17 +2,16 @@ import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import DeploymentOptions from '../../DeploymentOptions';
 
 const optionsDescription = {
-    public: "Estuary Flow's standard SaaS option, fully managed for quick, hassle-free setup.",
-    private:
-        'Offers enhanced security by hosting Estuary Flow within a private network, combining SaaS ease with more control.',
-    byoc: 'Deploy Estuary Flow on your cloud infrastructure for complete control.',
+    public: 'Our standard option, fully managed for quick, hassle-free setup',
+    private: 'Enhanced security by hosting Estuary within a private network',
+    byoc: 'Deploy Estuary on your cloud infrastructure for complete control',
 };
 
 const keyFeatures = {
     public: [
         'Managed by Estuary',
-        'Easy setup and minimal configuration',
-        'Multiple data processing regions',
+        'Easy setup and zero configuration',
+        'EU or US data processing regions',
     ],
     private: [
         'Private network data control',

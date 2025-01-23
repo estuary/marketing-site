@@ -6,8 +6,7 @@ const SeeHow = ({ buttons }) => {
         <section className={wrapper}>
             <Container isVertical>
                 <h2>
-                    <span>SEE HOW </span>
-                    <span>ESTUARY CAN WORK FOR YOU AND YOUR DATA</span>
+                    Unlock the <span>full potential</span> of your data
                 </h2>
                 <div className={buttonsWrapper}>{buttons}</div>
             </Container>

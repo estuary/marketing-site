@@ -25,7 +25,7 @@
 .container {
     .sectionTopBottomPadding;
 
-    padding-top: 100px;
+    padding-top: 60px;
     display: flex;
     flex-direction: column;
     background-color: var(--dark-blue);
@@ -90,11 +90,18 @@
 
     margin-top: 0;
     margin-bottom: 0;
+    padding-top: 60px;
+    padding-bottom: 60px;
     width: 100%;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 24px;
 
     @media (max-width: 1116px) {
-        flex-direction: column;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 600px) {
+        grid-template-columns: repeat(1, 1fr);
     }
 }

@@ -1,20 +1,29 @@
 import { StaticImage } from 'gatsby-plugin-image';
-import DiagramSourceConnectors from '../../DiagramConnectors/DiagramSourceConnectors';
-import DiagramDestinationConnectors from '../../DiagramConnectors/DiagramDestinationConnectors';
-import FlowCycle from '../../../svgs/flow-cycle.svg';
-import CaptureIcon from '../../../svgs/capture.svg';
-import RealTimeDelivery from '../../../svgs/real-time-delivery.svg';
-import StoreAndTransformIcon from '../../../svgs/store-and-transform.svg';
+import clsx from 'clsx';
+import RealTimeIcon from '../../../svgs/homepage/real-time.svg';
+import BatchIcon from '../../../svgs/homepage/batch.svg';
+import SaasIcon from '../../../svgs/homepage/saas.svg';
+import AnalyticsIcon from '../../../svgs/homepage/analytics.svg';
+import OpsIcon from '../../../svgs/homepage/ops.svg';
+import AiIcon from '../../../svgs/homepage/ai.svg';
+import StoreIcon from '../../../svgs/homepage/store.svg';
+import TransformIcon from '../../../svgs/homepage/transform.svg';
 import {
     container,
-    desktopDiagramWrapper,
     header,
-    step,
-    StepIconWrapper,
-    steps,
+    desktopImage,
     mobileImage,
-    connectorsGroups,
-    flowCycleMiddleImage,
+    diagram,
+    card,
+    analytics,
+    operations,
+    ai,
+    realTimeStreams,
+    filesAndDatabases,
+    appsAndCloudServices,
+    storeAndTransform,
+    firstColumnHeading,
+    secondColumnHeading,
 } from './styles.module.less';
 
 const MoveAndTransform = () => {
@@ -22,90 +31,67 @@ const MoveAndTransform = () => {
         <section className={container}>
             <div className={header}>
                 <h2>
-                    <span>Move </span>
-                    <span>and </span>
-                    <span>transform </span>
-                    <span>
-                        data in real-time with the only platform built for{' '}
-                    </span>
-                    <span>ops</span>
-                    <span>, </span>
-                    <span>analytics</span>
-                    <span>, and </span>
-                    <span>AI</span>
+                    <span>Move and transform data across 200+ systems</span>
                 </h2>
                 <p>
-                    Capture, transform, and materialize with millisecond latency
-                    using ETL and ELT data integration, for an exact view of
-                    your data that powers analytics and operations.
+                    Integrate with millisecond latency for an exact view of your
+                    data to power analytics, operations and AI.
                 </p>
             </div>
-            <div className={steps}>
-                <div className={step}>
-                    <div className={StepIconWrapper}>
-                        <CaptureIcon />
-                    </div>
-                    <div>
-                        <h3>
-                            <span>01</span>Capture
-                        </h3>
-                        <p>
-                            Use 100s of no-code connectors for streaming CDC,
-                            real-time, or batch.
-                        </p>
-                    </div>
+            <div className={diagram}>
+                <h4 className={firstColumnHeading}>
+                    Connect to Any Data Source
+                </h4>
+                <h4 className={secondColumnHeading}>Put Your Data to Work</h4>
+                <div className={clsx(card, realTimeStreams)}>
+                    <RealTimeIcon />
+                    <span>Real-time Streams</span>
                 </div>
-
-                <div className={step}>
-                    <div className={StepIconWrapper}>
-                        <StoreAndTransformIcon />
-                    </div>
-                    <div>
-                        <h3>
-                            <span>02</span>Stream-store-replay
-                        </h3>
-                        <p>
-                            Stream and store in your own storage, then replay
-                            any time.
-                        </p>
-                    </div>
+                <div className={clsx(card, filesAndDatabases)}>
+                    <BatchIcon />
+                    <span>Files & Databases</span>
                 </div>
-
-                <div className={step}>
-                    <div className={StepIconWrapper}>
-                        <RealTimeDelivery />
-                    </div>
-                    <div>
-                        <h3>
-                            <span>03</span>Materialize
-                        </h3>
-                        <p>
-                            Load data at different speeds into many destinations
-                            for analytics, ops, and AI.
-                        </p>
-                    </div>
+                <div className={clsx(card, appsAndCloudServices)}>
+                    <SaasIcon />
+                    <span>Apps & Cloud Services</span>
                 </div>
-            </div>
-            <div className={desktopDiagramWrapper}>
-                <DiagramSourceConnectors
-                    connectorsGroupsClassName={connectorsGroups}
+                <div className={clsx(card, analytics)}>
+                    <AnalyticsIcon />
+                    <span>Analytics</span>
+                </div>
+                <div className={clsx(card, operations)}>
+                    <OpsIcon />
+                    <span>Operations</span>
+                </div>
+                <div className={clsx(card, ai)}>
+                    <AiIcon />
+                    <span>AI</span>
+                </div>
+                <div className={clsx(card, storeAndTransform)}>
+                    <div>
+                        <StoreIcon />
+                        <TransformIcon />
+                    </div>
+                    <h4>
+                        Combine and <br /> Transform
+                    </h4>
+                </div>
+                <StaticImage
+                    placeholder="blurred"
+                    alt=""
+                    src="../../../images/homepage/move-and-transform-data.png"
+                    quality={100}
+                    className={desktopImage}
                 />
-                <FlowCycle
-                    width="100%"
-                    height="100%"
-                    className={flowCycleMiddleImage}
-                />
-                <DiagramDestinationConnectors
-                    connectorsGroupsClassName={connectorsGroups}
+                <StaticImage
+                    placeholder="blurred"
+                    alt=""
+                    src="../../../images/homepage/move-and-transform-data-mobile.png"
+                    quality={100}
+                    className={mobileImage}
+                    layout="fullWidth"
                 />
             </div>
-            <StaticImage
-                placeholder="none"
-                alt="Estuary Flow streamlines complex data workflows by integrating diverse data sources and destinations"
-                src="../../../images/flow-mobile.png"
-                quality={100}
-                className={mobileImage}
-            />
         </section>
     );
 };

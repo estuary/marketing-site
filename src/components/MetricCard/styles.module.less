@@ -10,14 +10,8 @@
   background-color: #0e2443;
   margin-bottom: 0;
 
-  @media (max-width: 1116px) {
-    flex-direction: row;
-    justify-content: left;
-  }
-
   @media (max-width: 345px) {
-    flex-direction: column;
-    justify-content: center;
+    padding: 12px;
   }
 }
 
@@ -37,15 +31,10 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
-  align-items: flex-start;
+}
 
-  @media (max-width: 1116px) {
-    align-items: flex-start;
-  }
-
-  @media (max-width: 345px) {
-    align-items: center;
-  }
+.centeredMetricsWrapper {
+  text-align: center;
 }
 
 .metricValue {
@@ -55,6 +44,7 @@
   line-height: 43.2px;
 
   @media (max-width: 345px) {
+    font-size: 1.5rem;
     text-align: center;
   }
 }
@@ -66,6 +56,7 @@
   line-height: 30px;
 
   @media (max-width: 345px) {
+    font-size: 1rem;
     text-align: center;
   }
 }

@@ -1,14 +1,16 @@
 import { ReactNode } from 'react';
+import clsx from 'clsx';
 import {
     container,
     metricIconWrapper,
     metricLabel,
     metricsWrapper,
+    centeredMetricsWrapper,
     metricValue,
 } from './styles.module.less';
 
 interface MetricCardProps {
-    icon: ReactNode;
+    icon?: ReactNode;
     value: string;
     label: string;
 }
@@ -16,8 +18,13 @@ interface MetricCardProps {
 const MetricCard = ({ icon, value, label }: MetricCardProps) => {
     return (
         <li key={label} className={container}>
-            <div className={metricIconWrapper}>{icon}</div>
-            <div className={metricsWrapper}>
+            {icon ? <div className={metricIconWrapper}>{icon}</div> : null}
+            <div
+                className={clsx(
+                    metricsWrapper,
+                    icon ? null : centeredMetricsWrapper
+                )}
+            >
                 <span className={metricValue}>{value}</span>
                 <span className={metricLabel}>{label}</span>
             </div>

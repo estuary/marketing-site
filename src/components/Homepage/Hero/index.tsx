@@ -1,7 +1,4 @@
 import { Suspense } from 'react';
-import ActiveUsersIcon from '../../../svgs/metric-active-users.svg';
-import LatencyIcon from '../../../svgs/metric-latency.svg';
-import SingleDataflowIcon from '../../../svgs/metric-single-dataflow.svg';
 import MetricCard from '../../MetricCard';
 import VanityLogosMarquee from '../../VanityLogosMarquee';
 import HeroSectionDetails from '../../HeroSectionDetails';
@@ -16,8 +13,6 @@ import {
     metricCardsList,
 } from './styles.module.less';
 
-const metricIconColor = 'var(--white)';
-
 const Hero = () => {
     return (
         <section className={container}>
@@ -25,16 +20,14 @@ const Hero = () => {
                 <HeroSectionDetails
                     title={
                         <>
-                            <span className="white-text">MEET</span>{' '}
-                            <span>THE FASTEST</span>
-                            <span>,</span> <span>MOST RELIABLE</span>{' '}
-                            <span className="white-text">ETL</span>
+                            <span>
+                                YOUR DATA. <br /> ANYTIME,
+                            </span>{' '}
+                            <span>ANYWHERE.</span>
                         </>
                     }
-                    description="Estuary is the only platform built from the ground up
-                        for truly real-time ETL and ELT data integration, set up
-                        in minutes."
-                    ctaButtons={<HeroSectionActions showDemoCta />}
+                    description="Secure data integration with Estuary Flow, the enterprise data movement platform for real-time streaming and batch processing."
+                    ctaButtons={<HeroSectionActions />}
                     hasSubscriptionBenefits
                 />
                 <div className={flowAnimationContainer}>
@@ -44,21 +37,10 @@ const Hero = () => {
                 </div>
             </div>
             <ul className={metricCardsList}>
-                <MetricCard
-                    icon={<ActiveUsersIcon color={metricIconColor} />}
-                    value={activeUsersAmount}
-                    label="Active users"
-                />
-                <MetricCard
-                    icon={<LatencyIcon color={metricIconColor} />}
-                    value="&#60;100ms"
-                    label="Latency"
-                />
-                <MetricCard
-                    icon={<SingleDataflowIcon color={metricIconColor} />}
-                    value="7+gb/sec"
-                    label="Single dataflow"
-                />
+                <MetricCard value={activeUsersAmount} label="Users" />
+                <MetricCard value="&#60;100 ms" label="Latency" />
+                <MetricCard value="7+ gb/s" label="Throughput" />
+                <MetricCard value="99.9%" label="Uptime" />
             </ul>
             <VanityLogosMarquee />
         </section>

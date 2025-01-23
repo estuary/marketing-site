@@ -68,9 +68,9 @@ export const listen = [
     },
 ];
 
-export const tours = [
+export const demo = [
     {
-        name: 'Product Tour [2 min]',
+        name: 'Watch Interactive Demo',
         to: '/demo/',
     },
     {

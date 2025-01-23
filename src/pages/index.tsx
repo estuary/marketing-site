@@ -5,31 +5,26 @@ import Hero from '../components/Homepage/Hero';
 import MoveAndTransform from '../components/Homepage/MoveAndTransform';
 import SuccessStories from '../components/Homepage/SuccessStories';
 import SecureYourData from '../components/Homepage/SecureYourData';
-import TheBestRealTimeCdc from '../components/Homepage/TheBestRealTimeCdc';
 import BuildInMinutes from '../components/Homepage/BuildInMinutes';
 import AutomateDataops from '../components/Homepage/AutomateDataops';
-import InnovateFaster from '../components/Homepage/InnovateFaster';
 import Do4xMoreWith25xLess from '../components/Homepage/Do4xMoreWith25xLess';
 import WhatPeopleAreSaying from '../components/Homepage/WhatPeopleAreSaying';
 import DeploymentModes from '../components/Homepage/DeploymentModes';
 import SeeHowSection from '../components/SeeHowSection';
 import OutboundLinkFilled from '../components/LinksAndButtons/OutboundLinkFilled';
-import OutboundLinkOutlined from '../components/LinksAndButtons/OutboundLinkOutlined';
 import LinkOutlined from '../components/LinksAndButtons/LinkOutlined';
-import { dashboardRegisterUrl, webinarsUrl } from '../../shared';
+import { dashboardRegisterUrl } from '../../shared';
 
 const IndexPage = () => {
     return (
-        <Layout showReleaseBanner>
+        <Layout>
             <Hero />
             <MoveAndTransform />
             <SuccessStories />
             <DeploymentModes />
-            <SecureYourData />
-            <TheBestRealTimeCdc />
             <BuildInMinutes />
             <AutomateDataops />
-            <InnovateFaster />
+            <SecureYourData />
             <Do4xMoreWith25xLess />
             <WhatPeopleAreSaying />
             <SeeHowSection
@@ -39,15 +34,8 @@ const IndexPage = () => {
                             href={dashboardRegisterUrl}
                             target="_blank"
                         >
-                            Try Now
+                            Try Now For Free
                         </OutboundLinkFilled>
-                        <OutboundLinkOutlined
-                            href={webinarsUrl}
-                            target="_blank"
-                            variant="secondary"
-                        >
-                            Watch Demo
-                        </OutboundLinkOutlined>
                         <LinkOutlined
                             href="/contact-us/"
                             variant="secondary"

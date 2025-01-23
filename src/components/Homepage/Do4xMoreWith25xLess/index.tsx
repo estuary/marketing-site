@@ -11,13 +11,10 @@ const Do4xMoreWith25xLess = () => {
                 icon={<DatabaseSavingWithLowPrice color="var(--blue)" />}
                 title={
                     <>
-                        DO <span>4X MORE </span> WITH 2-5X LESS
+                        DO <span>MORE </span> WITH <span>LESS</span>
                     </>
                 }
-                subtitle="Estuary customers aren't just benefitting from
-                        being more real-time. They are 4x more productive. They
-                        deliver new projects in days, not months. And they spend
-                        2-5x less on Estuary than on batch ELT."
+                subtitle="We combine agentless CDC, zero-code pipelines, and enterprise-grade governance to simplify data integration, and drive business agility at a fraction of the cost"
                 image={<PricingCalculator />}
                 ctaButtons={
                     <LinkFilled href="/pricing/">See Pricing</LinkFilled>

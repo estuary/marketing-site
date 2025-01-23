@@ -44,79 +44,12 @@
         font-weight: 400;
         line-height: 30px;
         text-align: center;
-        max-width: 75%;
         margin: 24px 0 0 0;
         color: var(--dark-blue);
 
         @media (max-width: 810px) {
             font-size: 1rem;
         }
-    }
-}
-
-.steps {
-    display: flex;
-    gap: 32px;
-
-    @media (max-width: 1115px) {
-        flex-direction: column;
-    }
-}
-
-.step {
-    display: flex;
-    gap: 16px;
-    width: 33%;
-    border: 4px dotted var(--border-color);
-    border-radius: 16px;
-    padding: 16px;
-    position: relative;
-
-    @media (max-width: 1115px) {
-        width: 100%;
-    }
-
-    h3 {
-        font-size: 1.25rem;
-        font-weight: 700;
-        line-height: 24px;
-        color: var(--grey);
-        text-transform: uppercase;
-        margin: 0;
-
-        span {
-            color: var(--violet);
-            margin-right: 16px;
-
-            @media (max-width: 810px) {
-                margin-right: 12px;
-            }
-        }
-
-        @media (max-width: 810px) {
-            font-size: 1rem;
-            line-height: 19.2px;
-        }
-    }
-
-    p {
-        font-size: 1rem;
-        font-weight: 400;
-        line-height: 30px;
-        color: var(--grey);
-        margin: 12px 0 0 0;
-    }
-}
-
-.StepIconWrapper {
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 12px;
-    height: fit-content;
-
-    svg {
-        display: block;
-        color: var(--grey);
     }
 }
 
@@ -149,5 +82,222 @@
 .mobileImage {
     @media (min-width: 769px) {
         display: none !important;
+    }
+}
+
+.desktopImage {
+    @media (max-width: 768px) {
+        display: none !important;
+    }
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5vw;
+    position: absolute;
+    z-index: 1;
+
+    @media (min-width: 1601px) {
+        gap: 12px;
+    }
+
+    span {
+        font-size: 1.125vw;
+        font-weight: 500;
+
+        @media (min-width: 1601px) {
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            font-size: 3.5vw;
+        }
+    }
+
+    svg {
+        width: 2vw;
+        height: 2vw;
+
+        @media (min-width: 1601px) {
+            width: 32px;
+            height: 32px;
+        }
+
+        @media (max-width: 768px) {
+            width: 6vw;
+            height: 6vw;
+        }
+    }
+}
+
+.diagram {
+    position: relative;
+
+    h4 {
+        font-weight: 800;
+        color: var(--grey);
+        position: absolute;
+        z-index: 1;
+        text-align: center;
+        top: 2.8vw;
+        font-size: 1.085vw;
+        line-height: 1.275vw;
+
+        @media (min-width: 1601px) {
+            font-size: 1rem;
+            line-height: 19.2px;
+            top: 36px;
+        }
+    }
+
+    .firstColumnHeading {
+        left: 1.8vw;
+    
+        @media (min-width: 1601px) {
+            top: 45px;
+            left: 38px;
+        }
+
+        @media (max-width: 768px) {
+            top: 2%;
+            left: 24%;
+            font-size: 3vw;
+            line-height: 3.5vw;
+        }
+    }
+
+    .secondColumnHeading {
+        top: 2vw;
+        right: 3.5vw;
+
+        @media (min-width: 1601px) {
+            top: 36px;
+            right: 64px;
+        }
+
+        @media (max-width: 768px) {
+            top: 75.3%;
+            left: 6%;
+            font-size: 3vw;
+            line-height: 3.5vw;
+        }
+    }
+}
+
+.realTimeStreams {
+    top: 8.5vw;
+    left: 4.2vw;
+
+    @media (min-width: 1601px) {
+        top: 130px;
+        left: 75px;
+    }
+
+    @media (max-width: 768px) {
+        top: 5.5%;
+        left: 30%;
+    }
+}
+
+.filesAndDatabases {
+    top: 20vw;
+    left: 4.2vw;
+
+    @media (min-width: 1601px) {
+        top: 320px;
+        left: 75px;
+    }
+
+    @media (max-width: 768px) {
+        top: 13%;
+        left: 30%;
+    }
+}
+
+.appsAndCloudServices {
+    top: 30.5vw;
+    left: 2.8vw;
+
+    @media (min-width: 1601px) {
+        top: 495px;
+        left: 56px;
+    }
+
+    @media (max-width: 768px) {
+        top: 19.8%;
+        left: 25%;
+    }
+}
+
+.analytics {
+    top: 7.5vw;
+    right: 6.5vw;
+
+    @media (min-width: 1601px) {
+        top: 122px;
+        right: 110px;
+    }
+
+    @media (max-width: 768px) {
+        top: 78.7%;
+        left: 10%;
+    }
+}
+
+.operations {
+    top: 19vw;
+    right: 6vw;
+
+    @media (min-width: 1601px) {
+        top: 310px;
+        right: 100px;
+    }
+
+    @media (max-width: 768px) {
+        top: 86%;
+        left: 10%;
+    }
+}
+
+.ai {
+    top: 31vw;
+    right: 8vw;
+
+    @media (min-width: 1601px) {
+        top: 500px;
+        right: 130px;
+    }
+
+    @media (max-width: 768px) {
+        top: 93.5%;
+        left: 10%;
+    }
+}
+
+.storeAndTransform {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    div {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    h4 {
+        position: static;
+
+        @media (max-width: 768px) {
+            font-size: 3vw;
+            line-height: 3.5vw;
+        }
+    }
+
+    @media (max-width: 768px) {
+        top: 50.5%;
+        gap: 8px;
     }
 }

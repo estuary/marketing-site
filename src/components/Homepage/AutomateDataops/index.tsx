@@ -1,5 +1,4 @@
 import { StaticImage } from 'gatsby-plugin-image';
-import SingleDataflowIcon from '../../../svgs/metric-single-dataflow.svg';
 import { docsPageUrl } from '../../../../shared';
 import Advantages from '../../Advantages';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
@@ -9,16 +8,7 @@ const AutomateDataops = () => {
     return (
         <section className={defaultWrapperGrey}>
             <Advantages
-                icon={<SingleDataflowIcon color="var(--blue)" />}
-                title={
-                    <>
-                        AUTOMATE <span>DATAOPS</span>
-                    </>
-                }
-                subtitle="Use schema inference, evolution, and automation along
-                        with a complete CLI and API to implement true agile
-                        DataOps that can handle constant change without breaking
-                        pipelines."
+                title={<>AUTOMATE DATAOPS</>}
                 image={
                     <StaticImage
                         quality={100}
@@ -29,9 +19,23 @@ const AutomateDataops = () => {
                 }
                 ctaButtons={
                     <OutboundLinkFilled href={docsPageUrl} target="_blank">
-                        See the Docs
+                        Register Now for Free
                     </OutboundLinkFilled>
                 }
+                advantages={[
+                    {
+                        title: 'Automated Schema Inference and Evolution',
+                    },
+                    {
+                        title: 'Fully-featured CLI',
+                    },
+                    {
+                        title: 'Declarative pipelines with YAML',
+                    },
+                    {
+                        title: 'Detailed logging and monitoring',
+                    },
+                ]}
                 isImageOnTheLeft
             />
         </section>
