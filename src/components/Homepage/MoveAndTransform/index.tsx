@@ -73,7 +73,7 @@ const MoveAndTransform = () => {
                         <TransformIcon />
                     </div>
                     <h4>
-                        Store and <br /> Transform
+                        Combine and <br /> Transform
                     </h4>
                 </div>
                 <StaticImage
