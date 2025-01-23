@@ -26,7 +26,7 @@ const Hero = () => {
                             <span>ANYWHERE.</span>
                         </>
                     }
-                    description="Secure data integration with Estuary Flow - the enterprise data movement platform for real-time streaming and batch processing."
+                    description="Secure data integration with Estuary Flow, the enterprise data movement platform for real-time streaming and batch processing."
                     ctaButtons={<HeroSectionActions />}
                     hasSubscriptionBenefits
                 />
