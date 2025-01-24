@@ -1,30 +1,5 @@
-import { StaticImage } from 'gatsby-plugin-image';
-import clsx from 'clsx';
-import RealTimeIcon from '../../../svgs/homepage/real-time.svg';
-import BatchIcon from '../../../svgs/homepage/batch.svg';
-import SaasIcon from '../../../svgs/homepage/saas.svg';
-import AnalyticsIcon from '../../../svgs/homepage/analytics.svg';
-import OpsIcon from '../../../svgs/homepage/ops.svg';
-import AiIcon from '../../../svgs/homepage/ai.svg';
-import StoreIcon from '../../../svgs/homepage/store.svg';
-import TransformIcon from '../../../svgs/homepage/transform.svg';
-import {
-    container,
-    header,
-    desktopImage,
-    mobileImage,
-    diagram,
-    card,
-    analytics,
-    operations,
-    ai,
-    realTimeStreams,
-    filesAndDatabases,
-    appsAndCloudServices,
-    storeAndTransform,
-    firstColumnHeading,
-    secondColumnHeading,
-} from './styles.module.less';
+import FlowDiagram from '../../FlowDiagram';
+import { container, header } from './styles.module.less';
 
 const MoveAndTransform = () => {
     return (
@@ -38,60 +13,7 @@ const MoveAndTransform = () => {
                     data to power analytics, operations and AI.
                 </p>
             </div>
-            <div className={diagram}>
-                <h4 className={firstColumnHeading}>
-                    Connect to Any Data Source
-                </h4>
-                <h4 className={secondColumnHeading}>Put Your Data to Work</h4>
-                <div className={clsx(card, realTimeStreams)}>
-                    <RealTimeIcon />
-                    <span>Real-time Streams</span>
-                </div>
-                <div className={clsx(card, filesAndDatabases)}>
-                    <BatchIcon />
-                    <span>Files & Databases</span>
-                </div>
-                <div className={clsx(card, appsAndCloudServices)}>
-                    <SaasIcon />
-                    <span>Apps & Cloud Services</span>
-                </div>
-                <div className={clsx(card, analytics)}>
-                    <AnalyticsIcon />
-                    <span>Analytics</span>
-                </div>
-                <div className={clsx(card, operations)}>
-                    <OpsIcon />
-                    <span>Operations</span>
-                </div>
-                <div className={clsx(card, ai)}>
-                    <AiIcon />
-                    <span>AI</span>
-                </div>
-                <div className={clsx(card, storeAndTransform)}>
-                    <div>
-                        <StoreIcon />
-                        <TransformIcon />
-                    </div>
-                    <h4>
-                        Combine and <br /> Transform
-                    </h4>
-                </div>
-                <StaticImage
-                    placeholder="blurred"
-                    alt=""
-                    src="../../../images/homepage/move-and-transform-data.png"
-                    quality={100}
-                    className={desktopImage}
-                />
-                <StaticImage
-                    placeholder="blurred"
-                    alt=""
-                    src="../../../images/homepage/move-and-transform-data-mobile.png"
-                    quality={100}
-                    className={mobileImage}
-                    layout="fullWidth"
-                />
-            </div>
+            <FlowDiagram />
         </section>
     );
 };
