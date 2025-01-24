@@ -1,97 +1,207 @@
-.baseImage {
-  position: relative;
-}
+.diagramCardPositions {
+  h4 {
+    top: 1.3vw;
+    font-size: 0.48vw;
+    line-height: 0.55vw;
 
-.container {
-  > :nth-child(2) {
-    flex: none;
-    max-width: 57%;
+    @media (min-width: 1601px) {
+      font-size: 0.5rem;
+      line-height: 10px;
+    }
   }
 
-  span {
-    position: absolute;
-    z-index: 1;
-    line-height: 100%;
-    color: var(--grey);
-    text-align: center;
-    font-size: 0.6rem;
+  h4:first-of-type {
+    left: 1vw;
 
-    @media (max-width: 1600px) {
-      font-size: 0.6vw;
+    @media (min-width: 1601px) {
+      top: 22px;
+      left: 15px;
     }
 
     @media (max-width: 1024px) {
-      font-size: 1.04vw;
+      top: 4%;
+      left: 2.8%;
+      font-size: 1vw;
+      line-height: 3.5vw;
+    }
+  }
+
+  h4:nth-of-type(2) {
+    top: 1vw;
+    right: 1.8vw;
+
+    @media (min-width: 1601px) {
+      top: 16px;
+      right: 30px;
     }
 
-    @media (max-width: 425px) {
-      font-size: 1.16vw;
+    @media (max-width: 1024px) {
+      top: 2.5%;
+      right: 4.8%;
+      font-size: 1vw;
+      line-height: 3.5vw;
+    }
+
+    @media (max-width: 768px) {
+      top: 3.6%;
+      left: 82.5%;
+      line-height: 1.25vw;
     }
   }
 
-  span:nth-child(1) {
-    top: 16%;
-    left: 2.8%;
-    font-weight: 600;
+  div {
+    gap: 0.2vw;
+
+    span {
+      font-size: 0.55vw;
+
+      @media (min-width: 1601px) {
+        font-size: 0.5rem;
+      }
+
+      @media (max-width: 1024px) {
+        font-size: 1vw;
+      }
+    }
+
+    svg {
+      width: 1.5vw;
+      height: 1.5vw;
+
+      @media (min-width: 1601px) {
+        width: 24px;
+        height: 24px;
+      }
+
+      @media (max-width: 1024px) {
+        width: 3vw;
+        height: 3vw;
+      }
+    }
   }
 
-  span:nth-child(2) {
-    top: 16%;
-    right: 7.75%;
-    font-weight: 600;
+  div:first-of-type {
+    top: 3.5vw;
+    left: 2.2vw;
+
+    @media (min-width: 1601px) {
+      top: 62px;
+      left: 35px;
+    }
+
+    @media (max-width: 1024px) {
+      top: 19%;
+      left: 5.8%;
+    }
   }
 
-  span:nth-child(3) {
-    top: 51.5%;
-    left: 44.5%;
-    font-weight: 600;
-    max-width: 11%;
+  div:nth-of-type(2) {
+    top: 9.1vw;
+    left: 2.2vw;
+
+    @media (min-width: 1601px) {
+      top: 148px;
+      left: 36px;
+    }
+
+    @media (max-width: 1024px) {
+      top: 48%;
+      left: 5.8%;
+    }
   }
 
-  span:nth-child(4) {
-    top: 31.5%;
-    left: 6.5%;
+  div:nth-of-type(3) {
+    top: 14.5vw;
+    left: 1.2vw;
+
+    @media (min-width: 1601px) {
+      top: 235px;
+      left: 24px;
+    }
+
+    @media (max-width: 1024px) {
+      top: 75%;
+      left: 4.4%;
+    }
   }
 
-  span:nth-child(5) {
+  div:nth-of-type(4) {
+    top: 3.4vw;
+    right: 3.2vw;
+
+    @media (min-width: 1601px) {
+      top: 55px;
+      right: 50px;
+    }
+
+    @media (max-width: 1024px) {
+      top: 18%;
+      right: 8.5%;
+    }
+
+    @media (max-width: 768px) {
+      left: 86%;
+    }
+  }
+
+  div:nth-of-type(5) {
+    top: 9vw;
+    right: 3vw;
+
+    @media (min-width: 1601px) {
+      top: 144px;
+      right: 48px;
+    }
+
+    @media (max-width: 1024px) {
+      top: 46%;
+      right: 8%;
+    }
+
+    @media (max-width: 768px) {
+      left: 86%;
+    }
+  }
+
+  div:nth-of-type(6) {
+    top: 14.5vw;
+    right: 3.6vw;
+
+    @media (min-width: 1601px) {
+      top: 236px;
+      right: 56px;
+    }
+
+    @media (max-width: 1024px) {
+      top: 76%;
+      right: 9.5%;
+    }
+
+    @media (max-width: 768px) {
+      left: 86%;
+    }
+  }
+
+  div:nth-of-type(7) {
     top: 50%;
-    left: 8%;
-  }
+    left: 50%;
+    transform: translate(-50%, -50%);
 
-  span:nth-child(6) {
-    top: 69%;
-    left: 9.8%;
-  }
-
-  span:nth-child(7) {
-    top: 89%;
-    left: 9.8%;
-  }
-
-  span:nth-child(8) {
-    top: 37%;
-    right: 8.5%;
-  }
-
-  span:nth-child(9) {
-    top: 62%;
-    right: 10%;
-  }
-
-  span:nth-child(10) {
-    top: 86%;
-    right: 10.7%;
-  }
-
-  @media (max-width: 1024px) {
-    > :nth-child(1) {
-      flex: none;
-      max-width: 100%;
+    div {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-direction: row;
+      position: static;
     }
 
-    > :nth-child(2) {
-      flex: none;
-      max-width: 100%;
+    h4 {
+      position: static;
+
+      @media (max-width: 1024px) {
+        font-size: 1vw;
+        line-height: 1.25vw;
+      }
     }
   }
 }
