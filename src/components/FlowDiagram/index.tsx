@@ -27,11 +27,18 @@ const FlowDiagram = ({
     return (
         <div className={diagram}>
             <div className={clsx(diagramCards, DiagramCardsClassName)}>
-                <h4>Connect to Any Data Source</h4>
-                <h4>Put Your Data to Work</h4>
+                <h4>
+                    Connect to Any Data {hasDesktopImageOnly ? <br /> : null}{' '}
+                    Source
+                </h4>
+                <h4>
+                    Put Your Data to {hasDesktopImageOnly ? <br /> : null} Work
+                </h4>
                 <div>
                     <RealTimeIcon />
-                    <span>Real-time Streams</span>
+                    <span>
+                        Real-time {hasDesktopImageOnly ? <br /> : null} Streams
+                    </span>
                 </div>
                 <div>
                     <BatchIcon />
@@ -39,7 +46,10 @@ const FlowDiagram = ({
                 </div>
                 <div>
                     <SaasIcon />
-                    <span>Apps & Cloud Services</span>
+                    <span>
+                        Apps & Cloud {hasDesktopImageOnly ? <br /> : null}{' '}
+                        Services
+                    </span>
                 </div>
                 <div>
                     <AnalyticsIcon />

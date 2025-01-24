@@ -1,12 +1,17 @@
 .diagramCardPositions {
   h4 {
-    top: 1.3vw;
-    font-size: 0.48vw;
-    line-height: 0.55vw;
+    top: 0.9vw;
+    font-size: 0.65vw;
+    line-height: 0.65vw;
 
     @media (min-width: 1601px) {
-      font-size: 0.5rem;
+      font-size: 0.65rem;
       line-height: 10px;
+    }
+
+    @media (max-width: 1024px) {
+      font-size: 1.3vw;
+      line-height: normal;
     }
   }
 
@@ -14,38 +19,41 @@
     left: 1vw;
 
     @media (min-width: 1601px) {
-      top: 22px;
+      top: 16px;
       left: 15px;
     }
 
     @media (max-width: 1024px) {
-      top: 4%;
-      left: 2.8%;
-      font-size: 1vw;
-      line-height: 3.5vw;
+      top: 5%;
+      left: 3.2%;
+    }
+
+    @media (max-width: 768px) {
+      top: 5%;
+      font-size: 1.25vw;
+      line-height: normal;
     }
   }
 
   h4:nth-of-type(2) {
-    top: 1vw;
-    right: 1.8vw;
+    top: 0.55vw;
+    right: 1.9vw;
 
     @media (min-width: 1601px) {
-      top: 16px;
+      top: 12px;
       right: 30px;
     }
 
     @media (max-width: 1024px) {
-      top: 2.5%;
-      right: 4.8%;
-      font-size: 1vw;
-      line-height: 3.5vw;
+      top: 3%;
+      right: 5%;
     }
 
     @media (max-width: 768px) {
-      top: 3.6%;
+      top: 2.8%;
       left: 82.5%;
-      line-height: 1.25vw;
+      font-size: 1.25vw;
+      line-height: normal;
     }
   }
 
@@ -53,14 +61,15 @@
     gap: 0.2vw;
 
     span {
-      font-size: 0.55vw;
+      font-size: 0.65vw;
+      line-height: normal;
 
       @media (min-width: 1601px) {
-        font-size: 0.5rem;
+        font-size: 0.65rem;
       }
 
       @media (max-width: 1024px) {
-        font-size: 1vw;
+        font-size: 1.3vw;
       }
     }
 
@@ -81,98 +90,103 @@
   }
 
   div:first-of-type {
-    top: 3.5vw;
-    left: 2.2vw;
+    top: 3.4vw;
+    left: 2.8vw;
 
     @media (min-width: 1601px) {
-      top: 62px;
-      left: 35px;
+      top: 56px;
+      left: 44px;
     }
 
     @media (max-width: 1024px) {
       top: 19%;
-      left: 5.8%;
+      left: 7.8%;
     }
   }
 
   div:nth-of-type(2) {
     top: 9.1vw;
-    left: 2.2vw;
+    left: 1.5vw;
 
     @media (min-width: 1601px) {
       top: 148px;
-      left: 36px;
+      left: 26px;
+    }
+
+    @media (max-width: 1280px) {
+      top: 48%;
+      left: 3.6%;
     }
 
     @media (max-width: 1024px) {
       top: 48%;
-      left: 5.8%;
+      left: 4.4%;
     }
   }
 
   div:nth-of-type(3) {
-    top: 14.5vw;
-    left: 1.2vw;
+    top: 14vw;
+    left: 2.2vw;
 
     @media (min-width: 1601px) {
-      top: 235px;
-      left: 24px;
+      top: 230px;
+      left: 36px;
     }
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1280px) {
       top: 75%;
-      left: 4.4%;
+      left: 6%;
     }
   }
 
   div:nth-of-type(4) {
     top: 3.4vw;
-    right: 3.2vw;
+    right: 2.8vw;
 
     @media (min-width: 1601px) {
       top: 55px;
-      right: 50px;
+      right: 46px;
     }
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1280px) {
       top: 18%;
-      right: 8.5%;
+      right: 7.5%;
     }
 
     @media (max-width: 768px) {
-      left: 86%;
+      left: 85%;
     }
   }
 
   div:nth-of-type(5) {
     top: 9vw;
-    right: 3vw;
+    right: 2.6vw;
 
     @media (min-width: 1601px) {
       top: 144px;
-      right: 48px;
+      right: 42px;
     }
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1280px) {
       top: 46%;
-      right: 8%;
+      right: 7%;
     }
 
     @media (max-width: 768px) {
-      left: 86%;
+      left: 84%;
     }
   }
 
   div:nth-of-type(6) {
     top: 14.5vw;
-    right: 3.6vw;
+    right: 3.5vw;
 
     @media (min-width: 1601px) {
       top: 236px;
-      right: 56px;
+      right: 58px;
     }
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1280px) {
       top: 76%;
       right: 9.5%;
     }
