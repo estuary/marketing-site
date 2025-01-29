@@ -30,9 +30,6 @@ const AutomateDataops = () => {
                         title: 'Fully-featured CLI',
                     },
                     {
-                        title: 'Declarative pipelines with YAML',
-                    },
-                    {
                         title: 'Detailed logging and monitoring',
                     },
                 ]}
