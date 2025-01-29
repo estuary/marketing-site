@@ -59,7 +59,7 @@ const DeploymentOptions = ({
                     />
                     <DeploymentTabPanel
                         value="byoc"
-                        title="BYOC (Bring Your Own Cloud)"
+                        title="Bring Your Own Cloud"
                         description={optionsDescription.byoc}
                         keyFeatures={keyFeatures?.byoc}
                     />
