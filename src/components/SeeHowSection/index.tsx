@@ -1,10 +1,10 @@
 import Container from '../Container';
-import { buttonsWrapper, wrapper } from './styles.module.less';
+import { container, buttonsWrapper } from './styles.module.less';
 
 const SeeHow = ({ buttons }) => {
     return (
-        <section className={wrapper}>
-            <Container isVertical>
+        <section>
+            <Container isVertical className={container}>
                 <h2>
                     Unlock the <span>full potential</span> of your data
                 </h2>
