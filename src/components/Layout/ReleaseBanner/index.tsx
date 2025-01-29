@@ -22,8 +22,8 @@ const ReleaseBanner = ({ theme = 'dark' }) => {
                 <a href="/deployment-options/" rel="noreferrer">
                     <span>A Step Ahead</span>
                     <p>
-                        Private deployments are now live! Explore how Estuary
-                        Flow can fit into your environment.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Curabitur non arcu ac purus.
                     </p>
                     <ArrowRight color="var(--white)" />
                 </a>

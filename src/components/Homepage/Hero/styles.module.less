@@ -16,8 +16,8 @@
 
   @media (min-width: 1025px) {
     & > :first-child {
-      width: 415px;
-      height: 381px;
+      width: 406.5px;
+      height: 365px;
     }
   }
 }
@@ -25,7 +25,7 @@
 .container {
     .sectionTopBottomPadding;
 
-    padding-top: 60px;
+    padding-top: 24px;
     display: flex;
     flex-direction: column;
     background-color: var(--dark-blue);
@@ -47,6 +47,7 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
+    align-items: center;
     gap: 40px;
 
     @media (max-width: 1536px) {
@@ -68,7 +69,9 @@
     display: flex;
     flex: 1 1 auto;
     justify-content: flex-end;
-    min-width: 26rem;
+    min-width: 24rem;
+    position: relative;
+    right: 20px;
 
     @media (max-width: 1024px) {
         min-width: 20rem;
@@ -90,8 +93,8 @@
 
     margin-top: 0;
     margin-bottom: 0;
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding-top: 0;
+    padding-bottom: 24px;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);

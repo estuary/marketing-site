@@ -17,7 +17,7 @@ import { dashboardRegisterUrl } from '../../shared';
 
 const IndexPage = () => {
     return (
-        <Layout>
+        <Layout showReleaseBanner>
             <Hero />
             <MoveAndTransform />
             <SuccessStories />
