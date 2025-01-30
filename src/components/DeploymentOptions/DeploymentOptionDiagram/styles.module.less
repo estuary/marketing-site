@@ -6,7 +6,9 @@
   justify-content: center;
   gap: 20px;
   position: relative;
-  max-width: 536px;
+  max-width: 20vw;
+  min-width: 20vw;
+  min-height: 510.5px;
   width: 100%;
   margin: auto;
 
@@ -19,6 +21,8 @@
   }
 
   @media (max-width: 600px) {
+    min-height: 400px;
+
     svg {
       max-width: 20px;
       max-height: 20px;
@@ -26,6 +30,7 @@
   }
 
   @media (max-width: 360px) {
+    min-height: 344px;
     gap: 10px;
   }
 }
@@ -52,6 +57,9 @@
 .secondLevelSolidBorderBox {
   border-radius: 8px;
   background-color: #FCFCFD;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   span {
     font-weight: 500;
@@ -80,10 +88,14 @@
   span {
     font-size: 0.75rem;
     font-weight: 600;
-    line-height: 14.4px;
+    line-height: normal;
+
+    @media (max-width: 1280px) and (min-width: 1025px) {
+      font-size: 0.9vw;
+    }
 
     @media (max-width: 600px) {
-      font-size: 0.6rem;
+      font-size: 2.25vw;
     }
   }
 }
@@ -91,7 +103,7 @@
 .middleTag {
   position: absolute;
   top: 46%;
-  left: -50%;
+  left: -52%;
   text-align: center;
   display: flex;
   align-items: center;
@@ -103,12 +115,20 @@
     font-weight: 700;
     padding: 4px 12px;
     white-space: nowrap;
-    min-width: 116px;
+    min-width: 120px;
+
+    @media (max-width: 1280px) {
+      font-size: 1.1vw;
+    }
+
+    @media (max-width: 1024px) {
+      font-size: 1.4vw;
+      min-width: 12vw;
+    }
 
     @media (max-width: 600px) {
-      min-width: 70px;
-      font-size: 0.6rem;
-      padding: 2px 0;
+      font-size: 2vw;
+      min-width: 18vw;
     }
   }
 }
@@ -119,9 +139,14 @@
   border-top: 14px solid transparent;
   border-bottom: 14px solid transparent;
 
+  @media (max-width: 1024px) {
+    border-top: 1.6vw solid transparent;
+    border-bottom: 1.6vw solid transparent;
+  }
+
   @media (max-width: 600px) {
-    border-top: 9px solid transparent;
-    border-bottom: 9px solid transparent;
+    border-top: 2.5vw solid transparent;
+    border-bottom: 2.5vw solid transparent;
   }
 }
 
@@ -151,6 +176,7 @@
   align-items: center;
   justify-content: center;
   gap: 16px;
+  height: 100%;
 
   @media (max-width: 600px) {
     gap: 6px;
@@ -166,17 +192,30 @@
 }
 
 .privateLinkTag {
-  top: 39%;
-  left: 6%;
+  top: 38%;
+  left: 5%;
 
-  @media (max-width: 600px) {
-    top: 42%;
-    left: 10%;
+  span {
+    min-width: 98px;
+  }
+
+  @media (max-width: 1280px) {
+    span {
+      min-width: 8vw;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    left: 1.5vw;
+
+    span {
+      min-width: 12vw;
+    }
   }
 }
 
 .vpcMarginBottom {
-  margin-bottom: 54px;
+  margin-bottom: 32px;
 
   @media (max-width: 600px) {
     margin-bottom: 40px;
@@ -185,6 +224,7 @@
 
 .metadataOnlyDarkerBlueTag {
   top: 70%;
+  left: -53%;
 
   span {
     background-color: @secondaryTagColor;
@@ -200,10 +240,10 @@
 
   @media (max-width: 600px) {
     left: -60%;
-    top: 89%;
+    top: 85%;
 
     span {
-      min-width: 80px;
+      min-width: 18vw;
     }
   }
 }
