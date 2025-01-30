@@ -1,15 +1,15 @@
 @import '../../globalStyles/sections.module.less';
 
-.wrapper {
+.container {
     .sectionTopBottomPadding;
+    
+    gap: 40px;
 
     h2 {
-        font-size: 4rem;
+        font-size: 2.5rem;
         font-weight: 600;
-        line-height: 89.6px;
-        margin: 0;
+        line-height: normal;
         text-transform: uppercase;
-        max-width: 1072px;
         text-align: center;
         color: var(--grey);
 
@@ -24,7 +24,7 @@
 
         @media (max-width: 425px) {
             font-size: 1.5rem;
-            line-height: 36px;
+            line-height: 32px;
         }
     }
 }
