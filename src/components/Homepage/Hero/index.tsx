@@ -20,10 +20,10 @@ const Hero = () => {
                 <HeroSectionDetails
                     title={
                         <>
-                            <span>
-                                YOUR DATA. <br /> ANYTIME,
-                            </span>{' '}
-                            <span>ANYWHERE.</span>
+                            <span className="white-text">MEET</span>{' '}
+                            <span>THE FASTEST</span>
+                            <span>,</span> <span>MOST RELIABLE</span>{' '}
+                            <span className="white-text">ETL</span>
                         </>
                     }
                     description="Secure data integration with Estuary Flow, the enterprise data movement platform for real-time streaming and batch processing."
