@@ -15,6 +15,7 @@ import SeeHowSection from '../components/SeeHowSection';
 import OutboundLinkFilled from '../components/LinksAndButtons/OutboundLinkFilled';
 import LinkOutlined from '../components/LinksAndButtons/LinkOutlined';
 import { dashboardRegisterUrl } from '../../shared';
+import InnovateFaster from '../components/Homepage/InnovateFaster';
 
 const IndexPage = () => {
     return (
@@ -23,10 +24,11 @@ const IndexPage = () => {
             <MoveAndTransform />
             <SuccessStories />
             <DeploymentModes />
-            <BuildInMinutes />
-            <AutomateDataops />
             <SecureYourData />
             <TheBestRealTimeCdc />
+            <BuildInMinutes />
+            <AutomateDataops />
+            <InnovateFaster />
             <Do4xMoreWith25xLess />
             <WhatPeopleAreSaying />
             <SeeHowSection
