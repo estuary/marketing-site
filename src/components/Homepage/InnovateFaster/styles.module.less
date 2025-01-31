@@ -1,0 +1,32 @@
+@import '../../../globalStyles/sections.module.less';
+
+.wrapper {
+    padding-right: 0;
+
+    h2 {
+        .globalMaxWidth;
+        padding-left: 0;
+    }
+
+    p {
+        .globalMaxWidth;
+
+        padding-left: 0;
+        width: 100%;
+        margin: 0;
+        text-align: center;
+    }
+
+    @media (max-width: 425px) {
+        h2 {
+            padding-left: 0;
+            padding-right: 20px;
+            font-size: 1.75rem;
+        }
+
+        p {
+            padding-left: 0;
+            padding-right: 20px;
+        }
+    }
+}

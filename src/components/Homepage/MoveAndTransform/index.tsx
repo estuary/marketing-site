@@ -6,11 +6,15 @@ const MoveAndTransform = () => {
         <section className={container}>
             <div className={header}>
                 <h2>
-                    <span>Move and transform data across 200+ systems</span>
+                    <span>
+                        Move and transform data across 200+ systems with Estuary
+                    </span>
                 </h2>
                 <p>
-                    Integrate with millisecond latency for an exact view of your
-                    data to power analytics, operations and AI.
+                    Build low-latency ETL and ELT pipelines using connectors for
+                    any database or data warehouse, leveraging Change Data
+                    Capture &#40;CDC&#41; to power your analytics, operations,
+                    and AI.
                 </p>
             </div>
             <FlowDiagram />
