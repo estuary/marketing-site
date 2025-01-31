@@ -10,10 +10,12 @@ import AutomateDataops from '../components/Homepage/AutomateDataops';
 import Do4xMoreWith25xLess from '../components/Homepage/Do4xMoreWith25xLess';
 import WhatPeopleAreSaying from '../components/Homepage/WhatPeopleAreSaying';
 import DeploymentModes from '../components/Homepage/DeploymentModes';
+import TheBestRealTimeCdc from '../components/Homepage/TheBestRealTimeCdc';
 import SeeHowSection from '../components/SeeHowSection';
 import OutboundLinkFilled from '../components/LinksAndButtons/OutboundLinkFilled';
 import LinkOutlined from '../components/LinksAndButtons/LinkOutlined';
 import { dashboardRegisterUrl } from '../../shared';
+import InnovateFaster from '../components/Homepage/InnovateFaster';
 
 const IndexPage = () => {
     return (
@@ -22,9 +24,11 @@ const IndexPage = () => {
             <MoveAndTransform />
             <SuccessStories />
             <DeploymentModes />
+            <SecureYourData />
+            <TheBestRealTimeCdc />
             <BuildInMinutes />
             <AutomateDataops />
-            <SecureYourData />
+            <InnovateFaster />
             <Do4xMoreWith25xLess />
             <WhatPeopleAreSaying />
             <SeeHowSection
