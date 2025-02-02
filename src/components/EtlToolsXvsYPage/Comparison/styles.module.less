@@ -1,6 +1,9 @@
 @import '../../../globalStyles/sections.module.less';
 @import '../../Table/styles.module.less';
 
+@twoVendorsWidth: 33.333%;
+@threeVendorsWidth: 25%;
+
 .container {
   .globalMaxWidth;
 
@@ -40,6 +43,11 @@
     .table;
 
     margin: 24px 0 48px 0;
+    border: none;
+
+    table {
+      margin: 0;
+    }
 
     thead th:not(:first-of-type) {
       position: sticky;
@@ -56,12 +64,20 @@
       }
     }
 
+    th {
+      padding: 0;
+    }
+
     td:first-of-type {
       padding: 12px 24px;
     }
 
     td:last-of-type {
       padding: 12px 24px;
+    }
+
+    td:not(first-of-type) {
+      font-weight: 400;
     }
 
     tr {
@@ -76,11 +92,45 @@
 
     tr:first-of-type {
       th:first-of-type {
-        padding-left: 24px;
+        padding-left: 0;
       }
 
       th:last-of-type {
         padding-right: 0;
+      }
+
+      button {
+        border-top-left-radius: 32px;
+        border-top-right-radius: 32px;
+      }
+    }
+
+    tr:last-of-type {
+      table {
+        border-bottom: 1px solid var(--violet200);
+
+        tr:last-of-type {
+          td:last-of-type {
+            border-bottom-right-radius: 32px;
+          }
+
+          td:first-of-type {
+            border-bottom-left-radius: 32px;
+          }
+        }
+      }
+
+      td:last-of-type {
+        border-bottom-right-radius: 0;
+      }
+
+      td:first-of-type {
+        border-bottom-left-radius: 0;
+      }
+
+      button {
+        border-bottom-left-radius: 32px;
+        border-bottom-right-radius: 32px;
       }
     }
 
@@ -106,4 +156,24 @@
 
 .bold {
   font-weight: 600;
+}
+
+.twoVendorsWidthSplit {
+  th {
+    width: @twoVendorsWidth;
+  }
+
+  td {
+    width: @twoVendorsWidth;
+  }
+}
+
+.threeVendorsWidthSplit {
+  th {
+    width: @threeVendorsWidth;
+  }
+
+  td {
+    width: @threeVendorsWidth;
+  }
 }
