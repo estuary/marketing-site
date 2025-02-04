@@ -17,10 +17,8 @@ import {
 import UseCases from './UseCases';
 import Connectors from './Connectors';
 import CoreFeatures from './CoreFeatures';
-import DeploymentOptions from './DeploymentOptions';
 import TheAbilities from './TheAbilities';
 import Security from './Security';
-import Support from './Support';
 import Cost from './Cost';
 import VendorAvatar from './VendorAvatar';
 import IntroductoryDetails from './IntroductoryDetails';
@@ -72,10 +70,8 @@ const tableBodyComponents = [
     UseCases,
     Connectors,
     CoreFeatures,
-    DeploymentOptions,
     TheAbilities,
     Security,
-    Support,
     Cost,
 ];
 

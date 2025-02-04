@@ -133,6 +133,14 @@ export const pageQuery = graphql`
                         }
                     }
                 }
+                requestAConnector: Request_a_Connector {
+                    icon: Icon
+                    subText: Sub_Text {
+                        data {
+                            subText: Sub_Text
+                        }
+                    }
+                }
             }
             features: Features {
                 batchingStreaming: Batching_Streaming
@@ -202,25 +210,39 @@ export const pageQuery = graphql`
                         }
                     }
                 }
+                deploymentOptions
+                support {
+                    cellTitle
+                    subText {
+                        data {
+                            subText
+                        }
+                    }
+                }
             }
             deployment: Deployment {
-                options: Options
                 abilities: Abilities {
                     perfMinLatency: Perf_Min_Latency
                     reliability: Reliability
                     scalability: Scalability
                 }
                 security: Security {
+                    socTwo {
+                        icon: Icon
+                        subText: Sub_Text {
+                            data {
+                                subText: Sub_Text
+                            }
+                        }
+                    }
                     dataSourceAuth: Data_Source_Auth
                     encryption: Encryption
-                }
-            }
-            support: Support {
-                support: Support {
-                    cellTitle
-                    subText {
-                        data {
-                            subText
+                    hipaaCompliance {
+                        icon: Icon
+                        subText: Sub_Text {
+                            data {
+                                subText: Sub_Text
+                            }
                         }
                     }
                 }
@@ -353,6 +375,14 @@ export const pageQuery = graphql`
                         }
                     }
                 }
+                requestAConnector: Request_a_Connector {
+                    icon: Icon
+                    subText: Sub_Text {
+                        data {
+                            subText: Sub_Text
+                        }
+                    }
+                }
             }
             features: Features {
                 batchingStreaming: Batching_Streaming
@@ -422,25 +452,39 @@ export const pageQuery = graphql`
                         }
                     }
                 }
+                deploymentOptions
+                support {
+                    cellTitle
+                    subText {
+                        data {
+                            subText
+                        }
+                    }
+                }
             }
             deployment: Deployment {
-                options: Options
                 abilities: Abilities {
                     perfMinLatency: Perf_Min_Latency
                     reliability: Reliability
                     scalability: Scalability
                 }
                 security: Security {
+                    socTwo {
+                        icon: Icon
+                        subText: Sub_Text {
+                            data {
+                                subText: Sub_Text
+                            }
+                        }
+                    }
                     dataSourceAuth: Data_Source_Auth
                     encryption: Encryption
-                }
-            }
-            support: Support {
-                support: Support {
-                    cellTitle
-                    subText {
-                        data {
-                            subText
+                    hipaaCompliance {
+                        icon: Icon
+                        subText: Sub_Text {
+                            data {
+                                subText: Sub_Text
+                            }
                         }
                     }
                 }
@@ -573,6 +617,14 @@ export const pageQuery = graphql`
                         }
                     }
                 }
+                requestAConnector: Request_a_Connector {
+                    icon: Icon
+                    subText: Sub_Text {
+                        data {
+                            subText: Sub_Text
+                        }
+                    }
+                }
             }
             features: Features {
                 batchingStreaming: Batching_Streaming
@@ -642,25 +694,39 @@ export const pageQuery = graphql`
                         }
                     }
                 }
+                deploymentOptions
+                support {
+                    cellTitle
+                    subText {
+                        data {
+                            subText
+                        }
+                    }
+                }
             }
             deployment: Deployment {
-                options: Options
                 abilities: Abilities {
                     perfMinLatency: Perf_Min_Latency
                     reliability: Reliability
                     scalability: Scalability
                 }
                 security: Security {
+                    socTwo {
+                        icon: Icon
+                        subText: Sub_Text {
+                            data {
+                                subText: Sub_Text
+                            }
+                        }
+                    }
                     dataSourceAuth: Data_Source_Auth
                     encryption: Encryption
-                }
-            }
-            support: Support {
-                support: Support {
-                    cellTitle
-                    subText {
-                        data {
-                            subText
+                    hipaaCompliance {
+                        icon: Icon
+                        subText: Sub_Text {
+                            data {
+                                subText: Sub_Text
+                            }
                         }
                     }
                 }

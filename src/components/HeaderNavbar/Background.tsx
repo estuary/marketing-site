@@ -1,6 +1,10 @@
 import { menuBackground } from './styles.module.less';
 
-const HeaderNavBarBackground = ({ menuOpen }) => {
+interface HeaderNavBarBackgroundProps {
+    menuOpen: boolean;
+}
+
+const HeaderNavBarBackground = ({ menuOpen }: HeaderNavBarBackgroundProps) => {
     if (menuOpen) {
         return <div className={menuBackground} />;
     }

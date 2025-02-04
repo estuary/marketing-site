@@ -116,9 +116,11 @@ const TableRows = memo(
                                                                     : undefined
                                                             }
                                                         />
-                                                    ) : (
-                                                        xVendorData
-                                                    )}
+                                                    ) : null}
+                                                    {typeof xVendorData ===
+                                                    'string'
+                                                        ? xVendorData
+                                                        : null}
                                                 </TitledTableCell>
                                                 <TitledTableCell
                                                     title={yVendor.name}
@@ -140,9 +142,11 @@ const TableRows = memo(
                                                                     : undefined
                                                             }
                                                         />
-                                                    ) : (
-                                                        yVendorData
-                                                    )}
+                                                    ) : null}
+                                                    {typeof yVendorData ===
+                                                    'string'
+                                                        ? yVendorData
+                                                        : null}
                                                 </TitledTableCell>
                                                 {estuaryVendor ? (
                                                     <TitledTableCell
@@ -167,9 +171,11 @@ const TableRows = memo(
                                                                         : undefined
                                                                 }
                                                             />
-                                                        ) : (
-                                                            estuaryVendorData
-                                                        )}
+                                                        ) : null}
+                                                        {typeof estuaryVendorData ===
+                                                        'string'
+                                                            ? estuaryVendorData
+                                                            : null}
                                                     </TitledTableCell>
                                                 ) : null}
                                             </tr>
