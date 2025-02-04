@@ -18,13 +18,11 @@ const FeatureData = ({
 }: FeatureDataProps) => {
     return (
         <>
-            {icon ? <CheckOrCrossIcon icon={icon} /> : null}
+            <CheckOrCrossIcon icon={icon} />
             {cellTitle ? (
                 <span className={cellTitleStyling}>{cellTitle}</span>
             ) : null}
-            {numberOfDollarSigns ? (
-                <DollarSigns numberOfDollarSigns={numberOfDollarSigns} />
-            ) : null}
+            <DollarSigns numberOfDollarSigns={numberOfDollarSigns} />
             <div
                 dangerouslySetInnerHTML={{
                     __html: subText.data.subText,
