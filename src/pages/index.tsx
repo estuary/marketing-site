@@ -19,7 +19,7 @@ import InnovateFaster from '../components/Homepage/InnovateFaster';
 
 const IndexPage = () => {
     return (
-        <Layout>
+        <Layout showReleaseBanner>
             <Hero />
             <MoveAndTransform />
             <SuccessStories />
