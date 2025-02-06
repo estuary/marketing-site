@@ -1,5 +1,4 @@
 import { StaticImage } from 'gatsby-plugin-image';
-import RealTimeCdc from '../../../svgs/real-time-cdc.svg';
 import Advantages from '../../Advantages';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import LinkFilled from '../../LinksAndButtons/LinkFilled';
@@ -8,7 +7,6 @@ const TheBestRealTimeCdc = () => {
     return (
         <section className={defaultWrapperGrey}>
             <Advantages
-                icon={<RealTimeCdc />}
                 title={
                     <>
                         USE THE BEST <span>REAL-TIME CDC</span>
@@ -16,7 +14,7 @@ const TheBestRealTimeCdc = () => {
                 }
                 subtitle="Estuary Flow is the most real-time, most reliable change
                             data capture (CDC) available today. It is the only CDC
-                            with the:"
+                            with:"
                 image={
                     <StaticImage
                         src="../../../images/real-time-graphic.png"
@@ -28,27 +26,27 @@ const TheBestRealTimeCdc = () => {
                 advantages={[
                     {
                         id: 18,
-                        title: 'Fastest captures, with sub-100ms end-to-end latency',
+                        title: 'Sub-100ms end-to-end latency',
                     },
                     {
                         id: 19,
-                        title: 'Most reliable delivery via stream-store-replay',
+                        title: 'Reliable delivery via exactly-once guarantees',
                     },
                     {
                         id: 20,
-                        title: 'Most flexible materializations that run at your speed of choice',
+                        title: 'Flexible pipelines that run at your speed of choice',
                     },
                     {
                         id: 21,
-                        title: 'Most automated pipelines with schema evolution',
+                        title: 'Fully automated schema evolution',
                     },
                     {
                         id: 22,
-                        title: 'Most versatile writes that maintain a current view or all change history',
+                        title: 'Ability to maintain a current view or all change history in the destination',
                     },
                     {
                         id: 23,
-                        title: 'Most scalable pipelines, with true elastic scaling',
+                        title: 'Truly elastic scaling pipelines for maximum throughput',
                     },
                 ]}
                 ctaButtons={

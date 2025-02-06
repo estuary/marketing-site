@@ -4,7 +4,7 @@ import OutboundLinkFilled from '../LinksAndButtons/OutboundLinkFilled';
 function RegisterCta() {
     return (
         <OutboundLinkFilled href={dashboardRegisterUrl} target="_blank">
-            Build a Pipeline
+            Start Building For Free
         </OutboundLinkFilled>
     );
 }

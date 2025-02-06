@@ -33,7 +33,7 @@ const Tabs = ({ handleTabChange }) => (
             disableRipple
         />
         <Tab
-            label="BYOC (Bring Your Own Cloud)"
+            label="Bring Your Own Cloud"
             value="byoc"
             sx={tabStyling}
             disableRipple

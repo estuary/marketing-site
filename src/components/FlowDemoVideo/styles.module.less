@@ -11,6 +11,10 @@
         width: fit-content;
         height: auto;
     }
+
+    @media (max-width: 425px) {
+        padding: 4vw;
+    }
 }
 
 .videoTextAndButtonsWrapper {
@@ -26,10 +30,14 @@
     padding: 0 60px;
     text-align: center;
 
+    @media (max-width: 768px) {
+        font-size: 1.25rem;
+        line-height: normal;
+    }
+
     @media (max-width: 425px) {
-        font-size: 0.875rem;
-        gap: 16px;
-        line-height: 18px;
+        font-size: 3.5vw;
+        gap: 4vw;
     }
 
     button {
@@ -37,12 +45,14 @@
         gap: 16px;
 
         @media (max-width: 425px) {
-            font-size: 3vw;
-            padding: 4px 8px;
+            font-size: 2.5vw;
+            padding: 1vw 2vw;
+            gap: 4vw;
             white-space: nowrap;
+            max-height: 8vw;
 
             svg {
-                width: 4vw;
+                width: 3vw;
             }
         }
     }

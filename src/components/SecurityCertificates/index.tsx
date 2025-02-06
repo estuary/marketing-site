@@ -29,7 +29,7 @@ const SecurityCertificates = ({
             }
             subtitle={
                 subtitle ??
-                'Estuary Flow is designed and tested to make sure your data and your systems stay secure.'
+                'We’ve designed Estuary with air-tight compliance standards to make sure your data and systems are secure - no matter what'
             }
             image={
                 <OutboundLink
@@ -48,25 +48,21 @@ const SecurityCertificates = ({
             advantages={[
                 {
                     id: 14,
-                    title: 'Estuary never stores your data',
+                    title: 'We never store your data - we just help move it',
                 },
                 {
                     id: 15,
-                    title: 'GDPR, CCPA and CPRA compliant',
+                    title: 'HIPAA, GDPR, CCPA and CPRA compliant',
                 },
                 {
                     id: 16,
                     title: 'SOC 2 Type II certified',
                 },
-                {
-                    id: 17,
-                    title: 'HIPAA',
-                },
             ]}
             isDarkTheme={isDarkTheme}
             ctaButtons={
                 <OpenHubspotModal
-                    buttonLabel="Download the security whitepaper"
+                    buttonLabel="Download Security Whitepaper"
                     buttonId="security-certificates-section-hubspot"
                     formId="657d4cf2-b1e1-410d-a0ea-b61ff24a5c7e"
                     theme={isDarkTheme ? 'dark' : 'light'}

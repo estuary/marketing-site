@@ -16,3 +16,21 @@
     }
   }
 }
+
+.adaptedContainer {
+  @media (max-width: 1280px) and (min-width: 1025px) {
+    > :nth-child(1) {
+      flex: none;
+      max-width: 60%;
+    }
+  }
+}
+
+.reverseAdaptedContainer {
+  @media (max-width: 1280px) and (min-width: 1025px) {
+    > :nth-child(2) {
+      flex: none;
+      max-width: 60%;
+    }
+  }
+}

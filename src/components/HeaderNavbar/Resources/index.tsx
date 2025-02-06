@@ -113,17 +113,13 @@ const HeaderNavbarResources = ({ active, setActive }) => {
                         />
                         <CardItem title="LISTEN" items={listen} onlyContent />
                     </div>
-                    <CardItem
-                        className={hideOnMobile}
-                        title="TOURS"
-                        onlyContent
-                    >
-                        <Carousel aria-label="Tours carousel" hasFullWidthSlide>
-                            <div key="header-carousel-tour-1" className={slide}>
+                    <CardItem className={hideOnMobile} title="DEMO" onlyContent>
+                        <Carousel aria-label="Demos carousel" hasFullWidthSlide>
+                            <div key="header-carousel-demo-1" className={slide}>
                                 <div className={imageWrapper}>
                                     <StaticImage
                                         src="../../../images/product-tour-2min.png"
-                                        alt="Estuary Flow Product tour - 2 minutes"
+                                        alt="Estuary Flow Product demo"
                                     />
                                 </div>
                                 <LinkOutlined
@@ -131,10 +127,10 @@ const HeaderNavbarResources = ({ active, setActive }) => {
                                     href="/demo/"
                                     fullWidth
                                 >
-                                    Watch Product Tour (2 min)
+                                    Watch Interactive Demo
                                 </LinkOutlined>
                             </div>
-                            <div key="header-carousel-tour-2" className={slide}>
+                            <div key="header-carousel-demo-2" className={slide}>
                                 <div className={imageWrapper}>
                                     <StaticImage
                                         src="../../../images/real-time-101-30min.png"

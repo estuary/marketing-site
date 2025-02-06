@@ -1,14 +1,15 @@
+import clsx from 'clsx';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import DeploymentOptionDetails from '../../DeploymentOptions/DeploymentOptionDetails';
 import { features } from '../shared';
-import { container } from '../styles.module.less';
+import { container, adaptedContainer } from '../styles.module.less';
 import DeploymentOptionDiagram from '../../DeploymentOptions/DeploymentOptionDiagram';
 import Container from '../../Container';
 
 const PublicDeployment = () => {
     return (
         <section className={defaultWrapperGrey}>
-            <Container className={container}>
+            <Container className={clsx(container, adaptedContainer)}>
                 <DeploymentOptionDiagram deploymentOption="public" />
                 <DeploymentOptionDetails
                     title="PUBLIC DEPLOYMENT"

@@ -31,7 +31,9 @@ const FlowDemoVideo = () => {
                 height="100%"
                 playIcon={
                     <div className={videoTextAndButtonsWrapper}>
-                        <span>Watch our 80 second end-to-end demo!</span>
+                        <span>
+                            See Estuary in action — watch our 80-second demo!
+                        </span>
                         <ButtonFilled>
                             <PlayIcon />
                             <span>Play Video</span>

@@ -17,7 +17,7 @@ const PrivacyPolicy = () => {
         <Layout>
             <div className={clsx(legalWrapper, privacyRoot)}>
                 <h2>Privacy Policy</h2>
-                <p className={lastUpdatedStyle}>Revised as of [May 28, 2024]</p>
+                <p className={lastUpdatedStyle}>Revised as of [Jan 23, 2025]</p>
                 <h5>We respect your privacy.</h5>
                 <p>
                     Estuary Technologies, Inc. (&quot;
@@ -260,18 +260,6 @@ const PrivacyPolicy = () => {
                     For Google Analytics, please visit:{' '}
                     <OutboundLink href="https://www.google.com/analytics">
                         https://www.google.com/analytics
-                    </OutboundLink>
-                </p>
-                <p>
-                    For Hotjar, please visit:{' '}
-                    <OutboundLink href="https://www.hotjar.com/legal/policies/privacy/">
-                        https://www.hotjar.com/legal/policies/privacy/
-                    </OutboundLink>
-                </p>
-                <p>
-                    For Mailchimp please visit:{' '}
-                    <OutboundLink href="https://mailchimp.com/legal/privacy/">
-                        https://mailchimp.com/legal/privacy/
                     </OutboundLink>
                 </p>
                 <p>
