@@ -7,14 +7,18 @@ import {
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import BlogBanner from '../../BlogBanner';
 import ArticleSidebar from '../../ArticleSidebar';
-import { container, rightColumn, bold } from './styles.module.less';
+import {
+    container,
+    rightColumn,
+    bold,
+    twoVendorsWidthSplit,
+    threeVendorsWidthSplit,
+} from './styles.module.less';
 import UseCases from './UseCases';
 import Connectors from './Connectors';
 import CoreFeatures from './CoreFeatures';
-import DeploymentOptions from './DeploymentOptions';
 import TheAbilities from './TheAbilities';
 import Security from './Security';
-import Support from './Support';
 import Cost from './Cost';
 import VendorAvatar from './VendorAvatar';
 import IntroductoryDetails from './IntroductoryDetails';
@@ -66,10 +70,8 @@ const tableBodyComponents = [
     UseCases,
     Connectors,
     CoreFeatures,
-    DeploymentOptions,
     TheAbilities,
     Security,
-    Support,
     Cost,
 ];
 
@@ -173,11 +175,9 @@ const Comparison = ({
                         if (firstDiv) {
                             firstDiv.style.backgroundColor =
                                 'var(--light-grey)';
-                            firstDiv.style.padding = '8px 24px 8px 24px';
                         }
                     } else if (firstDiv) {
                         firstDiv.style.backgroundColor = '';
-                        firstDiv.style.padding = '24px';
                     }
                 }
             });
@@ -218,7 +218,13 @@ const Comparison = ({
                         needs.
                     </p>
                     <h2 id={comparisonMatrix.id}>{comparisonMatrix.heading}</h2>
-                    <table>
+                    <table
+                        className={
+                            isThreeVendorComparison
+                                ? threeVendorsWidthSplit
+                                : twoVendorsWidthSplit
+                        }
+                    >
                         <thead>
                             <tr>
                                 <th />

@@ -22,6 +22,7 @@ const UseCases = ({ xVendor, yVendor, estuaryVendor }: ComparisonVendors) => {
             yVendor={yVendor}
             estuaryVendor={estuaryVendor}
             dataType="useCases"
+            expandedByDefault
         />
     );
 };

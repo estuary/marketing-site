@@ -50,11 +50,11 @@ const IntroductoryDetails = ({
 }: IntroductoryDetailsProps) => {
     return (
         <div className={container}>
+            <VendorDetails vendor={xVendor} />
+            <VendorDetails vendor={yVendor} />
             {isThreeVendorComparison ? (
                 <VendorDetails vendor={estuaryVendor} />
             ) : null}
-            <VendorDetails vendor={xVendor} />
-            <VendorDetails vendor={yVendor} />
         </div>
     );
 };
