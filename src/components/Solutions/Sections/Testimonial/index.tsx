@@ -8,7 +8,7 @@ import {
     quoteBox,
     quoteTextMargin,
     additionalQuoteTextMargin,
-    companyLogo,
+    quoteContentWrapper,
 } from './styles.module.less';
 
 interface TestimonialProps {
@@ -20,14 +20,13 @@ const Testimonial = ({ data }: TestimonialProps) => {
         <section className={defaultWrapperGrey}>
             <Container className={sectionText}>
                 <div className={quoteBox}>
-                    <div>
+                    <div className={quoteContentWrapper}>
                         <GatsbyImage
                             image={
                                 data.quote.companyLogo?.localFile
                                     ?.childImageSharp?.gatsbyImageData
                             }
                             alt={data.quote.companyLogo.alternativeText}
-                            className={companyLogo}
                         />
                         <h3>{data.quote.companyName}</h3>
                         <p

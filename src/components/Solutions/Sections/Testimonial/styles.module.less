@@ -3,43 +3,49 @@
   border-radius: 32px;
   padding: 60px;
 
-  div {
-    background-color: var(--white);
-    border-radius: 20px;
-    padding: 40px;
-    text-align: center;
+  @media (max-width: 768px) {
+    padding: 32px;
+  }
+}
 
-    h3 {
-      color: var(--blue);
-      font-size: 1.25rem;
-      font-weight: 700;
-      line-height: 28px;
-      text-transform: uppercase;
-      margin-bottom: 6px;
-    }
+.quoteContentWrapper {
+  background-color: var(--white);
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
 
-    span {
-      color: var(--grey);
-      font-size: 1.125rem;
-      line-height: 32.4px;
-      font-weight: 700;
-    }
+  h3 {
+    color: var(--blue);
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 28px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
 
-    p {
-      font-size: 1rem;
-      line-height: 30px;
-    }
+  span {
+    color: var(--grey);
+    font-size: 1.125rem;
+    line-height: 32.4px;
+    font-weight: 700;
+  }
 
-    a {
-      margin: auto;
-    }
+  p {
+    font-size: 1rem;
+    line-height: 30px;
+  }
+
+  a {
+    margin: auto;
+  }
+
+  img {
+    padding: 32px 0 56px 0;
   }
 
   @media (max-width: 768px) {
-    padding: 24px;
-
-    div {
-      padding: 16px;
+    img {
+      padding: 12px 0 32px 0;
     }
   }
 }
@@ -50,11 +56,4 @@
 
 .additionalQuoteTextMargin {
   margin: 16px 0 24px 0;
-}
-
-.companyLogo {
-  img {
-    height: auto !important;
-    margin: auto !important;
-  }
 }
