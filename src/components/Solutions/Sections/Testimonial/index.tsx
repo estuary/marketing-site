@@ -21,14 +21,18 @@ const Testimonial = ({ data }: TestimonialProps) => {
             <Container className={sectionText}>
                 <div className={quoteBox}>
                     <div className={quoteContentWrapper}>
-                        <GatsbyImage
-                            image={
-                                data.quote.companyLogo?.localFile
-                                    ?.childImageSharp?.gatsbyImageData
-                            }
-                            alt={data.quote.companyLogo.alternativeText}
-                        />
-                        <h3>{data.quote.companyName}</h3>
+                        {data.quote.companyLogo ? (
+                            <GatsbyImage
+                                image={
+                                    data.quote.companyLogo?.localFile
+                                        ?.childImageSharp?.gatsbyImageData
+                                }
+                                alt={data.quote.companyLogo.alternativeText}
+                            />
+                        ) : null}
+                        {data.quote.companyName ? (
+                            <h3>{data.quote.companyName}</h3>
+                        ) : null}
                         <p
                             className={
                                 !!data.quote.companyName
