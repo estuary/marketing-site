@@ -22,15 +22,7 @@ const Solutions = ({ data: { solution } }: SolutionProps) => {
             <Hero
                 title={solution.hero.title}
                 description={solution.hero.description}
-                heroImage={
-                    <StaticImage
-                        src="../../../images/use-case-solutions-template/hero-image.png"
-                        alt="Seamless data flow between systems for real-time integration"
-                        quality={100}
-                        placeholder="blurred"
-                        loading="eager"
-                    />
-                }
+                image={solution.hero.image}
             />
             <Testimonial data={solution.testimonial} />
             <Highlights
@@ -73,6 +65,14 @@ export const pageQuery = graphql`
             hero {
                 title
                 description
+                image {
+                    alternativeText
+                    localFile {
+                        childImageSharp {
+                            gatsbyImageData(quality: 100, placeholder: BLURRED)
+                        }
+                    }
+                }
             }
             testimonial {
                 sectionTitle: section_title {

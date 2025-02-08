@@ -46,6 +46,7 @@ export interface TemplatePageProps {
     hero: {
         title: string;
         description: string;
+        image: any; // TODO: Check this type
     };
     testimonial: TestimonialSectionContent;
     highlights: HighlightsSectionContent;
