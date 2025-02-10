@@ -1,4 +1,4 @@
-import { StaticImage } from 'gatsby-plugin-image';
+import { graphql } from 'gatsby';
 import Layout from '../../../components/Layout';
 import Seo from '../../../components/seo';
 import Hero from '../../../components/Solutions/Sections/Hero';
@@ -7,61 +7,127 @@ import Highlights from '../../../components/Solutions/Sections/Highlights';
 import Benefits from '../../../components/Solutions/Sections/Benefits';
 import Capabilities from '../../../components/Solutions/Sections/Capabilities';
 import KeyFeatures from '../../../components/Solutions/Sections/KeyFeatures';
-import { TemplatePageProps } from '../shared';
+import { SolutionTemplateProps } from '../shared';
 
-interface TechnologySolutionsProps {
-    pageContext: {
-        technologySolution: TemplatePageProps;
-    };
-}
-
-const TechnologySolutions = ({ pageContext }: TechnologySolutionsProps) => {
+const TechnologySolutions = ({ data: { solution } }: SolutionTemplateProps) => {
     return (
         <Layout>
             <Hero
-                title={pageContext.technologySolution.sections.hero.title}
-                heroImage={
-                    <StaticImage
-                        src="../../../images/technology-solutions-template/hero-image.png"
-                        alt="Estuary Flow's Iceberg Materialization Connector enabling streaming and batch data loads into Iceberg"
-                        quality={100}
-                        placeholder="blurred"
-                        loading="eager"
-                    />
-                }
+                title={solution.hero.title}
+                description={solution.hero.description}
+                image={solution.hero.image}
             />
-            <Testimonial
-                data={pageContext.technologySolution.sections.testimonial}
-            />
-            <Highlights
-                data={pageContext.technologySolution.sections.highlights}
-                image={
-                    <StaticImage
-                        src="../../../images/industry-solutions-template/graphic.png"
-                        alt="Visualizing real-time data lake capabilities with Apache Iceberg integration"
-                        quality={100}
-                        placeholder="blurred"
-                    />
-                }
-            />
-            <Benefits data={pageContext.technologySolution.sections.benefits} />
-            <Capabilities
-                data={pageContext.technologySolution.sections.capabilities}
-            />
-            <KeyFeatures
-                data={pageContext.technologySolution.sections.keyFeatures}
-            />
+            <Testimonial data={solution.testimonial} />
+            <Benefits data={solution.benefits} isDarkTheme />
+            <Capabilities data={solution.capabilities} />
+            <KeyFeatures data={solution.keyFeatures} isDarkTheme />
+            <Highlights data={solution.highlights} />
         </Layout>
     );
 };
 
-export const Head = ({ pageContext }: TechnologySolutionsProps) => {
+export const Head = ({ data: { solution } }: SolutionTemplateProps) => {
     return (
         <Seo
-            title={pageContext.technologySolution.metadata.title}
-            description={pageContext.technologySolution.metadata.description}
+            title={solution.metadata.title}
+            description={solution.metadata.description}
         />
     );
 };
 
 export default TechnologySolutions;
+
+export const pageQuery = graphql`
+    query GetSolution($id: String!) {
+        solution: strapiSolution(id: { eq: $id }) {
+            slug
+            metadata {
+                title
+                description
+            }
+            hero {
+                title
+                description
+                image {
+                    alternativeText
+                    localFile {
+                        childImageSharp {
+                            gatsbyImageData(quality: 100, placeholder: BLURRED)
+                        }
+                    }
+                }
+            }
+            testimonial {
+                sectionTitle: section_title {
+                    highlightedText
+                    normalText
+                }
+                description
+                quote {
+                    companyName
+                    successStoryUrl
+                    companyLogo {
+                        alternativeText
+                        localFile {
+                            childImageSharp {
+                                gatsbyImageData(
+                                    quality: 100
+                                    placeholder: BLURRED
+                                )
+                            }
+                        }
+                    }
+                    text
+                }
+            }
+            benefits {
+                sectionTitle: section_title {
+                    highlightedText
+                    normalText
+                }
+                description
+                benefitItems {
+                    strapi_json_value
+                }
+                images {
+                    alternativeText
+                    localFile {
+                        childrenImageSharp {
+                            gatsbyImageData
+                        }
+                    }
+                }
+            }
+            highlights {
+                sectionTitle: section_title {
+                    highlightedText
+                    normalText
+                }
+                description
+                highlightItems {
+                    strapi_json_value
+                }
+            }
+            keyFeatures {
+                sectionTitle: section_title {
+                    highlightedText
+                    normalText
+                }
+                description
+                keyFeatureItems {
+                    strapi_json_value
+                }
+            }
+            capabilities {
+                sectionTitle: section_title {
+                    highlightedText
+                    normalText
+                }
+                description
+                capabilityItems {
+                    strapi_json_value
+                }
+            }
+        }
+    }
+`;

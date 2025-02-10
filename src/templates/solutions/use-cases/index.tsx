@@ -1,4 +1,3 @@
-import { StaticImage } from 'gatsby-plugin-image';
 import { graphql } from 'gatsby';
 import Layout from '../../../components/Layout';
 import Seo from '../../../components/seo';
@@ -8,15 +7,9 @@ import Highlights from '../../../components/Solutions/Sections/Highlights';
 import Benefits from '../../../components/Solutions/Sections/Benefits';
 import Capabilities from '../../../components/Solutions/Sections/Capabilities';
 import KeyFeatures from '../../../components/Solutions/Sections/KeyFeatures';
-import { TemplatePageProps } from '../shared';
+import { SolutionTemplateProps } from '../shared';
 
-interface SolutionProps {
-    data: {
-        solution: TemplatePageProps;
-    };
-}
-
-const Solutions = ({ data: { solution } }: SolutionProps) => {
+const Solutions = ({ data: { solution } }: SolutionTemplateProps) => {
     return (
         <Layout>
             <Hero
@@ -25,25 +18,15 @@ const Solutions = ({ data: { solution } }: SolutionProps) => {
                 image={solution.hero.image}
             />
             <Testimonial data={solution.testimonial} />
-            <Highlights
-                data={solution.highlights}
-                image={
-                    <StaticImage
-                        src="../../../images/use-case-solutions-template/estuary-solutions-highlights.png"
-                        alt="Highly available and reliable cloud data pipeline architecture"
-                        quality={100}
-                        placeholder="blurred"
-                    />
-                }
-            />
+            <Highlights data={solution.highlights} isDarkTheme />
             <Benefits data={solution.benefits} />
-            <Capabilities data={solution.capabilities} />
+            <Capabilities data={solution.capabilities} isDarkTheme />
             <KeyFeatures data={solution.keyFeatures} />
         </Layout>
     );
 };
 
-export const Head = ({ data: { solution } }: SolutionProps) => {
+export const Head = ({ data: { solution } }: SolutionTemplateProps) => {
     return (
         <Seo
             title={solution.metadata.title}

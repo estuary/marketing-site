@@ -1,20 +1,28 @@
-import { ReactNode } from 'react';
 import Container from '../../../Container';
 import { sectionText, noPadding } from '../../styles.module.less';
-import { defaultWrapperDarkBlue } from '../../../../globalStyles/wrappers.module.less';
+import {
+    defaultWrapperDarkBlue,
+    defaultWrapperDark,
+} from '../../../../globalStyles/wrappers.module.less';
 import Card from '../../Card';
 import { HighlightsSectionContent } from '../../../../templates/solutions/shared';
+import ImageDark from '../../../../svgs/use-case-solutions-template/estuary-solutions-highlights-dark.svg';
+import ImageLight from '../../../../svgs/use-case-solutions-template/estuary-solutions-highlights-light.svg';
+import { SectionTheme } from '../shared';
 import { wrapper } from './styles.module.less';
 
-interface HighlightsProps {
+interface HighlightsProps extends SectionTheme {
     data: HighlightsSectionContent;
-    image: ReactNode;
 }
 
-const Highlights = ({ data, image }: HighlightsProps) => {
+const Highlights = ({ data, isDarkTheme = false }: HighlightsProps) => {
     return (
-        <section className={defaultWrapperDarkBlue}>
-            <Container className={wrapper} isDarkTheme isVertical>
+        <section
+            className={
+                isDarkTheme ? defaultWrapperDarkBlue : defaultWrapperDark
+            }
+        >
+            <Container className={wrapper} isDarkTheme={isDarkTheme} isVertical>
                 <Container className={noPadding}>
                     <div className={sectionText}>
                         <h2>
@@ -23,13 +31,16 @@ const Highlights = ({ data, image }: HighlightsProps) => {
                         </h2>
                         <p>{data.description}</p>
                     </div>
-                    {image}
+                    {isDarkTheme ? <ImageDark /> : <ImageLight />}
                 </Container>
                 <ul>
                     {data.highlightItems.strapi_json_value.map(
                         (highlight, index) => (
                             <li key={index}>
-                                <Card text={highlight} isDarkTheme />
+                                <Card
+                                    text={highlight}
+                                    isDarkTheme={isDarkTheme}
+                                />
                             </li>
                         )
                     )}

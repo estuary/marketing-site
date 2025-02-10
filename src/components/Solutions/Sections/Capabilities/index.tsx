@@ -1,21 +1,30 @@
 import clsx from 'clsx';
 import Container from '../../../Container';
-import { defaultWrapperDarkBlue } from '../../../../globalStyles/wrappers.module.less';
+import {
+    defaultWrapperDarkBlue,
+    defaultWrapperDark,
+} from '../../../../globalStyles/wrappers.module.less';
 import { sectionText } from '../../styles.module.less';
 import { CapabilitiesSectionContent } from '../../../../templates/solutions/shared';
+import { SectionTheme } from '../shared';
 import Card from './Card';
-import { wrapper, box } from './styles.module.less';
+import { wrapper, box, darkBox } from './styles.module.less';
 
-interface CapabilitiesProps {
+interface CapabilitiesProps extends SectionTheme {
     data: CapabilitiesSectionContent;
 }
 
-const Capabilities = ({ data }: CapabilitiesProps) => {
+const Capabilities = ({ data, isDarkTheme = false }: CapabilitiesProps) => {
     return (
-        <section className={clsx(defaultWrapperDarkBlue, wrapper)}>
+        <section
+            className={clsx(
+                isDarkTheme ? defaultWrapperDarkBlue : defaultWrapperDark,
+                wrapper
+            )}
+        >
             <Container
                 className={sectionText}
-                isDarkTheme
+                isDarkTheme={isDarkTheme}
                 isReverseColumnOnMobile
             >
                 <div>
@@ -26,12 +35,15 @@ const Capabilities = ({ data }: CapabilitiesProps) => {
                     <p>{data.description}</p>
                 </div>
                 <div>
-                    <div className={box}>
+                    <div className={clsx(box, isDarkTheme ? darkBox : null)}>
                         <ul>
                             {data.capabilityItems.strapi_json_value.map(
                                 (capability, index) => (
                                     <li key={index}>
-                                        <Card text={capability} isDarkTheme />
+                                        <Card
+                                            text={capability}
+                                            isDarkTheme={isDarkTheme}
+                                        />
                                     </li>
                                 )
                             )}

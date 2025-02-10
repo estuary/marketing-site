@@ -54,3 +54,9 @@ export interface TemplatePageProps {
     capabilities: CapabilitiesSectionContent;
     keyFeatures: KeyFeaturesSectionContent;
 }
+
+export interface SolutionTemplateProps {
+    data: {
+        solution: TemplatePageProps;
+    };
+}
