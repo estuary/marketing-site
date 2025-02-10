@@ -15,10 +15,15 @@
   }
 
   svg {
-    min-width: 48px;
+    width: 48px;
+    min-width: 32px;
+  }
 
-    @media(max-width: 480px) {
-      min-width: 10vw;
+  @media(max-width: 1024px) {
+    height: 100%;
+
+    svg {
+      width: 32px;
     }
   }
 

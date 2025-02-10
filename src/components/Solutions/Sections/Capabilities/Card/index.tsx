@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import CloudHandOutlinedIcon from '../../../../../svgs/cloud-hand-outlined.svg';
+import CloudHandOutlinedIcon from '../../../../../svgs/checkmark.svg';
 import { container, darkTheme } from './styles.module.less';
 
 interface CardProps {
@@ -10,7 +10,7 @@ interface CardProps {
 const Card = ({ text, isDarkTheme = false }: CardProps) => {
     return (
         <div className={clsx(container, isDarkTheme ? darkTheme : null)}>
-            <CloudHandOutlinedIcon />
+            <CloudHandOutlinedIcon color="var(--blue)" />
             <p>{text}</p>
         </div>
     );
