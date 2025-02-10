@@ -27,6 +27,7 @@ export interface HighlightsSectionContent extends SectionText {
 
 export interface BenefitsSectionContent extends SectionText {
     benefitItems: StrapiJsonValue;
+    images: any[]; // TODO: Check this type
 }
 
 export interface CapabilitiesSectionContent extends SectionText {

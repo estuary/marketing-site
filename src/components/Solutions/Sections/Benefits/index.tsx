@@ -34,7 +34,11 @@ const Benefits = ({ data, isDarkTheme = false }: BenefitsProps) => {
                             <li key={index}>
                                 <Card
                                     text={benefit}
-                                    imageIndex={index + 1}
+                                    image={
+                                        data.images[index].localFile
+                                            .childrenImageSharp[0]
+                                            .gatsbyImageData
+                                    }
                                     isDarkTheme={isDarkTheme}
                                 />
                             </li>

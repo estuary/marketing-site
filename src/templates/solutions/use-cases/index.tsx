@@ -1,28 +1,20 @@
 import { graphql } from 'gatsby';
-import Layout from '../../../components/Layout';
 import Seo from '../../../components/seo';
-import Hero from '../../../components/Solutions/Sections/Hero';
-import Testimonial from '../../../components/Solutions/Sections/Testimonial';
 import Highlights from '../../../components/Solutions/Sections/Highlights';
 import Benefits from '../../../components/Solutions/Sections/Benefits';
 import Capabilities from '../../../components/Solutions/Sections/Capabilities';
 import KeyFeatures from '../../../components/Solutions/Sections/KeyFeatures';
 import { SolutionTemplateProps } from '../shared';
+import SolutionPageLayout from '../solution-page-layout';
 
 const Solutions = ({ data: { solution } }: SolutionTemplateProps) => {
     return (
-        <Layout>
-            <Hero
-                title={solution.hero.title}
-                description={solution.hero.description}
-                image={solution.hero.image}
-            />
-            <Testimonial data={solution.testimonial} />
+        <SolutionPageLayout solution={solution}>
             <Highlights data={solution.highlights} isDarkTheme />
             <Benefits data={solution.benefits} />
             <Capabilities data={solution.capabilities} isDarkTheme />
             <KeyFeatures data={solution.keyFeatures} />
-        </Layout>
+        </SolutionPageLayout>
     );
 };
 

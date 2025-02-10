@@ -1,28 +1,20 @@
 import { graphql } from 'gatsby';
-import Layout from '../../../components/Layout';
 import Seo from '../../../components/seo';
-import Hero from '../../../components/Solutions/Sections/Hero';
-import Testimonial from '../../../components/Solutions/Sections/Testimonial';
 import Highlights from '../../../components/Solutions/Sections/Highlights';
 import Benefits from '../../../components/Solutions/Sections/Benefits';
 import Capabilities from '../../../components/Solutions/Sections/Capabilities';
 import KeyFeatures from '../../../components/Solutions/Sections/KeyFeatures';
 import { SolutionTemplateProps } from '../shared';
+import SolutionPageLayout from '../solution-page-layout';
 
 const TechnologySolutions = ({ data: { solution } }: SolutionTemplateProps) => {
     return (
-        <Layout>
-            <Hero
-                title={solution.hero.title}
-                description={solution.hero.description}
-                image={solution.hero.image}
-            />
-            <Testimonial data={solution.testimonial} />
-            <Benefits data={solution.benefits} isDarkTheme />
-            <Capabilities data={solution.capabilities} />
+        <SolutionPageLayout solution={solution}>
             <KeyFeatures data={solution.keyFeatures} isDarkTheme />
             <Highlights data={solution.highlights} />
-        </Layout>
+            <Capabilities data={solution.capabilities} isDarkTheme />
+            <Benefits data={solution.benefits} />
+        </SolutionPageLayout>
     );
 };
 
