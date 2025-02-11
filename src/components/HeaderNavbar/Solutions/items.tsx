@@ -1,6 +1,7 @@
 import DocIcon from '../../../svgs/document.svg';
 import PieChartIcon from '../../../svgs/pie-chart.svg';
 import NoCodeIcon from '../../../svgs/no-code.svg';
+import { MenuCardItem } from '../shared';
 
 const iconSize = 15;
 const iconColor = 'var(--blue)';
@@ -17,7 +18,7 @@ const AdaptedNoCodeIcon = () => (
 
 const urlPrefix = '/solutions';
 
-export const useCaseSolutionItems = [
+export const useCaseSolutionItems: MenuCardItem[] = [
     {
         name: 'DATA MOVEMENT',
         to: `${urlPrefix}/use-cases/data-movement/`,
@@ -44,7 +45,7 @@ export const useCaseSolutionItems = [
     },
 ];
 
-export const industrySolutionItems = [
+export const industrySolutionItems: MenuCardItem[] = [
     {
         name: 'FINANCE',
         to: `${urlPrefix}/industry/finance/`,
@@ -65,7 +66,7 @@ export const industrySolutionItems = [
     },
 ];
 
-export const technologySolutionItems = [
+export const technologySolutionItems: MenuCardItem[] = [
     {
         name: 'PRIVATE DEPLOYMENTS',
         to: `${urlPrefix}/technology/private-deployments/`,

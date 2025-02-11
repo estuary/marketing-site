@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import { useState, useEffect, ReactNode, HTMLAttributes } from 'react';
 import { hideOnMobile, seeAllButton } from '../styles.module.less';
 import OutboundLink from '../../LinksAndButtons/OutboundLink';
+import { MenuCardItem } from '../shared';
 import {
     cardItem,
     iconWrapper,
@@ -14,14 +15,7 @@ import {
     contentFooter,
 } from './styles.module.less';
 
-interface Item {
-    name: string;
-    description?: string;
-    to: string;
-    Image?: () => JSX.Element;
-}
-
-const ItemLink = ({ name, description, Image, to }: Item) => {
+const ItemLink = ({ name, description, Image, to }: MenuCardItem) => {
     const LinkElement: any = to.startsWith('/') ? Link : OutboundLink;
     const linkProps = to.startsWith('/')
         ? { to }
@@ -51,7 +45,7 @@ const ItemLink = ({ name, description, Image, to }: Item) => {
 
 interface HeaderCardItemProps extends HTMLAttributes<HTMLDivElement> {
     title: string;
-    items?: Item[];
+    items?: MenuCardItem[];
     children?: ReactNode;
     onlyContent?: boolean;
     active?: boolean;

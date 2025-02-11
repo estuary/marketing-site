@@ -22,3 +22,10 @@ export const accordionSummaryStyles = {
 };
 
 export type MenuEvent = MouseEvent<HTMLDivElement>;
+
+export interface MenuCardItem {
+    name: string;
+    description?: string;
+    to: string;
+    Image?: () => JSX.Element;
+}
