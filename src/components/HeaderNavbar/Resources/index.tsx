@@ -34,7 +34,19 @@ const HeaderNavbarResources = ({ active, setActive }) => {
         allStrapiCaseStudy: { nodes: allSuccessStories },
     } = useStaticQuery(graphql`
         query GetAllMenuSuccessStories {
-            allStrapiCaseStudy(limit: 4, filter: {Slug: {in: ["prodege", "davidenergy", "flashpack", "Launchmetrics"]}}) {
+            allStrapiCaseStudy(
+                limit: 4
+                filter: {
+                    Slug: {
+                        in: [
+                            "prodege"
+                            "davidenergy"
+                            "flashpack"
+                            "Launchmetrics"
+                        ]
+                    }
+                }
+            ) {
                 nodes {
                     LinkOneLiner
                     Description
@@ -64,11 +76,21 @@ const HeaderNavbarResources = ({ active, setActive }) => {
         }
     };
 
-    const successStoriesSlugOrder = ["prodege", "davidenergy", "flashpack", "Launchmetrics"];
+    const successStoriesSlugOrder = [
+        'prodege',
+        'davidenergy',
+        'flashpack',
+        'Launchmetrics',
+    ];
 
-    const orderedAllSuccessStories = allSuccessStories.sort((a: { Slug: string; }, b: { Slug: string; }) => {
-        return successStoriesSlugOrder.indexOf(a.Slug) - successStoriesSlugOrder.indexOf(b.Slug);
-    });
+    const orderedAllSuccessStories = allSuccessStories.sort(
+        (a: { Slug: string }, b: { Slug: string }) => {
+            return (
+                successStoriesSlugOrder.indexOf(a.Slug) -
+                successStoriesSlugOrder.indexOf(b.Slug)
+            );
+        }
+    );
 
     const successStoryItems = orderedAllSuccessStories.map((successStory) => ({
         name: successStory.Title.toUpperCase(),
