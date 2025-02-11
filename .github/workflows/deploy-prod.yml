@@ -27,7 +27,7 @@ jobs:
                   node-version: '18.x'
             - name: Caching
               id: gatsby-cache-build
-              uses: actions/cache@v2
+              uses: actions/cache@v4
               with:
                   path: |
                       node_modules
@@ -38,11 +38,11 @@ jobs:
             - name: Run ESLint
               run: yarn lint
               env:
-                CI: true
+                  CI: true
             - name: Run Prettier
               run: yarn format
               env:
-                CI: true
+                  CI: true
             - run: yarn run build --log-pages
               env:
                   CI: true
