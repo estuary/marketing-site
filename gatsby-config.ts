@@ -196,6 +196,9 @@ const strapiConfig = {
                             Admin_API: {
                                 populate: '*',
                             },
+                            Request_a_Connector: {
+                                populate: '*',
+                            },
                         },
                     },
                     Features: {
@@ -224,6 +227,12 @@ const strapiConfig = {
                             easeOfUse: {
                                 populate: '*',
                             },
+                            deploymentOptions: {
+                                populate: '*',
+                            },
+                            support: {
+                                populate: '*',
+                            },
                         },
                     },
                     Deployment: {
@@ -232,13 +241,15 @@ const strapiConfig = {
                                 populate: '*',
                             },
                             Security: {
-                                populate: '*',
+                                populate: {
+                                    socTwo: {
+                                        populate: '*',
+                                    },
+                                    hipaaCompliance: {
+                                        populate: '*',
+                                    },
+                                },
                             },
-                        },
-                    },
-                    Support: {
-                        populate: {
-                            Support: '*',
                         },
                     },
                     Cost: {

@@ -13,6 +13,8 @@ const rows = [
     { label: 'Time travel', key: 'timeTravel' },
     { label: 'Snapshots', key: 'snapshots' },
     { label: 'Ease of use', key: 'easeOfUse' },
+    { label: 'Deployment options', key: 'deploymentOptions' },
+    { label: 'Support', key: 'support' },
 ];
 
 const CoreFeatures = ({

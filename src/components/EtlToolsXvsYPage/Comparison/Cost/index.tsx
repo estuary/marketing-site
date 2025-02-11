@@ -16,6 +16,7 @@ const Cost = ({ xVendor, yVendor, estuaryVendor }: ComparisonVendors) => {
             yVendor={yVendor}
             estuaryVendor={estuaryVendor}
             dataType="cost"
+            expandedByDefault
         />
     );
 };

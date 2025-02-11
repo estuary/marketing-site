@@ -136,6 +136,7 @@ export interface Vendor {
         streaming: string;
         thirdParty: HasFeature;
         customSdk: HasFeature;
+        requestAConnector: HasFeature;
     };
     features: {
         batchingStreaming: string;
@@ -149,21 +150,21 @@ export interface Vendor {
         timeTravel: HasFeature;
         snapshots: HasFeature;
         easeOfUse: HasCellTitle;
+        deploymentOptions: string;
+        support: HasCellTitle;
     };
     deployment: {
-        options: string;
         abilities: {
             perfMinLatency: string;
             reliability: string;
             scalability: string;
         };
         security: {
+            socTwo: HasFeature;
             dataSourceAuth: string;
             encryption: string;
+            hipaaCompliance: HasFeature;
         };
-    };
-    support: {
-        support: HasCellTitle;
     };
     cost: {
         vendor: HasDollarSign;

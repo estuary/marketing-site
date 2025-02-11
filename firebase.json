@@ -453,7 +453,12 @@
             },
             {
                 "source": "/customers/casestudy/trueplatform/",
-                "destination": "/success-stories/trueplatform/",
+                "destination": "/success-stories/",
+                "type": 301
+            },
+            {
+                "source": "/success-stories/trueplatform/",
+                "destination": "/success-stories/",
                 "type": 301
             },
             {
