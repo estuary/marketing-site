@@ -13,7 +13,7 @@ concurrency:
 
 jobs:
     build_and_preview:
-        runs-on: ubuntu-2004-large
+        runs-on: ubuntu-2404-large
         steps:
             - env:
                   MESSAGE: ${{ toJson(github.event.client_payload) }}
@@ -56,7 +56,7 @@ jobs:
             - name: run Lighthouse CI
               run: |
                   # Need to set these manually LHCI doesn't support multiple builds
-                  export LHCI_BUILD_CONTEXT__COMMIT_MESSAGE=$(git log --format=%s -n 1 HEAD) 
+                  export LHCI_BUILD_CONTEXT__COMMIT_MESSAGE=$(git log --format=%s -n 1 HEAD)
                   export LHCI_BUILD_CONTEXT__AUTHOR=$(git log --format="$aN <%aE>" -n 1 HEAD)
                   export LHCI_BUILD_CONTEXT__COMMIT_TIME=$(git log -n1 --pretty="%cI" HEAD)
                   npm install -g @lhci/cli@0.13.x
