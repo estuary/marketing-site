@@ -3,15 +3,16 @@ import PieChartIcon from '../../../svgs/pie-chart.svg';
 import NoCodeIcon from '../../../svgs/no-code.svg';
 
 const iconSize = 15;
+const iconColor = 'var(--blue)';
 
 const AdaptedDocIcon = () => (
-    <DocIcon width={iconSize} height={iconSize} color="#5072EB" />
+    <DocIcon width={iconSize} height={iconSize} color={iconColor} />
 );
 const AdaptedPieChartIcon = () => (
-    <PieChartIcon width={iconSize} height={iconSize} color="#5072EB" />
+    <PieChartIcon width={iconSize} height={iconSize} color={iconColor} />
 );
 const AdaptedNoCodeIcon = () => (
-    <NoCodeIcon width={iconSize} height={iconSize} color="#5072EB" />
+    <NoCodeIcon width={iconSize} height={iconSize} color={iconColor} />
 );
 
 const urlPrefix = '/solutions';
