@@ -56,26 +56,6 @@ const IncreaseProductivity = () => {
                                 <div className={iconWrapper}>
                                     <StaticImage
                                         placeholder="none"
-                                        alt="Success story - True logo"
-                                        src="../../../images/true-logo.png"
-                                    />
-                                </div>
-                                <h3>TRUE PLATFORM</h3>
-                                <p>
-                                    True Platform reduced its data pipeline
-                                    spend by &gt;2x and discovered seamless,
-                                    scalable data movement.
-                                </p>
-                            </div>
-                            <div
-                                className={clsx(
-                                    successStoryBase,
-                                    bottomSuccessStory
-                                )}
-                            >
-                                <div className={iconWrapper}>
-                                    <StaticImage
-                                        placeholder="none"
                                         alt="Success story - Soli & Company logo"
                                         src="../../../images/soli&company-logo.png"
                                     />
