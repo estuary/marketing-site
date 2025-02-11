@@ -29,6 +29,117 @@ const strapiConfig = {
         'employee',
         'podcast',
         {
+            singularName: 'solution',
+            queryParams: {
+                populate: {
+                    slug: '*',
+                    metadata: {
+                        populate: {
+                            title: '*',
+                            description: '*',
+                        },
+                    },
+                    hero: {
+                        populate: {
+                            title: '*',
+                            description: '*',
+                            image: {
+                                populate: '*',
+                            },
+                        },
+                    },
+                    testimonial: {
+                        populate: {
+                            'section-title': {
+                                populate: {
+                                    highlightedText: '*',
+                                    normalText: '*',
+                                },
+                            },
+                            'description': {
+                                populate: '*',
+                            },
+                            'quote': {
+                                populate: {
+                                    companyLogo: {
+                                        populate: '*',
+                                    },
+                                    companyName: {
+                                        populate: '*',
+                                    },
+                                    successStoryUrl: {
+                                        populate: '*',
+                                    },
+                                    text: {
+                                        populate: '*',
+                                    },
+                                },
+                            },
+                        },
+                    },
+                    benefits: {
+                        populate: {
+                            'section-title': {
+                                populate: {
+                                    highlightedText: '*',
+                                    normalText: '*',
+                                },
+                            },
+                            'description': '*',
+                            'benefitItems': {
+                                populate: '*',
+                            },
+                            'images': {
+                                populate: '*',
+                            },
+                        },
+                    },
+                    highlights: {
+                        populate: {
+                            'section-title': {
+                                populate: {
+                                    highlightedText: '*',
+                                    normalText: '*',
+                                },
+                            },
+                            'description': '*',
+                            'highlightItems': {
+                                populate: '*',
+                            },
+                        },
+                    },
+                    capabilities: {
+                        populate: {
+                            'section-title': {
+                                populate: {
+                                    highlightedText: '*',
+                                    normalText: '*',
+                                },
+                            },
+                            'description': '*',
+                            'capabilityItems': {
+                                populate: '*',
+                            },
+                        },
+                    },
+                    keyFeatures: {
+                        populate: {
+                            'section-title': {
+                                populate: {
+                                    highlightedText: '*',
+                                    normalText: '*',
+                                },
+                            },
+                            'description': '*',
+                            'keyFeatureItems': {
+                                populate: '*',
+                            },
+                        },
+                    },
+                },
+            },
+        },
+        {
             singularName: 'case-study',
             queryParams: {
                 populate: {

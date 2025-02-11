@@ -4,7 +4,7 @@ import DarkSwoopingLinesLeftDirectionBackground from '../../BackgroundImages/Dar
 import Container from '../../Container';
 import SlideDeckCarousel from '../../SlideDeckCarousel';
 import Card from './Card';
-import { sectionTitle } from './styles.module.less';
+import { container } from './styles.module.less';
 
 const SuccessStories = () => {
     const {
@@ -31,8 +31,8 @@ const SuccessStories = () => {
 
     return (
         <DarkSwoopingLinesLeftDirectionBackground>
-            <Container isVertical>
-                <h2 className={sectionTitle}>SUCCESS STORIES</h2>
+            <Container isVertical className={container}>
+                <h2>SUCCESS STORIES</h2>
                 <SlideDeckCarousel
                     items={allSuccessStories}
                     itemsPerSlide={3}

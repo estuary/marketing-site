@@ -1,0 +1,51 @@
+.container {
+  background-color: var(--blue-5-opacity);
+  border: 1px solid var(--blue-20-opacity);
+  border-radius: 24px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 20px;
+
+  p {
+    margin: 0 auto 0 0;
+    color: var(--grey);
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 24px;
+  }
+
+  div {
+    border-radius: 16px;
+  }
+
+  @media(max-width: 1024px) {
+    padding: 16px;
+  }
+
+  @media(min-width: 769px) {
+    img {
+      max-width: 347px;
+    }
+  }
+
+  @media(max-width: 768px) {
+    padding: 24px;
+
+    p {
+      font-size: 1rem;
+      line-height: 19.2px;
+    }
+
+    img {
+      max-height: 34vw;
+    }
+  }
+}
+
+.darkTheme {
+  p {
+    color: var(--white);
+  }
+}

@@ -14,7 +14,7 @@ import {
     iconWrapper,
     imageWrapper,
     textWrapper,
-    sectionTitle,
+    container,
 } from './styles.module.less';
 
 const iconColor = 'var(--blue)';
@@ -22,8 +22,8 @@ const iconColor = 'var(--blue)';
 const ReadyToStart = () => {
     return (
         <section className={defaultWrapperDark}>
-            <Container isVertical>
-                <h2 className={sectionTitle}>READY TO START?</h2>
+            <Container isVertical className={container}>
+                <h2>READY TO START?</h2>
                 <div className={columns}>
                     <div className={boxes}>
                         <div className={getStartedBox}>

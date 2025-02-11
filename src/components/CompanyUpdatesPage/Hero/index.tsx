@@ -10,7 +10,7 @@ const Hero = () => {
         <section className={defaultWrapperDarkBlue}>
             <Container>
                 <HeroSectionDetails
-                    title="STAY CURRENT WITH ESTUARY FLOW"
+                    title={<span>STAY CURRENT WITH ESTUARY FLOW</span>}
                     description="Stay informed and make the most of Flow's powerful capabilities."
                     ctaButtons={<HeroSectionActions />}
                 />

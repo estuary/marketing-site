@@ -6,7 +6,7 @@ import TabContext from '@mui/lab/TabContext';
 import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import { Vendor } from '../../../../shared';
 import Checkmark from '../../../svgs/checkmark.svg';
-import { sectionTitle } from '../styles.module.less';
+import { container } from '../styles.module.less';
 import Container from '../../Container';
 import {
     tabs,
@@ -67,11 +67,9 @@ const ListOfComparisons = ({ estuaryVendor, vendors }: SectionThreeProps) => {
 
     return (
         <section className={defaultWrapperDark}>
-            <Container isVertical>
+            <Container isVertical className={container}>
                 <div className={textWrapper}>
-                    <h2 className={sectionTitle}>
-                        Browse the Complete List of Comparisons
-                    </h2>
+                    <h2>Browse the Complete List of Comparisons</h2>
                     <p>Choose a vendor and see how it compares to the rest.</p>
                 </div>
                 <TabContext value={selectedVendorId}>

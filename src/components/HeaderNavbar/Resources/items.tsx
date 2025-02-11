@@ -2,10 +2,11 @@ import { StaticImage } from 'gatsby-plugin-image';
 import { statusPageUrl, webinarsUrl } from '../../../../shared';
 import DocIcon from '../../../svgs/file.svg';
 import SuccessIcon from '../../../svgs/success.svg';
+import { MenuCardItem } from '../shared';
 
 const iconSize = 16;
 
-export const read = [
+export const read: MenuCardItem[] = [
     {
         name: 'Blog',
         to: '/blog/',
@@ -44,7 +45,7 @@ export const read = [
     },
 ];
 
-export const listen = [
+export const listen: MenuCardItem[] = [
     {
         name: 'Podcasts',
         to: '/podcasts/',
@@ -68,7 +69,7 @@ export const listen = [
     },
 ];
 
-export const demo = [
+export const demo: MenuCardItem[] = [
     {
         name: 'Watch Interactive Demo',
         to: '/demo/',
@@ -79,7 +80,7 @@ export const demo = [
     },
 ];
 
-export const partners = [
+export const partners: MenuCardItem[] = [
     {
         name: 'PARTNERS',
         to: '/partners/',

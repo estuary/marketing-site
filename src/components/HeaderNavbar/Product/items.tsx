@@ -1,11 +1,12 @@
 import { getComparisonSlug } from '../../../../shared';
 import BookIcon from '../../../svgs/book.svg';
 import BalanceIcon from '../../../svgs/header-balance.svg';
+import { MenuCardItem } from '../shared';
 
 const BookHeaderIcon = () => <BookIcon width={11} height={14} />;
 const BalanceHeaderIcon = () => <BalanceIcon width={15} height={15} />;
 
-export const products = [
+export const products: MenuCardItem[] = [
     {
         name: 'ESTUARY FLOW',
         to: '/product',
@@ -31,7 +32,7 @@ export const products = [
 const generateComparisonTo = (xVendorSlugKey, yVendorSlugKey) =>
     `/${getComparisonSlug(xVendorSlugKey, yVendorSlugKey)}`;
 
-export const compare = [
+export const compare: MenuCardItem[] = [
     {
         name: 'Estuary vs. Fivetran',
         to: generateComparisonTo('estuary', 'fivetran'),

@@ -6,11 +6,11 @@ import HeroSectionDetails from '../../HeroSectionDetails';
 const Hero = () => {
     return (
         <section className={defaultWrapperDarkBlue}>
-            <Container>
+            <Container isDarkTheme>
                 <HeroSectionDetails
                     title={
                         <>
-                            <span>UNCOMPROMISING DATA SECURITY WITH</span>{' '}
+                            UNCOMPROMISING DATA SECURITY WITH{' '}
                             <span>ESTUARY FLOW</span>
                         </>
                     }

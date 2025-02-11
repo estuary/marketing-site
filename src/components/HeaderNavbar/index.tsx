@@ -3,6 +3,7 @@ import { Dispatch, SetStateAction, useCallback } from 'react';
 import { globalHeaderLink } from '../styles.module.less';
 import LinkProduct from './Product';
 import LinkResources from './Resources';
+import LinkSolutions from './Solutions';
 import { globalHeaderLinks } from './styles.module.less';
 
 interface HeaderNavbarProps {
@@ -35,6 +36,10 @@ const HeaderNavbar = ({ activeMenu, setActiveMenu }: HeaderNavbarProps) => {
             </Link>
             <LinkResources
                 active={activeMenu === 'resources'}
+                setActive={setActiveMenu}
+            />
+            <LinkSolutions
+                active={activeMenu === 'solutions'}
                 setActive={setActiveMenu}
             />
         </div>
