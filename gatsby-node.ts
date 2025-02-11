@@ -506,7 +506,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
         Promise.all(
             useCaseSolutions.map((useCaseSolution) =>
                 createPage({
-                    path: solutionsUrlPrefix + useCaseSolution.slug,
+                    path: `${solutionsUrlPrefix}${useCaseSolution.slug}`,
                     component: useCaseSolutionsTemplate,
                     context: { id: useCaseSolution.id },
                 })
@@ -516,7 +516,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
         Promise.all(
             industrySolutions.map((industrySolution) =>
                 createPage({
-                    path: solutionsUrlPrefix + industrySolution.slug,
+                    path: `${solutionsUrlPrefix}${industrySolution.slug}`,
                     component: industrySolutionsTemplate,
                     context: { id: industrySolution.id },
                 })
@@ -526,7 +526,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
         Promise.all(
             technologySolutions.map((technologySolution) =>
                 createPage({
-                    path: solutionsUrlPrefix + technologySolution.slug,
+                    path: `${solutionsUrlPrefix}${technologySolution.slug}`,
                     component: technologySolutionsTemplate,
                     context: { id: technologySolution.id },
                 })
