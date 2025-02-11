@@ -17,7 +17,7 @@ const AdaptedNoCodeIcon = () => (
 
 const urlPrefix = '/solutions';
 
-export const useCaseSolutions = [
+export const useCaseSolutionItems = [
     {
         name: 'DATA MOVEMENT',
         to: `${urlPrefix}/use-cases/data-movement/`,
@@ -44,7 +44,7 @@ export const useCaseSolutions = [
     },
 ];
 
-export const industrySolutions = [
+export const industrySolutionItems = [
     {
         name: 'FINANCE',
         to: `${urlPrefix}/industry/finance/`,
@@ -65,7 +65,7 @@ export const industrySolutions = [
     },
 ];
 
-export const technologySolutions = [
+export const technologySolutionItems = [
     {
         name: 'PRIVATE DEPLOYMENTS',
         to: `${urlPrefix}/technology/private-deployments/`,

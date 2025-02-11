@@ -10,9 +10,9 @@ import { accordionDetails } from '../styles.module.less';
 import { accordionStyles, accordionSummaryStyles, MenuEvent } from '../shared';
 import MenuLink from '../MenuLink';
 import {
-    useCaseSolutions,
-    industrySolutions,
-    technologySolutions,
+    useCaseSolutionItems,
+    industrySolutionItems,
+    technologySolutionItems,
 } from './items';
 
 const HeaderNavbarSolutions = ({ active, setActive }) => {
@@ -45,9 +45,12 @@ const HeaderNavbarSolutions = ({ active, setActive }) => {
             </AccordionSummary>
             <AccordionDetails className={accordionDetails}>
                 <Card>
-                    <CardItem title="USE CASES" items={useCaseSolutions} />
-                    <CardItem title="INDUSTRY" items={industrySolutions} />
-                    <CardItem title="TECHNOLOGY" items={technologySolutions} />
+                    <CardItem title="USE CASES" items={useCaseSolutionItems} />
+                    <CardItem title="INDUSTRY" items={industrySolutionItems} />
+                    <CardItem
+                        title="TECHNOLOGY"
+                        items={technologySolutionItems}
+                    />
                 </Card>
             </AccordionDetails>
         </Accordion>
