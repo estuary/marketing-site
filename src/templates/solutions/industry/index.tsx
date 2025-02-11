@@ -85,7 +85,7 @@ export const pageQuery = graphql`
                     alternativeText
                     localFile {
                         childrenImageSharp {
-                            gatsbyImageData
+                            gatsbyImageData(quality: 100, placeholder: BLURRED)
                         }
                     }
                 }
