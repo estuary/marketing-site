@@ -15,7 +15,7 @@ import {
     slide,
 } from '../styles.module.less';
 import Carousel from '../../Carousel';
-import { accordionStyles, accordionSummaryStyles } from '../shared';
+import { accordionStyles, accordionSummaryStyles, MenuEvent } from '../shared';
 import OutboundLinkOutlined from '../../LinksAndButtons/OutboundLinkOutlined';
 import HeaderViewAllLink from '../HeaderViewAllLink';
 import MenuLink from '../MenuLink';
@@ -24,14 +24,14 @@ import { compare, products } from './items';
 const HeaderNavbarProduct = ({ active, setActive }) => {
     const isMobile = useMediaQuery('(max-width:1142px)');
 
-    const onClick = (ev: { preventDefault: () => void }) => {
+    const onClick = (ev: MenuEvent) => {
         if (isMobile) {
             ev.preventDefault();
             setActive((prev: string) => (prev === 'product' ? '' : 'product'));
         }
     };
 
-    const onMouseEnter = (ev: { preventDefault: () => void }) => {
+    const onMouseEnter = (ev: MenuEvent) => {
         if (!isMobile) {
             ev.preventDefault();
             setActive('product');

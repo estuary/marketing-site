@@ -7,7 +7,7 @@ import {
 import Card from '../Card';
 import CardItem from '../CardItem';
 import { accordionDetails } from '../styles.module.less';
-import { accordionStyles, accordionSummaryStyles } from '../shared';
+import { accordionStyles, accordionSummaryStyles, MenuEvent } from '../shared';
 import MenuLink from '../MenuLink';
 import {
     useCaseSolutions,
@@ -18,7 +18,7 @@ import {
 const HeaderNavbarSolutions = ({ active, setActive }) => {
     const isMobile = useMediaQuery('(max-width:1142px)');
 
-    const onClick = (ev: { preventDefault: () => void }) => {
+    const onClick = (ev: MenuEvent) => {
         if (isMobile) {
             ev.preventDefault();
             setActive((prev: string) =>
@@ -27,7 +27,7 @@ const HeaderNavbarSolutions = ({ active, setActive }) => {
         }
     };
 
-    const onMouseEnter = (ev: { preventDefault: () => void }) => {
+    const onMouseEnter = (ev: MenuEvent) => {
         if (!isMobile) {
             ev.preventDefault();
             setActive('solutions');
