@@ -33,7 +33,7 @@ export const useCaseSolutionItems: MenuCardItem[] = [
     },
     {
         name: 'AI',
-        to: `${urlPrefix}/use-cases/ai/`,
+        to: `${urlPrefix}/use-cases/ai-data-integration/`,
         description: '',
         Image: () => <AdaptedDocIcon />,
     },
@@ -48,19 +48,19 @@ export const useCaseSolutionItems: MenuCardItem[] = [
 export const industrySolutionItems: MenuCardItem[] = [
     {
         name: 'FINANCE',
-        to: `${urlPrefix}/industry/finance/`,
+        to: `${urlPrefix}/industry/finance-data-integration/`,
         description: '',
         Image: () => <AdaptedPieChartIcon />,
     },
     {
         name: 'SUPPLY CHAIN AND LOGISTICS',
-        to: `${urlPrefix}/industry/supply-chain/`,
+        to: `${urlPrefix}/industry/supply-chain-data-integration/`,
         description: '',
         Image: () => <AdaptedPieChartIcon />,
     },
     {
         name: 'MARKETING',
-        to: `${urlPrefix}/industry/marketing/`,
+        to: `${urlPrefix}/industry/marketing-data-integration/`,
         description: '',
         Image: () => <AdaptedPieChartIcon />,
     },
@@ -81,13 +81,13 @@ export const technologySolutionItems: MenuCardItem[] = [
     },
     {
         name: 'NETSUITE',
-        to: `${urlPrefix}/technology/netsuite/`,
+        to: `${urlPrefix}/technology/netsuite-data-integration/`,
         description: '',
         Image: () => <AdaptedNoCodeIcon />,
     },
     {
         name: 'KAFKA',
-        to: `${urlPrefix}/technology/kafka/`,
+        to: `${urlPrefix}/technology/kafka-streaming-integration/`,
         description: '',
         Image: () => <AdaptedNoCodeIcon />,
     },
