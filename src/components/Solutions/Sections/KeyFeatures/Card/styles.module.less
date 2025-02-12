@@ -1,11 +1,17 @@
+@bigIconSize: 112px;
+@middleIconSize: 8vw;
+@smallIconSize: 60px;
+
 .container {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 24px;
   border: 1px solid;
   border-radius: 24px;
   padding: 48px;
+  min-height: 248px;
+  height: 100%;
 
   p {
     font-size: 1.25rem;
@@ -15,14 +21,29 @@
     margin-bottom: 0;
   }
 
+  svg {
+    max-width: @bigIconSize;
+    min-width: @bigIconSize;
+    max-height: @bigIconSize;
+  }
+
+  @media (max-width: 1024px) {
+    svg {
+      max-width: @middleIconSize;
+      min-width: @middleIconSize;
+      max-height: @middleIconSize;
+    }
+  }
+
   @media (max-width: 524px) {
     flex-direction: column-reverse;
     align-items: flex-start;
     padding: 24px;
+    gap: 12px;
 
     svg {
-      max-width: 60px;
-      max-height: 60px;
+      max-width: @smallIconSize;
+      max-height: @smallIconSize;
     }
   }
 }
