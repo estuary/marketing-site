@@ -1,7 +1,7 @@
 .container {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 24px;
   border: 1px solid;
   border-radius: 24px;
@@ -15,10 +15,25 @@
     margin-bottom: 0;
   }
 
+  svg {
+    max-width: 112px;
+    min-width: 112px;
+    max-height: 112px;
+  }
+
+  @media (max-width: 1024px) {
+    svg {
+      max-width: 8vw;
+      min-width: 8vw;
+      max-height: 8vw;
+    }
+  }
+
   @media (max-width: 524px) {
     flex-direction: column-reverse;
     align-items: flex-start;
     padding: 24px;
+    gap: 12px;
 
     svg {
       max-width: 60px;

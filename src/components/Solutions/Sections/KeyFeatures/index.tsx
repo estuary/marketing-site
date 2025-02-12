@@ -34,19 +34,19 @@ const KeyFeatures = ({ data, isDarkTheme = false }: KeyFeaturesProps) => {
                     <p>{data.description}</p>
                 </div>
                 <Card
-                    description="Real-time transformations at the source or destination."
+                    description={data.keyFeatureItems.strapi_json_value[0]}
                     svg={<KeyFeature2 color={iconColor} />}
                     backgroundColor="#37C0C10D"
                     borderColor="#6ED5D633"
                 />
                 <Card
-                    description="Declarative pipeline definitions for consistent results."
+                    description={data.keyFeatureItems.strapi_json_value[1]}
                     svg={<KeyFeature1 color={iconColor} />}
                     backgroundColor="#5072EB0A"
                     borderColor="#5072EB12"
                 />
                 <Card
-                    description="Supports business logic integration directly within the pipeline."
+                    description={data.keyFeatureItems.strapi_json_value[2]}
                     svg={<KeyFeature3 color={iconColor} />}
                     backgroundColor="#625EFF0D"
                     borderColor="#625EFF1A"
