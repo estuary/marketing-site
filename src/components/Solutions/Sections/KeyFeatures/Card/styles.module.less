@@ -1,3 +1,7 @@
+@bigIconSize: 112px;
+@middleIconSize: 8vw;
+@smallIconSize: 60px;
+
 .container {
   display: flex;
   align-items: center;
@@ -16,16 +20,16 @@
   }
 
   svg {
-    max-width: 112px;
-    min-width: 112px;
-    max-height: 112px;
+    max-width: @bigIconSize;
+    min-width: @bigIconSize;
+    max-height: @bigIconSize;
   }
 
   @media (max-width: 1024px) {
     svg {
-      max-width: 8vw;
-      min-width: 8vw;
-      max-height: 8vw;
+      max-width: @middleIconSize;
+      min-width: @middleIconSize;
+      max-height: @middleIconSize;
     }
   }
 
@@ -36,8 +40,8 @@
     gap: 12px;
 
     svg {
-      max-width: 60px;
-      max-height: 60px;
+      max-width: @smallIconSize;
+      max-height: @smallIconSize;
     }
   }
 }
