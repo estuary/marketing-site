@@ -53,20 +53,6 @@ jobs:
                   GATSBY_DB_HOST: ${{ secrets.GATSBY_DB_HOST }}
                   GATSBY_DB_PORT: ${{ secrets.GATSBY_DB_PORT }}
                   GATSBY_DB_NAME: ${{ secrets.GATSBY_DB_NAME }}
-            - name: run Lighthouse CI
-              run: |
-                  # Need to set these manually LHCI doesn't support multiple builds
-                  export LHCI_BUILD_CONTEXT__COMMIT_MESSAGE=$(git log --format=%s -n 1 HEAD)
-                  export LHCI_BUILD_CONTEXT__AUTHOR=$(git log --format="$aN <%aE>" -n 1 HEAD)
-                  export LHCI_BUILD_CONTEXT__COMMIT_TIME=$(git log -n1 --pretty="%cI" HEAD)
-                  npm install -g @lhci/cli@0.13.x
-                  lhci autorun
-              env:
-                  LHCI_BUILD_CONTEXT__CURRENT_HASH: ${{ github.sha }}-${{ github.run_id }}
-                  LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
-                  LHCI_TOKEN: ${{ secrets.LHCI_TOKEN }}
-                  LHCI_BASIC_AUTH_USERNAME: ${{ secrets.LHCI_BASIC_AUTH_USERNAME }}
-                  LHCI_BASIC_AUTH_PASSWORD: ${{ secrets.LHCI_BASIC_AUTH_PASSWORD }}
             - uses: FirebaseExtended/action-hosting-deploy@v0
               with:
                   repoToken: '${{ secrets.GITHUB_TOKEN }}'

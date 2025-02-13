@@ -2,22 +2,8 @@ name: Deploy to Firebase Preview
 
 on:
     pull_request:
-        # We should look into not always running a preview for every PR
-        # paths:
-        #     - .env
-        #     - .firebaserc
-        #     - .lighthouserc.js
-        #     - config.ts
-        #     - gatsby*
-        #     - package.json
-        #     - tsconfig.json
-        #     - types.d.tsconfig
-        #     - yarn.lock
-        #     - content/**
-        #     - patches/**
-        #     - plugins/**
-        #     - src/**
-        #     - static/**
+    label:
+        types: [created, deleted, edited]
 
 concurrency:
     group: preview-${{ github.ref }}
@@ -25,6 +11,7 @@ concurrency:
 jobs:
     build_and_preview:
         runs-on: ubuntu-2404-large
+        if: contains(github.event.pull_request.labels.*.name, 'generate-pr-preview')
         steps:
             - name: Checkout
               uses: actions/checkout@v3
@@ -65,20 +52,11 @@ jobs:
                   GATSBY_DB_HOST: ${{ secrets.GATSBY_DB_HOST }}
                   GATSBY_DB_PORT: ${{ secrets.GATSBY_DB_PORT }}
                   GATSBY_DB_NAME: ${{ secrets.GATSBY_DB_NAME }}
-            - name: run Lighthouse CI
-              run: |
-                  npm install -g @lhci/cli@0.13.x
-                  lhci autorun
-              env:
-                  LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
-                  LHCI_TOKEN: ${{ secrets.LHCI_TOKEN }}
-                  LHCI_BASIC_AUTH_USERNAME: ${{ secrets.LHCI_BASIC_AUTH_USERNAME }}
-                  LHCI_BASIC_AUTH_PASSWORD: ${{ secrets.LHCI_BASIC_AUTH_PASSWORD }}
             - uses: FirebaseExtended/action-hosting-deploy@v0
               id: firebase
               with:
                   repoToken: '${{ secrets.GITHUB_TOKEN }}'
                   firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
-                  expires: 30d
+                  expires: 15d
                   projectId: estuary-marketing
             - run: echo ${{steps.firebase.outputs.urls}}
