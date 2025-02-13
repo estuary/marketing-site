@@ -9,7 +9,7 @@ concurrency:
     group: preview-${{ github.ref }}
 
 jobs:
-    build_and_preview:
+    build:
         runs-on: ubuntu-2404-large
         if: contains(github.event.pull_request.labels.*.name, 'generate-pr-preview')
         steps:
@@ -52,6 +52,11 @@ jobs:
                   GATSBY_DB_HOST: ${{ secrets.GATSBY_DB_HOST }}
                   GATSBY_DB_PORT: ${{ secrets.GATSBY_DB_PORT }}
                   GATSBY_DB_NAME: ${{ secrets.GATSBY_DB_NAME }}
+
+    preview:
+        runs-on: ubuntu-2404-large
+        if: contains(github.event.pull_request.labels.*.name, 'generate-pr-preview')
+        steps:
             - uses: FirebaseExtended/action-hosting-deploy@v0
               id: firebase
               with:
