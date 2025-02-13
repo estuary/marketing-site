@@ -2,7 +2,15 @@ name: Deploy to Firebase Preview
 
 on:
     pull_request:
-        types: [opened, synchronize, reopened, labeled, unlabeled]
+        types:
+            [
+                opened,
+                synchronize,
+                reopened,
+                labeled,
+                unlabeled,
+                ready_for_review,
+            ]
 
 concurrency:
     group: preview-${{ github.ref }}
