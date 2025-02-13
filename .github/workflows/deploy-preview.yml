@@ -54,6 +54,7 @@ jobs:
 
     preview:
         runs-on: ubuntu-2404-large
+        needs: build
         if: contains(github.event.pull_request.labels.*.name, 'generate-pr-preview')
         steps:
             - uses: FirebaseExtended/action-hosting-deploy@v0
