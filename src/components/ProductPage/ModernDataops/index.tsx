@@ -34,7 +34,11 @@ const ModernDataops = () => {
                 }
                 advantages={sectionSevenAdvantages}
                 ctaButtons={
-                    <OutboundLinkFilled href={docsPageUrl} target="_blank">
+                    <OutboundLinkFilled
+                        id="see-the-docs-button-product-page"
+                        href={docsPageUrl}
+                        target="_blank"
+                    >
                         See The Docs
                     </OutboundLinkFilled>
                 }

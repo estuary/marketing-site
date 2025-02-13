@@ -194,6 +194,7 @@ const Comparison = ({
         <section className={defaultWrapperGrey}>
             <div className={container}>
                 <ArticleSidebar
+                    ctaButtonid="build-a-pipeline-button-comparison-page-sidebar"
                     article={{
                         title: `${xVendor.name} vs ${yVendor.name}`,
                         slug: getComparisonSlug(
@@ -266,6 +267,7 @@ const Comparison = ({
                             </h3>
                         }
                         button={{
+                            id: 'build-a-pipeline-button-banner-comparison-page',
                             title: 'Build a Pipeline',
                             href: dashboardRegisterUrl,
                         }}

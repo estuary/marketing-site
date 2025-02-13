@@ -1,6 +1,10 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { getComparisonSlug, Vendor } from '../../../../../shared';
+import {
+    getComparisonSlug,
+    getVendorsLinkId,
+    Vendor,
+} from '../../../../../shared';
 import { container } from './styles.module.less';
 
 interface RelatedComparisonLinksProps {
@@ -24,6 +28,7 @@ const RelatedComparisonLinks = ({
                 .map((vendor) =>
                     vendor.slugKey ? (
                         <Link
+                            id={`${getVendorsLinkId(baseVendor.name, vendor.name)}-link-comparison-page-related-comparisons-section`}
                             key={`related-comparison-link-${vendor.id}`}
                             to={`/${getComparisonSlug(baseVendor.slugKey, vendor.slugKey)}`}
                         >

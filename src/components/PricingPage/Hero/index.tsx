@@ -28,7 +28,7 @@ const Hero = () => {
                             .
                         </>
                     }
-                    ctaButtons={<HeroSectionActions />}
+                    ctaButtons={<HeroSectionActions pageId="pricing-page" />}
                 />
                 <StaticImage
                     src="../../../images/pricing/illustration.png"

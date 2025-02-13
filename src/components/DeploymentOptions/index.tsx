@@ -21,6 +21,7 @@ interface DeploymentOptionsProps {
         private: string[];
         byoc: string[];
     };
+    pageId: string;
 }
 
 const DeploymentOptions = ({
@@ -28,6 +29,7 @@ const DeploymentOptions = ({
     buttonTitle,
     optionsDescription,
     keyFeatures,
+    pageId,
 }: DeploymentOptionsProps) => {
     const [selectedTab, setSelectedTab] = useState<DeploymentOption>('public');
 
@@ -64,7 +66,10 @@ const DeploymentOptions = ({
                         keyFeatures={keyFeatures?.byoc}
                     />
                 </TabContext>
-                <LinkFilled href="/deployment-options/">
+                <LinkFilled
+                    id={`button-${pageId}-deployment-options-section`}
+                    href="/deployment-options/"
+                >
                     {buttonTitle}
                 </LinkFilled>
             </div>

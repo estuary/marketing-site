@@ -140,6 +140,7 @@ const XvsYFilter = ({
                 </Select>
             </FormControl>
             <LinkFilled
+                id={`${button.href.replaceAll('/etl-tools/', '').replaceAll('/', '')}-compare-button-comparison-page`}
                 href={button.href}
                 className={
                     xSelect.value === xSelect.placeholder ||

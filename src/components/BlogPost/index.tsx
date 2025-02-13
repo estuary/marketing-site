@@ -172,6 +172,7 @@ const BlogPost = ({
                                         </h3>
                                     }
                                     button={{
+                                        id: 'build-a-pipeline-banner-button-blog-post',
                                         title: 'Build a Pipeline',
                                         href: dashboardRegisterUrl,
                                     }}
@@ -179,6 +180,7 @@ const BlogPost = ({
                             ) : null}
                         </div>
                         <ArticleSidebar
+                            ctaButtonid="build-a-pipeline-button-blog-post-page-sidebar"
                             article={{
                                 title: post.title,
                                 slug: post.slug,
@@ -352,7 +354,10 @@ const BlogPost = ({
                             </div>
                         </div>
                         <div className={buildPipelineAndPricingButtons}>
-                            <OutboundLinkFilled href={dashboardRegisterUrl}>
+                            <OutboundLinkFilled
+                                id="build-a-pipeline-button-streaming-pipelines-blog-post-page"
+                                href={dashboardRegisterUrl}
+                            >
                                 Build a Pipeline
                             </OutboundLinkFilled>
                             <OutboundLinkOutlined

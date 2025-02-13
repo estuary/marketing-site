@@ -18,7 +18,11 @@ const AutomateDataops = () => {
                     />
                 }
                 ctaButtons={
-                    <OutboundLinkFilled href={docsPageUrl} target="_blank">
+                    <OutboundLinkFilled
+                        id="register-now-for-free-button-home-page"
+                        href={docsPageUrl}
+                        target="_blank"
+                    >
                         Register Now for Free
                     </OutboundLinkFilled>
                 }

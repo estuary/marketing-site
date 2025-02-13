@@ -28,6 +28,9 @@ import {
     trioGroupLogo,
 } from './styles.module.less';
 
+const generateButtonId = (connectorId: string) =>
+    `${connectorId}-connector-button-product-page-the-same-data-section`;
+
 const TheSameData = () => {
     return (
         <section className={defaultWrapperDarkBlue}>
@@ -74,6 +77,9 @@ const TheSameData = () => {
                                                     src="../../../images/product-page/section-five/analytics-connectors.png"
                                                 />
                                                 <Link
+                                                    id={generateButtonId(
+                                                        'google-bigquery'
+                                                    )}
                                                     to="/destination/bigquery"
                                                     aria-label="Google BigQuery destination"
                                                     className={clsx(
@@ -82,6 +88,9 @@ const TheSameData = () => {
                                                     )}
                                                 />
                                                 <Link
+                                                    id={generateButtonId(
+                                                        'databricks-analytics'
+                                                    )}
                                                     to="/destination/databricks"
                                                     aria-label="Databricks destination"
                                                     className={clsx(
@@ -90,6 +99,9 @@ const TheSameData = () => {
                                                     )}
                                                 />
                                                 <Link
+                                                    id={generateButtonId(
+                                                        'amazon-redshift'
+                                                    )}
                                                     to="/destination/redshift"
                                                     aria-label="Amazon Redshift destination"
                                                     className={clsx(
@@ -98,6 +110,9 @@ const TheSameData = () => {
                                                     )}
                                                 />
                                                 <Link
+                                                    id={generateButtonId(
+                                                        'snowflake'
+                                                    )}
                                                     to="/destination/snowflake"
                                                     aria-label="Snowflake destination"
                                                     className={clsx(
@@ -129,6 +144,9 @@ const TheSameData = () => {
                                                     quality={100}
                                                 />
                                                 <Link
+                                                    id={generateButtonId(
+                                                        'elasticsearch'
+                                                    )}
                                                     to="/destination/elasticsearch"
                                                     aria-label="Elastic destination"
                                                     className={clsx(
@@ -138,6 +156,9 @@ const TheSameData = () => {
                                                     )}
                                                 />
                                                 <Link
+                                                    id={generateButtonId(
+                                                        'mongodb'
+                                                    )}
                                                     to="/destination/mongodb"
                                                     aria-label="MongoDB destination"
                                                     className={clsx(
@@ -147,6 +168,9 @@ const TheSameData = () => {
                                                     )}
                                                 />
                                                 <Link
+                                                    id={generateButtonId(
+                                                        'amazon-dynamodb'
+                                                    )}
                                                     to="/destination/dynamodb"
                                                     aria-label="Amazon DynamoDB destination"
                                                     className={clsx(
@@ -179,6 +203,9 @@ const TheSameData = () => {
                                                     height={128}
                                                 />
                                                 <Link
+                                                    id={generateButtonId(
+                                                        'pinecone'
+                                                    )}
                                                     to="/destination/pinecone"
                                                     aria-label="Pinecone destination"
                                                     className={clsx(
@@ -188,8 +215,11 @@ const TheSameData = () => {
                                                     )}
                                                 />
                                                 <Link
+                                                    id={generateButtonId(
+                                                        'openai'
+                                                    )}
                                                     to="/destination/pinecone"
-                                                    aria-label="Pinecone destination"
+                                                    aria-label="OpenAI destination"
                                                     className={clsx(
                                                         trioGroupLogo,
                                                         logoWrapper,
@@ -197,6 +227,9 @@ const TheSameData = () => {
                                                     )}
                                                 />
                                                 <Link
+                                                    id={generateButtonId(
+                                                        'databricks-ai'
+                                                    )}
                                                     to="/destination/databricks"
                                                     aria-label="Databricks destination"
                                                     className={clsx(

@@ -62,7 +62,11 @@ const Content = ({ connector }: ContentProps) => {
                     <span>2-5x</span> less than batch ELT
                 </li>
             </ul>
-            <OutboundLinkFilled target="_blank" href={dashboardRegisterUrl}>
+            <OutboundLinkFilled
+                id="try-it-free-button-connector-page"
+                target="_blank"
+                href={dashboardRegisterUrl}
+            >
                 Try it free
             </OutboundLinkFilled>
         </div>

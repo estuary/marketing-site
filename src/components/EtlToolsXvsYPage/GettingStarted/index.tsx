@@ -34,6 +34,7 @@ const GettingStarted = () => {
                         title="Free account"
                         description="Getting started with Estuary is simple. Sign up for a free account."
                         link={{
+                            id: 'sign-up-link-comparison-page-getting-started-section',
                             title: 'Sign up',
                             href: dashboardRegisterUrl,
                         }}
@@ -49,6 +50,7 @@ const GettingStarted = () => {
                         title="Docs"
                         description="Make sure you read through the documentation, especially the get started section."
                         link={{
+                            id: 'learn-more-link-comparison-page-getting-started-section',
                             title: 'Learn more',
                             href: docsPageUrl,
                         }}
@@ -64,6 +66,7 @@ const GettingStarted = () => {
                         title="Community"
                         description="I highly recommend you also join the Slack community. It's the easiest way to get support while you're getting started."
                         link={{
+                            id: 'join-slack-link-comparison-page-getting-started-section',
                             title: 'Join Slack Community',
                             href: slackUrl,
                         }}
@@ -79,6 +82,7 @@ const GettingStarted = () => {
                         title="Estuary 101"
                         description="I highly recommend you also join the Slack community. It's the easiest way to get support while you're getting started."
                         link={{
+                            id: 'watch-link-comparison-page-getting-started-section',
                             title: 'Watch',
                             href: webinarsUrl,
                         }}
@@ -92,6 +96,7 @@ const GettingStarted = () => {
                         </h3>
                     }
                     button={{
+                        id: 'contact-us-button-comparison-page-last-banner',
                         title: 'Contact us',
                         href: '/contact-us/',
                     }}

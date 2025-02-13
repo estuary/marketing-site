@@ -15,6 +15,7 @@ const Card = ({ href, title, description, image }: CardProps) => {
             <div className={successStoryLogoWrapper}>{image}</div>
             <p>{description}.</p>
             <LinkOutlined
+                id={`read-button-home-page-success-stories-section-${title.replaceAll(' ', '-')}`}
                 href={href}
                 rel="noopener"
                 aria-label={`Read success story for ${title}`}

@@ -17,7 +17,7 @@ const Hero = () => {
                             real-time ETL and ELT data pipelines. Batch-load for
                             analytics, and stream for ops and AI - all set up in
                             minutes, with millisecond latency."
-                    ctaButtons={<HeroSectionActions />}
+                    ctaButtons={<HeroSectionActions pageId="product-page" />}
                     hasSubscriptionBenefits
                 />
                 <StaticImage
@@ -34,6 +34,7 @@ const Hero = () => {
                     isActive
                     href={webinarsUrl}
                     icon={<RecordIcon color="var(--white)" />}
+                    buttonId="see-overview-button-product-page"
                 />
                 <Card
                     title="QUICKSTART"
@@ -46,6 +47,7 @@ const Hero = () => {
                             loading="eager"
                         />
                     }
+                    buttonId="quickstart-button-product-page"
                 />
                 <Card
                     title="JOIN COMMUNITY"
@@ -59,6 +61,7 @@ const Hero = () => {
                             loading="eager"
                         />
                     }
+                    buttonId="join-community-button-product-page"
                 />
             </div>
         </section>
