@@ -52,15 +52,6 @@ jobs:
                   GATSBY_DB_HOST: ${{ secrets.GATSBY_DB_HOST }}
                   GATSBY_DB_PORT: ${{ secrets.GATSBY_DB_PORT }}
                   GATSBY_DB_NAME: ${{ secrets.GATSBY_DB_NAME }}
-            - name: run Lighthouse CI
-              run: |
-                  npm install -g @lhci/cli@0.13.x
-                  lhci autorun
-              env:
-                  LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
-                  LHCI_TOKEN: ${{ secrets.LHCI_TOKEN }}
-                  LHCI_BASIC_AUTH_USERNAME: ${{ secrets.LHCI_BASIC_AUTH_USERNAME }}
-                  LHCI_BASIC_AUTH_PASSWORD: ${{ secrets.LHCI_BASIC_AUTH_PASSWORD }}
             - uses: FirebaseExtended/action-hosting-deploy@v0
               id: firebase
               with:
