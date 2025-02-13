@@ -2,6 +2,8 @@ name: Deploy to Firebase Preview
 
 on:
     pull_request:
+    label:
+        types: [created, deleted, edited]
 
 concurrency:
     group: preview-${{ github.ref }}
