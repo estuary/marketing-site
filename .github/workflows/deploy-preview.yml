@@ -44,7 +44,8 @@ jobs:
               env:
                   CI: true
 
-            - run: yarn run build --log-pages
+            - name: Run build
+              run: yarn run build --log-pages
               if: ${{ github.event.pull_request.draft != true }}
               env:
                   CI: true
@@ -58,6 +59,7 @@ jobs:
 
             - uses: FirebaseExtended/action-hosting-deploy@v0
               if: contains(github.event.pull_request.labels.*.name, 'generate-pr-preview')
+              needs: Run build
               id: firebase
               with:
                   repoToken: '${{ secrets.GITHUB_TOKEN }}'
