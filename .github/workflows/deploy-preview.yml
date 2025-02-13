@@ -58,8 +58,8 @@ jobs:
                   GATSBY_DB_NAME: ${{ secrets.GATSBY_DB_NAME }}
 
             - uses: FirebaseExtended/action-hosting-deploy@v0
+              if: ${{ github.event.pull_request.draft != true }}
               if: contains(github.event.pull_request.labels.*.name, 'generate-pr-preview')
-              needs: Run build
               id: firebase
               with:
                   repoToken: '${{ secrets.GITHUB_TOKEN }}'
