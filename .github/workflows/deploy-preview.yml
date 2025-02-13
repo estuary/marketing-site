@@ -2,22 +2,6 @@ name: Deploy to Firebase Preview
 
 on:
     pull_request:
-        # We should look into not always running a preview for every PR
-        # paths:
-        #     - .env
-        #     - .firebaserc
-        #     - .lighthouserc.js
-        #     - config.ts
-        #     - gatsby*
-        #     - package.json
-        #     - tsconfig.json
-        #     - types.d.tsconfig
-        #     - yarn.lock
-        #     - content/**
-        #     - patches/**
-        #     - plugins/**
-        #     - src/**
-        #     - static/**
 
 concurrency:
     group: preview-${{ github.ref }}
@@ -25,6 +9,7 @@ concurrency:
 jobs:
     build_and_preview:
         runs-on: ubuntu-2404-large
+        if: contains(github.event.pull_request.labels.*.name, 'generate-pr-preview')
         steps:
             - name: Checkout
               uses: actions/checkout@v3
@@ -79,6 +64,6 @@ jobs:
               with:
                   repoToken: '${{ secrets.GITHUB_TOKEN }}'
                   firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
-                  expires: 30d
+                  expires: 10d
                   projectId: estuary-marketing
             - run: echo ${{steps.firebase.outputs.urls}}
