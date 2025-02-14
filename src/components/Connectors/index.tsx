@@ -4,7 +4,7 @@ import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
 import { useMemo, useState } from 'react';
 import { useLunr } from 'react-lunr';
 import clsx from 'clsx';
-import { ConnectorType } from '../../../shared';
+import { ConnectorType, getSlugifiedText } from '../../../shared';
 import FlowLogo from '../../svgs/flow-logo.svg';
 import { normalizeConnector } from '../../utils';
 import BigImageBackground from '../BackgroundImages/BigImageBackground';
@@ -66,10 +66,7 @@ const ConnectorCard = ({
     type,
     showType = false,
 }: ReturnType<typeof normalizeConnector> & { showType?: boolean }) => (
-    <Link
-        id={`${title.replaceAll(' ', '-').toLowerCase()}-link-connectors-page`}
-        to={`${slug}`}
-    >
+    <Link id={`${getSlugifiedText(title)}-link-connectors-page`} to={`${slug}`}>
         <div className={connectorCard}>
             <div className={connectorCardTop}>
                 <GatsbyImage

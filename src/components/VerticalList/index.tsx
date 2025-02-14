@@ -4,6 +4,7 @@ import ApplePodcastButton from '../../svgs/apple-podcasts.svg';
 import SpotifyButton from '../../svgs/listen-spotify.svg';
 import WatchYoutubeButton from '../../svgs/youtube-watch.svg';
 import LinkFilled from '../LinksAndButtons/LinkFilled';
+import { getSlugifiedText } from '../../../shared';
 import {
     list,
     episodeLeft,
@@ -50,7 +51,7 @@ const VerticalList = ({ items, pageId }) => {
                                     item.links?.strapi_json_value.map(
                                         (link) => (
                                             <OutboundLink
-                                                id={`${item.title.replaceAll(' ', '-')}-${pageId}`}
+                                                id={`${getSlugifiedText(item.title)}-${pageId}`}
                                                 key={link}
                                                 href={link}
                                                 target="_blank"
@@ -76,7 +77,7 @@ const VerticalList = ({ items, pageId }) => {
                                     )
                                 ) : (
                                     <LinkFilled
-                                        id={`${item.title.replaceAll(' ', '-')}-read-button-${pageId}`}
+                                        id={`${getSlugifiedText(item.title)}-read-button-${pageId}`}
                                         href={`/${item.slug}`}
                                         className={readLink}
                                     >

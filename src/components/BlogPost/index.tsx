@@ -12,7 +12,11 @@ import ShareArticle from '../ShareArticle';
 import { ProcessedPost } from '../BlogPostProcessor';
 import BlogBanner from '../BlogBanner';
 import ArticleSidebar from '../ArticleSidebar';
-import { dashboardRegisterUrl, getAuthorPathBySlug } from '../../../shared';
+import {
+    dashboardRegisterUrl,
+    getAuthorPathBySlug,
+    getSlugifiedText,
+} from '../../../shared';
 import Avatar from '../../components/Avatar';
 import SocialLinks from '../../components/SocialLinks';
 import OutboundLinkFilled from '../../components/LinksAndButtons/OutboundLinkFilled';
@@ -228,7 +232,7 @@ const BlogPost = ({
                                 <>
                                     <div key={index} className={authorInfo}>
                                         <Link
-                                            id={`${author.name.replaceAll(' ', '-')}-blog-post-author-about-section`}
+                                            id={`${getSlugifiedText(author.name)}-blog-post-author-about-section`}
                                             to={getAuthorPathBySlug(
                                                 author?.slug
                                             )}

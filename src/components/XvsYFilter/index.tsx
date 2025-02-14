@@ -2,6 +2,7 @@ import { InputLabel, FormControl, MenuItem, Select } from '@mui/material';
 import clsx from 'clsx';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import LinkFilled from '../LinksAndButtons/LinkFilled';
+import { getSlugifiedText } from '../../../shared';
 import {
     wrapper,
     formControl,
@@ -51,15 +52,13 @@ const getLinkId = (
         return undefined;
     }
 
-    const xTitle = xSelect.items
-        .find((item) => item.id === xSelect.value)
-        ?.title.replaceAll(' ', '-')
-        .toLowerCase();
+    const xTitle = getSlugifiedText(
+        xSelect.items.find((item) => item.id === xSelect.value)?.title
+    );
 
-    const yTitle = ySelect.items
-        .find((item) => item.id === ySelect.value)
-        ?.title.replaceAll(' ', '-')
-        .toLowerCase();
+    const yTitle = getSlugifiedText(
+        ySelect.items.find((item) => item.id === ySelect.value)?.title
+    );
 
     return `${xTitle}-vs-${yTitle}-${buttonTitle.toLowerCase()}-button`;
 };

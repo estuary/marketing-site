@@ -2,7 +2,7 @@ import { getImage } from 'gatsby-plugin-image';
 import { Link } from 'gatsby';
 import { Fragment } from 'react';
 import Avatar from '../Avatar';
-import { getAuthorPathBySlug } from '../../../shared';
+import { getAuthorPathBySlug, getSlugifiedText } from '../../../shared';
 import { container, avatarWrapper, authorName } from './styles.module.less';
 
 export interface BioProps {
@@ -35,7 +35,7 @@ const Bio = ({ authors }: BioProps) => {
 
                 const combined = (
                     <Link
-                        id={`${name.replaceAll(' ', '-')}-blog-post-author-hero-section`}
+                        id={`${getSlugifiedText(name)}-blog-post-author-hero-section`}
                         to={getAuthorPathBySlug(slug)}
                         className={avatarWrapper}
                     >
