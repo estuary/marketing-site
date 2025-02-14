@@ -636,6 +636,7 @@ export const createResolvers: GatsbyNode['createResolvers'] = async ({
                         return logoNode.logo;
                     }
 
+                    console.log('   createResolversParam no logo found', id);
                     return null;
                 },
             },
