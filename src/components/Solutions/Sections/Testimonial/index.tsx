@@ -4,6 +4,7 @@ import { defaultWrapperGrey } from '../../../../globalStyles/wrappers.module.les
 import { sectionText } from '../../styles.module.less';
 import { TestimonialSectionContent } from '../../../../templates/solutions/shared';
 import LinkOutlined from '../../../LinksAndButtons/LinkOutlined';
+import { getSlugifiedText } from '../../../../../shared';
 import {
     quoteBox,
     quoteTextMargin,
@@ -44,6 +45,7 @@ const Testimonial = ({ data }: TestimonialProps) => {
                         </p>
                         {data.quote.companyName ? (
                             <LinkOutlined
+                                id={`${getSlugifiedText(data.quote.companyName)}-success-story-button-solution-page`}
                                 href={data.quote.successStoryUrl}
                                 variant="secondary"
                             >
