@@ -68,7 +68,12 @@ export const PopularArticles = () => {
     return (
         <Grid>
             {popularArticles?.nodes?.map((article: any) => (
-                <Card key={article.id} data={article} footerTag="Article" />
+                <Card
+                    key={article.id}
+                    data={article}
+                    footerTag="Article"
+                    linkId={`${article.title.replaceAll(' ', '-')}-popular-article-blog-post-page`}
+                />
             ))}
         </Grid>
     );

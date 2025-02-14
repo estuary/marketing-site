@@ -228,6 +228,7 @@ const BlogPost = ({
                                 <>
                                     <div key={index} className={authorInfo}>
                                         <Link
+                                            id={`${author.name.replaceAll(' ', '-')}-blog-post-author-about-section`}
                                             to={getAuthorPathBySlug(
                                                 author?.slug
                                             )}
@@ -355,12 +356,13 @@ const BlogPost = ({
                         </div>
                         <div className={buildPipelineAndPricingButtons}>
                             <OutboundLinkFilled
-                                id="build-a-pipeline-button-streaming-pipelines-blog-post-page"
+                                id="build-a-pipeline-button-blog-post-page-streaming-pipelines-section"
                                 href={dashboardRegisterUrl}
                             >
                                 Build a Pipeline
                             </OutboundLinkFilled>
                             <OutboundLinkOutlined
+                                id="see-pricing-button-blog-post-page-streaming-pipelines-section"
                                 href="https://estuary.dev/pricing/"
                                 className={pricingLink}
                             >

@@ -36,6 +36,7 @@ interface CardProps {
     };
     footerTag?: string;
     hasImgBackground?: boolean;
+    linkId: string;
 }
 
 const getReadingTime = (body?: CardProps['data']['body']) => {
@@ -121,7 +122,12 @@ const renderAuthors = (authors: CardProps['data']['authors']) => {
     );
 };
 
-const Card = ({ data, footerTag, hasImgBackground = false }: CardProps) => {
+const Card = ({
+    data,
+    footerTag,
+    hasImgBackground = false,
+    linkId,
+}: CardProps) => {
     const cardImage = getCardImage(data.hero);
     const readingTime = getReadingTime(data.body);
 
@@ -133,7 +139,7 @@ const Card = ({ data, footerTag, hasImgBackground = false }: CardProps) => {
 
     return (
         <li key={data.id}>
-            <Link to={`/${data.slug}`} className={container}>
+            <Link id={linkId} to={`/${data.slug}`} className={container}>
                 {hasImgBackground ? (
                     <div className={imgWrapper}>
                         <GatsbyImage {...imageProps} />

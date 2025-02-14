@@ -3,7 +3,11 @@ import LinkFilled from '../LinksAndButtons/LinkFilled';
 import OutboundLinkFilled from '../LinksAndButtons/OutboundLinkFilled';
 import { signUp, signupBg, signupHeading, ctaWrap } from './styles.module.less';
 
-const SignUp = () => {
+interface SignUpProps {
+    pageId: string;
+}
+
+const SignUp = ({ pageId }: SignUpProps) => {
     return (
         <section className={signUp}>
             <div className={signupBg}>
@@ -12,12 +16,18 @@ const SignUp = () => {
                 </div>
                 <div className={ctaWrap}>
                     <OutboundLinkFilled
+                        id={`sign-up-button-${pageId}-see-how-section`}
                         href={dashboardRegisterUrl}
                         target="_blank"
                     >
                         Sign up
                     </OutboundLinkFilled>
-                    <LinkFilled href="/contact-us/">Contact us</LinkFilled>
+                    <LinkFilled
+                        id={`contact-us-button-${pageId}-see-how-section`}
+                        href="/contact-us/"
+                    >
+                        Contact us
+                    </LinkFilled>
                 </div>
             </div>
         </section>

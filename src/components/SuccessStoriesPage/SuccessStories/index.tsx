@@ -60,6 +60,7 @@ const SuccessStories = () => {
                                 data={successStory}
                                 footerTag="Success story"
                                 hasImgBackground
+                                linkId={`${successStory.title.replaceAll(' ', '-')}-card-button-success-stories-page`}
                             />
                         ))}
                 </Grid>

@@ -13,7 +13,7 @@ import {
     readLink,
 } from './styles.module.less';
 
-const VerticalList = ({ items }) => {
+const VerticalList = ({ items, pageId }) => {
     return (
         <ul className={list}>
             {items.map((item) => {
@@ -50,6 +50,7 @@ const VerticalList = ({ items }) => {
                                     item.links?.strapi_json_value.map(
                                         (link) => (
                                             <OutboundLink
+                                                id={`${item.title.replaceAll(' ', '-')}-${pageId}`}
                                                 key={link}
                                                 href={link}
                                                 target="_blank"
@@ -75,6 +76,7 @@ const VerticalList = ({ items }) => {
                                     )
                                 ) : (
                                     <LinkFilled
+                                        id={`${item.title.replaceAll(' ', '-')}-read-button-${pageId}`}
                                         href={`/${item.slug}`}
                                         className={readLink}
                                     >
