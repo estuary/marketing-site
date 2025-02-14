@@ -12,7 +12,11 @@ const ResourcesAndGettingStarted = () => (
             Icon={DocsIcon}
             title="Docs"
             link={
-                <Link href={docsPageUrl} isExternal>
+                <Link
+                    id="explore-docs-link-partners-page"
+                    href={docsPageUrl}
+                    isExternal
+                >
                     Explore Docs
                 </Link>
             }
@@ -23,7 +27,14 @@ const ResourcesAndGettingStarted = () => (
         <Card
             Icon={BlogIcon}
             title="Blog"
-            link={<Link href="/blog/data-engineering/">Learn More</Link>}
+            link={
+                <Link
+                    id="learn-more-link-partners-page"
+                    href="/blog/data-engineering/"
+                >
+                    Learn More
+                </Link>
+            }
         >
             Master or review key concepts to build innovative data integration
             solutions.
@@ -32,7 +43,11 @@ const ResourcesAndGettingStarted = () => (
             Icon={SlackOutlineIcon}
             title="Community"
             link={
-                <Link href={slackUrl} isExternal>
+                <Link
+                    id="join-slack-link-partners-page"
+                    href={slackUrl}
+                    isExternal
+                >
                     Join Slack Community
                 </Link>
             }

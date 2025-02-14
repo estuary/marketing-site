@@ -10,7 +10,11 @@ interface PartnerAvatarProps {
 const PartnerAvatar = ({ icon, name, href }: PartnerAvatarProps) => {
     return (
         <li>
-            <OutboundLink href={href} target="__blank">
+            <OutboundLink
+                id={`${name.toLowerCase()}-logo-button-partners-page`}
+                href={href}
+                target="__blank"
+            >
                 <div>{icon}</div>
                 <span>{name}</span>
             </OutboundLink>
