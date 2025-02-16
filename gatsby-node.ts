@@ -566,19 +566,15 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
     getCache,
     createContentDigest,
 }) => {
-    console.log('sourceNodes start');
     const pool = new pg.Pool({
         connectionString: SUPABASE_CONNECTION_STRING,
         connectionTimeoutMillis: 5 * 1000,
     });
 
-    console.log('-fetching start');
     const connectors = await pool.query(
         'select connectors.id as id, connectors.logo_url as logo_url from public.connectors;'
     );
-    console.log('-fetching done');
 
-    console.log('--loop start');
     for (const conn of connectors.rows) {
         const usUrl = conn.logo_url?.['en-US'];
 
@@ -600,15 +596,10 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
                     contentDigest: createContentDigest(fileNode),
                 },
             });
-        } else {
-            console.error('---no logo', conn.id);
         }
     }
-    console.log('--loop done');
 
     await pool.end();
-
-    console.log('sourceNodes done');
 };
 
 export const createResolvers: GatsbyNode['createResolvers'] = async ({
@@ -630,7 +621,6 @@ export const createResolvers: GatsbyNode['createResolvers'] = async ({
                         return logoNode.logo;
                     }
 
-                    console.log('   createResolversParam no logo found', id);
                     return null;
                 },
             },
