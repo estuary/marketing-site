@@ -1,10 +1,10 @@
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql } from 'gatsby';
 import Layout from '../../components/Layout';
-import Seo from '../../components/seo';
 import { Vendor } from '../../../shared';
 import Hero from '../../components/EtlToolsXvsYPage/Hero';
 import Comparison from '../../components/EtlToolsXvsYPage/Comparison';
 import GettingStarted from '../../components/EtlToolsXvsYPage/GettingStarted';
+import VendorComparisonHead from './Head';
 
 interface EtlToolsProps {
     data: {
@@ -43,27 +43,9 @@ const EtlTools = ({
     );
 };
 
-export const Head = ({ data: { xVendor, yVendor } }) => {
-    const { metaImg } = useStaticQuery(graphql`
-        query {
-            metaImg: file(relativePath: { eq: "vendor-comparison.png" }) {
-                childImageSharp {
-                    gatsbyImageData(layout: FIXED, width: 1080)
-                }
-            }
-        }
-    `);
-
-    return (
-        <Seo
-            title={`${xVendor.name} vs ${yVendor.name}: Data Integration Tools Compared`}
-            description={`Compare ${xVendor.name} vs ${yVendor.name}. Discover their key differences, ETL/ELT features, and pricing to choose the right data integration platform.`}
-            image={metaImg.childImageSharp.gatsbyImageData.images.fallback.src}
-        />
-    );
-};
-
 export default EtlTools;
+
+export const Head = VendorComparisonHead;
 
 export const pageQuery = graphql`
     query GetComparisons(
