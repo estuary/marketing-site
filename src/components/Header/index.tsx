@@ -50,11 +50,7 @@ const MenuBarsImage = () => (
     </svg>
 );
 
-type HeaderProps = {
-    fixedHeader?: boolean;
-};
-
-const Header = ({ fixedHeader }: HeaderProps) => {
+const Header = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [activeMenu, setActiveMenu] = useState<string | null>(null);
 
@@ -82,7 +78,7 @@ const Header = ({ fixedHeader }: HeaderProps) => {
                 menuOpen={Boolean(mobileMenuOpen || activeMenu)}
             />
             <header
-                className={clsx(headerBar, fixedHeader && globalHeaderFixed)}
+                className={clsx(headerBar, globalHeaderFixed)}
                 ref={wrapperRef}
             >
                 <div className={globalHeader}>

@@ -18,6 +18,15 @@ const path = require('path');
 
 // Define the template for blog and blog post
 const blogPostTemplate = path.resolve('./src/templates/blog-post/index.tsx');
+const useCaseSolutionsTemplate = path.resolve(
+    './src/templates/solutions/use-cases/index.tsx'
+);
+const industrySolutionsTemplate = path.resolve(
+    './src/templates/solutions/industry/index.tsx'
+);
+const technologySolutionsTemplate = path.resolve(
+    './src/templates/solutions/technology/index.tsx'
+);
 const companyUpdatesPostTemplate = path.resolve(
     './src/templates/company-update-post/index.tsx'
 );
@@ -450,6 +459,80 @@ export const createPages: GatsbyNode['createPages'] = async ({
             },
         });
     });
+
+    const solutionsQuery = await graphql<{
+        allStrapiSolution: {
+            nodes: {
+                slug: string;
+                id: string;
+            }[];
+        };
+    }>(`
+        {
+            allStrapiSolution {
+                nodes {
+                    slug
+                    id
+                }
+            }
+        }
+    `);
+
+    if (solutionsQuery.errors) {
+        reporter.panicOnBuild(
+            'There was an error loading your solutions.',
+            solutionsQuery.errors
+        );
+        return;
+    }
+
+    const allSolutions = solutionsQuery.data?.allStrapiSolution.nodes ?? [];
+
+    const useCaseSolutions = allSolutions.filter((solution) =>
+        solution.slug.includes('/use-cases/')
+    );
+    const industrySolutions = allSolutions.filter((solution) =>
+        solution.slug.includes('/industry/')
+    );
+    const technologySolutions = allSolutions.filter((solution) =>
+        solution.slug.includes('/technology/')
+    );
+
+    validateDataExistence(allSolutions, 'Solutions');
+
+    const solutionsUrlPrefix = '/solutions';
+
+    await Promise.all([
+        Promise.all(
+            useCaseSolutions.map((useCaseSolution) =>
+                createPage({
+                    path: `${solutionsUrlPrefix}${useCaseSolution.slug}`,
+                    component: useCaseSolutionsTemplate,
+                    context: { id: useCaseSolution.id },
+                })
+            )
+        ),
+
+        Promise.all(
+            industrySolutions.map((industrySolution) =>
+                createPage({
+                    path: `${solutionsUrlPrefix}${industrySolution.slug}`,
+                    component: industrySolutionsTemplate,
+                    context: { id: industrySolution.id },
+                })
+            )
+        ),
+
+        Promise.all(
+            technologySolutions.map((technologySolution) =>
+                createPage({
+                    path: `${solutionsUrlPrefix}${technologySolution.slug}`,
+                    component: technologySolutionsTemplate,
+                    context: { id: technologySolution.id },
+                })
+            )
+        ),
+    ]);
 };
 
 // Hacky hack :(
@@ -483,15 +566,19 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
     getCache,
     createContentDigest,
 }) => {
+    console.log('sourceNodes start');
     const pool = new pg.Pool({
         connectionString: SUPABASE_CONNECTION_STRING,
         connectionTimeoutMillis: 5 * 1000,
     });
 
+    console.log('-fetching start');
     const connectors = await pool.query(
         'select connectors.id as id, connectors.logo_url as logo_url from public.connectors;'
     );
+    console.log('-fetching done');
 
+    console.log('--loop start');
     for (const conn of connectors.rows) {
         const usUrl = conn.logo_url?.['en-US'];
 
@@ -513,10 +600,15 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
                     contentDigest: createContentDigest(fileNode),
                 },
             });
+        } else {
+            console.error('---no logo', conn.id);
         }
     }
+    console.log('--loop done');
 
     await pool.end();
+
+    console.log('sourceNodes done');
 };
 
 export const createResolvers: GatsbyNode['createResolvers'] = async ({
@@ -538,6 +630,7 @@ export const createResolvers: GatsbyNode['createResolvers'] = async ({
                         return logoNode.logo;
                     }
 
+                    console.log('   createResolversParam no logo found', id);
                     return null;
                 },
             },

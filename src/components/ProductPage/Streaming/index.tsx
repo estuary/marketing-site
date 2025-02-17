@@ -29,7 +29,7 @@ import {
 const Streaming = () => {
     return (
         <section className={defaultWrapperDarkBlue}>
-            <Container isVertical>
+            <Container isVertical isDarkTheme>
                 <h2 className={title}>
                     STREAMING <span>ETL VS. BATCH ELT</span>
                 </h2>

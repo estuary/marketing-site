@@ -13,6 +13,16 @@
     max-width: 50%;
   }
 
+  h1, h2, p {
+    color: var(--grey);
+  }
+
+  h1, h2 {
+    span {
+      color: var(--blue);
+    }
+  }
+
   @media (max-width: 1024px) {
     flex-direction: column-reverse;
     gap: 40px;
@@ -25,6 +35,10 @@
 
   @media (max-width: 425px) {
     gap: 20px;
+
+    h2 {
+      font-size: 1.75rem;
+    }
   }
 }
 

@@ -23,20 +23,20 @@ interface SectionOneProps {
 const Hero = ({ vendors, xVendor, yVendor }: SectionOneProps) => {
     return (
         <section className={defaultWrapperDarkBlue}>
-            <Container>
+            <Container isDarkTheme>
                 <HeroSectionDetails
                     title={
                         <>
-                            <span>{xVendor.name}</span> <span>VS</span>{' '}
-                            <span>{yVendor.name}</span>
+                            {xVendor.name} <span>VS</span> {yVendor.name}
                         </>
                     }
                     description={
                         <>
-                            Read this detailed 2024 comparison of {xVendor.name}{' '}
-                            vs {yVendor.name}. Understand their key differences,
-                            core features, and pricing to choose the right
-                            platform for your data integration needs.
+                            Read this detailed {new Date().getFullYear()}{' '}
+                            comparison of {xVendor.name} vs {yVendor.name}.
+                            Understand their key differences, core features, and
+                            pricing to choose the right platform for your data
+                            integration needs.
                         </>
                     }
                     additionalElements={

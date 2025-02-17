@@ -12,7 +12,7 @@ const Hero = () => {
         <section className={wrapper}>
             <Container>
                 <HeroSectionDetails
-                    title="ESTUARY FLOW"
+                    title={<span>ESTUARY FLOW</span>}
                     description="Estuary Flow is the only platform purpose-built for
                             real-time ETL and ELT data pipelines. Batch-load for
                             analytics, and stream for ops and AI - all set up in

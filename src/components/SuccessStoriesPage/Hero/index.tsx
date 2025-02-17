@@ -12,11 +12,11 @@ const commonProps: Partial<IStaticImageProps> = {
 
 const Hero = () => (
     <section className={wrapper}>
-        <Container>
+        <Container isDarkTheme>
             <HeroSectionDetails
                 title={
                     <>
-                        ESTUARY FLOW <span>POWERS ORGANIZATIONS WORLDWIDE</span>
+                        <span>ESTUARY FLOW</span> POWERS ORGANIZATIONS WORLDWIDE
                     </>
                 }
                 description="See how our customers build with Estuary Flow to solve their challanges."

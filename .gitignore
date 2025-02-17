@@ -5,6 +5,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# We do not use this but just in case someone has it left hanging around
 .lighthouseci/
 
 # Runtime data

@@ -5,6 +5,16 @@ import clsx from 'clsx';
 import { HTMLTooltipProps } from '../../HTMLTooltip';
 import Container from '../../Container';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
+import NoCodeIcon from '../../../svgs/product-page/section-three/no-code.svg';
+import CdcIcon from '../../../svgs/cdc.svg';
+import KafkaIcon from '../../../svgs/kafka.svg';
+import TimeIcon from '../../../svgs/time.svg';
+import StorageIcon from '../../../svgs/storage.svg';
+import DataOpsIcon from '../../../svgs/data-ops.svg';
+import SourceIcon from '../../../svgs/source.svg';
+import ReplayIcon from '../../../svgs/replay.svg';
+import SchemaIcon from '../../../svgs/schema.svg';
+import MultiCloudIcon from '../../../svgs/multi-cloud.svg';
 import KeyFeature from './KeyFeature';
 import { features } from './features';
 import {
@@ -35,6 +45,8 @@ const tooltipRightProps: Omit<HTMLTooltipProps, 'children' | 'title'> = {
     placement: 'right',
 };
 
+const iconColor = '#fff';
+
 const KeyFeatures = () => {
     const isDesktop = useMediaQuery('(min-width:811px)');
 
@@ -42,53 +54,23 @@ const KeyFeatures = () => {
         () => [
             {
                 feature: features.noCodeConnectors,
-                icon: (
-                    <StaticImage
-                        placeholder="none"
-                        alt="No-code connectors"
-                        src="../../../svgs/product-page/section-three/no-code.svg"
-                    />
-                ),
+                icon: <NoCodeIcon color={iconColor} />,
             },
             {
                 feature: features.endToEndCdc,
-                icon: (
-                    <StaticImage
-                        placeholder="none"
-                        alt="End-to-end CDC"
-                        src="../../../svgs/product-page/section-three/cdc.svg"
-                    />
-                ),
+                icon: <CdcIcon color={iconColor} />,
             },
             {
                 feature: features.kafkaCompatible,
-                icon: (
-                    <StaticImage
-                        placeholder="none"
-                        alt="Kafka"
-                        src="../../../svgs/product-page/section-three/kafka.svg"
-                    />
-                ),
+                icon: <KafkaIcon color={iconColor} />,
             },
             {
                 feature: features.realTimeAndBatch,
-                icon: (
-                    <StaticImage
-                        placeholder="none"
-                        alt="Real-time and batch"
-                        src="../../../svgs/product-page/section-three/time.svg"
-                    />
-                ),
+                icon: <TimeIcon color={iconColor} />,
             },
             {
                 feature: features.privateStorage,
-                icon: (
-                    <StaticImage
-                        placeholder="none"
-                        alt="Private storage"
-                        src="../../../svgs/product-page/section-three/storage.svg"
-                    />
-                ),
+                icon: <StorageIcon color={iconColor} />,
             },
         ],
         []
@@ -98,54 +80,24 @@ const KeyFeatures = () => {
         () => [
             {
                 feature: features.eltAndEtl,
-                icon: (
-                    <StaticImage
-                        placeholder="none"
-                        alt="Data ops"
-                        src="../../../svgs/product-page/section-three/data-ops.svg"
-                    />
-                ),
+                icon: <DataOpsIcon color={iconColor} />,
             },
             {
                 feature: features.manyToMany,
-                icon: (
-                    <StaticImage
-                        placeholder="none"
-                        alt="Many to many"
-                        src="../../../svgs/product-page/section-three/source.svg"
-                    />
-                ),
+                icon: <SourceIcon color={iconColor} />,
             },
             {
                 feature: features.backfillAndReplay,
-                icon: (
-                    <StaticImage
-                        placeholder="none"
-                        alt="Backfill and replay"
-                        src="../../../svgs/product-page/section-three/replay.svg"
-                    />
-                ),
+                icon: <ReplayIcon color={iconColor} />,
             },
             {
                 feature: features.schemaEvolution,
-                icon: (
-                    <StaticImage
-                        placeholder="none"
-                        alt="Schema evolution"
-                        src="../../../svgs/product-page/section-three/schema.svg"
-                    />
-                ),
+                icon: <SchemaIcon color={iconColor} />,
                 props: { ...tooltipRightProps, disableInteractive: false },
             },
             {
                 feature: features.multiCloud,
-                icon: (
-                    <StaticImage
-                        placeholder="none"
-                        alt="Multi Cloud"
-                        src="../../../svgs/product-page/section-three/multi-cloud.svg"
-                    />
-                ),
+                icon: <MultiCloudIcon color={iconColor} />,
             },
         ],
         []

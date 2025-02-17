@@ -1,3 +1,5 @@
+import { MouseEvent } from 'react';
+
 export const accordionStyles = {
     'background': 'transparent !important',
     '&.MuiAccordion-root:before': {
@@ -18,3 +20,12 @@ export const accordionSummaryStyles = {
         margin: '0 !important',
     },
 };
+
+export type MenuEvent = MouseEvent<HTMLDivElement>;
+
+export interface MenuCardItem {
+    name: string;
+    description?: string;
+    to: string;
+    Image?: () => JSX.Element;
+}

@@ -1,11 +1,12 @@
 @import '../../../globalStyles/sections.module.less';
+@import '../../breakpoints.less';
 
 .wrapper {
     width: 100%;
     background-color: var(--dark-blue);
     flex-direction: column;
 
-    @media (min-width: 1025px) {
+    @media (min-width: @menuTransitionMinWidthBreakpoint) {
         position: fixed;
         left: 50%;
         transform: translateX(-50%);
@@ -14,12 +15,12 @@
 }
 
 .commonPadding {
-    @media (max-width: 1400px) {
+    @media (max-width: 1530px) {
         padding-left: ~'calc(min(2vw, 160px))';
         padding-right: ~'calc(min(2vw, 160px))';
     }
 
-    @media (max-width: 1024px) {
+    @media (max-width: @menuTransitionMaxWidthBreakpoint) {
         padding-left: ~'calc(min(10vw, 160px))';
         padding-right: ~'calc(min(10vw, 160px))';
     }
@@ -46,7 +47,7 @@
         max-height: 60vh;
     }
 
-    @media (max-width: 1024px) {
+    @media (max-width: @menuTransitionMaxWidthBreakpoint) {
         grid-template-columns: 1fr 1fr;
         padding: 0 20px;
     }
@@ -66,7 +67,7 @@
     background-color: #1b3465;
     height: 1px;
 
-    @media (max-width: 1024px) {
+    @media (max-width: @menuTransitionMaxWidthBreakpoint) {
         margin: 12px 0;
         padding: 0;
     }

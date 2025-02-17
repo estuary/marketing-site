@@ -1,0 +1,51 @@
+.container {
+  background-color: var(--white);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 36px;
+
+  p {
+    margin: 0;
+    color: var(--grey);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 20px;
+  }
+
+  svg {
+    width: 48px;
+    min-width: 32px;
+  }
+
+  @media(max-width: 1024px) {
+    height: 100%;
+
+    svg {
+      width: 32px;
+    }
+  }
+
+  @media(min-width: 1025px) {
+    max-width: 408px;
+  }
+
+  @media(max-width: 350px) {
+    gap: 24px;
+    padding: 16px;
+
+    p {
+      font-size: 0.75rem;
+    }
+  }
+}
+
+.darkTheme {
+  background-color: #2A458A1A;
+  border: 1px dotted #2A458A33;
+
+  p {
+    color: var(--white);
+  }
+}

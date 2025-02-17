@@ -1,4 +1,3 @@
-import DatabaseSavingWithLowPrice from '../../../svgs/database-saving-with-low-price.svg';
 import { PricingCalculator } from '../../PricingCalculator';
 import Advantages from '../../Advantages';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
@@ -8,7 +7,6 @@ const Do4xMoreWith25xLess = () => {
     return (
         <section className={defaultWrapperGrey}>
             <Advantages
-                icon={<DatabaseSavingWithLowPrice color="var(--blue)" />}
                 title={
                     <>
                         DO <span>MORE </span> WITH <span>LESS</span>

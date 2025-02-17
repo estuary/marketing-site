@@ -20,12 +20,12 @@ import {
 } from '../styles.module.less';
 import Carousel from '../../Carousel';
 import SuccessIcon from '../../../svgs/success.svg';
-import { accordionStyles, accordionSummaryStyles } from '../shared';
+import { accordionStyles, accordionSummaryStyles, MenuEvent } from '../shared';
 import LinkOutlined from '../../LinksAndButtons/LinkOutlined';
 import OutboundLinkOutlined from '../../LinksAndButtons/OutboundLinkOutlined';
 import HeaderViewAllLink from '../HeaderViewAllLink';
+import MenuLink from '../MenuLink';
 import { listen, read, partners } from './items';
-import ResourcesLink from './Link';
 
 const iconSize = 16;
 
@@ -34,7 +34,19 @@ const HeaderNavbarResources = ({ active, setActive }) => {
         allStrapiCaseStudy: { nodes: allSuccessStories },
     } = useStaticQuery(graphql`
         query GetAllMenuSuccessStories {
-            allStrapiCaseStudy(limit: 7) {
+            allStrapiCaseStudy(
+                limit: 4
+                filter: {
+                    Slug: {
+                        in: [
+                            "prodege"
+                            "davidenergy"
+                            "flashpack"
+                            "Launchmetrics"
+                        ]
+                    }
+                }
+            ) {
                 nodes {
                     LinkOneLiner
                     Description
@@ -46,9 +58,9 @@ const HeaderNavbarResources = ({ active, setActive }) => {
         }
     `);
 
-    const isMobile = useMediaQuery('(max-width:1024px)');
+    const isMobile = useMediaQuery('(max-width:1142px)');
 
-    const onClick = (ev: { preventDefault: () => void }) => {
+    const onClick = (ev: MenuEvent) => {
         if (isMobile) {
             ev.preventDefault();
             setActive((prev: string) =>
@@ -57,14 +69,30 @@ const HeaderNavbarResources = ({ active, setActive }) => {
         }
     };
 
-    const onMouseEnter = (ev: { preventDefault: () => void }) => {
+    const onMouseEnter = (ev: MenuEvent) => {
         if (!isMobile) {
             ev.preventDefault();
             setActive('resources');
         }
     };
 
-    const successStoryItems = allSuccessStories.map((successStory) => ({
+    const successStoriesSlugOrder = [
+        'prodege',
+        'davidenergy',
+        'flashpack',
+        'Launchmetrics',
+    ];
+
+    const orderedAllSuccessStories = allSuccessStories.sort(
+        (a: { Slug: string }, b: { Slug: string }) => {
+            return (
+                successStoriesSlugOrder.indexOf(a.Slug) -
+                successStoriesSlugOrder.indexOf(b.Slug)
+            );
+        }
+    );
+
+    const successStoryItems = orderedAllSuccessStories.map((successStory) => ({
         name: successStory.Title.toUpperCase(),
         to: `/success-stories/${successStory.Slug}`,
         description: successStory.LinkOneLiner,
@@ -78,7 +106,7 @@ const HeaderNavbarResources = ({ active, setActive }) => {
                 onMouseEnter={onMouseEnter}
                 sx={accordionSummaryStyles}
             >
-                <ResourcesLink active={active} />
+                <MenuLink title="Resources" active={active} />
             </AccordionSummary>
             <AccordionDetails className={accordionDetails}>
                 <Card>
@@ -104,7 +132,13 @@ const HeaderNavbarResources = ({ active, setActive }) => {
                         />
                     </div>
                     <div className={columnWithTwoRows}>
-                        <CardItem title="READ" items={read} onlyContent />
+                        <CardItem
+                            title="READ"
+                            items={read}
+                            onlyContent
+                            hasSeeMoreButton
+                            maxNumberOfLinks={5}
+                        />
                         <CardItem title="LISTEN" items={listen} onlyContent />
                     </div>
                     <CardItem className={hideOnMobile} title="DEMO" onlyContent>

@@ -1,0 +1,16 @@
+@import '../../breakpoints.less';
+
+.menuChevron {
+  transition: transform 150ms;
+  transform: rotate(90deg);
+}
+
+.activeHeaderLink {
+  .menuChevron {
+    transform: rotate(-90deg);
+  }
+
+  @media(min-width: @menuTransitionMinWidthBreakpoint) {
+    background-color: var(--header-link-hover);
+  }
+}

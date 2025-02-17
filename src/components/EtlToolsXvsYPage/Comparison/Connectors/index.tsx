@@ -6,6 +6,7 @@ const rows = [
     { label: 'Streaming connectors', key: 'streaming' },
     { label: '3rd party connectors', key: 'thirdParty' },
     { label: 'Custom SDK', key: 'customSdk' },
+    { label: 'Request a connector', key: 'requestAConnector' },
 ];
 
 const Connectors = ({ xVendor, yVendor, estuaryVendor }: ComparisonVendors) => {

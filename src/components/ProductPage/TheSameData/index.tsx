@@ -4,6 +4,9 @@ import clsx from 'clsx';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import Tabs from '../../Tabs';
 import Container from '../../Container';
+import PieChartIcon from '../../../svgs/pie-chart.svg';
+import OpsIcon from '../../../svgs/ops.svg';
+import AndroidBrainIcon from '../../../svgs/android-brain.svg';
 import LogoAndPath from './LogoAndPath';
 import {
     amazonRedshiftLogoWrapper,
@@ -32,25 +35,13 @@ const TheSameData = () => {
                 <div className={textWrapper}>
                     <div className={iconsWrapper}>
                         <div className={iconWrapper}>
-                            <StaticImage
-                                placeholder="none"
-                                alt="Analytics - pie chart"
-                                src="../../../svgs/pie-chart.svg"
-                            />
+                            <PieChartIcon color="var(--blue)" />
                         </div>
                         <div className={iconWrapper}>
-                            <StaticImage
-                                placeholder="none"
-                                alt="Ops"
-                                src="../../../svgs/ops.svg"
-                            />
+                            <OpsIcon />
                         </div>
                         <div className={iconWrapper}>
-                            <StaticImage
-                                placeholder="none"
-                                alt="AI - artificial intelligence"
-                                src="../../../svgs/android-brain.svg"
-                            />
+                            <AndroidBrainIcon />
                         </div>
                     </div>
                     <h2>
@@ -78,7 +69,7 @@ const TheSameData = () => {
                                                 )}
                                             >
                                                 <StaticImage
-                                                    placeholder="none"
+                                                    placeholder="blurred"
                                                     alt="Analytics Connectors"
                                                     src="../../../images/product-page/section-five/analytics-connectors.png"
                                                 />
@@ -131,7 +122,7 @@ const TheSameData = () => {
                                             <LogoAndPath tab="ops" />
                                             <div className={connectors}>
                                                 <StaticImage
-                                                    placeholder="none"
+                                                    placeholder="blurred"
                                                     alt="Ops Connectors"
                                                     src="../../../images/product-page/section-five/ops-connectors.png"
                                                     height={128}
@@ -182,7 +173,7 @@ const TheSameData = () => {
                                             <LogoAndPath tab="ai" />
                                             <div className={connectors}>
                                                 <StaticImage
-                                                    placeholder="none"
+                                                    placeholder="blurred"
                                                     alt="AI Connectors"
                                                     src="../../../images/product-page/section-five/ai-connectors.png"
                                                     height={128}

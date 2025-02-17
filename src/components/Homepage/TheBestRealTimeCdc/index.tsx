@@ -1,5 +1,4 @@
 import { StaticImage } from 'gatsby-plugin-image';
-import RealTimeCdc from '../../../svgs/real-time-cdc.svg';
 import Advantages from '../../Advantages';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import LinkFilled from '../../LinksAndButtons/LinkFilled';
@@ -8,7 +7,6 @@ const TheBestRealTimeCdc = () => {
     return (
         <section className={defaultWrapperGrey}>
             <Advantages
-                icon={<RealTimeCdc />}
                 title={
                     <>
                         USE THE BEST <span>REAL-TIME CDC</span>
