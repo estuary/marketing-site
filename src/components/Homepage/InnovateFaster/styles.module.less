@@ -1,32 +1,58 @@
 @import '../../../globalStyles/sections.module.less';
 
-.wrapper {
-    padding-right: 0;
+@badgeColor: #A4B6F480;
 
+.container {
     h2 {
-        .globalMaxWidth;
-        padding-left: 0;
+        max-width: 530px;
+        text-align: left;
     }
 
     p {
-        .globalMaxWidth;
-
-        padding-left: 0;
-        width: 100%;
-        margin: 0;
-        text-align: center;
+        text-align: left;
     }
+}
 
-    @media (max-width: 425px) {
-        h2 {
-            padding-left: 0;
-            padding-right: 20px;
-            font-size: 1.75rem;
-        }
+.row {
+    flex-direction: row;
+}
 
-        p {
-            padding-left: 0;
-            padding-right: 20px;
-        }
+.badgesWrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.addBadge {
+    width: 80px;
+    height: 80px;
+    border: 1px dashed @badgeColor;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0C2032;
+
+    span {
+        font-size: 3rem;
+        color: @badgeColor;
+        font-weight: 200;
+        margin-bottom: 4px;
+    }
+}
+
+.rightColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.starsWrapper {
+    margin-left: 16px;
+
+    p {
+        color: #7786B6;
+        font-size: 1rem;
+        line-height: 30px;
     }
 }
