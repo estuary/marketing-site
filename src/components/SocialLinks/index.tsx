@@ -9,10 +9,10 @@ import { container, highlightedIconStyle } from './styles.module.less';
 const iconColor = 'var(--grey)';
 
 interface SocialLinksProps {
-    socialLinks: {
-        linked_in: string;
-        twitter: string;
-        other: string;
+    socialLinks?: {
+        linked_in?: string;
+        twitter?: string;
+        other?: string;
     };
     hasHighlightedIcons?: boolean;
 }
@@ -23,7 +23,7 @@ const SocialLinks = ({
 }: SocialLinksProps) => {
     return (
         <div className={container}>
-            {socialLinks.linked_in ? (
+            {socialLinks?.linked_in ? (
                 <OutboundLink
                     href={socialLinks.linked_in}
                     target="_blank"
@@ -34,7 +34,7 @@ const SocialLinks = ({
                     <LinkedinIcon color={iconColor} />
                 </OutboundLink>
             ) : null}
-            {socialLinks.twitter ? (
+            {socialLinks?.twitter ? (
                 <OutboundLink
                     href={socialLinks.twitter}
                     target="_blank"
@@ -45,7 +45,7 @@ const SocialLinks = ({
                     <TwitterXIcon />
                 </OutboundLink>
             ) : null}
-            {socialLinks.other ? (
+            {socialLinks?.other ? (
                 <OutboundLink
                     href={socialLinks.other}
                     target="_blank"
