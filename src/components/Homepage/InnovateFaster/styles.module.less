@@ -3,6 +3,8 @@
 @badgeColor: #A4B6F480;
 
 .container {
+    flex-direction: row;
+
     h2 {
         max-width: 530px;
         text-align: left;
@@ -11,21 +13,30 @@
     p {
         text-align: left;
     }
-}
 
-.row {
-    flex-direction: row;
+    @media (max-width: 1024px) {
+        flex-direction: column;
+    }
 }
 
 .badgesWrapper {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 80px) 1fr;
     align-items: center;
     gap: 8px;
+
+    img,
+    .addBadge {
+        max-width: 80px;
+    }
+
+    @media (max-width: 768px) {
+        display: flex;
+        flex-wrap: wrap;
+    }
 }
 
 .addBadge {
-    width: 80px;
-    height: 80px;
     border: 1px dashed @badgeColor;
     border-radius: 100%;
     display: flex;
@@ -39,12 +50,17 @@
         font-weight: 200;
         margin-bottom: 4px;
     }
+
+    @media (max-width: 768px) {
+        min-width: 80px;
+    }
 }
 
 .rightColumn {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 100%;
 }
 
 .starsWrapper {
@@ -54,5 +70,9 @@
         color: #7786B6;
         font-size: 1rem;
         line-height: 30px;
+    }
+
+    @media (max-width: 768px) {
+        margin: 12px 0 0 0;
     }
 }
