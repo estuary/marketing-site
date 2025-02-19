@@ -626,13 +626,13 @@ export const createPages: GatsbyNode['createPages'] = async ({
     };
 
     await Promise.all([
-        (_) => createConnectors('connectors', createHelperParams),
-        (_) => createBlogs('blog posts', createHelperParams),
-        (_) => createAuthors('authors', createHelperParams),
-        (_) => createCompanyPosts('company posts', createHelperParams),
-        (_) => createSolutions('solutions', createHelperParams),
-        (_) => createSuccessStories('success stories', createHelperParams),
-        (_) => createVendorCompare('vendor compare', createHelperParams),
+        createConnectors('connectors', createHelperParams),
+        createBlogs('blog posts', createHelperParams),
+        createAuthors('authors', createHelperParams),
+        createCompanyPosts('company posts', createHelperParams),
+        createSolutions('solutions', createHelperParams),
+        createSuccessStories('success stories', createHelperParams),
+        createVendorCompare('vendor compare', createHelperParams),
     ]);
 };
 
