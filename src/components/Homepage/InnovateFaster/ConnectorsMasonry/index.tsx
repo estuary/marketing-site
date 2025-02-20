@@ -1,15 +1,22 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import { IStaticImageProps } from 'gatsby-plugin-image/dist/src/components/static-image.server';
+import clsx from 'clsx';
 import {
     rowsWrapper,
     row,
     item,
+    nullItemBorderColor,
     logoPlaceholder,
+    logoPlaceholderGradientRight,
+    logoPlaceholderGradientLeft,
     namePlaceholder,
+    namePlaceholderGradientRight,
+    namePlaceholderGradientLeft,
     logoStyle,
 } from './styles.module.less';
 
-const nullConnector = { name: null, logo: null };
+const nullConnectorLeft = { name: null, logo: null, direction: 'left' };
+const nullConnectorRight = { name: null, logo: null, direction: 'right' };
 
 const commonProps: Partial<IStaticImageProps> = {
     quality: 100,
@@ -17,7 +24,7 @@ const commonProps: Partial<IStaticImageProps> = {
 };
 
 const row1 = [
-    ...Array(7).fill(nullConnector),
+    ...Array(7).fill(nullConnectorLeft),
     {
         name: 'Mongo DB',
         logo: (
@@ -88,11 +95,11 @@ const row1 = [
             />
         ),
     },
-    ...Array(7).fill(nullConnector),
+    ...Array(7).fill(nullConnectorRight),
 ];
 
 const row2 = [
-    ...Array(7).fill(nullConnector),
+    ...Array(7).fill(nullConnectorLeft),
     {
         name: 'Elastic',
         logo: (
@@ -153,11 +160,11 @@ const row2 = [
             />
         ),
     },
-    ...Array(7).fill(nullConnector),
+    ...Array(7).fill(nullConnectorRight),
 ];
 
 const row3 = [
-    ...Array(7).fill(nullConnector),
+    ...Array(7).fill(nullConnectorLeft),
     {
         name: 'MS SQL Server',
         logo: (
@@ -208,11 +215,11 @@ const row3 = [
             />
         ),
     },
-    ...Array(7).fill(nullConnector),
+    ...Array(7).fill(nullConnectorRight),
 ];
 
 const row4 = [
-    ...Array(7).fill(nullConnector),
+    ...Array(7).fill(nullConnectorLeft),
     {
         name: 'Microsoft Fabric Warehouse',
         logo: (
@@ -253,7 +260,7 @@ const row4 = [
             />
         ),
     },
-    ...Array(7).fill(nullConnector),
+    ...Array(7).fill(nullConnectorRight),
 ];
 
 const connectorRows = [row1, row2, row3, row4];
@@ -264,19 +271,39 @@ const ConnectorsMasonry = () => {
             {connectorRows.map((rowData, rowIndex) => (
                 <div key={rowIndex} className={row}>
                     {rowData.map((connector, index) => (
-                        <div key={index} className={item}>
+                        <div
+                            key={index}
+                            className={clsx(
+                                item,
+                                connector.logo ? null : nullItemBorderColor
+                            )}
+                        >
                             {connector.logo ? (
                                 <div className={logoStyle}>
                                     {connector.logo}
                                 </div>
                             ) : (
-                                <div className={logoPlaceholder} />
+                                <div
+                                    className={clsx(
+                                        logoPlaceholder,
+                                        connector.direction === 'left'
+                                            ? logoPlaceholderGradientLeft
+                                            : logoPlaceholderGradientRight
+                                    )}
+                                />
                             )}
                             <span>
                                 {connector.name ? (
                                     connector.name
                                 ) : (
-                                    <div className={namePlaceholder} />
+                                    <div
+                                        className={clsx(
+                                            namePlaceholder,
+                                            connector.direction === 'left'
+                                                ? namePlaceholderGradientLeft
+                                                : namePlaceholderGradientRight
+                                        )}
+                                    />
                                 )}
                             </span>
                         </div>
