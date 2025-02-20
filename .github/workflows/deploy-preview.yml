@@ -2,15 +2,6 @@ name: Deploy to Firebase Preview
 
 on:
     pull_request:
-        types:
-            [
-                opened,
-                synchronize,
-                reopened,
-                labeled,
-                unlabeled,
-                ready_for_review,
-            ]
 
 concurrency:
     group: preview-${{ github.ref }}
@@ -54,7 +45,6 @@ jobs:
 
             - name: Run build
               run: yarn run build --log-pages
-              if: ${{ github.event.pull_request.draft != true }}
               env:
                   CI: true
                   STRAPI_API_URL: ${{ secrets.STRAPI_API_URL }}
@@ -66,7 +56,7 @@ jobs:
                   GATSBY_DB_NAME: ${{ secrets.GATSBY_DB_NAME }}
 
             - uses: FirebaseExtended/action-hosting-deploy@v0
-              if: ${{ github.event.pull_request.draft != true && contains(github.event.pull_request.labels.*.name, 'generate-pr-preview') }}
+              if: ${{ contains(github.event.pull_request.labels.*.name, 'generate-pr-preview') }}
               id: firebase
               with:
                   repoToken: '${{ secrets.GITHUB_TOKEN }}'
