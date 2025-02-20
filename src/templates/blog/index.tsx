@@ -72,58 +72,56 @@ const BlogIndex = ({
     const handleQueryChange = (evt) => setQuery(evt.target.value);
 
     const results = useMemo(() => {
-        const splitQuery = query.split(' ');
+        // We might want to look into handling case better
+        //  but seems if you upper case stuff results don't come back
+        const splitQuery = query
+            .toLowerCase()
+            .split(' ')
+            .filter((term) => term.length > 0);
 
         return index
             .query((q) => {
-                splitQuery.forEach((term) => {
-                    if (!term || term.length <= 0) {
-                        return;
-                    }
-
-                    // Perfect match on a tag is highest as we put them there to make things searchable
-                    q.term(term, {
-                        fields: ['searchable_tags'],
-                        wildcard: lunr.Query.wildcard.NONE,
-                        boost: 35,
-                    });
-
-                    // Perfect match on the title
-                    q.term(term, {
-                        fields: ['title'],
-                        wildcard: lunr.Query.wildcard.NONE,
-                        boost: 30,
-                    });
-
-                    // Wildcard match on just title (since user cannot see tags in search results)
-                    q.term(term, {
-                        fields: ['title'],
-                        wildcard: lunr.Query.wildcard.TRAILING,
-                        boost: 20,
-                    });
-
-                    // If a perfect match on the slug (URL) then match
-                    q.term(term, {
-                        fields: ['slug'],
-                        wildcard: lunr.Query.wildcard.TRAILING,
-                        boost: 15,
-                    });
-
-                    // Look in anything with a trailing match
-                    q.term(term, {
-                        wildcard: lunr.Query.wildcard.TRAILING,
-                        boost: 10,
-                    });
-
-                    // TODO spelling altersaions - previously we used this setting
-                    //  but this returned A LOT of stuff that just was not related.
-                    // Example :
-                    //  searching "pinecone" would return "pipeline" because it is off by 3 alterations
-                    // q.term(term, {
-                    //     editDistance: Math.min(Math.max(0, term.length - 1), 3),
-                    // });
+                // Perfect match on a tag is highest as we put them there to make things searchable
+                q.term(splitQuery, {
+                    fields: ['searchable_tags'],
+                    wildcard: lunr.Query.wildcard.NONE,
+                    boost: 35,
                 });
 
+                // Perfect match on the title
+                q.term(splitQuery, {
+                    fields: ['title'],
+                    wildcard: lunr.Query.wildcard.NONE,
+                    boost: 30,
+                });
+
+                // Wildcard match on just title (since user cannot see tags in search results)
+                q.term(splitQuery, {
+                    fields: ['title'],
+                    wildcard: lunr.Query.wildcard.TRAILING,
+                    boost: 20,
+                });
+
+                // If a perfect match on the slug (URL) then match
+                q.term(splitQuery, {
+                    fields: ['slug'],
+                    wildcard: lunr.Query.wildcard.TRAILING,
+                    boost: 15,
+                });
+
+                // Look in anything with a trailing match
+                q.term(splitQuery, {
+                    wildcard: lunr.Query.wildcard.TRAILING,
+                    boost: 10,
+                });
+
+                // TODO spelling altersaions - previously we used this setting
+                //  but this returned A LOT of stuff that just was not related.
+                // Example :
+                //  searching "pinecone" would return "pipeline" because it is off by 3 alterations
+                // q.term(splitQuery, {
+                //     editDistance: Math.min(Math.max(0, term.length - 1), 3),
+                // });
                 return q;
             })
             .map((r) => data.localSearchPosts.store[r.ref]);
