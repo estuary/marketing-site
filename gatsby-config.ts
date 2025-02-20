@@ -552,16 +552,28 @@ const cfg: GatsbyConfig = {
                 // containing properties to index. The objects must contain the `ref`
                 // field above (default: 'id'). This is required.
                 normalizer: ({ data }) => {
-                    return data.allStrapiBlogPost.nodes.map((node) => {
-                        console.log('LunrSearch:normalizer:blog', node.slug);
+                    const startTime = performance.now();
+                    const response = data.allStrapiBlogPost.nodes.map(
+                        (node) => {
+                            console.log(
+                                'LunrSearch:normalizer:blog',
+                                node.slug
+                            );
 
-                        return {
-                            ...node,
-                            searchable_tags: node.tags
-                                .map((t) => t.Name)
-                                .join(' '),
-                        };
-                    });
+                            return {
+                                ...node,
+                                searchable_tags: node.tags
+                                    .map((t) => t.Name)
+                                    .join(' '),
+                            };
+                        }
+                    );
+
+                    console.log(
+                        `LunrSearch:normalizer:blog took ${Math.ceil(performance.now() - startTime)}ms`
+                    );
+
+                    return response;
                 },
             },
         },
@@ -629,7 +641,8 @@ const cfg: GatsbyConfig = {
                 // containing properties to index. The objects must contain the `ref`
                 // field above (default: 'id'). This is required.
                 normalizer: ({ data }) => {
-                    return data.postgres.allConnectors.nodes
+                    const startTime = performance.now();
+                    const response = data.postgres.allConnectors.nodes
                         .map((node) => {
                             console.log(
                                 'LunrSearch:normalizer:connector',
@@ -640,6 +653,11 @@ const cfg: GatsbyConfig = {
                         .filter((connector) => {
                             return connector !== undefined;
                         });
+
+                    console.log(
+                        `LunrSearch:normalizer:connector took ${Math.ceil(performance.now() - startTime)}ms`
+                    );
+                    return response;
                 },
             },
         },
