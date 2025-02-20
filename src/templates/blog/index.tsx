@@ -74,13 +74,18 @@ const BlogIndex = ({
     const results = useMemo(() => {
         // We might want to look into handling case better
         //  but seems if you upper case stuff results don't come back
-        const splitQuery = query
-            .toLowerCase()
+        const lowerQuery = query.toLowerCase();
+        const splitQuery = lowerQuery
             .split(' ')
             .filter((term) => term.length > 0);
 
         return index
             .query((q) => {
+                // We still might want to try first searching for things that 100% match exactly what the user has provided
+                // q.term(lowerQuery, {
+                //     boost: 50,
+                // });
+
                 // Perfect match on a tag is highest as we put them there to make things searchable
                 q.term(splitQuery, {
                     fields: ['searchable_tags'],
