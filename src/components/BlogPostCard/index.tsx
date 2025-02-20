@@ -19,13 +19,6 @@ export interface BlogPostCardProps {
     }[];
     authors: {
         name: string;
-        picture: {
-            localFile: {
-                childImageSharp: {
-                    gatsbyImageData: any;
-                };
-            };
-        };
         link: string;
     }[];
     hero?: {
