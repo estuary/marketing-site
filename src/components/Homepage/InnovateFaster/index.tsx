@@ -31,8 +31,16 @@ const InnovateFaster = () => {
                             alt="AI data-cloud products partner"
                             placeholder="blurred"
                             quality={100}
-                            width={80}
-                            height={80}
+                            width={120}
+                            height={120}
+                        />
+                        <StaticImage
+                            src="../../../images/trusted-partner-badges/databricks-technology-partner-validated.png"
+                            alt="AI data-cloud products partner"
+                            placeholder="blurred"
+                            quality={100}
+                            width={120}
+                            height={120}
                         />
                         <div className={addBadge}>
                             <span>+</span>
