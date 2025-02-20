@@ -1,6 +1,6 @@
 import { Link, graphql } from 'gatsby';
 
-import { Divider } from '@mui/material';
+import { Alert, Divider } from '@mui/material';
 import clsx from 'clsx';
 import lunr, { type Index } from 'lunr';
 import { useMemo, useState } from 'react';
@@ -72,20 +72,63 @@ const BlogIndex = ({
     const handleQueryChange = (evt) => setQuery(evt.target.value);
 
     const results = useMemo(() => {
-        const query_result = index.query((q) => {
-            const terms = query.split(' ').filter((term) => term.length > 0);
-            for (const term of terms) {
-                q.term(term, {
-                    wildcard: lunr.Query.wildcard.TRAILING,
-                    boost: 10,
+        const splitQuery = query.split(' ');
+
+        return index
+            .query((q) => {
+                splitQuery.forEach((term) => {
+                    if (!term || term.length <= 0) {
+                        return;
+                    }
+
+                    // Perfect match on a tag is highest as we put them there to make things searchable
+                    q.term(term, {
+                        fields: ['searchable_tags'],
+                        wildcard: lunr.Query.wildcard.NONE,
+                        boost: 35,
+                    });
+
+                    // Perfect match on the title
+                    q.term(term, {
+                        fields: ['title'],
+                        wildcard: lunr.Query.wildcard.NONE,
+                        boost: 30,
+                    });
+
+                    // Wildcard match on just title (since user cannot see tags in search results)
+                    q.term(term, {
+                        fields: ['title'],
+                        wildcard: lunr.Query.wildcard.TRAILING,
+                        boost: 20,
+                    });
+
+                    // If a perfect match on the slug (URL) then match
+                    q.term(term, {
+                        fields: ['slug'],
+                        wildcard: lunr.Query.wildcard.TRAILING,
+                        boost: 15,
+                    });
+
+                    // Look in anything with a trailing match
+                    q.term(term, {
+                        wildcard: lunr.Query.wildcard.TRAILING,
+                        boost: 10,
+                    });
+
+                    // TODO spelling altersaions - previously we used this setting:
+                    //     Math.min(Math.max(0, term.length - 1), 2),
+                    // but this returned A LOT of stuff that just was not related. Example - searching
+                    //      "pinecone" would return "pipeline" because it is off by 3 alterations
+
+                    // Go ahead and finally search based on a SINGLE potential spelling alterations
+                    q.term(term, {
+                        editDistance: 1,
+                    });
                 });
-                q.term(term, {
-                    editDistance: Math.min(Math.max(0, term.length - 1), 3),
-                });
-            }
-            return q;
-        });
-        return query_result.map((r) => data.localSearchPosts.store[r.ref]);
+
+                return q;
+            })
+            .map((r) => data.localSearchPosts.store[r.ref]);
     }, [query, index, data.localSearchPosts.store]);
 
     const tabCategories = [
@@ -137,15 +180,15 @@ const BlogIndex = ({
                         handleQueryChange={handleQueryChange}
                     />
                 </div>
+
                 <Grid className={blogsIndexBody}>
-                    {(query.length > 0 ? results : posts).map(
-                        (post, postIndex) => (
-                            <BlogPostCard
-                                key={`${post.slug}_${postIndex}`}
-                                {...post}
-                            />
-                        )
-                    )}
+                    {query.length > 0 && results.length < 1 ? (
+                        <Alert severity="info">No blog posts found</Alert>
+                    ) : null}
+
+                    {(query.length > 0 ? results : posts).map((post) => (
+                        <BlogPostCard key={post.id} {...post} />
+                    ))}
                 </Grid>
             </BigImageBackground>
             {prevPage ?? nextPage ? (

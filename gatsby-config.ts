@@ -348,7 +348,7 @@ const cfg: GatsbyConfig = {
         },
     },
     flags: {
-        // PRESERVE_FILE_DOWNLOAD_CACHE: true,
+        PRESERVE_FILE_DOWNLOAD_CACHE: true,
         PARALLEL_SOURCING: false,
         DEV_SSR: true,
     },
@@ -495,6 +495,7 @@ const cfg: GatsbyConfig = {
                     allStrapiBlogPost{
                         nodes {
                             id
+                            description: Description
                             title: Title
                             slug: Slug
                             publishedAt(formatString: "MMMM D, YYYY")
@@ -532,7 +533,7 @@ const cfg: GatsbyConfig = {
                 // List of keys to index. The values of the keys are taken from the
                 // normalizer function below.
                 // Default: all fields
-                index: ['title', 'searchable_tags'],
+                index: ['slug', 'title', 'searchable_tags'],
 
                 // List of keys to store and make available in your UI. The values of
                 // the keys are taken from the normalizer function below.
