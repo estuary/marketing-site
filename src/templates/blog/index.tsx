@@ -114,7 +114,7 @@ const BlogIndex = ({
                     boost: 10,
                 });
 
-                // TODO spelling altersaions - previously we used this setting
+                // TODO spelling alterations - previously we used this setting
                 //  but this returned A LOT of stuff that just was not related.
                 // Example :
                 //  searching "pinecone" would return "pipeline" because it is off by 3 alterations
