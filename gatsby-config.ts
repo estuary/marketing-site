@@ -348,7 +348,8 @@ const cfg: GatsbyConfig = {
         },
     },
     flags: {
-        PARALLEL_SOURCING: true,
+        PRESERVE_FILE_DOWNLOAD_CACHE: true,
+        PARALLEL_SOURCING: false,
         DEV_SSR: true,
     },
     // graphqlTypegen: true,
@@ -488,12 +489,6 @@ const cfg: GatsbyConfig = {
                 // The following engines are supported: flexsearch, lunr
                 engine: 'lunr',
 
-                // Provide options to the engine. This is optional and only recommended
-                // for advanced users.
-                //
-                // Note: Only the flexsearch engine supports options.
-                // engineOptions: "default",
-
                 // GraphQL query used to fetch all data for the search index. This is required.
                 query: `
                 {
@@ -537,7 +532,7 @@ const cfg: GatsbyConfig = {
                 // List of keys to index. The values of the keys are taken from the
                 // normalizer function below.
                 // Default: all fields
-                index: ['title', 'searchable_tags'],
+                index: ['author_names', 'title', 'searchable_tags'],
 
                 // List of keys to store and make available in your UI. The values of
                 // the keys are taken from the normalizer function below.
@@ -557,10 +552,19 @@ const cfg: GatsbyConfig = {
                 // containing properties to index. The objects must contain the `ref`
                 // field above (default: 'id'). This is required.
                 normalizer: ({ data }) => {
-                    return data.allStrapiBlogPost.nodes.map((node) => ({
-                        ...node,
-                        searchable_tags: node.tags.map((t) => t.Name).join(' '),
-                    }));
+                    return data.allStrapiBlogPost.nodes.map((node) => {
+                        console.log('LunrSearch:normalizer:blog', node.slug);
+
+                        return {
+                            ...node,
+                            author_names: node.authors
+                                .map((a) => a.name)
+                                .join(' '),
+                            searchable_tags: node.tags
+                                .map((t) => t.Name)
+                                .join(' '),
+                        };
+                    });
                 },
             },
         },
@@ -574,12 +578,6 @@ const cfg: GatsbyConfig = {
                 // Set the search engine to create the index. This is required.
                 // The following engines are supported: flexsearch, lunr
                 engine: 'lunr',
-
-                // Provide options to the engine. This is optional and only recommended
-                // for advanced users.
-                //
-                // Note: Only the flexsearch engine supports options.
-                // engineOptions: "default",
 
                 // GraphQL query used to fetch all data for the search index. This is
                 // required.
@@ -614,9 +612,7 @@ const cfg: GatsbyConfig = {
                 // Default: all fields
                 index: ['title', 'shortDescription', 'type'],
 
-                // List of keys to store and make available in your UI. The values of
-                // the keys are taken from the normalizer function below.
-                // Default: all fields
+                // These match the response of normalizeConnector()
                 store: [
                     'id',
                     'externalUrl',
@@ -635,10 +631,19 @@ const cfg: GatsbyConfig = {
                 // return an array of items to index in the form of flat objects
                 // containing properties to index. The objects must contain the `ref`
                 // field above (default: 'id'). This is required.
-                normalizer: ({ data }) =>
-                    data.postgres.allConnectors.nodes
-                        .map(normalizeConnector)
-                        .filter((connector) => connector !== undefined),
+                normalizer: ({ data }) => {
+                    return data.postgres.allConnectors.nodes
+                        .map((node) => {
+                            console.log(
+                                'LunrSearch:normalizer:connector',
+                                node.imageName
+                            );
+                            return normalizeConnector(node);
+                        })
+                        .filter((connector) => {
+                            return connector !== undefined;
+                        });
+                },
             },
         },
         {
