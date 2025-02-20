@@ -1,4 +1,5 @@
 import { StaticImage } from 'gatsby-plugin-image';
+import { IStaticImageProps } from 'gatsby-plugin-image/dist/src/components/static-image.server';
 import {
     rowsWrapper,
     row,
@@ -10,6 +11,11 @@ import {
 
 const nullConnector = { name: null, logo: null };
 
+const commonProps: Partial<IStaticImageProps> = {
+    quality: 100,
+    placeholder: 'blurred',
+};
+
 const row1 = [
     ...Array(7).fill(nullConnector),
     {
@@ -18,8 +24,7 @@ const row1 = [
             <StaticImage
                 src="../../../../images/mongodb-logo.png"
                 alt="Mongo DB logo"
-                quality={100}
-                placeholder="blurred"
+                {...commonProps}
             />
         ),
     },
@@ -29,8 +34,7 @@ const row1 = [
             <StaticImage
                 src="../../../../images/postgres_logo.png"
                 alt="PostgreSQL logo"
-                quality={100}
-                placeholder="blurred"
+                {...commonProps}
             />
         ),
     },
@@ -40,8 +44,7 @@ const row1 = [
             <StaticImage
                 src="../../../../images/oracle-logo.png"
                 alt="Oracle logo"
-                quality={100}
-                placeholder="blurred"
+                {...commonProps}
             />
         ),
     },
@@ -51,8 +54,7 @@ const row1 = [
             <StaticImage
                 src="../../../../images/snowflake_logo.png"
                 alt="Snowflake logo"
-                quality={100}
-                placeholder="blurred"
+                {...commonProps}
             />
         ),
     },
@@ -62,8 +64,7 @@ const row1 = [
             <StaticImage
                 src="../../../../images/databricks-logo.png"
                 alt="Databricks logo"
-                quality={100}
-                placeholder="blurred"
+                {...commonProps}
             />
         ),
     },
@@ -73,8 +74,7 @@ const row1 = [
             <StaticImage
                 src="../../../../images/apache-iceberg-logo.png"
                 alt="Apache Iceberg logo"
-                quality={100}
-                placeholder="blurred"
+                {...commonProps}
             />
         ),
     },
@@ -84,8 +84,7 @@ const row1 = [
             <StaticImage
                 src="../../../../images/bigquery_logo.png"
                 alt="Google BigQuery logo"
-                quality={100}
-                placeholder="blurred"
+                {...commonProps}
             />
         ),
     },
@@ -100,8 +99,7 @@ const row2 = [
             <StaticImage
                 src="../../../../images/elastic-logo.png"
                 alt="Elastic logo"
-                quality={100}
-                placeholder="blurred"
+                {...commonProps}
             />
         ),
     },
@@ -111,8 +109,7 @@ const row2 = [
             <StaticImage
                 src="../../../../images/amazon-redshift-logo.png"
                 alt="Amazon Redshift logo"
-                quality={100}
-                placeholder="blurred"
+                {...commonProps}
             />
         ),
     },
@@ -122,8 +119,7 @@ const row2 = [
             <StaticImage
                 src="../../../../images/sheets_logo.png"
                 alt="Google Sheets logo"
-                quality={100}
-                placeholder="blurred"
+                {...commonProps}
             />
         ),
     },
@@ -133,8 +129,7 @@ const row2 = [
             <StaticImage
                 src="../../../../images/salesforce-logo.png"
                 alt="Salesforce logo"
-                quality={100}
-                placeholder="blurred"
+                {...commonProps}
             />
         ),
     },
@@ -144,8 +139,7 @@ const row2 = [
             <StaticImage
                 src="../../../../images/netsuite-logo.png"
                 alt="Netsuite logo"
-                quality={100}
-                placeholder="blurred"
+                {...commonProps}
             />
         ),
     },
@@ -155,8 +149,7 @@ const row2 = [
             <StaticImage
                 src="../../../../images/apache-kafka-logo.png"
                 alt="Apache Kafka logo"
-                quality={100}
-                placeholder="blurred"
+                {...commonProps}
             />
         ),
     },
@@ -171,8 +164,7 @@ const row3 = [
             <StaticImage
                 src="../../../../images/ms-sql-server-logo.png"
                 alt="MS SQL Server logo"
-                quality={100}
-                placeholder="blurred"
+                {...commonProps}
             />
         ),
     },
@@ -182,8 +174,7 @@ const row3 = [
             <StaticImage
                 src="../../../../images/google-ads-logo.png"
                 alt="Google Ads logo"
-                quality={100}
-                placeholder="blurred"
+                {...commonProps}
             />
         ),
     },
@@ -193,8 +184,7 @@ const row3 = [
             <StaticImage
                 src="../../../../images/facebook-ads-logo.png"
                 alt="Facebook Ads logo"
-                quality={100}
-                placeholder="blurred"
+                {...commonProps}
             />
         ),
     },
@@ -204,8 +194,7 @@ const row3 = [
             <StaticImage
                 src="../../../../images/hubspot-logo.png"
                 alt="Hubspot logo"
-                quality={100}
-                placeholder="blurred"
+                {...commonProps}
             />
         ),
     },
@@ -215,8 +204,7 @@ const row3 = [
             <StaticImage
                 src="../../../../images/shopify-logo.png"
                 alt="Shopify logo"
-                quality={100}
-                placeholder="blurred"
+                {...commonProps}
             />
         ),
     },
@@ -231,8 +219,7 @@ const row4 = [
             <StaticImage
                 src="../../../../images/microsoft-fabric-warehouse-logo.png"
                 alt="Microsoft Fabric Warehouse logo"
-                quality={100}
-                placeholder="blurred"
+                {...commonProps}
             />
         ),
     },
@@ -242,8 +229,7 @@ const row4 = [
             <StaticImage
                 src="../../../../images/http-webhooks-logo.png"
                 alt="HTTP Webhook logo"
-                quality={100}
-                placeholder="blurred"
+                {...commonProps}
             />
         ),
     },
@@ -253,8 +239,7 @@ const row4 = [
             <StaticImage
                 src="../../../../images/motherduck-logo.png"
                 alt="MotherDuck logo"
-                quality={100}
-                placeholder="blurred"
+                {...commonProps}
             />
         ),
     },
@@ -264,8 +249,7 @@ const row4 = [
             <StaticImage
                 src="../../../../images/tinybird-logo.png"
                 alt="Tinybird logo"
-                quality={100}
-                placeholder="blurred"
+                {...commonProps}
             />
         ),
     },
