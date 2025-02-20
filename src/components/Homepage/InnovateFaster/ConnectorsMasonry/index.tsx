@@ -10,14 +10,47 @@ import {
 
 const nullConnector = { name: null, logo: null };
 
-const connectors = [
+const row1 = [
     ...Array(7).fill(nullConnector),
     {
-        name: 'Amazon Redshift',
+        name: 'Mongo DB',
         logo: (
             <StaticImage
-                src="../../../../images/amazon-redshift-logo.png"
-                alt="Amazon Redshift logo"
+                src="../../../../images/mongodb-logo.png"
+                alt="Mongo DB logo"
+                quality={100}
+                placeholder="blurred"
+            />
+        ),
+    },
+    {
+        name: 'PostgreSQL',
+        logo: (
+            <StaticImage
+                src="../../../../images/postgres_logo.png"
+                alt="PostgreSQL logo"
+                quality={100}
+                placeholder="blurred"
+            />
+        ),
+    },
+    {
+        name: 'Oracle',
+        logo: (
+            <StaticImage
+                src="../../../../images/oracle-logo.png"
+                alt="Oracle logo"
+                quality={100}
+                placeholder="blurred"
+            />
+        ),
+    },
+    {
+        name: 'Snowflake',
+        logo: (
+            <StaticImage
+                src="../../../../images/snowflake_logo.png"
+                alt="Snowflake logo"
                 quality={100}
                 placeholder="blurred"
             />
@@ -35,6 +68,33 @@ const connectors = [
         ),
     },
     {
+        name: 'Apache Iceberg',
+        logo: (
+            <StaticImage
+                src="../../../../images/apache-iceberg-logo.png"
+                alt="Apache Iceberg logo"
+                quality={100}
+                placeholder="blurred"
+            />
+        ),
+    },
+    {
+        name: 'Google BigQuery',
+        logo: (
+            <StaticImage
+                src="../../../../images/bigquery_logo.png"
+                alt="Google BigQuery logo"
+                quality={100}
+                placeholder="blurred"
+            />
+        ),
+    },
+    ...Array(7).fill(nullConnector),
+];
+
+const row2 = [
+    ...Array(7).fill(nullConnector),
+    {
         name: 'Elastic',
         logo: (
             <StaticImage
@@ -46,44 +106,55 @@ const connectors = [
         ),
     },
     {
-        name: 'Google Storage',
+        name: 'Amazon Redshift',
         logo: (
             <StaticImage
-                src="../../../../images/google-storage-logo.png"
-                alt="Google Storage logo"
+                src="../../../../images/amazon-redshift-logo.png"
+                alt="Amazon Redshift logo"
                 quality={100}
                 placeholder="blurred"
             />
         ),
     },
     {
-        name: 'Open AI',
+        name: 'Google Sheets',
         logo: (
             <StaticImage
-                src="../../../../images/openai-logo.png"
-                alt="Openai logo"
+                src="../../../../images/sheets_logo.png"
+                alt="Google Sheets logo"
                 quality={100}
                 placeholder="blurred"
             />
         ),
     },
     {
-        name: 'Pinecone',
+        name: 'Salesforce',
         logo: (
             <StaticImage
-                src="../../../../images/pinecone-logo.png"
-                alt="Pinecone logo"
+                src="../../../../images/salesforce-logo.png"
+                alt="Salesforce logo"
                 quality={100}
                 placeholder="blurred"
             />
         ),
     },
     {
-        name: 'Mongo DB',
+        name: 'Netsuite',
         logo: (
             <StaticImage
-                src="../../../../images/mongodb-logo.png"
-                alt="Mongo DB logo"
+                src="../../../../images/netsuite-logo.png"
+                alt="Netsuite logo"
+                quality={100}
+                placeholder="blurred"
+            />
+        ),
+    },
+    {
+        name: 'Apache Kafka',
+        logo: (
+            <StaticImage
+                src="../../../../images/apache-kafka-logo.png"
+                alt="Apache Kafka logo"
                 quality={100}
                 placeholder="blurred"
             />
@@ -92,16 +163,116 @@ const connectors = [
     ...Array(7).fill(nullConnector),
 ];
 
-const generateFilteredConnectors = (exclusions: string[]) =>
-    connectors.filter(({ name }) => !exclusions.includes(name));
-
-const exclusionSets = [
-    [],
-    ['Mongo DB'],
-    ['Mongo DB', 'Pinecone'],
-    ['Mongo DB', 'Pinecone', 'Open AI'],
+const row3 = [
+    ...Array(7).fill(nullConnector),
+    {
+        name: 'MS SQL Server',
+        logo: (
+            <StaticImage
+                src="../../../../images/ms-sql-server-logo.png"
+                alt="MS SQL Server logo"
+                quality={100}
+                placeholder="blurred"
+            />
+        ),
+    },
+    {
+        name: 'Google Ads',
+        logo: (
+            <StaticImage
+                src="../../../../images/google-ads-logo.png"
+                alt="Google Ads logo"
+                quality={100}
+                placeholder="blurred"
+            />
+        ),
+    },
+    {
+        name: 'Facebook Ads',
+        logo: (
+            <StaticImage
+                src="../../../../images/facebook-ads-logo.png"
+                alt="Facebook Ads logo"
+                quality={100}
+                placeholder="blurred"
+            />
+        ),
+    },
+    {
+        name: 'Hubspot',
+        logo: (
+            <StaticImage
+                src="../../../../images/hubspot-logo.png"
+                alt="Hubspot logo"
+                quality={100}
+                placeholder="blurred"
+            />
+        ),
+    },
+    {
+        name: 'Shopify',
+        logo: (
+            <StaticImage
+                src="../../../../images/shopify-logo.png"
+                alt="Shopify logo"
+                quality={100}
+                placeholder="blurred"
+            />
+        ),
+    },
+    ...Array(7).fill(nullConnector),
 ];
-const connectorRows = exclusionSets.map(generateFilteredConnectors);
+
+const row4 = [
+    ...Array(7).fill(nullConnector),
+    {
+        name: 'Microsoft Fabric Warehouse',
+        logo: (
+            <StaticImage
+                src="../../../../images/microsoft-fabric-warehouse-logo.png"
+                alt="Microsoft Fabric Warehouse logo"
+                quality={100}
+                placeholder="blurred"
+            />
+        ),
+    },
+    {
+        name: 'HTTP Webhook',
+        logo: (
+            <StaticImage
+                src="../../../../images/http-webhooks-logo.png"
+                alt="HTTP Webhook logo"
+                quality={100}
+                placeholder="blurred"
+            />
+        ),
+    },
+    {
+        name: 'MotherDuck',
+        logo: (
+            <StaticImage
+                src="../../../../images/motherduck-logo.png"
+                alt="MotherDuck logo"
+                quality={100}
+                placeholder="blurred"
+            />
+        ),
+    },
+    {
+        name: 'Tinybird',
+        logo: (
+            <StaticImage
+                src="../../../../images/tinybird-logo.png"
+                alt="Tinybird logo"
+                quality={100}
+                placeholder="blurred"
+            />
+        ),
+    },
+    ...Array(7).fill(nullConnector),
+];
+
+const connectorRows = [row1, row2, row3, row4];
 
 const ConnectorsMasonry = () => {
     return (
