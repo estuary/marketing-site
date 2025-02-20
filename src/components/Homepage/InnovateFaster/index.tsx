@@ -27,15 +27,7 @@ const InnovateFaster = () => {
                 <div className={rightColumn}>
                     <div className={badgesWrapper}>
                         <StaticImage
-                            src="../../../images/trusted-partner-badges/ai-data-cloud-products-partner.png"
-                            alt="AI data-cloud products partner"
-                            placeholder="blurred"
-                            quality={100}
-                            width={80}
-                            height={80}
-                        />
-                        <StaticImage
-                            src="../../../images/trusted-partner-badges/databricks-technology-partner-validated.png"
+                            src="../../../images/trusted-partner-badges/ai-data-cloud-products-snowflake-partner.png"
                             alt="AI data-cloud products partner"
                             placeholder="blurred"
                             quality={100}
