@@ -115,15 +115,13 @@ const BlogIndex = ({
                         boost: 10,
                     });
 
-                    // TODO spelling altersaions - previously we used this setting:
-                    //     Math.min(Math.max(0, term.length - 1), 2),
-                    // but this returned A LOT of stuff that just was not related. Example - searching
-                    //      "pinecone" would return "pipeline" because it is off by 3 alterations
-
-                    // Go ahead and finally search based on a SINGLE potential spelling alterations
-                    q.term(term, {
-                        editDistance: 1,
-                    });
+                    // TODO spelling altersaions - previously we used this setting
+                    //  but this returned A LOT of stuff that just was not related.
+                    // Example :
+                    //  searching "pinecone" would return "pipeline" because it is off by 3 alterations
+                    // q.term(term, {
+                    //     editDistance: Math.min(Math.max(0, term.length - 1), 3),
+                    // });
                 });
 
                 return q;
