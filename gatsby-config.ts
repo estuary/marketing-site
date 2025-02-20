@@ -348,7 +348,7 @@ const cfg: GatsbyConfig = {
         },
     },
     flags: {
-        PRESERVE_FILE_DOWNLOAD_CACHE: true,
+        // PRESERVE_FILE_DOWNLOAD_CACHE: true,
         PARALLEL_SOURCING: false,
         DEV_SSR: true,
     },
@@ -532,7 +532,11 @@ const cfg: GatsbyConfig = {
                 // List of keys to index. The values of the keys are taken from the
                 // normalizer function below.
                 // Default: all fields
-                index: ['author_names', 'title', 'searchable_tags'],
+                index: [
+                    // 'author_names',
+                    'title',
+                    'searchable_tags',
+                ],
 
                 // List of keys to store and make available in your UI. The values of
                 // the keys are taken from the normalizer function below.
@@ -557,9 +561,9 @@ const cfg: GatsbyConfig = {
 
                         return {
                             ...node,
-                            author_names: node.authors
-                                .map((a) => a.name)
-                                .join(' '),
+                            // author_names: node.authors
+                            //     .map((a) => a.name)
+                            //     .join(' '),
                             searchable_tags: node.tags
                                 .map((t) => t.Name)
                                 .join(' '),
