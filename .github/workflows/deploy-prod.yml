@@ -1,9 +1,15 @@
 name: Deploy to Firebase Hosting
 
 on:
+    # TODO scheduled builds
+    # schedule:
+    #     - cron: '0 5 * * *' # ~ midnight eastern
+    #     - cron: '0 13 * * *' # ~ 8 am eastern
+    #     - cron: '0 17 * * *' # ~ noon eastern
+    #     - cron: '0 23 * * *' # ~ 6 pm eastern
     workflow_dispatch:
     repository_dispatch:
-        types: [strapi_updated, database_updated]
+        types: [strapi_updated]
     push:
         branches:
             - master
@@ -12,8 +18,54 @@ concurrency:
     group: prod
 
 jobs:
+    # TODO scheduled builds
+    # check-recent-build:
+    #     runs-on: ubuntu-latest
+
+    #     steps:
+    #         - name: Check if triggered by cron
+    #           id: check_trigger
+    #           run: |
+    #               if [ "${{ github.event_name }}" != "schedule" ]; then
+    #                 echo "This build was not triggered by a cron job. Skipping previous build checking."
+    #                 echo "::set-output name=should_check_build::false"
+    #                 echo "::set-output name=should_run::true"
+    #               else
+    #                 echo "::set-output name=should_check_build::true"
+    #               fi
+
+    #         - name: Get previous workflow status
+    #           id: get_last_status
+    #           uses: adel-s/get-last-workflow-run-info@v1
+    #           if: ${{ steps.check_trigger.outputs.should_check_build == 'true' }}
+    #           with:
+    #               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    #         - name: Get previous successful workflow run
+    #           id: previous_successful_run
+    #           if: ${{ steps.check_trigger.outputs.should_check_build == 'true' }}
+    #           run: |
+    #               # Get the current time and calculate the timestamp for 1 hour ago
+    #               current_time=$(date +%s)
+    #               one_hour_ago=$((current_time - 3600))
+
+    #               # Get the latest successful run of the 'build_and_preview' job
+    #               previous_run=$(gh api repos/${{ github.repository }}/actions/runs \
+    #                   --jq ".workflow_runs | map(select(.status == 'success' and .created_at | fromdateiso8601 > $one_hour_ago)) | .[0]")
+
+    #               if [ -z "$previous_run" ]; then
+    #                   echo "No successful build in the past hour. Proceeding with the job."
+    #                   echo "::set-output name=should_run::true"
+    #               else
+    #                   echo "A successful build was found in the past hour. Skipping the build."
+    #                   echo "::set-output name=should_run::false"
+    #               fi
+
     build_and_preview:
         runs-on: ubuntu-2404-large
+        # TODO scheduled builds
+        # needs: check-recent-build
+        # if: ${{ needs.check-recent-build.outputs.should_run == 'true' }}
         steps:
             - env:
                   MESSAGE: ${{ toJson(github.event.client_payload) }}
