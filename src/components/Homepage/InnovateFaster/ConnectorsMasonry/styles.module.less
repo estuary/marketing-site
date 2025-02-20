@@ -11,8 +11,11 @@
   margin-left: -5vw;
   justify-content: center;
   align-items: center;
-  -webkit-mask-image: radial-gradient(circle at top, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 90%);
-  mask-image: radial-gradient(circle at top, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 90%);
+
+  @media (min-width: 426px) {
+    -webkit-mask-image: radial-gradient(circle at top, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 90%);
+    mask-image: radial-gradient(circle at top, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 90%);
+  }
 }
 
 .item {
