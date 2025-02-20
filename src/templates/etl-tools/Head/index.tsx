@@ -6,7 +6,7 @@ const VendorComparisonHead = ({ data: { xVendor, yVendor } }) => {
         query {
             metaImg: file(relativePath: { eq: "vendor-comparison.png" }) {
                 childImageSharp {
-                    gatsbyImageData(layout: FIXED, width: 1080)
+                    gatsbyImageData(layout: FIXED, width: 1200, height: 630)
                 }
             }
         }
