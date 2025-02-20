@@ -510,13 +510,6 @@ const cfg: GatsbyConfig = {
                             }
                             authors {
                                 name: Name
-                                picture: Picture {
-                                    localFile {
-                                        childImageSharp {
-                                            gatsbyImageData(layout: CONSTRAINED, width: 50, placeholder: BLURRED)
-                                        }
-                                    }
-                                }
                             }
                             hero: Hero {
                                 localFile {
@@ -564,14 +557,10 @@ const cfg: GatsbyConfig = {
                 // containing properties to index. The objects must contain the `ref`
                 // field above (default: 'id'). This is required.
                 normalizer: ({ data }) => {
-                    const allNodes = data.allStrapiBlogPost.nodes;
-                    const mappedNodes = allNodes.map((node) => ({
+                    return data.allStrapiBlogPost.nodes.map((node) => ({
                         ...node,
                         searchable_tags: node.tags.map((t) => t.Name).join(' '),
                     }));
-                    // eslint-disable-next-line no-debugger
-                    debugger;
-                    return mappedNodes;
                 },
             },
         },
