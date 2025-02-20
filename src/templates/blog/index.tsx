@@ -138,9 +138,14 @@ const BlogIndex = ({
                     />
                 </div>
                 <Grid className={blogsIndexBody}>
-                    {(query.length > 0 ? results : posts).map((post) => (
-                        <BlogPostCard key={post.slug} {...post} />
-                    ))}
+                    {(query.length > 0 ? results : posts).map(
+                        (post, postIndex) => (
+                            <BlogPostCard
+                                key={`${post.slug}_${postIndex}`}
+                                {...post}
+                            />
+                        )
+                    )}
                 </Grid>
             </BigImageBackground>
             {prevPage ?? nextPage ? (
