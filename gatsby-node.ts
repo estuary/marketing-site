@@ -502,37 +502,27 @@ export const createPages: GatsbyNode['createPages'] = async ({
 
     const solutionsUrlPrefix = '/solutions';
 
-    await Promise.all([
-        Promise.all(
-            useCaseSolutions.map((useCaseSolution) =>
-                createPage({
-                    path: `${solutionsUrlPrefix}${useCaseSolution.slug}`,
-                    component: useCaseSolutionsTemplate,
-                    context: { id: useCaseSolution.id },
-                })
-            )
-        ),
-
-        Promise.all(
-            industrySolutions.map((industrySolution) =>
-                createPage({
-                    path: `${solutionsUrlPrefix}${industrySolution.slug}`,
-                    component: industrySolutionsTemplate,
-                    context: { id: industrySolution.id },
-                })
-            )
-        ),
-
-        Promise.all(
-            technologySolutions.map((technologySolution) =>
-                createPage({
-                    path: `${solutionsUrlPrefix}${technologySolution.slug}`,
-                    component: technologySolutionsTemplate,
-                    context: { id: technologySolution.id },
-                })
-            )
-        ),
-    ]);
+    useCaseSolutions.map((useCaseSolution) =>
+        createPage({
+            path: `${solutionsUrlPrefix}${useCaseSolution.slug}`,
+            component: useCaseSolutionsTemplate,
+            context: { id: useCaseSolution.id },
+        })
+    );
+    industrySolutions.map((industrySolution) =>
+        createPage({
+            path: `${solutionsUrlPrefix}${industrySolution.slug}`,
+            component: industrySolutionsTemplate,
+            context: { id: industrySolution.id },
+        })
+    );
+    technologySolutions.map((technologySolution) =>
+        createPage({
+            path: `${solutionsUrlPrefix}${technologySolution.slug}`,
+            component: technologySolutionsTemplate,
+            context: { id: technologySolution.id },
+        })
+    );
 };
 
 // Hacky hack :(
