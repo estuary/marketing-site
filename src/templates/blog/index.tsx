@@ -95,16 +95,10 @@ const BlogIndex = ({
                     boost: 30,
                 });
 
-                // Wildcard match on just title (since user cannot see tags in search results)
+                // Weight a trailing match "query*" for the title and slug together
+                //  often there is a mismatch of terms between the slug
                 q.term(splitQuery, {
-                    fields: ['title'],
-                    wildcard: lunr.Query.wildcard.TRAILING,
-                    boost: 20,
-                });
-
-                // If a perfect match on the slug (URL) then match
-                q.term(splitQuery, {
-                    fields: ['slug'],
+                    fields: ['title', 'slug'],
                     wildcard: lunr.Query.wildcard.TRAILING,
                     boost: 15,
                 });
@@ -131,6 +125,8 @@ const BlogIndex = ({
         { Slug: '', Name: 'All', Type: 'category' },
         ...realTabCategories,
     ];
+
+    const postsToRender = query.length > 0 ? results : posts;
 
     return (
         <Layout>
@@ -182,12 +178,12 @@ const BlogIndex = ({
                         <Alert severity="info">No blog posts found</Alert>
                     ) : null}
 
-                    {(query.length > 0 ? results : posts).map((post) => (
+                    {postsToRender.map((post) => (
                         <BlogPostCard key={post.id} {...post} />
                     ))}
                 </Grid>
             </BigImageBackground>
-            {prevPage ?? nextPage ? (
+            {query.length < 1 && (prevPage ?? nextPage) ? (
                 <>
                     <Divider />
                     <div className={blogsNav}>
