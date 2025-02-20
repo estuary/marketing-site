@@ -1,4 +1,4 @@
-# ! To get a preview build : add label `generate-pr-preview` before opening PR!
+# Label `generate-pr-preview` required before opening PR for preview build
 
 ## Changes
 
