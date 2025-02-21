@@ -325,16 +325,21 @@ export const PricingCalculator = ({
                 <OutboundLinkFilled target="_blank" href={dashboardRegisterUrl}>
                     Try it Free
                 </OutboundLinkFilled>
-            </div>
-            <div className={priceComparisons}>
-                <h3 className={subSectionTitle}>Pricing comparisons</h3>
-                <div className={comparisons}>
-                    <ComparisonCard
-                        title="Confluent"
-                        price={prices.confluent}
-                    />
-                    <ComparisonCard title="Fivetran" price={prices.fivetran} />
-                </div>
+                {!isInGetInTouchRange ? (
+                    <div className={priceComparisons}>
+                        <h3 className={subSectionTitle}>Pricing comparisons</h3>
+                        <div className={comparisons}>
+                            <ComparisonCard
+                                title="Confluent"
+                                price={prices.confluent - prices.estuary}
+                            />
+                            <ComparisonCard
+                                title="Fivetran"
+                                price={prices.fivetran - prices.estuary}
+                            />
+                        </div>
+                    </div>
+                ) : null}
             </div>
         </div>
     );
