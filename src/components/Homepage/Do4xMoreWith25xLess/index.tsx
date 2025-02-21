@@ -16,7 +16,7 @@ const Do4xMoreWith25xLess = () => {
                 image={<PricingCalculator />}
                 ctaButtons={
                     <LinkFilled
-                        id="see-pricing-button-home-page"
+                        id="see-pricing-button/home-page"
                         href="/pricing/"
                     >
                         See Pricing

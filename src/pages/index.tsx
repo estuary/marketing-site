@@ -35,14 +35,14 @@ const IndexPage = () => {
                 buttons={
                     <>
                         <OutboundLinkFilled
-                            id="try-now-for-free-button-home-page"
+                            id="try-now-for-free-button/home-page"
                             href={dashboardRegisterUrl}
                             target="_blank"
                         >
                             Try Now For Free
                         </OutboundLinkFilled>
                         <LinkOutlined
-                            id="contact-us-button-home-page"
+                            id="contact-us-button/home-page"
                             href="/contact-us/"
                             variant="secondary"
                             hasLightBorder

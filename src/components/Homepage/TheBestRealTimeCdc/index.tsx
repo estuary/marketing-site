@@ -51,7 +51,7 @@ const TheBestRealTimeCdc = () => {
                 ]}
                 ctaButtons={
                     <LinkFilled
-                        id="view-connectors-button-home-page"
+                        id="view-connectors-button/home-page"
                         href="/integrations/"
                     >
                         View Connectors

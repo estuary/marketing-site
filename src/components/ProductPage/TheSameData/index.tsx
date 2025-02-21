@@ -29,7 +29,7 @@ import {
 } from './styles.module.less';
 
 const generateButtonId = (connectorId: string) =>
-    `${connectorId}-connector-button-product-page-the-same-data-section`;
+    `${connectorId}-connector-button/the-same-data-section/product-page`;
 
 const TheSameData = () => {
     return (

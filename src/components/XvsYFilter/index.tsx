@@ -60,7 +60,7 @@ const getLinkId = (
         ySelect.items.find((item) => item.id === ySelect.value)?.title
     );
 
-    return `${xTitle}-vs-${yTitle}-${buttonTitle.toLowerCase()}-button`;
+    return `${xTitle}-vs-${yTitle}-${buttonTitle.toLowerCase()}-search-filter-button`;
 };
 
 const XvsYFilter = ({

@@ -28,7 +28,7 @@ const RelatedComparisonLinks = ({
                 .map((vendor) =>
                     vendor.slugKey ? (
                         <Link
-                            id={`${getVendorsLinkId(baseVendor.name, vendor.name)}-link-comparison-page-related-comparisons-section`}
+                            id={`${getVendorsLinkId(baseVendor.name, vendor.name)}-link/related-comparisons-section/comparison-page`}
                             key={`related-comparison-link-${vendor.id}`}
                             to={`/${getComparisonSlug(baseVendor.slugKey, vendor.slugKey)}`}
                         >

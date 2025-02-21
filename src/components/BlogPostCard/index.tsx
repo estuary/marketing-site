@@ -46,7 +46,7 @@ export const BlogPostCard = ({
     updatedAt,
 }: BlogPostCardProps) => (
     <Link
-        id={`${slug}-blog-post-card`}
+        id={`${slug}/blog-post-card`}
         to={`/${slug}`}
         className={blogsPostCard}
     >

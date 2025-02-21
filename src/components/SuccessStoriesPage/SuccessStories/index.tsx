@@ -61,7 +61,7 @@ const SuccessStories = () => {
                                 data={successStory}
                                 footerTag="Success story"
                                 hasImgBackground
-                                linkId={`${getSlugifiedText(successStory.title)}-card-button-success-stories-page`}
+                                linkId={`${getSlugifiedText(successStory.title)}-card-button/success-stories-page`}
                             />
                         ))}
                 </Grid>

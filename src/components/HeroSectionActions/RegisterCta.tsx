@@ -8,7 +8,7 @@ interface RegisterCtaProps {
 function RegisterCta({ pageId }: RegisterCtaProps) {
     return (
         <OutboundLinkFilled
-            id={`start-building-for-free-button-${pageId}-hero-section`}
+            id={`start-building-for-free-button/hero-section/${pageId}`}
             href={dashboardRegisterUrl}
             target="_blank"
         >

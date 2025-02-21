@@ -16,14 +16,14 @@ const SignUp = ({ pageId }: SignUpProps) => {
                 </div>
                 <div className={ctaWrap}>
                     <OutboundLinkFilled
-                        id={`sign-up-button-${pageId}-see-how-section`}
+                        id={`sign-up-button/see-how-section/${pageId}`}
                         href={dashboardRegisterUrl}
                         target="_blank"
                     >
                         Sign up
                     </OutboundLinkFilled>
                     <LinkFilled
-                        id={`contact-us-button-${pageId}-see-how-section`}
+                        id={`contact-us-button/see-how-section/${pageId}`}
                         href="/contact-us/"
                     >
                         Contact us

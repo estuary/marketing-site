@@ -6,7 +6,7 @@ import { dashboardRegisterUrl } from '../../../../shared';
 const iconSize = 35;
 
 const getLinkId = (buttonName: string) =>
-    `${buttonName}-button-pricing-page-plans-section`;
+    `${buttonName}-button/plans-section/pricing-page`;
 
 export const plans = [
     {

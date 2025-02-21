@@ -11,7 +11,7 @@ const ContactUsCta = ({
 
     return (
         <LinkComponent
-            id={`contact-us-button-${pageId}-hero-section`}
+            id={`contact-us-button/hero-section/${pageId}`}
             href={href ?? '/contact-us/'}
         >
             Contact Us

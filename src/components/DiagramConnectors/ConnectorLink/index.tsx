@@ -17,7 +17,7 @@ const ConnectorLink = ({
 }: ConnectorLinkProps) => {
     return (
         <Link
-            id={`${connectorId}-connector-button-product-page-how-it-works-section`}
+            id={`${connectorId}-connector-button/how-it-works-section/product-page`}
             className={connector}
             to={to}
         >

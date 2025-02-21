@@ -45,7 +45,7 @@ const Testimonial = ({ data }: TestimonialProps) => {
                         </p>
                         {data.quote.companyName ? (
                             <LinkOutlined
-                                id={`${getSlugifiedText(data.quote.companyName)}-success-story-button-solution-page`}
+                                id={`${getSlugifiedText(data.quote.companyName)}-success-story-button/solution-page`}
                                 href={data.quote.successStoryUrl}
                                 variant="secondary"
                             >

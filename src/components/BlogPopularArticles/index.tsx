@@ -73,7 +73,7 @@ export const PopularArticles = () => {
                     key={article.id}
                     data={article}
                     footerTag="Article"
-                    linkId={`${getSlugifiedText(article.title)}-popular-article-blog-post-page`}
+                    linkId={`${getSlugifiedText(article.title)}-popular-article/blog-post-page`}
                 />
             ))}
         </Grid>

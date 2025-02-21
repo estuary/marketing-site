@@ -13,7 +13,7 @@ const ResourcesAndGettingStarted = () => (
             title="Docs"
             link={
                 <Link
-                    id="explore-docs-link-partners-page"
+                    id="explore-docs-link/partners-page"
                     href={docsPageUrl}
                     isExternal
                 >
@@ -29,7 +29,7 @@ const ResourcesAndGettingStarted = () => (
             title="Blog"
             link={
                 <Link
-                    id="learn-more-link-partners-page"
+                    id="learn-more-link/partners-page"
                     href="/blog/data-engineering/"
                 >
                     Learn More
@@ -44,7 +44,7 @@ const ResourcesAndGettingStarted = () => (
             title="Community"
             link={
                 <Link
-                    id="join-slack-link-partners-page"
+                    id="join-slack-link/partners-page"
                     href={slackUrl}
                     isExternal
                 >

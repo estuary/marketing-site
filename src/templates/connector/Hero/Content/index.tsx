@@ -63,7 +63,7 @@ const Content = ({ connector }: ContentProps) => {
                 </li>
             </ul>
             <OutboundLinkFilled
-                id="try-it-free-button-connector-page"
+                id="try-it-free-button/connector-page"
                 target="_blank"
                 href={dashboardRegisterUrl}
             >

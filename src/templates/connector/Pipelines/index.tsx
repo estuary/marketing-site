@@ -19,7 +19,7 @@ const Pipelines = () => {
                     <h3>Feature Comparison</h3>
                     <PipelinesTable />
                     <LinkFilled
-                        id="detailed-comparison-button-connector-page"
+                        id="detailed-comparison-button/connector-page"
                         href="/etl-tools/estuary-vs-fivetran/"
                     >
                         Detailed Comparison

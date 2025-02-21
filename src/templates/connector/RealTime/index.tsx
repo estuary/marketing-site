@@ -22,7 +22,7 @@ const RealTime = () => {
                             more
                         </h2>
                         <OutboundLinkFilled
-                            id="build-free-pipeline-button-connector-page"
+                            id="build-free-pipeline-button/connector-page"
                             target="_blank"
                             href={dashboardRegisterUrl}
                         >

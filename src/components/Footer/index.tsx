@@ -38,7 +38,7 @@ import FooterLink from './FooterLink';
 
 const footerSocialIconStyle = clsx(socialIconFooter, 'socialIcon');
 
-const getFooterLinkId = (linkName: string) => `${linkName}-link-footer`;
+const getFooterLinkId = (linkName: string) => `${linkName}-link/footer`;
 
 const openCookiePreferences = () => {
     try {

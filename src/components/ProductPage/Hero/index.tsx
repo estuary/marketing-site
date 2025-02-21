@@ -34,7 +34,7 @@ const Hero = () => {
                     isActive
                     href={webinarsUrl}
                     icon={<RecordIcon color="var(--white)" />}
-                    buttonId="see-overview-button-product-page"
+                    buttonId="see-overview-button/product-page"
                 />
                 <Card
                     title="QUICKSTART"
@@ -47,7 +47,7 @@ const Hero = () => {
                             loading="eager"
                         />
                     }
-                    buttonId="quickstart-button-product-page"
+                    buttonId="quickstart-button/product-page"
                 />
                 <Card
                     title="JOIN COMMUNITY"
@@ -61,7 +61,7 @@ const Hero = () => {
                             loading="eager"
                         />
                     }
-                    buttonId="join-community-button-product-page"
+                    buttonId="join-community-button/product-page"
                 />
             </div>
         </section>

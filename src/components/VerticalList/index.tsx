@@ -51,7 +51,7 @@ const VerticalList = ({ items, pageId }) => {
                                     item.links?.strapi_json_value.map(
                                         (link) => (
                                             <OutboundLink
-                                                id={`${getSlugifiedText(item.title)}-${pageId}`}
+                                                id={`${getSlugifiedText(item.title)}/${pageId}`}
                                                 key={link}
                                                 href={link}
                                                 target="_blank"
@@ -77,7 +77,7 @@ const VerticalList = ({ items, pageId }) => {
                                     )
                                 ) : (
                                     <LinkFilled
-                                        id={`${getSlugifiedText(item.title)}-read-button-${pageId}`}
+                                        id={`${getSlugifiedText(item.title)}-read-button/${pageId}`}
                                         href={`/${item.slug}`}
                                         className={readLink}
                                     >

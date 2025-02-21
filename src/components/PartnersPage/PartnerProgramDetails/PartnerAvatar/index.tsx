@@ -11,7 +11,7 @@ const PartnerAvatar = ({ icon, name, href }: PartnerAvatarProps) => {
     return (
         <li>
             <OutboundLink
-                id={`${name.toLowerCase()}-logo-button-partners-page`}
+                id={`${name.toLowerCase()}-logo-button/partners-page`}
                 href={href}
                 target="__blank"
             >

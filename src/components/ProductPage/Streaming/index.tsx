@@ -27,7 +27,7 @@ import {
 } from './styles.module.less';
 
 const generateButtonId = (connectorId: string) =>
-    `${connectorId}-connector-button-product-page-streaming-section`;
+    `${connectorId}-connector-button/streaming-section/product-page`;
 
 const Streaming = () => {
     return (

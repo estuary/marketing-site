@@ -28,7 +28,7 @@ const XvsYCard = ({ xVendor, yVendor }: XvsYCardProps) => {
 
     return (
         <a
-            id={`${getVendorsLinkId(xVendor.name, yVendor.name)}-comparison-etl-tools-page-list-of-comparisons`}
+            id={`${getVendorsLinkId(xVendor.name, yVendor.name)}-comparison/list-of-comparisons/all-comparisons-page`}
             href={`/${getComparisonSlug(xVendor.slugKey, yVendor.slugKey)}`}
             className={container}
         >

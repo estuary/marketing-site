@@ -32,7 +32,7 @@ const PartnerProgramDetails = ({
                 <h3>{title}</h3>
                 <p>{description}</p>
                 <LinkOutlined
-                    id="contact-us-button-partners-page-partner-program-section"
+                    id="contact-us-butto/partner-program-section/partners-page"
                     href="/partners/#contact-us-form-section"
                     variant={isDarkTheme ? 'primary' : 'secondary'}
                 >

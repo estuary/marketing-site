@@ -14,7 +14,7 @@ const ReferralIncentive = () => (
                     referral.
                 </p>
                 <LinkOutlined
-                    id="contact-us-button-partners-page-referral-incentive-section"
+                    id="contact-us-button/referral-incentive-section/partners-page"
                     href="/partners/#contact-us-form-section"
                 >
                     Contact Us

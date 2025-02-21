@@ -67,7 +67,7 @@ const DeploymentOptions = ({
                     />
                 </TabContext>
                 <LinkFilled
-                    id={`button-${pageId}-deployment-options-section`}
+                    id={`button/deployment-options-section/${pageId}`}
                     href="/deployment-options/"
                 >
                     {buttonTitle}

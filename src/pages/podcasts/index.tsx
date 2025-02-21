@@ -89,7 +89,7 @@ const LpPodcats = ({
                                     target="_blank"
                                     href="https://www.youtube.com/@estuarydev"
                                 >
-                                    <SubscribeYoutubeButton id="subscribe-youtube-button" />
+                                    <SubscribeYoutubeButton id="subscribe-youtube-button/podcasts-page" />
                                 </OutboundLink>
                             </div>
                             <p className={subscribeSubheading}>

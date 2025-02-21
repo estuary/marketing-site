@@ -11,17 +11,17 @@ const LearnMoreArticles = () => {
                 <h2>Learn more about ETL, ELT, and CDC alternatives</h2>
                 <div className={cardsWrapper}>
                     <Card
-                        linkId="read-link-1-comparisons-etl-tools-page"
+                        linkId="read-link-1-comparisons/all-comparisons-page"
                         title="The Data Engineer's Guide to ELT Alternatives"
                         buttonHref="/ELT-alternatives-guide/"
                     />
                     <Card
-                        linkId="read-link-2-comparisons-etl-tools-page"
+                        linkId="read-link-2-comparisons/all-comparisons-page"
                         title="The Data Engineer's Guide to ETL Alternatives"
                         buttonHref="/ETL-alternatives-guide/"
                     />
                     <Card
-                        linkId="read-link-3-comparisons-etl-tools-page"
+                        linkId="read-link-3-comparisons/all-comparisons-page"
                         title="The Data Engineer's Guide to CDC for Analytics, Ops, and AI Pipelines"
                         buttonHref="/CDC-comparison-guide/"
                     />

@@ -194,7 +194,7 @@ const Comparison = ({
         <section className={defaultWrapperGrey}>
             <div className={container}>
                 <ArticleSidebar
-                    ctaButtonid="build-a-pipeline-button-comparison-page-sidebar"
+                    ctaButtonid="build-a-pipeline-button/sidebar/comparison-page"
                     article={{
                         title: `${xVendor.name} vs ${yVendor.name}`,
                         slug: getComparisonSlug(
