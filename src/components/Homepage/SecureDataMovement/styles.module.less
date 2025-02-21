@@ -1,0 +1,85 @@
+@import '../../../globalStyles/sections.module.less';
+
+@badgeColor: #A4B6F480;
+
+.container {
+    flex-direction: row;
+
+    h2 {
+        max-width: 530px;
+        text-align: left;
+    }
+
+    p {
+        text-align: left;
+        max-width: 100%;
+    }
+
+    @media (max-width: 1024px) {
+        flex-direction: column;
+    }
+}
+
+.badgesWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 84px;
+
+    img,
+    .addBadge {
+        min-width: 120px;
+        min-height: 120px;
+    }
+
+    @media (max-width: 768px) {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    @media (max-width: 425px) {
+        gap: 32px;
+    }
+}
+
+.addBadge {
+    border: 1px dashed @badgeColor;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0C2032;
+    min-height: 120px;
+
+    span {
+        font-size: 3rem;
+        color: @badgeColor;
+        font-weight: 200;
+        margin-bottom: 4px;
+    }
+
+    @media (max-width: 768px) {
+        min-width: 120px;
+    }
+}
+
+.rightColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.starsWrapper {
+    margin-left: 16px;
+
+    p {
+        color: #7786B6;
+        font-size: 1rem;
+        line-height: 30px;
+    }
+
+    @media (max-width: 768px) {
+        margin: 12px 0 0 0;
+    }
+}

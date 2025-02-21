@@ -1,6 +1,6 @@
 /* eslint-disable no-await-in-loop */
 import pg from 'pg';
-import { GatsbyNode } from 'gatsby';
+import { CreatePagesArgs, GatsbyNode } from 'gatsby';
 import { createRemoteFileNode } from 'gatsby-source-filesystem';
 import { SUPABASE_CONNECTION_STRING } from './config';
 import { normalizeConnector } from './src/utils';
@@ -38,25 +38,138 @@ const successStoryTemplate = path.resolve(
 
 const connectorTemplate = path.resolve('./src/templates/connector/index.tsx');
 const connectionTemplate = path.resolve('./src/templates/connection.tsx');
-
 const authorTemplate = path.resolve('./src/templates/author/index.tsx');
-
 const comparisonTemplate = path.resolve('./src/templates/etl-tools/index.tsx');
 
-export const createPages: GatsbyNode['createPages'] = async ({
-    graphql,
-    actions,
-    reporter,
-}) => {
-    const { createPage, createRedirect } = actions;
+type CreateHelperParams = Pick<
+    CreatePagesArgs,
+    'actions' | 'graphql' | 'reporter'
+>;
+type CreateHelper = (log: string, params: CreateHelperParams) => Promise<any>;
 
-    const validateDataExistence = (data: any[] | undefined, name: string) => {
-        if (!Array.isArray(data) || data.length === 0) {
-            throw new Error(
-                `${name} array is either not an array or is empty.`
-            );
+const QUERY_PANIC_MSG = 'GQL FAILURE LOADING :';
+const validateDataExistence = (data: any[] | undefined, name: string) => {
+    if (!Array.isArray(data) || data.length === 0) {
+        throw new Error(`${name} array is either not an array or is empty.`);
+    }
+};
+
+const createSuccessStories: CreateHelper = async (
+    name,
+    { actions: { createPage }, graphql, reporter }
+) => {
+    const startTime = performance.now();
+    console.log(`Creation:Start:${name}`);
+
+    const successStoryPages = await graphql<{
+        allStrapiCaseStudy: {
+            nodes: {
+                Slug: string;
+                id: string;
+            }[];
+        };
+    }>(`
+        {
+            allStrapiCaseStudy {
+                nodes {
+                    id
+                    Slug
+                }
+            }
         }
-    };
+    `);
+    if (successStoryPages.errors) {
+        reporter.panicOnBuild(
+            `${QUERY_PANIC_MSG} ${name}`,
+            successStoryPages.errors
+        );
+        return;
+    }
+
+    const allSuccessStories = successStoryPages.data?.allStrapiCaseStudy.nodes;
+    validateDataExistence(allSuccessStories, name);
+
+    allSuccessStories?.forEach((node) => {
+        createPage({
+            path: `success-stories/${node.Slug}`,
+            component: successStoryTemplate,
+            context: {
+                id: node.id,
+            },
+        });
+    });
+
+    console.log(
+        `Creation:Finish:${name} took ${Math.ceil(performance.now() - startTime)}ms`
+    );
+};
+
+const createVendorCompare: CreateHelper = async (
+    name,
+    { actions: { createPage }, graphql, reporter }
+) => {
+    const startTime = performance.now();
+    console.log(`Creation:Start:${name}`);
+
+    const comparisonVendors = await graphql<{
+        allStrapiComparison: {
+            nodes: Partial<Vendor>[];
+        };
+    }>(`
+        {
+            allStrapiComparison(sort: { slugKey: ASC }) {
+                nodes {
+                    id
+                    slugKey
+                }
+            }
+        }
+    `);
+    if (comparisonVendors.errors) {
+        reporter.panicOnBuild(
+            `${QUERY_PANIC_MSG} ${name}`,
+            comparisonVendors.errors
+        );
+        return;
+    }
+
+    const vendors = comparisonVendors.data?.allStrapiComparison.nodes;
+    validateDataExistence(vendors, name);
+
+    // Loop and process what we got (ignore blogs cause that is big and handled down below)
+    if (vendors) {
+        vendors.forEach((xVendor, i) => {
+            vendors.slice(i + 1).forEach((yVendor) => {
+                if (xVendor.slugKey && yVendor.slugKey) {
+                    createPage({
+                        path: `/${getComparisonSlug(
+                            xVendor.slugKey,
+                            yVendor.slugKey
+                        )}`,
+                        component: comparisonTemplate,
+                        context: {
+                            xVendorId: xVendor.id,
+                            yVendorId: yVendor.id,
+                            estuaryVendorId:
+                                'd829928c-c473-5421-ac0a-f03c45b14993',
+                        },
+                    });
+                }
+            });
+        });
+    }
+
+    console.log(
+        `Creation:Finish:${name} took ${Math.ceil(performance.now() - startTime)}ms`
+    );
+};
+
+const createBlogs: CreateHelper = async (
+    name,
+    { actions: { createPage, createRedirect }, graphql, reporter }
+) => {
+    const startTime = performance.now();
+    console.log(`Creation:Start:${name}`);
 
     createRedirect({
         fromPath: '/blogs',
@@ -98,104 +211,16 @@ export const createPages: GatsbyNode['createPages'] = async ({
             }
         }
     `);
-
-    const successStoryPages = await graphql<{
-        allStrapiCaseStudy: {
-            nodes: {
-                Slug: string;
-                id: string;
-            }[];
-        };
-    }>(`
-        {
-            allStrapiCaseStudy {
-                nodes {
-                    id
-                    Slug
-                }
-            }
-        }
-    `);
-
-    const allSuccessStories = successStoryPages.data?.allStrapiCaseStudy.nodes;
-
-    validateDataExistence(allSuccessStories, 'Success stories');
-
-    allSuccessStories?.forEach((node) => {
-        createPage({
-            path: `success-stories/${node.Slug}`,
-            component: successStoryTemplate,
-            context: {
-                id: node.id,
-            },
-        });
-    });
-
-    const comparisonVendors = await graphql<{
-        allStrapiComparison: {
-            nodes: Partial<Vendor>[];
-        };
-    }>(`
-        {
-            allStrapiComparison(sort: { slugKey: ASC }) {
-                nodes {
-                    id
-                    slugKey
-                }
-            }
-        }
-    `);
-
-    const vendors = comparisonVendors.data?.allStrapiComparison.nodes;
-
-    if (vendors) {
-        vendors.forEach((xVendor, i) => {
-            vendors.slice(i + 1).forEach((yVendor) => {
-                if (xVendor.slugKey && yVendor.slugKey) {
-                    createPage({
-                        path: `/${getComparisonSlug(
-                            xVendor.slugKey,
-                            yVendor.slugKey
-                        )}`,
-                        component: comparisonTemplate,
-                        context: {
-                            xVendorId: xVendor.id,
-                            yVendorId: yVendor.id,
-                            estuaryVendorId:
-                                'd829928c-c473-5421-ac0a-f03c45b14993',
-                        },
-                    });
-                }
-            });
-        });
-    }
-
     if (blogPostsQuery.errors) {
         reporter.panicOnBuild(
-            'There was an error loading your blog posts.',
+            `${QUERY_PANIC_MSG} ${name}`,
             blogPostsQuery.errors
-        );
-        return;
-    }
-    if (comparisonVendors.errors) {
-        reporter.panicOnBuild(
-            'There was an error loading your comparison vendors.',
-            comparisonVendors.errors
-        );
-        return;
-    }
-    if (successStoryPages.errors) {
-        reporter.panicOnBuild(
-            'There was an error loading your success stories.',
-            successStoryPages.errors
         );
         return;
     }
 
     const allBlogPosts = blogPostsQuery.data?.allStrapiBlogPost.nodes ?? [];
-
-    validateDataExistence(allBlogPosts, 'Blog posts');
-    validateDataExistence(vendors, 'Comparison Pages');
+    validateDataExistence(allBlogPosts, name);
 
     const categories: {
         [key: string]: {
@@ -323,6 +348,17 @@ export const createPages: GatsbyNode['createPages'] = async ({
             });
         }
     }
+    console.log(
+        `Creation:Finish:${name} took ${Math.ceil(performance.now() - startTime)}ms`
+    );
+};
+
+const createConnectors: CreateHelper = async (
+    name,
+    { actions: { createPage }, graphql, reporter }
+) => {
+    const startTime = performance.now();
+    console.log(`Creation:Start:${name}`);
 
     const connectors = await graphql<{
         postgres: {
@@ -351,6 +387,10 @@ export const createPages: GatsbyNode['createPages'] = async ({
             }
         }
     `);
+    if (connectors.errors) {
+        reporter.panicOnBuild(`${QUERY_PANIC_MSG} ${name}`, connectors.errors);
+        return;
+    }
 
     const mapped_connectors =
         connectors.data?.postgres.allConnectors.nodes
@@ -358,7 +398,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
             .map(normalizeConnector)
             .filter((connector) => connector !== undefined) ?? [];
 
-    validateDataExistence(mapped_connectors, 'Connectors');
+    validateDataExistence(mapped_connectors, name);
 
     for (const normalized_connector of mapped_connectors) {
         if (!normalized_connector.slug) {
@@ -391,6 +431,17 @@ export const createPages: GatsbyNode['createPages'] = async ({
             }
         }
     }
+    console.log(
+        `Creation:Finish:${name} took ${Math.ceil(performance.now() - startTime)}ms`
+    );
+};
+
+const createAuthors: CreateHelper = async (
+    name,
+    { actions: { createPage }, graphql, reporter }
+) => {
+    const startTime = performance.now();
+    console.log(`Creation:Start:${name}`);
 
     const authors = await graphql<{
         allStrapiAuthor: {
@@ -407,17 +458,34 @@ export const createPages: GatsbyNode['createPages'] = async ({
         }
     `);
 
-    if (authors.data?.allStrapiAuthor.nodes) {
-        for (const author of authors.data.allStrapiAuthor.nodes) {
-            createPage({
-                path: getAuthorPathBySlug(author.slug),
-                component: authorTemplate,
-                context: {
-                    id: author.id,
-                },
-            });
-        }
+    if (authors.errors) {
+        reporter.panicOnBuild(`${QUERY_PANIC_MSG} ${name}`, authors.errors);
+        return;
     }
+
+    const allAuthorsData = authors.data?.allStrapiAuthor.nodes ?? [];
+    validateDataExistence(allAuthorsData, name);
+
+    for (const author of allAuthorsData) {
+        createPage({
+            path: getAuthorPathBySlug(author.slug),
+            component: authorTemplate,
+            context: {
+                id: author.id,
+            },
+        });
+    }
+    console.log(
+        `Creation:Finish:${name} took ${Math.ceil(performance.now() - startTime)}ms`
+    );
+};
+
+const createCompanyPosts: CreateHelper = async (
+    name,
+    { actions: { createPage }, graphql, reporter }
+) => {
+    const startTime = performance.now();
+    console.log(`Creation:Start:${name}`);
 
     const companyUpdatePostsQuery = await graphql<{
         allStrapiCompanyUpdatePost: {
@@ -439,7 +507,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
 
     if (companyUpdatePostsQuery.errors) {
         reporter.panicOnBuild(
-            'There was an error loading your company update posts.',
+            `${QUERY_PANIC_MSG} ${name}`,
             companyUpdatePostsQuery.errors
         );
         return;
@@ -447,8 +515,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
 
     const allCompanyUpdatePosts =
         companyUpdatePostsQuery.data?.allStrapiCompanyUpdatePost.nodes ?? [];
-
-    validateDataExistence(allCompanyUpdatePosts, 'Company update posts');
+    validateDataExistence(allCompanyUpdatePosts, name);
 
     allCompanyUpdatePosts.forEach((post) => {
         createPage({
@@ -459,6 +526,17 @@ export const createPages: GatsbyNode['createPages'] = async ({
             },
         });
     });
+    console.log(
+        `Creation:Finish:${name} took ${Math.ceil(performance.now() - startTime)}ms`
+    );
+};
+
+const createSolutions: CreateHelper = async (
+    name,
+    { actions: { createPage }, graphql, reporter }
+) => {
+    const startTime = performance.now();
+    console.log(`Creation:Start:${name}`);
 
     const solutionsQuery = await graphql<{
         allStrapiSolution: {
@@ -480,13 +558,14 @@ export const createPages: GatsbyNode['createPages'] = async ({
 
     if (solutionsQuery.errors) {
         reporter.panicOnBuild(
-            'There was an error loading your solutions.',
+            `${QUERY_PANIC_MSG} ${name}`,
             solutionsQuery.errors
         );
         return;
     }
 
     const allSolutions = solutionsQuery.data?.allStrapiSolution.nodes ?? [];
+    validateDataExistence(allSolutions, name);
 
     const useCaseSolutions = allSolutions.filter((solution) =>
         solution.slug.includes('/use-cases/')
@@ -498,10 +577,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
         solution.slug.includes('/technology/')
     );
 
-    validateDataExistence(allSolutions, 'Solutions');
-
     const solutionsUrlPrefix = '/solutions';
-
     await Promise.all([
         Promise.all(
             useCaseSolutions.map((useCaseSolution) =>
@@ -532,6 +608,31 @@ export const createPages: GatsbyNode['createPages'] = async ({
                 })
             )
         ),
+    ]);
+    console.log(
+        `Creation:Finish:${name} took ${Math.ceil(performance.now() - startTime)}ms`
+    );
+};
+
+export const createPages: GatsbyNode['createPages'] = async ({
+    graphql,
+    actions,
+    reporter,
+}) => {
+    const createHelperParams: CreateHelperParams = {
+        actions,
+        graphql,
+        reporter,
+    };
+
+    await Promise.all([
+        createConnectors('connectors', createHelperParams),
+        createBlogs('blog posts', createHelperParams),
+        createAuthors('authors', createHelperParams),
+        createCompanyPosts('company posts', createHelperParams),
+        createSolutions('solutions', createHelperParams),
+        createSuccessStories('success stories', createHelperParams),
+        createVendorCompare('vendor compare', createHelperParams),
     ]);
 };
 
@@ -566,15 +667,17 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
     getCache,
     createContentDigest,
 }) => {
+    console.log('sourceNodes:start');
     const pool = new pg.Pool({
         connectionString: SUPABASE_CONNECTION_STRING,
-        connectionTimeoutMillis: 5 * 1000,
+        connectionTimeoutMillis: 8000,
     });
 
     const connectors = await pool.query(
         'select connectors.id as id, connectors.logo_url as logo_url from public.connectors;'
     );
 
+    let createdCount = 0;
     for (const conn of connectors.rows) {
         const usUrl = conn.logo_url?.['en-US'];
 
@@ -596,10 +699,17 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
                     contentDigest: createContentDigest(fileNode),
                 },
             });
+
+            createdCount += 1;
+        } else {
+            console.log('sourceNodes:missing connector logo', conn.id);
         }
     }
-
     await pool.end();
+
+    console.log('sourceNodes:', {
+        completed: `${createdCount}/${connectors.rowCount}`,
+    });
 };
 
 export const createResolvers: GatsbyNode['createResolvers'] = async ({
@@ -621,6 +731,7 @@ export const createResolvers: GatsbyNode['createResolvers'] = async ({
                         return logoNode.logo;
                     }
 
+                    console.log('   createResolversParam no logo found', id);
                     return null;
                 },
             },

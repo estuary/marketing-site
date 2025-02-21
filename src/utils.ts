@@ -12,13 +12,15 @@ import {
 const CONNECTOR_IMAGE_RE = /(source|materialize)-([a-z0-9\-]+)/;
 
 export const normalizeConnector = (connector: any) => {
-    if (connector.imageName === 'ghcr.io/estuary/dekaf-generic') {
-        // Exclude Dekaf connector through the imageName because the id might change periodically.
+    if (connector.imageName.includes('ghcr.io/estuary/dekaf')) {
+        // Exclude any Dekaf connector
         return undefined;
     }
+
     if (!connector) {
         return connector;
     }
+
     const regex_result = connector.imageName.match(CONNECTOR_IMAGE_RE);
     const type = connector.connectorTagsByConnectorIdList?.[0]?.protocol as
         | 'capture'
