@@ -6,7 +6,7 @@ import Container from '../../Container';
 import { container, badgesWrapper, rightColumn } from './styles.module.less';
 import ConnectorsMasonry from './ConnectorsMasonry';
 
-const InnovateFaster = () => {
+const SecureDataMovement = () => {
     return (
         <section className={defaultWrapperDarkBlue}>
             <Container
@@ -48,4 +48,4 @@ const InnovateFaster = () => {
     );
 };
 
-export default InnovateFaster;
+export default SecureDataMovement;
