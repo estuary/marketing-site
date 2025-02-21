@@ -1,7 +1,7 @@
 import ChevronRight from '@mui/icons-material/ChevronRight';
 import { graphql, useStaticQuery, Link } from 'gatsby';
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useLunr } from 'react-lunr';
 import clsx from 'clsx';
 import { ConnectorType } from '../../../shared';
