@@ -3,14 +3,7 @@ import { StaticImage } from 'gatsby-plugin-image';
 import { textWrapper } from '../styles.module.less';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import Container from '../../Container';
-import FiveStarsIcon from '../../../svgs/five-stars.svg';
-import {
-    container,
-    badgesWrapper,
-    addBadge,
-    rightColumn,
-    starsWrapper,
-} from './styles.module.less';
+import { container, badgesWrapper, rightColumn } from './styles.module.less';
 import ConnectorsMasonry from './ConnectorsMasonry';
 
 const InnovateFaster = () => {
@@ -42,13 +35,6 @@ const InnovateFaster = () => {
                             width={120}
                             height={120}
                         />
-                        <div className={addBadge}>
-                            <span>+</span>
-                        </div>
-                        <div className={starsWrapper}>
-                            <FiveStarsIcon color="#4EFFF2" />
-                            <p>And more trusted partners</p>
-                        </div>
                     </div>
                     <p>
                         Easily connect, synchronize and activate your data
