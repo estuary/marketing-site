@@ -246,3 +246,36 @@
     height: 1px;
     border: 1px solid #d5ddf8;
 }
+
+.getInTouchBanner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 23px 28px;
+    background: linear-gradient(90deg, rgba(55, 192, 193, 0.4) 0%, rgba(80, 114, 235, 0.4) 100%);
+    border-radius: 10px;
+
+    p {
+        font-size: 1.125rem;
+        font-weight: 600;
+        line-height: 27px;
+        color: var(--dark-blue);
+        margin: 0;
+    }
+
+    button {
+        background-color: var(--blue);
+        color: var(--white);
+        white-space: nowrap;
+    }
+
+    @media (max-width: 520px) {
+        flex-direction: column;
+
+        button {
+            width: 100%;
+            white-space: normal;
+        }
+    }
+}

@@ -18,10 +18,10 @@ import {
 } from '../../utils';
 import MinusSign from '../../svgs/minus-sign.svg';
 import PlusSign from '../../svgs/plus-sign.svg';
-import OpenHubspotModal from '../HubSpot/OpenModal';
 import ButtonFilled from '../LinksAndButtons/ButtonFilled';
 import OutboundLinkFilled from '../LinksAndButtons/OutboundLinkFilled';
 import { dashboardRegisterUrl } from '../../../shared';
+import OpenHubspotModal from '../HubSpot/OpenModal';
 import { maxConnectors, selfServiceConnectorLimit } from './shared';
 import {
     connectorsCounter,
@@ -44,6 +44,7 @@ import {
     highlightedBrandPrice,
     subSectionTitle,
     highlightedCard,
+    getInTouchBanner,
 } from './styles.module.less';
 import ComparisonCard from './ComparisonCard';
 
@@ -192,6 +193,10 @@ export const PricingCalculator = ({
         setSelectedGbs(inverseScale(numericValue));
     };
 
+    const isInGetInTouchRange =
+        selectedConnectors === maxConnectors ||
+        (selectedGbs <= totalMarks && selectedGbs >= totalMarks - 5);
+
     return (
         <div className={container}>
             <div className={header}>
@@ -230,6 +235,16 @@ export const PricingCalculator = ({
                     aria-label="Amount of change data"
                 />
             </div>
+            {isInGetInTouchRange ? (
+                <div className={getInTouchBanner}>
+                    <p>For high-volume deals, we provide tailored solutions.</p>
+                    <OpenHubspotModal
+                        buttonLabel="Get in touch"
+                        buttonId="section-one-hubspot"
+                        formId="698e6716-f38b-4bd5-9105-df9ba220e29b"
+                    />
+                </div>
+            ) : null}
             <div className={divider} />
             <div className={connectorsCounter}>
                 <h3 className={subSectionTitle}>
@@ -275,79 +290,52 @@ export const PricingCalculator = ({
                 </div>
             </div>
             <div className={divider} />
-            {selectedConnectors === maxConnectors ||
-            selectedGbs === totalMarks ? (
-                <OpenHubspotModal
-                    buttonLabel="Need More? Contact us"
-                    buttonId="section-one-hubspot"
-                    formId="698e6716-f38b-4bd5-9105-df9ba220e29b"
-                />
-            ) : (
-                <>
-                    <div className={estuaryPrice}>
-                        <h3 className={subSectionTitle}>
-                            Your price at Estuary
-                        </h3>
-                        <div className={clsx(brandWrapper, highlightedCard)}>
-                            <span
-                                className={clsx(
-                                    brandPrice,
-                                    highlightedBrandPrice
-                                )}
-                            >
-                                {estuaryFreeTier ? (
-                                    <span>Free</span>
-                                ) : (
-                                    <>
-                                        <span>
-                                            {currencyFormatter.format(
-                                                prices.estuary
-                                            )}
-                                        </span>{' '}
-                                        / month
-                                    </>
-                                )}
-                            </span>
-                            <div className={brandDetails}>
-                                <div className={detail}>
-                                    <span>
-                                        {/*This is hacky but works. We only reset the input on blur so while typing they could see incorrect info without this override*/}
-                                        {gbInputValue === '0' ||
-                                        gbInputValue === '1'
-                                            ? '2'
-                                            : gbInputValue}
-                                        GB
-                                    </span>{' '}
-                                    of data moved
-                                </div>
-                                <div className={detail}>
-                                    <span>{selectedConnectors}</span> connector
-                                    instances
-                                </div>
-                            </div>
+            <div className={estuaryPrice}>
+                <h3 className={subSectionTitle}>Your price at Estuary</h3>
+                <div className={clsx(brandWrapper, highlightedCard)}>
+                    <span className={clsx(brandPrice, highlightedBrandPrice)}>
+                        {estuaryFreeTier ? (
+                            <span>Free</span>
+                        ) : (
+                            <>
+                                <span>
+                                    {currencyFormatter.format(prices.estuary)}
+                                </span>{' '}
+                                / month
+                            </>
+                        )}
+                    </span>
+                    <div className={brandDetails}>
+                        <div className={detail}>
+                            <span>
+                                {/*This is hacky but works. We only reset the input on blur so while typing they could see incorrect info without this override*/}
+                                {gbInputValue === '0' || gbInputValue === '1'
+                                    ? '2'
+                                    : gbInputValue}
+                                GB
+                            </span>{' '}
+                            of data moved
                         </div>
-                        <OutboundLinkFilled
-                            target="_blank"
-                            href={dashboardRegisterUrl}
-                        >
-                            Try it Free
-                        </OutboundLinkFilled>
-                    </div>
-                    <div className={priceComparisons}>
-                        <h3 className={subSectionTitle}>Pricing comparisons</h3>
-                        <div className={comparisons}>
-                            <ComparisonCard
-                                title="Confluent"
-                                price={prices.confluent}
-                            />
-                            <ComparisonCard
-                                title="Fivetran"
-                                price={prices.fivetran}
-                            />
+                        <div className={detail}>
+                            <span>{selectedConnectors}</span> connector
+                            instances
                         </div>
                     </div>
-                </>
-            )}
+                </div>
+                <OutboundLinkFilled target="_blank" href={dashboardRegisterUrl}>
+                    Try it Free
+                </OutboundLinkFilled>
+            </div>
+            <div className={priceComparisons}>
+                <h3 className={subSectionTitle}>Pricing comparisons</h3>
+                <div className={comparisons}>
+                    <ComparisonCard
+                        title="Confluent"
+                        price={prices.confluent}
+                    />
+                    <ComparisonCard title="Fivetran" price={prices.fivetran} />
+                </div>
+            </div>
         </div>
     );
 };
