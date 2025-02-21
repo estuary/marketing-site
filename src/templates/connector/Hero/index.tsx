@@ -29,9 +29,6 @@ type HeroProps = {
 };
 
 const Hero = ({ connector: { title, logo, type } }: HeroProps) => {
-    if (!logo) {
-        console.log('hero missing logo', { title, type });
-    }
     const logoImage = logo ? getImage(logo) : null;
 
     return (
