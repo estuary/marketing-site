@@ -194,7 +194,8 @@ export const PricingCalculator = ({
     };
 
     const isInGetInTouchRange =
-        selectedGbs <= totalMarks && selectedGbs >= totalMarks - 5;
+        selectedConnectors === maxConnectors ||
+        (selectedGbs <= totalMarks && selectedGbs >= totalMarks - 5);
 
     return (
         <div className={container}>
@@ -234,16 +235,6 @@ export const PricingCalculator = ({
                     aria-label="Amount of change data"
                 />
             </div>
-            {isInGetInTouchRange ? (
-                <div className={getInTouchBanner}>
-                    <p>For high-volume deals, we provide tailored solutions.</p>
-                    <OpenHubspotModal
-                        buttonLabel="Get in touch"
-                        buttonId="section-one-hubspot"
-                        formId="698e6716-f38b-4bd5-9105-df9ba220e29b"
-                    />
-                </div>
-            ) : null}
             <div className={divider} />
             <div className={connectorsCounter}>
                 <h3 className={subSectionTitle}>
@@ -288,6 +279,22 @@ export const PricingCalculator = ({
                     </ButtonFilled>
                 </div>
             </div>
+            {isInGetInTouchRange ? (
+                <>
+                    <div className={divider} />
+                    <div className={getInTouchBanner}>
+                        <p>
+                            For high-volume deals, we provide tailored
+                            solutions.
+                        </p>
+                        <OpenHubspotModal
+                            buttonLabel="Get in touch"
+                            buttonId="section-one-hubspot"
+                            formId="698e6716-f38b-4bd5-9105-df9ba220e29b"
+                        />
+                    </div>
+                </>
+            ) : null}
             <div className={divider} />
             <div className={estuaryPrice}>
                 <h3 className={subSectionTitle}>Your price at Estuary</h3>
