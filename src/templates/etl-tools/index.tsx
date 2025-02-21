@@ -779,9 +779,7 @@ export const pageQuery = graphql`
                 }
             }
         }
-        vendors: allStrapiComparison(
-            sort: { fields: Vendor_Name, order: ASC }
-        ) {
+        vendors: allStrapiComparison(sort: { Vendor_Name: ASC }) {
             nodes {
                 id
                 name: Vendor_Name
