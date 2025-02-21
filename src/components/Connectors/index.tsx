@@ -65,48 +65,78 @@ const ConnectorCard = ({
     slug,
     type,
     showType = false,
-}: ReturnType<typeof normalizeConnector> & { showType?: boolean }) => (
-    <Link to={`${slug}`}>
-        <div className={connectorCard}>
-            <div className={connectorCardTop}>
-                <GatsbyImage
-                    image={logo?.childImageSharp?.gatsbyImageData}
-                    alt={`${title} Logo`}
-                    className={clsx(connectorPostCardImage, 'icon-wrapper')}
-                    loading="eager"
-                />
-                {recommended || showType ? (
-                    <div style={{ flexGrow: 1 }} />
-                ) : null}
-                {recommended ? (
-                    <div>
-                        <p className={connectorPostCardRecommended}>
-                            RECOMMENDED
-                        </p>
-                    </div>
-                ) : null}
-                {showType ? (
-                    <>
-                        {recommended ? <div style={{ flexBasis: 4 }} /> : null}
+}: ReturnType<typeof normalizeConnector> & { showType?: boolean }) => {
+    if (!logo?.childImageSharp.gatsbyImageData) {
+        console.log('>>>>> logo missing', {
+            title,
+            shortDescription,
+            recommended,
+            logo,
+            slug,
+            type,
+            showType,
+        });
+    }
+
+    return (
+        <Link to={`${slug}`}>
+            <div className={connectorCard}>
+                <div className={connectorCardTop}>
+                    {!logo?.childImageSharp.gatsbyImageData ? (
+                        <div
+                            className={clsx(
+                                connectorPostCardImage,
+                                'icon-wrapper'
+                            )}
+                        />
+                    ) : (
+                        <GatsbyImage
+                            image={logo.childImageSharp.gatsbyImageData}
+                            alt={`${title} Logo`}
+                            className={clsx(
+                                connectorPostCardImage,
+                                'icon-wrapper'
+                            )}
+                            loading="eager"
+                        />
+                    )}
+                    {recommended || showType ? (
+                        <div style={{ flexGrow: 1 }} />
+                    ) : null}
+                    {recommended ? (
                         <div>
                             <p className={connectorPostCardRecommended}>
-                                {type === 'capture' ? 'SOURCE' : 'DESTINATION'}
+                                RECOMMENDED
                             </p>
                         </div>
-                    </>
+                    ) : null}
+                    {showType ? (
+                        <>
+                            {recommended ? (
+                                <div style={{ flexBasis: 4 }} />
+                            ) : null}
+                            <div>
+                                <p className={connectorPostCardRecommended}>
+                                    {type === 'capture'
+                                        ? 'SOURCE'
+                                        : 'DESTINATION'}
+                                </p>
+                            </div>
+                        </>
+                    ) : null}
+                </div>
+                <h4>{title}</h4>
+                {shortDescription?.length > 0 ? (
+                    <p>{truncate(shortDescription || '', 100)}</p>
                 ) : null}
+                <div style={{ flexGrow: 1 }} />
+                <span className={connectorCardReadMore}>
+                    Read More <ChevronRight />
+                </span>
             </div>
-            <h4>{title}</h4>
-            {shortDescription?.length > 0 ? (
-                <p>{truncate(shortDescription || '', 100)}</p>
-            ) : null}
-            <div style={{ flexGrow: 1 }} />
-            <span className={connectorCardReadMore}>
-                Read More <ChevronRight />
-            </span>
-        </div>
-    </Link>
-);
+        </Link>
+    );
+};
 
 export const Connectors = ({
     connectorType,
@@ -193,14 +223,14 @@ export const Connectors = ({
         [postgres]
     );
 
-    const logosByConnectorId = useMemo(
-        () =>
-            Object.assign(
-                {},
-                ...mappedConnectors.map((con) => ({ [con.id]: con.logo }))
-            ),
-        [mappedConnectors]
-    );
+    const logosByConnectorId = useMemo(() => {
+        console.log('>>>>> getting logo list');
+
+        return Object.assign(
+            {},
+            ...mappedConnectors.map((con) => ({ [con.id]: con.logo }))
+        );
+    }, [mappedConnectors]);
 
     const [query, setQuery] = useState('');
     const results = useLunr(
@@ -240,14 +270,18 @@ export const Connectors = ({
                 </div>
                 <div className={connectorCards}>
                     {(query.length > 0 ? results : mappedConnectors).map(
-                        (connector) => (
-                            <ConnectorCard
-                                key={connector.id}
-                                {...connector}
-                                logo={logosByConnectorId[connector.id]}
-                                showType={showAllConnectors}
-                            />
-                        )
+                        (connector) => {
+                            console.log('>>>>> connector', connector);
+
+                            return (
+                                <ConnectorCard
+                                    key={connector.id}
+                                    {...connector}
+                                    logo={logosByConnectorId[connector.id]}
+                                    showType={showAllConnectors}
+                                />
+                            );
+                        }
                     )}
                 </div>
             </div>
