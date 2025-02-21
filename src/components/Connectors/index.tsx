@@ -1,7 +1,7 @@
 import ChevronRight from '@mui/icons-material/ChevronRight';
-import { graphql, Link, useStaticQuery } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import { useLunr } from 'react-lunr';
 import clsx from 'clsx';
 import { ConnectorType } from '../../../shared';
@@ -66,7 +66,7 @@ const ConnectorCard = ({
     type,
     showType = false,
 }: ReturnType<typeof normalizeConnector> & { showType?: boolean }) => {
-    if (!logo?.childImageSharp.gatsbyImageData) {
+    if (!logo?.childImageSharp?.gatsbyImageData) {
         console.log('>>>>> logo missing', {
             title,
             shortDescription,
@@ -82,7 +82,7 @@ const ConnectorCard = ({
         <Link to={`${slug}`}>
             <div className={connectorCard}>
                 <div className={connectorCardTop}>
-                    {!logo?.childImageSharp.gatsbyImageData ? (
+                    {!logo?.childImageSharp?.gatsbyImageData ? (
                         <div
                             className={clsx(
                                 connectorPostCardImage,
