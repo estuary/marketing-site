@@ -194,8 +194,7 @@ export const PricingCalculator = ({
     };
 
     const isInGetInTouchRange =
-        selectedConnectors === maxConnectors ||
-        (selectedGbs <= totalMarks && selectedGbs >= totalMarks - 5);
+        selectedGbs <= totalMarks && selectedGbs >= totalMarks - 5;
 
     return (
         <div className={container}>
