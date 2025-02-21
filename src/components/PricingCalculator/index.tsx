@@ -289,7 +289,7 @@ export const PricingCalculator = ({
                         </p>
                         <OpenHubspotModal
                             buttonLabel="Get in touch"
-                            buttonId="section-one-hubspot"
+                            buttonId="get-in-touch-button/pricing-calculator-banner"
                             formId="698e6716-f38b-4bd5-9105-df9ba220e29b"
                         />
                     </div>
@@ -328,7 +328,11 @@ export const PricingCalculator = ({
                         </div>
                     </div>
                 </div>
-                <OutboundLinkFilled target="_blank" href={dashboardRegisterUrl}>
+                <OutboundLinkFilled
+                    id="try-it-free-button/pricing-calculator"
+                    target="_blank"
+                    href={dashboardRegisterUrl}
+                >
                     Try it Free
                 </OutboundLinkFilled>
                 {!isInGetInTouchRange ? (
