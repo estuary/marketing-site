@@ -16,7 +16,7 @@ export const normalizeConnector = (connector: any) => {
         // Exclude any Dekaf connector
         connector.imageName.includes('ghcr.io/estuary/dekaf') ||
         // Exclude connectors without a tag (Kelkoo)
-        !connector.connectorTagsByConnectorIdList
+        connector?.connectorTagsByConnectorIdList?.length < 1
     ) {
         return undefined;
     }
