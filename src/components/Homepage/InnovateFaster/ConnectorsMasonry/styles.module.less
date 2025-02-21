@@ -12,9 +12,12 @@
   justify-content: center;
   align-items: center;
 
-  @media (min-width: 426px) {
-    -webkit-mask-image: radial-gradient(circle at top, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 90%);
-    mask-image: radial-gradient(circle at top, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 90%);
+  -webkit-mask-image: radial-gradient(circle at top, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 90%);
+  mask-image: radial-gradient(circle at top, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 90%);
+
+  @media (max-width: 768px) {
+    -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 95%);
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 95%);
   }
 }
 
