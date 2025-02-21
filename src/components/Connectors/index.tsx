@@ -66,18 +66,6 @@ const ConnectorCard = ({
     type,
     showType = false,
 }: ReturnType<typeof normalizeConnector> & { showType?: boolean }) => {
-    if (!logo?.childImageSharp?.gatsbyImageData) {
-        console.log('>>>>> logo missing', {
-            title,
-            shortDescription,
-            recommended,
-            logo,
-            slug,
-            type,
-            showType,
-        });
-    }
-
     return (
         <Link to={`${slug}`}>
             <div className={connectorCard}>
@@ -220,8 +208,6 @@ export const Connectors = ({
     );
 
     const logosByConnectorId = useMemo(() => {
-        console.log('>>>>> getting logo list');
-
         return Object.assign(
             {},
             ...mappedConnectors.map((con) => ({ [con.id]: con.logo }))
@@ -267,8 +253,6 @@ export const Connectors = ({
                 <div className={connectorCards}>
                     {(query.length > 0 ? results : mappedConnectors).map(
                         (connector) => {
-                            console.log('>>>>> connector', connector);
-
                             return (
                                 <ConnectorCard
                                     key={connector.id}
