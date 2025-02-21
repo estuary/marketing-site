@@ -20,6 +20,8 @@ import MinusSign from '../../svgs/minus-sign.svg';
 import PlusSign from '../../svgs/plus-sign.svg';
 import OpenHubspotModal from '../HubSpot/OpenModal';
 import ButtonFilled from '../LinksAndButtons/ButtonFilled';
+import OutboundLinkFilled from '../LinksAndButtons/OutboundLinkFilled';
+import { dashboardRegisterUrl } from '../../../shared';
 import { maxConnectors, selfServiceConnectorLimit } from './shared';
 import {
     connectorsCounter,
@@ -324,6 +326,12 @@ export const PricingCalculator = ({
                                 </div>
                             </div>
                         </div>
+                        <OutboundLinkFilled
+                            target="_blank"
+                            href={dashboardRegisterUrl}
+                        >
+                            Try it Free
+                        </OutboundLinkFilled>
                     </div>
                     <div className={priceComparisons}>
                         <h3 className={subSectionTitle}>Pricing comparisons</h3>
