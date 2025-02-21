@@ -1,5 +1,10 @@
+import clsx from 'clsx';
 import { currencyFormatter } from '../../utils';
-import { brandName, brandPrice, brandWrapper } from './styles.module.less';
+import {
+    brandPrice,
+    brandWrapper,
+    secondaryHighlightedCard,
+} from './styles.module.less';
 
 interface ComparisonCardProps {
     title: string;
@@ -8,10 +13,10 @@ interface ComparisonCardProps {
 
 const ComparisonCard = ({ title, price }: ComparisonCardProps) => {
     return (
-        <div className={brandWrapper}>
-            <span className={brandName}>{title}</span>
+        <div className={clsx(brandWrapper, secondaryHighlightedCard)}>
             <span className={brandPrice}>
-                <span>{currencyFormatter.format(price)}</span> / month
+                Compared to {title}, you save{' '}
+                <strong>{currencyFormatter.format(price)}</strong> / month!
             </span>
         </div>
     );
