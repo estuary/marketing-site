@@ -1,4 +1,5 @@
 import { htmlToText } from 'html-to-text';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { features } from './src/components/DeploymentOptionsPage/shared';
 import { Author } from './src/templates/author/shared';
 
@@ -198,3 +199,37 @@ export interface Vendor {
 export type DeploymentOption = keyof typeof features;
 
 export const activeUsersAmount = '5500+';
+
+export type TocItem = {
+    id: string;
+    heading: string;
+    items?: TocItem[];
+};
+
+export type Connector = {
+    id: string;
+    externalUrl: string;
+    imageName: string;
+    shortDescription?: {
+        'en-US': string;
+    };
+    longDescription?: {
+        'en-US': string;
+    };
+    title?: {
+        'en-US': string;
+    };
+    logoUrl?: {
+        'en-US': string;
+    };
+    logo: {
+        childImageSharp: {
+            gatsbyImageData: IGatsbyImageData;
+        };
+    };
+    recommended: boolean;
+    connectorTagsByConnectorIdList?: {
+        protocol: string;
+    }[];
+    slug: string;
+};

@@ -1,6 +1,7 @@
 import { RenderToc } from '../BlogPostToc';
 import SidebarCta from '../SidebarCta';
 import ShareArticle from '../ShareArticle';
+import { TocItem } from '../../../shared';
 import {
     container,
     shareArticleDesktop,
@@ -12,7 +13,7 @@ interface ArticleSidebarProps {
         title: string;
         slug: string;
     };
-    tableOfContents: any;
+    tableOfContents: TocItem[];
     shareArticleSectionTitle?: string;
 }
 

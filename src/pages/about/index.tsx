@@ -1,5 +1,9 @@
 import { graphql, Link, useStaticQuery } from 'gatsby';
-import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
+import {
+    GatsbyImage,
+    IGatsbyImageData,
+    StaticImage,
+} from 'gatsby-plugin-image';
 import { ProcessedPost } from '../../components/BlogPostProcessor';
 import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
@@ -158,7 +162,7 @@ const AboutPage = () => {
                 ProfilePic: {
                     localFile: {
                         childImageSharp: {
-                            gatsbyImageData: any;
+                            gatsbyImageData: IGatsbyImageData;
                         };
                     };
                 };
