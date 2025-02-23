@@ -2,6 +2,7 @@
 // (source|materialization)-name
 
 import { Mark } from '@mui/base';
+import { Connector, ConnectorType } from '../shared';
 import {
     fullPricingPerConnector,
     halfPricingPerConnector,
@@ -11,8 +12,8 @@ import {
 // eslint-disable-next-line no-useless-escape
 const CONNECTOR_IMAGE_RE = /(source|materialize)-([a-z0-9\-]+)/;
 
-export const normalizeConnector = (connector: any) => {
-    if (connector.imageName.includes('ghcr.io/estuary/dekaf')) {
+export const normalizeConnector = (connector: Connector | undefined) => {
+    if (connector?.imageName.includes('ghcr.io/estuary/dekaf')) {
         // Exclude any Dekaf connector
         return undefined;
     }
@@ -22,9 +23,8 @@ export const normalizeConnector = (connector: any) => {
     }
 
     const regex_result = connector.imageName.match(CONNECTOR_IMAGE_RE);
-    const type = connector.connectorTagsByConnectorIdList?.[0]?.protocol as
-        | 'capture'
-        | 'materialization';
+    const type = connector.connectorTagsByConnectorIdList?.[0]
+        ?.protocol as ConnectorType;
     return {
         id: connector.id,
         externalUrl: connector.externalUrl,
@@ -36,7 +36,7 @@ export const normalizeConnector = (connector: any) => {
         logo: connector.logo,
         recommended: connector.recommended,
         type,
-        slugified_name: regex_result[2],
+        slugified_name: regex_result?.[2] ?? '',
         slug: regex_result
             ? `/${type === 'capture' ? 'source' : 'destination'}/${regex_result[2]}`
             : null,

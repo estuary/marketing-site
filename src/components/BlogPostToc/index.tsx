@@ -6,6 +6,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import clsx from 'clsx';
 import { Link } from 'gatsby';
 import { MouseEvent, useEffect, useMemo, useRef, useState } from 'react';
+import { TocItem } from '../../../shared';
 import {
     tableOfContents,
     accordion,
@@ -15,12 +16,6 @@ import {
     isItemSelected,
     tocSubItems,
 } from './styles.module.less';
-
-type TocItem = {
-    id: string;
-    heading: string;
-    items?: TocItem[];
-};
 
 type RenderTocItemProps = {
     item: TocItem;

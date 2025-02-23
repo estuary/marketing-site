@@ -1,5 +1,5 @@
 export interface Connector {
-    title: string;
+    title?: string;
     logo: any;
     longDescription?: string;
     shortDescription?: string;

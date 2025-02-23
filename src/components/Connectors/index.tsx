@@ -70,7 +70,7 @@ const ConnectorCard = ({
         <div className={connectorCard}>
             <div className={connectorCardTop}>
                 <GatsbyImage
-                    image={logo?.childImageSharp?.gatsbyImageData}
+                    image={logo.childImageSharp.gatsbyImageData}
                     alt={`${title} Logo`}
                     className={clsx(connectorPostCardImage, 'icon-wrapper')}
                     loading="eager"
@@ -97,7 +97,7 @@ const ConnectorCard = ({
                 ) : null}
             </div>
             <h4>{title}</h4>
-            {shortDescription?.length > 0 ? (
+            {shortDescription && shortDescription.length > 0 ? (
                 <p>{truncate(shortDescription || '', 100)}</p>
             ) : null}
             <div style={{ flexGrow: 1 }} />
