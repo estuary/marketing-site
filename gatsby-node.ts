@@ -342,8 +342,7 @@ const createBlogs: CreateHelper = async (
 
                     if (
                         tabCategories.find(({ Name }) => {
-                            return Name.length > 0;
-                            // return Name.toUpperCase() === oldPath.toUpperCase();
+                            return Name.toUpperCase() === oldPath.toUpperCase();
                         })
                     ) {
                         throw new Error(
@@ -352,7 +351,8 @@ const createBlogs: CreateHelper = async (
                     }
 
                     // We used to not prefix blog posts with `/blog/` so make sure there are redirects
-                    // Not sure if we truly need this since we set this in firebase as well
+                    // I do not think we truly need this in production as firebase.json already contains
+                    //  all the redirects. I think this makes local dev work more like prod though.
                     createRedirect({
                         fromPath: oldPath,
                         toPath: newPath,
