@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import LinkOutlined from '../../../LinksAndButtons/LinkOutlined';
+import { getSlugifiedText } from '../../../../../shared';
 import { successStoryLogoWrapper, container } from './styles.module.less';
 
 type CardProps = {
@@ -15,6 +16,7 @@ const Card = ({ href, title, description, image }: CardProps) => {
             <div className={successStoryLogoWrapper}>{image}</div>
             <p>{description}.</p>
             <LinkOutlined
+                id={`read-button/success-stories-section-${getSlugifiedText(title)}/home-page`}
                 href={href}
                 rel="noopener"
                 aria-label={`Read success story for ${title}`}

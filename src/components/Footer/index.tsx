@@ -38,6 +38,8 @@ import FooterLink from './FooterLink';
 
 const footerSocialIconStyle = clsx(socialIconFooter, 'socialIcon');
 
+const getFooterLinkId = (linkName: string) => `${linkName}-link/footer`;
+
 const openCookiePreferences = () => {
     try {
         // @ts-expect-error : This loads through CookieFirst. Once homepage changes are merged we add to the window type
@@ -88,114 +90,163 @@ const Footer = () => {
                     <div className={globalFooterRightLinkWrapper}>
                         <p className={globalFooterSubtextTitle}>Product</p>
                         <FooterLink
+                            id={getFooterLinkId('estuary-flow')}
                             to="/product/"
                             ariaLabel="Learn more about Estuary Flow product"
                         >
                             Estuary Flow
                         </FooterLink>
                         <FooterLink
+                            id={getFooterLinkId('connectors')}
                             to="/integrations/"
                             ariaLabel="Explore Estuary Flow's real-time data integration connectors"
                         >
                             Connectors
                         </FooterLink>
                         <FooterLink
+                            id={getFooterLinkId('pricing')}
                             to="/pricing/"
                             ariaLabel="Know more about Estuary Flow pricing"
                         >
                             Pricing
                         </FooterLink>
                         <FooterLink
+                            id={getFooterLinkId('product-tour')}
                             to="/demo/"
                             ariaLabel="Explore a tour of Estuary Flow"
                         >
                             Product Tour
                         </FooterLink>
-                        <FooterLink to="/etl-tools/estuary-vs-fivetran/">
+                        <FooterLink
+                            id={getFooterLinkId('estuary-vs-fivetran')}
+                            to="/etl-tools/estuary-vs-fivetran/"
+                        >
                             Estuary vs Fivetran
                         </FooterLink>
-                        <FooterLink to="/etl-tools/airbyte-vs-estuary/">
+                        <FooterLink
+                            id={getFooterLinkId('estuary-vs-airbyte')}
+                            to="/etl-tools/airbyte-vs-estuary/"
+                        >
                             Estuary vs Airbyte
                         </FooterLink>
-                        <FooterLink to="/etl-tools/confluent-vs-estuary/">
+                        <FooterLink
+                            id={getFooterLinkId('estuary-vs-confluent')}
+                            to="/etl-tools/confluent-vs-estuary/"
+                        >
                             Estuary vs Confluent
                         </FooterLink>
-                        <FooterLink to="/pricing/#pricing-calculator">
+                        <FooterLink
+                            id={getFooterLinkId(
+                                'data-pipeline-cost-calculator'
+                            )}
+                            to="/pricing/#pricing-calculator"
+                        >
                             Data Pipeline Cost Calculator
                         </FooterLink>
                     </div>
                     <div className={globalFooterRightLinkWrapper}>
                         <p className={globalFooterSubtextTitle}>Resources</p>
                         <FooterLink
+                            id={getFooterLinkId('documentation')}
                             to={docsPageUrl}
                             ariaLabel="Explore the documentation about Estuary Flow"
                         >
                             Documentation
                         </FooterLink>
                         <FooterLink
+                            id={getFooterLinkId('blogs')}
                             to="/blog"
                             ariaLabel="Learn more about Estuary and its related technologies, directly from our team."
                         >
                             Blogs
                         </FooterLink>
                         <FooterLink
+                            id={getFooterLinkId('company-updates')}
                             to="/company-updates/"
                             ariaLabel="Explore Estuary and Flow updates."
                         >
                             Company Updates
                         </FooterLink>
                         <FooterLink
+                            id={getFooterLinkId('tutorials')}
                             to="/blog/tutorial/"
                             ariaLabel="Explore blog posts with tutorials"
                         >
                             Tutorials
                         </FooterLink>
                         <FooterLink
+                            id={getFooterLinkId('data-engineering')}
                             to="/blog/data-engineering/"
                             ariaLabel="Explore blog posts about data engineering"
                         >
                             Data Engineering
                         </FooterLink>
                         <FooterLink
+                            id={getFooterLinkId('webinar')}
                             to={webinarsUrl}
                             ariaLabel="See the last Estuary webinars"
                         >
                             Webinar
                         </FooterLink>
                         <FooterLink
+                            id={getFooterLinkId('github')}
                             to={estuaryFlowGithubUrl}
                             ariaLabel="Check the Estuary Flow Github"
                         >
                             Github
                         </FooterLink>
-                        <FooterLink to="/etl-tools/">
+                        <FooterLink
+                            id={getFooterLinkId('compare-etl-elt-tools')}
+                            to="/etl-tools/"
+                        >
                             Compare ETL/ELT Tools
                         </FooterLink>
-                        <FooterLink to="/etl-tools-list/">
+                        <FooterLink
+                            id={getFooterLinkId('top-etl-tools')}
+                            to="/etl-tools-list/"
+                        >
                             Top ETL Tools
                         </FooterLink>
-                        <FooterLink to="/success-stories/">
+                        <FooterLink
+                            id={getFooterLinkId('success-stories')}
+                            to="/success-stories/"
+                        >
                             Success Stories
                         </FooterLink>
                     </div>
                     <div className={globalFooterRightLinkWrapper}>
                         <p className={globalFooterSubtextTitle}>Company</p>
                         <FooterLink
+                            id={getFooterLinkId('status-us')}
                             to="/about/"
                             ariaLabel="Learn more about Estuary and the team"
                         >
                             About Us
                         </FooterLink>
                         <FooterLink
+                            id={getFooterLinkId('careers')}
                             to="/about#careers"
                             ariaLabel="Check out the current career opportunities at Estuary"
                         >
                             Careers
                         </FooterLink>
-                        <FooterLink to="/contact-us/">Contact Us</FooterLink>
-                        <FooterLink to="/privacy-policy/">Privacy</FooterLink>
-                        <FooterLink to="/terms/">Terms</FooterLink>
                         <FooterLink
+                            id={getFooterLinkId('contact-us')}
+                            to="/contact-us/"
+                        >
+                            Contact Us
+                        </FooterLink>
+                        <FooterLink
+                            id={getFooterLinkId('privacy-policy')}
+                            to="/privacy-policy/"
+                        >
+                            Privacy
+                        </FooterLink>
+                        <FooterLink id={getFooterLinkId('terms')} to="/terms/">
+                            Terms
+                        </FooterLink>
+                        <FooterLink
+                            id={getFooterLinkId('status')}
                             to={statusPageUrl}
                             ariaLabel="Check the status of Estuary website"
                         >
@@ -205,7 +256,10 @@ const Footer = () => {
                 </div>
             </div>
             <div className={globalFooterBottom}>
-                <ButtonOutlinedPrimary onClick={openCookiePreferences}>
+                <ButtonOutlinedPrimary
+                    id={getFooterLinkId('manage-cookie-preferences')}
+                    onClick={openCookiePreferences}
+                >
                     Manage Cookie Preferences
                 </ButtonOutlinedPrimary>
                 <hr className={globalFooterDivider} />
@@ -225,6 +279,7 @@ const Footer = () => {
 
                     <div className={globalFooterBottomSocial}>
                         <OutboundLink
+                            id={getFooterLinkId('slack')}
                             target="_blank"
                             href={slackUrl}
                             aria-label="Slack Invite Link"
@@ -232,6 +287,7 @@ const Footer = () => {
                             <SlackIcon className={footerSocialIconStyle} />
                         </OutboundLink>
                         <OutboundLink
+                            id={getFooterLinkId('github')}
                             target="_blank"
                             href={estuaryFlowGithubUrl}
                             aria-label="Github Repo Link"
@@ -239,6 +295,7 @@ const Footer = () => {
                             <GithubIcon className={footerSocialIconStyle} />
                         </OutboundLink>
                         <OutboundLink
+                            id={getFooterLinkId('linkedin')}
                             target="_blank"
                             href={estuaryLinkedinUrl}
                             aria-label="Linkedin Company Link"
@@ -246,6 +303,7 @@ const Footer = () => {
                             <LinkedinIcon className={footerSocialIconStyle} />
                         </OutboundLink>
                         <OutboundLink
+                            id={getFooterLinkId('twitter')}
                             target="_blank"
                             href="https://twitter.com/EstuaryDev"
                             aria-label="Twitter Company Link"

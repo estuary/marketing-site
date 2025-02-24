@@ -18,6 +18,7 @@ const DeploymentModes = () => (
             }
             optionsDescription={optionsDescription}
             buttonTitle="Learn more"
+            pageId="security-page"
         />
     </section>
 );

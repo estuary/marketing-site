@@ -12,7 +12,11 @@ import ShareArticle from '../ShareArticle';
 import { ProcessedPost } from '../BlogPostProcessor';
 import BlogBanner from '../BlogBanner';
 import ArticleSidebar from '../ArticleSidebar';
-import { dashboardRegisterUrl, getAuthorPathBySlug } from '../../../shared';
+import {
+    dashboardRegisterUrl,
+    getAuthorPathBySlug,
+    getSlugifiedText,
+} from '../../../shared';
 import Avatar from '../../components/Avatar';
 import SocialLinks from '../../components/SocialLinks';
 import OutboundLinkFilled from '../../components/LinksAndButtons/OutboundLinkFilled';
@@ -172,6 +176,7 @@ const BlogPost = ({
                                         </h3>
                                     }
                                     button={{
+                                        id: 'build-a-pipeline-button/banner/blog-post-page',
                                         title: 'Build a Pipeline',
                                         href: dashboardRegisterUrl,
                                     }}
@@ -179,6 +184,7 @@ const BlogPost = ({
                             ) : null}
                         </div>
                         <ArticleSidebar
+                            ctaButtonid="build-a-pipeline-button/sidebar/blog-post-page"
                             article={{
                                 title: post.title,
                                 slug: post.slug,
@@ -226,6 +232,7 @@ const BlogPost = ({
                                 <>
                                     <div key={index} className={authorInfo}>
                                         <Link
+                                            id={`${getSlugifiedText(author.name)}/about-section/blog-post-page`}
                                             to={getAuthorPathBySlug(
                                                 author?.slug
                                             )}
@@ -352,10 +359,14 @@ const BlogPost = ({
                             </div>
                         </div>
                         <div className={buildPipelineAndPricingButtons}>
-                            <OutboundLinkFilled href={dashboardRegisterUrl}>
+                            <OutboundLinkFilled
+                                id="build-a-pipeline-button/streaming-pipelines-section/blog-post-page"
+                                href={dashboardRegisterUrl}
+                            >
                                 Build a Pipeline
                             </OutboundLinkFilled>
                             <OutboundLinkOutlined
+                                id="see-pricing-button/streaming-pipelines-section/blog-post-page"
                                 href="https://estuary.dev/pricing/"
                                 className={pricingLink}
                             >

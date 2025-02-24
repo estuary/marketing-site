@@ -4,4 +4,5 @@ export interface CommonCtaProps {
 
 export interface ContactUsProps extends CommonCtaProps {
     href?: string;
+    pageId: string;
 }

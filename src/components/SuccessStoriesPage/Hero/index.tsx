@@ -20,7 +20,12 @@ const Hero = () => (
                     </>
                 }
                 description="See how our customers build with Estuary Flow to solve their challanges."
-                ctaButtons={<ContactUsCta linkVariant="filled" />}
+                ctaButtons={
+                    <ContactUsCta
+                        pageId="success-stories-page"
+                        linkVariant="filled"
+                    />
+                }
             />
             <StaticImage
                 src="../../../images/customers-page/hero-image.png"

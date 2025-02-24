@@ -11,7 +11,7 @@ const CompanyUpdates = () => {
             <Hero />
             <ListOfUpdates />
             <StayUpdated />
-            <SignUp />
+            <SignUp pageId="company-updates-page" />
         </Layout>
     );
 };
