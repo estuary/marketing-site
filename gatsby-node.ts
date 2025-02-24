@@ -337,7 +337,7 @@ const createBlogs: CreateHelper = async (
                         index === posts.length - 1 ? null : posts[index + 1].id;
 
                     const oldPath = post.Slug;
-                    const newPath = `/blog/${oldPath}`;
+                    const newPath = `/blog/${oldPath}${oldPath.endsWith('/') ? '' : '/'}`;
                     const createdBeforeSwitch =
                         new Date(post.createdAt) < new Date('02-24-2025');
 
