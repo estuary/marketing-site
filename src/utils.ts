@@ -12,8 +12,12 @@ import {
 const CONNECTOR_IMAGE_RE = /(source|materialize)-([a-z0-9\-]+)/;
 
 export const normalizeConnector = (connector: any) => {
-    if (connector.imageName.includes('ghcr.io/estuary/dekaf')) {
+    if (
         // Exclude any Dekaf connector
+        connector.imageName.includes('ghcr.io/estuary/dekaf') ||
+        // Exclude connectors without a tag (Kelkoo)
+        connector?.connectorTagsByConnectorIdList?.length < 1
+    ) {
         return undefined;
     }
 

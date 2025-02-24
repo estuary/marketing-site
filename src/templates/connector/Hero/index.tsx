@@ -23,13 +23,13 @@ import {
 type HeroProps = {
     connector: {
         title: string;
-        logo: ImageDataLike;
+        logo: ImageDataLike | null | undefined;
         type: ConnectorType;
     };
 };
 
 const Hero = ({ connector: { title, logo, type } }: HeroProps) => {
-    const logoImage = getImage(logo);
+    const logoImage = logo ? getImage(logo) : null;
 
     return (
         <LightSwoopingLinesRightDirectionBackground>

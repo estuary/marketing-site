@@ -48,7 +48,7 @@
     "gatsby-remark-responsive-iframe": "^6.8.0",
     "gatsby-source-filesystem": "^5.13.1",
     "gatsby-source-pg": "^1.0.0-rc.0",
-    "gatsby-source-strapi": "^3.3.3",
+    "gatsby-source-strapi": "^5.0.2",
     "gatsby-transformer-inline-svg": "^1.2.0",
     "gatsby-transformer-rehype": "^2.0.1",
     "gatsby-transformer-remark": "^6.13.1",

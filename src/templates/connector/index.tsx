@@ -53,7 +53,7 @@ const Connector = ({
                         href: '/integrations',
                     },
                     {
-                        title: mappedConnector.title,
+                        title: mappedConnector?.title,
                     },
                 ]}
             />
@@ -101,7 +101,7 @@ export const Head = ({
             case 'capture':
                 return [
                     `Move ${mappedConnector?.title} to Any Destination, Real-time ETL & CDC`,
-                    `Effortlessly move ${mappedConnector.title} data to any destination in real-time or batch with Estuary's no-code ETL & CDC platform. Free and easy to use. Get started now.`,
+                    `Effortlessly move ${mappedConnector?.title} data to any destination in real-time or batch with Estuary's no-code ETL & CDC platform. Free and easy to use. Get started now.`,
                 ];
             default:
                 return [

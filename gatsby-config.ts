@@ -16,6 +16,8 @@ process.env.POSTGRAPHILE_PREPARED_STATEMENT_CACHE_SIZE = '1';
 const strapiConfig = {
     apiURL: process.env.STRAPI_API_URL,
     accessToken: process.env.STRAPI_TOKEN,
+    maxParallelRequests: 3,
+    version: 4, // They now assume v5
     collectionTypes: [
         'blog-post',
         'company-update-post',
