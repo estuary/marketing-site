@@ -180,6 +180,7 @@ const createBlogs: CreateHelper = async (
     const blogPostsQuery = await graphql<{
         allStrapiBlogPost: {
             nodes: {
+                createdAt: any;
                 updatedAt: any;
                 Slug: string;
                 id: string;
@@ -198,6 +199,7 @@ const createBlogs: CreateHelper = async (
                 filter: { publishedAt: { ne: null } }
             ) {
                 nodes {
+                    createdAt
                     updatedAt
                     Slug
                     id
@@ -336,27 +338,34 @@ const createBlogs: CreateHelper = async (
 
                     const oldPath = post.Slug;
                     const newPath = `/blog/${oldPath}`;
+                    const createdBeforeSwitch =
+                        new Date(post.createdAt) < new Date('02-24-2025');
 
-                    console.log('blogPost:redirect:old', oldPath);
-                    console.log('blogPost:redirect:new', newPath);
+                    if (createdBeforeSwitch) {
+                        if (
+                            tabCategories.find(
+                                ({ Name }) =>
+                                    Name.toUpperCase() === oldPath.toUpperCase()
+                            )
+                        ) {
+                            throw new Error(
+                                `Blog post has slug that would overlap with search tabs: ${post.id}`
+                            );
+                        }
 
-                    if (
-                        tabCategories.find(({ Name }) => {
-                            return Name.toUpperCase() === oldPath.toUpperCase();
-                        })
-                    ) {
-                        throw new Error(
-                            `Blog post has slug that would overlap with search tabs: ${post.id}`
-                        );
+                        // We used to not prefix blog posts with `/blog/` so make sure there are redirects
+                        // I do not think we truly need this in production as firebase.json already contains
+                        //  all the redirects. I think this makes local dev work more like prod though.
+                        createRedirect({
+                            fromPath: oldPath,
+                            toPath: newPath,
+                        });
                     }
 
-                    // We used to not prefix blog posts with `/blog/` so make sure there are redirects
-                    // I do not think we truly need this in production as firebase.json already contains
-                    //  all the redirects. I think this makes local dev work more like prod though.
-                    createRedirect({
-                        fromPath: oldPath,
-                        toPath: newPath,
-                    });
+                    console.log(
+                        `blogPost:redirect:${createdBeforeSwitch ? 'updated' : 'skipped'}`,
+                        newPath
+                    );
 
                     createPage({
                         path: newPath,
