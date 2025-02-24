@@ -267,7 +267,7 @@ const Comparison = ({
                             </h3>
                         }
                         button={{
-                            id: 'build-a-pipeline-button-banner-comparison-page',
+                            id: 'build-a-pipeline-button/banner/comparison-page',
                             title: 'Build a Pipeline',
                             href: dashboardRegisterUrl,
                         }}
