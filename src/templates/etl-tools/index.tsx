@@ -1,10 +1,10 @@
 import { graphql } from 'gatsby';
 import Layout from '../../components/Layout';
-import Seo from '../../components/seo';
 import { Vendor } from '../../../shared';
 import Hero from '../../components/EtlToolsXvsYPage/Hero';
 import Comparison from '../../components/EtlToolsXvsYPage/Comparison';
 import GettingStarted from '../../components/EtlToolsXvsYPage/GettingStarted';
+import VendorComparisonHead from './Head';
 
 interface EtlToolsProps {
     data: {
@@ -43,16 +43,9 @@ const EtlTools = ({
     );
 };
 
-export const Head = ({ data: { xVendor, yVendor } }) => {
-    return (
-        <Seo
-            title={`${xVendor.name} vs ${yVendor.name}: Data Integration Tools Compared`}
-            description={`Compare ${xVendor.name} vs ${yVendor.name}. Discover their key differences, ETL/ELT features, and pricing to choose the right data integration platform.`}
-        />
-    );
-};
-
 export default EtlTools;
+
+export const Head = VendorComparisonHead;
 
 export const pageQuery = graphql`
     query GetComparisons(

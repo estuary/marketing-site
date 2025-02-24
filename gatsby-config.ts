@@ -16,6 +16,8 @@ process.env.POSTGRAPHILE_PREPARED_STATEMENT_CACHE_SIZE = '1';
 const strapiConfig = {
     apiURL: process.env.STRAPI_API_URL,
     accessToken: process.env.STRAPI_TOKEN,
+    maxParallelRequests: 3,
+    version: 4, // They now assume v5
     collectionTypes: [
         'blog-post',
         'company-update-post',
@@ -348,7 +350,7 @@ const cfg: GatsbyConfig = {
         },
     },
     flags: {
-        // PRESERVE_FILE_DOWNLOAD_CACHE: true,
+        PRESERVE_FILE_DOWNLOAD_CACHE: true,
         PARALLEL_SOURCING: false,
         DEV_SSR: true,
     },
@@ -495,6 +497,7 @@ const cfg: GatsbyConfig = {
                     allStrapiBlogPost{
                         nodes {
                             id
+                            description: Description
                             title: Title
                             slug: Slug
                             publishedAt(formatString: "MMMM D, YYYY")
@@ -532,7 +535,7 @@ const cfg: GatsbyConfig = {
                 // List of keys to index. The values of the keys are taken from the
                 // normalizer function below.
                 // Default: all fields
-                index: ['title', 'searchable_tags'],
+                index: ['slug', 'title', 'searchable_tags'],
 
                 // List of keys to store and make available in your UI. The values of
                 // the keys are taken from the normalizer function below.
@@ -552,16 +555,28 @@ const cfg: GatsbyConfig = {
                 // containing properties to index. The objects must contain the `ref`
                 // field above (default: 'id'). This is required.
                 normalizer: ({ data }) => {
-                    return data.allStrapiBlogPost.nodes.map((node) => {
-                        console.log('LunrSearch:normalizer:blog', node.slug);
+                    const startTime = performance.now();
+                    const response = data.allStrapiBlogPost.nodes.map(
+                        (node) => {
+                            console.log(
+                                'LunrSearch:normalizer:blog',
+                                node.slug
+                            );
 
-                        return {
-                            ...node,
-                            searchable_tags: node.tags
-                                .map((t) => t.Name)
-                                .join(' '),
-                        };
-                    });
+                            return {
+                                ...node,
+                                searchable_tags: node.tags
+                                    .map((t) => t.Name)
+                                    .join(' '),
+                            };
+                        }
+                    );
+
+                    console.log(
+                        `LunrSearch:normalizer:blog took ${Math.ceil(performance.now() - startTime)}ms`
+                    );
+
+                    return response;
                 },
             },
         },
@@ -629,7 +644,8 @@ const cfg: GatsbyConfig = {
                 // containing properties to index. The objects must contain the `ref`
                 // field above (default: 'id'). This is required.
                 normalizer: ({ data }) => {
-                    return data.postgres.allConnectors.nodes
+                    const startTime = performance.now();
+                    const response = data.postgres.allConnectors.nodes
                         .map((node) => {
                             console.log(
                                 'LunrSearch:normalizer:connector',
@@ -640,6 +656,11 @@ const cfg: GatsbyConfig = {
                         .filter((connector) => {
                             return connector !== undefined;
                         });
+
+                    console.log(
+                        `LunrSearch:normalizer:connector took ${Math.ceil(performance.now() - startTime)}ms`
+                    );
+                    return response;
                 },
             },
         },
