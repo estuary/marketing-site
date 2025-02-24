@@ -2,6 +2,7 @@ import { InputLabel, FormControl, MenuItem, Select } from '@mui/material';
 import clsx from 'clsx';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import LinkFilled from '../LinksAndButtons/LinkFilled';
+import ConnectorIcon from '../../svgs/server.svg';
 import {
     wrapper,
     formControl,
@@ -94,7 +95,14 @@ const XvsYFilter = ({
                                     alt={`${item.title} Logo`}
                                     className={itemImage}
                                 />
-                            ) : null}
+                            ) : (
+                                <ConnectorIcon
+                                    width={20}
+                                    height={20}
+                                    color="var(--grey)"
+                                    className={itemImage}
+                                />
+                            )}
                             {item.title}
                         </MenuItem>
                     ))}
