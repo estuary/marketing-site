@@ -221,11 +221,11 @@ const row3 = [
 const row4 = [
     ...Array(7).fill(nullConnectorLeft),
     {
-        name: 'Microsoft Fabric Warehouse',
+        name: 'Microsoft Fabric',
         logo: (
             <StaticImage
                 src="../../../../images/microsoft-fabric-warehouse-logo.png"
-                alt="Microsoft Fabric Warehouse logo"
+                alt="Microsoft Fabric logo"
                 {...commonProps}
             />
         ),
