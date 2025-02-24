@@ -495,6 +495,3621 @@
                 "source": "/why/",
                 "destination": "/demo/",
                 "type": 301
+            },
+            {
+                "type": 301,
+                "source": "debezium-vs-flow-comparison",
+                "destination": "/blog/debezium-vs-flow-comparison"
+            },
+            {
+                "type": 301,
+                "source": "kafka-alternatives",
+                "destination": "/blog/kafka-alternatives"
+            },
+            {
+                "type": 301,
+                "source": "informatica-alternatives",
+                "destination": "/blog/informatica-alternatives"
+            },
+            {
+                "type": 301,
+                "source": "oracle-to-redshift",
+                "destination": "/blog/oracle-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "comparison-query-engines-for-apache-iceberg",
+                "destination": "/blog/comparison-query-engines-for-apache-iceberg"
+            },
+            {
+                "type": 301,
+                "source": "salesforce-integration",
+                "destination": "/blog/salesforce-integration"
+            },
+            {
+                "type": 301,
+                "source": "oracle-to-elasticsearch",
+                "destination": "/blog/oracle-to-elasticsearch"
+            },
+            {
+                "type": 301,
+                "source": "oracle-to-sql-server",
+                "destination": "/blog/oracle-to-sql-server"
+            },
+            {
+                "type": 301,
+                "source": "oracle-to-mariadb",
+                "destination": "/blog/oracle-to-mariadb"
+            },
+            {
+                "type": 301,
+                "source": "bing-ads-to-bigquery",
+                "destination": "/blog/bing-ads-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "data-integrity",
+                "destination": "/blog/data-integrity"
+            },
+            {
+                "type": 301,
+                "source": "incremental-data-load-vs-full-load-etl",
+                "destination": "/blog/incremental-data-load-vs-full-load-etl"
+            },
+            {
+                "type": 301,
+                "source": "mongodb-vs-dynamodb",
+                "destination": "/blog/mongodb-vs-dynamodb"
+            },
+            {
+                "type": 301,
+                "source": "bigquery-to-iceberg",
+                "destination": "/blog/bigquery-to-iceberg"
+            },
+            {
+                "type": 301,
+                "source": "redshift-to-apache-iceberg",
+                "destination": "/blog/redshift-to-apache-iceberg"
+            },
+            {
+                "type": 301,
+                "source": "databricks-vs-snowflake",
+                "destination": "/blog/databricks-vs-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "how-to-load-data-into-data-warehouse",
+                "destination": "/blog/how-to-load-data-into-data-warehouse"
+            },
+            {
+                "type": 301,
+                "source": "integrate-io-alternatives",
+                "destination": "/blog/integrate-io-alternatives"
+            },
+            {
+                "type": 301,
+                "source": "loading-data-into-postgresql",
+                "destination": "/blog/loading-data-into-postgresql"
+            },
+            {
+                "type": 301,
+                "source": "apache-iceberg-vs-apache-hudi",
+                "destination": "/blog/apache-iceberg-vs-apache-hudi"
+            },
+            {
+                "type": 301,
+                "source": "apache-iceberg-vs-delta-lake",
+                "destination": "/blog/apache-iceberg-vs-delta-lake"
+            },
+            {
+                "type": 301,
+                "source": "kafka-to-apache-iceberg",
+                "destination": "/blog/kafka-to-apache-iceberg"
+            },
+            {
+                "type": 301,
+                "source": "oracle-database-replication",
+                "destination": "/blog/oracle-database-replication"
+            },
+            {
+                "type": 301,
+                "source": "oracle-to-mysql",
+                "destination": "/blog/oracle-to-mysql"
+            },
+            {
+                "type": 301,
+                "source": "oracle-to-mongodb",
+                "destination": "/blog/oracle-to-mongodb"
+            },
+            {
+                "type": 301,
+                "source": "postgresql-to-apache-iceberg",
+                "destination": "/blog/postgresql-to-apache-iceberg"
+            },
+            {
+                "type": 301,
+                "source": "python-etl-tools",
+                "destination": "/blog/python-etl-tools"
+            },
+            {
+                "type": 301,
+                "source": "course-derivations-part-1",
+                "destination": "/blog/course-derivations-part-1"
+            },
+            {
+                "type": 301,
+                "source": "netsuite-to-sql-server",
+                "destination": "/blog/netsuite-to-sql-server"
+            },
+            {
+                "type": 301,
+                "source": "oracle-to-postgresql",
+                "destination": "/blog/oracle-to-postgresql"
+            },
+            {
+                "type": 301,
+                "source": "amplitude-to-postgresql",
+                "destination": "/blog/amplitude-to-postgresql"
+            },
+            {
+                "type": 301,
+                "source": "mixpanel-to-snowflake",
+                "destination": "/blog/mixpanel-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "zero-etl",
+                "destination": "/blog/zero-etl"
+            },
+            {
+                "type": 301,
+                "source": "aws-etl-tools",
+                "destination": "/blog/aws-etl-tools"
+            },
+            {
+                "type": 301,
+                "source": "freshdesk-to-snowflake",
+                "destination": "/blog/freshdesk-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "shopify-to-snowflake",
+                "destination": "/blog/shopify-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "sql-server-integration-services",
+                "destination": "/blog/sql-server-integration-services"
+            },
+            {
+                "type": 301,
+                "source": "oracle-to-snowflake",
+                "destination": "/blog/oracle-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "etl-tools-list",
+                "destination": "/blog/etl-tools-list"
+            },
+            {
+                "type": 301,
+                "source": "marketo-to-snowflake",
+                "destination": "/blog/marketo-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "notion-to-mongodb",
+                "destination": "/blog/notion-to-mongodb"
+            },
+            {
+                "type": 301,
+                "source": "snowflake-etl-tools",
+                "destination": "/blog/snowflake-etl-tools"
+            },
+            {
+                "type": 301,
+                "source": "firestore-to-redshift",
+                "destination": "/blog/firestore-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "notion-to-redshift",
+                "destination": "/blog/notion-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "linkedin-ads-to-snowflake",
+                "destination": "/blog/linkedin-ads-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "supabase-to-snowflake",
+                "destination": "/blog/supabase-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "mongodb-to-databricks",
+                "destination": "/blog/mongodb-to-databricks"
+            },
+            {
+                "type": 301,
+                "source": "bigquery-to-elasticsearch",
+                "destination": "/blog/bigquery-to-elasticsearch"
+            },
+            {
+                "type": 301,
+                "source": "snowflake-to-elasticsearch",
+                "destination": "/blog/snowflake-to-elasticsearch"
+            },
+            {
+                "type": 301,
+                "source": "bigquery-to-snowflake",
+                "destination": "/blog/bigquery-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "firestore-to-bigquery",
+                "destination": "/blog/firestore-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "what-is-fivetran",
+                "destination": "/blog/what-is-fivetran"
+            },
+            {
+                "type": 301,
+                "source": "dynamodb-cdc",
+                "destination": "/blog/dynamodb-cdc"
+            },
+            {
+                "type": 301,
+                "source": "salesforce-to-sql-server",
+                "destination": "/blog/salesforce-to-sql-server"
+            },
+            {
+                "type": 301,
+                "source": "postgres-to-databricks",
+                "destination": "/blog/postgres-to-databricks"
+            },
+            {
+                "type": 301,
+                "source": "sql-server-to-dynamodb",
+                "destination": "/blog/sql-server-to-dynamodb"
+            },
+            {
+                "type": 301,
+                "source": "webhooks-to-snowflake",
+                "destination": "/blog/webhooks-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "postgres-to-alloydb",
+                "destination": "/blog/postgres-to-alloydb"
+            },
+            {
+                "type": 301,
+                "source": "netsuite-to-databricks",
+                "destination": "/blog/netsuite-to-databricks"
+            },
+            {
+                "type": 301,
+                "source": "sql-server-to-mariadb",
+                "destination": "/blog/sql-server-to-mariadb"
+            },
+            {
+                "type": 301,
+                "source": "redshift-to-elasticsearch",
+                "destination": "/blog/redshift-to-elasticsearch"
+            },
+            {
+                "type": 301,
+                "source": "mysql-to-alloydb",
+                "destination": "/blog/mysql-to-alloydb"
+            },
+            {
+                "type": 301,
+                "source": "salesforce-to-mongodb",
+                "destination": "/blog/salesforce-to-mongodb"
+            },
+            {
+                "type": 301,
+                "source": "salesforce-to-databricks",
+                "destination": "/blog/salesforce-to-databricks"
+            },
+            {
+                "type": 301,
+                "source": "hubspot-to-databricks",
+                "destination": "/blog/hubspot-to-databricks"
+            },
+            {
+                "type": 301,
+                "source": "sql-server-to-mongodb",
+                "destination": "/blog/sql-server-to-mongodb"
+            },
+            {
+                "type": 301,
+                "source": "alloydb-to-bigquery",
+                "destination": "/blog/alloydb-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "alloydb-to-snowflake",
+                "destination": "/blog/alloydb-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "mysql-to-databricks",
+                "destination": "/blog/mysql-to-databricks"
+            },
+            {
+                "type": 301,
+                "source": "kafka-to-mongodb",
+                "destination": "/blog/kafka-to-mongodb"
+            },
+            {
+                "type": 301,
+                "source": "mysql-to-dynamodb",
+                "destination": "/blog/mysql-to-dynamodb"
+            },
+            {
+                "type": 301,
+                "source": "confluence-to-redshift",
+                "destination": "/blog/confluence-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "confluence-to-snowflake",
+                "destination": "/blog/confluence-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "criteo-to-redshift",
+                "destination": "/blog/criteo-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "confluence-to-bigquery",
+                "destination": "/blog/confluence-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "amplitude-to-redshift",
+                "destination": "/blog/amplitude-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "amplitude-to-snowflake",
+                "destination": "/blog/amplitude-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "cosmosdb-to-sql-server",
+                "destination": "/blog/cosmosdb-to-sql-server"
+            },
+            {
+                "type": 301,
+                "source": "braze-to-redshift",
+                "destination": "/blog/braze-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "braintree-to-snowflake",
+                "destination": "/blog/braintree-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "braze-to-bigquery",
+                "destination": "/blog/braze-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "amazon-rds-to-bigquery",
+                "destination": "/blog/amazon-rds-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "braintree-to-redshift",
+                "destination": "/blog/braintree-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "airtable-to-redshift",
+                "destination": "/blog/airtable-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "braintree-to-bigquery",
+                "destination": "/blog/braintree-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "airtable-to-snowflake",
+                "destination": "/blog/airtable-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "jira-to-mysql",
+                "destination": "/blog/jira-to-mysql"
+            },
+            {
+                "type": 301,
+                "source": "sql-server-to-mysql",
+                "destination": "/blog/sql-server-to-mysql"
+            },
+            {
+                "type": 301,
+                "source": "aircall-to-snowflake",
+                "destination": "/blog/aircall-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "aircall-to-bigquery",
+                "destination": "/blog/aircall-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "dynamodb-to-mongodb",
+                "destination": "/blog/dynamodb-to-mongodb"
+            },
+            {
+                "type": 301,
+                "source": "dynamodb-to-elasticsearch",
+                "destination": "/blog/dynamodb-to-elasticsearch"
+            },
+            {
+                "type": 301,
+                "source": "airtable-to-mysql",
+                "destination": "/blog/airtable-to-mysql"
+            },
+            {
+                "type": 301,
+                "source": "airtable-to-mongodb",
+                "destination": "/blog/airtable-to-mongodb"
+            },
+            {
+                "type": 301,
+                "source": "notion-to-snowflake",
+                "destination": "/blog/notion-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "kafka-to-dynamodb",
+                "destination": "/blog/kafka-to-dynamodb"
+            },
+            {
+                "type": 301,
+                "source": "csv-to-snowflake",
+                "destination": "/blog/csv-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "mariadb-to-mongodb",
+                "destination": "/blog/mariadb-to-mongodb"
+            },
+            {
+                "type": 301,
+                "source": "webhooks-to-bigquery",
+                "destination": "/blog/webhooks-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "dynamodb-to-mysql",
+                "destination": "/blog/dynamodb-to-mysql"
+            },
+            {
+                "type": 301,
+                "source": "google-search-console-to-snowflake",
+                "destination": "/blog/google-search-console-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "aurora-to-redshift",
+                "destination": "/blog/aurora-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "amazon-sqs-to-snowflake",
+                "destination": "/blog/amazon-sqs-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "postgres-to-aurora",
+                "destination": "/blog/postgres-to-aurora"
+            },
+            {
+                "type": 301,
+                "source": "postgres-to-pinecone",
+                "destination": "/blog/postgres-to-pinecone"
+            },
+            {
+                "type": 301,
+                "source": "webhooks-to-redshift",
+                "destination": "/blog/webhooks-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "netsuite-to-snowflake",
+                "destination": "/blog/netsuite-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "mongodb-to-pinecone",
+                "destination": "/blog/mongodb-to-pinecone"
+            },
+            {
+                "type": 301,
+                "source": "pinecone-vs-elasticsearch",
+                "destination": "/blog/pinecone-vs-elasticsearch"
+            },
+            {
+                "type": 301,
+                "source": "mysql-to-aurora/",
+                "destination": "/blog/mysql-to-aurora/"
+            },
+            {
+                "type": 301,
+                "source": "data-ingestion-pipeline",
+                "destination": "/blog/data-ingestion-pipeline"
+            },
+            {
+                "type": 301,
+                "source": "data-ingestion-vs-data-integration",
+                "destination": "/blog/data-ingestion-vs-data-integration"
+            },
+            {
+                "type": 301,
+                "source": "data-ingestion-vs-etl",
+                "destination": "/blog/data-ingestion-vs-etl"
+            },
+            {
+                "type": 301,
+                "source": "aurora-to-snowflake",
+                "destination": "/blog/aurora-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "kinesis-to-redshift",
+                "destination": "/blog/kinesis-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "redshift-to-snowflake",
+                "destination": "/blog/redshift-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "mariadb-to-mysql",
+                "destination": "/blog/mariadb-to-mysql"
+            },
+            {
+                "type": 301,
+                "source": "operational-database-example",
+                "destination": "/blog/operational-database-example"
+            },
+            {
+                "type": 301,
+                "source": "criteo-to-snowflake",
+                "destination": "/blog/criteo-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "mixpanel-to-redshift",
+                "destination": "/blog/mixpanel-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "netsuite-to-bigquery",
+                "destination": "/blog/netsuite-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "braze-to-snowflake",
+                "destination": "/blog/braze-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "pinterest-ads-to-bigquery",
+                "destination": "/blog/pinterest-ads-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "google-analytics-4-to-snowflake",
+                "destination": "/blog/google-analytics-4-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "dynamodb-to-bigquery",
+                "destination": "/blog/dynamodb-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "dynamodb-to-redshift",
+                "destination": "/blog/dynamodb-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "event-driven-architecture",
+                "destination": "/blog/event-driven-architecture"
+            },
+            {
+                "type": 301,
+                "source": "data-cleansing",
+                "destination": "/blog/data-cleansing"
+            },
+            {
+                "type": 301,
+                "source": "postgres-schema",
+                "destination": "/blog/postgres-schema"
+            },
+            {
+                "type": 301,
+                "source": "jira-to-postgres",
+                "destination": "/blog/jira-to-postgres"
+            },
+            {
+                "type": 301,
+                "source": "amazon-s3-to-snowflake",
+                "destination": "/blog/amazon-s3-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "data-management-best-practices",
+                "destination": "/blog/data-management-best-practices"
+            },
+            {
+                "type": 301,
+                "source": "snowflake-connectors",
+                "destination": "/blog/snowflake-connectors"
+            },
+            {
+                "type": 301,
+                "source": "stripe-to-snowflake",
+                "destination": "/blog/stripe-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "stripe-to-redshift",
+                "destination": "/blog/stripe-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "bigquery-data-types",
+                "destination": "/blog/bigquery-data-types"
+            },
+            {
+                "type": 301,
+                "source": "mariadb-to-snowflake",
+                "destination": "/blog/mariadb-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "sftp-ftp-to-redshift",
+                "destination": "/blog/sftp-ftp-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "real-time-data-replication",
+                "destination": "/blog/real-time-data-replication"
+            },
+            {
+                "type": 301,
+                "source": "csv-to-postgres",
+                "destination": "/blog/csv-to-postgres"
+            },
+            {
+                "type": 301,
+                "source": "google-analytics-4-to-redshift",
+                "destination": "/blog/google-analytics-4-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "linkedin-ads-to-redshift",
+                "destination": "/blog/linkedin-ads-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "bigquery-to-google-sheets",
+                "destination": "/blog/bigquery-to-google-sheets"
+            },
+            {
+                "type": 301,
+                "source": "realtime-database-triggers",
+                "destination": "/blog/realtime-database-triggers"
+            },
+            {
+                "type": 301,
+                "source": "Linkedin-Ads-to-BigQuery",
+                "destination": "/blog/Linkedin-Ads-to-BigQuery"
+            },
+            {
+                "type": 301,
+                "source": "snowflake-integration",
+                "destination": "/blog/snowflake-integration"
+            },
+            {
+                "type": 301,
+                "source": "kafka-event-driven-architecture",
+                "destination": "/blog/kafka-event-driven-architecture"
+            },
+            {
+                "type": 301,
+                "source": "intercom-to-bigquery",
+                "destination": "/blog/intercom-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "google-ads-to-bigquery/",
+                "destination": "/blog/google-ads-to-bigquery/"
+            },
+            {
+                "type": 301,
+                "source": "connecting-kafka-to-postgresql",
+                "destination": "/blog/connecting-kafka-to-postgresql"
+            },
+            {
+                "type": 301,
+                "source": "google-ads-to-snowflake",
+                "destination": "/blog/google-ads-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "data-mapping",
+                "destination": "/blog/data-mapping"
+            },
+            {
+                "type": 301,
+                "source": "dynamodb-streams",
+                "destination": "/blog/dynamodb-streams"
+            },
+            {
+                "type": 301,
+                "source": "google-ads-to-redshift",
+                "destination": "/blog/google-ads-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "salesforce-to-snowflake",
+                "destination": "/blog/salesforce-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "chargebee-to-bigquery",
+                "destination": "/blog/chargebee-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "redshift-to-google-sheets",
+                "destination": "/blog/redshift-to-google-sheets"
+            },
+            {
+                "type": 301,
+                "source": "batch-processing-vs-stream-processing",
+                "destination": "/blog/batch-processing-vs-stream-processing"
+            },
+            {
+                "type": 301,
+                "source": "traditional-data-warehouse",
+                "destination": "/blog/traditional-data-warehouse"
+            },
+            {
+                "type": 301,
+                "source": "modern-data-warehouse",
+                "destination": "/blog/modern-data-warehouse"
+            },
+            {
+                "type": 301,
+                "source": "chatgpt-for-sales",
+                "destination": "/blog/chatgpt-for-sales"
+            },
+            {
+                "type": 301,
+                "source": "event-driven-vs-event-sourcing",
+                "destination": "/blog/event-driven-vs-event-sourcing"
+            },
+            {
+                "type": 301,
+                "source": "marketing-data-integration",
+                "destination": "/blog/marketing-data-integration"
+            },
+            {
+                "type": 301,
+                "source": "jira-to-snowflake-integration",
+                "destination": "/blog/jira-to-snowflake-integration"
+            },
+            {
+                "type": 301,
+                "source": "tiktok-ads-to-redshift",
+                "destination": "/blog/tiktok-ads-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "mariadb-to-postgres",
+                "destination": "/blog/mariadb-to-postgres"
+            },
+            {
+                "type": 301,
+                "source": "mariadb-to-big-query",
+                "destination": "/blog/mariadb-to-big-query"
+            },
+            {
+                "type": 301,
+                "source": "marketo-to-redshift",
+                "destination": "/blog/marketo-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "zendesk-to-redshift",
+                "destination": "/blog/zendesk-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "kafka-to-elasticsearch",
+                "destination": "/blog/kafka-to-elasticsearch"
+            },
+            {
+                "type": 301,
+                "source": "hubspot-to-snowflake",
+                "destination": "/blog/hubspot-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "google-analytics-4-to-big-query",
+                "destination": "/blog/google-analytics-4-to-big-query"
+            },
+            {
+                "type": 301,
+                "source": "stream-processing-framework",
+                "destination": "/blog/stream-processing-framework"
+            },
+            {
+                "type": 301,
+                "source": "postgresql-triggers",
+                "destination": "/blog/postgresql-triggers"
+            },
+            {
+                "type": 301,
+                "source": "database-triggers",
+                "destination": "/blog/database-triggers"
+            },
+            {
+                "type": 301,
+                "source": "hubspot-to-redshift",
+                "destination": "/blog/hubspot-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "mailchimp-to-snowflake",
+                "destination": "/blog/mailchimp-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "data-integration-challenges",
+                "destination": "/blog/data-integration-challenges"
+            },
+            {
+                "type": 301,
+                "source": "Telemetry-data",
+                "destination": "/blog/Telemetry-data"
+            },
+            {
+                "type": 301,
+                "source": "data-normalization",
+                "destination": "/blog/data-normalization"
+            },
+            {
+                "type": 301,
+                "source": "real-time-data-warehouse-examples",
+                "destination": "/blog/real-time-data-warehouse-examples"
+            },
+            {
+                "type": 301,
+                "source": "database-replication",
+                "destination": "/blog/database-replication"
+            },
+            {
+                "type": 301,
+                "source": "data-warehouse-cloud-solutions",
+                "destination": "/blog/data-warehouse-cloud-solutions"
+            },
+            {
+                "type": 301,
+                "source": "data-pipeline-automation",
+                "destination": "/blog/data-pipeline-automation"
+            },
+            {
+                "type": 301,
+                "source": "real-time-data-processing",
+                "destination": "/blog/real-time-data-processing"
+            },
+            {
+                "type": 301,
+                "source": "bigtable-vs-firestore",
+                "destination": "/blog/bigtable-vs-firestore"
+            },
+            {
+                "type": 301,
+                "source": "data-in-motion",
+                "destination": "/blog/data-in-motion"
+            },
+            {
+                "type": 301,
+                "source": "intercom-to-redshift",
+                "destination": "/blog/intercom-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "streaming-data",
+                "destination": "/blog/streaming-data"
+            },
+            {
+                "type": 301,
+                "source": "firestore-to-json",
+                "destination": "/blog/firestore-to-json"
+            },
+            {
+                "type": 301,
+                "source": "data-governance",
+                "destination": "/blog/data-governance"
+            },
+            {
+                "type": 301,
+                "source": "cloud-data-pipelines",
+                "destination": "/blog/cloud-data-pipelines"
+            },
+            {
+                "type": 301,
+                "source": "data-migration-solution",
+                "destination": "/blog/data-migration-solution"
+            },
+            {
+                "type": 301,
+                "source": "data-quality",
+                "destination": "/blog/data-quality"
+            },
+            {
+                "type": 301,
+                "source": "data-synchronization",
+                "destination": "/blog/data-synchronization"
+            },
+            {
+                "type": 301,
+                "source": "mariadb-connectors",
+                "destination": "/blog/mariadb-connectors"
+            },
+            {
+                "type": 301,
+                "source": "mysql-connectors",
+                "destination": "/blog/mysql-connectors"
+            },
+            {
+                "type": 301,
+                "source": "data-architecture",
+                "destination": "/blog/data-architecture"
+            },
+            {
+                "type": 301,
+                "source": "what-is-data-flow",
+                "destination": "/blog/what-is-data-flow"
+            },
+            {
+                "type": 301,
+                "source": "big-data-analytics",
+                "destination": "/blog/big-data-analytics"
+            },
+            {
+                "type": 301,
+                "source": "streaming-data-processing",
+                "destination": "/blog/streaming-data-processing"
+            },
+            {
+                "type": 301,
+                "source": "data-ingestion",
+                "destination": "/blog/data-ingestion"
+            },
+            {
+                "type": 301,
+                "source": "data-transformation-tools",
+                "destination": "/blog/data-transformation-tools"
+            },
+            {
+                "type": 301,
+                "source": "data-extraction-tools",
+                "destination": "/blog/data-extraction-tools"
+            },
+            {
+                "type": 301,
+                "source": "iot-statistics",
+                "destination": "/blog/iot-statistics"
+            },
+            {
+                "type": 301,
+                "source": "why-data-silos-problematic",
+                "destination": "/blog/why-data-silos-problematic"
+            },
+            {
+                "type": 301,
+                "source": "machine-learning-statistics",
+                "destination": "/blog/machine-learning-statistics"
+            },
+            {
+                "type": 301,
+                "source": "mongodb-vs-mysql",
+                "destination": "/blog/mongodb-vs-mysql"
+            },
+            {
+                "type": 301,
+                "source": "firebase-vs-mongodb",
+                "destination": "/blog/firebase-vs-mongodb"
+            },
+            {
+                "type": 301,
+                "source": "real-time-data-ingestion",
+                "destination": "/blog/real-time-data-ingestion"
+            },
+            {
+                "type": 301,
+                "source": "kafka-to-azure",
+                "destination": "/blog/kafka-to-azure"
+            },
+            {
+                "type": 301,
+                "source": "incremental-model-dbt-snowflake",
+                "destination": "/blog/incremental-model-dbt-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "dbt-cloud-vs-core",
+                "destination": "/blog/dbt-cloud-vs-core"
+            },
+            {
+                "type": 301,
+                "source": "data-integration-tools",
+                "destination": "/blog/data-integration-tools"
+            },
+            {
+                "type": 301,
+                "source": "bigquery-sandbox",
+                "destination": "/blog/bigquery-sandbox"
+            },
+            {
+                "type": 301,
+                "source": "data-streaming",
+                "destination": "/blog/data-streaming"
+            },
+            {
+                "type": 301,
+                "source": "cdc-replication",
+                "destination": "/blog/cdc-replication"
+            },
+            {
+                "type": 301,
+                "source": "data-management-tools",
+                "destination": "/blog/data-management-tools"
+            },
+            {
+                "type": 301,
+                "source": "data-replication-software",
+                "destination": "/blog/data-replication-software"
+            },
+            {
+                "type": 301,
+                "source": "types-of-data-replication",
+                "destination": "/blog/types-of-data-replication"
+            },
+            {
+                "type": 301,
+                "source": "data-mesh-core-principles",
+                "destination": "/blog/data-mesh-core-principles"
+            },
+            {
+                "type": 301,
+                "source": "on-premise-cloud-migration",
+                "destination": "/blog/on-premise-cloud-migration"
+            },
+            {
+                "type": 301,
+                "source": "real-time-data-visualization",
+                "destination": "/blog/real-time-data-visualization"
+            },
+            {
+                "type": 301,
+                "source": "best-data-streaming-platforms",
+                "destination": "/blog/best-data-streaming-platforms"
+            },
+            {
+                "type": 301,
+                "source": "data-warehouse-best-practices",
+                "destination": "/blog/data-warehouse-best-practices"
+            },
+            {
+                "type": 301,
+                "source": "firestore-query-best-practices",
+                "destination": "/blog/firestore-query-best-practices"
+            },
+            {
+                "type": 301,
+                "source": "snowflake-vs-redshift-vs-bigquery",
+                "destination": "/blog/snowflake-vs-redshift-vs-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "data-streaming-architecture",
+                "destination": "/blog/data-streaming-architecture"
+            },
+            {
+                "type": 301,
+                "source": "best-open-source-databases",
+                "destination": "/blog/best-open-source-databases"
+            },
+            {
+                "type": 301,
+                "source": "what-is-streaming-analytics",
+                "destination": "/blog/what-is-streaming-analytics"
+            },
+            {
+                "type": 301,
+                "source": "enable-sql-server-change-data-capture",
+                "destination": "/blog/enable-sql-server-change-data-capture"
+            },
+            {
+                "type": 301,
+                "source": "postgresql-vs-mongodb/",
+                "destination": "/blog/postgresql-vs-mongodb/"
+            },
+            {
+                "type": 301,
+                "source": "data-streaming-technology",
+                "destination": "/blog/data-streaming-technology"
+            },
+            {
+                "type": 301,
+                "source": "dataops-for-streaming-data",
+                "destination": "/blog/dataops-for-streaming-data"
+            },
+            {
+                "type": 301,
+                "source": "postgresql-data-types",
+                "destination": "/blog/postgresql-data-types"
+            },
+            {
+                "type": 301,
+                "source": "real-time-data-streaming-architecture",
+                "destination": "/blog/real-time-data-streaming-architecture"
+            },
+            {
+                "type": 301,
+                "source": "what-is-real-time-data-streaming",
+                "destination": "/blog/what-is-real-time-data-streaming"
+            },
+            {
+                "type": 301,
+                "source": "firestore-vs-realtime-database",
+                "destination": "/blog/firestore-vs-realtime-database"
+            },
+            {
+                "type": 301,
+                "source": "what-is-real-time-data-warehouse",
+                "destination": "/blog/what-is-real-time-data-warehouse"
+            },
+            {
+                "type": 301,
+                "source": "mysql-to-parquet",
+                "destination": "/blog/mysql-to-parquet"
+            },
+            {
+                "type": 301,
+                "source": "data-pipeline-examples",
+                "destination": "/blog/data-pipeline-examples"
+            },
+            {
+                "type": 301,
+                "source": "what-is-real-time-processing",
+                "destination": "/blog/what-is-real-time-processing"
+            },
+            {
+                "type": 301,
+                "source": "postgresql-to-bigquery",
+                "destination": "/blog/postgresql-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "what-is-real-time-data",
+                "destination": "/blog/what-is-real-time-data"
+            },
+            {
+                "type": 301,
+                "source": "what-are-data-connectors",
+                "destination": "/blog/what-are-data-connectors"
+            },
+            {
+                "type": 301,
+                "source": "connect-google-sheets-to-postgresql",
+                "destination": "/blog/connect-google-sheets-to-postgresql"
+            },
+            {
+                "type": 301,
+                "source": "confluent-kafka-vs-apache-kafka",
+                "destination": "/blog/confluent-kafka-vs-apache-kafka"
+            },
+            {
+                "type": 301,
+                "source": "connect-mysql-to-snowflake",
+                "destination": "/blog/connect-mysql-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "connect-mysql-to-bigquery",
+                "destination": "/blog/connect-mysql-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "mysql-to-elasticsearch-real-time",
+                "destination": "/blog/mysql-to-elasticsearch-real-time"
+            },
+            {
+                "type": 301,
+                "source": "mysql-to-google-sheets",
+                "destination": "/blog/mysql-to-google-sheets"
+            },
+            {
+                "type": 301,
+                "source": "mysql-to-postgresql",
+                "destination": "/blog/mysql-to-postgresql"
+            },
+            {
+                "type": 301,
+                "source": "what-is-an-automated-data-pipeline",
+                "destination": "/blog/what-is-an-automated-data-pipeline"
+            },
+            {
+                "type": 301,
+                "source": "airbyte-alternatives",
+                "destination": "/blog/airbyte-alternatives"
+            },
+            {
+                "type": 301,
+                "source": "meltano-vs-airbyte-vs-estuary",
+                "destination": "/blog/meltano-vs-airbyte-vs-estuary"
+            },
+            {
+                "type": 301,
+                "source": "data-pipeline-architecture",
+                "destination": "/blog/data-pipeline-architecture"
+            },
+            {
+                "type": 301,
+                "source": "build-real-time-data-pipelines",
+                "destination": "/blog/build-real-time-data-pipelines"
+            },
+            {
+                "type": 301,
+                "source": "streaming-data-pipelines",
+                "destination": "/blog/streaming-data-pipelines"
+            },
+            {
+                "type": 301,
+                "source": "what-is-an-etl-pipeline",
+                "destination": "/blog/what-is-an-etl-pipeline"
+            },
+            {
+                "type": 301,
+                "source": "what-is-a-data-pipeline",
+                "destination": "/blog/what-is-a-data-pipeline"
+            },
+            {
+                "type": 301,
+                "source": "everything-you-actually-need-to-know-to-use-estuary-flow",
+                "destination": "/blog/everything-you-actually-need-to-know-to-use-estuary-flow"
+            },
+            {
+                "type": 301,
+                "source": "dataops-for-business-a-comprehensive-introduction",
+                "destination": "/blog/dataops-for-business-a-comprehensive-introduction"
+            },
+            {
+                "type": 301,
+                "source": "why-you-dont-actually-need-a-reverse-etl-platform",
+                "destination": "/blog/why-you-dont-actually-need-a-reverse-etl-platform"
+            },
+            {
+                "type": 301,
+                "source": "data-for-all-why-data-democratization-matters-at-every-scale",
+                "destination": "/blog/data-for-all-why-data-democratization-matters-at-every-scale"
+            },
+            {
+                "type": 301,
+                "source": "understanding-the-modern-data-stack-and-why-open-source-matters",
+                "destination": "/blog/understanding-the-modern-data-stack-and-why-open-source-matters"
+            },
+            {
+                "type": 301,
+                "source": "the-complete-change-data-capture-guide-for-mysql",
+                "destination": "/blog/the-complete-change-data-capture-guide-for-mysql"
+            },
+            {
+                "type": 301,
+                "source": "the-complete-change-data-capture-guide-for-postgresql",
+                "destination": "/blog/the-complete-change-data-capture-guide-for-postgresql"
+            },
+            {
+                "type": 301,
+                "source": "3-reasons-to-rethink-your-approach-to-change-data-capture",
+                "destination": "/blog/3-reasons-to-rethink-your-approach-to-change-data-capture"
+            },
+            {
+                "type": 301,
+                "source": "the-complete-introduction-to-change-data-capture-cdc",
+                "destination": "/blog/the-complete-introduction-to-change-data-capture-cdc"
+            },
+            {
+                "type": 301,
+                "source": "this-article-wont-tell-you-how-to-build-a-data-mesh",
+                "destination": "/blog/this-article-wont-tell-you-how-to-build-a-data-mesh"
+            },
+            {
+                "type": 301,
+                "source": "the-power-and-implications-of-data-materialization",
+                "destination": "/blog/the-power-and-implications-of-data-materialization"
+            },
+            {
+                "type": 301,
+                "source": "database-vs-data-warehouse-vs-data-lake-key-differences-and-usage",
+                "destination": "/blog/database-vs-data-warehouse-vs-data-lake-key-differences-and-usage"
+            },
+            {
+                "type": 301,
+                "source": "5-example-use-cases-for-real-time-data-processing",
+                "destination": "/blog/5-example-use-cases-for-real-time-data-processing"
+            },
+            {
+                "type": 301,
+                "source": "batch-data-processing",
+                "destination": "/blog/batch-data-processing"
+            },
+            {
+                "type": 301,
+                "source": "etl-vs-elt",
+                "destination": "/blog/etl-vs-elt"
+            },
+            {
+                "type": 301,
+                "source": "data-pipeline",
+                "destination": "/blog/data-pipeline"
+            },
+            {
+                "type": 301,
+                "source": "oracle-to-redshift",
+                "destination": "/blog/oracle-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "oracle-to-elasticsearch",
+                "destination": "/blog/oracle-to-elasticsearch"
+            },
+            {
+                "type": 301,
+                "source": "oracle-to-sql-server",
+                "destination": "/blog/oracle-to-sql-server"
+            },
+            {
+                "type": 301,
+                "source": "oracle-to-mariadb",
+                "destination": "/blog/oracle-to-mariadb"
+            },
+            {
+                "type": 301,
+                "source": "oracle-to-databricks",
+                "destination": "/blog/oracle-to-databricks"
+            },
+            {
+                "type": 301,
+                "source": "bing-ads-to-bigquery",
+                "destination": "/blog/bing-ads-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "bigquery-to-iceberg",
+                "destination": "/blog/bigquery-to-iceberg"
+            },
+            {
+                "type": 301,
+                "source": "redshift-to-apache-iceberg",
+                "destination": "/blog/redshift-to-apache-iceberg"
+            },
+            {
+                "type": 301,
+                "source": "how-to-load-data-into-data-warehouse",
+                "destination": "/blog/how-to-load-data-into-data-warehouse"
+            },
+            {
+                "type": 301,
+                "source": "s3-tables-for-apache-iceberg",
+                "destination": "/blog/s3-tables-for-apache-iceberg"
+            },
+            {
+                "type": 301,
+                "source": "loading-data-into-postgresql",
+                "destination": "/blog/loading-data-into-postgresql"
+            },
+            {
+                "type": 301,
+                "source": "kafka-to-apache-iceberg",
+                "destination": "/blog/kafka-to-apache-iceberg"
+            },
+            {
+                "type": 301,
+                "source": "oracle-to-mysql",
+                "destination": "/blog/oracle-to-mysql"
+            },
+            {
+                "type": 301,
+                "source": "oracle-to-mongodb",
+                "destination": "/blog/oracle-to-mongodb"
+            },
+            {
+                "type": 301,
+                "source": "postgresql-to-apache-iceberg",
+                "destination": "/blog/postgresql-to-apache-iceberg"
+            },
+            {
+                "type": 301,
+                "source": "real-time-rag-with-estuary-and-pinecone",
+                "destination": "/blog/real-time-rag-with-estuary-and-pinecone"
+            },
+            {
+                "type": 301,
+                "source": "course-derivations-part-1",
+                "destination": "/blog/course-derivations-part-1"
+            },
+            {
+                "type": 301,
+                "source": "real-time-monitoring-databricks",
+                "destination": "/blog/real-time-monitoring-databricks"
+            },
+            {
+                "type": 301,
+                "source": "netsuite-to-sql-server",
+                "destination": "/blog/netsuite-to-sql-server"
+            },
+            {
+                "type": 301,
+                "source": "oracle-to-postgresql",
+                "destination": "/blog/oracle-to-postgresql"
+            },
+            {
+                "type": 301,
+                "source": "amplitude-to-postgresql",
+                "destination": "/blog/amplitude-to-postgresql"
+            },
+            {
+                "type": 301,
+                "source": "mixpanel-to-snowflake",
+                "destination": "/blog/mixpanel-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "freshdesk-to-snowflake",
+                "destination": "/blog/freshdesk-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "shopify-to-snowflake",
+                "destination": "/blog/shopify-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "sql-server-integration-services",
+                "destination": "/blog/sql-server-integration-services"
+            },
+            {
+                "type": 301,
+                "source": "oracle-to-snowflake",
+                "destination": "/blog/oracle-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "marketo-to-snowflake",
+                "destination": "/blog/marketo-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "notion-to-mongodb",
+                "destination": "/blog/notion-to-mongodb"
+            },
+            {
+                "type": 301,
+                "source": "firestore-to-redshift",
+                "destination": "/blog/firestore-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "asana-to-bigquery",
+                "destination": "/blog/asana-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "notion-to-redshift",
+                "destination": "/blog/notion-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "linkedin-ads-to-snowflake",
+                "destination": "/blog/linkedin-ads-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "supabase-to-snowflake",
+                "destination": "/blog/supabase-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "intercom-to-snowflake",
+                "destination": "/blog/intercom-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "mongodb-to-databricks",
+                "destination": "/blog/mongodb-to-databricks"
+            },
+            {
+                "type": 301,
+                "source": "bigquery-to-elasticsearch",
+                "destination": "/blog/bigquery-to-elasticsearch"
+            },
+            {
+                "type": 301,
+                "source": "snowflake-to-elasticsearch",
+                "destination": "/blog/snowflake-to-elasticsearch"
+            },
+            {
+                "type": 301,
+                "source": "bigquery-to-snowflake",
+                "destination": "/blog/bigquery-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "firestore-to-bigquery",
+                "destination": "/blog/firestore-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "loading-data-into-apache-iceberg",
+                "destination": "/blog/loading-data-into-apache-iceberg"
+            },
+            {
+                "type": 301,
+                "source": "salesforce-to-sql-server",
+                "destination": "/blog/salesforce-to-sql-server"
+            },
+            {
+                "type": 301,
+                "source": "postgres-to-databricks",
+                "destination": "/blog/postgres-to-databricks"
+            },
+            {
+                "type": 301,
+                "source": "sql-server-to-dynamodb",
+                "destination": "/blog/sql-server-to-dynamodb"
+            },
+            {
+                "type": 301,
+                "source": "webhooks-to-snowflake",
+                "destination": "/blog/webhooks-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "postgres-to-alloydb",
+                "destination": "/blog/postgres-to-alloydb"
+            },
+            {
+                "type": 301,
+                "source": "netsuite-to-databricks",
+                "destination": "/blog/netsuite-to-databricks"
+            },
+            {
+                "type": 301,
+                "source": "sql-server-to-mariadb",
+                "destination": "/blog/sql-server-to-mariadb"
+            },
+            {
+                "type": 301,
+                "source": "redshift-to-elasticsearch",
+                "destination": "/blog/redshift-to-elasticsearch"
+            },
+            {
+                "type": 301,
+                "source": "mysql-to-alloydb",
+                "destination": "/blog/mysql-to-alloydb"
+            },
+            {
+                "type": 301,
+                "source": "salesforce-to-mongodb",
+                "destination": "/blog/salesforce-to-mongodb"
+            },
+            {
+                "type": 301,
+                "source": "salesforce-to-databricks",
+                "destination": "/blog/salesforce-to-databricks"
+            },
+            {
+                "type": 301,
+                "source": "hubspot-to-databricks",
+                "destination": "/blog/hubspot-to-databricks"
+            },
+            {
+                "type": 301,
+                "source": "connect-sql-server-to-databricks",
+                "destination": "/blog/connect-sql-server-to-databricks"
+            },
+            {
+                "type": 301,
+                "source": "alloydb-to-bigquery",
+                "destination": "/blog/alloydb-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "alloydb-to-snowflake",
+                "destination": "/blog/alloydb-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "mysql-to-databricks",
+                "destination": "/blog/mysql-to-databricks"
+            },
+            {
+                "type": 301,
+                "source": "kafka-to-mongodb",
+                "destination": "/blog/kafka-to-mongodb"
+            },
+            {
+                "type": 301,
+                "source": "mysql-to-dynamodb",
+                "destination": "/blog/mysql-to-dynamodb"
+            },
+            {
+                "type": 301,
+                "source": "confluence-to-redshift",
+                "destination": "/blog/confluence-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "confluence-to-snowflake",
+                "destination": "/blog/confluence-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "criteo-to-redshift",
+                "destination": "/blog/criteo-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "confluence-to-bigquery",
+                "destination": "/blog/confluence-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "amplitude-to-redshift",
+                "destination": "/blog/amplitude-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "amplitude-to-snowflake",
+                "destination": "/blog/amplitude-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "cosmosdb-to-sql-server",
+                "destination": "/blog/cosmosdb-to-sql-server"
+            },
+            {
+                "type": 301,
+                "source": "braze-to-redshift",
+                "destination": "/blog/braze-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "braintree-to-snowflake",
+                "destination": "/blog/braintree-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "braze-to-bigquery",
+                "destination": "/blog/braze-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "amazon-rds-to-bigquery",
+                "destination": "/blog/amazon-rds-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "braintree-to-redshift",
+                "destination": "/blog/braintree-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "airtable-to-redshift",
+                "destination": "/blog/airtable-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "braintree-to-bigquery",
+                "destination": "/blog/braintree-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "airtable-to-snowflake",
+                "destination": "/blog/airtable-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "jira-to-mysql",
+                "destination": "/blog/jira-to-mysql"
+            },
+            {
+                "type": 301,
+                "source": "sql-server-to-mysql",
+                "destination": "/blog/sql-server-to-mysql"
+            },
+            {
+                "type": 301,
+                "source": "aircall-to-snowflake",
+                "destination": "/blog/aircall-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "aircall-to-bigquery",
+                "destination": "/blog/aircall-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "dynamodb-to-mongodb",
+                "destination": "/blog/dynamodb-to-mongodb"
+            },
+            {
+                "type": 301,
+                "source": "dynamodb-to-elasticsearch",
+                "destination": "/blog/dynamodb-to-elasticsearch"
+            },
+            {
+                "type": 301,
+                "source": "airtable-to-mysql",
+                "destination": "/blog/airtable-to-mysql"
+            },
+            {
+                "type": 301,
+                "source": "redshift-to-bigquery",
+                "destination": "/blog/redshift-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "mongodb-to-dynamodb",
+                "destination": "/blog/mongodb-to-dynamodb"
+            },
+            {
+                "type": 301,
+                "source": "airtable-to-mongodb",
+                "destination": "/blog/airtable-to-mongodb"
+            },
+            {
+                "type": 301,
+                "source": "notion-to-snowflake",
+                "destination": "/blog/notion-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "kafka-to-dynamodb",
+                "destination": "/blog/kafka-to-dynamodb"
+            },
+            {
+                "type": 301,
+                "source": "csv-to-snowflake",
+                "destination": "/blog/csv-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "mariadb-to-mongodb",
+                "destination": "/blog/mariadb-to-mongodb"
+            },
+            {
+                "type": 301,
+                "source": "webhooks-to-bigquery",
+                "destination": "/blog/webhooks-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "dynamodb-to-mysql",
+                "destination": "/blog/dynamodb-to-mysql"
+            },
+            {
+                "type": 301,
+                "source": "google-search-console-to-redshift",
+                "destination": "/blog/google-search-console-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "google-search-console-to-snowflake",
+                "destination": "/blog/google-search-console-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "rds-to-snowflake",
+                "destination": "/blog/rds-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "aurora-to-redshift",
+                "destination": "/blog/aurora-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "amazon-sqs-to-snowflake",
+                "destination": "/blog/amazon-sqs-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "postgres-to-aurora",
+                "destination": "/blog/postgres-to-aurora"
+            },
+            {
+                "type": 301,
+                "source": "postgres-to-pinecone",
+                "destination": "/blog/postgres-to-pinecone"
+            },
+            {
+                "type": 301,
+                "source": "webhooks-to-redshift",
+                "destination": "/blog/webhooks-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "netsuite-to-snowflake",
+                "destination": "/blog/netsuite-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "mongodb-to-pinecone",
+                "destination": "/blog/mongodb-to-pinecone"
+            },
+            {
+                "type": 301,
+                "source": "mysql-to-aurora/",
+                "destination": "/blog/mysql-to-aurora/"
+            },
+            {
+                "type": 301,
+                "source": "mongodb-to-elasticsearch",
+                "destination": "/blog/mongodb-to-elasticsearch"
+            },
+            {
+                "type": 301,
+                "source": "gcs-to-snowflake",
+                "destination": "/blog/gcs-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "aurora-to-snowflake",
+                "destination": "/blog/aurora-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "airtable-to-google-sheets/",
+                "destination": "/blog/airtable-to-google-sheets/"
+            },
+            {
+                "type": 301,
+                "source": "mysql-to-mariadb",
+                "destination": "/blog/mysql-to-mariadb"
+            },
+            {
+                "type": 301,
+                "source": "kinesis-to-redshift",
+                "destination": "/blog/kinesis-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "redshift-to-snowflake",
+                "destination": "/blog/redshift-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "mariadb-to-mysql",
+                "destination": "/blog/mariadb-to-mysql"
+            },
+            {
+                "type": 301,
+                "source": "jira-to-slack",
+                "destination": "/blog/jira-to-slack"
+            },
+            {
+                "type": 301,
+                "source": "excel-to-postgres",
+                "destination": "/blog/excel-to-postgres"
+            },
+            {
+                "type": 301,
+                "source": "mongodb-to-sql-server",
+                "destination": "/blog/mongodb-to-sql-server"
+            },
+            {
+                "type": 301,
+                "source": "mariadb-to-sql-server",
+                "destination": "/blog/mariadb-to-sql-server"
+            },
+            {
+                "type": 301,
+                "source": "postgres-to-mysql",
+                "destination": "/blog/postgres-to-mysql"
+            },
+            {
+                "type": 301,
+                "source": "criteo-to-snowflake",
+                "destination": "/blog/criteo-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "mixpanel-to-redshift",
+                "destination": "/blog/mixpanel-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "netsuite-to-bigquery",
+                "destination": "/blog/netsuite-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "braze-to-snowflake",
+                "destination": "/blog/braze-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "pinterest-ads-to-bigquery",
+                "destination": "/blog/pinterest-ads-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "google-analytics-4-to-snowflake",
+                "destination": "/blog/google-analytics-4-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "dynamodb-to-bigquery",
+                "destination": "/blog/dynamodb-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "dynamodb-to-redshift",
+                "destination": "/blog/dynamodb-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "dynamodb-to-postgres",
+                "destination": "/blog/dynamodb-to-postgres"
+            },
+            {
+                "type": 301,
+                "source": "postgres-to-dynamodb",
+                "destination": "/blog/postgres-to-dynamodb"
+            },
+            {
+                "type": 301,
+                "source": "jira-to-redshift",
+                "destination": "/blog/jira-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "stripe-to-snowflake",
+                "destination": "/blog/stripe-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "stripe-to-redshift",
+                "destination": "/blog/stripe-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "mariadb-to-snowflake",
+                "destination": "/blog/mariadb-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "sftp-ftp-to-redshift",
+                "destination": "/blog/sftp-ftp-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "csv-to-postgres",
+                "destination": "/blog/csv-to-postgres"
+            },
+            {
+                "type": 301,
+                "source": "google-analytics-4-to-redshift",
+                "destination": "/blog/google-analytics-4-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "linkedin-ads-to-redshift",
+                "destination": "/blog/linkedin-ads-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "bigquery-to-google-sheets",
+                "destination": "/blog/bigquery-to-google-sheets"
+            },
+            {
+                "type": 301,
+                "source": "Linkedin-Ads-to-BigQuery",
+                "destination": "/blog/Linkedin-Ads-to-BigQuery"
+            },
+            {
+                "type": 301,
+                "source": "intercom-to-bigquery",
+                "destination": "/blog/intercom-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "google-ads-to-bigquery/",
+                "destination": "/blog/google-ads-to-bigquery/"
+            },
+            {
+                "type": 301,
+                "source": "connecting-kafka-to-postgresql",
+                "destination": "/blog/connecting-kafka-to-postgresql"
+            },
+            {
+                "type": 301,
+                "source": "google-ads-to-snowflake",
+                "destination": "/blog/google-ads-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "postgres-to-snowflake",
+                "destination": "/blog/postgres-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "google-ads-to-redshift",
+                "destination": "/blog/google-ads-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "salesforce-to-snowflake",
+                "destination": "/blog/salesforce-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "chargebee-to-bigquery",
+                "destination": "/blog/chargebee-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "redshift-to-google-sheets",
+                "destination": "/blog/redshift-to-google-sheets"
+            },
+            {
+                "type": 301,
+                "source": "chatgpt-for-sales",
+                "destination": "/blog/chatgpt-for-sales"
+            },
+            {
+                "type": 301,
+                "source": "jira-to-snowflake-integration",
+                "destination": "/blog/jira-to-snowflake-integration"
+            },
+            {
+                "type": 301,
+                "source": "tiktok-ads-to-redshift",
+                "destination": "/blog/tiktok-ads-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "mariadb-to-postgres",
+                "destination": "/blog/mariadb-to-postgres"
+            },
+            {
+                "type": 301,
+                "source": "mariadb-to-big-query",
+                "destination": "/blog/mariadb-to-big-query"
+            },
+            {
+                "type": 301,
+                "source": "marketo-to-redshift",
+                "destination": "/blog/marketo-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "zendesk-to-redshift",
+                "destination": "/blog/zendesk-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "kafka-to-elasticsearch",
+                "destination": "/blog/kafka-to-elasticsearch"
+            },
+            {
+                "type": 301,
+                "source": "intercom-to-redshift",
+                "destination": "/blog/intercom-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "mariadb-connectors",
+                "destination": "/blog/mariadb-connectors"
+            },
+            {
+                "type": 301,
+                "source": "mysql-connectors",
+                "destination": "/blog/mysql-connectors"
+            },
+            {
+                "type": 301,
+                "source": "jira-to-snowflake",
+                "destination": "/blog/jira-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "s3-to-postgres",
+                "destination": "/blog/s3-to-postgres"
+            },
+            {
+                "type": 301,
+                "source": "google-analytics-to-bigquery",
+                "destination": "/blog/google-analytics-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "s3-to-redshift",
+                "destination": "/blog/s3-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "salesforce-to-bigquery",
+                "destination": "/blog/salesforce-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "google-sheets-to-bigquery",
+                "destination": "/blog/google-sheets-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "gpt-real-time-pipeline",
+                "destination": "/blog/gpt-real-time-pipeline"
+            },
+            {
+                "type": 301,
+                "source": "chatgpt-custom-data",
+                "destination": "/blog/chatgpt-custom-data"
+            },
+            {
+                "type": 301,
+                "source": "streaming-data-integrations",
+                "destination": "/blog/streaming-data-integrations"
+            },
+            {
+                "type": 301,
+                "source": "firebase-to-bigquery",
+                "destination": "/blog/firebase-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "postgres-to-redshift",
+                "destination": "/blog/postgres-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "streaming-sql",
+                "destination": "/blog/streaming-sql"
+            },
+            {
+                "type": 301,
+                "source": "google-sheets-to-redshift",
+                "destination": "/blog/google-sheets-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "facebook-ads-to-bigquery",
+                "destination": "/blog/facebook-ads-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "kafka-to-redshift",
+                "destination": "/blog/kafka-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "kafka-to-bigquery",
+                "destination": "/blog/kafka-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "data-diff",
+                "destination": "/blog/data-diff"
+            },
+            {
+                "type": 301,
+                "source": "snowflake-cdc",
+                "destination": "/blog/snowflake-cdc"
+            },
+            {
+                "type": 301,
+                "source": "sql-change-data-capture",
+                "destination": "/blog/sql-change-data-capture"
+            },
+            {
+                "type": 301,
+                "source": "mysql-to-csv",
+                "destination": "/blog/mysql-to-csv"
+            },
+            {
+                "type": 301,
+                "source": "postgresql-distinct-clause",
+                "destination": "/blog/postgresql-distinct-clause"
+            },
+            {
+                "type": 301,
+                "source": "snowflake-real-time-data",
+                "destination": "/blog/snowflake-real-time-data"
+            },
+            {
+                "type": 301,
+                "source": "load-data-python",
+                "destination": "/blog/load-data-python"
+            },
+            {
+                "type": 301,
+                "source": "postgres-to-mongodb",
+                "destination": "/blog/postgres-to-mongodb"
+            },
+            {
+                "type": 301,
+                "source": "sql-server-to-bigquery",
+                "destination": "/blog/sql-server-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "mongodb-change-data-capture",
+                "destination": "/blog/mongodb-change-data-capture"
+            },
+            {
+                "type": 301,
+                "source": "google-sheets-to-snowflake",
+                "destination": "/blog/google-sheets-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "sql-server-to-postgres",
+                "destination": "/blog/sql-server-to-postgres"
+            },
+            {
+                "type": 301,
+                "source": "mongodb-to-postgresql",
+                "destination": "/blog/mongodb-to-postgresql"
+            },
+            {
+                "type": 301,
+                "source": "sql-server-to-snowflake",
+                "destination": "/blog/sql-server-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "enable-sql-server-change-data-capture",
+                "destination": "/blog/enable-sql-server-change-data-capture"
+            },
+            {
+                "type": 301,
+                "source": "postgres-to-elasticsearch-streaming",
+                "destination": "/blog/postgres-to-elasticsearch-streaming"
+            },
+            {
+                "type": 301,
+                "source": "mysql-to-parquet",
+                "destination": "/blog/mysql-to-parquet"
+            },
+            {
+                "type": 301,
+                "source": "postgresql-to-bigquery",
+                "destination": "/blog/postgresql-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "connect-google-sheets-to-postgresql",
+                "destination": "/blog/connect-google-sheets-to-postgresql"
+            },
+            {
+                "type": 301,
+                "source": "firestore-to-snowflake-for-analytics",
+                "destination": "/blog/firestore-to-snowflake-for-analytics"
+            },
+            {
+                "type": 301,
+                "source": "connect-mysql-to-snowflake",
+                "destination": "/blog/connect-mysql-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "connect-mysql-to-bigquery",
+                "destination": "/blog/connect-mysql-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "mysql-to-elasticsearch-real-time",
+                "destination": "/blog/mysql-to-elasticsearch-real-time"
+            },
+            {
+                "type": 301,
+                "source": "mysql-to-google-sheets",
+                "destination": "/blog/mysql-to-google-sheets"
+            },
+            {
+                "type": 301,
+                "source": "mysql-to-postgresql",
+                "destination": "/blog/mysql-to-postgresql"
+            },
+            {
+                "type": 301,
+                "source": "graphing-github-ci-build-times",
+                "destination": "/blog/graphing-github-ci-build-times"
+            },
+            {
+                "type": 301,
+                "source": "how-to-connect-kafka-to-hasura-graphql",
+                "destination": "/blog/how-to-connect-kafka-to-hasura-graphql"
+            },
+            {
+                "type": 301,
+                "source": "how-to-create-a-real-time-materialized-view-in-postgresql",
+                "destination": "/blog/how-to-create-a-real-time-materialized-view-in-postgresql"
+            },
+            {
+                "type": 301,
+                "source": "try-it-yourself-continuous-materialized-views-in-postgresql",
+                "destination": "/blog/try-it-yourself-continuous-materialized-views-in-postgresql"
+            },
+            {
+                "type": 301,
+                "source": "fast-json-processing-simdjson",
+                "destination": "/blog/fast-json-processing-simdjson"
+            },
+            {
+                "type": 301,
+                "source": "firestore-to-snowflake-for-analytics",
+                "destination": "/blog/firestore-to-snowflake-for-analytics"
+            },
+            {
+                "type": 301,
+                "source": "why-typescript-for-real-time-data-transformation",
+                "destination": "/blog/why-typescript-for-real-time-data-transformation"
+            },
+            {
+                "type": 301,
+                "source": "how-to-create-a-real-time-materialized-view-in-postgresql",
+                "destination": "/blog/how-to-create-a-real-time-materialized-view-in-postgresql"
+            },
+            {
+                "type": 301,
+                "source": "everything-you-actually-need-to-know-to-use-estuary-flow",
+                "destination": "/blog/everything-you-actually-need-to-know-to-use-estuary-flow"
+            },
+            {
+                "type": 301,
+                "source": "announcing-estuarys-partnership-with-rockset",
+                "destination": "/blog/announcing-estuarys-partnership-with-rockset"
+            },
+            {
+                "type": 301,
+                "source": "the-complete-change-data-capture-guide-for-mysql",
+                "destination": "/blog/the-complete-change-data-capture-guide-for-mysql"
+            },
+            {
+                "type": 301,
+                "source": "try-it-yourself-continuous-materialized-views-in-postgresql",
+                "destination": "/blog/try-it-yourself-continuous-materialized-views-in-postgresql"
+            },
+            {
+                "type": 301,
+                "source": "the-power-and-implications-of-data-materialization",
+                "destination": "/blog/the-power-and-implications-of-data-materialization"
+            },
+            {
+                "type": 301,
+                "source": "why-mapreduce-is-making-a-comeback",
+                "destination": "/blog/why-mapreduce-is-making-a-comeback"
+            },
+            {
+                "type": 301,
+                "source": "a-unified-data-foundation-for-real-time-and-batch",
+                "destination": "/blog/a-unified-data-foundation-for-real-time-and-batch"
+            },
+            {
+                "type": 301,
+                "source": "ETL-alternatives-guide",
+                "destination": "/blog/ETL-alternatives-guide"
+            },
+            {
+                "type": 301,
+                "source": "ELT-alternatives-guide",
+                "destination": "/blog/ELT-alternatives-guide"
+            },
+            {
+                "type": 301,
+                "source": "data-visualization-tools",
+                "destination": "/blog/data-visualization-tools"
+            },
+            {
+                "type": 301,
+                "source": "a-unified-data-foundation-for-real-time-and-batch",
+                "destination": "/blog/a-unified-data-foundation-for-real-time-and-batch"
+            },
+            {
+                "type": 301,
+                "source": "ETL-alternatives-guide",
+                "destination": "/blog/ETL-alternatives-guide"
+            },
+            {
+                "type": 301,
+                "source": "fivetran-alternatives-guide",
+                "destination": "/blog/fivetran-alternatives-guide"
+            },
+            {
+                "type": 301,
+                "source": "ELT-alternatives-guide",
+                "destination": "/blog/ELT-alternatives-guide"
+            },
+            {
+                "type": 301,
+                "source": "memory-efficient-streaming-parquet",
+                "destination": "/blog/memory-efficient-streaming-parquet"
+            },
+            {
+                "type": 301,
+                "source": "data-discovery-tools",
+                "destination": "/blog/data-discovery-tools"
+            },
+            {
+                "type": 301,
+                "source": "mongodb-to-snowflake-normalization",
+                "destination": "/blog/mongodb-to-snowflake-normalization"
+            },
+            {
+                "type": 301,
+                "source": "cdc-done-correctly",
+                "destination": "/blog/cdc-done-correctly"
+            },
+            {
+                "type": 301,
+                "source": "postgres-to-snowflake",
+                "destination": "/blog/postgres-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "chatgpt-for-sales",
+                "destination": "/blog/chatgpt-for-sales"
+            },
+            {
+                "type": 301,
+                "source": "avoid-mds-real-time-tax",
+                "destination": "/blog/avoid-mds-real-time-tax"
+            },
+            {
+                "type": 301,
+                "source": "graduate-elt-tool",
+                "destination": "/blog/graduate-elt-tool"
+            },
+            {
+                "type": 301,
+                "source": "gpt-real-time-pipeline",
+                "destination": "/blog/gpt-real-time-pipeline"
+            },
+            {
+                "type": 301,
+                "source": "data-products-usability",
+                "destination": "/blog/data-products-usability"
+            },
+            {
+                "type": 301,
+                "source": "stateful-stream-processing",
+                "destination": "/blog/stateful-stream-processing"
+            },
+            {
+                "type": 301,
+                "source": "snowflake-query-processing",
+                "destination": "/blog/snowflake-query-processing"
+            },
+            {
+                "type": 301,
+                "source": "what-is-snowflake-primary-key-constraint",
+                "destination": "/blog/what-is-snowflake-primary-key-constraint"
+            },
+            {
+                "type": 301,
+                "source": "redshift-datediff-dateadd-functions",
+                "destination": "/blog/redshift-datediff-dateadd-functions"
+            },
+            {
+                "type": 301,
+                "source": "change-data-capture-landscape",
+                "destination": "/blog/change-data-capture-landscape"
+            },
+            {
+                "type": 301,
+                "source": "extract-export-data-from-firestore",
+                "destination": "/blog/extract-export-data-from-firestore"
+            },
+            {
+                "type": 301,
+                "source": "kafka-as-data-lake",
+                "destination": "/blog/kafka-as-data-lake"
+            },
+            {
+                "type": 301,
+                "source": "sql-server-to-snowflake",
+                "destination": "/blog/sql-server-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "mongodb-to-bigquery-methods",
+                "destination": "/blog/mongodb-to-bigquery-methods"
+            },
+            {
+                "type": 301,
+                "source": "guide-change-data-capture-sql-server",
+                "destination": "/blog/guide-change-data-capture-sql-server"
+            },
+            {
+                "type": 301,
+                "source": "analyze-google-firestore-data",
+                "destination": "/blog/analyze-google-firestore-data"
+            },
+            {
+                "type": 301,
+                "source": "capturing-data-from-salesforce-historical-and-real-time",
+                "destination": "/blog/capturing-data-from-salesforce-historical-and-real-time"
+            },
+            {
+                "type": 301,
+                "source": "why-typescript-for-real-time-data-transformation",
+                "destination": "/blog/why-typescript-for-real-time-data-transformation"
+            },
+            {
+                "type": 301,
+                "source": "four-software-engineering-best-practices-to-improve-your-data-pipelines",
+                "destination": "/blog/four-software-engineering-best-practices-to-improve-your-data-pipelines"
+            },
+            {
+                "type": 301,
+                "source": "how-to-prevent-your-data-warehouse-from-becoming-a-data-swamp",
+                "destination": "/blog/how-to-prevent-your-data-warehouse-from-becoming-a-data-swamp"
+            },
+            {
+                "type": 301,
+                "source": "why-elt-wont-fix-your-data-problems",
+                "destination": "/blog/why-elt-wont-fix-your-data-problems"
+            },
+            {
+                "type": 301,
+                "source": "why-you-dont-actually-need-a-reverse-etl-platform",
+                "destination": "/blog/why-you-dont-actually-need-a-reverse-etl-platform"
+            },
+            {
+                "type": 301,
+                "source": "the-complete-change-data-capture-guide-for-mysql",
+                "destination": "/blog/the-complete-change-data-capture-guide-for-mysql"
+            },
+            {
+                "type": 301,
+                "source": "the-complete-change-data-capture-guide-for-postgresql",
+                "destination": "/blog/the-complete-change-data-capture-guide-for-postgresql"
+            },
+            {
+                "type": 301,
+                "source": "3-reasons-to-rethink-your-approach-to-change-data-capture",
+                "destination": "/blog/3-reasons-to-rethink-your-approach-to-change-data-capture"
+            },
+            {
+                "type": 301,
+                "source": "the-complete-introduction-to-change-data-capture-cdc",
+                "destination": "/blog/the-complete-introduction-to-change-data-capture-cdc"
+            },
+            {
+                "type": 301,
+                "source": "how-new-pipeline-tools-are-changing-data-engineering-in-the-2020s",
+                "destination": "/blog/how-new-pipeline-tools-are-changing-data-engineering-in-the-2020s"
+            },
+            {
+                "type": 301,
+                "source": "this-article-wont-tell-you-how-to-build-a-data-mesh",
+                "destination": "/blog/this-article-wont-tell-you-how-to-build-a-data-mesh"
+            },
+            {
+                "type": 301,
+                "source": "the-power-and-implications-of-data-materialization",
+                "destination": "/blog/the-power-and-implications-of-data-materialization"
+            },
+            {
+                "type": 301,
+                "source": "connector-stories-snowflake-and-bigquery",
+                "destination": "/blog/connector-stories-snowflake-and-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "the-estuary-story-and-guiding-principles",
+                "destination": "/blog/the-estuary-story-and-guiding-principles"
+            },
+            {
+                "type": 301,
+                "source": "three-data-scaling-pitfalls-and-how-to-avoid-them",
+                "destination": "/blog/three-data-scaling-pitfalls-and-how-to-avoid-them"
+            },
+            {
+                "type": 301,
+                "source": "introducing-estuarys-open-source-connector-repository",
+                "destination": "/blog/introducing-estuarys-open-source-connector-repository"
+            },
+            {
+                "type": 301,
+                "source": "re-evaluating-kafka-issues-and-alternatives-for-real-time",
+                "destination": "/blog/re-evaluating-kafka-issues-and-alternatives-for-real-time"
+            },
+            {
+                "type": 301,
+                "source": "why-mapreduce-is-making-a-comeback",
+                "destination": "/blog/why-mapreduce-is-making-a-comeback"
+            },
+            {
+                "type": 301,
+                "source": "putting-an-end-to-unreliable-analytics",
+                "destination": "/blog/putting-an-end-to-unreliable-analytics"
+            },
+            {
+                "type": 301,
+                "source": "keep-privacy-and-governance-in-mind-when-developing-or-updating-your-systems",
+                "destination": "/blog/keep-privacy-and-governance-in-mind-when-developing-or-updating-your-systems"
+            },
+            {
+                "type": 301,
+                "source": "safely-sharing-data-between-companies",
+                "destination": "/blog/safely-sharing-data-between-companies"
+            },
+            {
+                "type": 301,
+                "source": "how-to-take-advantage-of-the-data-revolution-in-your-business",
+                "destination": "/blog/how-to-take-advantage-of-the-data-revolution-in-your-business"
+            },
+            {
+                "type": 301,
+                "source": "a-unified-data-foundation-for-real-time-and-batch",
+                "destination": "/blog/a-unified-data-foundation-for-real-time-and-batch"
+            },
+            {
+                "type": 301,
+                "source": "graduate-elt-tool",
+                "destination": "/blog/graduate-elt-tool"
+            },
+            {
+                "type": 301,
+                "source": "data-transformation-tools",
+                "destination": "/blog/data-transformation-tools"
+            },
+            {
+                "type": 301,
+                "source": "relational-databases-for-small-businesses",
+                "destination": "/blog/relational-databases-for-small-businesses"
+            },
+            {
+                "type": 301,
+                "source": "change-data-capture-landscape",
+                "destination": "/blog/change-data-capture-landscape"
+            },
+            {
+                "type": 301,
+                "source": "the-real-time-data-landscape",
+                "destination": "/blog/the-real-time-data-landscape"
+            },
+            {
+                "type": 301,
+                "source": "the-problem-with-credit-based-pricing-for-data-platforms",
+                "destination": "/blog/the-problem-with-credit-based-pricing-for-data-platforms"
+            },
+            {
+                "type": 301,
+                "source": "how-to-prevent-your-data-warehouse-from-becoming-a-data-swamp",
+                "destination": "/blog/how-to-prevent-your-data-warehouse-from-becoming-a-data-swamp"
+            },
+            {
+                "type": 301,
+                "source": "why-elt-wont-fix-your-data-problems",
+                "destination": "/blog/why-elt-wont-fix-your-data-problems"
+            },
+            {
+                "type": 301,
+                "source": "dataops-for-business-a-comprehensive-introduction",
+                "destination": "/blog/dataops-for-business-a-comprehensive-introduction"
+            },
+            {
+                "type": 301,
+                "source": "data-for-all-why-data-democratization-matters-at-every-scale",
+                "destination": "/blog/data-for-all-why-data-democratization-matters-at-every-scale"
+            },
+            {
+                "type": 301,
+                "source": "how-new-pipeline-tools-are-changing-data-engineering-in-the-2020s",
+                "destination": "/blog/how-new-pipeline-tools-are-changing-data-engineering-in-the-2020s"
+            },
+            {
+                "type": 301,
+                "source": "this-article-wont-tell-you-how-to-build-a-data-mesh",
+                "destination": "/blog/this-article-wont-tell-you-how-to-build-a-data-mesh"
+            },
+            {
+                "type": 301,
+                "source": "the-costs-of-data-integration-explained-and-how-to-minimize-them",
+                "destination": "/blog/the-costs-of-data-integration-explained-and-how-to-minimize-them"
+            },
+            {
+                "type": 301,
+                "source": "5-example-use-cases-for-real-time-data-processing",
+                "destination": "/blog/5-example-use-cases-for-real-time-data-processing"
+            },
+            {
+                "type": 301,
+                "source": "putting-an-end-to-unreliable-analytics",
+                "destination": "/blog/putting-an-end-to-unreliable-analytics"
+            },
+            {
+                "type": 301,
+                "source": "lead-with-vision-not-metrics-how-okrs-can-be-a-dangerous-tool",
+                "destination": "/blog/lead-with-vision-not-metrics-how-okrs-can-be-a-dangerous-tool"
+            },
+            {
+                "type": 301,
+                "source": "data-democracy-unlocks-value-for-organizations-heres-how-to-start",
+                "destination": "/blog/data-democracy-unlocks-value-for-organizations-heres-how-to-start"
+            },
+            {
+                "type": 301,
+                "source": "how-kubernetes-will-enable-a-new-genre-of-vendor-to-enterprise",
+                "destination": "/blog/how-kubernetes-will-enable-a-new-genre-of-vendor-to-enterprise"
+            },
+            {
+                "type": 301,
+                "source": "safely-sharing-data-between-companies",
+                "destination": "/blog/safely-sharing-data-between-companies"
+            },
+            {
+                "type": 301,
+                "source": "how-to-take-advantage-of-the-data-revolution-in-your-business",
+                "destination": "/blog/how-to-take-advantage-of-the-data-revolution-in-your-business"
+            },
+            {
+                "type": 301,
+                "source": "announcing-estuarys-partnership-with-rockset",
+                "destination": "/blog/announcing-estuarys-partnership-with-rockset"
+            },
+            {
+                "type": 301,
+                "source": "the-estuary-story-and-guiding-principles",
+                "destination": "/blog/the-estuary-story-and-guiding-principles"
+            },
+            {
+                "type": 301,
+                "source": "introducing-estuarys-open-source-connector-repository",
+                "destination": "/blog/introducing-estuarys-open-source-connector-repository"
+            },
+            {
+                "type": 301,
+                "source": "real-time-freight-tracking-estuary-tinybird",
+                "destination": "/blog/real-time-freight-tracking-estuary-tinybird"
+            },
+            {
+                "type": 301,
+                "source": "ad-platform-analytics-with-estuary-flow",
+                "destination": "/blog/ad-platform-analytics-with-estuary-flow"
+            },
+            {
+                "type": 301,
+                "source": "shopify-to-snowflake-integration",
+                "destination": "/blog/shopify-to-snowflake-integration"
+            },
+            {
+                "type": 301,
+                "source": "new-reference-architecture-for-cdc",
+                "destination": "/blog/new-reference-architecture-for-cdc"
+            },
+            {
+                "type": 301,
+                "source": "real-time-data-ecommerce-integration",
+                "destination": "/blog/real-time-data-ecommerce-integration"
+            },
+            {
+                "type": 301,
+                "source": "tools-for-ingesting-data-into-apache-iceberg",
+                "destination": "/blog/tools-for-ingesting-data-into-apache-iceberg"
+            },
+            {
+                "type": 301,
+                "source": "apache-iceberg-tutorial-guide",
+                "destination": "/blog/apache-iceberg-tutorial-guide"
+            },
+            {
+                "type": 301,
+                "source": "remove-pii-with-etl",
+                "destination": "/blog/remove-pii-with-etl"
+            },
+            {
+                "type": 301,
+                "source": "fivetran-pricing-model",
+                "destination": "/blog/fivetran-pricing-model"
+            },
+            {
+                "type": 301,
+                "source": "sentiment-analysis-survey-results-with-estuary",
+                "destination": "/blog/sentiment-analysis-survey-results-with-estuary"
+            },
+            {
+                "type": 301,
+                "source": "talend-alternatives",
+                "destination": "/blog/talend-alternatives"
+            },
+            {
+                "type": 301,
+                "source": "iceberg-catalog-apache-polaris-vs-unity-catalog",
+                "destination": "/blog/iceberg-catalog-apache-polaris-vs-unity-catalog"
+            },
+            {
+                "type": 301,
+                "source": "stitch-data-alternatives",
+                "destination": "/blog/stitch-data-alternatives"
+            },
+            {
+                "type": 301,
+                "source": "snowpark-vs-snowflake-connectors",
+                "destination": "/blog/snowpark-vs-snowflake-connectors"
+            },
+            {
+                "type": 301,
+                "source": "building-streaming-lakehouse-flow-iceberg",
+                "destination": "/blog/building-streaming-lakehouse-flow-iceberg"
+            },
+            {
+                "type": 301,
+                "source": "amazon-ads-to-bigquery",
+                "destination": "/blog/amazon-ads-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "streaming-joins-are-hard",
+                "destination": "/blog/streaming-joins-are-hard"
+            },
+            {
+                "type": 301,
+                "source": "measuring-postgresql-wal-throughput",
+                "destination": "/blog/measuring-postgresql-wal-throughput"
+            },
+            {
+                "type": 301,
+                "source": "private-deployments-launch",
+                "destination": "/blog/private-deployments-launch"
+            },
+            {
+                "type": 301,
+                "source": "derivations-join-collections-sql",
+                "destination": "/blog/derivations-join-collections-sql"
+            },
+            {
+                "type": 301,
+                "source": "dekaf-launch-announcement",
+                "destination": "/blog/dekaf-launch-announcement"
+            },
+            {
+                "type": 301,
+                "source": "dynamodb-to-databricks",
+                "destination": "/blog/dynamodb-to-databricks"
+            },
+            {
+                "type": 301,
+                "source": "microsoft-sql-server-etl-tools",
+                "destination": "/blog/microsoft-sql-server-etl-tools"
+            },
+            {
+                "type": 301,
+                "source": "neon-postgresql-cdc",
+                "destination": "/blog/neon-postgresql-cdc"
+            },
+            {
+                "type": 301,
+                "source": "pricing-update-2024",
+                "destination": "/blog/pricing-update-2024"
+            },
+            {
+                "type": 301,
+                "source": "airbyte-vs-fivetran",
+                "destination": "/blog/airbyte-vs-fivetran"
+            },
+            {
+                "type": 301,
+                "source": "fivetran-alternatives",
+                "destination": "/blog/fivetran-alternatives"
+            },
+            {
+                "type": 301,
+                "source": "matillion-alternatives/",
+                "destination": "/blog/matillion-alternatives/"
+            },
+            {
+                "type": 301,
+                "source": "bigquery-continuous-queries-etl",
+                "destination": "/blog/bigquery-continuous-queries-etl"
+            },
+            {
+                "type": 301,
+                "source": "CDC-comparison-guide",
+                "destination": "/blog/CDC-comparison-guide"
+            },
+            {
+                "type": 301,
+                "source": "oracle-cdc",
+                "destination": "/blog/oracle-cdc"
+            },
+            {
+                "type": 301,
+                "source": "top-airtable-integrations",
+                "destination": "/blog/top-airtable-integrations"
+            },
+            {
+                "type": 301,
+                "source": "facebook-marketing-to-mongodb",
+                "destination": "/blog/facebook-marketing-to-mongodb"
+            },
+            {
+                "type": 301,
+                "source": "rockset-migration-guide",
+                "destination": "/blog/rockset-migration-guide"
+            },
+            {
+                "type": 301,
+                "source": "netsuite-connector-launch",
+                "destination": "/blog/netsuite-connector-launch"
+            },
+            {
+                "type": 301,
+                "source": "sqs-to-redshift",
+                "destination": "/blog/sqs-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "logstash-alternatives-etl-elasticsearch",
+                "destination": "/blog/logstash-alternatives-etl-elasticsearch"
+            },
+            {
+                "type": 301,
+                "source": "explaining-data-lakes-lakehouses-catalogs",
+                "destination": "/blog/explaining-data-lakes-lakehouses-catalogs"
+            },
+            {
+                "type": 301,
+                "source": "launch-iceberg-materialization-connector",
+                "destination": "/blog/launch-iceberg-materialization-connector"
+            },
+            {
+                "type": 301,
+                "source": "sql-server-to-elasticsearch",
+                "destination": "/blog/sql-server-to-elasticsearch"
+            },
+            {
+                "type": 301,
+                "source": "estuary-flow-schema-evolution",
+                "destination": "/blog/estuary-flow-schema-evolution"
+            },
+            {
+                "type": 301,
+                "source": "apache-parquet-for-data-engineers",
+                "destination": "/blog/apache-parquet-for-data-engineers"
+            },
+            {
+                "type": 301,
+                "source": "mariadb-to-databricks",
+                "destination": "/blog/mariadb-to-databricks"
+            },
+            {
+                "type": 301,
+                "source": "real-time-fraud-detection-databricks",
+                "destination": "/blog/real-time-fraud-detection-databricks"
+            },
+            {
+                "type": 301,
+                "source": "open-source-data-analytics-tools",
+                "destination": "/blog/open-source-data-analytics-tools"
+            },
+            {
+                "type": 301,
+                "source": "top-marketing-analytics-tools/",
+                "destination": "/blog/top-marketing-analytics-tools/"
+            },
+            {
+                "type": 301,
+                "source": "snowflake-cdc-for-ai",
+                "destination": "/blog/snowflake-cdc-for-ai"
+            },
+            {
+                "type": 301,
+                "source": "snowflake-data-ingestion",
+                "destination": "/blog/snowflake-data-ingestion"
+            },
+            {
+                "type": 301,
+                "source": "google-sheets-to-pinecone-rag",
+                "destination": "/blog/google-sheets-to-pinecone-rag"
+            },
+            {
+                "type": 301,
+                "source": "cdc-sqlserver-materialize",
+                "destination": "/blog/cdc-sqlserver-materialize"
+            },
+            {
+                "type": 301,
+                "source": "sql-server-to-cosmosdb",
+                "destination": "/blog/sql-server-to-cosmosdb"
+            },
+            {
+                "type": 301,
+                "source": "efficient-elt-with-estuary-flow-and-dbt",
+                "destination": "/blog/efficient-elt-with-estuary-flow-and-dbt"
+            },
+            {
+                "type": 301,
+                "source": "criteo-to-bigquery",
+                "destination": "/blog/criteo-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "amplitude-to-bigquery",
+                "destination": "/blog/amplitude-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "cloudsql-for-postgresql-to-Snowflake/",
+                "destination": "/blog/cloudsql-for-postgresql-to-Snowflake/"
+            },
+            {
+                "type": 301,
+                "source": "jira-to-elasticsearch",
+                "destination": "/blog/jira-to-elasticsearch"
+            },
+            {
+                "type": 301,
+                "source": "kafka-to-mysql",
+                "destination": "/blog/kafka-to-mysql"
+            },
+            {
+                "type": 301,
+                "source": "netsuite-analytics-warehouse",
+                "destination": "/blog/netsuite-analytics-warehouse"
+            },
+            {
+                "type": 301,
+                "source": "redshift-vs-dynamodb",
+                "destination": "/blog/redshift-vs-dynamodb"
+            },
+            {
+                "type": 301,
+                "source": "mysql-to-pinecone",
+                "destination": "/blog/mysql-to-pinecone"
+            },
+            {
+                "type": 301,
+                "source": "rds-to-redshift",
+                "destination": "/blog/rds-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "data-ingestion-tools",
+                "destination": "/blog/data-ingestion-tools"
+            },
+            {
+                "type": 301,
+                "source": "google-search-console-to-bigquery/",
+                "destination": "/blog/google-search-console-to-bigquery/"
+            },
+            {
+                "type": 301,
+                "source": "gcs-to-bigquery",
+                "destination": "/blog/gcs-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "kinesis-to-snowflake",
+                "destination": "/blog/kinesis-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "snowflake-vs-bigquery",
+                "destination": "/blog/snowflake-vs-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "enterprise-data-warehouses",
+                "destination": "/blog/enterprise-data-warehouses"
+            },
+            {
+                "type": 301,
+                "source": "mongodb-data-types",
+                "destination": "/blog/mongodb-data-types"
+            },
+            {
+                "type": 301,
+                "source": "database-schema",
+                "destination": "/blog/database-schema"
+            },
+            {
+                "type": 301,
+                "source": "mysql-to-kafka",
+                "destination": "/blog/mysql-to-kafka"
+            },
+            {
+                "type": 301,
+                "source": "ai-trends",
+                "destination": "/blog/ai-trends"
+            },
+            {
+                "type": 301,
+                "source": "fivetran-vs-airflow",
+                "destination": "/blog/fivetran-vs-airflow"
+            },
+            {
+                "type": 301,
+                "source": "amazon-redshift-etl",
+                "destination": "/blog/amazon-redshift-etl"
+            },
+            {
+                "type": 301,
+                "source": "power-bi-dashboards",
+                "destination": "/blog/power-bi-dashboards"
+            },
+            {
+                "type": 301,
+                "source": "google-bigquery-etl",
+                "destination": "/blog/google-bigquery-etl"
+            },
+            {
+                "type": 301,
+                "source": "mongodb-to-mysql",
+                "destination": "/blog/mongodb-to-mysql"
+            },
+            {
+                "type": 301,
+                "source": "cloud-data-management",
+                "destination": "/blog/cloud-data-management"
+            },
+            {
+                "type": 301,
+                "source": "fivetran-vs-matillion",
+                "destination": "/blog/fivetran-vs-matillion"
+            },
+            {
+                "type": 301,
+                "source": "google-bigquery-data-types",
+                "destination": "/blog/google-bigquery-data-types"
+            },
+            {
+                "type": 301,
+                "source": "hevo-vs-stitch",
+                "destination": "/blog/hevo-vs-stitch"
+            },
+            {
+                "type": 301,
+                "source": "hevo-data-vs-fivetran",
+                "destination": "/blog/hevo-data-vs-fivetran"
+            },
+            {
+                "type": 301,
+                "source": "data-replication-strategies",
+                "destination": "/blog/data-replication-strategies"
+            },
+            {
+                "type": 301,
+                "source": "elt-tools",
+                "destination": "/blog/elt-tools"
+            },
+            {
+                "type": 301,
+                "source": "airbyte-vs-stitch",
+                "destination": "/blog/airbyte-vs-stitch"
+            },
+            {
+                "type": 301,
+                "source": "postgres-to-sql-server",
+                "destination": "/blog/postgres-to-sql-server"
+            },
+            {
+                "type": 301,
+                "source": "instagram-to-bigquery",
+                "destination": "/blog/instagram-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "woocommerce-to-snowflake",
+                "destination": "/blog/woocommerce-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "woocommerce-to-bigquery",
+                "destination": "/blog/woocommerce-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "event-driven-architecture-examples",
+                "destination": "/blog/event-driven-architecture-examples"
+            },
+            {
+                "type": 301,
+                "source": "mixpanel-to-bigquery",
+                "destination": "/blog/mixpanel-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "how-to-migrate-a-mysql-database",
+                "destination": "/blog/how-to-migrate-a-mysql-database"
+            },
+            {
+                "type": 301,
+                "source": "mysql-to-sql-server",
+                "destination": "/blog/mysql-to-sql-server"
+            },
+            {
+                "type": 301,
+                "source": "netsuite-to-redshift",
+                "destination": "/blog/netsuite-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "dynamodb-to-snowflake",
+                "destination": "/blog/dynamodb-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "ftp-to-snowflake",
+                "destination": "/blog/ftp-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "ftp-to-bigquery",
+                "destination": "/blog/ftp-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "redis-data-types",
+                "destination": "/blog/redis-data-types"
+            },
+            {
+                "type": 301,
+                "source": "jira-to-bigquery",
+                "destination": "/blog/jira-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "json-to-bigquery",
+                "destination": "/blog/json-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "data-integration-vs-etl",
+                "destination": "/blog/data-integration-vs-etl"
+            },
+            {
+                "type": 301,
+                "source": "product-data-management",
+                "destination": "/blog/product-data-management"
+            },
+            {
+                "type": 301,
+                "source": "data-integration-in-data-mining",
+                "destination": "/blog/data-integration-in-data-mining"
+            },
+            {
+                "type": 301,
+                "source": "snowflake-data-types",
+                "destination": "/blog/snowflake-data-types"
+            },
+            {
+                "type": 301,
+                "source": "Enterprise-data-integration",
+                "destination": "/blog/Enterprise-data-integration"
+            },
+            {
+                "type": 301,
+                "source": "mariadb-to-redshift",
+                "destination": "/blog/mariadb-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "cloud-etl-tools/",
+                "destination": "/blog/cloud-etl-tools/"
+            },
+            {
+                "type": 301,
+                "source": "facebook-ads-to-redshift",
+                "destination": "/blog/facebook-ads-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "benefits-of-data-integration",
+                "destination": "/blog/benefits-of-data-integration"
+            },
+            {
+                "type": 301,
+                "source": "snowlfake-replication",
+                "destination": "/blog/snowlfake-replication"
+            },
+            {
+                "type": 301,
+                "source": "facebook-ads-to-snowflake",
+                "destination": "/blog/facebook-ads-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "mongodb-to-redshift",
+                "destination": "/blog/mongodb-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "Stripe-to-BigQuery",
+                "destination": "/blog/Stripe-to-BigQuery"
+            },
+            {
+                "type": 301,
+                "source": "snowflake-triggers",
+                "destination": "/blog/snowflake-triggers"
+            },
+            {
+                "type": 301,
+                "source": "modern-data-stack-LLMs",
+                "destination": "/blog/modern-data-stack-LLMs"
+            },
+            {
+                "type": 301,
+                "source": "migrate-database-to-cloud",
+                "destination": "/blog/migrate-database-to-cloud"
+            },
+            {
+                "type": 301,
+                "source": "cloud-data-integration",
+                "destination": "/blog/cloud-data-integration"
+            },
+            {
+                "type": 301,
+                "source": "data-lake-architecture",
+                "destination": "/blog/data-lake-architecture"
+            },
+            {
+                "type": 301,
+                "source": "data-migration-in-cloud",
+                "destination": "/blog/data-migration-in-cloud"
+            },
+            {
+                "type": 301,
+                "source": "cdc-etl",
+                "destination": "/blog/cdc-etl"
+            },
+            {
+                "type": 301,
+                "source": "hevo-vs-airbyte",
+                "destination": "/blog/hevo-vs-airbyte"
+            },
+            {
+                "type": 301,
+                "source": "distributed-architecture",
+                "destination": "/blog/distributed-architecture"
+            },
+            {
+                "type": 301,
+                "source": "data-integration-strategy",
+                "destination": "/blog/data-integration-strategy"
+            },
+            {
+                "type": 301,
+                "source": "what-is-pinecone-ai",
+                "destination": "/blog/what-is-pinecone-ai"
+            },
+            {
+                "type": 301,
+                "source": "salesforce-to-redshift",
+                "destination": "/blog/salesforce-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "fivetran-vs-stitch",
+                "destination": "/blog/fivetran-vs-stitch"
+            },
+            {
+                "type": 301,
+                "source": "kafka-to-snowflake",
+                "destination": "/blog/kafka-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "csv-to-bigquery",
+                "destination": "/blog/csv-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "change-data-capture-kafka",
+                "destination": "/blog/change-data-capture-kafka"
+            },
+            {
+                "type": 301,
+                "source": "data-mesh-architecture",
+                "destination": "/blog/data-mesh-architecture"
+            },
+            {
+                "type": 301,
+                "source": "confluent-alternatives",
+                "destination": "/blog/confluent-alternatives"
+            },
+            {
+                "type": 301,
+                "source": "kafka-data-pipeline",
+                "destination": "/blog/kafka-data-pipeline"
+            },
+            {
+                "type": 301,
+                "source": "real-time-data-lake",
+                "destination": "/blog/real-time-data-lake"
+            },
+            {
+                "type": 301,
+                "source": "best-change-data-capture-tools",
+                "destination": "/blog/best-change-data-capture-tools"
+            },
+            {
+                "type": 301,
+                "source": "capture-data-from-mysql",
+                "destination": "/blog/capture-data-from-mysql"
+            },
+            {
+                "type": 301,
+                "source": "data-streaming-technologies",
+                "destination": "/blog/data-streaming-technologies"
+            },
+            {
+                "type": 301,
+                "source": "capture-data-from-postgres",
+                "destination": "/blog/capture-data-from-postgres"
+            },
+            {
+                "type": 301,
+                "source": "cloud-sql-to-bigquery",
+                "destination": "/blog/cloud-sql-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "airtable-to-bigquery",
+                "destination": "/blog/airtable-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "airtable-to-postgres",
+                "destination": "/blog/airtable-to-postgres"
+            },
+            {
+                "type": 301,
+                "source": "mysql-to-redshift",
+                "destination": "/blog/mysql-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "debezium-alternatives",
+                "destination": "/blog/debezium-alternatives"
+            },
+            {
+                "type": 301,
+                "source": "data-consistency",
+                "destination": "/blog/data-consistency"
+            },
+            {
+                "type": 301,
+                "source": "hubspot-to-bigquery",
+                "destination": "/blog/hubspot-to-bigquery"
+            },
+            {
+                "type": 301,
+                "source": "sql-server-to-redshift",
+                "destination": "/blog/sql-server-to-redshift"
+            },
+            {
+                "type": 301,
+                "source": "streaming-etl-processes-cdc",
+                "destination": "/blog/streaming-etl-processes-cdc"
+            },
+            {
+                "type": 301,
+                "source": "dbt-data-modeling",
+                "destination": "/blog/dbt-data-modeling"
+            },
+            {
+                "type": 301,
+                "source": "data-lakehouse-vs-data-mesh",
+                "destination": "/blog/data-lakehouse-vs-data-mesh"
+            },
+            {
+                "type": 301,
+                "source": "salesforce-change-data-capture",
+                "destination": "/blog/salesforce-change-data-capture"
+            },
+            {
+                "type": 301,
+                "source": "elt-batch-processing",
+                "destination": "/blog/elt-batch-processing"
+            },
+            {
+                "type": 301,
+                "source": "change-tracking-sql-server",
+                "destination": "/blog/change-tracking-sql-server"
+            },
+            {
+                "type": 301,
+                "source": "database-sharding",
+                "destination": "/blog/database-sharding"
+            },
+            {
+                "type": 301,
+                "source": "open-source-ci-cd-tools",
+                "destination": "/blog/open-source-ci-cd-tools"
+            },
+            {
+                "type": 301,
+                "source": "data-mesh-tools",
+                "destination": "/blog/data-mesh-tools"
+            },
+            {
+                "type": 301,
+                "source": "real-time-data-ingestion-tools",
+                "destination": "/blog/real-time-data-ingestion-tools"
+            },
+            {
+                "type": 301,
+                "source": "firestore-limitations",
+                "destination": "/blog/firestore-limitations"
+            },
+            {
+                "type": 301,
+                "source": "data-mesh-vs-data-fabric",
+                "destination": "/blog/data-mesh-vs-data-fabric"
+            },
+            {
+                "type": 301,
+                "source": "use-snowflake-primary-key-constraint",
+                "destination": "/blog/use-snowflake-primary-key-constraint"
+            },
+            {
+                "type": 301,
+                "source": "redshift-data-types",
+                "destination": "/blog/redshift-data-types"
+            },
+            {
+                "type": 301,
+                "source": "mysql-vs-sql-server",
+                "destination": "/blog/mysql-vs-sql-server"
+            },
+            {
+                "type": 301,
+                "source": "mongodb-to-snowflake",
+                "destination": "/blog/mongodb-to-snowflake"
+            },
+            {
+                "type": 301,
+                "source": "streamlining-data-capture-mysql-to-mongodb",
+                "destination": "/blog/streamlining-data-capture-mysql-to-mongodb"
+            },
+            {
+                "type": 301,
+                "source": "data-pipeline-tools",
+                "destination": "/blog/data-pipeline-tools"
+            },
+            {
+                "type": 301,
+                "source": "connector-stories-apache-kakfa",
+                "destination": "/blog/connector-stories-apache-kakfa"
             }
         ],
         "public": "public",

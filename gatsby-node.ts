@@ -334,8 +334,32 @@ const createBlogs: CreateHelper = async (
                     const nextPostId =
                         index === posts.length - 1 ? null : posts[index + 1].id;
 
+                    const oldPath = post.Slug;
+                    const newPath = `/blog/${oldPath}`;
+
+                    console.log('blogPost:redirect:old', oldPath);
+                    console.log('blogPost:redirect:new', newPath);
+
+                    if (
+                        tabCategories.find(({ Name }) => {
+                            return Name.length > 0;
+                            // return Name.toUpperCase() === oldPath.toUpperCase();
+                        })
+                    ) {
+                        throw new Error(
+                            `Blog post has slug that would overlap with search tabs: ${post.id}`
+                        );
+                    }
+
+                    // We used to not prefix blog posts with `/blog/` so make sure there are redirects
+                    // Not sure if we truly need this since we set this in firebase as well
+                    createRedirect({
+                        fromPath: oldPath,
+                        toPath: newPath,
+                    });
+
                     createPage({
-                        path: post.Slug,
+                        path: newPath,
                         component: blogPostTemplate,
                         context: {
                             id: post.id,
