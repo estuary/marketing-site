@@ -355,6 +355,7 @@ const createBlogs: CreateHelper = async (
                         );
                     }
 
+                    // TODO - remove this after about one month
                     console.log(
                         `blogPost:redirect:${createdAfterSwitch ? 'new' : 'old'}`,
                         newPath
