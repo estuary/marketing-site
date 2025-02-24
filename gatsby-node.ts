@@ -166,20 +166,16 @@ const createVendorCompare: CreateHelper = async (
 
 const createBlogs: CreateHelper = async (
     name,
-    { actions: { createPage, createRedirect }, graphql, reporter }
+    { actions: { createPage }, graphql, reporter }
 ) => {
     const startTime = performance.now();
     console.log(`Creation:Start:${name}`);
-
-    createRedirect({
-        fromPath: '/blogs',
-        toPath: '/blog',
-    });
 
     // Get all strapi blog posts sorted by date
     const blogPostsQuery = await graphql<{
         allStrapiBlogPost: {
             nodes: {
+                createdAt: any;
                 updatedAt: any;
                 Slug: string;
                 id: string;
@@ -198,6 +194,7 @@ const createBlogs: CreateHelper = async (
                 filter: { publishedAt: { ne: null } }
             ) {
                 nodes {
+                    createdAt
                     updatedAt
                     Slug
                     id
@@ -334,8 +331,38 @@ const createBlogs: CreateHelper = async (
                     const nextPostId =
                         index === posts.length - 1 ? null : posts[index + 1].id;
 
+                    // Snag the original slug
+                    const oldPath = post.Slug;
+
+                    // Build out new one and add slash (1 post slug already ends with slash)
+                    const newPath = `/blog/${oldPath}${oldPath.endsWith('/') ? '' : '/'}`;
+
+                    // See if the blog was made after we wired up all the redirects
+                    const createdAfterSwitch =
+                        new Date(post.createdAt) < new Date('02-24-2025');
+
+                    // If something is new make sure that the slug is allowed
+                    //  and does not clash with blog category
+                    if (
+                        createdAfterSwitch &&
+                        tabCategories.find(
+                            ({ Name }) =>
+                                Name.toUpperCase() === oldPath.toUpperCase()
+                        )
+                    ) {
+                        throw new Error(
+                            `Blog post has slug that would overlap with search tabs: ${post.id}`
+                        );
+                    }
+
+                    // TODO - remove this after about one month
+                    console.log(
+                        `blogPost:redirect:${createdAfterSwitch ? 'new' : 'old'}`,
+                        newPath
+                    );
+
                     createPage({
-                        path: post.Slug,
+                        path: newPath,
                         component: blogPostTemplate,
                         context: {
                             id: post.id,

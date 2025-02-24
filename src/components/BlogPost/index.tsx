@@ -91,9 +91,9 @@ const BlogPost = ({
                         <div className={postInfo}>
                             {postTags ? (
                                 <div className={tagsWrapper}>
-                                    {postTags.map((tag) => (
+                                    {postTags.map((tag, index) => (
                                         <span
-                                            key={tag.name}
+                                            key={`${tag.name}_${index}`}
                                             className={blogsPostCardTags}
                                         >
                                             {tag.name}
