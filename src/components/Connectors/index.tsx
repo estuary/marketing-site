@@ -67,7 +67,10 @@ const ConnectorCard = ({
     showType = false,
 }: ReturnType<typeof normalizeConnector> & { showType?: boolean }) => {
     return (
-        <Link id={`${getSlugifiedText(title)}-link/connectors-page`} to={`${slug}`}>
+        <Link
+            id={`${getSlugifiedText(title)}-link/connectors-page`}
+            to={`${slug}`}
+        >
             <div className={connectorCard}>
                 <div className={connectorCardTop}>
                     {!logo?.childImageSharp?.gatsbyImageData ? (
