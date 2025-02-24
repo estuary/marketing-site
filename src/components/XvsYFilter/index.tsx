@@ -47,6 +47,8 @@ const selectMenuProps = {
     slotProps: { paper: { style: { maxHeight: '30vh' } } },
 };
 
+const connectorIconSize = 20;
+
 const XvsYFilter = ({
     xSelect,
     ySelect,
@@ -97,8 +99,8 @@ const XvsYFilter = ({
                                 />
                             ) : (
                                 <ConnectorIcon
-                                    width={20}
-                                    height={20}
+                                    width={connectorIconSize}
+                                    height={connectorIconSize}
                                     color="var(--grey)"
                                     className={itemImage}
                                 />

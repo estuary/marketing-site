@@ -1,7 +1,13 @@
 import ConnectorIcon from '../../../../svgs/server.svg';
 
+const connectorIconSize = 64;
+
 const ConnectorLogoPlaceholder = () => (
-    <ConnectorIcon width={64} height={64} color="var(--grey)" />
+    <ConnectorIcon
+        width={connectorIconSize}
+        height={connectorIconSize}
+        color="var(--grey)"
+    />
 );
 
 export default ConnectorLogoPlaceholder;

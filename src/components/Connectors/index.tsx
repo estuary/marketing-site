@@ -58,6 +58,8 @@ const truncate = (val: string, max: number) => {
     }
 };
 
+const connectorIconSize = 53;
+
 const ConnectorCard = ({
     title,
     shortDescription,
@@ -73,8 +75,8 @@ const ConnectorCard = ({
                 <div className={connectorCardTop}>
                     {!logo?.childImageSharp?.gatsbyImageData ? (
                         <ConnectorIcon
-                            width={53}
-                            height={53}
+                            width={connectorIconSize}
+                            height={connectorIconSize}
                             color="var(--grey)"
                             className={clsx(
                                 connectorPostCardImage,
