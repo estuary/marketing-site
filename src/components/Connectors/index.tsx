@@ -11,6 +11,7 @@ import BigImageBackground from '../BackgroundImages/BigImageBackground';
 import ConnectorsLink from '../ConnectorsLink';
 import SearchInput from '../SearchInput';
 import FlowLogoVector from '../FlowLogoVector';
+import ConnectorIcon from '../../svgs/server.svg';
 import {
     container,
     connectorIndexHeader,
@@ -71,7 +72,10 @@ const ConnectorCard = ({
             <div className={connectorCard}>
                 <div className={connectorCardTop}>
                     {!logo?.childImageSharp?.gatsbyImageData ? (
-                        <div
+                        <ConnectorIcon
+                            width={53}
+                            height={53}
+                            color="var(--grey)"
                             className={clsx(
                                 connectorPostCardImage,
                                 'icon-wrapper'
