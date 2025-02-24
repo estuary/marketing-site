@@ -698,7 +698,14 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
     const pool = new pg.Pool({
         connectionString: SUPABASE_CONNECTION_STRING,
         connectionTimeoutMillis: 8000,
+        max: 1,
+        allowExitOnIdle: true,
     });
+
+    // Make sure we know if there is an error
+    pool.on('error', (err: any, client: any) =>
+        console.error('sourceNodes:postgres:error', { err, client })
+    );
 
     const connectors = await pool.query(
         'select connectors.id as id, connectors.logo_url as logo_url from public.connectors;'
@@ -716,6 +723,8 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
                 getCache,
             });
 
+            console.log('sourceNodes:creating connector logo', conn.id);
+
             await createNode({
                 connectorId: conn.id,
                 logoUrl: usUrl,
@@ -729,9 +738,10 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
 
             createdCount += 1;
         } else {
-            console.log('sourceNodes:missing connector logo', conn.id);
+            console.log('sourceNodes:missing  connector logo', conn.id);
         }
     }
+
     await pool.end();
 
     console.log('sourceNodes:', {
@@ -742,6 +752,7 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
 export const createResolvers: GatsbyNode['createResolvers'] = async ({
     createResolvers: createResolversParam,
 }) => {
+    console.log('createResolvers:start');
     createResolversParam({
         PostGraphile_Connector: {
             logo: {
@@ -749,17 +760,28 @@ export const createResolvers: GatsbyNode['createResolvers'] = async ({
                 async resolve(node, _, ctx) {
                     const { id } = node;
 
+                    console.log('resolvePostGraphileConnector:logo:find', id);
+
                     const logoNode = await ctx.nodeModel.findOne({
                         type: 'ConnectorLogo',
                         query: { filter: { connectorId: { eq: id } } },
                     });
 
                     if (logoNode?.logo) {
+                        console.log(
+                            'resolvePostGraphileConnector:logo:returning',
+                            {
+                                url1: logoNode?.logoUrl,
+                                url2: logoNode?.logo.url,
+                                logo_relativePath: logoNode?.logo.relativePath,
+                            }
+                        );
+
                         return logoNode.logo;
                     }
 
                     console.log(
-                        'createResolversParam:missing connector logo',
+                        'resolvePostGraphileConnector:logo:missing',
                         id
                     );
                     return null;
@@ -767,6 +789,7 @@ export const createResolvers: GatsbyNode['createResolvers'] = async ({
             },
         },
     });
+    console.log('createResolvers:done');
 };
 
 export const onCreateWebpackConfig = ({ stage, actions, getConfig }) => {
