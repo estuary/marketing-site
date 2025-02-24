@@ -1,8 +1,9 @@
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import { Link } from 'gatsby';
 import { AvatarGroup } from '@mui/material';
 import ArrowRight2 from '../../../svgs/arrow-right-2.svg';
 import Avatar from '../../Avatar';
+import { BlogPostType } from '../../../../shared';
 import {
     container,
     cardImageStyle,
@@ -17,30 +18,14 @@ import {
 } from './styles.module.less';
 
 interface CardProps {
-    data: {
-        id: string;
-        slug: string;
-        title: string;
-        description?: string;
-        updatedAt: string;
-        body?: {
-            data: {
-                childMarkdownRemark: {
-                    fields: { readingTime: { text: string } };
-                };
-            };
-        };
-        tags?: { type: string; name: string }[];
-        authors?: { id: string; name: string; role?: string; picture?: any }[];
-        hero: { alternativeText?: string; localFile: any };
-    };
+    data: BlogPostType;
     footerTag?: string;
     hasImgBackground?: boolean;
 }
 
 const getReadingTime = (body?: CardProps['data']['body']) => {
     return body
-        ? body.data.childMarkdownRemark.fields.readingTime.text.replace(
+        ? body.data.childMarkdownRemark?.fields.readingTime.text.replace(
               'read',
               ''
           )
@@ -48,7 +33,7 @@ const getReadingTime = (body?: CardProps['data']['body']) => {
 };
 
 const getCardImage = (hero: CardProps['data']['hero']) => {
-    return hero.localFile?.childImageSharp?.gatsbyImageData;
+    return hero?.localFile.childImageSharp.gatsbyImageData;
 };
 
 const renderTags = (tags?: CardProps['data']['tags']) => {
@@ -56,7 +41,7 @@ const renderTags = (tags?: CardProps['data']['tags']) => {
     return <span className={cardTag}>{tags[0].name}</span>;
 };
 
-const renderDateAndTime = (updatedAt: string, readingTime: string | null) => {
+const renderDateAndTime = (updatedAt: string, readingTime?: string | null) => {
     if (!updatedAt || !readingTime) return null;
 
     return (
@@ -126,8 +111,8 @@ const Card = ({ data, footerTag, hasImgBackground = false }: CardProps) => {
     const readingTime = getReadingTime(data.body);
 
     const imageProps = {
-        image: cardImage,
-        alt: data.hero.alternativeText ?? 'Card image',
+        image: cardImage as IGatsbyImageData, // TODO: Use a placeholder here in case it's undefined.
+        alt: data.hero?.alternativeText ?? 'Card image',
         className: cardImageStyle,
     };
 

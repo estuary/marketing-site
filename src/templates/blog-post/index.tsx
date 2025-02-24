@@ -6,7 +6,7 @@ import Breadcrumbs from '../../components/Breadcrumbs';
 import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
 import logoUrl from '../../images/estuary.png';
-import { getAuthorSeoJson } from '../../../shared';
+import { getAuthorSeoJson, PostTag } from '../../../shared';
 import BlogPost from '../../components/BlogPost';
 
 dayjs.extend(reltime);
@@ -48,8 +48,8 @@ export const Head = ({
     );
 
     const postTags = post.tags
-        .filter((tag) => tag.type === 'tag')
-        .map((t) => t.name);
+        .filter((tag: PostTag) => tag.type === 'tag')
+        .map((t: PostTag) => t.name);
 
     const ogImage = post.hero
         ? `${siteUrl}${post.hero.localFile.childImageSharp.metaImg.images.fallback.src}`
@@ -75,9 +75,11 @@ export const Head = ({
                     'description': post.description ?? '',
                     'image': ogImage,
                     'author':
-                        post.authors.length > 1
-                            ? mappedAuthors
-                            : mappedAuthors[0],
+                        post.authors && mappedAuthors
+                            ? post.authors.length > 1
+                                ? mappedAuthors
+                                : mappedAuthors[0]
+                            : null,
                     'keywords': postTags,
                     'publisher': {
                         '@type': 'Organization',

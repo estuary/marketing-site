@@ -1,9 +1,8 @@
 import { graphql } from 'gatsby';
 import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
-import { getAuthorSeoJson } from '../../../shared';
+import { Author, getAuthorSeoJson } from '../../../shared';
 import SectionOne from './SectionOne';
-import { Author } from './shared';
 import SectionTwo from './SectionTwo';
 
 interface AuthorPageProps {

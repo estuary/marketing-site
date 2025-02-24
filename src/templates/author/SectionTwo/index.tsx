@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { Author } from '../shared';
 import Card from '../../../components/Grid/Card';
 import ButtonFilled from '../../../components/LinksAndButtons/ButtonFilled';
 import Grid from '../../../components/Grid';
+import { Author } from '../../../../shared';
 import { container } from './styles.module.less';
 
 interface SectionTwoProps {

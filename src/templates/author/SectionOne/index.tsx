@@ -1,7 +1,7 @@
 import { GatsbyImage } from 'gatsby-plugin-image';
-import { Author } from '../shared';
 import SocialLinks from '../../../components/SocialLinks';
 import LightSwoopingLinesRightDirectionBackground from '../../../components/BackgroundImages/LightSwoopingLinesRightDirectionBackground';
+import { Author } from '../../../../shared';
 import {
     container,
     authorPicture,
@@ -28,7 +28,7 @@ const SectionOne = ({
                             alt={`Picture of ${name}`}
                             className={authorPicture}
                             image={
-                                picture?.localFile.childImageSharp
+                                picture.localFile.childImageSharp
                                     .gatsbyImageData
                             }
                             loading="eager"

@@ -1,7 +1,6 @@
 import { htmlToText } from 'html-to-text';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { features } from './src/components/DeploymentOptionsPage/shared';
-import { Author } from './src/templates/author/shared';
 
 export const webinarsUrl =
     'https://try.estuary.dev/webinar-estuary101-ondemand';
@@ -40,6 +39,33 @@ export const estuaryAddress = {
     'addressCountry': 'US',
 };
 
+export interface Author {
+    id: string;
+    name: string;
+    picture?: {
+        localFile: {
+            childImageSharp: {
+                gatsbyImageData: IGatsbyImageData;
+                fixedImg: IGatsbyImageData;
+            };
+        };
+    };
+    slug: string;
+    link: string;
+    socials?: {
+        linked_in?: string;
+        twitter?: string;
+        other?: string;
+    };
+    bio: {
+        data: {
+            bio: string;
+        };
+    };
+    role: string;
+    blogPosts: BlogPostType[];
+}
+
 export const getAuthorPathBySlug = (slug: string) =>
     `/author/${slug.toLowerCase()}`;
 
@@ -75,8 +101,8 @@ export const getAuthorSeoJson = (author: Author, siteUrl: string) => {
             'url': 'https://estuary.dev/',
         },
         sameAs,
-        'image': author.picture?.localFile?.childImageSharp?.fixedImg?.images
-            ?.fallback?.src
+        'image': author.picture?.localFile.childImageSharp.fixedImg.images
+            .fallback?.src
             ? {
                   '@type': 'ImageObject',
                   'url': `${siteUrl}${author.picture.localFile.childImageSharp.fixedImg.images.fallback.src}`,
@@ -232,4 +258,47 @@ export type Connector = {
         protocol: string;
     }[];
     slug: string;
+};
+
+export type PostTag = {
+    name: string;
+    type: string;
+};
+
+export type BlogPostType = {
+    id: string;
+    title: string;
+    publishedAt: string;
+    updatedAt: string;
+    machineReadablePublishDate: string;
+    machineReadableUpdateDate: string;
+    description: string;
+    slug: string;
+    body?: {
+        data: {
+            Body: string;
+            childHtmlRehype: {
+                html: string;
+                tableOfContents: TocItem[];
+            };
+            childMarkdownRemark?: {
+                fields: {
+                    readingTime: {
+                        text: string;
+                    };
+                };
+            };
+        };
+    };
+    authors?: Author[];
+    hero?: {
+        alternativeText?: string;
+        localFile: {
+            childImageSharp: {
+                gatsbyImageData: IGatsbyImageData;
+                metaImg: IGatsbyImageData;
+            };
+        };
+    };
+    tags?: PostTag[];
 };

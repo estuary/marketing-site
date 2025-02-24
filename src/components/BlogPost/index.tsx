@@ -12,7 +12,12 @@ import ShareArticle from '../ShareArticle';
 import { ProcessedPost } from '../BlogPostProcessor';
 import BlogBanner from '../BlogBanner';
 import ArticleSidebar from '../ArticleSidebar';
-import { dashboardRegisterUrl, getAuthorPathBySlug } from '../../../shared';
+import {
+    BlogPostType,
+    dashboardRegisterUrl,
+    getAuthorPathBySlug,
+    PostTag,
+} from '../../../shared';
 import Avatar from '../../components/Avatar';
 import SocialLinks from '../../components/SocialLinks';
 import OutboundLinkFilled from '../../components/LinksAndButtons/OutboundLinkFilled';
@@ -55,7 +60,7 @@ import {
 } from './styles.module.less';
 
 interface BlogPostProps {
-    post: any;
+    post: BlogPostType;
     hasPopularArticlesSection?: boolean;
     hasBodyCtaBanner?: boolean;
 }
@@ -67,14 +72,14 @@ const BlogPost = ({
 }: BlogPostProps) => {
     const theme = useTheme();
 
-    const hasBeenUpdated = post?.updatedAt
-        ? post?.publishedAt !== post?.updatedAt
+    const hasBeenUpdated = post.updatedAt
+        ? post.publishedAt !== post.updatedAt
         : false;
 
-    const postTags = post?.tags?.filter((tag) => tag.type === 'tag');
+    const postTags = post.tags?.filter((tag: PostTag) => tag.type === 'tag');
 
-    const hasAtLeastOneBio = post?.authors?.some(
-        (author) => author?.bio?.data?.bio
+    const hasAtLeastOneBio = post.authors?.some(
+        (author) => author.bio.data.bio
     );
 
     const shareArticleSectionTitle = `Share this ${hasPopularArticlesSection ? 'article' : 'update'}`;
@@ -106,8 +111,8 @@ const BlogPost = ({
                                     <ReadingTimeIcon color="var(--grey)" />
                                     <span className={blogPostDate}>
                                         {
-                                            post.body.data.childMarkdownRemark
-                                                .fields.readingTime.text
+                                            post.body?.data.childMarkdownRemark
+                                                ?.fields.readingTime.text
                                         }
                                     </span>
                                 </div>
@@ -136,7 +141,7 @@ const BlogPost = ({
                     </div>
                     {post.hero ? (
                         <GatsbyImage
-                            alt={post.hero.alternativeText}
+                            alt={post.hero.alternativeText ?? ''}
                             className={heroImage}
                             image={
                                 post.hero.localFile.childImageSharp
@@ -191,7 +196,7 @@ const BlogPost = ({
                     </div>
                 </section>
             ) : null}
-            {post?.authors?.length >= 1 ? (
+            {post.authors && post.authors.length >= 1 ? (
                 <section className={nextStepsAndAboutAuthorSection}>
                     {/* <div className={nextSteps}>
                         <h3>Next steps</h3>
@@ -202,7 +207,7 @@ const BlogPost = ({
 
                     <div className={aboutAuthor}>
                         <h2>
-                            {post?.authors.length === 1
+                            {post.authors.length === 1
                                 ? hasAtLeastOneBio
                                     ? 'About the author'
                                     : 'Author'
@@ -210,24 +215,24 @@ const BlogPost = ({
                                   ? 'About the authors'
                                   : 'Authors'}
                         </h2>
-                        {post?.authors?.map((author, index) => {
+                        {post.authors.map((author, index) => {
                             const authorImage =
-                                author?.picture &&
+                                author.picture &&
                                 getImage(
                                     author.picture.localFile.childImageSharp
                                         .gatsbyImageData
                                 );
 
-                            const authorBio = author?.bio.data.bio;
+                            const authorBio = author.bio.data.bio;
 
-                            const authorSocialLinks = author?.socials;
+                            const authorSocialLinks = author.socials;
 
                             return (
                                 <>
                                     <div key={index} className={authorInfo}>
                                         <Link
                                             to={getAuthorPathBySlug(
-                                                author?.slug
+                                                author.slug
                                             )}
                                             className={authorMainInfoContainer}
                                         >
@@ -238,21 +243,21 @@ const BlogPost = ({
                                             >
                                                 <Avatar
                                                     image={authorImage}
-                                                    alt={`Picture of ${author?.name}`}
+                                                    alt={`Picture of ${author.name}`}
                                                     name={author.name}
                                                     loading="lazy"
                                                     size={60}
                                                 />
                                             </div>
                                             <div className={authorNameAndRole}>
-                                                {author?.name ? (
+                                                {author.name ? (
                                                     <span
                                                         className={authorName}
                                                     >
                                                         {author.name}
                                                     </span>
                                                 ) : null}
-                                                {author?.role ? (
+                                                {author.role ? (
                                                     <span
                                                         className={authorRole}
                                                     >
