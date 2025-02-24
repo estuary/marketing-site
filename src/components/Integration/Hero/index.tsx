@@ -3,7 +3,6 @@ import ActiveUsersIcon from '../../../svgs/metric-active-users.svg';
 import LatencyIcon from '../../../svgs/metric-latency.svg';
 import OfConnectorsIcon from '../../../svgs/metric-of-connectors.svg';
 import SingleDataflowIcon from '../../../svgs/metric-single-dataflow.svg';
-
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import EstuaryLogo from '../../../svgs/colored-logo.svg';
 import MetricCard from '../../MetricCard';
@@ -28,6 +27,7 @@ import {
     semiCircleMiddle,
     semiCircleRightSide,
 } from './styles.module.less';
+import ConnectorLogoPlaceholder from './ConnectorLogoPlaceholder';
 
 const metricIconColor = 'var(--white)';
 
@@ -73,36 +73,42 @@ const Hero = ({ sourceConnector, destConnector }: HeroProps) => {
                     />
                 </div>
                 <div>
-                    {sourceConnectorLogo && destinationConnectorLogo ? (
-                        <div className={backgroundImageWraper}>
-                            <div className={semiCircleLeftSide}>
-                                <div className={bgSideImageWrapper}>
+                    <div className={backgroundImageWraper}>
+                        <div className={semiCircleLeftSide}>
+                            <div className={bgSideImageWrapper}>
+                                {sourceConnectorLogo ? (
                                     <GatsbyImage
                                         image={sourceConnectorLogo}
                                         alt={`${sourceConnector.title} logo`}
                                         loading="eager"
                                         className={bgImage}
                                     />
-                                </div>
+                                ) : (
+                                    <ConnectorLogoPlaceholder />
+                                )}
                             </div>
-                            <div className={semiCircleMiddle}>
-                                <div className={bgMiddleImageWrapper}>
-                                    <EstuaryLogo width={46} />
-                                    <div className={middleLine} />
-                                </div>
+                        </div>
+                        <div className={semiCircleMiddle}>
+                            <div className={bgMiddleImageWrapper}>
+                                <EstuaryLogo width={46} />
+                                <div className={middleLine} />
                             </div>
-                            <div className={semiCircleRightSide}>
-                                <div className={bgSideImageWrapper}>
+                        </div>
+                        <div className={semiCircleRightSide}>
+                            <div className={bgSideImageWrapper}>
+                                {destinationConnectorLogo ? (
                                     <GatsbyImage
                                         image={destinationConnectorLogo}
                                         alt={`${destConnector.title} logo`}
                                         loading="eager"
                                         className={bgImage}
                                     />
-                                </div>
+                                ) : (
+                                    <ConnectorLogoPlaceholder />
+                                )}
                             </div>
                         </div>
-                    ) : null}
+                    </div>
                     <div className={contactUsCta}>
                         <span>Schedule an appointment</span>
                         <LinkOutlined href="/contact-us/">
