@@ -166,15 +166,10 @@ const createVendorCompare: CreateHelper = async (
 
 const createBlogs: CreateHelper = async (
     name,
-    { actions: { createPage, createRedirect }, graphql, reporter }
+    { actions: { createPage }, graphql, reporter }
 ) => {
     const startTime = performance.now();
     console.log(`Creation:Start:${name}`);
-
-    createRedirect({
-        fromPath: '/blogs',
-        toPath: '/blog',
-    });
 
     // Get all strapi blog posts sorted by date
     const blogPostsQuery = await graphql<{
@@ -336,34 +331,32 @@ const createBlogs: CreateHelper = async (
                     const nextPostId =
                         index === posts.length - 1 ? null : posts[index + 1].id;
 
+                    // Snag the original slug
                     const oldPath = post.Slug;
+
+                    // Build out new one and add slash (1 post slug already ends with slash)
                     const newPath = `/blog/${oldPath}${oldPath.endsWith('/') ? '' : '/'}`;
-                    const createdBeforeSwitch =
+
+                    // See if the blog was made after we wired up all the redirects
+                    const createdAfterSwitch =
                         new Date(post.createdAt) < new Date('02-24-2025');
 
-                    if (createdBeforeSwitch) {
-                        if (
-                            tabCategories.find(
-                                ({ Name }) =>
-                                    Name.toUpperCase() === oldPath.toUpperCase()
-                            )
-                        ) {
-                            throw new Error(
-                                `Blog post has slug that would overlap with search tabs: ${post.id}`
-                            );
-                        }
-
-                        // We used to not prefix blog posts with `/blog/` so make sure there are redirects
-                        // I do not think we truly need this in production as firebase.json already contains
-                        //  all the redirects. I think this makes local dev work more like prod though.
-                        createRedirect({
-                            fromPath: oldPath,
-                            toPath: newPath,
-                        });
+                    // If something is new make sure that the slug is allowed
+                    //  and does not clash with blog category
+                    if (
+                        createdAfterSwitch &&
+                        tabCategories.find(
+                            ({ Name }) =>
+                                Name.toUpperCase() === oldPath.toUpperCase()
+                        )
+                    ) {
+                        throw new Error(
+                            `Blog post has slug that would overlap with search tabs: ${post.id}`
+                        );
                     }
 
                     console.log(
-                        `blogPost:redirect:${createdBeforeSwitch ? 'updated' : 'skipped'}`,
+                        `blogPost:redirect:${createdAfterSwitch ? 'new' : 'old'}`,
                         newPath
                     );
 
