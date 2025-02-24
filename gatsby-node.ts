@@ -731,7 +731,10 @@ export const createResolvers: GatsbyNode['createResolvers'] = async ({
                         return logoNode.logo;
                     }
 
-                    console.log('   createResolversParam no logo found', id);
+                    console.log(
+                        'createResolversParam:missing connector logo',
+                        id
+                    );
                     return null;
                 },
             },
