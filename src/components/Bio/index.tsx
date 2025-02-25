@@ -35,7 +35,7 @@ const Bio = ({ authors }: BioProps) => {
 
                 const combined = (
                     <Link
-                        id={`${getSlugifiedText(name)}-blog-post-author-hero-section`}
+                        id={`${getSlugifiedText(name)}-author-avatar/hero-section/blog-post-page`}
                         to={getAuthorPathBySlug(slug)}
                         className={avatarWrapper}
                     >
