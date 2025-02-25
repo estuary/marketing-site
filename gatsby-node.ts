@@ -166,20 +166,16 @@ const createVendorCompare: CreateHelper = async (
 
 const createBlogs: CreateHelper = async (
     name,
-    { actions: { createPage, createRedirect }, graphql, reporter }
+    { actions: { createPage }, graphql, reporter }
 ) => {
     const startTime = performance.now();
     console.log(`Creation:Start:${name}`);
-
-    createRedirect({
-        fromPath: '/blogs',
-        toPath: '/blog',
-    });
 
     // Get all strapi blog posts sorted by date
     const blogPostsQuery = await graphql<{
         allStrapiBlogPost: {
             nodes: {
+                createdAt: any;
                 updatedAt: any;
                 Slug: string;
                 id: string;
@@ -198,6 +194,7 @@ const createBlogs: CreateHelper = async (
                 filter: { publishedAt: { ne: null } }
             ) {
                 nodes {
+                    createdAt
                     updatedAt
                     Slug
                     id
@@ -334,8 +331,38 @@ const createBlogs: CreateHelper = async (
                     const nextPostId =
                         index === posts.length - 1 ? null : posts[index + 1].id;
 
+                    // Snag the original slug
+                    const oldPath = post.Slug;
+
+                    // Build out new one and add slash (1 post slug already ends with slash)
+                    const newPath = `/blog/${oldPath}${oldPath.endsWith('/') ? '' : '/'}`;
+
+                    // See if the blog was made after we wired up all the redirects
+                    const createdAfterSwitch =
+                        new Date(post.createdAt) < new Date('02-24-2025');
+
+                    // If something is new make sure that the slug is allowed
+                    //  and does not clash with blog category
+                    if (
+                        createdAfterSwitch &&
+                        tabCategories.find(
+                            ({ Name }) =>
+                                Name.toUpperCase() === oldPath.toUpperCase()
+                        )
+                    ) {
+                        throw new Error(
+                            `Blog post has slug that would overlap with search tabs: ${post.id}`
+                        );
+                    }
+
+                    // TODO - remove this after about one month
+                    console.log(
+                        `blogPost:redirect:${createdAfterSwitch ? 'new' : 'old'}`,
+                        newPath
+                    );
+
                     createPage({
-                        path: post.Slug,
+                        path: newPath,
                         component: blogPostTemplate,
                         context: {
                             id: post.id,
@@ -671,7 +698,14 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
     const pool = new pg.Pool({
         connectionString: SUPABASE_CONNECTION_STRING,
         connectionTimeoutMillis: 8000,
+        max: 1,
+        allowExitOnIdle: true,
     });
+
+    // Make sure we know if there is an error
+    pool.on('error', (err: any, client: any) =>
+        console.error('sourceNodes:postgres:error', { err, client })
+    );
 
     const connectors = await pool.query(
         'select connectors.id as id, connectors.logo_url as logo_url from public.connectors;'
@@ -689,6 +723,8 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
                 getCache,
             });
 
+            console.log('sourceNodes:creating connector logo', conn.id);
+
             await createNode({
                 connectorId: conn.id,
                 logoUrl: usUrl,
@@ -702,9 +738,10 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
 
             createdCount += 1;
         } else {
-            console.log('sourceNodes:missing connector logo', conn.id);
+            console.log('sourceNodes:missing  connector logo', conn.id);
         }
     }
+
     await pool.end();
 
     console.log('sourceNodes:', {
@@ -715,6 +752,7 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
 export const createResolvers: GatsbyNode['createResolvers'] = async ({
     createResolvers: createResolversParam,
 }) => {
+    console.log('createResolvers:start');
     createResolversParam({
         PostGraphile_Connector: {
             logo: {
@@ -722,17 +760,28 @@ export const createResolvers: GatsbyNode['createResolvers'] = async ({
                 async resolve(node, _, ctx) {
                     const { id } = node;
 
+                    console.log('resolvePostGraphileConnector:logo:find', id);
+
                     const logoNode = await ctx.nodeModel.findOne({
                         type: 'ConnectorLogo',
                         query: { filter: { connectorId: { eq: id } } },
                     });
 
                     if (logoNode?.logo) {
+                        console.log(
+                            'resolvePostGraphileConnector:logo:returning',
+                            {
+                                url1: logoNode?.logoUrl,
+                                url2: logoNode?.logo.url,
+                                logo_relativePath: logoNode?.logo.relativePath,
+                            }
+                        );
+
                         return logoNode.logo;
                     }
 
                     console.log(
-                        'createResolversParam:missing connector logo',
+                        'resolvePostGraphileConnector:logo:missing',
                         id
                     );
                     return null;
@@ -740,6 +789,7 @@ export const createResolvers: GatsbyNode['createResolvers'] = async ({
             },
         },
     });
+    console.log('createResolvers:done');
 };
 
 export const onCreateWebpackConfig = ({ stage, actions, getConfig }) => {
