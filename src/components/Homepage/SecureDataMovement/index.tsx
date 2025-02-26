@@ -1,14 +1,18 @@
 import clsx from 'clsx';
 import { StaticImage } from 'gatsby-plugin-image';
 import { textWrapper } from '../styles.module.less';
-import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import Container from '../../Container';
-import { container, badgesWrapper, rightColumn } from './styles.module.less';
+import {
+    container,
+    badgesWrapper,
+    rightColumn,
+    sectionStyle,
+} from './styles.module.less';
 import ConnectorsMasonry from './ConnectorsMasonry';
 
 const SecureDataMovement = () => {
     return (
-        <section className={defaultWrapperDarkBlue}>
+        <section className={sectionStyle}>
             <Container
                 className={clsx(textWrapper, container)}
                 isReverseColumnOnMobile
