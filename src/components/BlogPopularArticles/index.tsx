@@ -1,6 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import Card from '../Grid/Card';
 import Grid from '../Grid';
+import { BlogPostType } from '../../../shared';
 
 export const PopularArticles = () => {
     const { popularArticles } = useStaticQuery(graphql`
@@ -67,7 +68,7 @@ export const PopularArticles = () => {
 
     return (
         <Grid>
-            {popularArticles?.nodes?.map((article: any) => (
+            {popularArticles?.nodes?.map((article: BlogPostType) => (
                 <Card key={article.id} data={article} footerTag="Article" />
             ))}
         </Grid>
