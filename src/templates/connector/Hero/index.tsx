@@ -8,7 +8,7 @@ import clsx from 'clsx';
 import { ConnectorType } from '../../../../shared';
 import LightSwoopingLinesRightDirectionBackground from '../../../components/BackgroundImages/LightSwoopingLinesRightDirectionBackground';
 import Container from '../../../components/Container';
-import ConnectorIcon from '../../../svgs/server.svg';
+import ConnectorLogoPlaceholder from '../../../components/ConnectorLogoPlaceholder';
 import Content from './Content';
 import {
     containerImage,
@@ -69,7 +69,7 @@ const Hero = ({ connector: { title, logo, type } }: HeroProps) => {
                                 image={logoImage}
                             />
                         ) : (
-                            <ConnectorIcon color="var(--grey)" />
+                            <ConnectorLogoPlaceholder connectorType={type} />
                         )}
                     </div>
                     <div className={frameContainer}>

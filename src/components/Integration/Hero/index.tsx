@@ -12,6 +12,7 @@ import { Connector } from '../shared';
 import { activeUsersAmount, dashboardRegisterUrl } from '../../../../shared';
 import Container from '../../Container';
 import LinkOutlined from '../../LinksAndButtons/LinkOutlined';
+import ConnectorLogoPlaceholder from '../../ConnectorLogoPlaceholder';
 import {
     container,
     backgroundImageWraper,
@@ -27,9 +28,9 @@ import {
     semiCircleMiddle,
     semiCircleRightSide,
 } from './styles.module.less';
-import ConnectorLogoPlaceholder from './ConnectorLogoPlaceholder';
 
 const metricIconColor = 'var(--white)';
+const connectorIconSize = 64;
 
 export interface HeroProps {
     sourceConnector: Connector;
@@ -84,7 +85,10 @@ const Hero = ({ sourceConnector, destConnector }: HeroProps) => {
                                         className={bgImage}
                                     />
                                 ) : (
-                                    <ConnectorLogoPlaceholder />
+                                    <ConnectorLogoPlaceholder
+                                        connectorType={sourceConnector.type}
+                                        connectorIconSize={connectorIconSize}
+                                    />
                                 )}
                             </div>
                         </div>
@@ -104,7 +108,10 @@ const Hero = ({ sourceConnector, destConnector }: HeroProps) => {
                                         className={bgImage}
                                     />
                                 ) : (
-                                    <ConnectorLogoPlaceholder />
+                                    <ConnectorLogoPlaceholder
+                                        connectorType={destConnector.type}
+                                        connectorIconSize={connectorIconSize}
+                                    />
                                 )}
                             </div>
                         </div>

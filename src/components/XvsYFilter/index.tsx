@@ -2,7 +2,7 @@ import { InputLabel, FormControl, MenuItem, Select } from '@mui/material';
 import clsx from 'clsx';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import LinkFilled from '../LinksAndButtons/LinkFilled';
-import ConnectorIcon from '../../svgs/server.svg';
+import ConnectorLogoPlaceholder from '../ConnectorLogoPlaceholder';
 import {
     wrapper,
     formControl,
@@ -98,10 +98,9 @@ const XvsYFilter = ({
                                     className={itemImage}
                                 />
                             ) : (
-                                <ConnectorIcon
-                                    width={connectorIconSize}
-                                    height={connectorIconSize}
-                                    color="var(--grey)"
+                                <ConnectorLogoPlaceholder
+                                    connectorType="capture"
+                                    connectorIconSize={connectorIconSize}
                                     className={itemImage}
                                 />
                             )}
@@ -143,7 +142,13 @@ const XvsYFilter = ({
                                     alt={`${item.title} Logo`}
                                     className={itemImage}
                                 />
-                            ) : null}
+                            ) : (
+                                <ConnectorLogoPlaceholder
+                                    connectorType="materialization"
+                                    connectorIconSize={connectorIconSize}
+                                    className={itemImage}
+                                />
+                            )}
                             {item.title}
                         </MenuItem>
                     ))}
