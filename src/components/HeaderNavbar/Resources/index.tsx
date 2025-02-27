@@ -49,7 +49,6 @@ const HeaderNavbarResources = ({ active, setActive }) => {
             ) {
                 nodes {
                     LinkOneLiner
-                    Description
                     Title
                     Slug
                     id
