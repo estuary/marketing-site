@@ -18,7 +18,7 @@ const Hero = ({ title, description, image }: HeroProps) => {
                 <HeroSectionDetails
                     title={title}
                     description={description}
-                    ctaButtons={<HeroSectionActions />}
+                    ctaButtons={<HeroSectionActions pageId="solutions-page" />}
                 />
                 <div className={heroImageWrapper}>
                     <GatsbyImage

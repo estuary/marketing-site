@@ -2,7 +2,11 @@ import { dashboardRegisterUrl } from '../../../shared';
 import OutboundLinkFilled from '../LinksAndButtons/OutboundLinkFilled';
 import { container, image } from './styles.module.less';
 
-const SidebarCta = () => {
+interface SidebarCtaProps {
+    ctaButtonid: string;
+}
+
+const SidebarCta = ({ ctaButtonid }: SidebarCtaProps) => {
     return (
         <div className={container}>
             <div className={image}>
@@ -13,7 +17,7 @@ const SidebarCta = () => {
             <h3>
                 Start streaming your data <span>for free</span>
             </h3>
-            <OutboundLinkFilled href={dashboardRegisterUrl}>
+            <OutboundLinkFilled id={ctaButtonid} href={dashboardRegisterUrl}>
                 Build a Pipeline
             </OutboundLinkFilled>
         </div>

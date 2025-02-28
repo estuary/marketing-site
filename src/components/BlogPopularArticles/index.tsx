@@ -1,6 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import Card from '../Grid/Card';
 import Grid from '../Grid';
+import { getSlugifiedText } from '../../../shared';
 
 export const PopularArticles = () => {
     const { popularArticles } = useStaticQuery(graphql`
@@ -68,7 +69,12 @@ export const PopularArticles = () => {
     return (
         <Grid>
             {popularArticles?.nodes?.map((article: any) => (
-                <Card key={article.id} data={article} footerTag="Article" />
+                <Card
+                    key={article.id}
+                    data={article}
+                    footerTag="Article"
+                    linkId={`${getSlugifiedText(article.title)}-popular-article/blog-post-page`}
+                />
             ))}
         </Grid>
     );

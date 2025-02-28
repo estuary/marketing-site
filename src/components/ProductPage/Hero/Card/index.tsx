@@ -17,6 +17,7 @@ type CardProps = {
     icon: ReactNode;
     href: string;
     isActive?: boolean;
+    buttonId: string;
 };
 
 const Card = ({
@@ -25,8 +26,10 @@ const Card = ({
     icon,
     href,
     isActive = false,
+    buttonId,
 }: CardProps) => (
     <OutboundLink
+        id={buttonId}
         href={href}
         target="_blank"
         className={clsx(container, isActive ? activeCard : null)}

@@ -14,12 +14,14 @@ interface ArticleSidebarProps {
     };
     tableOfContents: any;
     shareArticleSectionTitle?: string;
+    ctaButtonid: string;
 }
 
 const ArticleSidebar = ({
     article,
     tableOfContents,
     shareArticleSectionTitle,
+    ctaButtonid,
 }: ArticleSidebarProps) => {
     return (
         <div className={container}>
@@ -34,7 +36,7 @@ const ArticleSidebar = ({
                     <RenderToc items={tableOfContents} />
                 </div>
             ) : null}
-            <SidebarCta />
+            <SidebarCta ctaButtonid={ctaButtonid} />
         </div>
     );
 };

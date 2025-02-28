@@ -26,7 +26,9 @@ const Hero = () => {
                         requirements. This section provides a high-level
                         overview and comparison of Public Deployment, Private
                         Deployment, and BYOC options."
-                    ctaButtons={<HeroSectionActions />}
+                    ctaButtons={
+                        <HeroSectionActions pageId="deployment-options-page" />
+                    }
                 />
                 <div className={rightColumn}>
                     <StaticImage

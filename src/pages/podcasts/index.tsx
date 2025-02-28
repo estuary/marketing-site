@@ -77,7 +77,7 @@ const LpPodcats = ({
                 </section>
                 <section className={episodes}>
                     <h2 className={episodesHeading}>Episodes</h2>
-                    <VerticalList items={podcasts} />
+                    <VerticalList items={podcasts} pageId="podcasts-page" />
                 </section>
                 <section className={subscribe}>
                     <div className={subscribeWrap}>
@@ -89,7 +89,7 @@ const LpPodcats = ({
                                     target="_blank"
                                     href="https://www.youtube.com/@estuarydev"
                                 >
-                                    <SubscribeYoutubeButton />
+                                    <SubscribeYoutubeButton id="subscribe-youtube-button/podcasts-page" />
                                 </OutboundLink>
                             </div>
                             <p className={subscribeSubheading}>
@@ -103,7 +103,7 @@ const LpPodcats = ({
                         </div>
                     </div>
                 </section>
-                <SignUp />
+                <SignUp pageId="podcasts-page" />
             </div>
         </Layout>
     );

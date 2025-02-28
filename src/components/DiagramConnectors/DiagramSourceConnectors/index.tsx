@@ -1,11 +1,8 @@
 import { StaticImage } from 'gatsby-plugin-image';
-import { Link } from 'gatsby';
 import clsx from 'clsx';
 import {
-    connector,
     connectorsGroup,
     connectorsGroupsLeftWrapper,
-    logoWrapper,
     spacingLeft,
     icon,
 } from '../styles.module.less';
@@ -15,6 +12,7 @@ import RealTimeIcon from '../../../svgs/metric-latency.svg';
 import SaasIcon from '../../../svgs/saas.svg';
 import ConnectorsType from '../ConnectorsType';
 import { DiagramConnectorsProps } from '../types';
+import ConnectorLink from '../ConnectorLink';
 
 const DiagramSourceConnectors = ({
     hasTooltips = false,
@@ -28,39 +26,45 @@ const DiagramSourceConnectors = ({
             )}
         >
             <div className={clsx(connectorsGroup, spacingLeft)}>
-                <Link className={connector} to="/source/oracle-flashback">
-                    <div className={logoWrapper}>
+                <ConnectorLink
+                    connectorId="oracle"
+                    connectorName="Oracle"
+                    image={
                         <StaticImage
                             placeholder="none"
                             alt="Oracle logo"
                             src="../../../images/logos/oracle.png"
                             loading="eager"
                         />
-                    </div>
-                    <span>Oracle</span>
-                </Link>
-                <Link className={connector} to="/source/mysql">
-                    <div className={logoWrapper}>
+                    }
+                    to="/source/oracle-flashback"
+                />
+                <ConnectorLink
+                    connectorId="mysql"
+                    connectorName="MySQL"
+                    image={
                         <StaticImage
                             placeholder="none"
                             alt="MySQL logo"
                             src="../../../images/logos/my-sql.png"
                             loading="eager"
                         />
-                    </div>
-                    <span>MySQL</span>
-                </Link>
-                <Link className={connector} to="/source/postgres">
-                    <div className={logoWrapper}>
+                    }
+                    to="/source/mysql"
+                />
+                <ConnectorLink
+                    connectorId="postgresql"
+                    connectorName="Postgre SQL"
+                    image={
                         <StaticImage
                             placeholder="none"
                             alt="Postgre SQL logo"
                             src="../../../images/logos/postgre-sql.png"
                             loading="eager"
                         />
-                    </div>
-                    <span>Postgre SQL</span>
-                </Link>
+                    }
+                    to="/source/postgres"
+                />
                 <ConnectorsType
                     title="Streaming CDC"
                     description="The only real-time log-based data capture
@@ -76,39 +80,45 @@ const DiagramSourceConnectors = ({
                 />
             </div>
             <div className={clsx(connectorsGroup, spacingLeft)}>
-                <Link className={connector} to="/source/s">
-                    <div className={logoWrapper}>
+                <ConnectorLink
+                    connectorId="amazon-s3"
+                    connectorName="Amazon S3"
+                    image={
                         <StaticImage
                             placeholder="none"
                             alt="Amazon S3 logo"
                             src="../../../images/logos/amazon-s3.png"
                             loading="eager"
                         />
-                    </div>
-                    <span>Amazon S3</span>
-                </Link>
-                <Link className={connector} to="/source/gcs">
-                    <div className={logoWrapper}>
+                    }
+                    to="/source/s"
+                />
+                <ConnectorLink
+                    connectorId="gcs"
+                    connectorName="GCS"
+                    image={
                         <StaticImage
                             placeholder="none"
                             alt="Google Cloud Storage logo"
                             src="../../../images/logos/google-cloud-storage.png"
                             loading="eager"
                         />
-                    </div>
-                    <span>GCS</span>
-                </Link>
-                <Link className={connector} to="/source/azure-blob-storage">
-                    <div className={logoWrapper}>
+                    }
+                    to="/source/gcs"
+                />
+                <ConnectorLink
+                    connectorId="abs"
+                    connectorName="ABS"
+                    image={
                         <StaticImage
                             placeholder="none"
                             alt="Azure Blob Storage logo"
                             src="../../../images/logos/azure-blob-storage.png"
                             loading="eager"
                         />
-                    </div>
-                    <span>ABS</span>
-                </Link>
+                    }
+                    to="/source/azure-blob-storage"
+                />
                 <ConnectorsType
                     title="Batch"
                     description="Real-time support for messaging, APIs,
@@ -118,39 +128,45 @@ const DiagramSourceConnectors = ({
                 />
             </div>
             <div className={clsx(connectorsGroup, spacingLeft)}>
-                <Link className={connector} to="/source/netsuite-v2">
-                    <div className={logoWrapper}>
+                <ConnectorLink
+                    connectorId="netsuite"
+                    connectorName="Netsuite"
+                    image={
                         <StaticImage
                             placeholder="none"
                             alt="Netsuite logo"
                             src="../../../images/logos/netsuite.png"
                             loading="eager"
                         />
-                    </div>
-                    <span>Netsuite</span>
-                </Link>
-                <Link className={connector} to="/source/hubspot">
-                    <div className={logoWrapper}>
+                    }
+                    to="/source/netsuite-v2"
+                />
+                <ConnectorLink
+                    connectorId="hubSpot"
+                    connectorName="HubSpot"
+                    image={
                         <StaticImage
                             placeholder="none"
                             alt="Hubspot logo"
                             src="../../../images/logos/hubspot.png"
                             loading="eager"
                         />
-                    </div>
-                    <span>HubSpot</span>
-                </Link>
-                <Link className={connector} to="/source/salesforce">
-                    <div className={logoWrapper}>
+                    }
+                    to="/source/hubspot"
+                />
+                <ConnectorLink
+                    connectorId="salesforce"
+                    connectorName="Salesforce"
+                    image={
                         <StaticImage
                             placeholder="none"
                             alt="Salesforce logo"
                             src="../../../images/logos/salesforce.png"
                             loading="eager"
                         />
-                    </div>
-                    <span>Salesforce</span>
-                </Link>
+                    }
+                    to="/source/salesforce"
+                />
                 <ConnectorsType
                     title="SaaS"
                     description="Extract exactly once from files, apps, and
@@ -160,39 +176,45 @@ const DiagramSourceConnectors = ({
                 />
             </div>
             <div className={clsx(connectorsGroup, spacingLeft)}>
-                <Link className={connector} to="/source/google-pubsub">
-                    <div className={logoWrapper}>
+                <ConnectorLink
+                    connectorId="google-pubsub"
+                    connectorName="Google PubSub"
+                    image={
                         <StaticImage
                             placeholder="none"
                             alt="Google Cloud Pub Sub logo"
                             src="../../../images/logos/google-cloud-pub-sub.png"
                             loading="eager"
                         />
-                    </div>
-                    <span>Google PubSub</span>
-                </Link>
-                <Link className={connector} to="/source/kinesis">
-                    <div className={logoWrapper}>
+                    }
+                    to="/source/google-pubsub"
+                />
+                <ConnectorLink
+                    connectorId="amazon-kinesis"
+                    connectorName="Amazon Kinesisb"
+                    image={
                         <StaticImage
                             placeholder="none"
                             alt="AWS Kinesis logo"
                             src="../../../images/logos/aws-kinesis.png"
                             loading="eager"
                         />
-                    </div>
-                    <span>Amazon Kinesis</span>
-                </Link>
-                <Link className={connector} to="/source/kafka">
-                    <div className={logoWrapper}>
+                    }
+                    to="/source/kinesis"
+                />
+                <ConnectorLink
+                    connectorId="apache-kafka"
+                    connectorName="Apache Kafka"
+                    image={
                         <StaticImage
                             placeholder="none"
                             alt="Apache Kafka logo"
                             src="../../../images/logos/apache-kafka.png"
                             loading="eager"
                         />
-                    </div>
-                    <span>Apache Kafka</span>
-                </Link>
+                    }
+                    to="/source/kafka"
+                />
                 <ConnectorsType
                     title="Real-time"
                     description="Real-time and batch extraction from leading

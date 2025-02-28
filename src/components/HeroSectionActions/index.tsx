@@ -1,11 +1,15 @@
 import RegisterCta from './RegisterCta';
 import ContactUsCta from './ContactUsCta';
 
-function HeroSectionActions() {
+interface HeroSectionActionsProps {
+    pageId: string;
+}
+
+function HeroSectionActions({ pageId }: HeroSectionActionsProps) {
     return (
         <>
-            <RegisterCta />
-            <ContactUsCta />
+            <RegisterCta pageId={pageId} />
+            <ContactUsCta pageId={pageId} />
         </>
     );
 }
