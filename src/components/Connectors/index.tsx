@@ -75,18 +75,18 @@ const ConnectorCard = ({
         <Link to={`${slug}`}>
             <div className={connectorCard}>
                 <div className={connectorCardTop}>
-                    {!logo?.childImageSharp?.gatsbyImageData ? (
-                        <ConnectorLogoPlaceholder
-                            connectorType={type}
-                            connectorIconSize={connectorIconSize}
-                            className={connectorLogoClassName}
-                        />
-                    ) : (
+                    {logo ? (
                         <GatsbyImage
                             image={logo.childImageSharp.gatsbyImageData}
                             alt={`${title} Logo`}
                             className={connectorLogoClassName}
                             loading="eager"
+                        />
+                    ) : (
+                        <ConnectorLogoPlaceholder
+                            connectorType={type}
+                            connectorIconSize={connectorIconSize}
+                            className={connectorLogoClassName}
                         />
                     )}
                     {recommended || showType ? (
