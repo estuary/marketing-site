@@ -8,6 +8,7 @@ import clsx from 'clsx';
 import { ConnectorType } from '../../../../shared';
 import LightSwoopingLinesRightDirectionBackground from '../../../components/BackgroundImages/LightSwoopingLinesRightDirectionBackground';
 import Container from '../../../components/Container';
+import ConnectorLogoPlaceholder from '../../../components/ConnectorLogoPlaceholder';
 import Content from './Content';
 import {
     containerImage,
@@ -40,57 +41,59 @@ const Hero = ({ connector: { title, logo, type } }: HeroProps) => {
                         type,
                     }}
                 />
-                {logoImage ? (
-                    <div className={containerImage}>
-                        <span className={clsx(textBaseStyling, flowStepOne)}>
-                            <span>01.</span>{' '}
-                            {type === 'capture'
-                                ? `Move from ${title}`
-                                : 'Select a source'}
-                        </span>
-                        <span className={clsx(textBaseStyling, flowStepTwo)}>
-                            <span>02.</span> Transform in-flight
-                        </span>
-                        <span className={clsx(textBaseStyling, flowStepThree)}>
-                            <span>03.</span>{' '}
-                            {type === 'materialization'
-                                ? `Deliver to ${title}`
-                                : 'Select a destination'}
-                        </span>
-                        <div
-                            className={clsx(
-                                logoContainer,
-                                type === 'capture' ? logoContainerCapture : null
-                            )}
-                        >
+                <div className={containerImage}>
+                    <span className={clsx(textBaseStyling, flowStepOne)}>
+                        <span>01.</span>{' '}
+                        {type === 'capture'
+                            ? `Move from ${title}`
+                            : 'Select a source'}
+                    </span>
+                    <span className={clsx(textBaseStyling, flowStepTwo)}>
+                        <span>02.</span> Transform in-flight
+                    </span>
+                    <span className={clsx(textBaseStyling, flowStepThree)}>
+                        <span>03.</span>{' '}
+                        {type === 'materialization'
+                            ? `Deliver to ${title}`
+                            : 'Select a destination'}
+                    </span>
+                    <div
+                        className={clsx(
+                            logoContainer,
+                            type === 'capture' ? logoContainerCapture : null
+                        )}
+                    >
+                        {logoImage ? (
                             <GatsbyImage
                                 alt={`${title} logo`}
                                 image={logoImage}
                             />
-                        </div>
-                        <div className={frameContainer}>
-                            {type === 'capture' ? (
-                                <StaticImage
-                                    placeholder="none"
-                                    alt="take a tour"
-                                    src="../../../images/lp-connector/hero/FlowFromSource.png"
-                                    imgStyle={{
-                                        objectFit: 'contain',
-                                    }}
-                                />
-                            ) : (
-                                <StaticImage
-                                    placeholder="none"
-                                    alt="take a tour"
-                                    src="../../../images/lp-connector/hero/FlowToDestination.png"
-                                    imgStyle={{
-                                        objectFit: 'contain',
-                                    }}
-                                />
-                            )}
-                        </div>
+                        ) : (
+                            <ConnectorLogoPlaceholder connectorType={type} />
+                        )}
                     </div>
-                ) : null}
+                    <div className={frameContainer}>
+                        {type === 'capture' ? (
+                            <StaticImage
+                                placeholder="none"
+                                alt="take a tour"
+                                src="../../../images/lp-connector/hero/FlowFromSource.png"
+                                imgStyle={{
+                                    objectFit: 'contain',
+                                }}
+                            />
+                        ) : (
+                            <StaticImage
+                                placeholder="none"
+                                alt="take a tour"
+                                src="../../../images/lp-connector/hero/FlowToDestination.png"
+                                imgStyle={{
+                                    objectFit: 'contain',
+                                }}
+                            />
+                        )}
+                    </div>
+                </div>
             </Container>
         </LightSwoopingLinesRightDirectionBackground>
     );

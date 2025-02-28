@@ -139,7 +139,7 @@ const Card = ({
 
     return (
         <li key={data.id}>
-            <Link id={linkId} to={`/${data.slug}`} className={container}>
+            <Link id={linkId} to={`/blog/${data.slug}`} className={container}>
                 {hasImgBackground ? (
                     <div className={imgWrapper}>
                         <GatsbyImage {...imageProps} />
