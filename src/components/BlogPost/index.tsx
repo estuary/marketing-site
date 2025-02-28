@@ -8,7 +8,6 @@ import Bio from '../Bio';
 import ReadingTimeIcon from '../../svgs/time.svg';
 import Container from '../Container';
 import HeroSectionDetails from '../HeroSectionDetails';
-import ShareArticle from '../ShareArticle';
 import { ProcessedPost } from '../BlogPostProcessor';
 import BlogBanner from '../BlogBanner';
 import ArticleSidebar from '../ArticleSidebar';
@@ -31,7 +30,6 @@ import {
     iconInfoWrapper,
     blogPostDate,
     heroImage,
-    shareArticleMobile,
     blogPostContent,
     blogPostContentWrapper,
     mainContent,
@@ -76,8 +74,6 @@ const BlogPost = ({
     const hasAtLeastOneBio = post?.authors?.some(
         (author) => author?.bio?.data?.bio
     );
-
-    const shareArticleSectionTitle = `Share this ${hasPopularArticlesSection ? 'article' : 'update'}`;
 
     return (
         <article
@@ -145,15 +141,6 @@ const BlogPost = ({
                             loading="eager"
                         />
                     ) : null}
-                    <div className={shareArticleMobile}>
-                        <ShareArticle
-                            article={{
-                                title: post.title,
-                                slug: post.slug,
-                            }}
-                            sectionTitle={shareArticleSectionTitle}
-                        />
-                    </div>
                 </Container>
             </SwoopingLinesBackground>
             {post.body ? (
@@ -179,14 +166,9 @@ const BlogPost = ({
                             ) : null}
                         </div>
                         <ArticleSidebar
-                            article={{
-                                title: post.title,
-                                slug: post.slug,
-                            }}
                             tableOfContents={
                                 post.body.data.childHtmlRehype.tableOfContents
                             }
-                            shareArticleSectionTitle={shareArticleSectionTitle}
                         />
                     </div>
                 </section>
