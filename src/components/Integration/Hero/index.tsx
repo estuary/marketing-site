@@ -38,10 +38,13 @@ export interface HeroProps {
 }
 
 const Hero = ({ sourceConnector, destConnector }: HeroProps) => {
-    const sourceConnectorLogo = sourceConnector.logo
+    const sourceConnectorLogo = sourceConnector.logo?.childImageSharp
+        ?.gatsbyImageData
         ? getImage(sourceConnector.logo.childImageSharp.gatsbyImageData)
         : null;
-    const destinationConnectorLogo = destConnector.logo
+
+    const destinationConnectorLogo = destConnector.logo?.childImageSharp
+        ?.gatsbyImageData
         ? getImage(destConnector.logo.childImageSharp.gatsbyImageData)
         : null;
 
