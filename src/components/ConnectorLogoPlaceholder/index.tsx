@@ -1,6 +1,7 @@
-import SourceConnectorIcon from '@mui/icons-material/CloudUploadOutlined';
-import DestinationConnectorIcon from '@mui/icons-material/CloudDownloadOutlined';
 import { ConnectorType } from '../../../shared';
+import SourceConnectorIcon from '../../svgs/connector-logo-placeholder.svg';
+// TODO: Replace this temporary icon with the ones synced with the dashboard.
+// import DestinationConnectorIcon from '../../svgs/connector-logo-placeholder.svg';
 
 const iconColor = 'var(--grey)';
 
@@ -19,15 +20,15 @@ const ConnectorLogoPlaceholder = ({
 
     return connectorType === 'capture' ? (
         <SourceConnectorIcon
-            style={iconSize}
-            htmlColor={iconColor}
+            color={iconColor}
             className={className}
+            {...iconSize}
         />
     ) : (
-        <DestinationConnectorIcon
-            style={iconSize}
-            htmlColor={iconColor}
+        <SourceConnectorIcon
+            color={iconColor}
             className={className}
+            {...iconSize}
         />
     );
 };
