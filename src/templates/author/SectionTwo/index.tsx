@@ -3,6 +3,7 @@ import { Author } from '../shared';
 import Card from '../../../components/Grid/Card';
 import ButtonFilled from '../../../components/LinksAndButtons/ButtonFilled';
 import Grid from '../../../components/Grid';
+import { getSlugifiedText } from '../../../../shared';
 import { container } from './styles.module.less';
 
 interface SectionTwoProps {
@@ -31,6 +32,7 @@ const SectionTwo = ({ author: { name, blogPosts } }: SectionTwoProps) => {
             <Grid>
                 {blogPosts.slice(0, visiblePosts).map((blogPost) => (
                     <Card
+                        linkId={`${getSlugifiedText(name)}/author-blog-post-card/author-page`}
                         key={blogPost.id}
                         data={blogPost}
                         footerTag="Article"

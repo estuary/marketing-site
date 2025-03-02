@@ -16,6 +16,7 @@ const HowEstuaryFlowCompares = () => {
                     <PipelinesTable />
                 </div>
                 <LinkFilled
+                    id="view-comparisons-button/product-page"
                     href="/etl-tools/estuary-vs-fivetran/"
                     target="_blank"
                     aria-label="Estuary Flow Comparison versus Fivetran"

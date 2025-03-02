@@ -50,7 +50,10 @@ const TheBestRealTimeCdc = () => {
                     },
                 ]}
                 ctaButtons={
-                    <LinkFilled href="/integrations/">
+                    <LinkFilled
+                        id="view-connectors-button/home-page"
+                        href="/integrations/"
+                    >
                         View Connectors
                     </LinkFilled>
                 }

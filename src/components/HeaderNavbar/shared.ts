@@ -28,4 +28,7 @@ export interface MenuCardItem {
     description?: string;
     to: string;
     Image?: () => JSX.Element;
+    linkId: string;
 }
+
+export const getMenuLinkId = (linkName: string) => `${linkName}-menu-link`;
