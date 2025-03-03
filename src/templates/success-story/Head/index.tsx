@@ -17,7 +17,7 @@ const SuccessStoryHead = ({
                 url={`${siteUrl}/success-stories/${successStory.Slug}`}
                 image={
                     successStory.Logo
-                        ? `${siteUrl}${successStory.Logo.localFile.childImageSharp.meta_img.gatsbyImageData}`
+                        ? `${siteUrl}${successStory.Logo.localFile.childImageSharp.metaImg.images.fallback.src}`
                         : undefined
                 }
             />
@@ -33,7 +33,7 @@ const SuccessStoryHead = ({
                     'description': successStory.Description ?? '',
                     'image':
                         successStory.Logo &&
-                        `${siteUrl}${successStory.Logo.localFile.childImageSharp.meta_img.src}`,
+                        `${siteUrl}${successStory.Logo.localFile.childImageSharp.metaImg.images.fallback.src}`,
                     'publisher': {
                         '@type': 'Organization',
                         'name': 'Estuary',

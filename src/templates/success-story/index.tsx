@@ -51,7 +51,11 @@ export const pageQuery = graphql`
                             placeholder: BLURRED
                             formats: [AUTO, WEBP, AVIF]
                         )
-                        meta_img: gatsbyImageData(layout: FIXED, width: 500)
+                        metaImg: gatsbyImageData(
+                            layout: FIXED
+                            width: 1200
+                            height: 630
+                        )
                     }
                 }
             }

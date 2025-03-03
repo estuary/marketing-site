@@ -13,10 +13,26 @@
     max-width: 90px;
     height: auto;
 
+    svg {
+        width: 64px;
+        height: 64px;
+
+        @media (max-width: 1540px) {
+            width: 4vw;
+            height: 4vw;
+        }
+    }
+
+
     @media (max-width: 1023px) {
         width: 10%;
         top: 27%;
         right: 12%;
+
+        svg {
+            width: 8.5vw;
+            height: 8.5vw;
+        }
     }
 }
 
