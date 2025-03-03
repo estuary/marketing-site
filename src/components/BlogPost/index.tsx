@@ -136,7 +136,10 @@ const BlogPost = ({
                     </div>
                     {post.hero ? (
                         <GatsbyImage
-                            alt={post.hero.alternativeText}
+                            alt={
+                                post.hero.alternativeText ||
+                                'Blog post hero image'
+                            }
                             className={heroImage}
                             image={
                                 post.hero.localFile.childImageSharp
