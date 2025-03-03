@@ -6,7 +6,6 @@ import {
 } from '@mui/material';
 import { StaticImage } from 'gatsby-plugin-image';
 import { graphql, useStaticQuery } from 'gatsby';
-import clsx from 'clsx';
 import { webinarsUrl } from '../../../../shared';
 import Card from '../Card';
 import CardItem from '../CardItem';
@@ -93,7 +92,7 @@ const HeaderNavbarResources = ({ active, setActive }) => {
     );
 
     const successStoryItems = orderedAllSuccessStories.map((successStory) => ({
-        name: successStory.Title.toUpperCase(),
+        name: successStory.Title,
         to: `/success-stories/${successStory.Slug}`,
         description: successStory.LinkOneLiner,
         Image: () => <SuccessIcon width={iconSize} height={iconSize} />,
@@ -111,17 +110,11 @@ const HeaderNavbarResources = ({ active, setActive }) => {
             <AccordionDetails className={accordionDetails}>
                 <Card>
                     <div className={columnWithTwoRows}>
+                        <CardItem title="ECOSYSTEM" items={partners} />
                         <CardItem
-                            className={hideOnMobile}
-                            title="ECOSYSTEM"
-                            items={partners}
-                            onlyContent
-                        />
-                        <CardItem
-                            className={clsx(hideOnMobile, longLinkList)}
+                            className={longLinkList}
                             title="SUCCESS STORIES"
                             items={successStoryItems}
-                            onlyContent
                             active={active}
                             contentFooterLink={
                                 <HeaderViewAllLink
@@ -135,11 +128,10 @@ const HeaderNavbarResources = ({ active, setActive }) => {
                         <CardItem
                             title="READ"
                             items={read}
-                            onlyContent
                             hasSeeMoreButton
                             maxNumberOfLinks={5}
                         />
-                        <CardItem title="LISTEN" items={listen} onlyContent />
+                        <CardItem title="LISTEN" items={listen} />
                     </div>
                     <CardItem className={hideOnMobile} title="DEMO" onlyContent>
                         <Carousel aria-label="Demos carousel" hasFullWidthSlide>
