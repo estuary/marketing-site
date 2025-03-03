@@ -63,6 +63,7 @@ const getLinkId = (
 
     return `${xTitle}-vs-${yTitle}-${buttonTitle.toLowerCase()}-search-filter-button`;
 };
+
 const connectorIconSize = 20;
 
 const XvsYFilter = ({
