@@ -36,7 +36,7 @@ import {
     headerSocialIcon,
 } from './styles.module.less';
 
-const slideTimeout = 300;
+const slideTimeout = 150;
 
 const Header = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

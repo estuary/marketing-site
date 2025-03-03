@@ -1,5 +1,5 @@
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Typography, useMediaQuery } from '@mui/material';
+import { Typography, useMediaQuery, Collapse } from '@mui/material';
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -30,6 +30,17 @@ type RenderTocItemProps = {
     handleItemClick: (id: string) => void;
 };
 
+const hasSelectedDescendant = (
+    item: TocItem,
+    selected: string | null
+): boolean => {
+    if (!item.items || !selected) return false;
+    return item.items.some(
+        (child) =>
+            child.id === selected || hasSelectedDescendant(child, selected)
+    );
+};
+
 const RenderTocItem = ({
     item,
     depth,
@@ -38,6 +49,7 @@ const RenderTocItem = ({
     selectedItem,
 }: RenderTocItemProps) => {
     const isSelected = selectKey === selectedItem;
+    const isExpanded = isSelected || hasSelectedDescendant(item, selectedItem);
 
     const handleLinkClick = (
         event: MouseEvent<HTMLAnchorElement, globalThis.MouseEvent>
@@ -58,37 +70,29 @@ const RenderTocItem = ({
         }
     };
 
-    const renderedItems = useMemo(
-        () =>
-            item.items && item.items.length > 0 ? (
-                <ol role="list" style={{ padding: 0 }}>
-                    {item.items.map((nestedItem) => (
-                        <div key={nestedItem.id} className={tocSubItems}>
-                            <hr />
-                            <RenderTocItem
-                                selectKey={nestedItem.id}
-                                item={nestedItem}
-                                depth={depth + 1}
-                                handleItemClick={handleItemClick}
-                                selectedItem={selectedItem}
-                            />
-                        </div>
-                    ))}
-                </ol>
-            ) : null,
-        [depth, handleItemClick, item.items, selectedItem]
-    );
-
-    if (depth > 1) {
-        return null;
-    }
-
     return (
         <li className={clsx(tocItem, isSelected && isItemSelected)}>
             <Link to={`#${selectKey}`} onClick={handleLinkClick}>
                 {item.heading}
             </Link>
-            {renderedItems}
+            {depth < 1 && item.items && item.items.length > 0 ? (
+                <Collapse in={isExpanded} timeout="auto" unmountOnExit>
+                    <ol role="list" style={{ padding: 0 }}>
+                        {item.items.map((nestedItem) => (
+                            <li key={nestedItem.id} className={tocSubItems}>
+                                <hr />
+                                <RenderTocItem
+                                    selectKey={nestedItem.id}
+                                    item={nestedItem}
+                                    depth={depth + 1}
+                                    handleItemClick={handleItemClick}
+                                    selectedItem={selectedItem}
+                                />
+                            </li>
+                        ))}
+                    </ol>
+                </Collapse>
+            ) : null}
         </li>
     );
 };
@@ -157,7 +161,7 @@ export const RenderToc = ({ items }: { items: TocItem[] }) => {
             if (element) {
                 const y =
                     element.getBoundingClientRect().top +
-                    window.pageYOffset +
+                    window.scrollY +
                     yOffset;
                 window.scrollTo({ top: y, behavior: 'smooth' });
             }
