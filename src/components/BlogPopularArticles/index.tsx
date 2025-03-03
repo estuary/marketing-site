@@ -67,8 +67,12 @@ export const PopularArticles = () => {
 
     return (
         <Grid>
-            {popularArticles?.nodes?.map((article: any) => (
-                <Card key={article.id} data={article} footerTag="Article" />
+            {popularArticles?.nodes?.map(({ id, slug, ...rest }: any) => (
+                <Card
+                    key={id}
+                    data={{ ...rest, id, slug: `/blog/${slug}` }}
+                    footerTag="Article"
+                />
             ))}
         </Grid>
     );
