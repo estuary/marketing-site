@@ -37,7 +37,11 @@ const ArticleSidebar = ({
                     <RenderToc items={tableOfContents} />
                 </div>
             ) : null}
-            <OutboundLinkFilled id={ctaButtonid} href={dashboardRegisterUrl}>
+            <OutboundLinkFilled
+                id={ctaButtonid}
+                href={dashboardRegisterUrl}
+                target="_blank"
+            >
                 Start Building For Free
             </OutboundLinkFilled>
         </div>
