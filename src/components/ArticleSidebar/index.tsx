@@ -1,5 +1,6 @@
+import { dashboardRegisterUrl } from '../../../shared';
 import { RenderToc } from '../BlogPostToc';
-import SidebarCta from '../SidebarCta';
+import OutboundLinkFilled from '../LinksAndButtons/OutboundLinkFilled';
 import ShareArticle from '../ShareArticle';
 import {
     container,
@@ -34,7 +35,9 @@ const ArticleSidebar = ({
                     <RenderToc items={tableOfContents} />
                 </div>
             ) : null}
-            <SidebarCta />
+            <OutboundLinkFilled href={dashboardRegisterUrl}>
+                Start Building For Free
+            </OutboundLinkFilled>
         </div>
     );
 };
