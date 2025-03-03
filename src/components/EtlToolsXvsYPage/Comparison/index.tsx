@@ -1,5 +1,9 @@
 import { useEffect, useMemo, useRef } from 'react';
-import { dashboardRegisterUrl, Vendor } from '../../../../shared';
+import {
+    dashboardRegisterUrl,
+    getComparisonSlug,
+    Vendor,
+} from '../../../../shared';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import BlogBanner from '../../BlogBanner';
 import ArticleSidebar from '../../ArticleSidebar';
@@ -189,7 +193,16 @@ const Comparison = ({
     return (
         <section className={defaultWrapperGrey}>
             <div className={container}>
-                <ArticleSidebar tableOfContents={tableOfContents} />
+                <ArticleSidebar
+                    article={{
+                        title: `${xVendor.name} vs ${yVendor.name}`,
+                        slug: getComparisonSlug(
+                            xVendor.slugKey,
+                            yVendor.slugKey
+                        ),
+                    }}
+                    tableOfContents={tableOfContents}
+                />
                 <div className={rightColumn}>
                     <h2 id={intro.id}>{intro.heading}</h2>
                     <p className={bold}>

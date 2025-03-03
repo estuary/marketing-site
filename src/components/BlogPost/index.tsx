@@ -19,6 +19,7 @@ import OutboundLinkOutlined from '../../components/LinksAndButtons/OutboundLinkO
 import StraightLinesBackground from '../../components/BackgroundImages/StraightLinesBackground';
 import { PopularArticles } from '../../components/BlogPopularArticles';
 import { costPerGB } from '../../utils';
+import ShareArticle from '../ShareArticle';
 import {
     article,
     blogPostHeaderWrapper,
@@ -30,6 +31,7 @@ import {
     iconInfoWrapper,
     blogPostDate,
     heroImage,
+    shareArticleMobile,
     blogPostContent,
     blogPostContentWrapper,
     mainContent,
@@ -74,6 +76,8 @@ const BlogPost = ({
     const hasAtLeastOneBio = post?.authors?.some(
         (author) => author?.bio?.data?.bio
     );
+
+    const shareArticleSectionTitle = `Share this ${hasPopularArticlesSection ? 'article' : 'update'}`;
 
     return (
         <article
@@ -141,6 +145,15 @@ const BlogPost = ({
                             loading="eager"
                         />
                     ) : null}
+                    <div className={shareArticleMobile}>
+                        <ShareArticle
+                            article={{
+                                title: post.title,
+                                slug: post.slug,
+                            }}
+                            sectionTitle={shareArticleSectionTitle}
+                        />
+                    </div>
                 </Container>
             </SwoopingLinesBackground>
             {post.body ? (
@@ -166,9 +179,14 @@ const BlogPost = ({
                             ) : null}
                         </div>
                         <ArticleSidebar
+                            article={{
+                                title: post.title,
+                                slug: post.slug,
+                            }}
                             tableOfContents={
                                 post.body.data.childHtmlRehype.tableOfContents
                             }
+                            shareArticleSectionTitle={shareArticleSectionTitle}
                         />
                     </div>
                 </section>

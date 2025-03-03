@@ -22,18 +22,18 @@
   }
 }
 
+.shareArticleDesktop {
+  display: flex;
+
+  @media (max-width: 1150px) {
+    display: none;
+  }
+}
+
 .tableOfContentsWrapper {
   overflow: auto;
 
   @media (max-width: 1150px) {
     margin-bottom: 32px;
-  }
-
-  @media (min-width: 769px) {
-    max-height: 80vh;
-
-    @media (max-height: 790px) {
-      max-height: 60vh;
-    }
   }
 }
