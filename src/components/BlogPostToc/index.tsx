@@ -75,11 +75,11 @@ const RenderTocItem = ({
             <Link to={`#${selectKey}`} onClick={handleLinkClick}>
                 {item.heading}
             </Link>
-            {item.items && item.items.length > 0 ? (
+            {depth < 1 && item.items && item.items.length > 0 ? (
                 <Collapse in={isExpanded} timeout="auto" unmountOnExit>
                     <ol role="list" style={{ padding: 0 }}>
                         {item.items.map((nestedItem) => (
-                            <div key={nestedItem.id} className={tocSubItems}>
+                            <li key={nestedItem.id} className={tocSubItems}>
                                 <hr />
                                 <RenderTocItem
                                     selectKey={nestedItem.id}
@@ -88,7 +88,7 @@ const RenderTocItem = ({
                                     handleItemClick={handleItemClick}
                                     selectedItem={selectedItem}
                                 />
-                            </div>
+                            </li>
                         ))}
                     </ol>
                 </Collapse>
