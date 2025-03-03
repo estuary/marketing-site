@@ -82,7 +82,7 @@ export const demo: MenuCardItem[] = [
 
 export const partners: MenuCardItem[] = [
     {
-        name: 'PARTNERS',
+        name: 'Partners',
         to: '/partners/',
         description: 'Browse our directory of partners',
         Image: () => (
