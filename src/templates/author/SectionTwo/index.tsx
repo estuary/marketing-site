@@ -29,13 +29,15 @@ const SectionTwo = ({ author: { name, blogPosts } }: SectionTwoProps) => {
                 CONTENT FROM <span>{name}</span>
             </h2>
             <Grid>
-                {blogPosts.slice(0, visiblePosts).map((blogPost) => (
-                    <Card
-                        key={blogPost.id}
-                        data={blogPost}
-                        footerTag="Article"
-                    />
-                ))}
+                {blogPosts
+                    .slice(0, visiblePosts)
+                    .map(({ id, slug, ...rest }) => (
+                        <Card
+                            key={id}
+                            data={{ ...rest, id, slug: `/blog/${slug}` }}
+                            footerTag="Article"
+                        />
+                    ))}
             </Grid>
             {visiblePosts < blogPosts.length ? (
                 <ButtonFilled onClick={handleShowMore}>Show more</ButtonFilled>

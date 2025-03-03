@@ -133,7 +133,7 @@ const Card = ({ data, footerTag, hasImgBackground = false }: CardProps) => {
 
     return (
         <li key={data.id}>
-            <Link to={`/blog/${data.slug}`} className={container}>
+            <Link to={data.slug} className={container}>
                 {hasImgBackground ? (
                     <div className={imgWrapper}>
                         <GatsbyImage {...imageProps} />

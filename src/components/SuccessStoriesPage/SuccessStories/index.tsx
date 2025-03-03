@@ -36,11 +36,6 @@ const SuccessStories = () => {
         }
     `);
 
-    const successStoriesWithPrefixedSlugs = successStories.map((post) => ({
-        ...post,
-        slug: `success-stories/${post.slug}/`,
-    }));
-
     const [visiblePosts, setVisiblePosts] = useState(9);
 
     const handleShowMore = () => {
@@ -52,7 +47,7 @@ const SuccessStories = () => {
             <Container isVertical>
                 <h2 className={sectionTitle}>SUCCESS STORIES</h2>
                 <Grid>
-                    {successStoriesWithPrefixedSlugs
+                    {successStories
                         .slice(0, visiblePosts)
                         .map((successStory) => (
                             <Card
@@ -63,7 +58,7 @@ const SuccessStories = () => {
                             />
                         ))}
                 </Grid>
-                {visiblePosts < successStoriesWithPrefixedSlugs.length ? (
+                {visiblePosts < successStories.length ? (
                     <ButtonFilled onClick={handleShowMore}>
                         Show more
                     </ButtonFilled>
