@@ -11,6 +11,7 @@ import BigImageBackground from '../BackgroundImages/BigImageBackground';
 import ConnectorsLink from '../ConnectorsLink';
 import SearchInput from '../SearchInput';
 import FlowLogoVector from '../FlowLogoVector';
+import ConnectorLogoPlaceholder from '../ConnectorLogoPlaceholder';
 import {
     container,
     connectorIndexHeader,
@@ -57,6 +58,10 @@ const truncate = (val: string, max: number) => {
     }
 };
 
+const connectorIconSize = 53;
+
+const connectorLogoClassName = clsx(connectorPostCardImage, 'icon-wrapper');
+
 const ConnectorCard = ({
     title,
     shortDescription,
@@ -73,22 +78,18 @@ const ConnectorCard = ({
         >
             <div className={connectorCard}>
                 <div className={connectorCardTop}>
-                    {!logo?.childImageSharp?.gatsbyImageData ? (
-                        <div
-                            className={clsx(
-                                connectorPostCardImage,
-                                'icon-wrapper'
-                            )}
-                        />
-                    ) : (
+                    {logo?.childImageSharp?.gatsbyImageData ? (
                         <GatsbyImage
                             image={logo.childImageSharp.gatsbyImageData}
                             alt={`${title} Logo`}
-                            className={clsx(
-                                connectorPostCardImage,
-                                'icon-wrapper'
-                            )}
+                            className={connectorLogoClassName}
                             loading="eager"
+                        />
+                    ) : (
+                        <ConnectorLogoPlaceholder
+                            connectorType={type}
+                            connectorIconSize={connectorIconSize}
+                            className={connectorLogoClassName}
                         />
                     )}
                     {recommended || showType ? (

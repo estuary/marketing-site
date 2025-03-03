@@ -6,7 +6,10 @@ export const accordionStyles = {
         display: 'none !important',
     },
     '&.MuiAccordion-root': {
-        margin: 'auto 0 !important',
+        'margin': 'auto 0 !important',
+        '@media (max-width: 1142px)': {
+            margin: '0 !important',
+        },
     },
 };
 

@@ -4,6 +4,8 @@ import Container from '../../Container';
 import { cardsWrapper } from './styles.module.less';
 import Card from './Card';
 
+const slugPrefix = '/blog';
+
 const LearnMoreArticles = () => {
     return (
         <section className={defaultWrapperGrey}>
@@ -13,17 +15,17 @@ const LearnMoreArticles = () => {
                     <Card
                         linkId="read-link-1-comparisons/all-comparisons-page"
                         title="The Data Engineer's Guide to ELT Alternatives"
-                        buttonHref="/ELT-alternatives-guide/"
+                        buttonHref={`${slugPrefix}/ELT-alternatives-guide/`}
                     />
                     <Card
                         linkId="read-link-2-comparisons/all-comparisons-page"
                         title="The Data Engineer's Guide to ETL Alternatives"
-                        buttonHref="/ETL-alternatives-guide/"
+                        buttonHref={`${slugPrefix}/ETL-alternatives-guide/`}
                     />
                     <Card
                         linkId="read-link-3-comparisons/all-comparisons-page"
                         title="The Data Engineer's Guide to CDC for Analytics, Ops, and AI Pipelines"
-                        buttonHref="/CDC-comparison-guide/"
+                        buttonHref={`${slugPrefix}/CDC-comparison-guide/`}
                     />
                 </div>
             </Container>

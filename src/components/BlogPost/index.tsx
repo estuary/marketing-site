@@ -8,7 +8,6 @@ import Bio from '../Bio';
 import ReadingTimeIcon from '../../svgs/time.svg';
 import Container from '../Container';
 import HeroSectionDetails from '../HeroSectionDetails';
-import ShareArticle from '../ShareArticle';
 import { ProcessedPost } from '../BlogPostProcessor';
 import BlogBanner from '../BlogBanner';
 import ArticleSidebar from '../ArticleSidebar';
@@ -24,6 +23,7 @@ import OutboundLinkOutlined from '../../components/LinksAndButtons/OutboundLinkO
 import StraightLinesBackground from '../../components/BackgroundImages/StraightLinesBackground';
 import { PopularArticles } from '../../components/BlogPopularArticles';
 import { costPerGB } from '../../utils';
+import ShareArticle from '../ShareArticle';
 import {
     article,
     blogPostHeaderWrapper,

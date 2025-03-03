@@ -8,14 +8,14 @@ const BalanceHeaderIcon = () => <BalanceIcon width={15} height={15} />;
 
 export const products: MenuCardItem[] = [
     {
-        name: 'ESTUARY FLOW',
+        name: 'Estuary Flow',
         to: '/product',
         description: 'Build fully managed real-time data pipelines in minutes.',
         Image: () => <BookHeaderIcon />,
         linkId: getMenuLinkId('estuary-flow'),
     },
     {
-        name: 'DEPLOYMENT OPTIONS',
+        name: 'Deployment Options',
         to: '/deployment-options',
         description:
             'Explore the deployment options for Estuary Flow: Public, Private, and BYOC, with a comparison.',
@@ -23,7 +23,7 @@ export const products: MenuCardItem[] = [
         linkId: getMenuLinkId('deployment-options'),
     },
     {
-        name: 'SECURITY',
+        name: 'Security',
         to: '/security',
         description:
             'Learn more about seamless data security with Estuary Flow.',

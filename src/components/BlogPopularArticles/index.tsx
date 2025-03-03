@@ -68,14 +68,16 @@ export const PopularArticles = () => {
 
     return (
         <Grid>
-            {popularArticles?.nodes?.map((article: any) => (
-                <Card
-                    key={article.id}
-                    data={article}
-                    footerTag="Article"
-                    linkId={`${getSlugifiedText(article.title)}-popular-article/blog-post-page`}
-                />
-            ))}
+            {popularArticles?.nodes?.map(
+                ({ id, slug, title, ...rest }: any) => (
+                    <Card
+                        key={id}
+                        data={{ ...rest, id, slug: `/blog/${slug}` }}
+                        footerTag="Article"
+                        linkId={`${getSlugifiedText(title)}-popular-article/blog-post-page`}
+                    />
+                )
+            )}
         </Grid>
     );
 };
