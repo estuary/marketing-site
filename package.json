@@ -32,7 +32,6 @@
     "gatsby-plugin-local-search": "^2.0.1",
     "gatsby-plugin-lunr": "^1.5.2",
     "gatsby-plugin-manifest": "^5.13.1",
-    "gatsby-plugin-no-sourcemaps": "^5.14.0",
     "gatsby-plugin-preconnect": "^1.4.0",
     "gatsby-plugin-provide-react": "^1.0.2",
     "gatsby-plugin-react-svg": "^3.3.0",
