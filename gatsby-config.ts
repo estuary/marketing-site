@@ -558,10 +558,10 @@ const cfg: GatsbyConfig = {
                     const startTime = performance.now();
                     const response = data.allStrapiBlogPost.nodes.map(
                         (node) => {
-                            console.log(
-                                'LunrSearch:normalizer:blog',
-                                node.slug
-                            );
+                            // console.log(
+                            //     'LunrSearch:normalizer:blog',
+                            //     node.slug
+                            // );
 
                             return {
                                 ...node,
