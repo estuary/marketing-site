@@ -337,17 +337,13 @@ const createBlogs: CreateHelper = async (
                     // Build out new one and add slash (1 post slug already ends with slash)
                     const newPath = `/blog/${oldPath}${oldPath.endsWith('/') ? '' : '/'}`;
 
-                    // See if the blog was made after we wired up all the redirects
-                    const createdAfterSwitch =
-                        new Date(post.createdAt) < new Date('02-24-2025');
-
                     // If something is new make sure that the slug is allowed
                     //  and does not clash with blog category
                     if (
-                        createdAfterSwitch &&
                         tabCategories.find(
-                            ({ Name }) =>
-                                Name.toUpperCase() === oldPath.toUpperCase()
+                            ({ Slug, IsTab }) =>
+                                IsTab &&
+                                Slug.toUpperCase() === oldPath.toUpperCase()
                         )
                     ) {
                         throw new Error(
@@ -355,11 +351,7 @@ const createBlogs: CreateHelper = async (
                         );
                     }
 
-                    // TODO - remove this after about one month
-                    console.log(
-                        `blogPost:redirect:${createdAfterSwitch ? 'new' : 'old'}`,
-                        newPath
-                    );
+                    // console.debug(`blogPost:redirect`, newPath);
 
                     createPage({
                         path: newPath,
@@ -694,7 +686,7 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
     getCache,
     createContentDigest,
 }) => {
-    console.log('sourceNodes:start');
+    // console.log('sourceNodes:start');
     const pool = new pg.Pool({
         connectionString: SUPABASE_CONNECTION_STRING,
         connectionTimeoutMillis: 8000,
@@ -723,7 +715,7 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
                 getCache,
             });
 
-            console.log('sourceNodes:creating connector logo', conn.id);
+            // console.log('sourceNodes:creating connector logo', conn.id);
 
             await createNode({
                 connectorId: conn.id,
@@ -752,7 +744,7 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
 export const createResolvers: GatsbyNode['createResolvers'] = async ({
     createResolvers: createResolversParam,
 }) => {
-    console.log('createResolvers:start');
+    // console.log('createResolvers:start');
     createResolversParam({
         PostGraphile_Connector: {
             logo: {
@@ -760,7 +752,7 @@ export const createResolvers: GatsbyNode['createResolvers'] = async ({
                 async resolve(node, _, ctx) {
                     const { id } = node;
 
-                    console.log('resolvePostGraphileConnector:logo:find', id);
+                    // console.log('resolvePostGraphileConnector:logo:find', id);
 
                     const logoNode = await ctx.nodeModel.findOne({
                         type: 'ConnectorLogo',
@@ -768,14 +760,14 @@ export const createResolvers: GatsbyNode['createResolvers'] = async ({
                     });
 
                     if (logoNode?.logo) {
-                        console.log(
-                            'resolvePostGraphileConnector:logo:returning',
-                            {
-                                url1: logoNode?.logoUrl,
-                                url2: logoNode?.logo.url,
-                                logo_relativePath: logoNode?.logo.relativePath,
-                            }
-                        );
+                        // console.log(
+                        //     'resolvePostGraphileConnector:logo:returning',
+                        //     {
+                        //         url1: logoNode?.logoUrl,
+                        //         url2: logoNode?.logo.url,
+                        //         logo_relativePath: logoNode?.logo.relativePath,
+                        //     }
+                        // );
 
                         return logoNode.logo;
                     }
@@ -789,7 +781,7 @@ export const createResolvers: GatsbyNode['createResolvers'] = async ({
             },
         },
     });
-    console.log('createResolvers:done');
+    // console.log('createResolvers:done');
 };
 
 export const onCreateWebpackConfig = ({ stage, actions, getConfig }) => {
