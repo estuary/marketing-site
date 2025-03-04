@@ -35,6 +35,7 @@ const ReadyToStart = () => {
                                 </p>
                             </div>
                             <OutboundLinkOutlined
+                                id="get-started-button/product-page"
                                 href={dashboardRegisterUrl}
                                 target="_blank"
                                 variant="secondary"
@@ -54,6 +55,7 @@ const ReadyToStart = () => {
                                 </p>
                             </div>
                             <LinkOutlined
+                                id="contact-us-button/ready-to-start-section/product-page"
                                 href="/contact-us/"
                                 variant="secondary"
                             >

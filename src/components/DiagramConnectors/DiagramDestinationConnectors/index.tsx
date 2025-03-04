@@ -1,12 +1,9 @@
 import { StaticImage } from 'gatsby-plugin-image';
-import { Link } from 'gatsby';
 import clsx from 'clsx';
 import {
-    connector,
     connectorsGroup,
     connectorsGroupsRightWrapper,
     spacingRight,
-    logoWrapper,
     icon,
 } from '../styles.module.less';
 import AiIcon from '../../../svgs/android-brain.svg';
@@ -14,6 +11,7 @@ import OpsIcon from '../../../svgs/ops.svg';
 import AnalyticsIcon from '../../../svgs/pie-chart.svg';
 import ConnectorsType from '../ConnectorsType';
 import { DiagramConnectorsProps } from '../types';
+import ConnectorLink from '../ConnectorLink';
 
 const DiagramDestinationConnectors = ({
     hasTooltips = false,
@@ -35,39 +33,45 @@ const DiagramDestinationConnectors = ({
                         <AnalyticsIcon className={icon} color="var(--blue)" />
                     }
                 />
-                <Link className={connector} to="/destination/snowflake">
-                    <div className={logoWrapper}>
+                <ConnectorLink
+                    connectorId="snowflake"
+                    connectorName="Snowflake"
+                    image={
                         <StaticImage
                             placeholder="none"
                             alt="Snowflake logo"
                             src="../../../images/logos/snowflake.png"
                             loading="eager"
                         />
-                    </div>
-                    <span>Snowflake</span>
-                </Link>
-                <Link className={connector} to="/destination/bigquery">
-                    <div className={logoWrapper}>
+                    }
+                    to="/destination/snowflake"
+                />
+                <ConnectorLink
+                    connectorId="google-bigquery"
+                    connectorName="Google Bigquery"
+                    image={
                         <StaticImage
                             placeholder="none"
                             alt="Google BigQuery logo"
                             src="../../../images/logos/bigquery.png"
                             loading="eager"
                         />
-                    </div>
-                    <span>Google Bigquery</span>
-                </Link>
-                <Link className={connector} to="/destination/redshift">
-                    <div className={logoWrapper}>
+                    }
+                    to="/destination/bigquery"
+                />
+                <ConnectorLink
+                    connectorId="amazon-redshift"
+                    connectorName="Amazon Redshift"
+                    image={
                         <StaticImage
                             placeholder="none"
                             alt="Redshift logo"
                             src="../../../images/logos/redshift.png"
                             loading="eager"
                         />
-                    </div>
-                    <span>Amazon Redshift</span>
-                </Link>
+                    }
+                    to="/destination/redshift"
+                />
             </div>
             <div className={clsx(connectorsGroup, spacingRight)}>
                 <ConnectorsType
@@ -76,39 +80,45 @@ const DiagramDestinationConnectors = ({
                     hasTooltips={hasTooltips}
                     icon={<OpsIcon className={icon} color="var(--blue)" />}
                 />
-                <Link className={connector} to="/destination/elasticsearch">
-                    <div className={logoWrapper}>
+                <ConnectorLink
+                    connectorId="elastic"
+                    connectorName="Elastic"
+                    image={
                         <StaticImage
                             placeholder="none"
                             alt="ElasticSearch logo"
                             src="../../../images/logos/elastic-search.png"
                             loading="eager"
                         />
-                    </div>
-                    <span>Elastic</span>
-                </Link>
-                <Link className={connector} to="/destination/mongodb">
-                    <div className={logoWrapper}>
+                    }
+                    to="/destination/elasticsearch"
+                />
+                <ConnectorLink
+                    connectorId="mongodb"
+                    connectorName="MongoDB"
+                    image={
                         <StaticImage
                             placeholder="none"
                             alt="MongoDB logo"
                             src="../../../images/logos/mongo-db.png"
                             loading="eager"
                         />
-                    </div>
-                    <span>MongoDB</span>
-                </Link>
-                <Link className={connector} to="/destination/dynamodb">
-                    <div className={logoWrapper}>
+                    }
+                    to="/destination/mongodb"
+                />
+                <ConnectorLink
+                    connectorId="amazon-dynamodb"
+                    connectorName="Amazon DynamoDB"
+                    image={
                         <StaticImage
                             placeholder="none"
                             alt="Amazon DynamoDB logo"
                             src="../../../images/logos/dynamo-db.png"
                             loading="eager"
                         />
-                    </div>
-                    <span>Amazon DynamoDB</span>
-                </Link>
+                    }
+                    to="/destination/dynamodb"
+                />
             </div>
             <div className={clsx(connectorsGroup, spacingRight)}>
                 <ConnectorsType
@@ -117,39 +127,45 @@ const DiagramDestinationConnectors = ({
                     hasTooltips={hasTooltips}
                     icon={<AiIcon className={icon} color="var(--blue)" />}
                 />
-                <Link className={connector} to="/destination/pinecone">
-                    <div className={logoWrapper}>
+                <ConnectorLink
+                    connectorId="pinecone"
+                    connectorName="Pinecone"
+                    image={
                         <StaticImage
                             placeholder="none"
                             alt="Pinecone logo"
                             src="../../../images/logos/pinecone.png"
                             loading="eager"
                         />
-                    </div>
-                    <span>Pinecone</span>
-                </Link>
-                <Link className={connector} to="/destination/pinecone">
-                    <div className={logoWrapper}>
+                    }
+                    to="/destination/pinecone"
+                />
+                <ConnectorLink
+                    connectorId="openai"
+                    connectorName="Open AI"
+                    image={
                         <StaticImage
                             placeholder="none"
                             alt="Open AI logo"
                             src="../../../images/logos/openai.png"
                             loading="eager"
                         />
-                    </div>
-                    <span>Open AI</span>
-                </Link>
-                <Link className={connector} to="/destination/databricks">
-                    <div className={logoWrapper}>
+                    }
+                    to="/destination/pinecone"
+                />
+                <ConnectorLink
+                    connectorId="databricks"
+                    connectorName="Databricks"
+                    image={
                         <StaticImage
                             placeholder="none"
                             alt="Databricks logo"
                             src="../../../images/logos/databricks.png"
                             loading="eager"
                         />
-                    </div>
-                    <span>Databricks</span>
-                </Link>
+                    }
+                    to="/destination/databricks"
+                />
             </div>
         </div>
     );

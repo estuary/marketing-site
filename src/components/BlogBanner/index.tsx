@@ -6,6 +6,7 @@ import { background, container, banner } from './styles.module.less';
 interface BlogBanner {
     title: ReactNode;
     button: {
+        id: string;
         title: string;
         href: string;
     };
@@ -17,7 +18,11 @@ const BlogBanner = ({ title, button }: BlogBanner) => {
             <StraightLinesBackground className={container}>
                 <div className={banner}>
                     {title}
-                    <OutboundLinkFilled href={button.href} target="_blank">
+                    <OutboundLinkFilled
+                        id={button.id}
+                        href={button.href}
+                        target="_blank"
+                    >
                         {button.title}
                     </OutboundLinkFilled>
                 </div>

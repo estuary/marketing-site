@@ -12,7 +12,9 @@ const Hero = () => {
                 <HeroSectionDetails
                     title={<span>STAY CURRENT WITH ESTUARY FLOW</span>}
                     description="Stay informed and make the most of Flow's powerful capabilities."
-                    ctaButtons={<HeroSectionActions />}
+                    ctaButtons={
+                        <HeroSectionActions pageId="company-updates-page" />
+                    }
                 />
                 <FlowDiagram
                     DiagramCardsClassName={diagramCardPositions}

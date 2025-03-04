@@ -6,6 +6,7 @@ import Grid from '../../Grid';
 import Card from '../../Grid/Card';
 import ButtonFilled from '../../LinksAndButtons/ButtonFilled';
 import { sectionTitle } from '../styles.module.less';
+import { getSlugifiedText } from '../../../../shared';
 
 const SuccessStories = () => {
     const {
@@ -55,6 +56,7 @@ const SuccessStories = () => {
                                 data={successStory}
                                 footerTag="Success story"
                                 hasImgBackground
+                                linkId={`${getSlugifiedText(successStory.title)}-card-button/success-stories-page`}
                             />
                         ))}
                 </Grid>

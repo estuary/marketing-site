@@ -26,6 +26,9 @@ import {
     logoWrapper,
 } from './styles.module.less';
 
+const generateButtonId = (connectorId: string) =>
+    `${connectorId}-connector-button/streaming-section/product-page`;
+
 const Streaming = () => {
     return (
         <section className={defaultWrapperDarkBlue}>
@@ -43,6 +46,7 @@ const Streaming = () => {
                                 quality={100}
                             />
                             <Link
+                                id={generateButtonId('mysql-streaming-etl')}
                                 to="/source/mysql"
                                 aria-label="MySQL source"
                                 className={clsx(
@@ -52,6 +56,9 @@ const Streaming = () => {
                                 )}
                             />
                             <Link
+                                id={generateButtonId(
+                                    'elasticsearch-streaming-etl'
+                                )}
                                 to="/destination/elasticsearch"
                                 aria-label="Elastic destination"
                                 className={clsx(
@@ -61,6 +68,7 @@ const Streaming = () => {
                                 )}
                             />
                             <Link
+                                id={generateButtonId('snowflake-streaming-etl')}
                                 to="/destination/snowflake"
                                 aria-label="Snowflake destination"
                                 className={clsx(
@@ -70,6 +78,9 @@ const Streaming = () => {
                                 )}
                             />
                             <Link
+                                id={generateButtonId(
+                                    'amazon-redshift-streaming-etl'
+                                )}
                                 to="/destination/redshift"
                                 aria-label="Amazon Redshift destination"
                                 className={clsx(
@@ -98,6 +109,7 @@ const Streaming = () => {
                                 quality={100}
                             />
                             <Link
+                                id={generateButtonId('mysql-batch-1')}
                                 to="/source/mysql"
                                 aria-label="MySQL source"
                                 className={clsx(
@@ -108,6 +120,7 @@ const Streaming = () => {
                                 )}
                             />
                             <Link
+                                id={generateButtonId('mysql-batch-2')}
                                 to="/source/mysql"
                                 aria-label="MySQL source"
                                 className={clsx(
@@ -117,6 +130,7 @@ const Streaming = () => {
                                 )}
                             />
                             <Link
+                                id={generateButtonId('mysql-batch-3')}
                                 to="/source/mysql"
                                 aria-label="MySQL source"
                                 className={clsx(
@@ -126,6 +140,7 @@ const Streaming = () => {
                                 )}
                             />
                             <Link
+                                id={generateButtonId('elasticsearch-batch')}
                                 to="/destination/elasticsearch"
                                 aria-label="Elastic destination"
                                 className={clsx(
@@ -135,6 +150,7 @@ const Streaming = () => {
                                 )}
                             />
                             <Link
+                                id={generateButtonId('snowflake-batch')}
                                 to="/destination/snowflake"
                                 aria-label="Snowflake destination"
                                 className={clsx(
@@ -144,6 +160,7 @@ const Streaming = () => {
                                 )}
                             />
                             <Link
+                                id={generateButtonId('amazon-redshift-batch')}
                                 to="/destination/redshift"
                                 aria-label="Amazon Redshift destination"
                                 className={clsx(

@@ -3,7 +3,7 @@ import ContactUsForm from '../../ContactUsForm';
 import { section } from './styles.module.less';
 
 const ContactUs = () => (
-    <section id="contact-us-form-section" className={section}>
+    <section id="contact-us/form-section/partners-page" className={section}>
         <div>
             <StaticImage
                 src="../../../images/partners-page/project-partnership.png"

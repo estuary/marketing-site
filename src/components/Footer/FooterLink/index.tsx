@@ -7,9 +7,10 @@ interface FooterLinkProps {
     to: string;
     children: ReactNode;
     ariaLabel?: string;
+    id: string;
 }
 
-const FooterLink = ({ to, children, ariaLabel }: FooterLinkProps) => {
+const FooterLink = ({ to, children, ariaLabel, id }: FooterLinkProps) => {
     const LinkElement: any = to.startsWith('/') ? Link : OutboundLink;
     const linkProps = to.startsWith('/')
         ? { to }
@@ -17,6 +18,7 @@ const FooterLink = ({ to, children, ariaLabel }: FooterLinkProps) => {
 
     return (
         <LinkElement
+            id={id}
             {...linkProps}
             className={globalFooterRightLink}
             aria-label={ariaLabel}

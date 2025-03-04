@@ -120,6 +120,7 @@ const Header = () => {
                         )}
                         <div className={headerSocialIcons}>
                             <OutboundLink
+                                id="slack-header-link"
                                 target="_blank"
                                 href={slackUrl}
                                 className={headerSocialIcon}
@@ -128,6 +129,7 @@ const Header = () => {
                                 <SlackIcon className="socialIcon" />
                             </OutboundLink>
                             <OutboundLink
+                                id="github-header-link"
                                 target="_blank"
                                 href={estuaryFlowGithubUrl}
                                 className={headerSocialIcon}
@@ -138,6 +140,7 @@ const Header = () => {
                         </div>
                         <div className={globalHeaderLoginTry}>
                             <OutboundLink
+                                id="log-in-header-link"
                                 target="_blank"
                                 className={globalHeaderLink}
                                 href={dashboardUrl}
@@ -146,6 +149,7 @@ const Header = () => {
                                 Log in
                             </OutboundLink>
                             <OutboundLinkFilled
+                                id="try-it-free-header-link"
                                 target="_blank"
                                 href={dashboardRegisterUrl}
                                 className={globalHeaderTryItButton}

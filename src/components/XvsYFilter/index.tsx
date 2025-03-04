@@ -2,6 +2,7 @@ import { InputLabel, FormControl, MenuItem, Select } from '@mui/material';
 import clsx from 'clsx';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import LinkFilled from '../LinksAndButtons/LinkFilled';
+import { getSlugifiedText } from '../../../shared';
 import ConnectorLogoPlaceholder from '../ConnectorLogoPlaceholder';
 import {
     wrapper,
@@ -20,21 +21,17 @@ type Item = {
     title: string;
 };
 
+interface SelectProps {
+    label?: string;
+    value: string;
+    placeholder?: string;
+    onChange: (value: any) => void;
+    items: Item[];
+}
+
 type XvsYFilterProps = {
-    xSelect: {
-        label?: string;
-        value: string;
-        placeholder?: string;
-        onChange: (value: any) => void;
-        items: Item[];
-    };
-    ySelect: {
-        label?: string;
-        value: string;
-        placeholder?: string;
-        onChange: (value: any) => void;
-        items: Item[];
-    };
+    xSelect: SelectProps;
+    ySelect: SelectProps;
     button: {
         title: string;
         href: string;
@@ -45,6 +42,26 @@ type XvsYFilterProps = {
 
 const selectMenuProps = {
     slotProps: { paper: { style: { maxHeight: '30vh' } } },
+};
+
+const getLinkId = (
+    xSelect: SelectProps,
+    ySelect: SelectProps,
+    buttonTitle: string
+) => {
+    if (!xSelect.value || !ySelect.value) {
+        return undefined;
+    }
+
+    const xTitle = getSlugifiedText(
+        xSelect.items.find((item) => item.id === xSelect.value)?.title
+    );
+
+    const yTitle = getSlugifiedText(
+        ySelect.items.find((item) => item.id === ySelect.value)?.title
+    );
+
+    return `${xTitle}-vs-${yTitle}-${buttonTitle.toLowerCase()}-search-filter-button`;
 };
 
 const connectorIconSize = 20;
@@ -155,6 +172,7 @@ const XvsYFilter = ({
                 </Select>
             </FormControl>
             <LinkFilled
+                id={getLinkId(xSelect, ySelect, button.title)}
                 href={button.href}
                 className={
                     xSelect.value === xSelect.placeholder ||

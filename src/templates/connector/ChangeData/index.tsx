@@ -78,6 +78,7 @@ const ChangeData = ({ connector: { id, title, type } }: ChangeDataProps) => {
                     <p className={observation}>
                         <span>Don&apos;t see a connector?</span>
                         <OutboundLink
+                            id="request-connector-link/connector-page"
                             href="https://github.com/estuary/connectors/issues/new?assignees=&labels=new+connector&projects=&template=request-new-connector-form.yaml&title=Request+a+connector+to+%5Bcapture+from+%7C+materialize+to%5D+%5Byour+favorite+system%5D"
                             target="_blank"
                             rel="noreferrer"

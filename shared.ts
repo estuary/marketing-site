@@ -198,3 +198,11 @@ export interface Vendor {
 export type DeploymentOption = keyof typeof features;
 
 export const activeUsersAmount = '5500+';
+
+export const getSlugifiedText = (text?: string) =>
+    text?.replaceAll(' ', '-').toLowerCase();
+
+const getVendorLinkId = (vendorName?: string) => getSlugifiedText(vendorName);
+
+export const getVendorsLinkId = (vendorName1?: string, vendorName2?: string) =>
+    `${getVendorLinkId(vendorName1)}-vs-${getVendorLinkId(vendorName2)}`;

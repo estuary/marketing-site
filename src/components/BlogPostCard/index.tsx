@@ -38,7 +38,11 @@ export const BlogPostCard = ({
     publishedAt,
     updatedAt,
 }: BlogPostCardProps) => (
-    <Link to={`/blog/${slug}`} className={blogsPostCard}>
+    <Link
+        id={`${slug}/blog-post-card`}
+        to={`/blog/${slug}`}
+        className={blogsPostCard}
+    >
         {hero ? (
             <GatsbyImage
                 alt={title}

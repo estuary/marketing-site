@@ -1,9 +1,17 @@
 import { dashboardRegisterUrl } from '../../../shared';
 import OutboundLinkFilled from '../LinksAndButtons/OutboundLinkFilled';
 
-function RegisterCta() {
+interface RegisterCtaProps {
+    pageId: string;
+}
+
+function RegisterCta({ pageId }: RegisterCtaProps) {
     return (
-        <OutboundLinkFilled href={dashboardRegisterUrl} target="_blank">
+        <OutboundLinkFilled
+            id={`start-building-for-free-button/hero-section/${pageId}`}
+            href={dashboardRegisterUrl}
+            target="_blank"
+        >
             Start Building For Free
         </OutboundLinkFilled>
     );

@@ -20,6 +20,7 @@ const StayUpdated = () => {
                     <div className={linkedinCta}>
                         <p>Follow us on LinkedIn for frequent updates.</p>
                         <OutboundLinkOutlined
+                            id="linkedin-follow-button/stay-updated-section/company-updates-page"
                             target="_blank"
                             href={estuaryLinkedinUrl}
                             aria-label="Estuary Linkedin Link"

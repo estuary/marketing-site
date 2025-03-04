@@ -74,6 +74,7 @@ const HeaderNavbarProduct = ({ active, setActive }) => {
                                     />
                                 </div>
                                 <OutboundLinkOutlined
+                                    id="watch-estuary-101-product-menu-button"
                                     target="_blank"
                                     href={webinarsUrl}
                                     fullWidth

@@ -15,12 +15,14 @@ interface ArticleSidebarProps {
     };
     tableOfContents: any;
     shareArticleSectionTitle?: string;
+    ctaButtonid: string;
 }
 
 const ArticleSidebar = ({
     article,
     tableOfContents,
     shareArticleSectionTitle,
+    ctaButtonid,
 }: ArticleSidebarProps) => {
     return (
         <div className={container}>
@@ -35,7 +37,11 @@ const ArticleSidebar = ({
                     <RenderToc items={tableOfContents} />
                 </div>
             ) : null}
-            <OutboundLinkFilled href={dashboardRegisterUrl}>
+            <OutboundLinkFilled
+                id={ctaButtonid}
+                href={dashboardRegisterUrl}
+                target="_blank"
+            >
                 Start Building For Free
             </OutboundLinkFilled>
         </div>
