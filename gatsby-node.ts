@@ -341,7 +341,8 @@ const createBlogs: CreateHelper = async (
                     //  and does not clash with blog category
                     if (
                         tabCategories.find(
-                            ({ Slug }) =>
+                            ({ Slug, IsTab }) =>
+                                IsTab &&
                                 Slug.toUpperCase() === oldPath.toUpperCase()
                         )
                     ) {
