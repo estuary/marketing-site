@@ -558,10 +558,10 @@ const cfg: GatsbyConfig = {
                     const startTime = performance.now();
                     const response = data.allStrapiBlogPost.nodes.map(
                         (node) => {
-                            console.log(
-                                'LunrSearch:normalizer:blog',
-                                node.slug
-                            );
+                            // console.log(
+                            //     'LunrSearch:normalizer:blog',
+                            //     node.slug
+                            // );
 
                             return {
                                 ...node,
@@ -647,17 +647,17 @@ const cfg: GatsbyConfig = {
                     const startTime = performance.now();
                     const response = data.postgres.allConnectors.nodes
                         .map((node) => {
-                            console.log(
-                                'LunrSearch:normalizer:connector',
-                                node.imageName
-                            );
+                            // console.debug(
+                            //     'LunrSearch:normalizer:connector',
+                            //     node.imageName
+                            // );
                             return normalizeConnector(node);
                         })
                         .filter((connector) => {
                             return connector !== undefined;
                         });
 
-                    console.log(
+                    console.debug(
                         `LunrSearch:normalizer:connector took ${Math.ceil(performance.now() - startTime)}ms`
                     );
                     return response;
