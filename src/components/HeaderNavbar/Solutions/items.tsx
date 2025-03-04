@@ -71,6 +71,13 @@ export const industrySolutionItems: MenuCardItem[] = [
         Image: () => <AdaptedPieChartIcon />,
         linkId: getMenuLinkId('marketing'),
     },
+    {
+        name: 'Ecommerce',
+        to: `${urlPrefix}/industry/ecommerce-data-integration/`,
+        description: '',
+        Image: () => <AdaptedPieChartIcon />,
+        linkId: getMenuLinkId('ecommerce'),
+    },
 ];
 
 export const technologySolutionItems: MenuCardItem[] = [
