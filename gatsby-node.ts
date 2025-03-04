@@ -337,14 +337,9 @@ const createBlogs: CreateHelper = async (
                     // Build out new one and add slash (1 post slug already ends with slash)
                     const newPath = `/blog/${oldPath}${oldPath.endsWith('/') ? '' : '/'}`;
 
-                    // See if the blog was made after we wired up all the redirects
-                    const createdAfterSwitch =
-                        new Date(post.createdAt) < new Date('02-24-2025');
-
                     // If something is new make sure that the slug is allowed
                     //  and does not clash with blog category
                     if (
-                        createdAfterSwitch &&
                         tabCategories.find(
                             ({ Name }) =>
                                 Name.toUpperCase() === oldPath.toUpperCase()
@@ -355,11 +350,7 @@ const createBlogs: CreateHelper = async (
                         );
                     }
 
-                    // TODO - remove this after about one month
-                    console.log(
-                        `blogPost:redirect:${createdAfterSwitch ? 'new' : 'old'}`,
-                        newPath
-                    );
+                    // console.debug(`blogPost:redirect`, newPath);
 
                     createPage({
                         path: newPath,
