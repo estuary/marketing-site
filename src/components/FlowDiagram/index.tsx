@@ -22,9 +22,7 @@ const HomepageFlowDiagram = ({
                 <h4>Connect to Data Source</h4>
                 <h4>Put Your Data to Work</h4>
                 <div>
-                    <span>
-                        CDC & Real-time <br /> Streams
-                    </span>
+                    <span>CDC & Real-time Streams</span>
                 </div>
                 <div>
                     <span>Files & Databases</span>

@@ -88,21 +88,21 @@
 
             @media (max-width: 768px) {
                 font-size: 4vw;
-
-                br {
-                    display: none;
-                }
             }
         }
     }
 
+    div:first-of-type,
+    div:nth-of-type(2),
+    div:nth-of-type(3) {
+        left: 17.6vw;
+    }
+
     div:first-of-type {
-        top: 1.2vw;
-        left: 18vw;
+        top: 1.8vw;
 
         @media (min-width: 1601px) {
-            top: 20px;
-            left: 290px;
+            top: 28px;
         }
 
         @media (max-width: 768px) {
@@ -112,11 +112,9 @@
 
     div:nth-of-type(2) {
         top: 8.6vw;
-        left: 18vw;
 
         @media (min-width: 1601px) {
             top: 136px;
-            left: 290px;
         }
 
         @media (max-width: 768px) {
@@ -126,11 +124,9 @@
 
     div:nth-of-type(3) {
         top: 15.3vw;
-        left: 18vw;
 
         @media (min-width: 1601px) {
             top: 244px;
-            left: 290px;
         }
 
         @media (max-width: 768px) {
@@ -139,12 +135,12 @@
     }
 
     div:nth-of-type(4) {
-        top: 1.7vw;
-        right: 21.5vw;
+        top: 1.8vw;
+        right: 21.9vw;
 
         @media (min-width: 1601px) {
             top: 30px;
-            right: 340px;
+            right: 350px;
         }
 
         @media (max-width: 768px) {
@@ -154,11 +150,11 @@
 
     div:nth-of-type(5) {
         top: 8.5vw;
-        right: 20.7vw;
+        right: 21.1vw;
 
         @media (min-width: 1601px) {
             top: 136px;
-            right: 330px;
+            right: 336px;
         }
 
         @media (max-width: 768px) {
@@ -168,11 +164,11 @@
 
     div:nth-of-type(6) {
         top: 15.2vw;
-        right: 25vw;
+        right: 25.4vw;
 
         @media (min-width: 1601px) {
             top: 244px;
-            right: 400px;
+            right: 406px;
         }
 
         @media (max-width: 768px) {
@@ -199,6 +195,15 @@
             right: 50%;
             gap: 8px;
             white-space: nowrap;
+        }
+    }
+
+    @media (min-width: 1601px) {
+
+        div:first-of-type,
+        div:nth-of-type(2),
+        div:nth-of-type(3) {
+            left: 280px;
         }
     }
 
