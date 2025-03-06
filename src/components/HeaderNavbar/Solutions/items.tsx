@@ -78,6 +78,13 @@ export const industrySolutionItems: MenuCardItem[] = [
         Image: () => <AdaptedPieChartIcon />,
         linkId: getMenuLinkId('ecommerce'),
     },
+    {
+        name: 'Healthcare & wellness',
+        to: `${urlPrefix}/industry/healthcare-data-integration/`,
+        description: '',
+        Image: () => <AdaptedPieChartIcon />,
+        linkId: getMenuLinkId('healthcare'),
+    },
 ];
 
 export const technologySolutionItems: MenuCardItem[] = [

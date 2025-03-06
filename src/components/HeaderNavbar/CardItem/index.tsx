@@ -66,7 +66,7 @@ const HeaderCardItem = ({
     active,
     contentFooterLink,
     hasSeeMoreButton = false,
-    maxNumberOfLinks = 4,
+    maxNumberOfLinks = 5,
     ...props
 }: HeaderCardItemProps) => {
     const [showAll, setShowAll] = useState(false);
