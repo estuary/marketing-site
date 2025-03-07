@@ -260,23 +260,18 @@ span {
 }
 
 .dynamic-html {
-    width: 100%;
-    overflow: hidden;
-
     .table {
         overflow-x: auto;
+        margin-left: 0;
+        margin-right: 0;
+        width: 100% !important;
 
-        @media (max-width: 620px) {
-            float: none !important;
-            width: 100% !important;
-            margin: 0;
+        table {
+            min-width: 900px;
         }
 
-        &>table {
-            width: 100%;
-            min-width: 400px;
-            margin-top: 0;
-            margin-bottom: 0;
+        @media (max-width: 768px) {
+            float: none !important;
         }
     }
 }
