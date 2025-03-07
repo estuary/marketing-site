@@ -46,10 +46,18 @@ const HeaderNavbar = ({ activeMenu, setActiveMenu }: HeaderNavbarProps) => {
                 setActive={setActiveMenu}
             />
             <div className={mobileMenuButtons}>
-                <OutboundLinkOutlined target="_blank" href={dashboardUrl}>
+                <OutboundLinkOutlined
+                    id="log-in-button/mobile-menu"
+                    target="_blank"
+                    href={dashboardUrl}
+                >
                     Log in
                 </OutboundLinkOutlined>
-                <OutboundLinkFilled target="_blank" href={dashboardRegisterUrl}>
+                <OutboundLinkFilled
+                    id="try-it-free-button/mobile-menu"
+                    target="_blank"
+                    href={dashboardRegisterUrl}
+                >
                     Try it Free
                 </OutboundLinkFilled>
             </div>
