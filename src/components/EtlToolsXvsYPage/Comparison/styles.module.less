@@ -10,7 +10,7 @@
   display: flex;
   gap: 48px;
 
-  @media (max-width: 1150px) {
+  @media (max-width: 1024px) {
     flex-direction: column;
   }
 
@@ -26,6 +26,14 @@
 
   h2:not(:first-of-type) {
     margin-top: 60px;
+  }
+
+  .rightColumn {
+    width: calc(100% - 256px - 48px);
+
+    @media (max-width: 1024px) {
+      width: 100%;
+    }
   }
 
   p,
