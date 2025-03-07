@@ -154,3 +154,15 @@
     display: none;
   }
 }
+
+.menuContentDesktop {
+  @media (max-width: @menuTransitionMaxWidthBreakpoint) {
+    display: none;
+  }
+}
+
+.menuContentMobile {
+  @media (min-width: @menuTransitionMinWidthBreakpoint) {
+    display: none;
+  }
+}
