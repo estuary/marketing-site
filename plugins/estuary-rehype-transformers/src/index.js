@@ -15,12 +15,15 @@ const LANG_RE = /hljs language\-(.*)/;
 function isGatsbyImageWrapper(node) {
     if (node.tagName !== 'div' || !node.properties) return false;
     const hasDataAttr = node.properties['data-gatsby-image-wrapper'] !== undefined;
-    const hasClass =
+
+    const GatsbyImageWraperClassName = 'gatsby-image-wrapper';
+
+    const hasGatsbyImageWraperClass =
         node.properties.className &&
         (Array.isArray(node.properties.className)
-            ? node.properties.className.includes('gatsby-image-wrapper')
-            : node.properties.className.includes('gatsby-image-wrapper'));
-    return hasDataAttr || hasClass;
+            ? node.properties.className.includes(GatsbyImageWraperClassName)
+            : node.properties.className.includes(GatsbyImageWraperClassName));
+    return hasDataAttr || hasGatsbyImageWraperClass;
 }
 
 // Recursively find the first <a> element in a node.
