@@ -9,18 +9,58 @@ import { unified } from 'unified';
 import * as visit from 'unist-util-visit';
 import ImgSharpInline from './ImgSharp.jsx';
 
-// eslint-disable-next-line no-useless-escape
 const LANG_RE = /hljs language\-(.*)/;
+
+// Checks if a node is a GatsbyImage wrapper.
+function isGatsbyImageWrapper(node) {
+    if (node.tagName !== 'div' || !node.properties) return false;
+    const hasDataAttr = node.properties['data-gatsby-image-wrapper'] !== undefined;
+    const hasClass =
+        node.properties.className &&
+        (Array.isArray(node.properties.className)
+            ? node.properties.className.includes('gatsby-image-wrapper')
+            : node.properties.className.includes('gatsby-image-wrapper'));
+    return hasDataAttr || hasClass;
+}
+
+// Recursively find the first <a> element in a node.
+function findFirstAnchor(node) {
+    let found = null;
+    visit(node, 'element', (child) => {
+        if (child.tagName === 'a') {
+            found = child;
+            return visit.EXIT;
+        }
+    });
+    return found;
+}
+
+// Recursively unwrap any <a> elements, replacing them with their children.
+function unwrapAnchors(node) {
+    if (!node.children) return;
+    node.children = node.children.flatMap((child) => {
+        if (child.type === 'element' && child.tagName === 'a') {
+            // First, process children of this anchor.
+            unwrapAnchors(child);
+            return child.children || [];
+        } else {
+            unwrapAnchors(child);
+            return [child];
+        }
+    });
+}
 
 const transform = async ({ htmlAst, htmlNode, getNode }, opts) => {
     const parentNode = await getNode(htmlNode.parent);
     const pluginOptions = opts[parentNode.internal.type];
+
+    // First Pass: Process content and render <img-sharp-inline>
     let processor = unified()
         .use(rehypeHighlight, { detect: true })
         .use(rehypeSlug)
-        .use(() => (root) => {
-            visit(root, (node, idx, parent) => {
-                // Replace <p><img></p> with <img>
+        .use(() => (tree) => {
+            visit(tree, (node, idx, parent) => {
+                // Unwrap paragraphs that contain a single <img-sharp-inline>
                 if (
                     node.type === 'element' &&
                     node.tagName === 'p' &&
@@ -33,25 +73,26 @@ const transform = async ({ htmlAst, htmlNode, getNode }, opts) => {
                     return [visit.SKIP, idx];
                 }
 
-                // Clear out unneccesary "&nbsp"s inside <li>s
+                // Remove empty text nodes inside <li>
                 if (
                     node.type === 'text' &&
-                    node.value.trim().length === 0 &&
-                    parent.type === 'element' &&
+                    node.value.trim() === '' &&
+                    parent &&
                     parent.tagName === 'li'
                 ) {
                     parent.children.splice(idx, 1);
                     // Do not traverse `node`, continue at the node *now* at `idx`.
                     return [visit.SKIP, idx];
                 }
-                // Apply correct language tag classes to syntax blocks
+
+                // Inject language tag for syntax highlighting if needed.
                 if (
                     node.type === 'element' &&
                     node.properties &&
                     node.properties.className !== undefined
                 ) {
                     const match = (
-                        node.properties.className instanceof Array
+                        Array.isArray(node.properties.className)
                             ? node.properties.className
                             : [node.properties.className]
                     )
@@ -61,25 +102,17 @@ const transform = async ({ htmlAst, htmlNode, getNode }, opts) => {
                         node.children.unshift({
                             type: 'element',
                             tagName: 'div',
-                            properties: {
-                                className: ['language-tag'],
-                            },
-                            children: [
-                                {
-                                    type: 'text',
-                                    value: match[1],
-                                },
-                            ],
+                            properties: { className: ['language-tag'] },
+                            children: [{ type: 'text', value: match[1] }],
                         });
                     }
                 }
-                return undefined;
             });
         });
 
     if (pluginOptions.enableToc) {
         processor = processor.use(rehypeToc, {
-            headings: ['h1', 'h2', 'h3'], // Only include <h1> and <h2> headings in the TOC
+            headings: ['h1', 'h2', 'h3'],
             cssClasses: {
                 toc: 'page-toc', // Change the CSS class for the TOC
                 link: 'page-toc-link', // Change the CSS class for links in the TOC
@@ -89,7 +122,6 @@ const transform = async ({ htmlAst, htmlNode, getNode }, opts) => {
                     !toc.children ||
                     toc.children.length < 1 ||
                     (toc.children.length === 1 &&
-                        //@ts-ignore
                         (toc.children[0].children
                             ? toc.children[0].children.length === 0
                             : false))
@@ -99,39 +131,63 @@ const transform = async ({ htmlAst, htmlNode, getNode }, opts) => {
                 toc.children.unshift({
                     type: 'element',
                     tagName: 'h3',
-                    children: [
-                        {
-                            type: 'text',
-                            value: 'Table of Contents',
-                        },
-                    ],
+                    children: [{ type: 'text', value: 'Table of Contents' }],
                 });
-
                 return toc;
             },
         });
     }
 
+    // Map <img-sharp-inline> to the ImgSharpInline component.
     processor = processor.use(rehypeReact, {
         createElement,
         Fragment,
         components: { 'img-sharp-inline': ImgSharpInline },
     });
 
-    const transformedAst = await processor.run(
-        JSON.parse(JSON.stringify(htmlAst))
-    );
-    const reactElement = await processor.stringify(transformedAst);
+    // Run the first pass and produce a React tree.
+    const processedAst = await processor.run(JSON.parse(JSON.stringify(htmlAst)));
+    const reactElement = processor.stringify(processedAst);
+    const htmlString = renderToStaticMarkup(reactElement);
 
-    const reactText = renderToStaticMarkup(reactElement);
-
-    const newHtmlAst = unified()
+    // Second Pass: Parse HTML and lift the anchor
+    let newHtmlAst = unified()
         .data('settings', { fragment: true })
         .use(rehypeParse, { fragment: true })
-        .parse(reactText);
+        .parse(htmlString);
+
+    newHtmlAst = await unified()
+        .use(() => (tree) => {
+            visit(tree, 'element', (node, idx, parent) => {
+                if (isGatsbyImageWrapper(node)) {
+                    // If the parent is already an anchor, simply remove any nested anchors.
+                    if (parent && parent.tagName === 'a') {
+                        unwrapAnchors(node);
+                        return;
+                    }
+                    // Look for an anchor anywhere inside this node.
+                    const anchor = findFirstAnchor(node);
+                    if (anchor) {
+                        // Remove all anchors inside the image wrapper.
+                        unwrapAnchors(node);
+                        // Wrap the entire image wrapper in a new anchor using the found anchor's properties.
+                        const newAnchor = {
+                            type: 'element',
+                            tagName: 'a',
+                            properties: anchor.properties,
+                            children: [node],
+                        };
+                        if (parent && typeof idx === 'number') {
+                            parent.children[idx] = newAnchor;
+                        }
+                        return [visit.SKIP, idx];
+                    }
+                }
+            });
+        })
+        .run(newHtmlAst);
 
     Object.assign(htmlAst, newHtmlAst);
-
     return newHtmlAst;
 };
 
