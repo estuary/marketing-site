@@ -129,6 +129,7 @@ export const pageQuery = graphql`
                 }
             }
             authors {
+                id
                 name: Name
                 slug: Slug
                 picture: Picture {

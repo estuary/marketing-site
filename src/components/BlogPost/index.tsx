@@ -226,7 +226,7 @@ const BlogPost = ({
                             const authorSocialLinks = author?.socials;
 
                             return (
-                                <Fragment key={author.slug || index}>
+                                <Fragment key={`${author.id}-${index}`}>
                                     <div className={authorInfo}>
                                         <Link
                                             id={`${getSlugifiedText(author.name)}/about-section/blog-post-page`}
