@@ -3,6 +3,7 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import DoneIcon from '@mui/icons-material/Done';
 import { Divider, useTheme } from '@mui/material';
 import { Link } from 'gatsby';
+import { Fragment } from 'react';
 import SwoopingLinesBackground from '../BackgroundImages/LightSwoopingLinesRightDirectionBackground';
 import Bio from '../Bio';
 import ReadingTimeIcon from '../../svgs/time.svg';
@@ -225,8 +226,8 @@ const BlogPost = ({
                             const authorSocialLinks = author?.socials;
 
                             return (
-                                <>
-                                    <div key={index} className={authorInfo}>
+                                <Fragment key={author.slug || index}>
+                                    <div className={authorInfo}>
                                         <Link
                                             id={`${getSlugifiedText(author.name)}/about-section/blog-post-page`}
                                             to={getAuthorPathBySlug(
@@ -306,7 +307,7 @@ const BlogPost = ({
                                             }}
                                         />
                                     ) : null}
-                                </>
+                                </Fragment>
                             );
                         })}
                     </div>
