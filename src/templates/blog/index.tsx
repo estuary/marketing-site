@@ -184,7 +184,7 @@ const BlogIndex = ({
                     ) : null}
 
                     {postsToRender.map((post) => (
-                        <BlogPostCard key={post.id} {...post} />
+                        <BlogPostCard key={post.slug} {...post} />
                     ))}
                 </Grid>
             </BigImageBackground>
