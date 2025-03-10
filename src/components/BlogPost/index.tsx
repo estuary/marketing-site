@@ -1,5 +1,5 @@
 import CalendarTodayOutlined from '@mui/icons-material/CalendarTodayOutlined';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import DoneIcon from '@mui/icons-material/Done';
 import { Divider, useTheme } from '@mui/material';
 import { Link } from 'gatsby';
@@ -220,13 +220,6 @@ const BlogPost = ({
                                   : 'Authors'}
                         </h2>
                         {post?.authors?.map((author, index) => {
-                            const authorImage =
-                                author?.picture &&
-                                getImage(
-                                    author.picture.localFile.childImageSharp
-                                        .gatsbyImageData
-                                );
-
                             const authorBio = author?.bio.data.bio;
 
                             const authorSocialLinks = author?.socials;
@@ -241,19 +234,27 @@ const BlogPost = ({
                                             )}
                                             className={authorMainInfoContainer}
                                         >
-                                            <div
-                                                className={
-                                                    authorAvatarContainer
-                                                }
-                                            >
-                                                <Avatar
-                                                    image={authorImage}
-                                                    alt={`Picture of ${author?.name}`}
-                                                    name={author.name}
-                                                    loading="lazy"
-                                                    size={60}
-                                                />
-                                            </div>
+                                            {author.picture?.localFile
+                                                ?.childImageSharp ? (
+                                                <div
+                                                    className={
+                                                        authorAvatarContainer
+                                                    }
+                                                >
+                                                    <Avatar
+                                                        image={
+                                                            author.picture
+                                                                .localFile
+                                                                .childImageSharp
+                                                                .gatsbyImageData
+                                                        }
+                                                        alt={`Picture of ${author?.name}`}
+                                                        name={author.name}
+                                                        loading="lazy"
+                                                        size={60}
+                                                    />
+                                                </div>
+                                            ) : null}
                                             <div className={authorNameAndRole}>
                                                 {author?.name ? (
                                                     <span
