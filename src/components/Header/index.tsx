@@ -86,9 +86,7 @@ const Header = () => {
 
     return (
         <>
-            <HeaderNavBarBackground
-                menuOpen={Boolean(mobileMenuOpen || activeMenu)}
-            />
+            <HeaderNavBarBackground menuOpen={Boolean(activeMenu)} />
             <header
                 className={clsx(headerBar, globalHeaderFixed)}
                 ref={wrapperRef}
