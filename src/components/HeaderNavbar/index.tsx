@@ -1,5 +1,6 @@
 import { Link } from 'gatsby';
 import { Dispatch, SetStateAction, useCallback } from 'react';
+import { useMediaQuery } from '@mui/material';
 import { globalHeaderLink } from '../styles.module.less';
 import OutboundLinkFilled from '../LinksAndButtons/OutboundLinkFilled';
 import { dashboardRegisterUrl, dashboardUrl } from '../../../shared';
@@ -16,22 +17,24 @@ interface HeaderNavbarProps {
 
 const HeaderNavbar = ({ activeMenu, setActiveMenu }: HeaderNavbarProps) => {
     const closeMenus = useCallback(() => setActiveMenu(''), [setActiveMenu]);
+    const isMobile = useMediaQuery('(max-width:1142px)');
+    const handleMouseLeave = !isMobile ? closeMenus : undefined;
 
     return (
-        <div className={globalHeaderLinks} onMouseLeave={closeMenus}>
+        <div className={globalHeaderLinks} onMouseLeave={handleMouseLeave}>
             <LinkProduct
                 active={activeMenu === 'product'}
                 setActive={setActiveMenu}
             />
             <Link
-                onMouseEnter={closeMenus}
+                onMouseEnter={handleMouseLeave}
                 className={globalHeaderLink}
                 to="/pricing"
             >
                 Pricing
             </Link>
             <Link
-                onMouseEnter={closeMenus}
+                onMouseEnter={handleMouseLeave}
                 className={globalHeaderLink}
                 to="/integrations"
             >
