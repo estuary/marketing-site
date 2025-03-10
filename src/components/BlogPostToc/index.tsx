@@ -119,10 +119,15 @@ const observeItems = (
 };
 
 export const RenderToc = ({ items }: { items: TocItem[] }) => {
-    const [selectedItem, setSelectedItem] = useState<string | null>(null);
     const intersectionObserver = useRef<IntersectionObserver | null>(null);
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
     const isMobile = useMediaQuery('(max-width: 768px) or (max-height: 790px)');
+    const [isTocExpanded, setIsTocExpanded] = useState(!isMobile);
+    const [selectedItem, setSelectedItem] = useState<string | null>(null);
+
+    useEffect(() => {
+        setIsTocExpanded(!isMobile);
+    }, [isMobile]);
 
     useEffect(() => {
         intersectionObserver.current = new IntersectionObserver(
@@ -191,7 +196,8 @@ export const RenderToc = ({ items }: { items: TocItem[] }) => {
             <Accordion
                 elevation={0}
                 className={accordion}
-                defaultExpanded={!isMobile}
+                expanded={isTocExpanded}
+                onChange={(event, newExpanded) => setIsTocExpanded(newExpanded)}
             >
                 <AccordionSummary
                     className={accordionSidePadding}
