@@ -137,7 +137,7 @@ const BlogPostPopupModalTutorial = () => {
                         rel="noreferrer"
                     >
                         {SETTINGS.primaryLink.label}
-                        <BoltIcon color="#FFC107" />
+                        <BoltIcon />
                     </OutboundLinkFilled>
                     <OutboundLinkOutlined
                         href={SETTINGS.secondaryLink.href}
