@@ -1,12 +1,12 @@
 import { IconButton, Dialog } from '@mui/material';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
+import FlashOnIcon from '@mui/icons-material/FlashOn';
 import { dashboardRegisterUrl } from '../../../../shared';
 import FlowDiagram from '../../CompanyUpdatesPage/Hero/FlowDiagram';
 import OutboundLinkFilled from '../../LinksAndButtons/OutboundLinkFilled';
 import OutboundLinkOutlined from '../../LinksAndButtons/OutboundLinkOutlined';
 import Checkmark from '../../../svgs/checkmark.svg';
-import BoltIcon from '../../../svgs/bolt.svg';
 import {
     leftColumn,
     rightColumn,
@@ -72,7 +72,7 @@ const dialogStyle = {
         'maxWidth': '1280px',
         'width': '70%',
         'display': 'grid',
-        'gridTemplateColumns': '0.6fr 0.4fr',
+        'gridTemplateColumns': '1fr 1fr',
         'padding': 0,
         'color': 'var(--white)',
         'marginTop': '124px',
@@ -137,7 +137,7 @@ const BlogPostPopupModalTutorial = () => {
                         rel="noreferrer"
                     >
                         {SETTINGS.primaryLink.label}
-                        <BoltIcon />
+                        <FlashOnIcon htmlColor="#FFC107" />
                     </OutboundLinkFilled>
                     <OutboundLinkOutlined
                         href={SETTINGS.secondaryLink.href}
