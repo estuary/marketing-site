@@ -6,6 +6,7 @@ import FlowDiagram from '../../CompanyUpdatesPage/Hero/FlowDiagram';
 import OutboundLinkFilled from '../../LinksAndButtons/OutboundLinkFilled';
 import OutboundLinkOutlined from '../../LinksAndButtons/OutboundLinkOutlined';
 import Checkmark from '../../../svgs/checkmark.svg';
+import BoltIcon from '../../../svgs/bolt.svg';
 import {
     leftColumn,
     rightColumn,
@@ -136,18 +137,7 @@ const BlogPostPopupModalTutorial = () => {
                         rel="noreferrer"
                     >
                         {SETTINGS.primaryLink.label}
-                        <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 40"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                d="M18 0L0 24H10L6 40L24 16H14L18 0Z"
-                                fill="#FFC107"
-                            />
-                        </svg>
+                        <BoltIcon color="#FFC107" />
                     </OutboundLinkFilled>
                     <OutboundLinkOutlined
                         href={SETTINGS.secondaryLink.href}
