@@ -1,9 +1,9 @@
-import { IconButton, Dialog } from '@mui/material';
-import { StaticImage } from 'gatsby-plugin-image';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { StaticImage } from 'gatsby-plugin-image';
+import { IconButton, Dialog } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import { webinarsUrl } from '../../../shared';
-import EstuaryLogo from '../../svgs/colored-logo.svg';
+import { webinarsUrl } from '../../../../shared';
+import EstuaryLogo from '../../../svgs/colored-logo.svg';
 
 import {
     leftColumn,
@@ -22,7 +22,7 @@ const DEFAULT = {
     },
     image: (
         <StaticImage
-            src="../../images/blog-post-popup-image.png"
+            src="../../../images/blog-post-popup-image.png"
             alt="Change data capture webinar"
             placeholder="blurred"
         />
@@ -41,7 +41,7 @@ const SETTINGS = {
     //  href: 'fake/path/name',
     // },
     // image: <StaticImage
-    //  src="../../images/fake-image.png"
+    //  src="../../../images/fake-image.png"
     //  alt="Fake alt text"
     //  placeholder="none"
     //  loading="eager"
