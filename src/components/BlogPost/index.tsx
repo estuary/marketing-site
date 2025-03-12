@@ -89,7 +89,7 @@ const BlogPost = ({
             itemScope
             itemType="http://schema.org/Article"
         >
-            <SwoopingLinesBackground>
+            <SwoopingLinesBackground loading="eager">
                 <Container className={blogPostHeaderWrapper}>
                     <div className={headerInfo}>
                         <div className={postInfo}>
