@@ -13,7 +13,7 @@ const SuccessStories = () => {
         allStrapiCaseStudy: { nodes: successStories },
     } = useStaticQuery(graphql`
         query GetSuccessStories {
-            allStrapiCaseStudy {
+            allStrapiCaseStudy(sort: { fields: [createdAt], order: DESC }) {
                 nodes {
                     title: Title
                     description: Description
@@ -37,10 +37,28 @@ const SuccessStories = () => {
         }
     `);
 
-    const [visiblePosts, setVisiblePosts] = useState(9);
+    const priorityOrder = ['forward', 'headset', 'prodege'];
+
+    const sortedSuccessStories = [...successStories].sort((a, b) => {
+        const indexA = priorityOrder.findIndex((keyword) =>
+            a.slug.includes(keyword)
+        );
+        const indexB = priorityOrder.findIndex((keyword) =>
+            b.slug.includes(keyword)
+        );
+
+        if (indexA === -1 && indexB === -1) return 0;
+        if (indexA === -1) return 1;
+        if (indexB === -1) return -1;
+        return indexA - indexB;
+    });
+
+    const [visiblePostsAmount, setVisiblePostsAmount] = useState(9);
 
     const handleShowMore = () => {
-        setVisiblePosts((prevVisiblePosts) => prevVisiblePosts + 9);
+        setVisiblePostsAmount(
+            (prevVisiblePostsAmount) => prevVisiblePostsAmount + 9
+        );
     };
 
     return (
@@ -48,8 +66,8 @@ const SuccessStories = () => {
             <Container isVertical>
                 <h2 className={sectionTitle}>SUCCESS STORIES</h2>
                 <Grid>
-                    {successStories
-                        .slice(0, visiblePosts)
+                    {sortedSuccessStories
+                        .slice(0, visiblePostsAmount)
                         .map((successStory) => (
                             <Card
                                 key={successStory.id}
@@ -60,7 +78,7 @@ const SuccessStories = () => {
                             />
                         ))}
                 </Grid>
-                {visiblePosts < successStories.length ? (
+                {visiblePostsAmount < successStories.length ? (
                     <ButtonFilled onClick={handleShowMore}>
                         Show more
                     </ButtonFilled>
