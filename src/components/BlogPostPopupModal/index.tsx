@@ -37,7 +37,7 @@ const DEFAULT = {
     },
     image: <FlowDiagram diagramCardsClassName={diagramCards} />,
     footerText: 'No credit card required',
-    version: '',
+    version: `/blogPostPopup_2025/03/12`,
 };
 
 const SETTINGS = {
@@ -67,7 +67,7 @@ const SETTINGS = {
     // version: `/blogPostPopup_YYYY/MM/DD`,
 };
 
-const STORAGE_KEY = `@estuary/closeBlogPostPopupTutorial${SETTINGS.version}`;
+const STORAGE_KEY = `@estuary/closeBlogPostPopup${SETTINGS.version}`;
 
 const dialogStyle = {
     '& .MuiPaper-root': {
