@@ -1,4 +1,5 @@
 import { StaticImage } from 'gatsby-plugin-image';
+import clsx from 'clsx';
 import RealTimeIcon from '../../../../svgs/company-updates-flow-diagram/real-time.svg';
 import BatchIcon from '../../../../svgs/company-updates-flow-diagram/batch.svg';
 import SaasIcon from '../../../../svgs/company-updates-flow-diagram/saas.svg';
@@ -9,10 +10,14 @@ import StoreIcon from '../../../../svgs/company-updates-flow-diagram/store.svg';
 import TransformIcon from '../../../../svgs/company-updates-flow-diagram/transform.svg';
 import { diagram, diagramCards } from './styles.module.less';
 
-const FlowDiagram = () => {
+interface FlowDiagramProps {
+    diagramCardsClassName?: string;
+}
+
+const FlowDiagram = ({ diagramCardsClassName }: FlowDiagramProps) => {
     return (
         <div className={diagram}>
-            <div className={diagramCards}>
+            <div className={clsx(diagramCards, diagramCardsClassName)}>
                 <h4>
                     Connect to Any Data <br /> Source
                 </h4>

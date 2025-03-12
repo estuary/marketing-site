@@ -1,14 +1,13 @@
 import { graphql } from 'gatsby';
 import dayjs from 'dayjs';
 import reltime from 'dayjs/plugin/relativeTime';
-import BlogPostPopupModal from '../../components/Popups/BlogPostPopupModal';
+import BlogPostPopupModal from '../../components/BlogPostPopupModal';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
 import logoUrl from '../../images/estuary.png';
 import { getAuthorSeoJson } from '../../../shared';
 import BlogPost from '../../components/BlogPost';
-import BlogPostPopupModalTutorial from '../../components/Popups/BlogPostPopupModalTutorial';
 
 dayjs.extend(reltime);
 
@@ -31,11 +30,7 @@ const BlogPostTemplate = ({ data: { post } }) => {
                 ]}
             />
             <BlogPost post={post} hasPopularArticlesSection hasBodyCtaBanner />
-            {post.tags.some((tag) => tag.name === 'Tutorial') ? (
-                <BlogPostPopupModalTutorial />
-            ) : (
-                <BlogPostPopupModal />
-            )}
+            <BlogPostPopupModal />
         </Layout>
     );
 };

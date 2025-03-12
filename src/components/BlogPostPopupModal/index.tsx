@@ -2,16 +2,16 @@ import { IconButton, Dialog } from '@mui/material';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 import FlashOnIcon from '@mui/icons-material/FlashOn';
-import { dashboardRegisterUrl } from '../../../../shared';
-import FlowDiagram from '../../CompanyUpdatesPage/Hero/FlowDiagram';
-import OutboundLinkFilled from '../../LinksAndButtons/OutboundLinkFilled';
-import OutboundLinkOutlined from '../../LinksAndButtons/OutboundLinkOutlined';
-import Checkmark from '../../../svgs/checkmark.svg';
+import { dashboardRegisterUrl } from '../../../shared';
+import FlowDiagram from '../CompanyUpdatesPage/Hero/FlowDiagram';
+import OutboundLinkFilled from '../LinksAndButtons/OutboundLinkFilled';
+import OutboundLinkOutlined from '../LinksAndButtons/OutboundLinkOutlined';
+import Checkmark from '../../svgs/checkmark.svg';
 import {
     leftColumn,
     rightColumn,
     closeButtonWrapper,
-    imageWrapper,
+    diagramCards,
 } from './styles.module.less';
 
 const DEFAULT = {
@@ -33,7 +33,7 @@ const DEFAULT = {
         label: 'Contact Us',
         href: '/contact-us/',
     },
-    image: <FlowDiagram />,
+    image: <FlowDiagram diagramCardsClassName={diagramCards} />,
     footerText: 'No credit card required',
     version: '',
 };
@@ -75,18 +75,21 @@ const dialogStyle = {
         'gridTemplateColumns': '1fr 1fr',
         'padding': 0,
         'color': 'var(--white)',
-        'marginTop': '124px',
+        'marginTop': '120px',
         'maxHeight': 'calc(100% - 160px)',
         'minHeight': '100px',
-        '@media (max-width: 1024px)': {
-            width: '90%',
+        '@media (max-width: 1530px)': {
+            maxWidth: '1380px',
+            width: '100%',
         },
-        '@media (max-width: 780px)': {
+        '@media (max-width: 1024px)': {
             gridTemplateColumns: '1fr',
             gridTemplateRows: '1fr auto',
         },
     },
 };
+
+const checkmarkIcon = 'var(--white)';
 
 const BlogPostPopupModalTutorial = () => {
     const [openDialog, setOpenDialog] = useState(false);
@@ -124,7 +127,7 @@ const BlogPostPopupModalTutorial = () => {
                     {SETTINGS.keyPoints.map((keyPoint, index) => (
                         <li key={index}>
                             <div>
-                                <Checkmark width={12} color="var(--white)" />
+                                <Checkmark width={12} color={checkmarkIcon} />
                             </div>
                             <p>{keyPoint}</p>
                         </li>
@@ -148,7 +151,7 @@ const BlogPostPopupModalTutorial = () => {
                     </OutboundLinkOutlined>
                 </div>
                 <span>
-                    <Checkmark width={12} color="var(--white)" />
+                    <Checkmark width={12} color={checkmarkIcon} />
                     {SETTINGS.footerText}
                 </span>
             </div>
@@ -158,7 +161,7 @@ const BlogPostPopupModalTutorial = () => {
                         <CloseIcon fontSize="large" />
                     </IconButton>
                 </div>
-                <div className={imageWrapper}>{SETTINGS.image}</div>
+                {SETTINGS.image}
             </div>
         </Dialog>
     );
