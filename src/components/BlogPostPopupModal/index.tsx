@@ -26,10 +26,12 @@ const DEFAULT = {
         'Single dataflow up to 7GB+/sec',
     ],
     primaryLink: {
+        id: 'start-for-free-now-button/pop-up/blog-post-page',
         label: 'Start For Free Now',
         href: dashboardRegisterUrl,
     },
     secondaryLink: {
+        id: 'contact-us-button/pop-up/blog-post-page',
         label: 'Contact Us',
         href: '/contact-us/',
     },
@@ -46,10 +48,12 @@ const SETTINGS = {
     // description: 'This is a fake future Webinar',
     // keyPoints: ['Fake text 1', 'Fake text 2']
     // primaryLink: {
+    //  id: 'fake-button/pop-up/blog-post-page',
     //  label: 'Fake label',
     //  href: 'fake/path/name',
     // },
     // secondaryLink: {
+    //  id: 'fake-button/pop-up/blog-post-page',
     //  label: 'Fake label',
     //  href: 'fake/path/name',
     // },
@@ -135,6 +139,7 @@ const BlogPostPopupModalTutorial = () => {
                 </ul>
                 <div>
                     <OutboundLinkFilled
+                        id={SETTINGS.primaryLink.id}
                         href={SETTINGS.primaryLink.href}
                         target="_blank"
                         rel="noreferrer"
@@ -143,6 +148,7 @@ const BlogPostPopupModalTutorial = () => {
                         <FlashOnIcon htmlColor="#FFC107" />
                     </OutboundLinkFilled>
                     <OutboundLinkOutlined
+                        id={SETTINGS.secondaryLink.id}
                         href={SETTINGS.secondaryLink.href}
                         target="_blank"
                         rel="noreferrer"
