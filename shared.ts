@@ -206,3 +206,23 @@ const getVendorLinkId = (vendorName?: string) => getSlugifiedText(vendorName);
 
 export const getVendorsLinkId = (vendorName1?: string, vendorName2?: string) =>
     `${getVendorLinkId(vendorName1)}-vs-${getVendorLinkId(vendorName2)}`;
+
+export const getSortedSuccessStories = (successStories) => {
+    const priorityOrder = ['forward', 'headset', 'prodege'];
+
+    const sortedSuccessStories = [...successStories].sort((a, b) => {
+        const indexA = priorityOrder.findIndex((keyword) =>
+            a.slug.includes(keyword)
+        );
+        const indexB = priorityOrder.findIndex((keyword) =>
+            b.slug.includes(keyword)
+        );
+
+        if (indexA === -1 && indexB === -1) return 0;
+        if (indexA === -1) return 1;
+        if (indexB === -1) return -1;
+        return indexA - indexB;
+    });
+
+    return sortedSuccessStories;
+};

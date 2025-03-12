@@ -6,7 +6,7 @@ import Grid from '../../Grid';
 import Card from '../../Grid/Card';
 import ButtonFilled from '../../LinksAndButtons/ButtonFilled';
 import { sectionTitle } from '../styles.module.less';
-import { getSlugifiedText } from '../../../../shared';
+import { getSlugifiedText, getSortedSuccessStories } from '../../../../shared';
 
 const SuccessStories = () => {
     const {
@@ -37,21 +37,7 @@ const SuccessStories = () => {
         }
     `);
 
-    const priorityOrder = ['forward', 'headset', 'prodege'];
-
-    const sortedSuccessStories = [...successStories].sort((a, b) => {
-        const indexA = priorityOrder.findIndex((keyword) =>
-            a.slug.includes(keyword)
-        );
-        const indexB = priorityOrder.findIndex((keyword) =>
-            b.slug.includes(keyword)
-        );
-
-        if (indexA === -1 && indexB === -1) return 0;
-        if (indexA === -1) return 1;
-        if (indexB === -1) return -1;
-        return indexA - indexB;
-    });
+    const sortedSuccessStories = getSortedSuccessStories(successStories);
 
     const [visiblePostsAmount, setVisiblePostsAmount] = useState(9);
 

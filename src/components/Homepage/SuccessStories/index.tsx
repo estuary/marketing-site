@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import DarkSwoopingLinesLeftDirectionBackground from '../../BackgroundImages/DarkSwoopingLinesLeftDirectionBackground';
 import Container from '../../Container';
 import SlideDeckCarousel from '../../SlideDeckCarousel';
+import { getSortedSuccessStories } from '../../../../shared';
 import Card from './Card';
 import { container } from './styles.module.less';
 
@@ -11,7 +12,7 @@ const SuccessStories = () => {
         allStrapiCaseStudy: { nodes: allSuccessStories },
     } = useStaticQuery(graphql`
         query GetAllHomepageSuccessStories {
-            allStrapiCaseStudy(limit: 10) {
+            allStrapiCaseStudy(sort: { fields: [createdAt], order: DESC }) {
                 nodes {
                     description: Description
                     title: Title
@@ -29,12 +30,14 @@ const SuccessStories = () => {
         }
     `);
 
+    const sortedSuccessStories = getSortedSuccessStories(allSuccessStories);
+
     return (
         <DarkSwoopingLinesLeftDirectionBackground>
             <Container isVertical className={container}>
                 <h2>SUCCESS STORIES</h2>
                 <SlideDeckCarousel
-                    items={allSuccessStories}
+                    items={sortedSuccessStories}
                     itemsPerSlide={3}
                     ariaLabel="Success stories carousel"
                     renderCard={({ id, title, description, slug, logo }) => (
