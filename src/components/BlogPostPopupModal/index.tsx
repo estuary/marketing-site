@@ -129,7 +129,7 @@ const BlogPostPopupModalTutorial = () => {
                 <p>{SETTINGS.description}</p>
                 <ul>
                     {SETTINGS.keyPoints.map((keyPoint, index) => (
-                        <li key={index}>
+                        <li key={`pop-up-key-point_${index}`}>
                             <div>
                                 <Checkmark width={12} color={checkmarkIcon} />
                             </div>
