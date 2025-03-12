@@ -23,6 +23,10 @@
     p {
         font-size: 1rem;
         margin: 32px 0;
+
+        @media(max-width: 425px) {
+            margin: 20px 0;
+        }
     }
 
     ul {
@@ -78,6 +82,10 @@
                 width: 100%;
             }
         }
+
+        @media(max-width: 425px) {
+            margin: 16px 0;
+        }
     }
 
     span {
@@ -100,6 +108,19 @@
 
     @media (max-width: 1024px) {
         padding: 24px;
+    }
+
+    @media(max-width: 425px) {
+        height: 0;
+        padding: 0;
+
+        img {
+            display: none;
+        }
+
+        div:nth-of-type(2) {
+            display: none;
+        }
     }
 }
 
@@ -125,8 +146,7 @@
 
 .diagramCards {
     h4 {
-        font-size: 0.4vw;
-        line-height: normal;
+        font-size: 0.5vw;
 
         @media (min-width: 1830px) {
             font-size: 0.5rem;
@@ -138,12 +158,13 @@
         }
 
         @media (max-width: 1024px) {
-            font-size: 1.25vw;
+            font-size: 1vw;
         }
     }
 
     h4:first-of-type {
-        left: 1.45vw;
+        top: 4.5%;
+        left: 3%;
 
         @media (min-width: 1830px) {
             top: 14px;
@@ -151,16 +172,22 @@
         }
 
         @media (max-width: 1530px) {
-            left: 1.8vw;
+            top: 5.5%;
+            left: 4.5%;
         }
 
         @media (max-width: 1024px) {
-            left: 3.8vw;
+            left: 5.5%;
+        }
+
+        @media(max-width: 425px) {
+            font-size: 1vw;
         }
     }
 
     h4:nth-of-type(2) {
-        right: 2vw;
+        top: 2.5%;
+        right: 5%;
 
         @media (min-width: 1830px) {
             top: 10px;
@@ -168,13 +195,17 @@
         }
 
         @media (max-width: 1530px) {
-            top: 0.75vw;
-            right: 2.4vw;
+            top: 4%;
+            right: 6.4%;
         }
 
         @media (max-width: 1024px) {
-            top: 1.7vw;
-            right: 5.4vw;
+            top: 4%;
+            right: 7%;
+        }
+
+        @media(max-width: 425px) {
+            font-size: 1vw;
         }
     }
 
@@ -243,6 +274,11 @@
             top: 19%;
             left: 8.5%;
         }
+
+        @media (max-width: 1024px) {
+            top: 18%;
+            left: 8%;
+        }
     }
 
     div:nth-of-type(2) {
@@ -257,6 +293,10 @@
         @media (max-width: 1530px) {
             top: 48.5%;
             left: 5.5%;
+        }
+
+        @media (max-width: 1024px) {
+            left: 5.25%;
         }
     }
 
@@ -288,6 +328,11 @@
             top: 18.5%;
             right: 8.5%;
         }
+
+        @media (max-width: 1024px) {
+            top: 18%;
+            right: 8.2%;
+        }
     }
 
     div:nth-of-type(5) {
@@ -302,6 +347,11 @@
         @media (max-width: 1530px) {
             top: 48%;
             right: 7.8%;
+        }
+
+        @media (max-width: 1024px) {
+            top: 46.2%;
+            right: 7.4%;
         }
     }
 
