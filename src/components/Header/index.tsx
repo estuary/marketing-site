@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { Link } from 'gatsby';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Slide, useMediaQuery } from '@mui/material';
+import { Slide } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import ColoredLogo from '../../svgs/colored-logo.svg';
 import GithubIcon from '../../svgs/github-outline.svg';
@@ -34,6 +34,8 @@ import {
     globalHeaderMobileMenuWrapper,
     globalHeaderMobileMenuButton,
     headerSocialIcon,
+    menuContentDesktop,
+    menuContentMobile,
 } from './styles.module.less';
 
 const slideTimeout = 150;
@@ -41,8 +43,6 @@ const slideTimeout = 150;
 const Header = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [activeMenu, setActiveMenu] = useState<string | null>(null);
-
-    const isMobile = useMediaQuery('(max-width:1142px)');
 
     const wrapperRef = useRef<HTMLDivElement | null>(null);
 
@@ -74,23 +74,19 @@ const Header = () => {
         };
     }, [mobileMenuOpen]);
 
-    const menuContent = useMemo(
+    const headerNavbar = useMemo(
         () => (
-            <div className={globalHeaderLinkWrapper}>
-                <HeaderNavbar
-                    activeMenu={activeMenu}
-                    setActiveMenu={setActiveMenu}
-                />
-            </div>
+            <HeaderNavbar
+                activeMenu={activeMenu}
+                setActiveMenu={setActiveMenu}
+            />
         ),
         [activeMenu, setActiveMenu]
     );
 
     return (
         <>
-            <HeaderNavBarBackground
-                menuOpen={Boolean(mobileMenuOpen || activeMenu)}
-            />
+            <HeaderNavBarBackground menuOpen={Boolean(activeMenu)} />
             <header
                 className={clsx(headerBar, globalHeaderFixed)}
                 ref={wrapperRef}
@@ -104,20 +100,31 @@ const Header = () => {
                         <strong className={globalHeaderTitle}>Estuary</strong>
                     </Link>
                     <div className={globalHeaderWrapper}>
-                        {isMobile ? (
-                            <Slide
-                                direction="left"
-                                in={mobileMenuOpen || !!activeMenu}
-                                timeout={{
-                                    enter: slideTimeout,
-                                    exit: slideTimeout,
-                                }}
+                        <Slide
+                            direction="left"
+                            in={mobileMenuOpen}
+                            timeout={{
+                                enter: slideTimeout,
+                                exit: slideTimeout,
+                            }}
+                        >
+                            <div
+                                className={clsx(
+                                    globalHeaderLinkWrapper,
+                                    menuContentMobile
+                                )}
                             >
-                                {menuContent}
-                            </Slide>
-                        ) : (
-                            menuContent
-                        )}
+                                {headerNavbar}
+                            </div>
+                        </Slide>
+                        <div
+                            className={clsx(
+                                globalHeaderLinkWrapper,
+                                menuContentDesktop
+                            )}
+                        >
+                            {headerNavbar}
+                        </div>
                         <div className={headerSocialIcons}>
                             <OutboundLink
                                 id="slack-header-link"

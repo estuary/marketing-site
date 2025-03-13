@@ -1,13 +1,12 @@
 .container {
   display: flex;
   flex-direction: column;
-  max-width: 256px;
-  width: 100%;
+  width: 256px;
   gap: 24px;
   height: fit-content;
 
-  @media (max-width: 1150px) {
-    max-width: 100%;
+  @media (max-width: 1024px) {
+    width: 100%;
   }
 
   @media (min-width: 1151px) {
@@ -25,15 +24,17 @@
 .shareArticleDesktop {
   display: flex;
 
-  @media (max-width: 1150px) {
+  @media (max-width: 1024px) {
     display: none;
   }
 }
 
 .tableOfContentsWrapper {
   overflow: auto;
+}
 
-  @media (max-width: 1150px) {
-    margin-bottom: 32px;
+.ctaLink {
+  @media (max-width: 1024px) {
+    display: none;
   }
 }

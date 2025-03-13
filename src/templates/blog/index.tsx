@@ -183,8 +183,8 @@ const BlogIndex = ({
                         <Alert severity="info">No blog posts found</Alert>
                     ) : null}
 
-                    {postsToRender.map((post) => (
-                        <BlogPostCard key={post.id} {...post} />
+                    {postsToRender.map((post, idx) => (
+                        <BlogPostCard key={`${post.id}-${idx}`} {...post} />
                     ))}
                 </Grid>
             </BigImageBackground>
