@@ -274,6 +274,23 @@ span {
             float: none !important;
         }
     }
+
+    figure.image,
+    .gatsby-image-wrapper,
+    .raw-html-embed {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .gatsby-image-wrapper {
+        margin-top: 32px !important;
+        margin-bottom: 32px !important;
+    }
 }
 
 table td,
