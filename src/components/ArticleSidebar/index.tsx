@@ -6,6 +6,7 @@ import {
     container,
     shareArticleDesktop,
     tableOfContentsWrapper,
+    ctaLink,
 } from './styles.module.less';
 
 interface ArticleSidebarProps {
@@ -41,6 +42,7 @@ const ArticleSidebar = ({
                 id={ctaButtonid}
                 href={dashboardRegisterUrl}
                 target="_blank"
+                className={ctaLink}
             >
                 Start Building For Free
             </OutboundLinkFilled>

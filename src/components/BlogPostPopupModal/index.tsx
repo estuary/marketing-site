@@ -1,33 +1,43 @@
 import { IconButton, Dialog } from '@mui/material';
-import { StaticImage } from 'gatsby-plugin-image';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
-import { webinarsUrl } from '../../../shared';
-import EstuaryLogo from '../../svgs/colored-logo.svg';
-
+import FlashOnIcon from '@mui/icons-material/FlashOn';
+import { dashboardRegisterUrl } from '../../../shared';
+import FlowDiagram from '../CompanyUpdatesPage/Hero/FlowDiagram';
+import OutboundLinkFilled from '../LinksAndButtons/OutboundLinkFilled';
+import OutboundLinkOutlined from '../LinksAndButtons/OutboundLinkOutlined';
+import Checkmark from '../../svgs/checkmark.svg';
 import {
     leftColumn,
     rightColumn,
     closeButtonWrapper,
+    diagramCards,
 } from './styles.module.less';
 
 const DEFAULT = {
     id: '1',
-    title: 'Change Data Capture 101',
-    subtitle:
-        'Learn how to stand up no-code real-time CDC pipelines in minutes with Estuary',
-    link: {
-        label: 'Watch now',
-        href: webinarsUrl,
+    title: 'Instantly Move Your Data - No Code Needed',
+    description:
+        'Move Data from Any Source to Any Destination in Minutes - No Coding Required.',
+    keyPoints: [
+        'Real-time or batch data integration',
+        'Enterprise-ready support for all private networking environments',
+        'Load data into multiple destinations simultaneously',
+        'Single dataflow up to 7GB+/sec',
+    ],
+    primaryLink: {
+        id: 'start-for-free-now-button/pop-up/blog-post-page',
+        label: 'Start For Free Now',
+        href: dashboardRegisterUrl,
     },
-    image: (
-        <StaticImage
-            src="../../images/blog-post-popup-image.png"
-            alt="Change data capture webinar"
-            placeholder="blurred"
-        />
-    ),
-    version: '',
+    secondaryLink: {
+        id: 'contact-us-button/pop-up/blog-post-page',
+        label: 'Contact Us',
+        href: '/contact-us/',
+    },
+    image: <FlowDiagram diagramCardsClassName={diagramCards} />,
+    footerText: 'No credit card required',
+    version: `/blogPostPopup_2025/03/12`,
 };
 
 const SETTINGS = {
@@ -35,17 +45,25 @@ const SETTINGS = {
     // When there is another popup, uncomment below and provide the necessary details
     // id: 'Next integer',
     // title: 'This is a fake future Webinar',
-    // subtitle: 'This is a fake future Webinar',
-    // link: {
+    // description: 'This is a fake future Webinar',
+    // keyPoints: ['Fake text 1', 'Fake text 2']
+    // primaryLink: {
+    //  id: 'fake-button/pop-up/blog-post-page',
+    //  label: 'Fake label',
+    //  href: 'fake/path/name',
+    // },
+    // secondaryLink: {
+    //  id: 'fake-button/pop-up/blog-post-page',
     //  label: 'Fake label',
     //  href: 'fake/path/name',
     // },
     // image: <StaticImage
-    //  src="../../images/fake-image.png"
+    //  src="../../../images/fake-image.png"
     //  alt="Fake alt text"
     //  placeholder="none"
     //  loading="eager"
     // >,
+    // footerText: 'Fake text',
     // version: `/blogPostPopup_YYYY/MM/DD`,
 };
 
@@ -58,23 +76,26 @@ const dialogStyle = {
         'maxWidth': '1280px',
         'width': '70%',
         'display': 'grid',
-        'gridTemplateColumns': '0.6fr 0.4fr',
+        'gridTemplateColumns': '1fr 1fr',
         'padding': 0,
         'color': 'var(--white)',
-        'marginTop': '124px',
+        'marginTop': '120px',
         'maxHeight': 'calc(100% - 160px)',
         'minHeight': '100px',
-        '@media (max-width: 1024px)': {
-            width: '90%',
+        '@media (max-width: 1530px)': {
+            maxWidth: '1380px',
+            width: '100%',
         },
-        '@media (max-width: 780px)': {
+        '@media (max-width: 1024px)': {
             gridTemplateColumns: '1fr',
             gridTemplateRows: '1fr auto',
         },
     },
 };
 
-const BlogPostPopupModal = () => {
+const checkmarkIcon = 'var(--white)';
+
+const BlogPostPopupModalTutorial = () => {
     const [openDialog, setOpenDialog] = useState(false);
 
     const hasOpened = useRef(false);
@@ -103,28 +124,53 @@ const BlogPostPopupModal = () => {
 
     return (
         <Dialog open={openDialog} fullWidth sx={dialogStyle}>
-            <div className={closeButtonWrapper}>
-                <IconButton onClick={handlePopupClose}>
-                    <CloseIcon fontSize="large" />
-                </IconButton>
-            </div>
             <div className={leftColumn}>
+                <h2>{SETTINGS.title}</h2>
+                <p>{SETTINGS.description}</p>
+                <ul>
+                    {SETTINGS.keyPoints.map((keyPoint, index) => (
+                        <li key={`pop-up-key-point_${index}`}>
+                            <div>
+                                <Checkmark width={12} color={checkmarkIcon} />
+                            </div>
+                            <p>{keyPoint}</p>
+                        </li>
+                    ))}
+                </ul>
+                <div>
+                    <OutboundLinkFilled
+                        id={SETTINGS.primaryLink.id}
+                        href={SETTINGS.primaryLink.href}
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        {SETTINGS.primaryLink.label}
+                        <FlashOnIcon htmlColor="#FFC107" />
+                    </OutboundLinkFilled>
+                    <OutboundLinkOutlined
+                        id={SETTINGS.secondaryLink.id}
+                        href={SETTINGS.secondaryLink.href}
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        {SETTINGS.secondaryLink.label}
+                    </OutboundLinkOutlined>
+                </div>
                 <span>
-                    <span>Webinar:</span>
-                    <span>{SETTINGS.title}</span>
+                    <Checkmark width={12} color={checkmarkIcon} />
+                    {SETTINGS.footerText}
                 </span>
-                {SETTINGS.image}
             </div>
             <div className={rightColumn}>
-                <EstuaryLogo width={38} />
-                <span>{SETTINGS.subtitle}</span>
-                <a href={SETTINGS.link.href} target="_blank" rel="noreferrer">
-                    {SETTINGS.link.label}
-                </a>
-                <button onClick={handlePopupClose}>No, thanks</button>
+                <div className={closeButtonWrapper}>
+                    <IconButton onClick={handlePopupClose}>
+                        <CloseIcon fontSize="large" />
+                    </IconButton>
+                </div>
+                {SETTINGS.image}
             </div>
         </Dialog>
     );
 };
 
-export default BlogPostPopupModal;
+export default BlogPostPopupModalTutorial;

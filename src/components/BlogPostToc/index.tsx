@@ -5,7 +5,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import clsx from 'clsx';
 import { Link } from 'gatsby';
-import { MouseEvent, useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import {
     tableOfContents,
     accordion,
@@ -51,9 +51,7 @@ const RenderTocItem = ({
     const isSelected = selectKey === selectedItem;
     const isExpanded = isSelected || hasSelectedDescendant(item, selectedItem);
 
-    const handleLinkClick = (
-        event: MouseEvent<HTMLAnchorElement, globalThis.MouseEvent>
-    ) => {
+    const handleLinkClick = (event) => {
         if (!isSelected) {
             handleItemClick(selectKey);
         } else {
@@ -71,7 +69,14 @@ const RenderTocItem = ({
     };
 
     return (
-        <li className={clsx(tocItem, isSelected && isItemSelected)}>
+        <li
+            className={clsx(
+                tocItem,
+                isSelected && isItemSelected,
+                depth > 0 && tocSubItems
+            )}
+        >
+            {depth > 0 ? <hr /> : null}
             <Link to={`#${selectKey}`} onClick={handleLinkClick}>
                 {item.heading}
             </Link>
@@ -79,16 +84,14 @@ const RenderTocItem = ({
                 <Collapse in={isExpanded} timeout="auto" unmountOnExit>
                     <ol role="list" style={{ padding: 0 }}>
                         {item.items.map((nestedItem) => (
-                            <li key={nestedItem.id} className={tocSubItems}>
-                                <hr />
-                                <RenderTocItem
-                                    selectKey={nestedItem.id}
-                                    item={nestedItem}
-                                    depth={depth + 1}
-                                    handleItemClick={handleItemClick}
-                                    selectedItem={selectedItem}
-                                />
-                            </li>
+                            <RenderTocItem
+                                key={nestedItem.id}
+                                selectKey={nestedItem.id}
+                                item={nestedItem}
+                                depth={depth + 1}
+                                handleItemClick={handleItemClick}
+                                selectedItem={selectedItem}
+                            />
                         ))}
                     </ol>
                 </Collapse>
@@ -116,10 +119,15 @@ const observeItems = (
 };
 
 export const RenderToc = ({ items }: { items: TocItem[] }) => {
-    const [selectedItem, setSelectedItem] = useState<string | null>(null);
     const intersectionObserver = useRef<IntersectionObserver | null>(null);
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
     const isMobile = useMediaQuery('(max-width: 768px) or (max-height: 790px)');
+    const [isTocExpanded, setIsTocExpanded] = useState(!isMobile);
+    const [selectedItem, setSelectedItem] = useState<string | null>(null);
+
+    useEffect(() => {
+        setIsTocExpanded(!isMobile);
+    }, [isMobile]);
 
     useEffect(() => {
         intersectionObserver.current = new IntersectionObserver(
@@ -188,7 +196,8 @@ export const RenderToc = ({ items }: { items: TocItem[] }) => {
             <Accordion
                 elevation={0}
                 className={accordion}
-                defaultExpanded={!isMobile}
+                expanded={isTocExpanded}
+                onChange={(event, newExpanded) => setIsTocExpanded(newExpanded)}
             >
                 <AccordionSummary
                     className={accordionSidePadding}

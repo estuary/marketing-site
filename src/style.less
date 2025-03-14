@@ -260,24 +260,36 @@ span {
 }
 
 .dynamic-html {
-    width: 100%;
-    overflow: hidden;
-
     .table {
         overflow-x: auto;
+        margin-left: 0;
+        margin-right: 0;
+        width: 100% !important;
 
-        @media (max-width: 620px) {
+        table {
+            min-width: 900px;
+        }
+
+        @media (max-width: 768px) {
             float: none !important;
-            width: 100% !important;
-            margin: 0;
         }
+    }
 
-        &>table {
-            width: 100%;
-            min-width: 400px;
-            margin-top: 0;
-            margin-bottom: 0;
-        }
+    figure.image,
+    .gatsby-image-wrapper,
+    .raw-html-embed {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .gatsby-image-wrapper {
+        margin-top: 32px !important;
+        margin-bottom: 32px !important;
     }
 }
 
