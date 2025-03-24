@@ -5,8 +5,7 @@ import './src/highlighting-atom-one-dark.css';
 // global css
 import './src/style.less';
 
-// Highlighting for code blocks
-// import "prismjs/themes/prism.css"
+// TODO: Remove prismjs from packages? I think it's unused.
 
 import WrapPageElementComponent from './src/components/WrapPageElementComponent';
 
