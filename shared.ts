@@ -209,7 +209,14 @@ export const getVendorsLinkId = (vendorName1?: string, vendorName2?: string) =>
 
 const successStoriesPriorityOrder = ['forward', 'headset', 'prodege'];
 
-const sortSuccessStoriesByPriority = (a, b) => {
+interface SuccessStorySortingProps {
+    slug: string | string[];
+}
+
+const sortSuccessStoriesByPriority = (
+    a: SuccessStorySortingProps,
+    b: SuccessStorySortingProps
+) => {
     const indexA = successStoriesPriorityOrder.findIndex((keyword) =>
         a.slug.includes(keyword)
     );
@@ -223,6 +230,8 @@ const sortSuccessStoriesByPriority = (a, b) => {
     return indexA - indexB;
 };
 
-export const getSortedSuccessStories = (successStories) => {
+export const getSortedSuccessStories = (
+    successStories: SuccessStorySortingProps[]
+) => {
     return successStories.sort(sortSuccessStoriesByPriority);
 };
