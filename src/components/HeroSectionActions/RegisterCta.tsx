@@ -3,16 +3,20 @@ import OutboundLinkFilled from '../LinksAndButtons/OutboundLinkFilled';
 
 interface RegisterCtaProps {
     pageId: string;
+    title?: string;
 }
 
-function RegisterCta({ pageId }: RegisterCtaProps) {
+function RegisterCta({
+    pageId,
+    title = 'Start Building For Free',
+}: RegisterCtaProps) {
     return (
         <OutboundLinkFilled
             id={`start-building-for-free-button/hero-section/${pageId}`}
             href={dashboardRegisterUrl}
             target="_blank"
         >
-            Start Building For Free
+            {title}
         </OutboundLinkFilled>
     );
 }

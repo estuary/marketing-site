@@ -6,6 +6,7 @@ const ContactUsCta = ({
     href,
     pageId,
     linkVariant = 'outlined',
+    title = 'Contact Us',
 }: ContactUsProps) => {
     const LinkComponent = linkVariant === 'filled' ? LinkFilled : LinkOutlined;
 
@@ -14,7 +15,7 @@ const ContactUsCta = ({
             id={`contact-us-button/hero-section/${pageId}`}
             href={href ?? '/contact-us/'}
         >
-            Contact Us
+            {title}
         </LinkComponent>
     );
 };

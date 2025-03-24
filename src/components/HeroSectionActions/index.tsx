@@ -3,13 +3,19 @@ import ContactUsCta from './ContactUsCta';
 
 interface HeroSectionActionsProps {
     pageId: string;
+    registerButtonTitle?: string;
+    contactUsButtonTitle?: string;
 }
 
-function HeroSectionActions({ pageId }: HeroSectionActionsProps) {
+function HeroSectionActions({
+    pageId,
+    registerButtonTitle,
+    contactUsButtonTitle,
+}: HeroSectionActionsProps) {
     return (
         <>
-            <RegisterCta pageId={pageId} />
-            <ContactUsCta pageId={pageId} />
+            <RegisterCta pageId={pageId} title={registerButtonTitle} />
+            <ContactUsCta pageId={pageId} title={contactUsButtonTitle} />
         </>
     );
 }
