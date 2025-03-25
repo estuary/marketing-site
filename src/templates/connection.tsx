@@ -3,8 +3,7 @@ import Layout from '../components/Layout';
 import Seo from '../components/seo';
 import { normalizeConnector } from '../utils';
 import Hero from '../components/Integration/Hero';
-import FromConnector from '../components/Integration/FromConnector';
-import ToConnector from '../components/Integration/ToConnector';
+import ThreeQuickSteps from '../components/Integration/ThreeQuickSteps';
 import Testimonials from '../components/Integration/Testimonials';
 import EstuaryFlowVideo from '../components/Integration/EstuaryFlowVideo';
 import RealTimeAndBatch from '../components/Integration/RealTimeAndBatch';
@@ -54,19 +53,17 @@ const Connector = ({
                     type: dest_mapped?.type,
                 }}
             />
-            <FromConnector
-                title={source_mapped?.title}
-                logo={source_mapped?.logo}
-                longDescription={source_mapped?.longDescription}
-                shortDescription={source_mapped?.shortDescription}
-                type={source_mapped?.type}
-            />
-            <ToConnector
-                title={dest_mapped?.title}
-                logo={dest_mapped?.logo}
-                longDescription={dest_mapped?.longDescription}
-                shortDescription={dest_mapped?.shortDescription}
-                type={dest_mapped?.type}
+            <ThreeQuickSteps
+                sourceConnector={{
+                    title: source_mapped?.title,
+                    logo: source_mapped?.logo,
+                    type: source_mapped?.type,
+                }}
+                destConnector={{
+                    title: dest_mapped?.title,
+                    logo: dest_mapped?.logo,
+                    type: dest_mapped?.type,
+                }}
             />
             <Testimonials />
             <EstuaryFlowVideo />
@@ -126,8 +123,6 @@ export const pageQuery = graphql`
                 id
                 externalUrl
                 imageName
-                shortDescription
-                longDescription
                 title
                 logoUrl
                 logo {
@@ -150,8 +145,6 @@ export const pageQuery = graphql`
                 id
                 externalUrl
                 imageName
-                shortDescription
-                longDescription
                 title
                 logoUrl
                 logo {

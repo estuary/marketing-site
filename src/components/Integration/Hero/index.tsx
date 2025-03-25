@@ -7,7 +7,7 @@ import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.le
 import EstuaryLogo from '../../../svgs/colored-logo.svg';
 import MetricCard from '../../MetricCard';
 import VanityLogosMarquee from '../../VanityLogosMarquee';
-import { Connector } from '../shared';
+import { Connectors } from '../shared';
 import { activeUsersAmount } from '../../../../shared';
 import Container from '../../Container';
 import ConnectorLogoPlaceholder from '../../ConnectorLogoPlaceholder';
@@ -31,12 +31,7 @@ import {
 const metricIconColor = 'var(--white)';
 const connectorIconSize = 64;
 
-export interface HeroProps {
-    sourceConnector: Connector;
-    destConnector: Connector;
-}
-
-const Hero = ({ sourceConnector, destConnector }: HeroProps) => {
+const Hero = ({ sourceConnector, destConnector }: Connectors) => {
     const sourceConnectorLogo = sourceConnector.logo?.childImageSharp
         ?.gatsbyImageData
         ? getImage(sourceConnector.logo.childImageSharp.gatsbyImageData)
@@ -68,7 +63,7 @@ const Hero = ({ sourceConnector, destConnector }: HeroProps) => {
                     description={`Sync your ${sourceConnector.title} data with ${destConnector.title} in minutes using Estuary Flow for real-time, no-code integration and seamless data pipelines.`}
                     ctaButtons={
                         <HeroSectionActions
-                            pageId={`integration-${sourceConnector.title}-to-${destConnector.title}-page`}
+                            pageId={`integration-page-${sourceConnector.title}-to-${destConnector.title}`}
                             registerButtonTitle="Start Streaming for Free"
                             contactUsButtonTitle="Get Demo"
                         />

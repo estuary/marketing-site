@@ -1,4 +1,5 @@
 import { htmlToText } from 'html-to-text';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { features } from './src/components/DeploymentOptionsPage/shared';
 import { Author } from './src/templates/author/shared';
 
@@ -210,7 +211,18 @@ export const getVendorsLinkId = (vendorName1?: string, vendorName2?: string) =>
 const successStoriesPriorityOrder = ['forward', 'headset', 'prodege'];
 
 interface SuccessStorySortingProps {
-    slug: string | string[];
+    id: string;
+    hero: {
+        alternativeText: string;
+        localFile: {
+            childImageSharp: {
+                gatsbyImageData: IGatsbyImageData;
+            };
+        };
+    };
+    slug: string;
+    title: string;
+    description: string;
 }
 
 const sortSuccessStoriesByPriority = (

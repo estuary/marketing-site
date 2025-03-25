@@ -1,4 +1,4 @@
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import { Link } from 'gatsby';
 import { AvatarGroup } from '@mui/material';
 import ArrowRight2 from '../../../svgs/arrow-right-2.svg';
@@ -22,7 +22,7 @@ interface CardProps {
         slug: string;
         title: string;
         description?: string;
-        updatedAt: string;
+        updatedAt?: string;
         body?: {
             data: {
                 childMarkdownRemark: {
@@ -32,7 +32,14 @@ interface CardProps {
         };
         tags?: { type: string; name: string }[];
         authors?: { id: string; name: string; role?: string; picture?: any }[];
-        hero: { alternativeText?: string; localFile: any };
+        hero: {
+            alternativeText?: string;
+            localFile: {
+                childImageSharp: {
+                    gatsbyImageData: IGatsbyImageData;
+                };
+            };
+        };
     };
     footerTag?: string;
     hasImgBackground?: boolean;
@@ -49,7 +56,7 @@ const getReadingTime = (body?: CardProps['data']['body']) => {
 };
 
 const getCardImage = (hero: CardProps['data']['hero']) => {
-    return hero.localFile?.childImageSharp?.gatsbyImageData;
+    return hero.localFile.childImageSharp.gatsbyImageData;
 };
 
 const renderTags = (tags?: CardProps['data']['tags']) => {
@@ -148,10 +155,14 @@ const Card = ({
                     <GatsbyImage {...imageProps} />
                 )}
 
-                {!!data.tags || data.updatedAt || readingTime ? (
+                {!!data.tags || (data.updatedAt && readingTime) ? (
                     <div className={cardHeader}>
-                        {renderTags(data.tags)}
-                        {renderDateAndTime(data.updatedAt, readingTime)}
+                        {data.tags && data.tags.length > 0
+                            ? renderTags(data.tags)
+                            : null}
+                        {data.updatedAt && readingTime
+                            ? renderDateAndTime(data.updatedAt, readingTime)
+                            : null}
                     </div>
                 ) : null}
 
