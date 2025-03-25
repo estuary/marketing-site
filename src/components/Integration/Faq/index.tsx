@@ -19,40 +19,31 @@ const Faq = ({ sourceConnector }: FaqProps) => {
             setExpanded(isExpanded ? panel : null);
         };
 
-    const modifiedFaqs =
-        sourceConnector.longDescription ?? sourceConnector.shortDescription
-            ? [
-                  faqs[0],
-                  {
-                      questionNumber: 2,
-                      question: `What is ${sourceConnector.title}?`,
-                      content: (
-                          <p>
-                              {sourceConnector.longDescription ??
-                                  sourceConnector.shortDescription}
-                          </p>
-                      ),
-                  },
-                  ...faqs.slice(1),
-              ]
-            : faqs;
-
     return (
         <section className={defaultWrapperGrey}>
             <Container isVertical className={container}>
                 <h2>FAQ</h2>
                 <Wrapper>
-                    {modifiedFaqs.map(({ question, content }, index) => (
-                        <Accordion
-                            key={index + 1}
-                            questionNumber={index + 1}
-                            question={question}
-                            expanded={expanded === `question${index + 1}`}
-                            onChange={handleChange(`question${index + 1}`)}
-                        >
-                            {content}
-                        </Accordion>
-                    ))}
+                    {faqs(sourceConnector).map(
+                        ({ question, content }, index) => {
+                            const questionNumber = index + 1;
+                            return (
+                                <Accordion
+                                    key={questionNumber}
+                                    questionNumber={questionNumber}
+                                    question={question}
+                                    expanded={
+                                        expanded === `question${questionNumber}`
+                                    }
+                                    onChange={handleChange(
+                                        `question${questionNumber}`
+                                    )}
+                                >
+                                    {content}
+                                </Accordion>
+                            );
+                        }
+                    )}
                 </Wrapper>
             </Container>
         </section>

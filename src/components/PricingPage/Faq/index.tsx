@@ -19,17 +19,24 @@ const Faq = () => {
             <Container isVertical>
                 <h2 className={title}>FAQ</h2>
                 <Wrapper>
-                    {faqs.map(({ questionNumber, question, content }) => (
-                        <Accordion
-                            key={questionNumber}
-                            questionNumber={questionNumber}
-                            question={question}
-                            expanded={expanded === `question${questionNumber}`}
-                            onChange={handleChange(`question${questionNumber}`)}
-                        >
-                            {content}
-                        </Accordion>
-                    ))}
+                    {faqs.map(({ question, content }, index) => {
+                        const questionNumber = index + 1;
+                        return (
+                            <Accordion
+                                key={questionNumber}
+                                questionNumber={questionNumber}
+                                question={question}
+                                expanded={
+                                    expanded === `question${questionNumber}`
+                                }
+                                onChange={handleChange(
+                                    `question${questionNumber}`
+                                )}
+                            >
+                                {content}
+                            </Accordion>
+                        );
+                    })}
                 </Wrapper>
             </Container>
         </section>
