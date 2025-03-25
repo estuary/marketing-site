@@ -1,8 +1,10 @@
 import { ConnectorType } from '../../../shared';
 
-interface Connector {
+export interface Connector {
     title: string;
     logo: any;
+    shortDescription?: string;
+    longDescription?: string;
     type: ConnectorType;
 }
 

@@ -3,18 +3,14 @@ import FlowDemoVideo from '../../FlowDemoVideo';
 import { dashboardRegisterUrl } from '../../../../shared';
 import OutboundLinkFilled from '../../LinksAndButtons/OutboundLinkFilled';
 import LinkOutlined from '../../LinksAndButtons/LinkOutlined';
-import {
-    buttonsWrapper,
-    container,
-    description,
-    title,
-} from './styles.module.less';
+import { sectionTitle } from '../styles.module.less';
+import { buttonsWrapper, container, description } from './styles.module.less';
 
 const EstuaryFlowVideo = () => {
     return (
         <section className={defaultWrapperDarkBlue}>
             <div className={container}>
-                <h2 className={title}>
+                <h2 className={sectionTitle}>
                     <span>ESTUARY FLOW</span> IN ACTION
                 </h2>
                 <p className={description}>

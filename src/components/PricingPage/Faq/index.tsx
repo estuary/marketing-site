@@ -1,8 +1,9 @@
 import { useState, SyntheticEvent } from 'react';
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import Container from '../../Container';
-import { title, questionsList } from './styles.module.less';
-import FaqAccordion from './FaqAccordion';
+import Accordion from '../../Faq/Accordion';
+import Wrapper from '../../Faq/Wrapper';
+import { title } from './styles.module.less';
 import { faqs } from './faqs';
 
 const Faq = () => {
@@ -17,9 +18,9 @@ const Faq = () => {
         <section className={defaultWrapperGrey}>
             <Container isVertical>
                 <h2 className={title}>FAQ</h2>
-                <ol className={questionsList}>
+                <Wrapper>
                     {faqs.map(({ questionNumber, question, content }) => (
-                        <FaqAccordion
+                        <Accordion
                             key={questionNumber}
                             questionNumber={questionNumber}
                             question={question}
@@ -27,9 +28,9 @@ const Faq = () => {
                             onChange={handleChange(`question${questionNumber}`)}
                         >
                             {content}
-                        </FaqAccordion>
+                        </Accordion>
                     ))}
-                </ol>
+                </Wrapper>
             </Container>
         </section>
     );

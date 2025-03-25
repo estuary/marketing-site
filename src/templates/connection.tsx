@@ -39,7 +39,8 @@ const Connector = ({
 }: ConnectorProps) => {
     const source_mapped = normalizeConnector(source_connector);
     const dest_mapped = normalizeConnector(destination_connector);
-
+    console.log(source_connector);
+    console.log(destination_connector);
     return (
         <Layout>
             <Hero
@@ -71,7 +72,13 @@ const Connector = ({
             <Testimonials />
             <IncreaseProductivity4x />
             <Spend25xLess />
-            <Faq />
+            <Faq
+                sourceConnector={{
+                    title: source_mapped?.title,
+                    shortDescription: source_mapped?.shortDescription,
+                    longDescription: source_mapped?.longDescription,
+                }}
+            />
             <DataopsMadeSimple />
             <SeeHowSection
                 buttons={
@@ -125,6 +132,8 @@ export const pageQuery = graphql`
                 id
                 externalUrl
                 imageName
+                shortDescription
+                longDescription
                 title
                 logoUrl
                 logo {
@@ -147,6 +156,8 @@ export const pageQuery = graphql`
                 id
                 externalUrl
                 imageName
+                shortDescription
+                longDescription
                 title
                 logoUrl
                 logo {
