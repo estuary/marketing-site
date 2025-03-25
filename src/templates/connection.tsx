@@ -14,6 +14,7 @@ import SeeHowSection from '../components/SeeHowSection';
 import OutboundLinkFilled from '../components/LinksAndButtons/OutboundLinkFilled';
 import { dashboardRegisterUrl } from '../../shared';
 import OpenHubspotModal from '../components/HubSpot/OpenModal';
+import Faq from '../components/Integration/Faq';
 
 export interface ConnectorProps {
     data: {
@@ -65,12 +66,13 @@ const Connector = ({
                     type: dest_mapped?.type,
                 }}
             />
-            <Testimonials />
             <EstuaryFlowVideo />
             <RealTimeAndBatch />
-            <DataopsMadeSimple />
+            <Testimonials />
             <IncreaseProductivity4x />
             <Spend25xLess />
+            <Faq />
+            <DataopsMadeSimple />
             <SeeHowSection
                 buttons={
                     <>

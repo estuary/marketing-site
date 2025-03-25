@@ -1,23 +1,23 @@
 export const estuaryFlowAdvantages = [
     {
-        title: 'Fastest real-time capture with sub-100ms latency.',
+        title: 'Real-time CDC and batch ETL/ELT for flexible, scalable data pipelines.',
     },
     {
-        title: 'Mix and match real-time and batch connectors.',
+        title: 'Sub-100ms latency for instant insights and faster decision-making.',
     },
     {
-        title: 'Most reliable delivery via stream-store-replay.',
+        title: 'No-code pipeline creation with advanced CLI for developers.',
     },
     {
-        title: 'Most flexible materializations that run at your speed of choice.',
+        title: 'Private Link support is available for secure deployments in your own VPC.',
     },
     {
-        title: 'Most automated pipelines with schema evolution.',
+        title: 'Automatically adapts to schema changes without data flow interruptions.',
     },
     {
-        title: 'Most versatile writes that maintain a current view or all change history.',
+        title: 'Stream-store-replay technology ensures continuous data transmission.',
     },
     {
-        title: 'Most scalable pipelines, with true elastic scaling.',
+        title: 'Scale seamlessly while reducing data warehouse costs by up to 40%.',
     },
 ];
