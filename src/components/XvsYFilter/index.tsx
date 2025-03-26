@@ -16,9 +16,9 @@ import {
 } from './styles.module.less';
 
 type Item = {
-    id: string;
-    image?: IGatsbyImageData;
-    title: string;
+    id?: string;
+    image?: IGatsbyImageData | null;
+    title?: string;
 };
 
 interface SelectProps {

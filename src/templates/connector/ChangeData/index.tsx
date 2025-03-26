@@ -16,9 +16,9 @@ import {
 
 type ChangeDataProps = {
     connector: {
-        id: string;
-        title: string;
-        type: ConnectorType;
+        id?: string;
+        title?: string;
+        type?: ConnectorType;
     };
 };
 

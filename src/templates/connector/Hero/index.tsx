@@ -23,9 +23,9 @@ import {
 
 type HeroProps = {
     connector: {
-        title: string;
-        logo: ImageDataLike | null | undefined;
-        type: ConnectorType;
+        title?: string;
+        logo?: ImageDataLike | null | undefined;
+        type?: ConnectorType;
     };
 };
 

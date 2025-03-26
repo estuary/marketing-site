@@ -3,7 +3,7 @@ import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import Container from '../../Container';
 import Accordion from '../../Faq/Accordion';
 import Wrapper from '../../Faq/Wrapper';
-import { Connector } from '../shared';
+import { Connector } from '../../../../shared';
 import { container } from './styles.module.less';
 import { faqs } from './faqs';
 
@@ -24,8 +24,9 @@ const Faq = ({ sourceConnector }: FaqProps) => {
             <Container isVertical className={container}>
                 <h2>FAQ</h2>
                 <Wrapper>
-                    {faqs(sourceConnector).map(
-                        ({ question, content }, index) => {
+                    {faqs(sourceConnector)
+                        .filter((faq) => faq != null)
+                        .map(({ question, content }, index) => {
                             const questionNumber = index + 1;
                             return (
                                 <Accordion
@@ -42,8 +43,7 @@ const Faq = ({ sourceConnector }: FaqProps) => {
                                     {content}
                                 </Accordion>
                             );
-                        }
-                    )}
+                        })}
                 </Wrapper>
             </Container>
         </section>

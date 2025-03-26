@@ -2,6 +2,7 @@
 // (source|materialization)-name
 
 import { Mark } from '@mui/base';
+import { ConnectorType, Connector } from '../shared';
 import {
     fullPricingPerConnector,
     halfPricingPerConnector,
@@ -11,12 +12,16 @@ import {
 // eslint-disable-next-line no-useless-escape
 const CONNECTOR_IMAGE_RE = /(source|materialize)-([a-z0-9\-]+)/;
 
-export const normalizeConnector = (connector: any) => {
+export const normalizeConnector = (
+    connector: Connector | undefined
+): Connector | undefined => {
     if (
         // Exclude any Dekaf connector
-        connector.imageName.includes('ghcr.io/estuary/dekaf') ||
+        // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+        connector?.imageName.includes('ghcr.io/estuary/dekaf') ||
         // Exclude connectors without a tag (Kelkoo)
-        connector?.connectorTagsByConnectorIdList?.length < 1
+        (connector?.connectorTagsByConnectorIdList &&
+            connector.connectorTagsByConnectorIdList.length < 1)
     ) {
         return undefined;
     }
@@ -26,21 +31,21 @@ export const normalizeConnector = (connector: any) => {
     }
 
     const regex_result = connector.imageName.match(CONNECTOR_IMAGE_RE);
-    const type = connector.connectorTagsByConnectorIdList?.[0]?.protocol as
-        | 'capture'
-        | 'materialization';
+    const type = connector.connectorTagsByConnectorIdList?.[0]
+        ?.protocol as ConnectorType;
+
     return {
         id: connector.id,
         externalUrl: connector.externalUrl,
         imageName: connector.imageName,
         shortDescription: connector.shortDescription?.['en-US'],
         longDescription: connector.longDescription?.['en-US'],
-        title: connector.title?.['en-US'],
+        title: connector.title['en-US'],
         logoUrl: connector.logoUrl?.['en-US'],
         logo: connector.logo,
         recommended: connector.recommended,
         type,
-        slugified_name: regex_result[2],
+        slugified_name: regex_result?.[2],
         slug: regex_result
             ? `/${type === 'capture' ? 'source' : 'destination'}/${regex_result[2]}`
             : null,

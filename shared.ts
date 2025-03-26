@@ -247,3 +247,30 @@ export const getSortedSuccessStories = (
 ) => {
     return successStories.sort(sortSuccessStoriesByPriority);
 };
+
+export interface Connector {
+    id: string;
+    externalUrl: string;
+    imageName: string;
+    logo?: {
+        childImageSharp?: {
+            gatsbyImageData: IGatsbyImageData;
+        };
+    };
+    shortDescription?: string;
+    longDescription?: string;
+    title: string;
+    logoUrl?: string;
+    recommended: boolean;
+    connectorTagsByConnectorIdList?: {
+        protocol: string;
+    }[];
+    slug: string | null;
+    type: ConnectorType;
+    slugified_name?: string;
+}
+
+export const getIntegrationSlug = (
+    connectorName1?: string,
+    connectorName2?: string
+) => `/integrations/${connectorName1}-to-${connectorName2}`;

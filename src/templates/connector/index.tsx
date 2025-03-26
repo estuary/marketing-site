@@ -61,9 +61,9 @@ const Connector = ({
                 <Hero
                     connector={{
                         title: mappedConnector?.title,
-                        logo: mappedConnector?.logo
-                            ? mappedConnector?.logo?.childImageSharp
-                                  ?.gatsbyImageData
+                        logo: mappedConnector?.logo?.childImageSharp
+                            ? mappedConnector.logo.childImageSharp
+                                  .gatsbyImageData
                             : null,
                         type: mappedConnector?.type,
                     }}

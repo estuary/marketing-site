@@ -1,6 +1,6 @@
 import OutboundLink from '../../LinksAndButtons/OutboundLink';
-import { Connector } from '../shared';
 import InternalLink from '../../InternalLink';
+import { Connector } from '../../../../shared';
 
 export const faqs = (sourceConnector: Partial<Connector>) => [
     {
@@ -35,18 +35,24 @@ export const faqs = (sourceConnector: Partial<Connector>) => [
             </>
         ),
     },
+    (sourceConnector.longDescription ?? sourceConnector.shortDescription) !=
+    null
+        ? {
+              question: `What is ${sourceConnector.title}?`,
+              content: (
+                  <div
+                      dangerouslySetInnerHTML={{
+                          __html:
+                              sourceConnector.longDescription ??
+                              sourceConnector.shortDescription ??
+                              '',
+                      }}
+                  />
+              ),
+          }
+        : null,
     {
-        questionNumber: 2,
-        question: `What is ${sourceConnector.title}?`,
-        content: (
-            <p>
-                {sourceConnector.longDescription ??
-                    sourceConnector.shortDescription}
-            </p>
-        ),
-    },
-    {
-        question: 'How do I Transfer Data from Snowflake?',
+        question: `How do I Transfer Data from ${sourceConnector.title}?`,
         content: (
             <ol>
                 <li>

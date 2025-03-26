@@ -4,7 +4,12 @@ import { CreatePagesArgs, GatsbyNode } from 'gatsby';
 import { createRemoteFileNode } from 'gatsby-source-filesystem';
 import { SUPABASE_CONNECTION_STRING } from './config';
 import { normalizeConnector } from './src/utils';
-import { getAuthorPathBySlug, getComparisonSlug, Vendor } from './shared';
+import {
+    getAuthorPathBySlug,
+    getComparisonSlug,
+    getIntegrationSlug,
+    Vendor,
+} from './shared';
 
 /**
  * Implement Gatsby's Node APIs in this file.
@@ -439,7 +444,10 @@ const createConnectors: CreateHelper = async (
                     (con) => con.type === 'materialization'
                 )) {
                     createPage({
-                        path: `/integrations/${normalized_connector.slugified_name}-to-${destination_connector.slugified_name}`,
+                        path: getIntegrationSlug(
+                            normalized_connector.slugified_name,
+                            destination_connector.slugified_name
+                        ),
                         component: connectionTemplate,
                         context: {
                             source_id: normalized_connector.id,

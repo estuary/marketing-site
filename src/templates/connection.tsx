@@ -6,13 +6,17 @@ import Hero from '../components/Integration/Hero';
 import ThreeQuickSteps from '../components/Integration/ThreeQuickSteps';
 import Testimonials from '../components/Integration/Testimonials';
 import EstuaryFlowVideo from '../components/Integration/EstuaryFlowVideo';
+import RelatedIntegrations from '../components/Integration/RelatedIntegrations';
 import RealTimeAndBatch from '../components/Integration/RealTimeAndBatch';
 import DataopsMadeSimple from '../components/Integration/DataopsMadeSimple';
 import IncreaseProductivity4x from '../components/Integration/IncreaseProductivity4x';
 import Spend25xLess from '../components/Integration/Spend25xLess';
 import SeeHowSection from '../components/SeeHowSection';
 import OutboundLinkFilled from '../components/LinksAndButtons/OutboundLinkFilled';
-import { dashboardRegisterUrl } from '../../shared';
+import {
+    Connector as GlobalConnectorType,
+    dashboardRegisterUrl,
+} from '../../shared';
 import OpenHubspotModal from '../components/HubSpot/OpenModal';
 import Faq from '../components/Integration/Faq';
 import GettingStartedSection from '../components/GettingStartedSection';
@@ -20,10 +24,10 @@ import GettingStartedSection from '../components/GettingStartedSection';
 export interface ConnectorProps {
     data: {
         source: {
-            connector: any;
+            connector: GlobalConnectorType;
         };
         destination: {
-            connector: any;
+            connector: GlobalConnectorType;
         };
     };
     pageContext: {
@@ -80,6 +84,18 @@ const Connector = ({
                 }}
             />
             <GettingStartedSection />
+            <RelatedIntegrations
+                sourceConnector={{
+                    id: source_mapped?.id,
+                    title: source_mapped?.title,
+                    slugified_name: source_mapped?.slugified_name,
+                }}
+                destConnector={{
+                    id: dest_mapped?.id,
+                    title: dest_mapped?.title,
+                    slugified_name: dest_mapped?.slugified_name,
+                }}
+            />
             <DataopsMadeSimple />
             <SeeHowSection
                 buttons={
