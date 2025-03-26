@@ -72,7 +72,7 @@ export const PopularArticles = () => {
                 ({ id, slug, title, ...rest }: any) => (
                     <Card
                         key={id}
-                        data={{ ...rest, id, slug: `/blog/${slug}` }}
+                        data={{ ...rest, id, title, slug: `/blog/${slug}` }}
                         footerTag="Article"
                         linkId={`${getSlugifiedText(title)}-popular-article/blog-post-page`}
                     />
