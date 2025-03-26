@@ -15,6 +15,7 @@ import OutboundLinkFilled from '../components/LinksAndButtons/OutboundLinkFilled
 import { dashboardRegisterUrl } from '../../shared';
 import OpenHubspotModal from '../components/HubSpot/OpenModal';
 import Faq from '../components/Integration/Faq';
+import GettingStartedSection from '../components/GettingStartedSection';
 
 export interface ConnectorProps {
     data: {
@@ -39,8 +40,7 @@ const Connector = ({
 }: ConnectorProps) => {
     const source_mapped = normalizeConnector(source_connector);
     const dest_mapped = normalizeConnector(destination_connector);
-    console.log(source_connector);
-    console.log(destination_connector);
+
     return (
         <Layout>
             <Hero
@@ -79,6 +79,7 @@ const Connector = ({
                     longDescription: source_mapped?.longDescription,
                 }}
             />
+            <GettingStartedSection />
             <DataopsMadeSimple />
             <SeeHowSection
                 buttons={

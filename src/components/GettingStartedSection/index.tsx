@@ -1,23 +1,23 @@
-import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
-import EstuaryLogo from '../../../svgs/estuary-icon.svg';
-import FileIcon from '../../../svgs/file.svg';
-import SlackIcon from '../../../svgs/slack-outline.svg';
-import RecordIcon from '../../../svgs/record-outlined.svg';
+import { defaultWrapperDark } from '../../globalStyles/wrappers.module.less';
+import EstuaryLogo from '../../svgs/estuary-icon.svg';
+import FileIcon from '../../svgs/file.svg';
+import SlackIcon from '../../svgs/slack-outline.svg';
+import RecordIcon from '../../svgs/record-outlined.svg';
 import {
     dashboardRegisterUrl,
     docsPageUrl,
     slackUrl,
     webinarsUrl,
-} from '../../../../shared';
-import BlogBanner from '../../BlogBanner';
-import Container from '../../Container';
+} from '../../../shared';
+import BlogBanner from '../BlogBanner';
+import Container from '../Container';
 import { container } from './styles.module.less';
 import FeatureCard from './FeatureCard';
 
 const iconColor = 'var(--blue)';
 const iconSize = 28;
 
-const GettingStarted = () => {
+const GettingStartedSection = () => {
     return (
         <section className={defaultWrapperDark}>
             <Container isVertical className={container}>
@@ -106,4 +106,4 @@ const GettingStarted = () => {
     );
 };
 
-export default GettingStarted;
+export default GettingStartedSection;
