@@ -24,7 +24,7 @@ const ThreeQuickSteps = ({ sourceConnector, destConnector }: Connectors) => {
                                 connector as Your Source
                             </>
                         }
-                        description={`Log in to your Estuary account and search for the ${sourceConnector.title} connector.`}
+                        description={`You can load your data into ${destConnector.title} by creating a new materialization connector.`}
                         step={1}
                     />
                     <Step
@@ -34,7 +34,7 @@ const ThreeQuickSteps = ({ sourceConnector, destConnector }: Connectors) => {
                                 the Destination
                             </>
                         }
-                        description={`Give it a name and configure your connection details for ${sourceConnector.title}, then press save to finish.`}
+                        description="Enter the connector name and connection details."
                         step={2}
                     />
                     <Step
@@ -43,7 +43,7 @@ const ThreeQuickSteps = ({ sourceConnector, destConnector }: Connectors) => {
                                 Monitor and Manage Your <span>Data Flow</span>
                             </>
                         }
-                        description={`Once materialization is complete, Estuary Flow will automatically sync your ${sourceConnector.title} data into ${destConnector.title}. You can monitor data flow in the Collections tab and manage updates or troubleshoot if needed.`}
+                        description={`Link the ${sourceConnector.title} connector, save and you're done!`}
                         step={3}
                     />
                 </StepCards>
