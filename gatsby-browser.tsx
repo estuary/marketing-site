@@ -5,9 +5,6 @@ import './src/highlighting-atom-one-dark.css';
 // global css
 import './src/style.less';
 
-// Highlighting for code blocks
-// import "prismjs/themes/prism.css"
-
 import WrapPageElementComponent from './src/components/WrapPageElementComponent';
 
 export const wrapPageElement = ({ element }) => (
