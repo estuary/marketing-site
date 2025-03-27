@@ -389,7 +389,7 @@ const createConnectors: CreateHelper = async (
             allConnectors: {
                 nodes: any[];
             };
-        };
+        }; // TODO: Are we using the shortDescription and longDescription here? Also check the other properties.
     }>(`
         {
             postgres {

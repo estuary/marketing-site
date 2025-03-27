@@ -1,4 +1,4 @@
-import { GatsbyImage, StaticImage, getImage } from 'gatsby-plugin-image';
+import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
 import ActiveUsersIcon from '../../../svgs/metric-active-users.svg';
 import LatencyIcon from '../../../svgs/metric-latency.svg';
 import OfConnectorsIcon from '../../../svgs/metric-of-connectors.svg';
@@ -32,16 +32,6 @@ const metricIconColor = 'var(--white)';
 const connectorIconSize = 64;
 
 const Hero = ({ sourceConnector, destConnector }: Connectors) => {
-    const sourceConnectorLogo = sourceConnector.logo?.childImageSharp
-        ?.gatsbyImageData
-        ? getImage(sourceConnector.logo.childImageSharp.gatsbyImageData)
-        : null;
-
-    const destinationConnectorLogo = destConnector.logo?.childImageSharp
-        ?.gatsbyImageData
-        ? getImage(destConnector.logo.childImageSharp.gatsbyImageData)
-        : null;
-
     return (
         <section className={defaultWrapperDarkBlue}>
             <Container className={container}>
@@ -74,9 +64,19 @@ const Hero = ({ sourceConnector, destConnector }: Connectors) => {
                     <div className={backgroundImageWraper}>
                         <div className={semiCircleLeftSide}>
                             <div className={bgSideImageWrapper}>
-                                {sourceConnectorLogo ? (
+                                {sourceConnector.logo?.extension === 'svg' ? (
+                                    <img
+                                        src={sourceConnector.logo.publicURL}
+                                        alt={`${sourceConnector.title} logo`}
+                                        loading="eager"
+                                        className={bgImage}
+                                    />
+                                ) : sourceConnector.logo?.childImageSharp ? (
                                     <GatsbyImage
-                                        image={sourceConnectorLogo}
+                                        image={
+                                            sourceConnector.logo.childImageSharp
+                                                .gatsbyImageData
+                                        }
                                         alt={`${sourceConnector.title} logo`}
                                         loading="eager"
                                         className={bgImage}
@@ -97,9 +97,19 @@ const Hero = ({ sourceConnector, destConnector }: Connectors) => {
                         </div>
                         <div className={semiCircleRightSide}>
                             <div className={bgSideImageWrapper}>
-                                {destinationConnectorLogo ? (
+                                {destConnector.logo?.extension === 'svg' ? (
+                                    <img
+                                        src={destConnector.logo.publicURL}
+                                        alt={`${destConnector.title} logo`}
+                                        loading="eager"
+                                        className={bgImage}
+                                    />
+                                ) : destConnector.logo?.childImageSharp ? (
                                     <GatsbyImage
-                                        image={destinationConnectorLogo}
+                                        image={
+                                            destConnector.logo.childImageSharp
+                                                .gatsbyImageData
+                                        }
                                         alt={`${destConnector.title} logo`}
                                         loading="eager"
                                         className={bgImage}

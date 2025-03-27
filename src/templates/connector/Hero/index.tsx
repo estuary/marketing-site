@@ -1,11 +1,6 @@
-import {
-    GatsbyImage,
-    ImageDataLike,
-    StaticImage,
-    getImage,
-} from 'gatsby-plugin-image';
+import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
 import clsx from 'clsx';
-import { ConnectorType } from '../../../../shared';
+import { Connector, ConnectorType } from '../../../../shared';
 import LightSwoopingLinesRightDirectionBackground from '../../../components/BackgroundImages/LightSwoopingLinesRightDirectionBackground';
 import Container from '../../../components/Container';
 import ConnectorLogoPlaceholder from '../../../components/ConnectorLogoPlaceholder';
@@ -19,19 +14,18 @@ import {
     logoContainer,
     logoContainerCapture,
     textBaseStyling,
+    svgLogoSize,
 } from './styles.module.less';
 
 type HeroProps = {
     connector: {
         title?: string;
-        logo?: ImageDataLike | null | undefined;
+        logo?: Connector['logo'];
         type?: ConnectorType;
     };
 };
 
 const Hero = ({ connector: { title, logo, type } }: HeroProps) => {
-    const logoImage = logo ? getImage(logo) : null;
-
     return (
         <LightSwoopingLinesRightDirectionBackground>
             <Container>
@@ -60,13 +54,21 @@ const Hero = ({ connector: { title, logo, type } }: HeroProps) => {
                     <div
                         className={clsx(
                             logoContainer,
-                            type === 'capture' ? logoContainerCapture : null
+                            type === 'capture' ? logoContainerCapture : null,
+                            logo?.extension === 'svg' ? svgLogoSize : null
                         )}
                     >
-                        {logoImage ? (
+                        {logo?.extension === 'svg' ? (
+                            <img
+                                src={logo.publicURL}
+                                alt={`${title} logo`}
+                                loading="eager"
+                            />
+                        ) : logo?.childImageSharp?.gatsbyImageData ? (
                             <GatsbyImage
                                 alt={`${title} logo`}
-                                image={logoImage}
+                                image={logo.childImageSharp.gatsbyImageData}
+                                loading="eager"
                             />
                         ) : (
                             <ConnectorLogoPlaceholder connectorType={type} />
@@ -81,6 +83,7 @@ const Hero = ({ connector: { title, logo, type } }: HeroProps) => {
                                 imgStyle={{
                                     objectFit: 'contain',
                                 }}
+                                loading="eager"
                             />
                         ) : (
                             <StaticImage
@@ -90,6 +93,7 @@ const Hero = ({ connector: { title, logo, type } }: HeroProps) => {
                                 imgStyle={{
                                     objectFit: 'contain',
                                 }}
+                                loading="eager"
                             />
                         )}
                     </div>

@@ -62,13 +62,9 @@ const Connector = ({
             <ThreeQuickSteps
                 sourceConnector={{
                     title: source_mapped?.title,
-                    logo: source_mapped?.logo,
-                    type: source_mapped?.type,
                 }}
                 destConnector={{
                     title: dest_mapped?.title,
-                    logo: dest_mapped?.logo,
-                    type: dest_mapped?.type,
                 }}
             />
             <EstuaryFlowVideo />
@@ -161,6 +157,8 @@ export const pageQuery = graphql`
                             quality: 95
                         )
                     }
+                    extension
+                    publicURL
                 }
                 recommended
                 connectorTagsByConnectorIdList {
@@ -185,6 +183,8 @@ export const pageQuery = graphql`
                             quality: 95
                         )
                     }
+                    extension
+                    publicURL
                 }
                 recommended
                 connectorTagsByConnectorIdList {

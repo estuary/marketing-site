@@ -38,6 +38,8 @@ interface CardProps {
                 childImageSharp: {
                     gatsbyImageData: IGatsbyImageData;
                 };
+                extension?: string;
+                publicURL?: string;
             };
         };
     };
@@ -53,10 +55,6 @@ const getReadingTime = (body?: CardProps['data']['body']) => {
               ''
           )
         : null;
-};
-
-const getCardImage = (hero: CardProps['data']['hero']) => {
-    return hero.localFile.childImageSharp.gatsbyImageData;
 };
 
 const renderTags = (tags?: CardProps['data']['tags']) => {
@@ -135,24 +133,31 @@ const Card = ({
     hasImgBackground = false,
     linkId,
 }: CardProps) => {
-    const cardImage = getCardImage(data.hero);
     const readingTime = getReadingTime(data.body);
 
-    const imageProps = {
-        image: cardImage,
+    const commonImageProps = {
         alt: data.hero.alternativeText ?? 'Card image',
         className: cardImageStyle,
     };
+
+    const cardImageLocalFile = data.hero.localFile;
+    const cardImage =
+        cardImageLocalFile.extension === 'svg' ? (
+            <img src={cardImageLocalFile.publicURL} {...commonImageProps} />
+        ) : (
+            <GatsbyImage
+                image={cardImageLocalFile.childImageSharp.gatsbyImageData}
+                {...commonImageProps}
+            />
+        );
 
     return (
         <li key={data.id}>
             <Link id={linkId} to={data.slug} className={container}>
                 {hasImgBackground ? (
-                    <div className={imgWrapper}>
-                        <GatsbyImage {...imageProps} />
-                    </div>
+                    <div className={imgWrapper}>{cardImage}</div>
                 ) : (
-                    <GatsbyImage {...imageProps} />
+                    cardImage
                 )}
 
                 {!!data.tags || (data.updatedAt && readingTime) ? (

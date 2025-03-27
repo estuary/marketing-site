@@ -1,8 +1,8 @@
 import { InputLabel, FormControl, MenuItem, Select } from '@mui/material';
 import clsx from 'clsx';
-import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import LinkFilled from '../LinksAndButtons/LinkFilled';
-import { getSlugifiedText } from '../../../shared';
+import { Connector, getSlugifiedText } from '../../../shared';
 import ConnectorLogoPlaceholder from '../ConnectorLogoPlaceholder';
 import {
     wrapper,
@@ -17,7 +17,7 @@ import {
 
 type Item = {
     id?: string;
-    image?: IGatsbyImageData | null;
+    image?: Connector['logo'];
     title?: string;
 };
 
@@ -108,9 +108,18 @@ const XvsYFilter = ({
                             key={item.id}
                             value={item.id}
                         >
-                            {item.image ? (
+                            {item.image?.extension === 'svg' ? (
+                                <img
+                                    src={item.image.publicURL}
+                                    alt={`${item.title} Logo`}
+                                    className={itemImage}
+                                />
+                            ) : item.image?.childImageSharp?.gatsbyImageData ? (
                                 <GatsbyImage
-                                    image={item.image}
+                                    image={
+                                        item.image.childImageSharp
+                                            .gatsbyImageData
+                                    }
                                     alt={`${item.title} Logo`}
                                     className={itemImage}
                                 />
@@ -153,9 +162,18 @@ const XvsYFilter = ({
                             key={item.id}
                             value={item.id}
                         >
-                            {item.image ? (
+                            {item.image?.extension === 'svg' ? (
+                                <img
+                                    src={item.image.publicURL}
+                                    alt={`${item.title} Logo`}
+                                    className={itemImage}
+                                />
+                            ) : item.image?.childImageSharp?.gatsbyImageData ? (
                                 <GatsbyImage
-                                    image={item.image}
+                                    image={
+                                        item.image.childImageSharp
+                                            .gatsbyImageData
+                                    }
                                     alt={`${item.title} Logo`}
                                     className={itemImage}
                                 />

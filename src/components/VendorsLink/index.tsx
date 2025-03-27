@@ -20,7 +20,7 @@ const createVendorSelectItems = (vendors: Vendor[], excludeVendorId: string) =>
         .filter((vendor) => vendor.id !== excludeVendorId)
         .map((vendor) => ({
             id: vendor.id,
-            image: vendor.logo?.localFile.childImageSharp?.gatsbyImageData,
+            image: vendor.logo.localFile,
             title: vendor.name,
         }));
 

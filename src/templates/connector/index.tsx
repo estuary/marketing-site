@@ -61,10 +61,7 @@ const Connector = ({
                 <Hero
                     connector={{
                         title: mappedConnector?.title,
-                        logo: mappedConnector?.logo?.childImageSharp
-                            ? mappedConnector.logo.childImageSharp
-                                  .gatsbyImageData
-                            : null,
+                        logo: mappedConnector?.logo,
                         type: mappedConnector?.type,
                     }}
                 />
@@ -135,6 +132,8 @@ export const pageQuery = graphql`
                             quality: 100
                         )
                     }
+                    extension
+                    publicURL
                 }
                 recommended
                 connectorTagsByConnectorIdList {

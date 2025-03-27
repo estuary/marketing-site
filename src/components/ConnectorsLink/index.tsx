@@ -42,6 +42,8 @@ const ConnectorsLink = ({
                                     quality: 95
                                 )
                             }
+                            publicURL
+                            extension
                         }
                         recommended
                         connectorTagsByConnectorIdList {
@@ -86,17 +88,13 @@ const ConnectorsLink = ({
 
     const sourceSelectItems = captureConnectors.map((c) => ({
         id: c?.id,
-        image: c?.logo?.childImageSharp
-            ? c.logo.childImageSharp.gatsbyImageData
-            : null,
+        image: c?.logo,
         title: c?.title,
     }));
 
     const destinationSelectItems = materializationConnectors.map((c) => ({
         id: c?.id,
-        image: c?.logo?.childImageSharp
-            ? c.logo.childImageSharp.gatsbyImageData
-            : null,
+        image: c?.logo,
         title: c?.title,
     }));
 
