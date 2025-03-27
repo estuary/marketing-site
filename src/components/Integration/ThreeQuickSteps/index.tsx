@@ -24,7 +24,7 @@ const ThreeQuickSteps = ({ sourceConnector, destConnector }: Connectors) => {
                                 connector as Your Source
                             </>
                         }
-                        description={`Log in to your Estuary Flow account and go to Sources. Click + NEW CAPTURE, search for the ${sourceConnector.title} connector, and select Real-time or Batch. Enter the capture name, ${sourceConnector.title} account, username, and password. Click NEXT, then SAVE AND PUBLISH to finish.`}
+                        description={`Log in to your Estuary account and search for the ${sourceConnector.title} connector.`}
                         step={1}
                     />
                     <Step
@@ -34,7 +34,7 @@ const ThreeQuickSteps = ({ sourceConnector, destConnector }: Connectors) => {
                                 the Destination
                             </>
                         }
-                        description={`After creating the capture, click MATERIALIZE COLLECTIONS or go to Destinations and click + NEW MATERIALIZATION. Search for the ${destConnector.title} connector, enter the materialization name, workspace URL, database, username, and password. Link the ${sourceConnector.title} capture under Source Collections, then click NEXT and SAVE AND PUBLISH.`}
+                        description={`Give it a name and configure your connection details for ${sourceConnector.title}, then press save to finish.`}
                         step={2}
                     />
                     <Step
