@@ -19,20 +19,21 @@ jobs:
               with:
                   node-version: '18.x'
 
-            - name: Gatsby Cache
-              uses: jongwooo/gatsby-cache@v1.4.6
+            # Need to look into this action
+            # - name: Gatsby Cache
+            #   uses: jongwooo/gatsby-cache@v1.4.6
 
-            # - name: Caching
-            #   id: gatsby-cache-build
-            #   uses: actions/cache@v4
-            #   with:
-            #       path: |
-            #           node_modules
-            #           .cache
-            #           public
-            #       key: ${{ runner.os }}-gatsby-build-preview-${{github.head_ref}}-${{ github.run_id }}
-            #       restore-keys: |
-            #           ${{ runner.os }}-gatsby-build-preview-${{github.head_ref}}-
+            - name: Caching
+              id: gatsby-cache-build
+              uses: actions/cache@v4
+              with:
+                  path: |
+                      node_modules
+                      .cache
+                      public
+                  key: ${{ runner.os }}-gatsby-build-preview-${{github.head_ref}}-${{ github.run_id }}
+                  restore-keys: |
+                      ${{ runner.os }}-gatsby-build-preview-${{github.head_ref}}-
 
             - run: yarn install --frozen-lockfile
 
