@@ -1,4 +1,15 @@
-export const handleOutboundLinkClick = (e, props) => {
+import { MouseEvent } from 'react';
+
+interface OutboundLinkProps
+    extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+    onClick?: (event: MouseEvent<HTMLAnchorElement>) => void;
+    href?: string;
+}
+
+export const handleOutboundLinkClick = (
+    e: MouseEvent<HTMLAnchorElement>,
+    props: OutboundLinkProps
+) => {
     if (typeof props.onClick === 'function') {
         props.onClick(e);
     }
@@ -20,22 +31,25 @@ export const handleOutboundLinkClick = (e, props) => {
         redirect = false;
     }
 
+    const href = props.href;
+    if (!href) return false;
+
     const hasGtag =
         typeof window !== 'undefined' && typeof window.gtag === 'function';
 
     if (hasGtag) {
         window.gtag('event', 'click', {
             event_category: 'outbound',
-            event_label: props.href,
+            event_label: href,
             transport_type: redirect ? 'beacon' : '',
             event_callback: () => {
                 if (redirect) {
-                    document.location = props.href;
+                    window.location.href = href;
                 }
             },
         });
     } else if (redirect) {
-        document.location = props.href;
+        window.location.href = href;
     }
 
     return false;

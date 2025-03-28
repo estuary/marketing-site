@@ -4,7 +4,7 @@ import SourceConnectorIcon from '../../svgs/connector-logo-placeholder.svg';
 // import DestinationConnectorIcon from '../../svgs/connector-logo-placeholder.svg';
 
 interface ConnectorLogoPlaceholder {
-    connectorType: ConnectorType;
+    connectorType?: ConnectorType;
     connectorIconSize?: number;
     className?: string;
 }

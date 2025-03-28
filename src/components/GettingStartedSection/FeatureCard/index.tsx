@@ -1,7 +1,8 @@
 import { ReactNode } from 'react';
-import ChevronRightIcon from '../../../../svgs/chevron-right.svg';
-import OutboundLink from '../../../LinksAndButtons/OutboundLink';
-import { container, iconWrapper } from './styles.module.less';
+import clsx from 'clsx';
+import ChevronRightIcon from '../../../svgs/chevron-right.svg';
+import OutboundLink from '../../LinksAndButtons/OutboundLink';
+import { container, darkContainer, iconWrapper } from './styles.module.less';
 
 interface FeatureCardProps {
     icon: ReactNode;
@@ -12,11 +13,18 @@ interface FeatureCardProps {
         title: string;
         href: string;
     };
+    isDarkTheme?: boolean;
 }
 
-const FeatureCard = ({ icon, title, description, link }: FeatureCardProps) => {
+const FeatureCard = ({
+    icon,
+    title,
+    description,
+    link,
+    isDarkTheme = false,
+}: FeatureCardProps) => {
     return (
-        <li className={container}>
+        <li className={clsx(container, isDarkTheme ? darkContainer : null)}>
             <div className={iconWrapper}>{icon}</div>
             <h3>{title}</h3>
             <p>{description}</p>

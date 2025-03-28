@@ -16,6 +16,8 @@ type ShareArticleProps = {
     sectionTitle?: string | null;
 };
 
+const linkIdSuffix = '/share-this-article';
+
 const ShareArticle = ({
     article: { title, slug },
     sectionTitle = 'Share this article',
@@ -35,6 +37,7 @@ const ShareArticle = ({
             <div className={socialButtonsWrapper}>
                 <CopyToClipboardButton contentToCopy={articleUrl} />
                 <OutboundLink
+                    id={`linkedin${linkIdSuffix}`}
                     target="_blank"
                     aria-label={getSocialLinkAriaLabel('Linkedin')}
                     href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURI(articleUrl)}`}
@@ -43,6 +46,7 @@ const ShareArticle = ({
                     <LinkedinOutlinedIcon />
                 </OutboundLink>
                 <OutboundLink
+                    id={`twitter${linkIdSuffix}`}
                     target="_blank"
                     aria-label={getSocialLinkAriaLabel('X (Twitter)')}
                     href={`https://twitter.com/intent/tweet?url=${encodeURI(articleUrl)}&text=${encodeURI(`${shareMessage}:`)}`}
@@ -51,6 +55,7 @@ const ShareArticle = ({
                     <TwitterXOutlinedIcon />
                 </OutboundLink>
                 <OutboundLink
+                    id={`facebook${linkIdSuffix}`}
                     target="_blank"
                     aria-label={getSocialLinkAriaLabel('Facebook')}
                     href={`https://facebook.com/sharer/sharer.php?u=${encodeURI(articleUrl)}`}
@@ -59,6 +64,7 @@ const ShareArticle = ({
                     <FacebookOutlinedIcon />
                 </OutboundLink>
                 <OutboundLink
+                    id={`email${linkIdSuffix}`}
                     target="_blank"
                     aria-label={getSocialLinkAriaLabel('email')}
                     href={`mailto:?subject=${encodeURI('Checkout this amazing article!')}&body=${encodeURI(`${`${shareMessage}:`} ${articleUrl}`)}`}

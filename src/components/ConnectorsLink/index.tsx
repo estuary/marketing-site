@@ -42,6 +42,8 @@ const ConnectorsLink = ({
                                     quality: 95
                                 )
                             }
+                            publicURL
+                            extension
                         }
                         recommended
                         connectorTagsByConnectorIdList {
@@ -58,8 +60,8 @@ const ConnectorsLink = ({
             .filter((connector) => connector !== undefined);
 
         return [
-            mapped.filter((connector) => connector.type === 'capture'),
-            mapped.filter((connector) => connector.type === 'materialization'),
+            mapped.filter((connector) => connector?.type === 'capture'),
+            mapped.filter((connector) => connector?.type === 'materialization'),
         ];
     }, [connectors]);
 
@@ -72,8 +74,8 @@ const ConnectorsLink = ({
 
     const detailsHref = useMemo(() => {
         if (sourceId && destinationId) {
-            return `/integrations/${captureConnectors.find((c) => c.id === sourceId)?.slugified_name}-to-${
-                materializationConnectors.find((c) => c.id === destinationId)
+            return `/integrations/${captureConnectors.find((c) => c?.id === sourceId)?.slugified_name}-to-${
+                materializationConnectors.find((c) => c?.id === destinationId)
                     ?.slugified_name
             }/`;
         } else {
@@ -85,15 +87,15 @@ const ConnectorsLink = ({
     const handleDestinationChange = (value) => setDestinationId(value);
 
     const sourceSelectItems = captureConnectors.map((c) => ({
-        id: c.id,
-        image: c.logo ? c.logo.childImageSharp.gatsbyImageData : null,
-        title: c.title,
+        id: c?.id,
+        image: c?.logo,
+        title: c?.title,
     }));
 
     const destinationSelectItems = materializationConnectors.map((c) => ({
-        id: c.id,
-        image: c.logo ? c.logo.childImageSharp.gatsbyImageData : null,
-        title: c.title,
+        id: c?.id,
+        image: c?.logo,
+        title: c?.title,
     }));
 
     return (

@@ -7,8 +7,8 @@ import { container, containerPreTitleWrapper } from './styles.module.less';
 
 type ContentProps = {
     connector: {
-        title: string;
-        type: ConnectorType;
+        title?: string;
+        type?: ConnectorType;
     };
 };
 

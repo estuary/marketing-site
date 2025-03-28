@@ -1,12 +1,12 @@
 import {
-    Accordion,
+    Accordion as MuiAccordion,
     AccordionDetails,
-    AccordionProps,
+    AccordionProps as MuiAccordionProps,
     AccordionSummary,
 } from '@mui/material';
 import clsx from 'clsx';
-import PlusSign from '../../../../svgs/plus-sign.svg';
-import MinusSign from '../../../../svgs/minus-sign.svg';
+import PlusSign from '../../../svgs/plus-sign.svg';
+import MinusSign from '../../../svgs/minus-sign.svg';
 import {
     answerWrapper,
     accordion,
@@ -16,20 +16,20 @@ import {
     isExpandedStyle,
 } from './styles.module.less';
 
-interface FaqAccordion extends AccordionProps {
+interface AccordionProps extends MuiAccordionProps {
     question: string;
     questionNumber: number;
 }
 
-const FaqAccordion = ({
+const Accordion = ({
     questionNumber,
     question,
     children,
     expanded,
     ...rest
-}: FaqAccordion) => {
+}: AccordionProps) => {
     return (
-        <Accordion
+        <MuiAccordion
             key={questionNumber}
             elevation={0}
             className={accordion}
@@ -75,8 +75,8 @@ const FaqAccordion = ({
             <AccordionDetails className={answerWrapper}>
                 {children}
             </AccordionDetails>
-        </Accordion>
+        </MuiAccordion>
     );
 };
 
-export default FaqAccordion;
+export default Accordion;

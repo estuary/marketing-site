@@ -28,17 +28,31 @@ const Hero = ({ vendors }: SectionOneProps) => {
                         placeholder="blurred"
                         quality={100}
                     />
-                    {vendors.slice(0, 9).map((vendor) => (
-                        <GatsbyImage
-                            key={vendor.id}
-                            alt={`${vendor.name} logo`}
-                            image={
-                                vendor.logo.localFile.childImageSharp
-                                    .gatsbyImageData
-                            }
-                            loading="eager"
-                        />
-                    ))}
+                    {vendors.slice(0, 9).map((vendor) => {
+                        const vendorLogoLocalFile = vendor.logo.localFile;
+
+                        return (
+                            // TODO: Maybe we need to create a function to not duplicate this condition.
+                            vendorLogoLocalFile.extension === 'svg' ? (
+                                <img
+                                    key={vendor.id}
+                                    alt={`${vendor.name} logo`}
+                                    src={vendorLogoLocalFile.publicURL}
+                                    loading="eager"
+                                />
+                            ) : vendorLogoLocalFile.childImageSharp ? (
+                                <GatsbyImage
+                                    key={vendor.id}
+                                    alt={`${vendor.name} logo`}
+                                    image={
+                                        vendorLogoLocalFile.childImageSharp
+                                            .gatsbyImageData
+                                    }
+                                    loading="eager"
+                                />
+                            ) : null
+                        );
+                    })}
                 </div>
             </Container>
         </section>

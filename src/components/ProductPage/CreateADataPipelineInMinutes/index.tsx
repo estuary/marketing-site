@@ -3,8 +3,9 @@ import { StaticImage } from 'gatsby-plugin-image';
 import FlowDemoVideo from '../../FlowDemoVideo';
 import Container from '../../Container';
 import { sectionTopBottomPadding } from '../../../globalStyles/sections.module.less';
-import Step from './Step';
-import { steps, textWrapper } from './styles.module.less';
+import Step from '../../StepCards/Step';
+import StepCards from '../../StepCards';
+import { textWrapper } from './styles.module.less';
 
 const CreateADataPipelineInMinutes = () => {
     return (
@@ -19,12 +20,12 @@ const CreateADataPipelineInMinutes = () => {
                         many destinations in minutes.
                     </p>
                 </div>
-                <div className={steps}>
+                <StepCards>
                     <Step
-                        number={1}
-                        text="Add 100s of sources and destinations using no-code connectors for streaming CDC, real-time, batch, and SaaS."
+                        title="1"
+                        description="Add 100s of sources and destinations using no-code connectors for streaming CDC, real-time, batch, and SaaS."
                         link={<Link to="/integrations">see connectors</Link>}
-                        icon={
+                        step={
                             <StaticImage
                                 placeholder="none"
                                 alt="Create a data pipeline - Step 1"
@@ -33,9 +34,9 @@ const CreateADataPipelineInMinutes = () => {
                         }
                     />
                     <Step
-                        number={2}
-                        text="Choose any speed for each connection from real-time to hour+ batch; schedule fast updates when you need them to save money."
-                        icon={
+                        title="2"
+                        description="Choose any speed for each connection from real-time to hour+ batch; schedule fast updates when you need them to save money."
+                        step={
                             <StaticImage
                                 placeholder="none"
                                 alt="Create a data pipeline - Step 2"
@@ -44,9 +45,9 @@ const CreateADataPipelineInMinutes = () => {
                         }
                     />
                     <Step
-                        number={3}
-                        text="Write in-place updates or the full change history into a destination."
-                        icon={
+                        title="3"
+                        description="Write in-place updates or the full change history into a destination."
+                        step={
                             <StaticImage
                                 placeholder="none"
                                 alt="Create a data pipeline - Step 3"
@@ -54,7 +55,7 @@ const CreateADataPipelineInMinutes = () => {
                             />
                         }
                     />
-                </div>
+                </StepCards>
                 <FlowDemoVideo />
             </Container>
         </section>

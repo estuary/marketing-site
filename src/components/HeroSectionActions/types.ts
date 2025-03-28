@@ -3,6 +3,7 @@ export interface CommonCtaProps {
 }
 
 export interface ContactUsProps extends CommonCtaProps {
-    href?: string;
     pageId: string;
+    href?: string;
+    title?: string;
 }

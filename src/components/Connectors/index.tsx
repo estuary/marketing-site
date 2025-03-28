@@ -78,7 +78,15 @@ const ConnectorCard = ({
         >
             <div className={connectorCard}>
                 <div className={connectorCardTop}>
-                    {logo?.childImageSharp?.gatsbyImageData ? (
+                    {logo?.extension === 'svg' ? (
+                        <img
+                            src={logo.publicURL}
+                            alt={`${title} Logo`}
+                            className={connectorLogoClassName}
+                            loading="eager"
+                            width={53}
+                        />
+                    ) : logo?.childImageSharp?.gatsbyImageData ? (
                         <GatsbyImage
                             image={logo.childImageSharp.gatsbyImageData}
                             alt={`${title} Logo`}
@@ -118,8 +126,8 @@ const ConnectorCard = ({
                     ) : null}
                 </div>
                 <h4>{title}</h4>
-                {shortDescription?.length > 0 ? (
-                    <p>{truncate(shortDescription || '', 100)}</p>
+                {shortDescription && shortDescription.length > 0 ? (
+                    <p>{truncate(shortDescription, 100)}</p>
                 ) : null}
                 <div style={{ flexGrow: 1 }} />
                 <span className={connectorCardReadMore}>
@@ -166,6 +174,8 @@ export const Connectors = ({
                                     width: 53
                                 )
                             }
+                            publicURL
+                            extension
                         }
                         recommended
                         connectorTagsByConnectorIdList {

@@ -1,15 +1,14 @@
-import { ReactNode } from 'react';
+import { ReactNode, AnchorHTMLAttributes } from 'react';
+import clsx from 'clsx';
 import { linkStyling } from './styles.module.less';
 
-interface InternalLinkProps {
-    id?: string;
-    href: string;
+interface InternalLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
     children: ReactNode;
 }
 
-const InternalLink = ({ id, children, href }: InternalLinkProps) => {
+const InternalLink = ({ children, className, ...rest }: InternalLinkProps) => {
     return (
-        <a id={id} href={href} className={linkStyling}>
+        <a className={clsx(linkStyling, className)} {...rest}>
             {children}
         </a>
     );

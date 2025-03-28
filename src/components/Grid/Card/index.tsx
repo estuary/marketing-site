@@ -1,6 +1,6 @@
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { Link } from 'gatsby';
 import { AvatarGroup } from '@mui/material';
+import clsx from 'clsx';
 import ArrowRight2 from '../../../svgs/arrow-right-2.svg';
 import Avatar from '../../Avatar';
 import {
@@ -14,30 +14,10 @@ import {
     dot,
     authorInfo,
     imgWrapper,
+    darkContainer,
 } from './styles.module.less';
-
-interface CardProps {
-    data: {
-        id: string;
-        slug: string;
-        title: string;
-        description?: string;
-        updatedAt: string;
-        body?: {
-            data: {
-                childMarkdownRemark: {
-                    fields: { readingTime: { text: string } };
-                };
-            };
-        };
-        tags?: { type: string; name: string }[];
-        authors?: { id: string; name: string; role?: string; picture?: any }[];
-        hero: { alternativeText?: string; localFile: any };
-    };
-    footerTag?: string;
-    hasImgBackground?: boolean;
-    linkId: string;
-}
+import { CardProps } from './shared';
+import CardLink from './Link';
 
 const getReadingTime = (body?: CardProps['data']['body']) => {
     return body
@@ -48,12 +28,8 @@ const getReadingTime = (body?: CardProps['data']['body']) => {
         : null;
 };
 
-const getCardImage = (hero: CardProps['data']['hero']) => {
-    return hero.localFile?.childImageSharp?.gatsbyImageData;
-};
-
 const renderTags = (tags?: CardProps['data']['tags']) => {
-    if (!tags || tags.length <= 1) return null;
+    if (!tags || tags.length < 1) return null;
     return <span className={cardTag}>{tags[0].name}</span>;
 };
 
@@ -75,22 +51,17 @@ const renderAuthors = (authors: CardProps['data']['authors']) => {
     if (authors.length > 1) {
         return (
             <AvatarGroup max={3}>
-                {authors.map((author) => {
-                    const authorImage =
-                        author.picture &&
-                        getImage(
+                {authors.map((author) => (
+                    <Avatar
+                        key={author.id}
+                        image={
                             author.picture.localFile.childImageSharp
                                 .gatsbyImageData
-                        );
-                    return (
-                        <Avatar
-                            key={author.id}
-                            image={authorImage}
-                            alt={`Picture of ${author.name}`}
-                            name={author.name}
-                        />
-                    );
-                })}
+                        }
+                        alt={`Picture of ${author.name}`}
+                        name={author.name}
+                    />
+                ))}
             </AvatarGroup>
         );
     }
@@ -127,31 +98,58 @@ const Card = ({
     footerTag,
     hasImgBackground = false,
     linkId,
+    isDarkTheme,
+    containerClassName,
+    target,
 }: CardProps) => {
-    const cardImage = getCardImage(data.hero);
     const readingTime = getReadingTime(data.body);
 
-    const imageProps = {
-        image: cardImage,
-        alt: data.hero.alternativeText ?? 'Card image',
+    const commonImageProps = {
+        alt: data.hero?.alternativeText ?? 'Card image',
         className: cardImageStyle,
+    };
+
+    const cardImageLocalFile = data.hero?.localFile;
+    const cardImage =
+        cardImageLocalFile?.extension === 'svg' ? (
+            <img src={cardImageLocalFile.publicURL} {...commonImageProps} />
+        ) : cardImageLocalFile?.childImageSharp ? (
+            <GatsbyImage
+                image={cardImageLocalFile.childImageSharp.gatsbyImageData}
+                {...commonImageProps}
+            />
+        ) : null;
+
+    const commonLinkProps = {
+        id: linkId,
+        className: clsx(
+            container,
+            isDarkTheme ? darkContainer : null,
+            containerClassName
+        ),
     };
 
     return (
         <li key={data.id}>
-            <Link id={linkId} to={data.slug} className={container}>
+            <CardLink
+                data={data}
+                target={target}
+                commonLinkProps={commonLinkProps}
+            >
                 {hasImgBackground ? (
-                    <div className={imgWrapper}>
-                        <GatsbyImage {...imageProps} />
-                    </div>
+                    <div className={imgWrapper}>{cardImage}</div>
                 ) : (
-                    <GatsbyImage {...imageProps} />
+                    cardImage
                 )}
 
-                {!!data.tags || data.updatedAt || readingTime ? (
+                {!!data.tags || (data.updatedAt && readingTime) ? (
                     <div className={cardHeader}>
-                        {renderTags(data.tags)}
-                        {renderDateAndTime(data.updatedAt, readingTime)}
+                        {data.tags && data.tags.length > 0
+                            ? renderTags(data.tags)
+                            : null}
+                        {data.updatedAt && readingTime
+                            ? renderDateAndTime(data.updatedAt, readingTime)
+                            : null}
                     </div>
                 ) : null}
 
@@ -165,10 +163,10 @@ const Card = ({
                 ) : null}
 
                 <div className={cardFooter}>
-                    <span>{footerTag}</span>
+                    {footerTag ? <span>{footerTag}</span> : null}
                     <ArrowRight2 />
                 </div>
-            </Link>
+            </CardLink>
         </li>
     );
 };

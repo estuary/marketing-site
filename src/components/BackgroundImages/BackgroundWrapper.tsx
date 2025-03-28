@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { ReactNode } from 'react';
-import { sectionTopBottomPadding } from '../../globalStyles/wrappers.module.less';
+import { sectionTopBottomPadding } from '../../globalStyles/sections.module.less';
 import { wrapper } from './styles.module.less';
 
 interface BackgroundWrapperProps {

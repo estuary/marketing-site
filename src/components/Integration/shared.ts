@@ -1,9 +1,6 @@
-import { ConnectorType } from '../../../shared';
+import { Connector } from '../../../shared';
 
-export interface Connector {
-    title: string;
-    logo: any;
-    longDescription?: string;
-    shortDescription?: string;
-    type: ConnectorType;
+export interface Connectors {
+    sourceConnector: Partial<Connector>;
+    destConnector: Partial<Connector>;
 }

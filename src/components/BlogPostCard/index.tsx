@@ -1,5 +1,5 @@
 import { Link } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import {
     blogPostCardImage,
     blogsPostCardDetails,
@@ -24,7 +24,7 @@ export interface BlogPostCardProps {
     hero?: {
         localFile: {
             childImageSharp: {
-                gatsbyImageData: any;
+                gatsbyImageData: IGatsbyImageData;
             };
         };
     };

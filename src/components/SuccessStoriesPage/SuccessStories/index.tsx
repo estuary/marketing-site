@@ -30,6 +30,8 @@ const SuccessStories = () => {
                                     layout: FULL_WIDTH
                                 )
                             }
+                            extension
+                            publicURL
                         }
                     }
                 }

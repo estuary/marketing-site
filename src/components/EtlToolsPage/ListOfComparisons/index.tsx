@@ -91,7 +91,7 @@ const ListOfComparisons = ({ estuaryVendor, vendors }: SectionThreeProps) => {
                                     <div className={tabLabel}>
                                         <GatsbyImage
                                             image={
-                                                logo?.localFile.childImageSharp
+                                                logo.localFile.childImageSharp
                                                     ?.gatsbyImageData
                                             }
                                             alt={`${name} Logo`}

@@ -3,7 +3,7 @@ import Layout from '../../components/Layout';
 import { Vendor } from '../../../shared';
 import Hero from '../../components/EtlToolsXvsYPage/Hero';
 import Comparison from '../../components/EtlToolsXvsYPage/Comparison';
-import GettingStarted from '../../components/EtlToolsXvsYPage/GettingStarted';
+import GettingStartedSection from '../../components/GettingStartedSection';
 import VendorComparisonHead from './Head';
 
 interface EtlToolsProps {
@@ -38,7 +38,7 @@ const EtlTools = ({
                     slugKey: vendor.slugKey,
                 }))}
             />
-            <GettingStarted />
+            <GettingStartedSection />
         </Layout>
     );
 };
@@ -61,6 +61,8 @@ export const pageQuery = graphql`
                     childImageSharp {
                         gatsbyImageData(placeholder: BLURRED)
                     }
+                    publicURL
+                    extension
                 }
             }
             slugKey
@@ -303,6 +305,8 @@ export const pageQuery = graphql`
                     childImageSharp {
                         gatsbyImageData(placeholder: BLURRED)
                     }
+                    publicURL
+                    extension
                 }
             }
             slugKey
@@ -545,6 +549,8 @@ export const pageQuery = graphql`
                     childImageSharp {
                         gatsbyImageData(placeholder: BLURRED)
                     }
+                    publicURL
+                    extension
                 }
             }
             slugKey
@@ -788,6 +794,8 @@ export const pageQuery = graphql`
                         childImageSharp {
                             gatsbyImageData(placeholder: BLURRED)
                         }
+                        publicURL
+                        extension
                     }
                 }
                 slugKey
