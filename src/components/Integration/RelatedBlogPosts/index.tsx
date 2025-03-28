@@ -20,7 +20,9 @@ const RelatedBlogPosts = ({
     return (
         <section className={defaultWrapperDarkBlue}>
             <Container isDarkTheme isVertical>
-                <h2 className={sectionTitle}>RELATED ARTICLES</h2>
+                <h2 className={sectionTitle}>
+                    RELATED ARTICLE{relatedArticles.length > 1 ? 'S' : null}
+                </h2>
                 <Grid>
                     {relatedArticles.map(
                         ({ id, slug, title, tags, ...rest }: any) => (

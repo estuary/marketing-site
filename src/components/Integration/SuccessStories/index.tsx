@@ -1,12 +1,19 @@
 import { graphql, useStaticQuery } from 'gatsby';
-import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
+import {
+    defaultWrapperDark,
+    defaultWrapperGrey,
+} from '../../../globalStyles/wrappers.module.less';
 import Container from '../../Container';
 import Grid from '../../Grid';
 import Card from '../../Grid/Card';
 import { sectionTitle } from '../styles.module.less';
 import { getSlugifiedText } from '../../../../shared';
 
-const SuccessStories = () => {
+interface SuccessStoriesProps {
+    hasRelatedArticles: boolean;
+}
+
+const SuccessStories = ({ hasRelatedArticles }: SuccessStoriesProps) => {
     const {
         allStrapiCaseStudy: { nodes: successStories },
     } = useStaticQuery(graphql`
@@ -41,7 +48,11 @@ const SuccessStories = () => {
     `);
 
     return (
-        <section className={defaultWrapperGrey}>
+        <section
+            className={
+                hasRelatedArticles ? defaultWrapperGrey : defaultWrapperDark
+            }
+        >
             <Container isVertical>
                 <h2 className={sectionTitle}>SUCCESS STORIES</h2>
                 <Grid>

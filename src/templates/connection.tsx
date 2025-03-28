@@ -53,6 +53,10 @@ const Connector = ({
     const source_mapped = normalizeConnector(source_connector);
     const dest_mapped = normalizeConnector(destination_connector);
 
+    const hasRelatedArticles =
+        sourceConnectorRelatedArticle?.nodes?.length > 0 ||
+        sourceConnectorRelatedArticle?.nodes?.length > 0;
+
     return (
         <Layout>
             <Hero
@@ -80,15 +84,19 @@ const Connector = ({
             <Testimonials />
             <IncreaseProductivity4x />
             <Spend25xLess />
-            <SuccessStories />
-            <RelatedBlogPosts
-                relatedArticles={[
-                    ...sourceConnectorRelatedArticle.nodes,
-                    ...destinationConnectorRelatedArticle.nodes,
-                ]}
-                sourceConnectorSlugifiedTitle={source_mapped?.slugified_name}
-                destConnectorSlugifiedTitle={dest_mapped?.slugified_name}
-            />
+            <SuccessStories hasRelatedArticles={hasRelatedArticles} />
+            {hasRelatedArticles ? (
+                <RelatedBlogPosts
+                    relatedArticles={[
+                        ...sourceConnectorRelatedArticle.nodes,
+                        ...destinationConnectorRelatedArticle.nodes,
+                    ]}
+                    sourceConnectorSlugifiedTitle={
+                        source_mapped?.slugified_name
+                    }
+                    destConnectorSlugifiedTitle={dest_mapped?.slugified_name}
+                />
+            ) : null}
             <Faq
                 sourceConnector={{
                     title: source_mapped?.title,
@@ -225,13 +233,13 @@ export const pageQuery = graphql`
                             gatsbyImageData(
                                 layout: CONSTRAINED
                                 width: 600
-                                height: 360
+                                height: 340
                                 placeholder: BLURRED
-                                aspectRatio: 1.7
                                 formats: [AUTO, WEBP, AVIF]
                             )
-                            # Further below in this doc you can learn how to use these response images
                         }
+                        extension
+                        publicURL
                     }
                     alternativeText
                 }
@@ -274,13 +282,13 @@ export const pageQuery = graphql`
                             gatsbyImageData(
                                 layout: CONSTRAINED
                                 width: 600
-                                height: 360
+                                height: 340
                                 placeholder: BLURRED
-                                aspectRatio: 1.7
                                 formats: [AUTO, WEBP, AVIF]
                             )
-                            # Further below in this doc you can learn how to use these response images
                         }
+                        extension
+                        publicURL
                     }
                     alternativeText
                 }
