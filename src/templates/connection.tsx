@@ -20,6 +20,7 @@ import {
 import OpenHubspotModal from '../components/HubSpot/OpenModal';
 import Faq from '../components/Integration/Faq';
 import GettingStartedSection from '../components/GettingStartedSection';
+import SuccessStories from '../components/Integration/SuccessStories';
 
 export interface ConnectorProps {
     data: {
@@ -72,6 +73,7 @@ const Connector = ({
             <Testimonials />
             <IncreaseProductivity4x />
             <Spend25xLess />
+            <SuccessStories />
             <Faq
                 sourceConnector={{
                     title: source_mapped?.title,

@@ -181,7 +181,7 @@ const Card = ({
                 ) : null}
 
                 <div className={cardFooter}>
-                    <span>{footerTag}</span>
+                    {footerTag ? <span>{footerTag}</span> : null}
                     <ArrowRight2 />
                 </div>
             </Link>
