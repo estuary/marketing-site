@@ -10,7 +10,7 @@ const SuccessStories = () => {
     const {
         allStrapiCaseStudy: { nodes: successStories },
     } = useStaticQuery(graphql`
-        query GetSuccessStories {
+        query GetIntegrationSuccessStories {
             allStrapiCaseStudy(
                 filter: { Slug: { in: ["headset", "forward", "prodege"] } }
                 sort: { fields: [createdAt], order: DESC }
@@ -55,6 +55,7 @@ const SuccessStories = () => {
                             footerTag="Success story"
                             hasImgBackground
                             linkId={`${getSlugifiedText(successStory.title)}-card-button/integration-page`}
+                            target="_blank"
                         />
                     ))}
                 </Grid>

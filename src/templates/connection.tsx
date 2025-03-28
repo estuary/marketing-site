@@ -21,6 +21,7 @@ import OpenHubspotModal from '../components/HubSpot/OpenModal';
 import Faq from '../components/Integration/Faq';
 import GettingStartedSection from '../components/GettingStartedSection';
 import SuccessStories from '../components/Integration/SuccessStories';
+import RelatedBlogPosts from '../components/Integration/RelatedBlogPosts';
 
 export interface ConnectorProps {
     data: {
@@ -30,10 +31,14 @@ export interface ConnectorProps {
         destination: {
             connector: GlobalConnectorType;
         };
+        sourceConnectorRelatedArticle: any;
+        destinationConnectorRelatedArticle: any;
     };
     pageContext: {
         source_id: string;
         destination_id: string;
+        source_title: string;
+        destination_title: string;
     };
 }
 
@@ -41,6 +46,8 @@ const Connector = ({
     data: {
         source: { connector: source_connector },
         destination: { connector: destination_connector },
+        sourceConnectorRelatedArticle,
+        destinationConnectorRelatedArticle,
     },
 }: ConnectorProps) => {
     const source_mapped = normalizeConnector(source_connector);
@@ -74,6 +81,14 @@ const Connector = ({
             <IncreaseProductivity4x />
             <Spend25xLess />
             <SuccessStories />
+            <RelatedBlogPosts
+                relatedArticles={[
+                    ...sourceConnectorRelatedArticle.nodes,
+                    ...destinationConnectorRelatedArticle.nodes,
+                ]}
+                sourceConnectorSlugifiedTitle={source_mapped?.slugified_name}
+                destConnectorSlugifiedTitle={dest_mapped?.slugified_name}
+            />
             <Faq
                 sourceConnector={{
                     title: source_mapped?.title,
@@ -141,6 +156,8 @@ export const pageQuery = graphql`
     query ConnectorData(
         $source_id: PostGraphile_Flowid!
         $destination_id: PostGraphile_Flowid!
+        $source_title: String!
+        $destination_title: String!
     ) {
         source: postgres {
             connector: connectorById(id: $source_id) {
@@ -191,6 +208,102 @@ export const pageQuery = graphql`
                 recommended
                 connectorTagsByConnectorIdList {
                     protocol
+                }
+            }
+        }
+        sourceConnectorRelatedArticle: allStrapiBlogPost(
+            sort: { publishedAt: DESC }
+            filter: { tags: { elemMatch: { Slug: { eq: $source_title } } } }
+            limit: 1
+        ) {
+            nodes {
+                id
+                slug: Slug
+                hero: Hero {
+                    localFile {
+                        childImageSharp {
+                            gatsbyImageData(
+                                layout: CONSTRAINED
+                                width: 600
+                                height: 360
+                                placeholder: BLURRED
+                                aspectRatio: 1.7
+                                formats: [AUTO, WEBP, AVIF]
+                            )
+                            # Further below in this doc you can learn how to use these response images
+                        }
+                    }
+                    alternativeText
+                }
+                authors {
+                    name: Name
+                    picture: Picture {
+                        localFile {
+                            childImageSharp {
+                                gatsbyImageData(
+                                    layout: CONSTRAINED
+                                    placeholder: BLURRED
+                                    quality: 100
+                                )
+                            }
+                        }
+                    }
+                }
+                title: Title
+                tags {
+                    name: Name
+                    slug: Slug
+                    type: Type
+                    isTab: IsTab
+                }
+            }
+        }
+        destinationConnectorRelatedArticle: allStrapiBlogPost(
+            sort: { publishedAt: DESC }
+            filter: {
+                tags: { elemMatch: { Slug: { eq: $destination_title } } }
+            }
+            limit: 1
+        ) {
+            nodes {
+                id
+                slug: Slug
+                hero: Hero {
+                    localFile {
+                        childImageSharp {
+                            gatsbyImageData(
+                                layout: CONSTRAINED
+                                width: 600
+                                height: 360
+                                placeholder: BLURRED
+                                aspectRatio: 1.7
+                                formats: [AUTO, WEBP, AVIF]
+                            )
+                            # Further below in this doc you can learn how to use these response images
+                        }
+                    }
+                    alternativeText
+                }
+                authors {
+                    name: Name
+                    picture: Picture {
+                        localFile {
+                            childImageSharp {
+                                gatsbyImageData(
+                                    layout: CONSTRAINED
+                                    placeholder: BLURRED
+                                    quality: 100
+                                )
+                            }
+                        }
+                    }
+                }
+                title: Title
+                tags {
+                    name: Name
+                    slug: Slug
+                    type: Type
+                    isTab: IsTab
                 }
             }
         }

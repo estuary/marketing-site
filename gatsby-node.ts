@@ -411,6 +411,7 @@ const createConnectors: CreateHelper = async (
             }
         }
     `);
+
     if (connectors.errors) {
         reporter.panicOnBuild(`${QUERY_PANIC_MSG} ${name}`, connectors.errors);
         return;
@@ -452,6 +453,9 @@ const createConnectors: CreateHelper = async (
                         context: {
                             source_id: normalized_connector.id,
                             destination_id: destination_connector.id,
+                            source_title: normalized_connector.slugified_name,
+                            destination_title:
+                                destination_connector.slugified_name,
                         },
                     });
                 }
