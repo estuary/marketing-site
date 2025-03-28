@@ -5,8 +5,6 @@ import './src/highlighting-atom-one-dark.css';
 // global css
 import './src/style.less';
 
-// TODO: Remove prismjs from packages? I think it's unused.
-
 import WrapPageElementComponent from './src/components/WrapPageElementComponent';
 
 export const wrapPageElement = ({ element }) => (
