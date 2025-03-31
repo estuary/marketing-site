@@ -48,8 +48,9 @@ jobs:
                   CI: true
 
             - name: Run build
-              run: yarn run build:debug:network --log-pages --write-to-file
+              run: yarn run build:debug:network --log-pages
               env:
+                  GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: true
                   CI: true
                   STRAPI_API_URL: ${{ secrets.STRAPI_API_URL }}
                   STRAPI_TOKEN: ${{ secrets.STRAPI_TOKEN }}
