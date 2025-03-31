@@ -520,7 +520,7 @@ const cfg: GatsbyConfig = {
                                             placeholder: BLURRED
                                             width: 400
                                             aspectRatio: 1.7
-                                            formats: [AUTO, WEBP, AVIF]
+                                            formats: [AUTO, WEBP]
                                         )
                                         # Further below in this doc you can learn how to use these response images
                                     }

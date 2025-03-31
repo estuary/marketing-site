@@ -4605,16 +4605,6 @@ balanced-match@^1.0.0:
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.2.tgz#e83e3a7e3f300b34cb9d87f615fa0cbf357690ee"
   integrity sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==
 
-bare-hrtime@^2.0.10, bare-hrtime@^2.0.9:
-  version "2.0.11"
-  resolved "https://registry.yarnpkg.com/bare-hrtime/-/bare-hrtime-2.0.11.tgz#1e7fb1faa0206d987359ad16769173ebd295cd91"
-  integrity sha512-Mnb2rnGRSHzNHQwFrK8VVqD8Oob/CiSsBlgZGKQ1xTj25GPI19sXHjUPzrkHOU1DaoVj1ig1VO7rZGaYOfXPaw==
-
-bare-os@^3.1.0:
-  version "3.6.1"
-  resolved "https://registry.yarnpkg.com/bare-os/-/bare-os-3.6.1.tgz#9921f6f59edbe81afa9f56910658422c0f4858d4"
-  integrity sha512-uaIjxokhFidJP+bmmvKSgiMzj2sV5GPHaZVAIktcxcpCyBFFWO+YlikVAdhmUo2vYFvFhOXIAlldqV29L8126g==
-
 base-x@^3.0.8:
   version "3.0.10"
   resolved "https://registry.yarnpkg.com/base-x/-/base-x-3.0.10.tgz#62de58653f8762b5d6f8d9fe30fa75f7b2585a75"
@@ -7061,13 +7051,6 @@ event-emitter@^0.3.5:
   dependencies:
     d "1"
     es5-ext "~0.10.14"
-
-event-loop-delay@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/event-loop-delay/-/event-loop-delay-1.1.0.tgz#da86657d9a17dc911a483398dbb0d3671a647cc6"
-  integrity sha512-2kyV9oJBJFXjfiMXZKQ2KADeGTQtCsVzU6bWwMPcT7rXPk6Xa4qIXYHO16bBETGA642u5hdsbnH6v3f61jn4Rw==
-  dependencies:
-    bare-hrtime "^2.0.9"
 
 event-source-polyfill@1.0.31:
   version "1.0.31"
@@ -12298,11 +12281,6 @@ prepend-http@^2.0.0:
   resolved "https://registry.yarnpkg.com/prepend-http/-/prepend-http-2.0.0.tgz#e92434bfa5ea8c19f41cdfd401d741a3c819d897"
   integrity sha512-ravE6m9Atw9Z/jjttRUZ+clIXogdghyZAuWJ3qEzjT+jI/dL1ifAqhZeC5VHzQp1MSt1+jxKkFNemj/iO7tVUA==
 
-prettier-bytes@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/prettier-bytes/-/prettier-bytes-1.0.4.tgz#994b02aa46f699c50b6257b5faaa7fe2557e62d6"
-  integrity sha512-dLbWOa4xBn+qeWeIF60qRoB6Pk2jX5P3DIVgOQyMyvBpu931Q+8dXz8X0snJiFkQdohDDLnZQECjzsAj75hgZQ==
-
 prettier-linter-helpers@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/prettier-linter-helpers/-/prettier-linter-helpers-1.0.0.tgz#d23d41fe1375646de2d0104d3454a3008802cf7b"
@@ -12350,16 +12328,6 @@ process-nextick-args@~2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"
   integrity sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==
-
-process-top@^1.5.2:
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/process-top/-/process-top-1.5.2.tgz#bb453652e1903033a7d730dd76ab5d568b9acafa"
-  integrity sha512-I1EcXWze5ujvpC+E0RB1jkGsmsu7Y0k6Wg6DQFFqwayTW3I7iCbHvaiQgPMe14aJGZ4mp7UJjTpekiwQKfMarw==
-  dependencies:
-    bare-hrtime "^2.0.10"
-    bare-os "^3.1.0"
-    event-loop-delay "^1.1.0"
-    prettier-bytes "^1.0.4"
 
 process@^0.11.1, process@^0.11.10:
   version "0.11.10"
