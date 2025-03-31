@@ -357,6 +357,9 @@ const cfg: GatsbyConfig = {
     // graphqlTypegen: true,
     plugins: [
         {
+            resolve: 'gatsby-plugin-no-sourcemaps',
+        },
+        {
             resolve: `gatsby-plugin-webfonts`,
             options: {
                 fonts: {
