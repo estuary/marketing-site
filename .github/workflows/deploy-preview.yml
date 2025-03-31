@@ -48,7 +48,7 @@ jobs:
                   CI: true
 
             - name: Run build
-              run: yarn run build:debug:network --log-pages
+              run: yarn run build:debug:network --log-pages --write-to-file
               env:
                   CI: true
                   STRAPI_API_URL: ${{ secrets.STRAPI_API_URL }}
