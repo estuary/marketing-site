@@ -32,7 +32,7 @@ const VendorDetails = ({ vendor }: { vendor: Vendor }) => {
                     __html: vendor.introductoryDetails.cons.data.cons,
                 }}
             />
-            <h3 id={`${vendorId}-pricing`}>Pricing</h3>
+            <h3 id={`${vendorId}-pricing`}>{vendor.name} Pricing</h3>
             <div
                 dangerouslySetInnerHTML={{
                     __html: vendor.introductoryDetails.pricing.data.pricing,
