@@ -680,12 +680,30 @@ exports.createSchemaCustomization = ({ actions }) => {
 const createLogoNodeId = (connectorId: string) =>
     `ConnectorLogo-${connectorId}`;
 
+let isFirstSource = true;
+
 export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
-    actions: { createNode },
+    actions: { createNode, touchNode },
     createNodeId,
     getCache,
+    getNodes,
     createContentDigest,
 }) => {
+    if (isFirstSource) {
+        console.log('isFirstSource', isFirstSource);
+
+        getNodes().forEach((node) => {
+            if (node.internal.owner !== `gatsby-source-filesystem`) {
+                return;
+            }
+            // Making sure things do not get GC
+            touchNode(node);
+        });
+
+        isFirstSource = false;
+        console.log('isFirstSource setting to false', isFirstSource);
+    }
+
     // console.log('sourceNodes:start');
     const pool = new pg.Pool({
         connectionString: SUPABASE_CONNECTION_STRING,
