@@ -1,6 +1,10 @@
 import { Divider } from '@mui/material';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { getComparisonSlug, Vendor } from '../../../../../shared';
+import {
+    getComparisonSlug,
+    getVendorsLinkId,
+    Vendor,
+} from '../../../../../shared';
 import {
     container,
     logoWrapper,
@@ -24,6 +28,7 @@ const XvsYCard = ({ xVendor, yVendor }: XvsYCardProps) => {
 
     return (
         <a
+            id={`${getVendorsLinkId(xVendor.name, yVendor.name)}-comparison/list-of-comparisons/all-comparisons-page`}
             href={`/${getComparisonSlug(xVendor.slugKey, yVendor.slugKey)}`}
             className={container}
         >

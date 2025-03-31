@@ -27,6 +27,7 @@ interface PlanCardProps {
     pricePerConnector?: number;
     description: string;
     button: {
+        id: string;
         title: string;
         href: string;
     };
@@ -98,6 +99,7 @@ const PlanCard = ({
             <p className={planDescriptionStyle}>{description}</p>
             <hr className={divider} />
             <LinkComponent
+                id={button.id}
                 href={button.href}
                 target="_blank"
                 variant="secondary"

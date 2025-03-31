@@ -2,8 +2,7 @@ import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.le
 import Container from '../../Container';
 import HeroSectionDetails from '../../HeroSectionDetails';
 import HeroSectionActions from '../../HeroSectionActions';
-import FlowDiagram from '../../FlowDiagram';
-import { diagramCardPositions } from './styles.module.less';
+import FlowDiagram from './FlowDiagram';
 
 const Hero = () => {
     return (
@@ -12,12 +11,11 @@ const Hero = () => {
                 <HeroSectionDetails
                     title={<span>STAY CURRENT WITH ESTUARY FLOW</span>}
                     description="Stay informed and make the most of Flow's powerful capabilities."
-                    ctaButtons={<HeroSectionActions />}
+                    ctaButtons={
+                        <HeroSectionActions pageId="company-updates-page" />
+                    }
                 />
-                <FlowDiagram
-                    DiagramCardsClassName={diagramCardPositions}
-                    hasDesktopImageOnly
-                />
+                <FlowDiagram />
             </Container>
         </section>
     );

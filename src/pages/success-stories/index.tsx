@@ -18,8 +18,14 @@ const SuccessStoriesPage = () => {
             <SeeHowSection
                 buttons={
                     <>
-                        <LinkFilled href="/contact-us/">Contact Us</LinkFilled>
+                        <LinkFilled
+                            id="contact-us-button-success/unlock-section/stories-page"
+                            href="/contact-us/"
+                        >
+                            Contact Us
+                        </LinkFilled>
                         <OutboundLinkOutlined
+                            id="watch-demo-button-success/unlock-section/stories-page"
                             href={webinarsUrl}
                             target="_blank"
                             variant="secondary"

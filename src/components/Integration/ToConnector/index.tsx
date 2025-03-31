@@ -25,9 +25,9 @@ const ToConnector = ({
 }: Connector) => {
     const description = longDescription ?? shortDescription;
 
-    const destinationConnectorLogo = getImage(
-        logo?.childImageSharp?.gatsbyImageData
-    );
+    const destinationConnectorLogo = logo
+        ? getImage(logo?.childImageSharp?.gatsbyImageData)
+        : null;
 
     return (
         <section className={defaultWrapperDarkBlue}>

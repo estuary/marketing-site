@@ -15,14 +15,18 @@ import {
     contentFooter,
 } from './styles.module.less';
 
-const ItemLink = ({ name, description, Image, to }: MenuCardItem) => {
+const ItemLink = ({ name, description, Image, to, linkId }: MenuCardItem) => {
     const LinkElement: any = to.startsWith('/') ? Link : OutboundLink;
     const linkProps = to.startsWith('/')
         ? { to }
         : { href: to, target: '_blank' };
 
     return (
-        <LinkElement {...linkProps} aria-label={`Read content of ${name}`}>
+        <LinkElement
+            id={linkId}
+            {...linkProps}
+            aria-label={`Read content of ${name}`}
+        >
             <div className={cardItem}>
                 {Image ? (
                     <div className={iconWrapper}>
@@ -62,7 +66,7 @@ const HeaderCardItem = ({
     active,
     contentFooterLink,
     hasSeeMoreButton = false,
-    maxNumberOfLinks = 4,
+    maxNumberOfLinks = 5,
     ...props
 }: HeaderCardItemProps) => {
     const [showAll, setShowAll] = useState(false);

@@ -1,18 +1,18 @@
 .container {
   display: flex;
   flex-direction: column;
-  max-width: 256px;
-  width: 100%;
+  width: 256px;
   gap: 24px;
   height: fit-content;
 
-  @media (max-width: 1150px) {
-    max-width: 100%;
+  @media (max-width: 1024px) {
+    width: 100%;
   }
 
   @media (min-width: 1151px) {
     position: sticky;
-    top: 140px;
+    top: 100px;
+    height: calc(100vh - 124px);
   }
 
   @media (max-width: 767px) {
@@ -24,35 +24,17 @@
 .shareArticleDesktop {
   display: flex;
 
-  @media (max-width: 1150px) {
+  @media (max-width: 1024px) {
     display: none;
   }
 }
 
 .tableOfContentsWrapper {
   overflow: auto;
+}
 
-  @media (max-width: 1150px) {
-    margin-bottom: 32px;
-  }
-
-  @media (min-width: 769px) {
-    max-height: 45vh;
-
-    @media (max-height: 1160px) {
-      max-height: 36vh;
-    }
-
-    @media (max-height: 1000px) {
-      max-height: 25vh;
-    }
-
-    @media (max-height: 900px) {
-      max-height: 20vh;
-    }
-
-    @media (max-height: 790px) {
-      max-height: 50vh;
-    }
+.ctaLink {
+  @media (max-width: 1024px) {
+    display: none;
   }
 }

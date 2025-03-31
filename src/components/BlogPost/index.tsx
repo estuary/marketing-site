@@ -1,18 +1,22 @@
 import CalendarTodayOutlined from '@mui/icons-material/CalendarTodayOutlined';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import DoneIcon from '@mui/icons-material/Done';
 import { Divider, useTheme } from '@mui/material';
 import { Link } from 'gatsby';
+import { Fragment } from 'react';
 import SwoopingLinesBackground from '../BackgroundImages/LightSwoopingLinesRightDirectionBackground';
 import Bio from '../Bio';
 import ReadingTimeIcon from '../../svgs/time.svg';
 import Container from '../Container';
 import HeroSectionDetails from '../HeroSectionDetails';
-import ShareArticle from '../ShareArticle';
 import { ProcessedPost } from '../BlogPostProcessor';
 import BlogBanner from '../BlogBanner';
 import ArticleSidebar from '../ArticleSidebar';
-import { dashboardRegisterUrl, getAuthorPathBySlug } from '../../../shared';
+import {
+    dashboardRegisterUrl,
+    getAuthorPathBySlug,
+    getSlugifiedText,
+} from '../../../shared';
 import Avatar from '../../components/Avatar';
 import SocialLinks from '../../components/SocialLinks';
 import OutboundLinkFilled from '../../components/LinksAndButtons/OutboundLinkFilled';
@@ -20,6 +24,7 @@ import OutboundLinkOutlined from '../../components/LinksAndButtons/OutboundLinkO
 import StraightLinesBackground from '../../components/BackgroundImages/StraightLinesBackground';
 import { PopularArticles } from '../../components/BlogPopularArticles';
 import { costPerGB } from '../../utils';
+import ShareArticle from '../ShareArticle';
 import {
     article,
     blogPostHeaderWrapper,
@@ -85,15 +90,15 @@ const BlogPost = ({
             itemScope
             itemType="http://schema.org/Article"
         >
-            <SwoopingLinesBackground>
+            <SwoopingLinesBackground loading="eager">
                 <Container className={blogPostHeaderWrapper}>
                     <div className={headerInfo}>
                         <div className={postInfo}>
                             {postTags ? (
                                 <div className={tagsWrapper}>
-                                    {postTags.map((tag) => (
+                                    {postTags.map((tag, index) => (
                                         <span
-                                            key={tag.name}
+                                            key={`${tag.name}_${index}`}
                                             className={blogsPostCardTags}
                                         >
                                             {tag.name}
@@ -136,7 +141,10 @@ const BlogPost = ({
                     </div>
                     {post.hero ? (
                         <GatsbyImage
-                            alt={post.hero.alternativeText}
+                            alt={
+                                post.hero.alternativeText ||
+                                'Blog post hero image'
+                            }
                             className={heroImage}
                             image={
                                 post.hero.localFile.childImageSharp
@@ -172,6 +180,7 @@ const BlogPost = ({
                                         </h3>
                                     }
                                     button={{
+                                        id: 'build-a-pipeline-button/banner/blog-post-page',
                                         title: 'Build a Pipeline',
                                         href: dashboardRegisterUrl,
                                     }}
@@ -179,6 +188,7 @@ const BlogPost = ({
                             ) : null}
                         </div>
                         <ArticleSidebar
+                            ctaButtonid="build-a-pipeline-button/sidebar/blog-post-page"
                             article={{
                                 title: post.title,
                                 slug: post.slug,
@@ -211,39 +221,41 @@ const BlogPost = ({
                                   : 'Authors'}
                         </h2>
                         {post?.authors?.map((author, index) => {
-                            const authorImage =
-                                author?.picture &&
-                                getImage(
-                                    author.picture.localFile.childImageSharp
-                                        .gatsbyImageData
-                                );
-
                             const authorBio = author?.bio.data.bio;
 
                             const authorSocialLinks = author?.socials;
 
                             return (
-                                <>
-                                    <div key={index} className={authorInfo}>
+                                <Fragment key={`${author.id}-${index}`}>
+                                    <div className={authorInfo}>
                                         <Link
+                                            id={`${getSlugifiedText(author.name)}/about-section/blog-post-page`}
                                             to={getAuthorPathBySlug(
                                                 author?.slug
                                             )}
                                             className={authorMainInfoContainer}
                                         >
-                                            <div
-                                                className={
-                                                    authorAvatarContainer
-                                                }
-                                            >
-                                                <Avatar
-                                                    image={authorImage}
-                                                    alt={`Picture of ${author?.name}`}
-                                                    name={author.name}
-                                                    loading="lazy"
-                                                    size={60}
-                                                />
-                                            </div>
+                                            {author.picture?.localFile
+                                                ?.childImageSharp ? (
+                                                <div
+                                                    className={
+                                                        authorAvatarContainer
+                                                    }
+                                                >
+                                                    <Avatar
+                                                        image={
+                                                            author.picture
+                                                                .localFile
+                                                                .childImageSharp
+                                                                .gatsbyImageData
+                                                        }
+                                                        alt={`Picture of ${author?.name}`}
+                                                        name={author.name}
+                                                        loading="lazy"
+                                                        size={60}
+                                                    />
+                                                </div>
+                                            ) : null}
                                             <div className={authorNameAndRole}>
                                                 {author?.name ? (
                                                     <span
@@ -295,7 +307,7 @@ const BlogPost = ({
                                             }}
                                         />
                                     ) : null}
-                                </>
+                                </Fragment>
                             );
                         })}
                     </div>
@@ -352,10 +364,14 @@ const BlogPost = ({
                             </div>
                         </div>
                         <div className={buildPipelineAndPricingButtons}>
-                            <OutboundLinkFilled href={dashboardRegisterUrl}>
+                            <OutboundLinkFilled
+                                id="build-a-pipeline-button/streaming-pipelines-section/blog-post-page"
+                                href={dashboardRegisterUrl}
+                            >
                                 Build a Pipeline
                             </OutboundLinkFilled>
                             <OutboundLinkOutlined
+                                id="see-pricing-button/streaming-pipelines-section/blog-post-page"
                                 href="https://estuary.dev/pricing/"
                                 className={pricingLink}
                             >

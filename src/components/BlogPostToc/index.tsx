@@ -1,11 +1,11 @@
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Typography, useMediaQuery } from '@mui/material';
+import { Typography, useMediaQuery, Collapse } from '@mui/material';
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import clsx from 'clsx';
 import { Link } from 'gatsby';
-import { MouseEvent, useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import {
     tableOfContents,
     accordion,
@@ -30,6 +30,17 @@ type RenderTocItemProps = {
     handleItemClick: (id: string) => void;
 };
 
+const hasSelectedDescendant = (
+    item: TocItem,
+    selected: string | null
+): boolean => {
+    if (!item.items || !selected) return false;
+    return item.items.some(
+        (child) =>
+            child.id === selected || hasSelectedDescendant(child, selected)
+    );
+};
+
 const RenderTocItem = ({
     item,
     depth,
@@ -38,10 +49,9 @@ const RenderTocItem = ({
     selectedItem,
 }: RenderTocItemProps) => {
     const isSelected = selectKey === selectedItem;
+    const isExpanded = isSelected || hasSelectedDescendant(item, selectedItem);
 
-    const handleLinkClick = (
-        event: MouseEvent<HTMLAnchorElement, globalThis.MouseEvent>
-    ) => {
+    const handleLinkClick = (event) => {
         if (!isSelected) {
             handleItemClick(selectKey);
         } else {
@@ -58,37 +68,34 @@ const RenderTocItem = ({
         }
     };
 
-    const renderedItems = useMemo(
-        () =>
-            item.items && item.items.length > 0 ? (
-                <ol role="list" style={{ padding: 0 }}>
-                    {item.items.map((nestedItem) => (
-                        <div key={nestedItem.id} className={tocSubItems}>
-                            <hr />
+    return (
+        <li
+            className={clsx(
+                tocItem,
+                isSelected && isItemSelected,
+                depth > 0 && tocSubItems
+            )}
+        >
+            {depth > 0 ? <hr /> : null}
+            <Link to={`#${selectKey}`} onClick={handleLinkClick}>
+                {item.heading}
+            </Link>
+            {depth < 1 && item.items && item.items.length > 0 ? (
+                <Collapse in={isExpanded} timeout="auto" unmountOnExit>
+                    <ol role="list" style={{ padding: 0 }}>
+                        {item.items.map((nestedItem) => (
                             <RenderTocItem
+                                key={nestedItem.id}
                                 selectKey={nestedItem.id}
                                 item={nestedItem}
                                 depth={depth + 1}
                                 handleItemClick={handleItemClick}
                                 selectedItem={selectedItem}
                             />
-                        </div>
-                    ))}
-                </ol>
-            ) : null,
-        [depth, handleItemClick, item.items, selectedItem]
-    );
-
-    if (depth > 1) {
-        return null;
-    }
-
-    return (
-        <li className={clsx(tocItem, isSelected && isItemSelected)}>
-            <Link to={`#${selectKey}`} onClick={handleLinkClick}>
-                {item.heading}
-            </Link>
-            {renderedItems}
+                        ))}
+                    </ol>
+                </Collapse>
+            ) : null}
         </li>
     );
 };
@@ -112,10 +119,15 @@ const observeItems = (
 };
 
 export const RenderToc = ({ items }: { items: TocItem[] }) => {
-    const [selectedItem, setSelectedItem] = useState<string | null>(null);
     const intersectionObserver = useRef<IntersectionObserver | null>(null);
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
     const isMobile = useMediaQuery('(max-width: 768px) or (max-height: 790px)');
+    const [isTocExpanded, setIsTocExpanded] = useState(!isMobile);
+    const [selectedItem, setSelectedItem] = useState<string | null>(null);
+
+    useEffect(() => {
+        setIsTocExpanded(!isMobile);
+    }, [isMobile]);
 
     useEffect(() => {
         intersectionObserver.current = new IntersectionObserver(
@@ -157,7 +169,7 @@ export const RenderToc = ({ items }: { items: TocItem[] }) => {
             if (element) {
                 const y =
                     element.getBoundingClientRect().top +
-                    window.pageYOffset +
+                    window.scrollY +
                     yOffset;
                 window.scrollTo({ top: y, behavior: 'smooth' });
             }
@@ -184,7 +196,8 @@ export const RenderToc = ({ items }: { items: TocItem[] }) => {
             <Accordion
                 elevation={0}
                 className={accordion}
-                defaultExpanded={!isMobile}
+                expanded={isTocExpanded}
+                onChange={(event, newExpanded) => setIsTocExpanded(newExpanded)}
             >
                 <AccordionSummary
                     className={accordionSidePadding}

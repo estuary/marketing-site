@@ -6,6 +6,7 @@
 
   position: relative;
   display: flex;
+  justify-content: space-between;
   flex-direction: row;
   width: 100%;
   height: 80px;
@@ -55,18 +56,13 @@
   @media (max-width: @menuTransitionMaxWidthBreakpoint) {
     .globalMaxWidth;
 
-    display: none;
     position: absolute;
     top: 80px;
     left: 0;
     right: 0;
     background-color: var(--dark-blue);
-  }
-}
-
-.isOpen {
-  @media (max-width: @menuTransitionMaxWidthBreakpoint) {
-    display: flex;
+    height: calc(100vh - 80px);
+    overflow: auto;
   }
 }
 
@@ -131,6 +127,10 @@
   padding-right: 6px;
   padding-left: 6px;
   padding-bottom: 4px;
+
+  svg {
+    margin-top: 4px;
+  }
 }
 
 .headerSocialIcon {
@@ -145,12 +145,24 @@
   padding: 10px;
 
   &:hover {
-      @media (min-width: @menuTransitionMinWidthBreakpoint) {
-          background-color: var(--header-link-hover);
-      }
+    @media (min-width: @menuTransitionMinWidthBreakpoint) {
+      background-color: var(--header-link-hover);
+    }
   }
 
   @media (max-width: @menuTransitionMaxWidthBreakpoint) {
+    display: none;
+  }
+}
+
+.menuContentDesktop {
+  @media (max-width: @menuTransitionMaxWidthBreakpoint) {
+    display: none;
+  }
+}
+
+.menuContentMobile {
+  @media (min-width: @menuTransitionMinWidthBreakpoint) {
     display: none;
   }
 }

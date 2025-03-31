@@ -6,7 +6,10 @@ export const accordionStyles = {
         display: 'none !important',
     },
     '&.MuiAccordion-root': {
-        margin: 'auto 0 !important',
+        'margin': 'auto 0 !important',
+        '@media (max-width: 1142px)': {
+            margin: '0 !important',
+        },
     },
 };
 
@@ -28,4 +31,7 @@ export interface MenuCardItem {
     description?: string;
     to: string;
     Image?: () => JSX.Element;
+    linkId: string;
 }
+
+export const getMenuLinkId = (linkName: string) => `${linkName}-menu-link`;

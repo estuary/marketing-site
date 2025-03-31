@@ -6,13 +6,14 @@ import Grid from '../../Grid';
 import Card from '../../Grid/Card';
 import ButtonFilled from '../../LinksAndButtons/ButtonFilled';
 import { sectionTitle } from '../styles.module.less';
+import { getSlugifiedText, getSortedSuccessStories } from '../../../../shared';
 
 const SuccessStories = () => {
     const {
         allStrapiCaseStudy: { nodes: successStories },
     } = useStaticQuery(graphql`
         query GetSuccessStories {
-            allStrapiCaseStudy {
+            allStrapiCaseStudy(sort: { fields: [createdAt], order: DESC }) {
                 nodes {
                     title: Title
                     description: Description
@@ -36,15 +37,14 @@ const SuccessStories = () => {
         }
     `);
 
-    const successStoriesWithPrefixedSlugs = successStories.map((post) => ({
-        ...post,
-        slug: `success-stories/${post.slug}/`,
-    }));
+    const sortedSuccessStories = getSortedSuccessStories(successStories);
 
-    const [visiblePosts, setVisiblePosts] = useState(9);
+    const [visiblePostsAmount, setVisiblePostsAmount] = useState(9);
 
     const handleShowMore = () => {
-        setVisiblePosts((prevVisiblePosts) => prevVisiblePosts + 9);
+        setVisiblePostsAmount(
+            (prevVisiblePostsAmount) => prevVisiblePostsAmount + 9
+        );
     };
 
     return (
@@ -52,18 +52,19 @@ const SuccessStories = () => {
             <Container isVertical>
                 <h2 className={sectionTitle}>SUCCESS STORIES</h2>
                 <Grid>
-                    {successStoriesWithPrefixedSlugs
-                        .slice(0, visiblePosts)
+                    {sortedSuccessStories
+                        .slice(0, visiblePostsAmount)
                         .map((successStory) => (
                             <Card
                                 key={successStory.id}
                                 data={successStory}
                                 footerTag="Success story"
                                 hasImgBackground
+                                linkId={`${getSlugifiedText(successStory.title)}-card-button/success-stories-page`}
                             />
                         ))}
                 </Grid>
-                {visiblePosts < successStoriesWithPrefixedSlugs.length ? (
+                {visiblePostsAmount < successStories.length ? (
                     <ButtonFilled onClick={handleShowMore}>
                         Show more
                     </ButtonFilled>

@@ -8,16 +8,19 @@ import { container, highlightedIconStyle } from './styles.module.less';
 
 const iconColor = 'var(--grey)';
 
-interface SocialLinks {
-    socialLinks: {
-        linked_in: string;
-        twitter: string;
-        other: string;
+interface SocialLinksProps {
+    socialLinks?: {
+        linked_in?: string;
+        twitter?: string;
+        other?: string;
     };
-    hasHighlightedIcons: boolean;
+    hasHighlightedIcons?: boolean;
 }
 
-const SocialLinks = ({ socialLinks, hasHighlightedIcons = false }) => {
+const SocialLinks = ({
+    socialLinks,
+    hasHighlightedIcons = false,
+}: SocialLinksProps) => {
     return (
         <div className={container}>
             {socialLinks?.linked_in ? (

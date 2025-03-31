@@ -34,7 +34,7 @@ const FlowDemoVideo = () => {
                         <span>
                             See Estuary in action — watch our 80-second demo!
                         </span>
-                        <ButtonFilled>
+                        <ButtonFilled id="play-video-button">
                             <PlayIcon />
                             <span>Play Video</span>
                         </ButtonFilled>

@@ -19,7 +19,11 @@ const ReleaseBanner = ({ theme = 'dark' }) => {
             )}
         >
             <div>
-                <a href="/deployment-options/" rel="noreferrer">
+                <a
+                    id="hero-section-banner"
+                    href="/deployment-options/"
+                    rel="noreferrer"
+                >
                     <span>A Step Ahead</span>
                     <p>
                         Private deployments are now live! Explore how Estuary

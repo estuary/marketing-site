@@ -19,13 +19,6 @@ export interface BlogPostCardProps {
     }[];
     authors: {
         name: string;
-        picture: {
-            localFile: {
-                childImageSharp: {
-                    gatsbyImageData: any;
-                };
-            };
-        };
         link: string;
     }[];
     hero?: {
@@ -45,7 +38,11 @@ export const BlogPostCard = ({
     publishedAt,
     updatedAt,
 }: BlogPostCardProps) => (
-    <Link to={`/${slug}`} className={blogsPostCard}>
+    <Link
+        id={`${slug}/blog-post-card`}
+        to={`/blog/${slug}`}
+        className={blogsPostCard}
+    >
         {hero ? (
             <GatsbyImage
                 alt={title}

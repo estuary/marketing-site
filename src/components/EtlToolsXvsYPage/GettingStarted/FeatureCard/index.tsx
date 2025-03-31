@@ -8,6 +8,7 @@ interface FeatureCardProps {
     title: string;
     description: string;
     link: {
+        id: string;
         title: string;
         href: string;
     };
@@ -19,7 +20,7 @@ const FeatureCard = ({ icon, title, description, link }: FeatureCardProps) => {
             <div className={iconWrapper}>{icon}</div>
             <h3>{title}</h3>
             <p>{description}</p>
-            <OutboundLink href={link.href}>
+            <OutboundLink id={link.id} href={link.href}>
                 {link.title}
                 <ChevronRightIcon height={16} />
             </OutboundLink>

@@ -18,6 +18,7 @@
     padding: 0 0 24px 0px;
     gap: 0;
     width: 100%;
+    height: fit-content;
   }
 }
 
@@ -89,4 +90,15 @@
   flex-direction: column;
   gap: 24px;
   margin: 0;
+}
+
+.mobileMenuButtons {
+  display: none;
+
+  @media(max-width: @menuTransitionMaxWidthBreakpoint) {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 32px;
+  }
 }

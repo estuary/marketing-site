@@ -5,10 +5,16 @@ import { backgroundImage, fullHeight } from './styles.module.less';
 import { lightImgStyle } from './shared';
 import BackgroundWrapper from './BackgroundWrapper';
 
+interface LightSwoopingLinesRightDirectionBackgroundProps
+    extends HTMLAttributes<HTMLDivElement> {
+    loading?: 'eager' | 'lazy';
+}
+
 const LightSwoopingLinesRightDirectionBackground = ({
     children,
     className,
-}: HTMLAttributes<HTMLDivElement>) => {
+    loading,
+}: LightSwoopingLinesRightDirectionBackgroundProps) => {
     return (
         <BackgroundWrapper isSection>
             <StaticImage
@@ -18,6 +24,7 @@ const LightSwoopingLinesRightDirectionBackground = ({
                 placeholder="blurred"
                 quality={100}
                 imgStyle={lightImgStyle}
+                loading={loading}
             />
             <div className={className}>{children}</div>
         </BackgroundWrapper>

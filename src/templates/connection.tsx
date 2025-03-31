@@ -44,25 +44,29 @@ const Connector = ({
         <Layout>
             <Hero
                 sourceConnector={{
-                    title: source_mapped.title,
-                    logo: source_mapped.logo,
+                    title: source_mapped?.title,
+                    logo: source_mapped?.logo,
+                    type: source_mapped?.type,
                 }}
                 destConnector={{
-                    title: dest_mapped.title,
-                    logo: dest_mapped.logo,
+                    title: dest_mapped?.title,
+                    logo: dest_mapped?.logo,
+                    type: dest_mapped?.type,
                 }}
             />
             <FromConnector
-                title={source_mapped.title}
-                logo={source_mapped.logo}
-                longDescription={source_mapped.longDescription}
-                shortDescription={source_mapped.shortDescription}
+                title={source_mapped?.title}
+                logo={source_mapped?.logo}
+                longDescription={source_mapped?.longDescription}
+                shortDescription={source_mapped?.shortDescription}
+                type={source_mapped?.type}
             />
             <ToConnector
-                title={dest_mapped.title}
-                logo={dest_mapped.logo}
-                longDescription={dest_mapped.longDescription}
-                shortDescription={dest_mapped.shortDescription}
+                title={dest_mapped?.title}
+                logo={dest_mapped?.logo}
+                longDescription={dest_mapped?.longDescription}
+                shortDescription={dest_mapped?.shortDescription}
+                type={dest_mapped?.type}
             />
             <Testimonials />
             <EstuaryFlowVideo />

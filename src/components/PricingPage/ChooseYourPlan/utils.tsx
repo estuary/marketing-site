@@ -5,6 +5,9 @@ import { dashboardRegisterUrl } from '../../../../shared';
 
 const iconSize = 35;
 
+const getLinkId = (buttonName: string) =>
+    `${buttonName}-button/plans-section/pricing-page`;
+
 export const plans = [
     {
         icon: <LockSvgIcon width={iconSize} height={iconSize} />,
@@ -12,6 +15,7 @@ export const plans = [
         pricePerGb: 0,
         description: 'Free & Production ready. No credit card required.',
         button: {
+            id: getLinkId('get-started'),
             title: 'Get started',
             href: dashboardRegisterUrl,
         },
@@ -32,6 +36,7 @@ export const plans = [
         description:
             "Optimize Your Data Pipelines with Estuary's Cost-Effective Pricing!",
         button: {
+            id: getLinkId('try-it-free'),
             title: 'Try it Free',
             href: dashboardRegisterUrl,
         },
@@ -47,7 +52,11 @@ export const plans = [
         icon: <EnterpriseSvgIcon width={iconSize} height={iconSize} />,
         title: 'Enterprise',
         description: 'Get to the next level for mission-critical deployments.',
-        button: { title: 'Contact Us', href: '/contact-us/' },
+        button: {
+            id: getLinkId('contact-us'),
+            title: 'Contact Us',
+            href: '/contact-us/',
+        },
         benefits: [
             'SOC2 & HIPAA Reports',
             'Customer Success Manager',

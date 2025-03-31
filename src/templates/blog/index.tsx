@@ -1,6 +1,6 @@
 import { Link, graphql } from 'gatsby';
 
-import { Divider } from '@mui/material';
+import { Alert, Divider } from '@mui/material';
 import clsx from 'clsx';
 import lunr, { type Index } from 'lunr';
 import { useMemo, useState } from 'react';
@@ -72,26 +72,66 @@ const BlogIndex = ({
     const handleQueryChange = (evt) => setQuery(evt.target.value);
 
     const results = useMemo(() => {
-        const query_result = index.query((q) => {
-            const terms = query.split(' ').filter((term) => term.length > 0);
-            for (const term of terms) {
-                q.term(term, {
+        // We might want to look into handling case better
+        //  but seems if you upper case stuff results don't come back
+        const lowerQuery = query.toLowerCase();
+        const splitQuery = lowerQuery
+            .split(' ')
+            .filter((term) => term.length > 0);
+
+        return index
+            .query((q) => {
+                // We still might want to try first searching for things that 100% match exactly what the user has provided
+                // q.term(lowerQuery, {
+                //     boost: 50,
+                // });
+
+                // Perfect match on a tag is highest as we put them there to make things searchable
+                q.term(splitQuery, {
+                    fields: ['searchable_tags'],
+                    wildcard: lunr.Query.wildcard.NONE,
+                    boost: 35,
+                });
+
+                // Perfect match on the title
+                q.term(splitQuery, {
+                    fields: ['title'],
+                    wildcard: lunr.Query.wildcard.NONE,
+                    boost: 30,
+                });
+
+                // Weight a trailing match "query*" for the title and slug together
+                //  often there is a mismatch of terms between the slug
+                q.term(splitQuery, {
+                    fields: ['title', 'slug'],
+                    wildcard: lunr.Query.wildcard.TRAILING,
+                    boost: 15,
+                });
+
+                // Look in anything with a trailing match
+                q.term(splitQuery, {
                     wildcard: lunr.Query.wildcard.TRAILING,
                     boost: 10,
                 });
-                q.term(term, {
-                    editDistance: Math.min(Math.max(0, term.length - 1), 3),
-                });
-            }
-            return q;
-        });
-        return query_result.map((r) => data.localSearchPosts.store[r.ref]);
+
+                // TODO spelling alterations - previously we used this setting
+                //  but this returned A LOT of stuff that just was not related.
+                // Example :
+                //  searching "pinecone" would return "pipeline" because it is off by 3 alterations
+                // q.term(splitQuery, {
+                //     editDistance: Math.min(Math.max(0, term.length - 1), 3),
+                // });
+                return q;
+            })
+            .map((r) => data.localSearchPosts.store[r.ref]);
     }, [query, index, data.localSearchPosts.store]);
 
     const tabCategories = [
         { Slug: '', Name: 'All', Type: 'category' },
         ...realTabCategories,
     ];
+
+    const postsToRender = query.length > 0 ? results : posts;
 
     return (
         <Layout>
@@ -137,13 +177,18 @@ const BlogIndex = ({
                         handleQueryChange={handleQueryChange}
                     />
                 </div>
+
                 <Grid className={blogsIndexBody}>
-                    {(query.length > 0 ? results : posts).map((post) => (
-                        <BlogPostCard key={post.slug} {...post} />
+                    {query.length > 0 && results.length < 1 ? (
+                        <Alert severity="info">No blog posts found</Alert>
+                    ) : null}
+
+                    {postsToRender.map((post, idx) => (
+                        <BlogPostCard key={`${post.id}-${idx}`} {...post} />
                     ))}
                 </Grid>
             </BigImageBackground>
-            {prevPage ?? nextPage ? (
+            {query.length < 1 && (prevPage ?? nextPage) ? (
                 <>
                     <Divider />
                     <div className={blogsNav}>

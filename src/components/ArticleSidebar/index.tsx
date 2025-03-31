@@ -1,10 +1,12 @@
+import { dashboardRegisterUrl } from '../../../shared';
 import { RenderToc } from '../BlogPostToc';
-import SidebarCta from '../SidebarCta';
+import OutboundLinkFilled from '../LinksAndButtons/OutboundLinkFilled';
 import ShareArticle from '../ShareArticle';
 import {
     container,
     shareArticleDesktop,
     tableOfContentsWrapper,
+    ctaLink,
 } from './styles.module.less';
 
 interface ArticleSidebarProps {
@@ -14,12 +16,14 @@ interface ArticleSidebarProps {
     };
     tableOfContents: any;
     shareArticleSectionTitle?: string;
+    ctaButtonid: string;
 }
 
 const ArticleSidebar = ({
     article,
     tableOfContents,
     shareArticleSectionTitle,
+    ctaButtonid,
 }: ArticleSidebarProps) => {
     return (
         <div className={container}>
@@ -34,7 +38,14 @@ const ArticleSidebar = ({
                     <RenderToc items={tableOfContents} />
                 </div>
             ) : null}
-            <SidebarCta />
+            <OutboundLinkFilled
+                id={ctaButtonid}
+                href={dashboardRegisterUrl}
+                target="_blank"
+                className={ctaLink}
+            >
+                Start Building For Free
+            </OutboundLinkFilled>
         </div>
     );
 };

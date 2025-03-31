@@ -6,7 +6,7 @@
     border-radius: 16px;
     padding: 28px;
     background-color: var(--white);
-    min-height: 697px;
+    min-height: 868px;
 }
 
 .subSectionTitle {
@@ -25,6 +25,14 @@
     display: flex;
     flex-direction: column;
     min-height: 99.2px;
+}
+
+.secondaryHighlightedCard {
+    background-color: transparent;
+    border: 1px solid var(--grey);
+    border-radius: 16px;
+    padding: 16px;
+    flex-direction: row;
 }
 
 .header {
@@ -107,6 +115,7 @@
 
 .comparisons {
     display: flex;
+    flex-direction: column;
     gap: 24px;
     align-items: center;
     justify-content: space-between;
@@ -125,8 +134,8 @@
     width: 100%;
     flex-wrap: wrap;
 
-    @media (max-width: 525px) {
-        gap: 4px;
+    @media (max-width: 425px) {
+        gap: 12px;
         max-width: 100%;
     }
 }
@@ -141,24 +150,12 @@
     }
 }
 
-.brandName {
-    color: var(--dark-blue);
-    font-weight: 400;
-    font-size: 1rem;
-
-    @media (max-width: 425px) {
-        font-size: 0.875rem;
-    }
-}
-
 .brandPrice {
-    color: var(--grey);
+    color: var(--dark-blue);
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 24px;
     display: inline-block;
-    white-space: nowrap;
-    text-align: center;
 
     span {
         color: var(--dark-blue);
@@ -173,6 +170,11 @@
     display: flex;
     align-items: center;
     gap: 24px;
+
+    @media (max-width: 320px) {
+        flex-direction: column;
+        gap: 12px;
+    }
 }
 
 .detail {
@@ -245,4 +247,37 @@
     width: 100%;
     height: 1px;
     border: 1px solid #d5ddf8;
+}
+
+.getInTouchBanner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 23px 28px;
+    background: linear-gradient(90deg, rgba(55, 192, 193, 0.4) 0%, rgba(80, 114, 235, 0.4) 100%);
+    border-radius: 10px;
+
+    p {
+        font-size: 1.125rem;
+        font-weight: 600;
+        line-height: 27px;
+        color: var(--dark-blue);
+        margin: 0;
+    }
+
+    button {
+        background-color: var(--blue);
+        color: var(--white);
+        white-space: nowrap;
+    }
+
+    @media (max-width: 520px) {
+        flex-direction: column;
+
+        button {
+            width: 100%;
+            white-space: normal;
+        }
+    }
 }

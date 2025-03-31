@@ -4,6 +4,7 @@ import ApplePodcastButton from '../../svgs/apple-podcasts.svg';
 import SpotifyButton from '../../svgs/listen-spotify.svg';
 import WatchYoutubeButton from '../../svgs/youtube-watch.svg';
 import LinkFilled from '../LinksAndButtons/LinkFilled';
+import { getSlugifiedText } from '../../../shared';
 import {
     list,
     episodeLeft,
@@ -13,7 +14,7 @@ import {
     readLink,
 } from './styles.module.less';
 
-const VerticalList = ({ items }) => {
+const VerticalList = ({ items, pageId }) => {
     return (
         <ul className={list}>
             {items.map((item) => {
@@ -50,6 +51,7 @@ const VerticalList = ({ items }) => {
                                     item.links?.strapi_json_value.map(
                                         (link) => (
                                             <OutboundLink
+                                                id={`${getSlugifiedText(item.title)}/${pageId}`}
                                                 key={link}
                                                 href={link}
                                                 target="_blank"
@@ -75,6 +77,7 @@ const VerticalList = ({ items }) => {
                                     )
                                 ) : (
                                     <LinkFilled
+                                        id={`${getSlugifiedText(item.title)}-read-button/${pageId}`}
                                         href={`/${item.slug}`}
                                         className={readLink}
                                     >

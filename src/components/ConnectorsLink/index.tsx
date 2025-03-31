@@ -54,11 +54,6 @@ const ConnectorsLink = ({
     `);
     const [captureConnectors, materializationConnectors] = useMemo(() => {
         const mapped: ReturnType<typeof normalizeConnector>[] = connectors
-            .filter((connector) => connector.logo !== null)
-            .filter(
-                (connector) =>
-                    connector?.connectorTagsByConnectorIdList?.length > 0
-            )
             .map(normalizeConnector)
             .filter((connector) => connector !== undefined);
 
@@ -91,13 +86,13 @@ const ConnectorsLink = ({
 
     const sourceSelectItems = captureConnectors.map((c) => ({
         id: c.id,
-        image: c.logo.childImageSharp.gatsbyImageData,
+        image: c.logo ? c.logo.childImageSharp.gatsbyImageData : null,
         title: c.title,
     }));
 
     const destinationSelectItems = materializationConnectors.map((c) => ({
         id: c.id,
-        image: c.logo.childImageSharp.gatsbyImageData,
+        image: c.logo ? c.logo.childImageSharp.gatsbyImageData : null,
         title: c.title,
     }));
 

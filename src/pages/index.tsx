@@ -15,7 +15,7 @@ import SeeHowSection from '../components/SeeHowSection';
 import OutboundLinkFilled from '../components/LinksAndButtons/OutboundLinkFilled';
 import LinkOutlined from '../components/LinksAndButtons/LinkOutlined';
 import { dashboardRegisterUrl } from '../../shared';
-import InnovateFaster from '../components/Homepage/InnovateFaster';
+import SecureDataMovement from '../components/Homepage/SecureDataMovement';
 
 const IndexPage = () => {
     return (
@@ -28,19 +28,21 @@ const IndexPage = () => {
             <TheBestRealTimeCdc />
             <BuildInMinutes />
             <AutomateDataops />
-            <InnovateFaster />
+            <SecureDataMovement />
             <Do4xMoreWith25xLess />
             <WhatPeopleAreSaying />
             <SeeHowSection
                 buttons={
                     <>
                         <OutboundLinkFilled
+                            id="try-now-for-free-button/home-page"
                             href={dashboardRegisterUrl}
                             target="_blank"
                         >
                             Try Now For Free
                         </OutboundLinkFilled>
                         <LinkOutlined
+                            id="contact-us-button/home-page"
                             href="/contact-us/"
                             variant="secondary"
                             hasLightBorder

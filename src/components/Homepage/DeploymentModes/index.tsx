@@ -36,6 +36,7 @@ const DeploymentModes = () => (
             buttonTitle="See Details"
             optionsDescription={optionsDescription}
             keyFeatures={keyFeatures}
+            pageId="home-page"
         />
     </section>
 );
