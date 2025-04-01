@@ -665,6 +665,9 @@ export const createPages: GatsbyNode['createPages'] = async ({
 // and query them all through a "side-channel" here, so that we can actually pass them through Gatsby's Sharp
 // transformer. Then we can just attach a much simpler resolver to `PostGraphile_Connector` that just
 // looks up that previously created and processed logo.
+const createLogoNodeId = (connectorId: string) =>
+    `ConnectorLogo-${connectorId}`;
+
 exports.createSchemaCustomization = ({ actions }) => {
     const { createTypes } = actions;
     const typeDefs = `
@@ -677,33 +680,12 @@ exports.createSchemaCustomization = ({ actions }) => {
     createTypes(typeDefs);
 };
 
-const createLogoNodeId = (connectorId: string) =>
-    `ConnectorLogo-${connectorId}`;
-
-let isFirstSource = true;
-
 export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
-    actions: { createNode, touchNode },
+    actions: { createNode },
     createNodeId,
     getCache,
-    getNodes,
     createContentDigest,
 }) => {
-    if (isFirstSource) {
-        console.log('isFirstSource', isFirstSource);
-
-        getNodes().forEach((node) => {
-            if (node.internal.owner !== `gatsby-source-filesystem`) {
-                return;
-            }
-            // Making sure things do not get GC
-            touchNode(node);
-        });
-
-        isFirstSource = false;
-        console.log('isFirstSource setting to false', isFirstSource);
-    }
-
     // console.log('sourceNodes:start');
     const pool = new pg.Pool({
         connectionString: SUPABASE_CONNECTION_STRING,
