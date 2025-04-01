@@ -125,7 +125,7 @@ const Comparison = ({
                 },
                 {
                     id: `${vendor.name.replace(' ', '-')}-pricing`,
-                    heading: 'Pricing',
+                    heading: `${vendor.name} Pricing`,
                 },
             ],
         });

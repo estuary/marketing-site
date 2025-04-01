@@ -51,27 +51,34 @@ const renderAuthors = (authors: CardProps['data']['authors']) => {
     if (authors.length > 1) {
         return (
             <AvatarGroup max={3}>
-                {authors.map((author) => (
-                    <Avatar
-                        key={author.id}
-                        image={
-                            author.picture.localFile.childImageSharp
-                                .gatsbyImageData
-                        }
-                        alt={`Picture of ${author.name}`}
-                        name={author.name}
-                    />
-                ))}
+                {authors.map((author) => {
+                    const authorImage = author.picture?.localFile
+                        ?.childImageSharp?.gatsbyImageData
+                        ? getImage(
+                              author.picture.localFile.childImageSharp
+                                  .gatsbyImageData
+                          )
+                        : undefined;
+                    return (
+                        <Avatar
+                            key={author.id}
+                            image={authorImage}
+                            alt={`Picture of ${author.name}`}
+                            name={author.name}
+                        />
+                    );
+                })}
             </AvatarGroup>
         );
     }
 
     const singleAuthor = authors[0];
-    const singleAuthorImage =
-        singleAuthor.picture &&
-        getImage(
-            singleAuthor.picture.localFile.childImageSharp.gatsbyImageData
-        );
+    const singleAuthorImage = singleAuthor.picture?.localFile?.childImageSharp
+        ?.gatsbyImageData
+        ? getImage(
+              singleAuthor.picture.localFile.childImageSharp.gatsbyImageData
+          )
+        : undefined;
 
     return (
         <>

@@ -17,7 +17,11 @@ jobs:
 
             - uses: actions/setup-node@v1
               with:
-                  node-version: '18.x'
+                  node-version: '20.x'
+
+            # Need to look into this action
+            # - name: Gatsby Cache
+            #   uses: jongwooo/gatsby-cache@v1.4.6
 
             - name: Caching
               id: gatsby-cache-build
@@ -44,8 +48,9 @@ jobs:
                   CI: true
 
             - name: Run build
-              run: yarn run build --log-pages
+              run: yarn run build:debug:network --verbose --log-pages
               env:
+                  GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: true
                   CI: true
                   STRAPI_API_URL: ${{ secrets.STRAPI_API_URL }}
                   STRAPI_TOKEN: ${{ secrets.STRAPI_TOKEN }}

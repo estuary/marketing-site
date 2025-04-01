@@ -164,7 +164,7 @@ export const pageQuery = graphql`
                             layout: FULL_WIDTH
                             placeholder: BLURRED
                             # aspectRatio: 2
-                            formats: [AUTO, WEBP, AVIF]
+                            formats: [AUTO, WEBP]
                         )
                         metaImg: gatsbyImageData(layout: FIXED, width: 500)
                         # Further below in this doc you can learn how to use these response images
