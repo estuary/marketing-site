@@ -31,9 +31,9 @@ jobs:
                       node_modules
                       .cache
                       public
-                  key: ${{ runner.os }}-gatsby-build-preview-${{github.head_ref}}-${{ github.run_id }}
+                  key: ${{ runner.os }}-gatsby-build-preview-${{github.head_ref}}
                   restore-keys: |
-                      ${{ runner.os }}-gatsby-build-preview-${{github.head_ref}}-
+                      ${{ runner.os }}-gatsby-build-preview-${{github.head_ref}}
 
             - run: yarn install --frozen-lockfile
 
