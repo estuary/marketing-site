@@ -76,12 +76,13 @@ const renderAuthors = (authors: CardProps['data']['authors']) => {
         return (
             <AvatarGroup max={3}>
                 {authors.map((author) => {
-                    const authorImage =
-                        author.picture &&
-                        getImage(
-                            author.picture.localFile.childImageSharp
-                                .gatsbyImageData
-                        );
+                    const authorImage = author.picture?.localFile
+                        ?.childImageSharp?.gatsbyImageData
+                        ? getImage(
+                              author.picture.localFile.childImageSharp
+                                  .gatsbyImageData
+                          )
+                        : undefined;
                     return (
                         <Avatar
                             key={author.id}
@@ -96,11 +97,12 @@ const renderAuthors = (authors: CardProps['data']['authors']) => {
     }
 
     const singleAuthor = authors[0];
-    const singleAuthorImage =
-        singleAuthor.picture &&
-        getImage(
-            singleAuthor.picture.localFile.childImageSharp.gatsbyImageData
-        );
+    const singleAuthorImage = singleAuthor.picture?.localFile?.childImageSharp
+        ?.gatsbyImageData
+        ? getImage(
+              singleAuthor.picture.localFile.childImageSharp.gatsbyImageData
+          )
+        : undefined;
 
     return (
         <>

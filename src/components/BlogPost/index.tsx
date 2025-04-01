@@ -236,7 +236,8 @@ const BlogPost = ({
                                             className={authorMainInfoContainer}
                                         >
                                             {author.picture?.localFile
-                                                ?.childImageSharp ? (
+                                                ?.childImageSharp
+                                                ?.gatsbyImageData ? (
                                                 <div
                                                     className={
                                                         authorAvatarContainer
