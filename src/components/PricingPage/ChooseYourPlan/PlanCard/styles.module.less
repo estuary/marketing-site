@@ -186,6 +186,9 @@
 }
 
 .mostPopularTag {
+    --folded: 0.5em;
+    --ribbon-shape: 0.8em;
+
     background: linear-gradient(to left, #37C0C1 1%, #5072EB);
     width: 80%;
     max-width: 320px;
@@ -203,10 +206,14 @@
     align-items: center;
     justify-content: center;
     gap: 16px;
-    clip-path: polygon(0 0, 100% 0, 85% 50%, 100% 100%, 0 100%);
+    border-bottom: var(--folded) solid #0005;
+    clip-path: 
+      polygon(0 0,0 calc(100% - var(--folded)),var(--folded) 100%,
+        var(--folded) calc(100% - var(--folded)),100% calc(100% - var(--folded)),
+        calc(100% - var(--ribbon-shape)) calc(50% - var(--folded)/2),100% 0);
 
     strong {
-        margin-right: 40px;
+        margin-right: 24px;
     }
 
     svg {
