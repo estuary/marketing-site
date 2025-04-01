@@ -743,6 +743,7 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
 
 export const createResolvers: GatsbyNode['createResolvers'] = async ({
     createResolvers: createResolversParam,
+    reporter,
 }) => {
     // console.log('createResolvers:start');
     createResolversParam({
@@ -772,9 +773,8 @@ export const createResolvers: GatsbyNode['createResolvers'] = async ({
                         return logoNode.logo;
                     }
 
-                    console.log(
-                        'resolvePostGraphileConnector:logo:missing',
-                        id
+                    reporter.warn(
+                        `resolvePostGraphileConnector:logo:missing->${id}`
                     );
                     return null;
                 },
