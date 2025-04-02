@@ -389,19 +389,14 @@ const createConnectors: CreateHelper = async (
             allConnectors: {
                 nodes: any[];
             };
-        }; // TODO: Are we using the shortDescription and longDescription here? Also check the other properties.
+        };
     }>(`
         {
             postgres {
                 allConnectors(orderBy: [RECOMMENDED_DESC, CREATED_AT_DESC]) {
                     nodes {
                         id
-                        externalUrl
                         imageName
-                        shortDescription
-                        longDescription
-                        title
-                        logoUrl
                         recommended
                         connectorTagsByConnectorIdList {
                             protocol
