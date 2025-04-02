@@ -665,6 +665,9 @@ export const createPages: GatsbyNode['createPages'] = async ({
 // and query them all through a "side-channel" here, so that we can actually pass them through Gatsby's Sharp
 // transformer. Then we can just attach a much simpler resolver to `PostGraphile_Connector` that just
 // looks up that previously created and processed logo.
+const createLogoNodeId = (connectorId: string) =>
+    `ConnectorLogo-${connectorId}`;
+
 exports.createSchemaCustomization = ({ actions }) => {
     const { createTypes } = actions;
     const typeDefs = `
@@ -677,9 +680,6 @@ exports.createSchemaCustomization = ({ actions }) => {
     createTypes(typeDefs);
 };
 
-const createLogoNodeId = (connectorId: string) =>
-    `ConnectorLogo-${connectorId}`;
-
 export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
     actions: { createNode },
     createNodeId,
@@ -689,7 +689,7 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
     // console.log('sourceNodes:start');
     const pool = new pg.Pool({
         connectionString: SUPABASE_CONNECTION_STRING,
-        connectionTimeoutMillis: 8000,
+        connectionTimeoutMillis: 30 * 1000,
         max: 1,
         allowExitOnIdle: true,
     });
@@ -743,6 +743,7 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
 
 export const createResolvers: GatsbyNode['createResolvers'] = async ({
     createResolvers: createResolversParam,
+    reporter,
 }) => {
     // console.log('createResolvers:start');
     createResolversParam({
@@ -772,9 +773,8 @@ export const createResolvers: GatsbyNode['createResolvers'] = async ({
                         return logoNode.logo;
                     }
 
-                    console.log(
-                        'resolvePostGraphileConnector:logo:missing',
-                        id
+                    reporter.warn(
+                        `resolvePostGraphileConnector:logo:missing->${id}`
                     );
                     return null;
                 },
