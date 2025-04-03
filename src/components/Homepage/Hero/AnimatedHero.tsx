@@ -1,9 +1,22 @@
-import LottiePlayerLight from 'react-lottie-player/dist/LottiePlayerLight';
-import { useState, useEffect, useRef, useCallback } from 'react';
+import {
+    useState,
+    useEffect,
+    useRef,
+    useCallback,
+    useMemo,
+    lazy,
+    Suspense,
+} from 'react';
 import AnimFallback from './AnimFallback';
 import { flowAnimationPlaceholderContainer } from './styles.module.less';
 
 const AnimatedHero = () => {
+    // Load in lottie so it only loads on the client
+    const LottiePlayerLight = useMemo(
+        () => lazy(() => import('react-lottie-player/dist/LottiePlayerLight')),
+        []
+    );
+
     const [animationData, setAnimationData] = useState<object>();
 
     useEffect(() => {
@@ -38,24 +51,26 @@ const AnimatedHero = () => {
     }, [lottieRef]);
 
     return (
-        <div className={flowAnimationPlaceholderContainer}>
-            {!showAnimation ? <AnimFallback /> : null}
-            {animationData ? (
-                <LottiePlayerLight
-                    animationData={animationData}
-                    onLoad={handleLottieLoaded}
-                    rendererSettings={{
-                        viewBoxOnly: true,
-                        preserveAspectRatio: 'xMaxYMid meet',
-                        progressiveLoad: true,
-                        focusable: false,
-                    }}
-                    style={!showAnimation ? { display: 'none' } : undefined}
-                    play={false}
-                    ref={lottieRef}
-                />
-            ) : null}
-        </div>
+        <Suspense fallback={<AnimFallback />}>
+            <div className={flowAnimationPlaceholderContainer}>
+                {!showAnimation ? <AnimFallback /> : null}
+                {animationData ? (
+                    <LottiePlayerLight
+                        animationData={animationData}
+                        onLoad={handleLottieLoaded}
+                        rendererSettings={{
+                            viewBoxOnly: true,
+                            preserveAspectRatio: 'xMaxYMid meet',
+                            progressiveLoad: true,
+                            focusable: false,
+                        }}
+                        play={false}
+                        style={!showAnimation ? { display: 'none' } : undefined}
+                        ref={lottieRef}
+                    />
+                ) : null}
+            </div>
+        </Suspense>
     );
 };
 
