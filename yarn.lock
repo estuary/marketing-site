@@ -7871,6 +7871,13 @@ gatsby-plugin-manifest@^5.13.1:
     semver "^7.5.3"
     sharp "^0.32.6"
 
+gatsby-plugin-no-sourcemaps@^5.14.0:
+  version "5.14.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-no-sourcemaps/-/gatsby-plugin-no-sourcemaps-5.14.0.tgz#9aecc0c6530a358412fcb97bf3495ad4dec063d1"
+  integrity sha512-p/Cxn/OOUdrPsOBxQ1TuuwhiHwCVARhLIvHAruc2Zt9xwaK+Zibuq/F6FMoNbaOUwDlVlSiAdkD7OJBQZjL6dA==
+  dependencies:
+    "@babel/runtime" "^7.20.13"
+
 gatsby-plugin-page-creator@^5.14.0:
   version "5.14.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-page-creator/-/gatsby-plugin-page-creator-5.14.0.tgz#d825a6ca7f5ee5a15490c635d509bfdfbcd552f1"
@@ -8123,21 +8130,6 @@ gatsby-source-filesystem@^3.0.0:
     progress "^2.0.3"
     valid-url "^1.0.9"
     xstate "^4.14.0"
-
-gatsby-source-filesystem@^5.13.1:
-  version "5.13.1"
-  resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-5.13.1.tgz#1aad8f969fbfd4efe6f7cfcd8542253f54fdbd8a"
-  integrity sha512-nFWzOBpi84nDeVNeO7bpKL9mVYMl1tfjJmE5l868YATFShGzZnA6qMd200XCsf78PexZHAiV/P1MlsyKqjJduA==
-  dependencies:
-    "@babel/runtime" "^7.20.13"
-    chokidar "^3.5.3"
-    file-type "^16.5.4"
-    fs-extra "^11.1.1"
-    gatsby-core-utils "^4.13.1"
-    mime "^3.0.0"
-    pretty-bytes "^5.6.0"
-    valid-url "^1.0.9"
-    xstate "^4.38.0"
 
 gatsby-source-filesystem@^5.14.0:
   version "5.14.0"

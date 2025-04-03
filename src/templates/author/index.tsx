@@ -112,7 +112,7 @@ export const pageQuery = graphql`
                                 width: 400
                                 placeholder: BLURRED
                                 aspectRatio: 1.7
-                                formats: [AUTO, WEBP, AVIF]
+                                formats: [AUTO, WEBP]
                             )
                         }
                     }
