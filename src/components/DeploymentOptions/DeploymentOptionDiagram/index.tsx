@@ -15,9 +15,6 @@ import {
     secondLevelSolidBorderBox,
     dashedBorderBox,
     middleTag,
-    tagArrow,
-    tagArrowLeft,
-    tagArrowRight,
     horizontalWrapper,
     minHeight,
     privateLinkTag,
@@ -26,6 +23,7 @@ import {
     metadataOnlyDarkerBlueTag,
     relativePosition,
     ownedByEstuaryBox,
+    vpcDashedBorderBox,
 } from './styles.module.less';
 
 const iconSize = 30;
@@ -89,8 +87,8 @@ const DeploymentOptionDiagram = ({
                         {['private', 'byoc'].includes(deploymentOption) ? (
                             <div
                                 className={clsx(
-                                    solidBorderBox,
-                                    secondLevelSolidBorderBox
+                                    dashedBorderBox,
+                                    vpcDashedBorderBox
                                 )}
                             >
                                 <div
@@ -152,9 +150,7 @@ const DeploymentOptionDiagram = ({
                 </div>
                 {deploymentOption === 'public' ? (
                     <div className={middleTag}>
-                        <div className={clsx(tagArrow, tagArrowLeft)} />
                         <span>Internet</span>
-                        <div className={clsx(tagArrow, tagArrowRight)} />
                     </div>
                 ) : null}
                 {['private', 'byoc'].includes(deploymentOption) ? (
@@ -166,9 +162,7 @@ const DeploymentOptionDiagram = ({
                                 privateLinkTag
                             )}
                         >
-                            <div className={clsx(tagArrow, tagArrowLeft)} />
                             <span>PrivateLink</span>
-                            <div className={clsx(tagArrow, tagArrowRight)} />
                         </div>
                         <div
                             className={clsx(
@@ -177,9 +171,9 @@ const DeploymentOptionDiagram = ({
                                 metadataOnlyDarkerBlueTag
                             )}
                         >
-                            <div className={clsx(tagArrow, tagArrowLeft)} />
-                            <span>metadata only</span>
-                            <div className={clsx(tagArrow, tagArrowRight)} />
+                            <div>
+                                <span>metadata only</span>
+                            </div>
                         </div>
                     </>
                 ) : null}
