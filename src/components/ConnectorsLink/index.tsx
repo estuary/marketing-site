@@ -2,7 +2,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { useMemo, useState } from 'react';
 import { normalizeConnector } from '../../utils';
 
-import { ConnectorType } from '../../../shared';
+import { ConnectorType, getIntegrationSlug } from '../../../shared';
 import XvsYFilter from '../XvsYFilter';
 
 type ConnectorsLinkProps = {
@@ -72,10 +72,14 @@ const ConnectorsLink = ({
 
     const detailsHref = useMemo(() => {
         if (sourceId && destinationId) {
-            return `/integrations/${captureConnectors.find((c) => c?.id === sourceId)?.slugified_name}-to-${
-                materializationConnectors.find((c) => c?.id === destinationId)
-                    ?.slugified_name
-            }/`;
+            const sourceName = captureConnectors.find(
+                (c) => c?.id === sourceId
+            )?.slugified_name;
+            const destinationName = materializationConnectors.find(
+                (c) => c?.id === destinationId
+            )?.slugified_name;
+
+            return `${getIntegrationSlug(sourceName, destinationName)}/`;
         } else {
             return '#';
         }
