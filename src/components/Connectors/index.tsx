@@ -78,15 +78,7 @@ const ConnectorCard = ({
         >
             <div className={connectorCard}>
                 <div className={connectorCardTop}>
-                    {logo?.extension === 'svg' ? (
-                        <img
-                            src={logo.publicURL}
-                            alt={`${title} Logo`}
-                            className={connectorLogoClassName}
-                            loading="eager"
-                            width={53}
-                        />
-                    ) : logo?.childImageSharp?.gatsbyImageData ? (
+                    {logo?.childImageSharp?.gatsbyImageData ? (
                         <GatsbyImage
                             image={logo.childImageSharp.gatsbyImageData}
                             alt={`${title} Logo`}
@@ -174,8 +166,6 @@ export const Connectors = ({
                                     width: 53
                                 )
                             }
-                            publicURL
-                            extension
                         }
                         recommended
                         connectorTagsByConnectorIdList {

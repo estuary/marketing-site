@@ -61,8 +61,6 @@ export const pageQuery = graphql`
                     childImageSharp {
                         gatsbyImageData(placeholder: BLURRED)
                     }
-                    publicURL
-                    extension
                 }
             }
             slugKey
@@ -305,8 +303,6 @@ export const pageQuery = graphql`
                     childImageSharp {
                         gatsbyImageData(placeholder: BLURRED)
                     }
-                    publicURL
-                    extension
                 }
             }
             slugKey
@@ -549,8 +545,6 @@ export const pageQuery = graphql`
                     childImageSharp {
                         gatsbyImageData(placeholder: BLURRED)
                     }
-                    publicURL
-                    extension
                 }
             }
             slugKey
@@ -794,8 +788,6 @@ export const pageQuery = graphql`
                         childImageSharp {
                             gatsbyImageData(placeholder: BLURRED)
                         }
-                        publicURL
-                        extension
                     }
                 }
                 slugKey

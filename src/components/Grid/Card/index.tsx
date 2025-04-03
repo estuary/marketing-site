@@ -117,15 +117,12 @@ const Card = ({
     };
 
     const cardImageLocalFile = data.hero?.localFile;
-    const cardImage =
-        cardImageLocalFile?.extension === 'svg' ? (
-            <img src={cardImageLocalFile.publicURL} {...commonImageProps} />
-        ) : cardImageLocalFile?.childImageSharp ? (
-            <GatsbyImage
-                image={cardImageLocalFile.childImageSharp.gatsbyImageData}
-                {...commonImageProps}
-            />
-        ) : null;
+    const cardImage = cardImageLocalFile?.childImageSharp.gatsbyImageData ? (
+        <GatsbyImage
+            image={cardImageLocalFile.childImageSharp.gatsbyImageData}
+            {...commonImageProps}
+        />
+    ) : null;
 
     const commonLinkProps = {
         id: linkId,

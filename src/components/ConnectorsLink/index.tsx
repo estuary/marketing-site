@@ -42,8 +42,6 @@ const ConnectorsLink = ({
                                     quality: 95
                                 )
                             }
-                            publicURL
-                            extension
                         }
                         recommended
                         connectorTagsByConnectorIdList {

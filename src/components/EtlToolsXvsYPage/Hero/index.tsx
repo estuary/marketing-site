@@ -71,12 +71,8 @@ const Hero = ({ vendors, xVendor, yVendor }: SectionOneProps) => {
                 />
                 <div className={rightColumn}>
                     <div className={clsx(vendorLogo, leftVendorLogo)}>
-                        {xVendor.logo.localFile.extension === 'svg' ? (
-                            <img
-                                src={xVendor.logo.localFile.publicURL}
-                                {...commonXvendorImageProps}
-                            />
-                        ) : xVendor.logo.localFile.childImageSharp ? (
+                        {xVendor.logo.localFile.childImageSharp
+                            ?.gatsbyImageData ? (
                             <GatsbyImage
                                 image={
                                     xVendor.logo.localFile.childImageSharp
@@ -93,12 +89,8 @@ const Hero = ({ vendors, xVendor, yVendor }: SectionOneProps) => {
                         placeholder="blurred"
                     />
                     <div className={clsx(vendorLogo, rightVendorLogo)}>
-                        {yVendor.logo.localFile.extension === 'svg' ? (
-                            <img
-                                src={yVendor.logo.localFile.publicURL}
-                                {...commonYvendorImageProps}
-                            />
-                        ) : yVendor.logo.localFile.childImageSharp ? (
+                        {yVendor.logo.localFile.childImageSharp
+                            ?.gatsbyImageData ? (
                             <GatsbyImage
                                 image={
                                     yVendor.logo.localFile.childImageSharp

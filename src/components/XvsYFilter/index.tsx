@@ -108,13 +108,7 @@ const XvsYFilter = ({
                             key={item.id}
                             value={item.id}
                         >
-                            {item.image?.extension === 'svg' ? (
-                                <img
-                                    src={item.image.publicURL}
-                                    alt={`${item.title} Logo`}
-                                    className={itemImage}
-                                />
-                            ) : item.image?.childImageSharp?.gatsbyImageData ? (
+                            {item.image?.childImageSharp?.gatsbyImageData ? (
                                 <GatsbyImage
                                     image={
                                         item.image.childImageSharp
@@ -162,13 +156,7 @@ const XvsYFilter = ({
                             key={item.id}
                             value={item.id}
                         >
-                            {item.image?.extension === 'svg' ? (
-                                <img
-                                    src={item.image.publicURL}
-                                    alt={`${item.title} Logo`}
-                                    className={itemImage}
-                                />
-                            ) : item.image?.childImageSharp?.gatsbyImageData ? (
+                            {item.image?.childImageSharp?.gatsbyImageData ? (
                                 <GatsbyImage
                                     image={
                                         item.image.childImageSharp

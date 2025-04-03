@@ -57,8 +57,6 @@ export const pageQuery = graphql`
                             height: 630
                         )
                     }
-                    extension
-                    publicURL
                 }
             }
             SideContent {

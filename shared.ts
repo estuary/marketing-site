@@ -123,8 +123,6 @@ interface ImageType {
     childImageSharp?: {
         gatsbyImageData: IGatsbyImageData;
     };
-    publicURL: string;
-    extension: string;
 }
 
 export interface Vendor {

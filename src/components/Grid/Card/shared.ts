@@ -22,8 +22,6 @@ export interface CardProps {
                 childImageSharp: {
                     gatsbyImageData: IGatsbyImageData;
                 };
-                extension?: string;
-                publicURL?: string;
             };
         };
     };

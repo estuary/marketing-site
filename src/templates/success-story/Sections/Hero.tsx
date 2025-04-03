@@ -18,13 +18,7 @@ const Hero = ({ title, description, image }: HeroProps) => {
                     <span>{title}</span>
                     <h1>{description}</h1>
                 </div>
-                {image?.extension === 'svg' ? (
-                    <img
-                        alt={`${title} logo`}
-                        src={image.publicURL}
-                        loading="eager"
-                    />
-                ) : image?.childImageSharp ? (
+                {image?.childImageSharp?.gatsbyImageData ? (
                     <GatsbyImage
                         alt={`${title} logo`}
                         image={image.childImageSharp.gatsbyImageData}

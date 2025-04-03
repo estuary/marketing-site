@@ -64,14 +64,8 @@ const Hero = ({ sourceConnector, destConnector }: Connectors) => {
                     <div className={backgroundImageWraper}>
                         <div className={semiCircleLeftSide}>
                             <div className={bgSideImageWrapper}>
-                                {sourceConnector.logo?.extension === 'svg' ? (
-                                    <img
-                                        src={sourceConnector.logo.publicURL}
-                                        alt={`${sourceConnector.title} logo`}
-                                        loading="eager"
-                                        className={bgImage}
-                                    />
-                                ) : sourceConnector.logo?.childImageSharp ? (
+                                {sourceConnector.logo?.childImageSharp
+                                    ?.gatsbyImageData ? (
                                     <GatsbyImage
                                         image={
                                             sourceConnector.logo.childImageSharp
@@ -97,14 +91,7 @@ const Hero = ({ sourceConnector, destConnector }: Connectors) => {
                         </div>
                         <div className={semiCircleRightSide}>
                             <div className={bgSideImageWrapper}>
-                                {destConnector.logo?.extension === 'svg' ? (
-                                    <img
-                                        src={destConnector.logo.publicURL}
-                                        alt={`${destConnector.title} logo`}
-                                        loading="eager"
-                                        className={bgImage}
-                                    />
-                                ) : destConnector.logo?.childImageSharp ? (
+                                {destConnector.logo?.childImageSharp ? (
                                     <GatsbyImage
                                         image={
                                             destConnector.logo.childImageSharp

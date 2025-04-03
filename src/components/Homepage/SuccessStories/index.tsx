@@ -23,8 +23,6 @@ const SuccessStories = () => {
                             childImageSharp {
                                 gatsbyImageData
                             }
-                            extension
-                            publicURL
                         }
                     }
                 }
@@ -42,32 +40,23 @@ const SuccessStories = () => {
                     items={sortedSuccessStories}
                     itemsPerSlide={3}
                     ariaLabel="Success stories carousel"
-                    renderCard={({ id, title, description, slug, logo }) => {
-                        return (
-                            <Card
-                                key={id}
-                                title={title}
-                                description={description}
-                                href={`/success-stories/${slug}/`}
-                                image={
-                                    logo.localFile.extension === 'svg' ? (
-                                        <img
-                                            src={logo.localFile.publicURL}
-                                            alt={`${title} logo`}
-                                        />
-                                    ) : logo?.localFile?.childImageSharp ? (
-                                        <GatsbyImage
-                                            image={
-                                                logo.localFile.childImageSharp
-                                                    .gatsbyImageData
-                                            }
-                                            alt={`${title} logo`}
-                                        />
-                                    ) : null
-                                }
-                            />
-                        );
-                    }}
+                    renderCard={({ id, title, description, slug, logo }) => (
+                        <Card
+                            key={id}
+                            title={title}
+                            description={description}
+                            href={`/success-stories/${slug}/`}
+                            image={
+                                <GatsbyImage
+                                    image={
+                                        logo.localFile.childImageSharp
+                                            .gatsbyImageData
+                                    }
+                                    alt={`${title} logo`}
+                                />
+                            }
+                        />
+                    )}
                 />
             </Container>
         </DarkSwoopingLinesLeftDirectionBackground>

@@ -132,8 +132,6 @@ export const pageQuery = graphql`
                             quality: 100
                         )
                     }
-                    extension
-                    publicURL
                 }
                 recommended
                 connectorTagsByConnectorIdList {

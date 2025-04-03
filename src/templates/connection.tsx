@@ -184,8 +184,6 @@ export const pageQuery = graphql`
                             quality: 95
                         )
                     }
-                    extension
-                    publicURL
                 }
                 recommended
                 connectorTagsByConnectorIdList {
@@ -210,8 +208,6 @@ export const pageQuery = graphql`
                             quality: 95
                         )
                     }
-                    extension
-                    publicURL
                 }
                 recommended
                 connectorTagsByConnectorIdList {
@@ -238,8 +234,6 @@ export const pageQuery = graphql`
                                 formats: [AUTO, WEBP, AVIF]
                             )
                         }
-                        extension
-                        publicURL
                     }
                     alternativeText
                 }
@@ -287,8 +281,6 @@ export const pageQuery = graphql`
                                 formats: [AUTO, WEBP, AVIF]
                             )
                         }
-                        extension
-                        publicURL
                     }
                     alternativeText
                 }

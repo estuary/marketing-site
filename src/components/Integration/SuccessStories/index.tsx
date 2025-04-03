@@ -38,8 +38,6 @@ const SuccessStories = ({ hasRelatedArticles }: SuccessStoriesProps) => {
                                     layout: FULL_WIDTH
                                 )
                             }
-                            extension
-                            publicURL
                         }
                     }
                 }

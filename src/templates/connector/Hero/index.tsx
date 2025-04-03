@@ -14,7 +14,6 @@ import {
     logoContainer,
     logoContainerCapture,
     textBaseStyling,
-    svgLogoSize,
 } from './styles.module.less';
 
 type HeroProps = {
@@ -54,17 +53,10 @@ const Hero = ({ connector: { title, logo, type } }: HeroProps) => {
                     <div
                         className={clsx(
                             logoContainer,
-                            type === 'capture' ? logoContainerCapture : null,
-                            logo?.extension === 'svg' ? svgLogoSize : null
+                            type === 'capture' ? logoContainerCapture : null
                         )}
                     >
-                        {logo?.extension === 'svg' ? (
-                            <img
-                                src={logo.publicURL}
-                                alt={`${title} logo`}
-                                loading="eager"
-                            />
-                        ) : logo?.childImageSharp?.gatsbyImageData ? (
+                        {logo?.childImageSharp?.gatsbyImageData ? (
                             <GatsbyImage
                                 alt={`${title} logo`}
                                 image={logo.childImageSharp.gatsbyImageData}
