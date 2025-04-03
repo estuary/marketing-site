@@ -31,7 +31,7 @@ export const normalizeConnector = (
     }
 
     const regex_result = connector.imageName.match(CONNECTOR_IMAGE_RE);
-    const type = connector.connectorTagsByConnectorIdList?.[0]
+    const type = connector.connectorTagsByConnectorIdList[0]
         ?.protocol as ConnectorType;
 
     return {
@@ -41,7 +41,7 @@ export const normalizeConnector = (
         shortDescription: connector.shortDescription?.['en-US'],
         longDescription: connector.longDescription?.['en-US'],
         title: connector.title['en-US'],
-        logoUrl: connector.logoUrl?.['en-US'],
+        logoUrl: connector.logoUrl['en-US'],
         logo: connector.logo,
         recommended: connector.recommended,
         type,
@@ -49,6 +49,8 @@ export const normalizeConnector = (
         slug: regex_result
             ? `/${type === 'capture' ? 'source' : 'destination'}/${regex_result[2]}`
             : null,
+        connectorTagsByConnectorIdList:
+            connector.connectorTagsByConnectorIdList,
     };
 };
 

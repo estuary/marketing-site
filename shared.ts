@@ -260,13 +260,13 @@ export interface Connector {
     id: string;
     externalUrl: string;
     imageName: string;
-    logo?: ImageType;
+    logo: ImageType;
     shortDescription?: string;
     longDescription?: string;
     title: string;
-    logoUrl?: string;
+    logoUrl: string;
     recommended: boolean;
-    connectorTagsByConnectorIdList?: {
+    connectorTagsByConnectorIdList: {
         protocol: string;
     }[];
     slug: string | null;

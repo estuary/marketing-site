@@ -18,7 +18,7 @@ const Hero = ({ title, description, image }: HeroProps) => {
                     <span>{title}</span>
                     <h1>{description}</h1>
                 </div>
-                {image?.childImageSharp?.gatsbyImageData ? (
+                {image.childImageSharp?.gatsbyImageData ? (
                     <GatsbyImage
                         alt={`${title} logo`}
                         image={image.childImageSharp.gatsbyImageData}
