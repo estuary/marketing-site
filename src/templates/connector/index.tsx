@@ -53,7 +53,7 @@ const Connector = ({
                         href: '/integrations',
                     },
                     {
-                        title: mappedConnector?.title,
+                        title: mappedConnector?.title ?? 'Connector',
                     },
                 ]}
             />

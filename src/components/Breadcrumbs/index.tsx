@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { links, crumbTitle, divider, container } from './styles.module.less';
 
 interface Breadcrumb {
-    title?: string;
+    title: string;
     href?: string;
 }
 
