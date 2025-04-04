@@ -2,7 +2,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { useMemo, useState } from 'react';
 import { normalizeConnector } from '../../utils';
 
-import { ConnectorType, getIntegrationSlug } from '../../../shared';
+import { Connector, ConnectorType, getIntegrationSlug } from '../../../shared';
 import XvsYFilter from '../XvsYFilter';
 
 type ConnectorsLinkProps = {
@@ -53,13 +53,13 @@ const ConnectorsLink = ({
         }
     `);
     const [captureConnectors, materializationConnectors] = useMemo(() => {
-        const mapped: ReturnType<typeof normalizeConnector>[] = connectors
+        const mapped: Connector[] = connectors
             .map(normalizeConnector)
             .filter((connector) => connector !== undefined);
 
         return [
-            mapped.filter((connector) => connector?.type === 'capture'),
-            mapped.filter((connector) => connector?.type === 'materialization'),
+            mapped.filter((connector) => connector.type === 'capture'),
+            mapped.filter((connector) => connector.type === 'materialization'),
         ];
     }, [connectors]);
 
@@ -73,10 +73,10 @@ const ConnectorsLink = ({
     const detailsHref = useMemo(() => {
         if (sourceId && destinationId) {
             const sourceName = captureConnectors.find(
-                (c) => c?.id === sourceId
+                (c) => c.id === sourceId
             )?.slugified_name;
             const destinationName = materializationConnectors.find(
-                (c) => c?.id === destinationId
+                (c) => c.id === destinationId
             )?.slugified_name;
 
             return `${getIntegrationSlug(sourceName, destinationName)}/`;
@@ -89,15 +89,15 @@ const ConnectorsLink = ({
     const handleDestinationChange = (value) => setDestinationId(value);
 
     const sourceSelectItems = captureConnectors.map((c) => ({
-        id: c?.id,
-        image: c?.logo,
-        title: c?.title,
+        id: c.id,
+        image: c.logo,
+        title: c.title,
     }));
 
     const destinationSelectItems = materializationConnectors.map((c) => ({
-        id: c?.id,
-        image: c?.logo,
-        title: c?.title,
+        id: c.id,
+        image: c.logo,
+        title: c.title,
     }));
 
     return (

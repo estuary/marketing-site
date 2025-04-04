@@ -33,7 +33,10 @@ const renderTags = (tags?: CardProps['data']['tags']) => {
     return <span className={cardTag}>{tags[0].name}</span>;
 };
 
-const renderDateAndTime = (updatedAt: string, readingTime: string | null) => {
+const renderDateAndTime = (
+    updatedAt: string | undefined,
+    readingTime: string | null
+) => {
     if (!updatedAt || !readingTime) return null;
 
     return (
@@ -133,6 +136,9 @@ const Card = ({
         ),
     };
 
+    const tagsContent = renderTags(data.tags);
+    const dateContent = renderDateAndTime(data.updatedAt, readingTime);
+
     return (
         <li key={data.id}>
             <CardLink
@@ -146,14 +152,10 @@ const Card = ({
                     cardImage
                 )}
 
-                {!!data.tags || (data.updatedAt && readingTime) ? (
+                {(tagsContent ?? dateContent) === null ? (
                     <div className={cardHeader}>
-                        {data.tags && data.tags.length > 0
-                            ? renderTags(data.tags)
-                            : null}
-                        {data.updatedAt && readingTime
-                            ? renderDateAndTime(data.updatedAt, readingTime)
-                            : null}
+                        {tagsContent}
+                        {dateContent}
                     </div>
                 ) : null}
 
