@@ -6,7 +6,7 @@ on:
     # TEMPORARY - REMOVE BEFORE MERGING
     workflow_dispatch:
     repository_dispatch:
-        types: [test_strapi_updated]
+        types: [strapi_updated_preview]
 
 concurrency:
     group: preview-${{ github.ref }}
