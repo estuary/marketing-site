@@ -136,6 +136,12 @@ const Footer = () => {
                             Estuary vs Confluent
                         </FooterLink>
                         <FooterLink
+                            id={getFooterLinkId('estuary-vs-debezium')}
+                            to="/etl-tools/debezium-kafka-vs-estuary/"
+                        >
+                            Estuary vs Debezium
+                        </FooterLink>
+                        <FooterLink
                             id={getFooterLinkId(
                                 'data-pipeline-cost-calculator'
                             )}
