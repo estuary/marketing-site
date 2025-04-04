@@ -34,36 +34,28 @@ export const normalizeConnector = (
         connector;
 
     if (!title) {
-        throw new Error(`Title is missing for connector with ID: ${id}`);
+        throw new Error(`Error:connector:${id}:missing prop:Title`);
     }
 
     if (!imageName) {
-        throw new Error(
-            `imageName is missing for connector with name: ${title['en-US']}`
-        );
+        throw new Error(`Error:connector:${id}:missing prop:imageName`);
     }
 
     const regex_result = imageName.match(CONNECTOR_IMAGE_RE);
 
     if (!regex_result?.[2]) {
-        throw new Error(
-            `Slugified name is missing for connector with name: ${title['en-US']}`
-        );
+        throw new Error(`Error:connector:${id}:missing prop:Slugified`);
     }
 
     if (!logoUrl) {
-        throw new Error(
-            `logoUrl is missing for connector with name: ${title['en-US']}`
-        );
+        throw new Error(`Error:connector:${id}:missing prop:logoUrl`);
     }
 
     const type = connectorTagsByConnectorIdList[0]
         ?.protocol as ConnectorType | null;
 
     if (!type) {
-        throw new Error(
-            `Connector type is missing for connector with name: ${title['en-US']}`
-        );
+        throw new Error(`Error:connector:${id}:missing prop:Connector`);
     }
 
     return {
