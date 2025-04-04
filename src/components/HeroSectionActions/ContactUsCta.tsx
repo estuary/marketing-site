@@ -1,6 +1,5 @@
 import LinkOutlined from '../LinksAndButtons/LinkOutlined';
 import LinkFilled from '../LinksAndButtons/LinkFilled';
-import { getSlugifiedText } from '../../../shared';
 import { ContactUsProps } from './types';
 
 const ContactUsCta = ({
@@ -13,7 +12,7 @@ const ContactUsCta = ({
 
     return (
         <LinkComponent
-            id={`${getSlugifiedText(title)}-button/hero-section/${pageId}`}
+            id={`${title}-button/hero-section/${pageId}`}
             href={href ?? '/contact-us/'}
         >
             {title}
