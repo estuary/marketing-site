@@ -24,26 +24,29 @@ const Faq = ({ sourceConnector }: FaqProps) => {
             <Container isVertical className={container}>
                 <h2>FAQ</h2>
                 <Wrapper>
-                    {faqs(sourceConnector)
-                        .filter((faq) => faq != null)
-                        .map(({ question, content }, index) => {
-                            const questionNumber = index + 1;
-                            return (
-                                <Accordion
-                                    key={questionNumber}
-                                    questionNumber={questionNumber}
-                                    question={question}
-                                    expanded={
-                                        expanded === `question${questionNumber}`
-                                    }
-                                    onChange={handleChange(
-                                        `question${questionNumber}`
-                                    )}
-                                >
-                                    {content}
-                                </Accordion>
-                            );
-                        })}
+                    {faqs(sourceConnector).map((faq, index) => {
+                        if (faq == null) {
+                            return null;
+                        }
+
+                        const questionNumber = index + 1;
+
+                        return (
+                            <Accordion
+                                key={questionNumber}
+                                questionNumber={questionNumber}
+                                question={faq.question}
+                                expanded={
+                                    expanded === `question${questionNumber}`
+                                }
+                                onChange={handleChange(
+                                    `question${questionNumber}`
+                                )}
+                            >
+                                {faq.content}
+                            </Accordion>
+                        );
+                    })}
                 </Wrapper>
             </Container>
         </section>
