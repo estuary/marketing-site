@@ -2,7 +2,7 @@
 // (source|materialization)-name
 
 import { Mark } from '@mui/base';
-import { ConnectorType, Connector } from '../shared';
+import { Connector, ConnectorType } from '../shared';
 import {
     fullPricingPerConnector,
     halfPricingPerConnector,
@@ -30,18 +30,41 @@ export const normalizeConnector = (
         return connector;
     }
 
-    const regex_result = connector.imageName.match(CONNECTOR_IMAGE_RE);
+    const { id, title, imageName, logoUrl, connectorTagsByConnectorIdList } =
+        connector;
 
-    if (!regex_result?.[2]) {
+    if (!title) {
+        throw new Error(`Title is missing for connector with ID: ${id}`);
+    }
+
+    if (!imageName) {
         throw new Error(
-            `Slugified name is missing for connector with name: ${connector.title}`
+            `imageName is missing for connector with name: ${title['en-US']}`
         );
     }
 
-    const type = connector.connectorTagsByConnectorIdList[0]
-        ?.protocol as ConnectorType;
+    const regex_result = imageName.match(CONNECTOR_IMAGE_RE);
 
-    const slugifiedName = regex_result[2];
+    if (!regex_result?.[2]) {
+        throw new Error(
+            `Slugified name is missing for connector with name: ${title['en-US']}`
+        );
+    }
+
+    if (!logoUrl) {
+        throw new Error(
+            `logoUrl is missing for connector with name: ${title['en-US']}`
+        );
+    }
+
+    const type = connectorTagsByConnectorIdList[0]
+        ?.protocol as ConnectorType | null;
+
+    if (!type) {
+        throw new Error(
+            `Connector type is missing for connector with name: ${title['en-US']}`
+        );
+    }
 
     return {
         id: connector.id,
@@ -49,13 +72,13 @@ export const normalizeConnector = (
         imageName: connector.imageName,
         shortDescription: connector.shortDescription?.['en-US'],
         longDescription: connector.longDescription?.['en-US'],
-        title: connector.title['en-US'],
-        logoUrl: connector.logoUrl['en-US'],
+        title: title['en-US'],
+        logoUrl: logoUrl['en-US'],
         logo: connector.logo,
         recommended: connector.recommended,
         type,
-        slugified_name: slugifiedName,
-        slug: `/${type === 'capture' ? 'source' : 'destination'}/${slugifiedName}`,
+        slugified_name: regex_result[2],
+        slug: `/${type === 'capture' ? 'source' : 'destination'}/${regex_result[2]}`,
         connectorTagsByConnectorIdList:
             connector.connectorTagsByConnectorIdList,
     };

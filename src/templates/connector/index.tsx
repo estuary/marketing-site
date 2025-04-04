@@ -113,6 +113,7 @@ export const Head = ({
     return <Seo title={title} description={description} />;
 };
 
+// TODO: I think shortDescription, longDescription, logoUrl are not being used here on this page. Check this.
 export const pageQuery = graphql`
     query ConnectorData($id: PostGraphile_Flowid!) {
         postgres {

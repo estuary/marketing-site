@@ -397,6 +397,8 @@ const createConnectors: CreateHelper = async (
                     nodes {
                         id
                         imageName
+                        title
+                        logoUrl
                         recommended
                         connectorTagsByConnectorIdList {
                             protocol
@@ -414,7 +416,7 @@ const createConnectors: CreateHelper = async (
 
     const mapped_connectors =
         connectors.data?.postgres.allConnectors.nodes
-            .filter((conn) => conn?.connectorTagsByConnectorIdList?.length > 0)
+            .filter((conn) => conn.connectorTagsByConnectorIdList.length > 0)
             .map(normalizeConnector)
             .filter((connector) => connector !== undefined) ?? [];
 
