@@ -3,6 +3,11 @@ name: Deploy to Firebase Preview
 on:
     pull_request:
 
+    # TEMPORARY - REMOVE BEFORE MERGING
+    workflow_dispatch:
+    repository_dispatch:
+        types: [strapi_updated_preview]
+
 concurrency:
     group: preview-${{ github.ref }}
 
@@ -50,7 +55,6 @@ jobs:
             - name: Run build
               run: yarn run build:debug:network --verbose --log-pages
               env:
-                  GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: true
                   CI: true
                   STRAPI_API_URL: ${{ secrets.STRAPI_API_URL }}
                   STRAPI_TOKEN: ${{ secrets.STRAPI_TOKEN }}
