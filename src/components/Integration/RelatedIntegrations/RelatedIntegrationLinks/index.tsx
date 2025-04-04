@@ -28,6 +28,7 @@ const RelatedIntegrationLinks = ({
                         id
                         imageName
                         title
+                        logoUrl
                         connectorTagsByConnectorIdList(
                             condition: { protocol: "materialization" }
                         ) {
