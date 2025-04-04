@@ -271,7 +271,7 @@ export interface Connector {
     }[];
     slug: string | null;
     type: ConnectorType;
-    slugified_name?: string;
+    slugified_name: string;
 }
 
 export const getIntegrationSlug = (

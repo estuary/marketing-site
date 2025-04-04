@@ -31,8 +31,17 @@ export const normalizeConnector = (
     }
 
     const regex_result = connector.imageName.match(CONNECTOR_IMAGE_RE);
+
+    if (!regex_result?.[2]) {
+        throw new Error(
+            `Slugified name is missing for connector with name: ${connector.title}`
+        );
+    }
+
     const type = connector.connectorTagsByConnectorIdList[0]
         ?.protocol as ConnectorType;
+
+    const slugifiedName = regex_result[2];
 
     return {
         id: connector.id,
@@ -45,10 +54,8 @@ export const normalizeConnector = (
         logo: connector.logo,
         recommended: connector.recommended,
         type,
-        slugified_name: regex_result?.[2],
-        slug: regex_result
-            ? `/${type === 'capture' ? 'source' : 'destination'}/${regex_result[2]}`
-            : null,
+        slugified_name: slugifiedName,
+        slug: `/${type === 'capture' ? 'source' : 'destination'}/${slugifiedName}`,
         connectorTagsByConnectorIdList:
             connector.connectorTagsByConnectorIdList,
     };
