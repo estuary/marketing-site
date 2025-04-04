@@ -3,31 +3,42 @@ import Layout from '../components/Layout';
 import Seo from '../components/seo';
 import { normalizeConnector } from '../utils';
 import Hero from '../components/Integration/Hero';
-import FromConnector from '../components/Integration/FromConnector';
-import ToConnector from '../components/Integration/ToConnector';
+import ThreeQuickSteps from '../components/Integration/ThreeQuickSteps';
 import Testimonials from '../components/Integration/Testimonials';
 import EstuaryFlowVideo from '../components/Integration/EstuaryFlowVideo';
+import RelatedIntegrations from '../components/Integration/RelatedIntegrations';
 import RealTimeAndBatch from '../components/Integration/RealTimeAndBatch';
 import DataopsMadeSimple from '../components/Integration/DataopsMadeSimple';
 import IncreaseProductivity4x from '../components/Integration/IncreaseProductivity4x';
 import Spend25xLess from '../components/Integration/Spend25xLess';
 import SeeHowSection from '../components/SeeHowSection';
 import OutboundLinkFilled from '../components/LinksAndButtons/OutboundLinkFilled';
-import { dashboardRegisterUrl } from '../../shared';
+import {
+    Connector as GlobalConnectorType,
+    dashboardRegisterUrl,
+} from '../../shared';
 import OpenHubspotModal from '../components/HubSpot/OpenModal';
+import Faq from '../components/Integration/Faq';
+import GettingStartedSection from '../components/GettingStartedSection';
+import SuccessStories from '../components/Integration/SuccessStories';
+import RelatedBlogPosts from '../components/Integration/RelatedBlogPosts';
 
 export interface ConnectorProps {
     data: {
         source: {
-            connector: any;
+            connector: GlobalConnectorType;
         };
         destination: {
-            connector: any;
+            connector: GlobalConnectorType;
         };
+        sourceConnectorRelatedArticle: any;
+        destinationConnectorRelatedArticle: any;
     };
     pageContext: {
         source_id: string;
         destination_id: string;
+        source_title: string;
+        destination_title: string;
     };
 }
 
@@ -35,10 +46,16 @@ const Connector = ({
     data: {
         source: { connector: source_connector },
         destination: { connector: destination_connector },
+        sourceConnectorRelatedArticle,
+        destinationConnectorRelatedArticle,
     },
 }: ConnectorProps) => {
     const source_mapped = normalizeConnector(source_connector);
     const dest_mapped = normalizeConnector(destination_connector);
+
+    const hasRelatedArticles =
+        sourceConnectorRelatedArticle?.nodes?.length > 0 ||
+        sourceConnectorRelatedArticle?.nodes?.length > 0;
 
     return (
         <Layout>
@@ -54,26 +71,53 @@ const Connector = ({
                     type: dest_mapped?.type,
                 }}
             />
-            <FromConnector
-                title={source_mapped?.title}
-                logo={source_mapped?.logo}
-                longDescription={source_mapped?.longDescription}
-                shortDescription={source_mapped?.shortDescription}
-                type={source_mapped?.type}
+            <ThreeQuickSteps
+                sourceConnector={{
+                    title: source_mapped?.title,
+                }}
+                destConnector={{
+                    title: dest_mapped?.title,
+                }}
             />
-            <ToConnector
-                title={dest_mapped?.title}
-                logo={dest_mapped?.logo}
-                longDescription={dest_mapped?.longDescription}
-                shortDescription={dest_mapped?.shortDescription}
-                type={dest_mapped?.type}
-            />
-            <Testimonials />
             <EstuaryFlowVideo />
             <RealTimeAndBatch />
-            <DataopsMadeSimple />
+            <Testimonials />
             <IncreaseProductivity4x />
             <Spend25xLess />
+            <SuccessStories hasRelatedArticles={hasRelatedArticles} />
+            {hasRelatedArticles ? (
+                <RelatedBlogPosts
+                    relatedArticles={[
+                        ...sourceConnectorRelatedArticle.nodes,
+                        ...destinationConnectorRelatedArticle.nodes,
+                    ]}
+                    sourceConnectorSlugifiedTitle={
+                        source_mapped?.slugified_name
+                    }
+                    destConnectorSlugifiedTitle={dest_mapped?.slugified_name}
+                />
+            ) : null}
+            <Faq
+                sourceConnector={{
+                    title: source_mapped?.title,
+                    shortDescription: source_mapped?.shortDescription,
+                    longDescription: source_mapped?.longDescription,
+                }}
+            />
+            <GettingStartedSection isDarkTheme />
+            <RelatedIntegrations
+                sourceConnector={{
+                    id: source_mapped?.id,
+                    title: source_mapped?.title,
+                    slugified_name: source_mapped?.slugified_name,
+                }}
+                destConnector={{
+                    id: dest_mapped?.id,
+                    title: dest_mapped?.title,
+                    slugified_name: dest_mapped?.slugified_name,
+                }}
+            />
+            <DataopsMadeSimple />
             <SeeHowSection
                 buttons={
                     <>
@@ -120,6 +164,8 @@ export const pageQuery = graphql`
     query ConnectorData(
         $source_id: PostGraphile_Flowid!
         $destination_id: PostGraphile_Flowid!
+        $source_title: String!
+        $destination_title: String!
     ) {
         source: postgres {
             connector: connectorById(id: $source_id) {
@@ -166,6 +212,98 @@ export const pageQuery = graphql`
                 recommended
                 connectorTagsByConnectorIdList {
                     protocol
+                }
+            }
+        }
+        sourceConnectorRelatedArticle: allStrapiBlogPost(
+            sort: { publishedAt: DESC }
+            filter: { tags: { elemMatch: { Slug: { eq: $source_title } } } }
+            limit: 1
+        ) {
+            nodes {
+                id
+                slug: Slug
+                hero: Hero {
+                    localFile {
+                        childImageSharp {
+                            gatsbyImageData(
+                                layout: CONSTRAINED
+                                width: 600
+                                height: 340
+                                placeholder: BLURRED
+                                formats: [AUTO, WEBP, AVIF]
+                            )
+                        }
+                    }
+                    alternativeText
+                }
+                authors {
+                    name: Name
+                    picture: Picture {
+                        localFile {
+                            childImageSharp {
+                                gatsbyImageData(
+                                    layout: CONSTRAINED
+                                    placeholder: BLURRED
+                                    quality: 100
+                                )
+                            }
+                        }
+                    }
+                }
+                title: Title
+                tags {
+                    name: Name
+                    slug: Slug
+                    type: Type
+                    isTab: IsTab
+                }
+            }
+        }
+        destinationConnectorRelatedArticle: allStrapiBlogPost(
+            sort: { publishedAt: DESC }
+            filter: {
+                tags: { elemMatch: { Slug: { eq: $destination_title } } }
+            }
+            limit: 1
+        ) {
+            nodes {
+                id
+                slug: Slug
+                hero: Hero {
+                    localFile {
+                        childImageSharp {
+                            gatsbyImageData(
+                                layout: CONSTRAINED
+                                width: 600
+                                height: 340
+                                placeholder: BLURRED
+                                formats: [AUTO, WEBP, AVIF]
+                            )
+                        }
+                    }
+                    alternativeText
+                }
+                authors {
+                    name: Name
+                    picture: Picture {
+                        localFile {
+                            childImageSharp {
+                                gatsbyImageData(
+                                    layout: CONSTRAINED
+                                    placeholder: BLURRED
+                                    quality: 100
+                                )
+                            }
+                        }
+                    }
+                }
+                title: Title
+                tags {
+                    name: Name
+                    slug: Slug
+                    type: Type
+                    isTab: IsTab
                 }
             }
         }

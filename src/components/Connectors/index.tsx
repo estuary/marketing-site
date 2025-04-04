@@ -78,7 +78,7 @@ const ConnectorCard = ({
         >
             <div className={connectorCard}>
                 <div className={connectorCardTop}>
-                    {logo?.childImageSharp?.gatsbyImageData ? (
+                    {logo.childImageSharp?.gatsbyImageData ? (
                         <GatsbyImage
                             image={logo.childImageSharp.gatsbyImageData}
                             alt={`${title} Logo`}
@@ -118,8 +118,8 @@ const ConnectorCard = ({
                     ) : null}
                 </div>
                 <h4>{title}</h4>
-                {shortDescription?.length > 0 ? (
-                    <p>{truncate(shortDescription || '', 100)}</p>
+                {shortDescription && shortDescription.length > 0 ? (
+                    <p>{truncate(shortDescription, 100)}</p>
                 ) : null}
                 <div style={{ flexGrow: 1 }} />
                 <span className={connectorCardReadMore}>

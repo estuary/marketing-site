@@ -4,7 +4,12 @@ import { CreatePagesArgs, GatsbyNode } from 'gatsby';
 import { createRemoteFileNode } from 'gatsby-source-filesystem';
 import { SUPABASE_CONNECTION_STRING } from './config';
 import { normalizeConnector } from './src/utils';
-import { getAuthorPathBySlug, getComparisonSlug, Vendor } from './shared';
+import {
+    getAuthorPathBySlug,
+    getComparisonSlug,
+    getIntegrationSlug,
+    Vendor,
+} from './shared';
 
 /**
  * Implement Gatsby's Node APIs in this file.
@@ -391,10 +396,7 @@ const createConnectors: CreateHelper = async (
                 allConnectors(orderBy: [RECOMMENDED_DESC, CREATED_AT_DESC]) {
                     nodes {
                         id
-                        externalUrl
                         imageName
-                        shortDescription
-                        longDescription
                         title
                         logoUrl
                         recommended
@@ -406,6 +408,7 @@ const createConnectors: CreateHelper = async (
             }
         }
     `);
+
     if (connectors.errors) {
         reporter.panicOnBuild(`${QUERY_PANIC_MSG} ${name}`, connectors.errors);
         return;
@@ -413,7 +416,7 @@ const createConnectors: CreateHelper = async (
 
     const mapped_connectors =
         connectors.data?.postgres.allConnectors.nodes
-            .filter((conn) => conn?.connectorTagsByConnectorIdList?.length > 0)
+            .filter((conn) => conn.connectorTagsByConnectorIdList.length > 0)
             .map(normalizeConnector)
             .filter((connector) => connector !== undefined) ?? [];
 
@@ -439,11 +442,17 @@ const createConnectors: CreateHelper = async (
                     (con) => con.type === 'materialization'
                 )) {
                     createPage({
-                        path: `/integrations/${normalized_connector.slugified_name}-to-${destination_connector.slugified_name}`,
+                        path: getIntegrationSlug(
+                            normalized_connector.slugified_name,
+                            destination_connector.slugified_name
+                        ),
                         component: connectionTemplate,
                         context: {
                             source_id: normalized_connector.id,
                             destination_id: destination_connector.id,
+                            source_title: normalized_connector.slugified_name,
+                            destination_title:
+                                destination_connector.slugified_name,
                         },
                     });
                 }

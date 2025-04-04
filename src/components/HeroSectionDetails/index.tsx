@@ -6,6 +6,7 @@ interface HeroSectionDetailsProps {
     title: ReactNode;
     description?: ReactNode;
     ctaButtons?: ReactNode;
+    additionalElementsOnTop?: ReactNode;
     additionalElements?: ReactNode;
     hasSubscriptionBenefits?: boolean;
 }
@@ -16,9 +17,11 @@ const HeroSectionDetails = ({
     ctaButtons,
     additionalElements,
     hasSubscriptionBenefits = false,
+    additionalElementsOnTop,
 }: HeroSectionDetailsProps) => {
     return (
         <div className={container}>
+            {additionalElementsOnTop ? additionalElementsOnTop : null}
             <h1>{title}</h1>
             {description ? <p>{description}</p> : null}
             {ctaButtons ? (

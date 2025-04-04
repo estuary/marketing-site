@@ -2,6 +2,7 @@
 // (source|materialization)-name
 
 import { Mark } from '@mui/base';
+import { Connector, ConnectorType } from '../shared';
 import {
     fullPricingPerConnector,
     halfPricingPerConnector,
@@ -11,12 +12,16 @@ import {
 // eslint-disable-next-line no-useless-escape
 const CONNECTOR_IMAGE_RE = /(source|materialize)-([a-z0-9\-]+)/;
 
-export const normalizeConnector = (connector: any) => {
+export const normalizeConnector = (
+    connector: Connector | undefined
+): Connector | undefined => {
     if (
         // Exclude any Dekaf connector
-        connector.imageName.includes('ghcr.io/estuary/dekaf') ||
+        // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+        connector?.imageName.includes('ghcr.io/estuary/dekaf') ||
         // Exclude connectors without a tag (Kelkoo)
-        connector?.connectorTagsByConnectorIdList?.length < 1
+        (connector?.connectorTagsByConnectorIdList &&
+            connector.connectorTagsByConnectorIdList.length < 1)
     ) {
         return undefined;
     }
@@ -25,25 +30,49 @@ export const normalizeConnector = (connector: any) => {
         return connector;
     }
 
-    const regex_result = connector.imageName.match(CONNECTOR_IMAGE_RE);
-    const type = connector.connectorTagsByConnectorIdList?.[0]?.protocol as
-        | 'capture'
-        | 'materialization';
+    const { id, title, imageName, logoUrl, connectorTagsByConnectorIdList } =
+        connector;
+
+    if (!title) {
+        throw new Error(`Error:connector:${id}:missing prop:Title`);
+    }
+
+    if (!imageName) {
+        throw new Error(`Error:connector:${id}:missing prop:imageName`);
+    }
+
+    const regex_result = imageName.match(CONNECTOR_IMAGE_RE);
+
+    if (!regex_result?.[2]) {
+        throw new Error(`Error:connector:${id}:missing prop:Slugified`);
+    }
+
+    if (!logoUrl) {
+        throw new Error(`Error:connector:${id}:missing prop:logoUrl`);
+    }
+
+    const type = connectorTagsByConnectorIdList[0]
+        ?.protocol as ConnectorType | null;
+
+    if (!type) {
+        throw new Error(`Error:connector:${id}:missing prop:Connector`);
+    }
+
     return {
         id: connector.id,
         externalUrl: connector.externalUrl,
         imageName: connector.imageName,
         shortDescription: connector.shortDescription?.['en-US'],
         longDescription: connector.longDescription?.['en-US'],
-        title: connector.title?.['en-US'],
-        logoUrl: connector.logoUrl?.['en-US'],
+        title: title['en-US'],
+        logoUrl: logoUrl['en-US'],
         logo: connector.logo,
         recommended: connector.recommended,
         type,
         slugified_name: regex_result[2],
-        slug: regex_result
-            ? `/${type === 'capture' ? 'source' : 'destination'}/${regex_result[2]}`
-            : null,
+        slug: `/${type === 'capture' ? 'source' : 'destination'}/${regex_result[2]}`,
+        connectorTagsByConnectorIdList:
+            connector.connectorTagsByConnectorIdList,
     };
 };
 
