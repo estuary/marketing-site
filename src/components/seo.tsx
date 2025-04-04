@@ -67,6 +67,7 @@ const Seo: FC<SeoProps> = ({ description, title, image, url, children }) => {
                     <meta property="twitter:image" content={image} />
                 </>
             ) : null}
+            <meta property="og:site_name" content="Estuary" />
             <meta name="twitter:card" content="summary" />
             <meta
                 name="twitter:creator"

@@ -136,6 +136,12 @@ const Footer = () => {
                             Estuary vs Confluent
                         </FooterLink>
                         <FooterLink
+                            id={getFooterLinkId('estuary-vs-debezium')}
+                            to="/etl-tools/debezium-kafka-vs-estuary/"
+                        >
+                            Estuary vs Debezium
+                        </FooterLink>
+                        <FooterLink
                             id={getFooterLinkId(
                                 'data-pipeline-cost-calculator'
                             )}
@@ -203,7 +209,7 @@ const Footer = () => {
                         </FooterLink>
                         <FooterLink
                             id={getFooterLinkId('top-etl-tools')}
-                            to="/etl-tools-list/"
+                            to="/blog/etl-tools-list/"
                         >
                             Top ETL Tools
                         </FooterLink>
@@ -273,7 +279,7 @@ const Footer = () => {
                             className={globalFooterCopyrightLink}
                             href="https://estuary.dev/"
                         >
-                            estuary.dev
+                            Estuary
                         </OutboundLink>
                     </div>
 
