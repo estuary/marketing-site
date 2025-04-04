@@ -209,7 +209,7 @@ const Footer = () => {
                         </FooterLink>
                         <FooterLink
                             id={getFooterLinkId('top-etl-tools')}
-                            to="/etl-tools-list/"
+                            to="/blog/etl-tools-list/"
                         >
                             Top ETL Tools
                         </FooterLink>
