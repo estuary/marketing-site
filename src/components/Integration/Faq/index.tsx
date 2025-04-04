@@ -33,7 +33,7 @@ const Faq = ({ sourceConnector }: FaqProps) => {
 
                         return (
                             <Accordion
-                                key={questionNumber}
+                                key={`question-${questionNumber}-from-faq-section`}
                                 questionNumber={questionNumber}
                                 question={faq.question}
                                 expanded={
