@@ -279,7 +279,7 @@ const Footer = () => {
                             className={globalFooterCopyrightLink}
                             href="https://estuary.dev/"
                         >
-                            estuary.dev
+                            Estuary
                         </OutboundLink>
                     </div>
 
