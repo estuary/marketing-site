@@ -34,7 +34,7 @@ export const plans = [
         pricePerGb: 0.5,
         pricePerConnector: 100,
         description:
-            "Expand your data pipeline and leverage Estuary's leading Support.",
+            "Optimize Your Data Pipelines with Estuary's Cost-Effective Pricing!",
         button: {
             id: getLinkId('try-it-free'),
             title: 'Try it Free',
