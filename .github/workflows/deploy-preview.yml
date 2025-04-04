@@ -36,7 +36,7 @@ jobs:
                       node_modules
                       .cache
                       public
-                  key: ${{ runner.os }}-gatsby-build-preview-${{github.head_ref}}
+                  key: ${{ runner.os }}-gatsby-build-preview-${{github.head_ref}}-${{ github.run_id }}
                   restore-keys: |
                       ${{ runner.os }}-gatsby-build-preview-${{github.head_ref}}
 
