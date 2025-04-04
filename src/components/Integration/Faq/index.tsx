@@ -25,7 +25,7 @@ const Faq = ({ sourceConnector }: FaqProps) => {
                 <h2>FAQ</h2>
                 <Wrapper>
                     {faqs(sourceConnector).map((faq, index) => {
-                        if (faq == null) {
+                        if (!faq) {
                             return null;
                         }
 
