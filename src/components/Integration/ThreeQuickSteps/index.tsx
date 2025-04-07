@@ -12,38 +12,38 @@ const ThreeQuickSteps = ({ sourceConnector, destConnector }: Connectors) => {
         <section className={defaultWrapperGrey}>
             <Container isVertical className={container}>
                 <h2>
-                    How to Connect <span>{sourceConnector.title}</span> with{' '}
-                    <span>{destConnector.title}</span> in 3 Quick Steps Using
+                    How to Integrate <span>{sourceConnector.title}</span> with{' '}
+                    <span>{destConnector.title}</span> in 3 Simple Steps Using
                     Estuary Flow
                 </h2>
                 <StepCards>
                     <Step
                         title={
                             <>
-                                Set up <span>{sourceConnector.title}</span>{' '}
-                                connector as Your Source
+                                Connect <span>{sourceConnector.title}</span> as
+                                Your Real-Time Data Source
                             </>
                         }
-                        description={`You can load your data into ${destConnector.title} by creating a new materialization connector.`}
+                        description={`Set up a real-time source connector for ${sourceConnector.title} in minutes. Estuary captures change data (CDC), events, or snapshots — no custom pipelines, agents or manual configs needed.`}
                         step={1}
                     />
                     <Step
                         title={
                             <>
                                 Configure <span>{destConnector.title}</span> as
-                                the Destination
+                                Your Target
                             </>
                         }
-                        description="Enter the connector name and connection details."
+                        description={`Choose ${destConnector.title} as your target system. Estuary intelligently maps schemas, supports both batch and streaming loads, and adapts to schema changes automatically.`}
                         step={2}
                     />
                     <Step
                         title={
                             <>
-                                Monitor and Manage Your <span>Data Flow</span>
+                                Deploy and Monitor Your End-to-End Data Pipeline
                             </>
                         }
-                        description={`Link the ${sourceConnector.title} connector, save and you're done!`}
+                        description="Launch your pipeline and monitor it from a single UI. Estuary Flow guarantees exactly-once delivery, handles backfills and replays, and scales with your data — without engineering overhead."
                         step={3}
                     />
                 </StepCards>
