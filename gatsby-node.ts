@@ -694,6 +694,7 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
     createNodeId,
     getCache,
     createContentDigest,
+    reporter,
 }) => {
     // console.log('sourceNodes:start');
     const pool = new pg.Pool({
@@ -704,8 +705,8 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
     });
 
     // Make sure we know if there is an error
-    pool.on('error', (err: any, client: any) =>
-        console.error('sourceNodes:postgres:error', { err, client })
+    pool.on('error', (err: any) =>
+        reporter.error('sourceNodes:postgres:error', err)
     );
 
     const connectors = await pool.query(
@@ -717,37 +718,39 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
         const usUrl = conn.logo_url?.['en-US'];
 
         if (usUrl) {
-            const fileNode = await createRemoteFileNode({
+            const nodeId = createNodeId(createLogoNodeId(conn.id));
+
+            const image = await createRemoteFileNode({
                 url: usUrl,
+                parentNodeId: nodeId,
+                getCache,
                 createNode,
                 createNodeId,
-                getCache,
             });
 
-            // console.log('sourceNodes:creating connector logo', conn.id);
-
             await createNode({
-                connectorId: conn.id,
-                logoUrl: usUrl,
-                logo: fileNode,
-                id: createNodeId(createLogoNodeId(conn.id)),
+                id: nodeId,
+                parent: null,
+                children: [],
+                url: usUrl,
+                localImageId: image.id,
                 internal: {
                     type: 'ConnectorLogo',
-                    contentDigest: createContentDigest(fileNode),
+                    contentDigest: createContentDigest(image),
                 },
             });
 
             createdCount += 1;
         } else {
-            console.log('sourceNodes:missing  connector logo', conn.id);
+            reporter.warn(`sourceNodes:missing logo:${conn.id}`);
         }
     }
 
     await pool.end();
 
-    console.log('sourceNodes:', {
-        completed: `${createdCount}/${connectors.rowCount}`,
-    });
+    reporter.info(
+        `sourceNodes:completed:${createdCount}/${connectors.rowCount}`
+    );
 };
 
 export const createResolvers: GatsbyNode['createResolvers'] = async ({
