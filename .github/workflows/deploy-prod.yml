@@ -136,7 +136,7 @@ jobs:
                   echo "Deleting caches..."
                   for cacheKey in $cacheKeysForPR
                   do
-                    if [ "$cacheKey" != "${{ runner.os }}-gatsby-build-preview-${{github.head_ref}}-${{ github.run_id }}" ]; then
+                    if [ "$cacheKey" != "${{ runner.os }}-gatsby-build-prod-${{ github.run_id }}" ]; then
                         echo "Deleting cache: $cacheKey"
                         gh actions-cache delete "$cacheKey" -R $REPO --confirm
                     else
