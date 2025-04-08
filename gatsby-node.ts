@@ -696,7 +696,7 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
     createContentDigest,
     reporter,
 }) => {
-    // console.log('sourceNodes:start');
+    reporter.info('sourceNodes:begin');
     const pool = new pg.Pool({
         connectionString: SUPABASE_CONNECTION_STRING,
         connectionTimeoutMillis: 30 * 1000,
