@@ -3,11 +3,6 @@ name: Deploy to Firebase Preview
 on:
     pull_request:
 
-    # TEMPORARY - REMOVE BEFORE MERGING
-    workflow_dispatch:
-    repository_dispatch:
-        types: [strapi_updated_preview]
-
 concurrency:
     group: preview-${{ github.ref }}
 
