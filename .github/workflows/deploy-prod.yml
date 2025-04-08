@@ -103,7 +103,7 @@ jobs:
               env:
                   CI: true
 
-            - run: yarn run build:debug:network --verbose --log-pages
+            - run: yarn run build --verbose --log-pages
               env:
                   CI: true
                   STRAPI_API_URL: ${{ secrets.STRAPI_API_URL }}
