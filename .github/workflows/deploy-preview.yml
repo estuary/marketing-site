@@ -14,6 +14,9 @@ concurrency:
 jobs:
     build_and_preview:
         runs-on: ubuntu-2404-large
+        env:
+            CACHE_PREFIX: ${{ runner.os }}-gatsby-build-preview-${{github.head_ref}}-
+            CURRENT_RUN_CACHE_KEY: ${{ CACHE_PREFIX }}${{ github.run_id }}
         steps:
             - name: Checkout
               uses: actions/checkout@v3
@@ -32,9 +35,9 @@ jobs:
                       node_modules
                       .cache
                       public
-                  key: ${{ runner.os }}-gatsby-build-preview-${{github.head_ref}}-${{ github.run_id }}
+                  key: ${{ CURRENT_RUN_CACHE_KEY }}
                   restore-keys: |
-                      ${{ runner.os }}-gatsby-build-preview-${{github.head_ref}}-
+                      ${{ CACHE_PREFIX }}
 
             - run: yarn install --frozen-lockfile
 
@@ -70,3 +73,29 @@ jobs:
                   projectId: estuary-marketing
 
             - run: echo ${{steps.firebase.outputs.urls}}
+
+            - name: Cleanup
+              run: |
+                  gh extension install actions/gh-actions-cache
+
+                  REPO=${{ github.repository }}
+                  BRANCH="refs/pull/${{ github.event.pull_request.number }}/merge"
+
+                  echo "Fetching list of cache key"
+                  cacheKeysForPR=$(gh actions-cache list -R $REPO -B $BRANCH | cut -f 1)
+
+                  ## Setting this to not fail the workflow while deleting cache keys. 
+                  set +e
+                  echo "Deleting caches..."
+                  for cacheKey in $cacheKeysForPR
+                  do
+                    if [ "$cacheKey" != "$LATEST_CACHE_KEY" ]; then
+                        echo "Deleting cache: $cacheKey"
+                        gh actions-cache delete "$cacheKey" -R $REPO --confirm
+                    else
+                        echo "Skipping cache: $cacheKey (does not match $CACHE_KEY or matches $LATEST_CACHE_KEY)"
+                    fi
+                  done
+                  echo "Done"
+              env:
+                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
