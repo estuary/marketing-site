@@ -729,6 +729,11 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
             });
 
             await createNode({
+                // These are our own fields
+                connectorId: conn.id,
+                logoUrl: usUrl,
+                logo: image,
+                // These are standard Gatsby fields
                 id: nodeId,
                 parent: null,
                 children: [],
