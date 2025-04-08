@@ -674,9 +674,6 @@ export const createPages: GatsbyNode['createPages'] = async ({
 // and query them all through a "side-channel" here, so that we can actually pass them through Gatsby's Sharp
 // transformer. Then we can just attach a much simpler resolver to `PostGraphile_Connector` that just
 // looks up that previously created and processed logo.
-const createLogoNodeId = (connectorId: string) =>
-    `ConnectorLogo-${connectorId}`;
-
 exports.createSchemaCustomization = ({ actions }) => {
     const { createTypes } = actions;
     const typeDefs = `
@@ -690,9 +687,11 @@ exports.createSchemaCustomization = ({ actions }) => {
 };
 
 export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
-    actions: { createNode },
+    actions: { createNode, touchNode },
     createNodeId,
+    cache,
     getCache,
+    getNode,
     createContentDigest,
     reporter,
 }) => {
@@ -713,48 +712,91 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
         'select connectors.id as id, connectors.logo_url as logo_url from public.connectors;'
     );
 
+    reporter.info(
+        `sourceNodes:postgres:found ${connectors.rows.length} connector rows`
+    );
+
+    let cachedCount = 0;
     let createdCount = 0;
     for (const conn of connectors.rows) {
         const usUrl = conn.logo_url?.['en-US'];
 
         if (usUrl) {
-            const nodeId = createNodeId(createLogoNodeId(conn.id));
+            let fileNodeID;
 
-            const image = await createRemoteFileNode({
-                url: usUrl,
-                parentNodeId: nodeId,
-                getCache,
-                createNode,
-                createNodeId,
-            });
+            // We just care about the URL here. If two connectors use the same URL we should just use the
+            //  cached one. Only issue is if the logo changes while the URL stays the same. But this
+            //  should be very rare... if it ever happens at all.
+            const cacheBasis = `ConnectorLogo:${conn.id}:${usUrl}`;
 
-            await createNode({
-                // These are our own fields
-                connectorId: conn.id,
-                logoUrl: usUrl,
-                logo: image,
-                // These are standard Gatsby fields
-                id: nodeId,
-                parent: null,
-                children: [],
-                url: usUrl,
-                localImageId: image.id,
-                internal: {
-                    type: 'ConnectorLogo',
-                    contentDigest: createContentDigest(image),
-                },
-            });
+            const cacheKey = createNodeId(cacheBasis);
 
-            createdCount += 1;
+            // Need to somehow read from gatsby-source-filesystem cache
+            const cachedConnectorLogo = await cache.get(cacheKey);
+
+            if (
+                cachedConnectorLogo
+                // Since we cache the id AND url we assume if both those are the same then
+                //  we can keep using the cached version.
+                // cachedConnectorLogo.updatedAt === conn.updatedAt
+            ) {
+                fileNodeID = cachedConnectorLogo.fileNodeID;
+
+                const cachedNode = getNode(fileNodeID);
+                if (cachedNode) {
+                    touchNode(cachedNode);
+                    cachedCount += 1;
+                    reporter.info(`sourceNodes:postgres:${usUrl}:cached`);
+                }
+            }
+
+            if (!fileNodeID) {
+                fileNodeID = cacheKey;
+                const image = await createRemoteFileNode({
+                    url: usUrl,
+                    parentNodeId: fileNodeID,
+                    getCache,
+                    createNode,
+                    createNodeId,
+                });
+
+                await createNode({
+                    // These are our own fields
+                    connectorId: conn.id,
+                    logoUrl: usUrl,
+                    logo: image,
+                    // Required Gatsby fields
+                    id: fileNodeID,
+                    internal: {
+                        type: 'ConnectorLogo',
+                        contentDigest: createContentDigest(image),
+                    },
+                });
+
+                await cache.set(cacheKey, {
+                    fileNodeID,
+                });
+
+                reporter.info(
+                    `sourceNodes:postgres:${usUrl}:created at:${image.relativePath}`
+                );
+
+                createdCount += 1;
+
+                console.log(
+                    'await cache.get(cacheKey)',
+                    await cache.get(cacheKey)
+                );
+            }
         } else {
-            reporter.warn(`sourceNodes:missing logo:${conn.id}`);
+            reporter.warn(`sourceNodes:postgres:${conn.id}:missing logo`);
         }
     }
 
     await pool.end();
 
     reporter.info(
-        `sourceNodes:completed:${createdCount}/${connectors.rowCount}`
+        `sourceNodes:completed:{cached:${cachedCount},created:${createdCount},total:${connectors.rowCount}}`
     );
 };
 
