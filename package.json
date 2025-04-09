@@ -107,6 +107,7 @@
     "build:debug:network": "yarn run build:plugins && NODE_DEBUG=http,http2 gatsby build",
     "build": "yarn run build:plugins && gatsby build",
     "develop": "gatsby develop",
+    "develop:debug": "gatsby develop --inspect",
     "start": "yarn run build:plugins && gatsby develop",
     "serve": "yarn run build:plugins && gatsby serve",
     "clean": "rm -r plugins/estuary-rehype-transformers/.parcel-cache && gatsby clean",
