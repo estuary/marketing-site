@@ -200,3 +200,12 @@ export const calculatePrice = (gb: number, connectors: number) => ({
         -5.37 * 10 ** -9 * gb ** 4,
     confluent: connectors * 150 + (1.73 * gb + 1100),
 });
+
+export const fireTagEvent: typeof window.gtag = (...args) => {
+    const hasGtag =
+        typeof window !== 'undefined' && typeof window.gtag === 'function';
+
+    if (hasGtag) {
+        window.gtag(...args);
+    }
+};
