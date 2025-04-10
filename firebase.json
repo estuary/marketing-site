@@ -4110,6 +4110,271 @@
                 "type": 301,
                 "source": "connector-stories-apache-kakfa",
                 "destination": "/blog/connector-stories-apache-kakfa/"
+            },
+            {
+                "type": 301,
+                "source": "/category/data-engineering/",
+                "destination": "/blog/data-engineering/"
+            },
+            {
+                "type": 301,
+                "source": "/cloud-etl-tools",
+                "destination": "/blog/cloud-etl-tools/"
+            },
+            {
+                "type": 301,
+                "source": "/static/f14d7d2881ff871f10cedc5d7ddd2b96/46604/01_Database_Replication_What_Is_Database_Replication_a3fc891adc.png",
+                "destination": "/static/3afdf124492b196ecc35d326092aff83/6a57e/types_of_data_replication_cover_photo_0c353c075a.avif"
+            },
+            {
+                "type": 301,
+                "source": "/static/33c7b29b2420b43e0315c3d414975ae8/46604/snowflake_CDC_7d36fb1cf6.png",
+                "destination": "/static/33c7b29b2420b43e0315c3d414975ae8/6ddc6/snowflake_CDC_7d36fb1cf6.avif"
+            },
+            {
+                "type": 301,
+                "source": "/static/46922c37b8aa42701f06f335dce151ec/86bab/1_data_transformation_tools_cover_image_ac42da9dc7.png",
+                "destination": "/static/7330379efbed1cdd9febaded44f9c632/0febb/2_data_transformation_tools_Estuary_4468b0d2d0.webp"
+            },
+            {
+                "type": 301,
+                "source": "/static/7d1d84e8b0afe93ee06256c96fb76046/f3583/SQL_Server_to_Redshift_0c26384317.png",
+                "destination": "/static/7d1d84e8b0afe93ee06256c96fb76046/6a57e/SQL_Server_to_Redshift_0c26384317.avif"
+            },
+            {
+                "type": 301,
+                "source": "/static/a7b8b239f6619f14bdf76b43f441cffc/f3583/sql_server_to_bigquery_cover_image_144af671ec.png",
+                "destination": "/static/7d1d84e8b0afe93ee06256c96fb76046/6a57e/SQL_Server_to_Redshift_0c26384317.avif"
+            },
+            {
+                "type": 301,
+                "source": "/salesforce-change-data-capture-tutorial/",
+                "destination": "/blog/salesforce-change-data-capture/"
+            },
+            {
+                "type": 301,
+                "source": "/static/c2966ac4b7cb939a9aec32759c8952d2/f98ee/data_products_flow_collection_2662f53471.png",
+                "destination": "/"
+            },
+            {
+                "type": 301,
+                "source": "/streaming-sql/index.html",
+                "destination": "/blog/streaming-sql/"
+            },
+            {
+                "type": 301,
+                "source": "/stateful-stream-processing/index.html",
+                "destination": "/blog/stateful-stream-processing/"
+            },
+            {
+                "type": 301,
+                "source": "/streaming-sql/index.html",
+                "destination": "/blog/streaming-sql/"
+            },
+            {
+                "type": 301,
+                "source": "/data-streaming-technologies/index.html",
+                "destination": "/blog/data-streaming-technologies/"
+            },
+            {
+                "type": 301,
+                "source": "/iot-statistics/index.html",
+                "destination": "/blog/iot-statistics/"
+            },
+            {
+                "type": 301,
+                "source": "/s3-to-postgres/index.html",
+                "destination": "/blog/s3-to-postgres/"
+            },
+            {
+                "type": 301,
+                "source": "/snowflake-query-processing/index.html",
+                "destination": "/blog/snowflake-query-processing/"
+            },
+            {
+                "type": 301,
+                "source": "/gcs-to-bigquery/index.html",
+                "destination": "/blog/gcs-to-bigquery/"
+            },
+            {
+                "type": 301,
+                "source": "/confluent-alternatives/index.html",
+                "destination": "/blog/confluent-alternatives/"
+            },
+            {
+                "type": 301,
+                "source": "/what-is-real-time-data-warehouse/index.html",
+                "destination": "/blog/what-is-real-time-data-warehouse/"
+            },
+            {
+                "type": 301,
+                "source": "/data-pipeline-architecture/index.html",
+                "destination": "/blog/data-pipeline-architecture/"
+            },
+            {
+                "type": 301,
+                "source": "/batch-data-processing/index.html",
+                "destination": "/blog/batch-data-processing/"
+            },
+            {
+                "type": 301,
+                "source": "/google-sheets-to-snowflake/index.html",
+                "destination": "/blog/google-sheets-to-snowflake/"
+            },
+            {
+                "type": 301,
+                "source": "/google-analytics-to-bigquery/index.html",
+                "destination": "/blog/google-analytics-to-bigquery/"
+            },
+            {
+                "type": 301,
+                "source": "/data-integration-tools/index.html",
+                "destination": "/blog/data-integration-tools/"
+            },
+            {
+                "type": 301,
+                "source": "/data-streaming-architecture/index.html",
+                "destination": "/blog/data-streaming-architecture/"
+            },
+            {
+                "type": 301,
+                "source": "/gcs-to-bigquery/index.html",
+                "destination": "/blog/gcs-to-bigquery/"
+            },
+            {
+                "type": 301,
+                "source": "/mysql-to-google-sheets/index.html",
+                "destination": "/blog/mysql-to-google-sheets/"
+            },
+            {
+                "type": 301,
+                "source": "/best-change-data-capture-tools/index.html",
+                "destination": "/blog/best-change-data-capture-tools/"
+            },
+            {
+                "type": 301,
+                "source": "/mysql-to-google-sheets/index.html",
+                "destination": "/blog/mysql-to-google-sheets/"
+            },
+            {
+                "type": 301,
+                "source": "/what-is-real-time-data/index.html",
+                "destination": "/blog/what-is-real-time-data/"
+            },
+            {
+                "type": 301,
+                "source": "/kafka-to-redshift/index.html",
+                "destination": "/blog/kafka-to-redshift/"
+            },
+            {
+                "type": 301,
+                "source": "/sql-server-to-postgres/index.html",
+                "destination": "/blog/sql-server-to-postgres/"
+            },
+            {
+                "type": 301,
+                "source": "/sql-server-to-bigquery/index.html",
+                "destination": "/blog/sql-server-to-bigquery/"
+            },
+            {
+                "type": 301,
+                "source": "/mongodb-to-snowflake/index.html",
+                "destination": "/blog/mongodb-to-snowflake/"
+            },
+            {
+                "type": 301,
+                "source": "/sql-server-to-snowflake/index.html",
+                "destination": "/blog/sql-server-to-snowflake/"
+            },
+            {
+                "type": 301,
+                "source": "/data-extraction-tools/index.html",
+                "destination": "/blog/data-extraction-tools/"
+            },
+            {
+                "type": 301,
+                "source": "/5-example-use-cases-for-real-time-data-processing/index.html",
+                "destination": "/blog/5-example-use-cases-for-real-time-data-processing/"
+            },
+            {
+                "type": 301,
+                "source": "/sql-server-to-bigquery/index.html",
+                "destination": "/blog/sql-server-to-bigquery/"
+            },
+            {
+                "type": 301,
+                "source": "/chatgpt-custom-data/index.html",
+                "destination": "/blog/chatgpt-custom-data/"
+            },
+            {
+                "type": 301,
+                "source": "/firebase-to-bigquery/index.html",
+                "destination": "/blog/firebase-to-bigquery/"
+            },
+            {
+                "type": 301,
+                "source": "/data-pipeline-examples/index.html",
+                "destination": "/blog/data-pipeline-examples/"
+            },
+            {
+                "type": 301,
+                "source": "/sql-server-to-bigquery/index.html",
+                "destination": "/blog/sql-server-to-bigquery/"
+            },
+            {
+                "type": 301,
+                "source": "/firestore-limitations/index.html",
+                "destination": "/blog/firestore-limitations/"
+            },
+            {
+                "type": 301,
+                "source": "/what-is-pinecone-ai/index.html",
+                "destination": "/blog/what-is-pinecone-ai/"
+            },
+            {
+                "type": 301,
+                "source": "/open-source-ci-cd-tools/index.html",
+                "destination": "/blog/open-source-ci-cd-tools/"
+            },
+            {
+                "type": 301,
+                "source": "/postgresql-data-types/index.html",
+                "destination": "/blog/postgresql-data-types/"
+            },
+            {
+                "type": 301,
+                "source": "/redshift-datediff-dateadd-functions/index.html",
+                "destination": "/blog/redshift-datediff-dateadd-functions/"
+            },
+            {
+                "type": 301,
+                "source": "/firestore-limitations/index.html",
+                "destination": "/blog/firestore-limitations/"
+            },
+            {
+                "type": 301,
+                "source": "/the-complete-introduction-to-change-data-capture-cdc/index.html",
+                "destination": "/blog/the-complete-introduction-to-change-data-capture-cdc/"
+            },
+            {
+                "type": 301,
+                "source": "/what-is-an-etl-pipeline/index.html",
+                "destination": "/blog/what-is-an-etl-pipeline/"
+            },
+            {
+                "type": 301,
+                "source": "/snowflake-real-time-data/index.html",
+                "destination": "/blog/snowflake-real-time-data/"
+            },
+            {
+                "type": 301,
+                "source": "/sql-server-to-redshift/index.html",
+                "destination": "/blog/sql-server-to-redshift/"
+            },
+            {
+                "type": 301,
+                "source": "/streaming-data-processing/index.html",
+                "destination": "/blog/streaming-data-processing/"
             }
         ],
         "public": "public",
