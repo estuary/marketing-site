@@ -236,10 +236,9 @@ export const Connectors = ({
 
     const handleQueryChange = (evt: any) => {
         const newVal = evt.target.value;
-        setQuery(newVal);
+        setQuery(newVal ?? '');
 
         if (newVal && newVal.length > 0) {
-            console.log('fire event', newVal);
             fireTagEvent('event', 'Connector_Search', {
                 filterQuery: newVal,
             });
