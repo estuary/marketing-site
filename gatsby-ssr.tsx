@@ -1,3 +1,4 @@
+import { type GatsbySSR } from 'gatsby';
 import { GA_ANALYTICS_ENDPOINT, GA_MEASUREMENT_ID, GA_ORIGIN } from './shared';
 
 /**
@@ -10,7 +11,10 @@ import { GA_ANALYTICS_ENDPOINT, GA_MEASUREMENT_ID, GA_ORIGIN } from './shared';
  * @type {import('gatsby').GatsbySSR['onRenderBody']}
  */
 
-export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
+export const onRenderBody: GatsbySSR['onRenderBody'] = ({
+    setHtmlAttributes,
+    setHeadComponents,
+}) => {
     // We always want the `lang` being set
     setHtmlAttributes({ lang: 'en' });
 
