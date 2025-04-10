@@ -17,13 +17,24 @@ export interface SeoProps {
     image?: string;
     url?: string;
     children?: ReactElement;
+    prevUrl?: string;
+    nextUrl?: string;
 }
 
-const Seo: FC<SeoProps> = ({ description, title, image, url, children }) => {
+const Seo: FC<SeoProps> = ({
+    description,
+    title,
+    image,
+    url,
+    children,
+    prevUrl,
+    nextUrl,
+}) => {
     const { site, defaultMetaImg } = useStaticQuery(graphql`
         query SeoData {
             site {
                 siteMetadata {
+                    siteName
                     siteUrl
                     title
                     description
@@ -80,6 +91,8 @@ const Seo: FC<SeoProps> = ({ description, title, image, url, children }) => {
                 content="width=device-width, initial-scale=1.0"
             />
             <meta name="mobile-web-app-capable" content="yes" />
+            {prevUrl ? <link rel="prev" href={prevUrl} /> : null}
+            {nextUrl ? <link rel="next" href={nextUrl} /> : null}
             {children}
             <script type="application/ld+json">
                 {JSON.stringify({
@@ -87,6 +100,7 @@ const Seo: FC<SeoProps> = ({ description, title, image, url, children }) => {
                     '@type': 'Organization',
                     'name': 'Estuary',
                     'alternateName': 'Estuary Flow',
+                    'site_name': site.siteMetadata?.siteName,
                     'url':
                         url ??
                         (site.siteMetadata?.siteUrl || 'https://estuary.dev/'),

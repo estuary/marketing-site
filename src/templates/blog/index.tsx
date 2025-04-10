@@ -208,16 +208,13 @@ const BlogIndex = ({
 
 export default BlogIndex;
 
-/**
- * Head export to define metadata for the page
- *
- * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
- */
-export const Head = () => {
+export const Head = ({ pageContext }: BlogIndexProps) => {
     return (
         <Seo
             title="Estuary Blog | Insights on Data Strategy and Engineering"
             description="Get expert insights on data strategy, integration, ETL, and engineering from Estuary Flow's blog. Explore tutorials, trends, and solutions crafted by our team of engineers."
+            prevUrl={pageContext.pagination.prevPage}
+            nextUrl={pageContext.pagination.nextPage}
         />
     );
 };

@@ -345,6 +345,7 @@ const cfg: GatsbyConfig = {
         title: 'Estuary',
         description: 'Estuary',
         siteUrl: 'https://estuary.dev',
+        siteName: 'Estuary',
         social: {
             twitter: 'estuary twitter',
         },
