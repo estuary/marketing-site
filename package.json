@@ -52,6 +52,7 @@
     "gatsby-transformer-sharp": "^5.13.1",
     "html-to-text": "^9.0.5",
     "intersection-observer": "^0.12.2",
+    "lodash": "^4.17.21",
     "lunr": "^2.3.9",
     "material-ui-popup-state": "^5.0.5",
     "patch-package": "^6.5.1",

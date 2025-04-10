@@ -4,9 +4,10 @@ import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
 import { useMemo, useState } from 'react';
 import { useLunr } from 'react-lunr';
 import clsx from 'clsx';
+import { debounce } from 'lodash';
 import { ConnectorType, getSlugifiedText } from '../../../shared';
 import FlowLogo from '../../svgs/flow-logo.svg';
-import { normalizeConnector } from '../../utils';
+import { fireTagEvent, normalizeConnector } from '../../utils';
 import BigImageBackground from '../BackgroundImages/BigImageBackground';
 import ConnectorsLink from '../ConnectorsLink';
 import SearchInput from '../SearchInput';
@@ -218,7 +219,11 @@ export const Connectors = ({
         );
     }, [mappedConnectors]);
 
+    // We need to keep the input updated right away when a user types
+    //  but only want to run a query on a debounce so storing two states here
+    const [queryInput, setQueryInput] = useState('');
     const [query, setQuery] = useState('');
+
     const results = useLunr(
         query.length > 0
             ? query
@@ -232,7 +237,18 @@ export const Connectors = ({
         showAllConnectors ? true : (res as any).type === connectorType
     );
 
-    const handleQueryChange = (evt) => setQuery(evt.target.value);
+    const debounceSetQueryInput = useMemo(() => debounce(setQuery, 400), []);
+    const handleQueryChange = (evt: any) => {
+        const newVal = evt.target.value;
+        setQueryInput(newVal);
+        debounceSetQueryInput(queryInput);
+
+        if (newVal && newVal.length > 0) {
+            fireTagEvent('event', 'Connector_Search', {
+                filterQuery: newVal,
+            });
+        }
+    };
 
     return (
         <BigImageBackground>
@@ -248,7 +264,7 @@ export const Connectors = ({
                     <div className={connectorsSearchBody}>
                         <SearchInput
                             placeholder={`Search ${title}`}
-                            query={query}
+                            query={queryInput}
                             handleQueryChange={handleQueryChange}
                         />
                         <ConnectorsLink />
