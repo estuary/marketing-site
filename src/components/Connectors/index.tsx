@@ -219,9 +219,6 @@ export const Connectors = ({
         );
     }, [mappedConnectors]);
 
-    // We need to keep the input updated right away when a user types
-    //  but only want to run a query on a debounce so storing two states here
-    const [queryInput, setQueryInput] = useState('');
     const [query, setQuery] = useState('');
 
     const results = useLunr(
@@ -237,18 +234,22 @@ export const Connectors = ({
         showAllConnectors ? true : (res as any).type === connectorType
     );
 
-    const debounceSetQueryInput = useMemo(() => debounce(setQuery, 400), []);
     const handleQueryChange = (evt: any) => {
         const newVal = evt.target.value;
-        setQueryInput(newVal);
-        debounceSetQueryInput(queryInput);
+        setQuery(newVal);
 
         if (newVal && newVal.length > 0) {
+            console.log('fire event', newVal);
             fireTagEvent('event', 'Connector_Search', {
                 filterQuery: newVal,
             });
         }
     };
+
+    const debouncedHandleQueryChange = useMemo(
+        () => debounce(handleQueryChange, 400),
+        []
+    );
 
     return (
         <BigImageBackground>
@@ -264,8 +265,7 @@ export const Connectors = ({
                     <div className={connectorsSearchBody}>
                         <SearchInput
                             placeholder={`Search ${title}`}
-                            query={queryInput}
-                            handleQueryChange={handleQueryChange}
+                            handleQueryChange={debouncedHandleQueryChange}
                         />
                         <ConnectorsLink />
                     </div>
