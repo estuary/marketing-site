@@ -37,12 +37,7 @@ const HeaderNavbarResources = ({ active, setActive }) => {
                 limit: 4
                 filter: {
                     Slug: {
-                        in: [
-                            "prodege"
-                            "davidenergy"
-                            "flashpack"
-                            "Launchmetrics"
-                        ]
+                        in: ["forward", "headset", "prodege", "davidenergy"]
                     }
                 }
             ) {
@@ -76,10 +71,10 @@ const HeaderNavbarResources = ({ active, setActive }) => {
     };
 
     const successStoriesSlugOrder = [
+        'forward',
+        'headset',
         'prodege',
         'davidenergy',
-        'flashpack',
-        'Launchmetrics',
     ];
 
     const orderedAllSuccessStories = allSuccessStories.sort(
