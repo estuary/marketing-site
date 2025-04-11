@@ -67,7 +67,6 @@ export const Head = () => {
             }
             site {
                 siteMetadata {
-                    siteName
                     siteUrl
                 }
             }

@@ -582,7 +582,6 @@ export const query = graphql`
     query AboutPageQuery {
         site {
             siteMetadata {
-                siteName
                 siteUrl
             }
         }
