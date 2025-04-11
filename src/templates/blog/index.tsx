@@ -173,7 +173,6 @@ const BlogIndex = ({
                     </div>
                     <SearchInput
                         placeholder="Search Blog Posts"
-                        query={query}
                         handleQueryChange={handleQueryChange}
                     />
                 </div>
