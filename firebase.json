@@ -4123,38 +4123,8 @@
             },
             {
                 "type": 301,
-                "source": "/static/f14d7d2881ff871f10cedc5d7ddd2b96/46604/01_Database_Replication_What_Is_Database_Replication_a3fc891adc.png",
-                "destination": "/static/3afdf124492b196ecc35d326092aff83/6a57e/types_of_data_replication_cover_photo_0c353c075a.avif"
-            },
-            {
-                "type": 301,
-                "source": "/static/33c7b29b2420b43e0315c3d414975ae8/46604/snowflake_CDC_7d36fb1cf6.png",
-                "destination": "/static/33c7b29b2420b43e0315c3d414975ae8/6ddc6/snowflake_CDC_7d36fb1cf6.avif"
-            },
-            {
-                "type": 301,
-                "source": "/static/46922c37b8aa42701f06f335dce151ec/86bab/1_data_transformation_tools_cover_image_ac42da9dc7.png",
-                "destination": "/static/7330379efbed1cdd9febaded44f9c632/0febb/2_data_transformation_tools_Estuary_4468b0d2d0.webp"
-            },
-            {
-                "type": 301,
-                "source": "/static/7d1d84e8b0afe93ee06256c96fb76046/f3583/SQL_Server_to_Redshift_0c26384317.png",
-                "destination": "/static/7d1d84e8b0afe93ee06256c96fb76046/6a57e/SQL_Server_to_Redshift_0c26384317.avif"
-            },
-            {
-                "type": 301,
-                "source": "/static/a7b8b239f6619f14bdf76b43f441cffc/f3583/sql_server_to_bigquery_cover_image_144af671ec.png",
-                "destination": "/static/7d1d84e8b0afe93ee06256c96fb76046/6a57e/SQL_Server_to_Redshift_0c26384317.avif"
-            },
-            {
-                "type": 301,
                 "source": "/salesforce-change-data-capture-tutorial/",
                 "destination": "/blog/salesforce-change-data-capture/"
-            },
-            {
-                "type": 301,
-                "source": "/static/c2966ac4b7cb939a9aec32759c8952d2/f98ee/data_products_flow_collection_2662f53471.png",
-                "destination": "/"
             },
             {
                 "type": 301,
