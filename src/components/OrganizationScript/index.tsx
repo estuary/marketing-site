@@ -23,8 +23,7 @@ const OrganizationScript = ({ site }: OrganizationScriptProps) => {
                 'description':
                     'Estuary is a real-time data operations (DataOps) platform that simplifies data pipelines. Capture data from any source, transform it with low-latency processing, and materialize it back into your systems for immediate action. Estuary enables data integration, stream processing, and change data capture in a unified platform.',
                 'logo': site.siteMetadata.siteUrl + logoUrl,
-                'image':
-                    'https://estuary.dev/static/f6d26b4e4c7ed825e241372f4c3d8804/9b7d3/real-time-graphic.webp',
+                'image': `${site.siteMetadata.siteUrl}/static/f6d26b4e4c7ed825e241372f4c3d8804/9b7d3/real-time-graphic.webp`,
                 'sameAs': [
                     'https://twitter.com/EstuaryDev',
                     estuaryLinkedinUrl,
