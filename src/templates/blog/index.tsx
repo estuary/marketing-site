@@ -35,14 +35,14 @@ interface BlogIndexProps {
         };
     };
     pageContext: {
-        blogPostIds: String[];
+        blogPostIds: string[];
         tabCategories: Array<{
-            Type: String;
+            Type: string;
             Slug: string;
-            Name: String;
+            Name: string;
         }>;
-        categoryTitle: String;
-        categorySlug: String;
+        categoryTitle: string;
+        categorySlug: string;
         pagination: {
             page: number;
             totalPages: number;
@@ -209,12 +209,40 @@ const BlogIndex = ({
 export default BlogIndex;
 
 export const Head = ({ pageContext }: BlogIndexProps) => {
+    const { categoryTitle, pagination } = pageContext;
+
+    const currentPage = pagination.page;
+    const isFirstPage = currentPage === 0;
+
+    let title = 'Estuary Blog | Insights on Data Strategy and Engineering';
+    let description =
+        "Get expert insights on data strategy, integration, ETL, and engineering from Estuary Flow's blog. Explore tutorials, trends, and solutions crafted by our team of engineers.";
+
+    if (categoryTitle !== 'All') {
+        title = `${categoryTitle} Articles${!isFirstPage ? ` - Page ${currentPage + 1}` : ''} | Estuary Blog`;
+
+        const categoryDescriptions = {
+            'Data Basics':
+                'Browse Estuary articles about Data Basics - core data concepts explained by our team.',
+            'Data Engineering':
+                'Explore Data Engineering guides, workflows, and insights from the Estuary team.',
+            'Tutorial':
+                'Browse Estuary tutorials on building and scaling data pipelines with Flow.',
+        };
+
+        description =
+            categoryDescriptions[categoryTitle] ||
+            `Explore Estuary blog posts in the ${categoryTitle} category.`;
+    } else if (!isFirstPage) {
+        title = `All Articles - Page ${currentPage + 1} | Estuary Blog`;
+    }
+
     return (
         <Seo
-            title="Estuary Blog | Insights on Data Strategy and Engineering"
-            description="Get expert insights on data strategy, integration, ETL, and engineering from Estuary Flow's blog. Explore tutorials, trends, and solutions crafted by our team of engineers."
-            prevUrl={pageContext.pagination.prevPage}
-            nextUrl={pageContext.pagination.nextPage}
+            title={title}
+            description={description}
+            prevUrl={pagination.prevPage}
+            nextUrl={pagination.nextPage}
         />
     );
 };
