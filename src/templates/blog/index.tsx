@@ -208,24 +208,13 @@ const BlogIndex = ({
 export default BlogIndex;
 
 export const Head = ({ pageContext }: BlogIndexProps) => {
-    const { categoryTitle, pagination } = pageContext;
+    const { categorySlug, pagination } = pageContext;
     const currentPage = pagination.page;
     const pageNumber = currentPage + 1;
     const titlePrefix = 'Estuary Blog | ';
 
     const seoConfig = {
-        'All': {
-            page1: {
-                title: `${titlePrefix}Insights on Data Strategy and Engineering`,
-                description:
-                    'Explore all Estuary blog posts covering data strategy, engineering insights, tutorials, and best practices.',
-            },
-            pageN: {
-                title: `${titlePrefix}Insights on Data Strategy and Engineering - Page ${pageNumber}`,
-                description: `Page ${pageNumber} of all Estuary blog posts. Discover more insights into data strategy and engineering best practices.`,
-            },
-        },
-        'Data basics': {
+        'data-basics': {
             page1: {
                 title: `${titlePrefix}Data Basics for Data Engineers`,
                 description:
@@ -236,7 +225,7 @@ export const Head = ({ pageContext }: BlogIndexProps) => {
                 description: `Page ${pageNumber} of Data Basics. Continue exploring foundational data concepts and best practices for engineers.`,
             },
         },
-        'Data engineering': {
+        'data-engineering': {
             page1: {
                 title: `${titlePrefix}Data Engineering Insights & Best Practices`,
                 description:
@@ -247,7 +236,7 @@ export const Head = ({ pageContext }: BlogIndexProps) => {
                 description: `Page ${pageNumber} of Data Engineering content. More insights, trends, and practical guides for data teams.`,
             },
         },
-        'Tutorial': {
+        'tutorial': {
             page1: {
                 title: `${titlePrefix}Tutorials on Data Integration & Engineering`,
                 description:
@@ -260,7 +249,18 @@ export const Head = ({ pageContext }: BlogIndexProps) => {
         },
     };
 
-    const config = seoConfig[categoryTitle] ?? seoConfig.All;
+    const config = seoConfig[categorySlug] ?? {
+        page1: {
+            title: `${titlePrefix}Insights on Data Strategy and Engineering`,
+            description:
+                'Explore all Estuary blog posts covering data strategy, engineering insights, tutorials, and best practices.',
+        },
+        pageN: {
+            title: `${titlePrefix}Insights on Data Strategy and Engineering - Page ${pageNumber}`,
+            description: `Page ${pageNumber} of all Estuary blog posts. Discover more insights into data strategy and engineering best practices.`,
+        },
+    };
+
     const seoData = currentPage === 0 ? config.page1 : config.pageN;
 
     return (
