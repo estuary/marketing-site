@@ -208,6 +208,15 @@ const BlogIndex = ({
 
 export default BlogIndex;
 
+const WORD_REGEX = /\w\S*/g;
+
+const capitalizeCategoryName = (categoryName: string) =>
+    categoryName.replace(
+        WORD_REGEX,
+        (categoryNameWord) =>
+            categoryNameWord.charAt(0).toUpperCase() + categoryNameWord.slice(1)
+    );
+
 export const Head = ({ pageContext }: BlogIndexProps) => {
     const { categoryTitle, pagination } = pageContext;
 
@@ -219,7 +228,7 @@ export const Head = ({ pageContext }: BlogIndexProps) => {
         "Get expert insights on data strategy, integration, ETL, and engineering from Estuary Flow's blog. Explore tutorials, trends, and solutions crafted by our team of engineers.";
 
     if (categoryTitle !== 'All') {
-        title = `${categoryTitle} Articles${!isFirstPage ? ` - Page ${currentPage + 1}` : ''} | Estuary Blog`;
+        title = `${capitalizeCategoryName(categoryTitle)} Articles${!isFirstPage ? ` - Page ${currentPage + 1}` : ''} | Estuary Blog`;
 
         const categoryDescriptions = {
             'Data Basics':
