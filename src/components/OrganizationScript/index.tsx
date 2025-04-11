@@ -1,19 +1,16 @@
-import { graphql, useStaticQuery } from 'gatsby';
 import logoUrl from '../../images/estuary.png';
 import { estuaryAddress, estuaryLinkedinUrl } from '../../../shared';
 
-const OrganizationScript = () => {
-    const { site } = useStaticQuery(graphql`
-        query SeoData {
-            site {
-                siteMetadata {
-                    siteName
-                    siteUrl
-                }
-            }
-        }
-    `);
+interface OrganizationScriptProps {
+    site: {
+        siteMetadata: {
+            siteName: string;
+            siteUrl: string;
+        };
+    };
+}
 
+const OrganizationScript = ({ site }: OrganizationScriptProps) => {
     return (
         <script type="application/ld+json">
             {JSON.stringify({
@@ -22,12 +19,12 @@ const OrganizationScript = () => {
                 '@id': 'https://estuary.dev/#organization',
                 'name': 'Estuary',
                 'alternateName': 'Estuary Flow',
-                'site_name': site.siteMetadata?.siteName,
+                'site_name': site.siteMetadata.siteName,
                 'url': 'https://estuary.dev/',
                 'description':
                     'Estuary is a real-time data operations (DataOps) platform that simplifies data pipelines. Capture data from any source, transform it with low-latency processing, and materialize it back into your systems for immediate action. Estuary enables data integration, stream processing, and change data capture in a unified platform.',
-                'logo': site.siteMetadata?.siteUrl + logoUrl,
-                'image': site.siteMetadata?.siteUrl + logoUrl,
+                'logo': site.siteMetadata.siteUrl + logoUrl,
+                'image': site.siteMetadata.siteUrl + logoUrl,
                 'sameAs': [
                     'https://twitter.com/EstuaryDev',
                     estuaryLinkedinUrl,

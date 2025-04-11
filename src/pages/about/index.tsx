@@ -1,4 +1,5 @@
-import { graphql, Link, useStaticQuery } from 'gatsby';
+import React from 'react';
+import { graphql, Link } from 'gatsby';
 import {
     GatsbyImage,
     IGatsbyImageData,
@@ -77,130 +78,53 @@ import {
     itemPosition,
 } from './styles.module.less';
 
+type AboutPageData = {
+    site: {
+        siteMetadata: {
+            siteName: string;
+            siteUrl: string;
+        };
+    };
+    allStrapiJobPosting: {
+        nodes: Array<{
+            slug: string;
+            title: string;
+            location: string;
+            description: {
+                data: {
+                    childHtmlRehype: {
+                        html: string;
+                    };
+                };
+            };
+        }>;
+    };
+    allStrapiEmployee: {
+        nodes: Array<{
+            name: string;
+            title: string;
+            ProfilePic: {
+                localFile: {
+                    childImageSharp: {
+                        gatsbyImageData: IGatsbyImageData;
+                    };
+                };
+            };
+        }>;
+    };
+};
+
+type AboutPageProps = {
+    data: AboutPageData;
+};
+
 const companyAge = new Date().getFullYear() - 2014;
 
-// const jobs = [
-//     {
-//         id: "soln",
-//         title: "Solutions Engineer",
-//         location: "New York, NY",
-//         workEnvironment: "Hybrid or remote",
-//         description:
-//             "As Estuary&apos;s first Solution Engineer, you will work directly with our founding team to help companies unlock the power of their real-time data. Working at the intersection of engineering, product and customers, your work will have a huge impact on Estuary&apos;s product roadmap and help create a seamless experience for users. We&apos;re looking for individuals with an insatiable curiosity for getting into the weeds of technical challenges and an empathetic approach to teaching others. A strong desire to work within a start-up environment without the constraints of large companies is imperative. You will be given the freedom and opportunity to chart your own path and take your career to the next level.",
-//         responsibilities: [
-//             "Focus on detailed use-cases to create a great end-to-end experience for customers.",
-//             "Take a lead role in understanding user pain points to develop a strategic vision of our product roadmap.",
-//             "Create internal documentation of technical requirements for prospective customers.",
-//             "Engage in user-support channels for questions and issues raised by Flow users.",
-//             "Provide technical support through independent investigation.",
-//             "Act as a trusted conduit with customers and prospects in order to influence their data strategy.",
-//             "Build a perspective on customer and market trends.",
-//             "Communicate technical feature requests.",
-//         ],
-//         qualifications: [
-//             "Bachelor&apos;s degree in computer science, data science or related field or equivalent technical & business experience.",
-//             "Exceptional written and verbal communication.",
-//             "Strong interpersonal and relationship building skills.",
-//             "Understand the value of balancing customer-centric thinking with technical know-how.",
-//             "Foundational understanding and practical ability to code with two or more modern scripting languages (e.g. Python, SQL, node.js) and/or popular programming languages (e.g. C/C++, C#).",
-//             "Experience working with both technical and non-technical stakeholders.",
-//         ],
-//     },
-//     {
-//         id: "dev-evang",
-//         title: "Developer Evangelist",
-//         location: "New York, NY; Columbus, OH",
-//         workEnvironment: "Hybrid or remote",
-//         description:
-//             "As Estuary&apos;s first Solution Engineer, you will work directly with our founding team to help companies unlock the power of their real-time data. Working at the intersection of engineering, product and customers, your work will have a huge impact on Estuary&apos;s product roadmap and help create a seamless experience for users. We&apos;re looking for individuals with an insatiable curiosity for getting into the weeds of technical challenges and an empathetic approach to teaching others. A strong desire to work within a start-up environment without the constraints of large companies is imperative. You will be given the freedom and opportunity to chart your own path and take your career to the next level.",
-//         responsibilities: [
-//             "Focus on detailed use-cases to create a great end-to-end experience for customers.",
-//             "Take a lead role in understanding user pain points to develop a strategic vision of our product roadmap.",
-//             "Create internal documentation of technical requirements for prospective customers.",
-//             "Engage in user-support channels for questions and issues raised by Flow users.",
-//             "Provide technical support through independent investigation.",
-//             "Act as a trusted conduit with customers and prospects in order to influence their data strategy.",
-//             "Build a perspective on customer and market trends.",
-//             "Communicate technical feature requests.",
-//         ],
-//         qualifications: [
-//             "Bachelor&apos;s degree in computer science, data science or related field or equivalent technical & business experience.",
-//             "Exceptional written and verbal communication.",
-//             "Strong interpersonal and relationship building skills.",
-//             "Understand the value of balancing customer-centric thinking with technical know-how.",
-//             "Foundational understanding and practical ability to code with two or more modern scripting languages (e.g. Python, SQL, node.js) and/or popular programming languages (e.g. C/C++, C#).",
-//             "Experience working with both technical and non-technical stakeholders.",
-//         ],
-//     },
-// ]
-// export const pageQuery = graphql`
-//   query {
-
-//   }
-// `
-const AboutPage = () => {
+const AboutPage = ({ data }: AboutPageProps) => {
     const {
         allStrapiJobPosting: { nodes: jobs },
         allStrapiEmployee: { nodes: employees },
-    } = useStaticQuery<{
-        allStrapiJobPosting: {
-            nodes: {
-                slug: string;
-                title: string;
-                location: string;
-                description: {
-                    data: {
-                        childHtmlRehype: {
-                            html: string;
-                        };
-                    };
-                };
-            }[];
-        };
-        allStrapiEmployee: {
-            nodes: {
-                name: string;
-                ProfilePic: {
-                    localFile: {
-                        childImageSharp: {
-                            gatsbyImageData: IGatsbyImageData;
-                        };
-                    };
-                };
-                title: string;
-            }[];
-        };
-    }>(graphql`
-        {
-            allStrapiJobPosting {
-                nodes {
-                    slug
-                    title: Title
-                    location: Location
-                    description: Description {
-                        data {
-                            childHtmlRehype {
-                                html
-                            }
-                        }
-                    }
-                }
-            }
-            allStrapiEmployee {
-                nodes {
-                    name: Name
-                    title: Title
-                    ProfilePic {
-                        localFile {
-                            childImageSharp {
-                                gatsbyImageData
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    `);
+    } = data;
 
     return (
         <Layout>
@@ -583,12 +507,51 @@ const AboutPage = () => {
     );
 };
 
-export const Head = () => {
+export default AboutPage;
+
+export const Head = ({ data }: AboutPageProps) => {
+    const { site } = data;
     return (
         <Seo title="About" description={estuaryHelpsYourTeam}>
-            <OrganizationScript />
+            <OrganizationScript site={site} />
         </Seo>
     );
 };
 
-export default AboutPage;
+export const query = graphql`
+    query AboutPageQuery {
+        site {
+            siteMetadata {
+                siteName
+                siteUrl
+            }
+        }
+        allStrapiJobPosting {
+            nodes {
+                slug
+                title: Title
+                location: Location
+                description: Description {
+                    data {
+                        childHtmlRehype {
+                            html
+                        }
+                    }
+                }
+            }
+        }
+        allStrapiEmployee {
+            nodes {
+                name: Name
+                title: Title
+                ProfilePic {
+                    localFile {
+                        childImageSharp {
+                            gatsbyImageData
+                        }
+                    }
+                }
+            }
+        }
+    }
+`;

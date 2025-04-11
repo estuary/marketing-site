@@ -58,11 +58,17 @@ const IndexPage = () => {
 };
 
 export const Head = () => {
-    const { metaImg } = useStaticQuery(graphql`
-        query {
+    const { metaImg, site } = useStaticQuery(graphql`
+        query GetHomepageMetadata {
             metaImg: file(relativePath: { eq: "flow-desktop.png" }) {
                 childImageSharp {
                     gatsbyImageData(layout: FIXED, width: 1200)
+                }
+            }
+            site {
+                siteMetadata {
+                    siteName
+                    siteUrl
                 }
             }
         }
@@ -74,7 +80,7 @@ export const Head = () => {
             description="Estuary Flow is the most reliable real-time data integration platform for ETL, ELT, CDC and streaming pipelines. Build and automate data pipelines. Try it free!"
             image={metaImg.childImageSharp.gatsbyImageData.images.fallback.src}
         >
-            <OrganizationScript />
+            <OrganizationScript site={site} />
         </Seo>
     );
 };
