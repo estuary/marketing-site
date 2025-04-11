@@ -21,7 +21,7 @@ const WhyPageStepsBackground = ({
                     gatsbyImageData(
                         quality: 90
                         placeholder: BLURRED
-                        formats: [AUTO, WEBP]
+                        formats: [AUTO, WEBP, AVIF]
                         layout: FULL_WIDTH
                     )
                 }
@@ -31,7 +31,7 @@ const WhyPageStepsBackground = ({
                     gatsbyImageData(
                         quality: 90
                         placeholder: BLURRED
-                        formats: [AUTO, WEBP]
+                        formats: [AUTO, WEBP, AVIF]
                         layout: FULL_WIDTH
                     )
                 }
@@ -41,7 +41,7 @@ const WhyPageStepsBackground = ({
                     gatsbyImageData(
                         quality: 90
                         placeholder: BLURRED
-                        formats: [AUTO, WEBP]
+                        formats: [AUTO, WEBP, AVIF]
                         layout: FULL_WIDTH
                     )
                 }
@@ -51,7 +51,7 @@ const WhyPageStepsBackground = ({
                     gatsbyImageData(
                         quality: 90
                         placeholder: BLURRED
-                        formats: [AUTO, WEBP]
+                        formats: [AUTO, WEBP, AVIF]
                         layout: FULL_WIDTH
                     )
                 }

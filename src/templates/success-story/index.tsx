@@ -49,7 +49,7 @@ export const pageQuery = graphql`
                         gatsbyImageData(
                             layout: FULL_WIDTH
                             placeholder: BLURRED
-                            formats: [AUTO, WEBP]
+                            formats: [AUTO, WEBP, AVIF]
                         )
                         metaImg: gatsbyImageData(
                             layout: FIXED
@@ -88,7 +88,7 @@ export const pageQuery = graphql`
                                 gatsbyImageData(
                                     layout: FULL_WIDTH
                                     placeholder: BLURRED
-                                    formats: [AUTO, WEBP]
+                                    formats: [AUTO, WEBP, AVIF]
                                 )
                             }
                         }

@@ -22,13 +22,13 @@ const SectionOne = ({
             className={bio?.data.bio ? null : centralizeContainer}
         >
             <div className={container}>
-                {picture?.localFile.childImageSharp.gatsbyImageData ? (
+                {picture?.localFile?.childImageSharp?.gatsbyImageData ? (
                     <div className={authorPictureWrapper}>
                         <GatsbyImage
                             alt={`Picture of ${name}`}
                             className={authorPicture}
                             image={
-                                picture?.localFile.childImageSharp
+                                picture.localFile.childImageSharp
                                     .gatsbyImageData
                             }
                             loading="eager"

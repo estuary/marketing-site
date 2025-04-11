@@ -1,4 +1,5 @@
-import { graphql, Link, useStaticQuery } from 'gatsby';
+import React from 'react';
+import { graphql, Link } from 'gatsby';
 import {
     GatsbyImage,
     IGatsbyImageData,
@@ -20,6 +21,7 @@ import ContactUsForm from '../../components/ContactUsForm';
 import FlowLogoVector from '../../components/FlowLogoVector';
 import OutboundLink from '../../components/LinksAndButtons/OutboundLink';
 import LinkFilled from '../../components/LinksAndButtons/LinkFilled';
+import OrganizationScript from '../../components/OrganizationScript';
 import {
     sectionOne,
     sectionOneBackgroundImageWrapper,
@@ -75,6 +77,46 @@ import {
     itemName,
     itemPosition,
 } from './styles.module.less';
+
+type AboutPageData = {
+    site: {
+        siteMetadata: {
+            siteName: string;
+            siteUrl: string;
+        };
+    };
+    allStrapiJobPosting: {
+        nodes: Array<{
+            slug: string;
+            title: string;
+            location: string;
+            description: {
+                data: {
+                    childHtmlRehype: {
+                        html: string;
+                    };
+                };
+            };
+        }>;
+    };
+    allStrapiEmployee: {
+        nodes: Array<{
+            name: string;
+            title: string;
+            ProfilePic: {
+                localFile: {
+                    childImageSharp: {
+                        gatsbyImageData: IGatsbyImageData;
+                    };
+                };
+            };
+        }>;
+    };
+};
+
+type AboutPageProps = {
+    data: AboutPageData;
+};
 
 const companyAge = new Date().getFullYear() - 2014;
 
@@ -137,69 +179,12 @@ const companyAge = new Date().getFullYear() - 2014;
 
 //   }
 // `
-const AboutPage = () => {
+
+const AboutPage = ({ data }: AboutPageProps) => {
     const {
         allStrapiJobPosting: { nodes: jobs },
         allStrapiEmployee: { nodes: employees },
-    } = useStaticQuery<{
-        allStrapiJobPosting: {
-            nodes: {
-                slug: string;
-                title: string;
-                location: string;
-                description: {
-                    data: {
-                        childHtmlRehype: {
-                            html: string;
-                        };
-                    };
-                };
-            }[];
-        };
-        allStrapiEmployee: {
-            nodes: {
-                name: string;
-                ProfilePic: {
-                    localFile: {
-                        childImageSharp: {
-                            gatsbyImageData: IGatsbyImageData;
-                        };
-                    };
-                };
-                title: string;
-            }[];
-        };
-    }>(graphql`
-        {
-            allStrapiJobPosting {
-                nodes {
-                    slug
-                    title: Title
-                    location: Location
-                    description: Description {
-                        data {
-                            childHtmlRehype {
-                                html
-                            }
-                        }
-                    }
-                }
-            }
-            allStrapiEmployee {
-                nodes {
-                    name: Name
-                    title: Title
-                    ProfilePic {
-                        localFile {
-                            childImageSharp {
-                                gatsbyImageData
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    `);
+    } = data;
 
     return (
         <Layout>
@@ -582,8 +567,50 @@ const AboutPage = () => {
     );
 };
 
-export const Head = () => {
-    return <Seo title="About" description={estuaryHelpsYourTeam} />;
+export default AboutPage;
+
+export const Head = ({ data }: AboutPageProps) => {
+    const { site } = data;
+    return (
+        <Seo title="About" description={estuaryHelpsYourTeam}>
+            <OrganizationScript site={site} />
+        </Seo>
+    );
 };
 
-export default AboutPage;
+export const query = graphql`
+    query AboutPageQuery {
+        site {
+            siteMetadata {
+                siteUrl
+            }
+        }
+        allStrapiJobPosting {
+            nodes {
+                slug
+                title: Title
+                location: Location
+                description: Description {
+                    data {
+                        childHtmlRehype {
+                            html
+                        }
+                    }
+                }
+            }
+        }
+        allStrapiEmployee {
+            nodes {
+                name: Name
+                title: Title
+                ProfilePic {
+                    localFile {
+                        childImageSharp {
+                            gatsbyImageData
+                        }
+                    }
+                }
+            }
+        }
+    }
+`;
