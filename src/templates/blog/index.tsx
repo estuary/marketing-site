@@ -208,48 +208,66 @@ const BlogIndex = ({
 
 export default BlogIndex;
 
-const WORD_REGEX = /\w\S*/g;
-
-const capitalizeCategoryName = (categoryName: string) =>
-    categoryName.replace(
-        WORD_REGEX,
-        (categoryNameWord) =>
-            categoryNameWord.charAt(0).toUpperCase() + categoryNameWord.slice(1)
-    );
-
 export const Head = ({ pageContext }: BlogIndexProps) => {
     const { categoryTitle, pagination } = pageContext;
-
     const currentPage = pagination.page;
-    const isFirstPage = currentPage === 0;
+    const pageNumber = currentPage + 1;
+    const titlePrefix = 'Estuary Blog | ';
 
-    let title = 'Estuary Blog | Insights on Data Strategy and Engineering';
-    let description =
-        "Get expert insights on data strategy, integration, ETL, and engineering from Estuary Flow's blog. Explore tutorials, trends, and solutions crafted by our team of engineers.";
+    const seoConfig = {
+        'All': {
+            page1: {
+                title: `${titlePrefix}Insights on Data Strategy and Engineering`,
+                description:
+                    'Explore all Estuary blog posts covering data strategy, engineering insights, tutorials, and best practices.',
+            },
+            pageN: {
+                title: `${titlePrefix}Insights on Data Strategy and Engineering - Page ${pageNumber}`,
+                description: `Page ${pageNumber} of all Estuary blog posts. Discover more insights into data strategy and engineering best practices.`,
+            },
+        },
+        'Data Basics': {
+            page1: {
+                title: `${titlePrefix}Data Basics for Data Engineers`,
+                description:
+                    'Fundamental data concepts explained for engineers. Get started with data basics on the Estuary blog.',
+            },
+            pageN: {
+                title: `${titlePrefix}Data Basics for Data Engineers - Page ${pageNumber}`,
+                description: `Page ${pageNumber} of Data Basics. Continue exploring foundational data concepts and best practices for engineers.`,
+            },
+        },
+        'Data Engineering': {
+            page1: {
+                title: `${titlePrefix}Data Engineering Insights & Best Practices`,
+                description:
+                    'Deep dives and thought leadership on data engineering from the Estuary team. Explore tools, trends, and best practices.',
+            },
+            pageN: {
+                title: `${titlePrefix}Data Engineering Insights - Page ${pageNumber}`,
+                description: `Page ${pageNumber} of Data Engineering content. More insights, trends, and practical guides for data teams.`,
+            },
+        },
+        'Tutorial': {
+            page1: {
+                title: `${titlePrefix}Tutorials on Data Integration & Engineering`,
+                description:
+                    'Hands-on tutorials for real-time data integration and engineering use cases using Estuary and other tools.',
+            },
+            pageN: {
+                title: `${titlePrefix}Tutorials on Data Integration - Page ${pageNumber}`,
+                description: `Page ${pageNumber} of Tutorials. Continue learning real-time data integration through practical how-to articles.`,
+            },
+        },
+    };
 
-    if (categoryTitle !== 'All') {
-        title = `${capitalizeCategoryName(categoryTitle)} Articles${!isFirstPage ? ` - Page ${currentPage + 1}` : ''} | Estuary Blog`;
-
-        const categoryDescriptions = {
-            'Data Basics':
-                'Browse Estuary articles about Data Basics - core data concepts explained by our team.',
-            'Data Engineering':
-                'Explore Data Engineering guides, workflows, and insights from the Estuary team.',
-            'Tutorial':
-                'Browse Estuary tutorials on building and scaling data pipelines with Flow.',
-        };
-
-        description =
-            categoryDescriptions[categoryTitle] ||
-            `Explore Estuary blog posts in the ${categoryTitle} category.`;
-    } else if (!isFirstPage) {
-        title = `All Articles - Page ${currentPage + 1} | Estuary Blog`;
-    }
+    const config = seoConfig[categoryTitle] || seoConfig.All;
+    const seoData = currentPage === 0 ? config.page1 : config.pageN;
 
     return (
         <Seo
-            title={title}
-            description={description}
+            title={seoData.title}
+            description={seoData.description}
             prevUrl={pagination.prevPage}
             nextUrl={pagination.nextPage}
         />
