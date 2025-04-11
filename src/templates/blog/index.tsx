@@ -260,7 +260,7 @@ export const Head = ({ pageContext }: BlogIndexProps) => {
         },
     };
 
-    const config = seoConfig[categoryTitle] || seoConfig.All;
+    const config = seoConfig[categoryTitle] ?? seoConfig.All;
     const seoData = currentPage === 0 ? config.page1 : config.pageN;
 
     return (
