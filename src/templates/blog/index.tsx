@@ -225,7 +225,7 @@ export const Head = ({ pageContext }: BlogIndexProps) => {
                 description: `Page ${pageNumber} of all Estuary blog posts. Discover more insights into data strategy and engineering best practices.`,
             },
         },
-        'Data Basics': {
+        'Data basics': {
             page1: {
                 title: `${titlePrefix}Data Basics for Data Engineers`,
                 description:
@@ -236,7 +236,7 @@ export const Head = ({ pageContext }: BlogIndexProps) => {
                 description: `Page ${pageNumber} of Data Basics. Continue exploring foundational data concepts and best practices for engineers.`,
             },
         },
-        'Data Engineering': {
+        'Data engineering': {
             page1: {
                 title: `${titlePrefix}Data Engineering Insights & Best Practices`,
                 description:
