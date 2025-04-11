@@ -20,6 +20,7 @@ import ContactUsForm from '../../components/ContactUsForm';
 import FlowLogoVector from '../../components/FlowLogoVector';
 import OutboundLink from '../../components/LinksAndButtons/OutboundLink';
 import LinkFilled from '../../components/LinksAndButtons/LinkFilled';
+import OrganizationScript from '../../components/OrganizationScript';
 import {
     sectionOne,
     sectionOneBackgroundImageWrapper,
@@ -583,7 +584,11 @@ const AboutPage = () => {
 };
 
 export const Head = () => {
-    return <Seo title="About" description={estuaryHelpsYourTeam} />;
+    return (
+        <Seo title="About" description={estuaryHelpsYourTeam}>
+            <OrganizationScript />
+        </Seo>
+    );
 };
 
 export default AboutPage;

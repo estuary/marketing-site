@@ -16,6 +16,7 @@ import OutboundLinkFilled from '../components/LinksAndButtons/OutboundLinkFilled
 import LinkOutlined from '../components/LinksAndButtons/LinkOutlined';
 import { dashboardRegisterUrl } from '../../shared';
 import SecureDataMovement from '../components/Homepage/SecureDataMovement';
+import OrganizationScript from '../components/OrganizationScript';
 
 const IndexPage = () => {
     return (
@@ -72,7 +73,9 @@ export const Head = () => {
             title="Estuary | Real-Time Data Integration, CDC & ETL Platform"
             description="Estuary Flow is the most reliable real-time data integration platform for ETL, ELT, CDC and streaming pipelines. Build and automate data pipelines. Try it free!"
             image={metaImg.childImageSharp.gatsbyImageData.images.fallback.src}
-        />
+        >
+            <OrganizationScript />
+        </Seo>
     );
 };
 
