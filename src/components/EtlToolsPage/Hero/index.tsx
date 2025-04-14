@@ -28,17 +28,22 @@ const Hero = ({ vendors }: SectionOneProps) => {
                         placeholder="blurred"
                         quality={100}
                     />
-                    {vendors.slice(0, 9).map((vendor) => (
-                        <GatsbyImage
-                            key={vendor.id}
-                            alt={`${vendor.name} logo`}
-                            image={
-                                vendor.logo.localFile.childImageSharp
-                                    .gatsbyImageData
-                            }
-                            loading="eager"
-                        />
-                    ))}
+                    {vendors
+                        .slice(0, 9)
+                        .map((vendor) =>
+                            vendor.logo.localFile.childImageSharp
+                                ?.gatsbyImageData ? (
+                                <GatsbyImage
+                                    key={vendor.id}
+                                    alt={`${vendor.name} logo`}
+                                    image={
+                                        vendor.logo.localFile.childImageSharp
+                                            .gatsbyImageData
+                                    }
+                                    loading="eager"
+                                />
+                            ) : null
+                        )}
                 </div>
             </Container>
         </section>

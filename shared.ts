@@ -1,4 +1,5 @@
 import { htmlToText } from 'html-to-text';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { features } from './src/components/DeploymentOptionsPage/shared';
 import { Author } from './src/templates/author/shared';
 
@@ -118,10 +119,18 @@ interface HasDollarSign {
     subText?: SubText;
 }
 
+interface ImageType {
+    childImageSharp?: {
+        gatsbyImageData: IGatsbyImageData;
+    };
+}
+
 export interface Vendor {
     id: string;
     name: string;
-    logo: any;
+    logo: {
+        localFile: ImageType;
+    };
     slugKey: string;
     useCases: {
         databaseReplication: string;
@@ -209,7 +218,25 @@ export const getVendorsLinkId = (vendorName1?: string, vendorName2?: string) =>
 
 const successStoriesPriorityOrder = ['forward', 'headset', 'prodege'];
 
-const sortSuccessStoriesByPriority = (a, b) => {
+interface SuccessStorySortingProps {
+    id: string;
+    hero: {
+        alternativeText: string;
+        localFile: {
+            childImageSharp: {
+                gatsbyImageData: IGatsbyImageData;
+            };
+        };
+    };
+    slug: string;
+    title: string;
+    description: string;
+}
+
+const sortSuccessStoriesByPriority = (
+    a: SuccessStorySortingProps,
+    b: SuccessStorySortingProps
+) => {
     const indexA = successStoriesPriorityOrder.findIndex((keyword) =>
         a.slug.includes(keyword)
     );
@@ -223,6 +250,31 @@ const sortSuccessStoriesByPriority = (a, b) => {
     return indexA - indexB;
 };
 
-export const getSortedSuccessStories = (successStories) => {
+export const getSortedSuccessStories = (
+    successStories: SuccessStorySortingProps[]
+) => {
     return successStories.sort(sortSuccessStoriesByPriority);
 };
+
+export interface Connector {
+    id: string;
+    externalUrl: string;
+    imageName: string;
+    logo: ImageType;
+    shortDescription?: string;
+    longDescription?: string;
+    title: string;
+    logoUrl: string;
+    recommended: boolean;
+    connectorTagsByConnectorIdList: {
+        protocol: string;
+    }[];
+    slug: string | null;
+    type: ConnectorType;
+    slugified_name: string;
+}
+
+export const getIntegrationSlug = (
+    connectorName1?: string,
+    connectorName2?: string
+) => `/integrations/${connectorName1}-to-${connectorName2}`;

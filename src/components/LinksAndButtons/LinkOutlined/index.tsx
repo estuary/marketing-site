@@ -8,6 +8,7 @@ import {
     fullWidthStyle,
     lightBorder,
 } from '../styles.module.less';
+import { getSlugifiedText } from '../../../../shared';
 
 const LinkOutlined = forwardRef<
     HTMLAnchorElement,
@@ -15,6 +16,7 @@ const LinkOutlined = forwardRef<
 >(
     (
         {
+            id,
             children,
             variant = 'primary',
             fullWidth = false,
@@ -25,6 +27,7 @@ const LinkOutlined = forwardRef<
         ref
     ) => (
         <a
+            id={getSlugifiedText(id)}
             ref={ref}
             {...props}
             className={clsx(

@@ -1,10 +1,8 @@
-import { Suspense } from 'react';
 import MetricCard from '../../MetricCard';
 import VanityLogosMarquee from '../../VanityLogosMarquee';
 import HeroSectionDetails from '../../HeroSectionDetails';
 import { activeUsersAmount } from '../../../../shared';
 import HeroSectionActions from '../../HeroSectionActions';
-import AnimFallback from './AnimFallback';
 import AnimatedHero from './AnimatedHero';
 import {
     container,
@@ -31,9 +29,7 @@ const Hero = () => {
                     hasSubscriptionBenefits
                 />
                 <div className={flowAnimationContainer}>
-                    <Suspense fallback={AnimFallback}>
-                        <AnimatedHero />
-                    </Suspense>
+                    <AnimatedHero />
                 </div>
             </div>
             <ul className={metricCardsList}>

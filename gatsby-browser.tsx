@@ -6,6 +6,7 @@ import './src/highlighting-atom-one-dark.css';
 import './src/style.less';
 
 import WrapPageElementComponent from './src/components/WrapPageElementComponent';
+import { fireTagEvent } from './src/utils';
 
 export const wrapPageElement = ({ element }) => (
     <WrapPageElementComponent>{element}</WrapPageElementComponent>
@@ -27,7 +28,7 @@ export const onRouteUpdate = ({ location, prevLocation }) => {
         const pagePath = location
             ? location.pathname + location.search + location.hash
             : undefined;
-        window.gtag('event', 'page_view', { page_path: pagePath });
+        fireTagEvent('event', 'page_view', { page_path: pagePath });
     };
 
     if ('requestAnimationFrame' in window) {

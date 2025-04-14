@@ -20,7 +20,19 @@ interface SectionOneProps {
     yVendor: Vendor;
 }
 
+type LoadingType = 'eager' | 'lazy' | undefined;
+
 const Hero = ({ vendors, xVendor, yVendor }: SectionOneProps) => {
+    const commonXvendorImageProps = {
+        alt: `${xVendor.name} logo`,
+        loading: 'eager' as LoadingType,
+    };
+
+    const commonYvendorImageProps = {
+        alt: `${yVendor.name} logo`,
+        loading: 'eager' as LoadingType,
+    };
+
     return (
         <section className={defaultWrapperDarkBlue}>
             <Container isDarkTheme>
@@ -59,14 +71,16 @@ const Hero = ({ vendors, xVendor, yVendor }: SectionOneProps) => {
                 />
                 <div className={rightColumn}>
                     <div className={clsx(vendorLogo, leftVendorLogo)}>
-                        <GatsbyImage
-                            alt={`${xVendor.name} logo`}
-                            image={
-                                xVendor.logo.localFile.childImageSharp
-                                    .gatsbyImageData
-                            }
-                            loading="eager"
-                        />
+                        {xVendor.logo.localFile.childImageSharp
+                            ?.gatsbyImageData ? (
+                            <GatsbyImage
+                                image={
+                                    xVendor.logo.localFile.childImageSharp
+                                        .gatsbyImageData
+                                }
+                                {...commonXvendorImageProps}
+                            />
+                        ) : null}
                     </div>
                     <StaticImage
                         src="../../../images/lp-comparison/xVendor-vs-yVendor.png"
@@ -75,14 +89,16 @@ const Hero = ({ vendors, xVendor, yVendor }: SectionOneProps) => {
                         placeholder="blurred"
                     />
                     <div className={clsx(vendorLogo, rightVendorLogo)}>
-                        <GatsbyImage
-                            alt={`${yVendor.name} logo`}
-                            image={
-                                yVendor.logo.localFile.childImageSharp
-                                    .gatsbyImageData
-                            }
-                            loading="eager"
-                        />
+                        {yVendor.logo.localFile.childImageSharp
+                            ?.gatsbyImageData ? (
+                            <GatsbyImage
+                                image={
+                                    yVendor.logo.localFile.childImageSharp
+                                        .gatsbyImageData
+                                }
+                                {...commonYvendorImageProps}
+                            />
+                        ) : null}
                     </div>
                 </div>
             </Container>

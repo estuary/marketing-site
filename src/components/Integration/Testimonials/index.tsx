@@ -1,15 +1,16 @@
-import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
+import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import TestimonialsCarousel from '../../TestimonialsCarousel';
-import { container, title } from './styles.module.less';
+import { sectionTitle } from '../styles.module.less';
+import { container } from './styles.module.less';
 
 const Testimonials = () => {
     return (
-        <section className={defaultWrapperGrey}>
+        <section className={defaultWrapperDarkBlue}>
             <div className={container}>
-                <h2 className={title}>
+                <h2 className={sectionTitle}>
                     WHAT <span>CUSTOMERS</span> ARE SAYING
                 </h2>
-                <TestimonialsCarousel theme="dark" />
+                <TestimonialsCarousel />
             </div>
         </section>
     );

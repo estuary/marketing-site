@@ -29,9 +29,12 @@ const Bio = ({ authors }: BioProps) => {
     return (
         <div className={container}>
             {authors.map(({ picture, name, role, slug }) => {
-                const image = getImage(
-                    picture?.localFile?.childImageSharp?.gatsbyImageData
-                );
+                const image = picture?.localFile?.childImageSharp
+                    ?.gatsbyImageData
+                    ? getImage(
+                          picture.localFile.childImageSharp.gatsbyImageData
+                      )
+                    : undefined;
 
                 const combined = (
                     <Link
@@ -41,7 +44,7 @@ const Bio = ({ authors }: BioProps) => {
                     >
                         <Avatar
                             alt={`Picture of ${name}`}
-                            image={image ? image : undefined}
+                            image={image}
                             name={name ? name : ''}
                         />
                         {name ? (

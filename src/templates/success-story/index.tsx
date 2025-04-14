@@ -17,7 +17,7 @@ const SuccessStoryTemplate = ({ data: { successStory } }) => {
             <Hero
                 title={Title}
                 description={Description}
-                image={Logo.localFile.childImageSharp.gatsbyImageData}
+                image={Logo.localFile}
             />
             <Content content={SideContent} {...About} />
             <SectionBody content={Body} />

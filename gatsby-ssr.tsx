@@ -1,3 +1,4 @@
+import { type GatsbySSR } from 'gatsby';
 import { GA_ANALYTICS_ENDPOINT, GA_MEASUREMENT_ID, GA_ORIGIN } from './shared';
 
 /**
@@ -10,7 +11,19 @@ import { GA_ANALYTICS_ENDPOINT, GA_MEASUREMENT_ID, GA_ORIGIN } from './shared';
  * @type {import('gatsby').GatsbySSR['onRenderBody']}
  */
 
-export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
+export const onRenderBody: GatsbySSR['onRenderBody'] = ({
+    setHtmlAttributes,
+    setHeadComponents,
+}) => {
+    // We always want the `lang` being set
+    setHtmlAttributes({ lang: 'en' });
+
+    // On non-production builds we don't want the rest added because it
+    //  is just Cookie Consent and Google Tagging / Analytics
+    if (process.env.NODE_ENV !== 'production') {
+        return;
+    }
+
     const googleAnalyticsHTML = `
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -33,7 +46,6 @@ export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
       gtag('config', '${GA_MEASUREMENT_ID}');
   `;
 
-    setHtmlAttributes({ lang: 'en' });
     setHeadComponents([
         <link
             rel="dns-prefetch"
