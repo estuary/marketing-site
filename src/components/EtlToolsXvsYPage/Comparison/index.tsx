@@ -219,7 +219,10 @@ const Comparison = ({
                         best option for you based on your current and future
                         needs.
                     </p>
-                    <SuccessStoryBanner pageId="comparison-page" />
+                    {xVendor.slugKey === 'airbyte' &&
+                    yVendor.slugKey === 'estuary' ? (
+                        <SuccessStoryBanner pageId="comparison-page" />
+                    ) : null}
                     <h2 id={comparisonMatrix.id}>{comparisonMatrix.heading}</h2>
                     <table
                         className={
