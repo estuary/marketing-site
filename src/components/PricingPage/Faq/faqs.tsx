@@ -11,7 +11,6 @@ import {
 
 export const faqs = [
     {
-        questionNumber: 1,
         question: 'How is my bill calculated?',
         content: (
             <>
@@ -36,7 +35,6 @@ export const faqs = [
         ),
     },
     {
-        questionNumber: 2,
         question: 'Do you offer discounted rates?',
         content: (
             <p>
@@ -46,7 +44,6 @@ export const faqs = [
         ),
     },
     {
-        questionNumber: 3,
         question: 'How does Pay-as-you-Go pricing work?',
         content: (
             <p>
@@ -58,7 +55,6 @@ export const faqs = [
         ),
     },
     {
-        questionNumber: 4,
         question: 'How does pre-pay work?',
         content: (
             <p>
@@ -68,7 +64,6 @@ export const faqs = [
         ),
     },
     {
-        questionNumber: 5,
         question: 'What are pricing examples?',
         content: (
             <div className={answerSections}>
@@ -121,7 +116,6 @@ export const faqs = [
         ),
     },
     {
-        questionNumber: 6,
         question: 'How does the Free Trial work?',
         content: (
             <p>
@@ -135,7 +129,6 @@ export const faqs = [
         ),
     },
     {
-        questionNumber: 7,
         question: 'What are my billing options?',
         content: (
             <>
@@ -154,7 +147,6 @@ export const faqs = [
         ),
     },
     {
-        questionNumber: 8,
         question: 'Where is my data stored?',
         content: (
             <p>

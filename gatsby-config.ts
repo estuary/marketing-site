@@ -345,6 +345,7 @@ const cfg: GatsbyConfig = {
         title: 'Estuary',
         description: 'Estuary',
         siteUrl: 'https://estuary.dev',
+        siteName: 'Estuary',
         social: {
             twitter: 'estuary twitter',
         },
@@ -356,6 +357,9 @@ const cfg: GatsbyConfig = {
     },
     // graphqlTypegen: true,
     plugins: [
+        {
+            resolve: 'gatsby-plugin-no-sourcemaps',
+        },
         {
             resolve: `gatsby-plugin-webfonts`,
             options: {

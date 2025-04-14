@@ -29,17 +29,6 @@ export const PopularArticles = () => {
                         }
                         alternativeText
                     }
-                    body: Body {
-                        data {
-                            childMarkdownRemark {
-                                fields {
-                                    readingTime {
-                                        text
-                                    }
-                                }
-                            }
-                        }
-                    }
                     authors {
                         name: Name
                         picture: Picture {

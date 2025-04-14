@@ -24,7 +24,7 @@ import VendorAvatar from './VendorAvatar';
 import IntroductoryDetails from './IntroductoryDetails';
 import RelatedComparisonLinks from './RelatedComparisonLinks';
 
-interface SectionTwoProps {
+interface ComparisonProps {
     xVendor: Vendor;
     yVendor: Vendor;
     estuaryVendor: Vendor;
@@ -80,7 +80,7 @@ const Comparison = ({
     yVendor,
     estuaryVendor,
     allVendors,
-}: SectionTwoProps) => {
+}: ComparisonProps) => {
     const isThreeVendorComparison = useMemo(() => {
         return ![xVendor.id, yVendor.id].includes(estuaryVendor.id);
     }, [xVendor.id, yVendor.id, estuaryVendor.id]);
@@ -125,7 +125,7 @@ const Comparison = ({
                 },
                 {
                     id: `${vendor.name.replace(' ', '-')}-pricing`,
-                    heading: 'Pricing',
+                    heading: `${vendor.name} Pricing`,
                 },
             ],
         });

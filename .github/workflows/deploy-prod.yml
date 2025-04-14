@@ -70,23 +70,30 @@ jobs:
             - env:
                   MESSAGE: ${{ toJson(github.event.client_payload) }}
               run: echo PAYLOAD $MESSAGE
+
             - name: Checkout
               uses: actions/checkout@v3
               with:
                   fetch-depth: 20
+
             - uses: actions/setup-node@v1
               with:
-                  node-version: '18.x'
+                  node-version: '20.x'
+
             - name: Caching
               id: gatsby-cache-build
               uses: actions/cache@v4
               with:
                   path: |
                       node_modules
+                      .cache
+                      public
                   key: ${{ runner.os }}-gatsby-build-prod-${{ github.run_id }}
                   restore-keys: |
                       ${{ runner.os }}-gatsby-build-prod-
+
             - run: yarn install
+
             - name: Run ESLint
               run: yarn lint
               env:
@@ -95,7 +102,8 @@ jobs:
               run: yarn format
               env:
                   CI: true
-            - run: yarn run build --log-pages
+
+            - run: yarn run build --verbose --log-pages
               env:
                   CI: true
                   STRAPI_API_URL: ${{ secrets.STRAPI_API_URL }}
@@ -105,6 +113,7 @@ jobs:
                   GATSBY_DB_HOST: ${{ secrets.GATSBY_DB_HOST }}
                   GATSBY_DB_PORT: ${{ secrets.GATSBY_DB_PORT }}
                   GATSBY_DB_NAME: ${{ secrets.GATSBY_DB_NAME }}
+
             - uses: FirebaseExtended/action-hosting-deploy@v0
               with:
                   repoToken: '${{ secrets.GITHUB_TOKEN }}'
@@ -112,3 +121,28 @@ jobs:
                   expires: 30d
                   projectId: estuary-marketing
                   channelId: live
+            - name: Cleanup
+              run: |
+                  gh extension install actions/gh-actions-cache
+
+                  REPO=${{ github.repository }}
+                  BRANCH="master"
+
+                  echo "Fetching list of cache key"
+                  cacheKeysForPR=$(gh actions-cache list -R $REPO -B $BRANCH | cut -f 1)
+
+                  ## Setting this to not fail the workflow while deleting cache keys. 
+                  set +e
+                  echo "Deleting caches..."
+                  for cacheKey in $cacheKeysForPR
+                  do
+                    if [ "$cacheKey" != "${{ runner.os }}-gatsby-build-prod-${{ github.run_id }}" ]; then
+                        echo "Deleting cache: $cacheKey"
+                        gh actions-cache delete "$cacheKey" -R $REPO --confirm
+                    else
+                        echo "Skipping cache: $cacheKey (does not match $CACHE_KEY or matches $LATEST_CACHE_KEY)"
+                    fi
+                  done
+                  echo "Done"
+              env:
+                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

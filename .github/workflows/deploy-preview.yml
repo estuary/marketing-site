@@ -17,7 +17,7 @@ jobs:
 
             - uses: actions/setup-node@v1
               with:
-                  node-version: '18.x'
+                  node-version: '20.x'
 
             - name: Caching
               id: gatsby-cache-build
@@ -44,7 +44,7 @@ jobs:
                   CI: true
 
             - name: Run build
-              run: yarn run build --log-pages
+              run: yarn run build --verbose --log-pages
               env:
                   CI: true
                   STRAPI_API_URL: ${{ secrets.STRAPI_API_URL }}
@@ -65,3 +65,29 @@ jobs:
                   projectId: estuary-marketing
 
             - run: echo ${{steps.firebase.outputs.urls}}
+
+            - name: Cleanup
+              run: |
+                  gh extension install actions/gh-actions-cache
+
+                  REPO=${{ github.repository }}
+                  BRANCH="refs/pull/${{ github.event.pull_request.number }}/merge"
+
+                  echo "Fetching list of cache key"
+                  cacheKeysForPR=$(gh actions-cache list -R $REPO -B $BRANCH | cut -f 1)
+
+                  ## Setting this to not fail the workflow while deleting cache keys. 
+                  set +e
+                  echo "Deleting caches..."
+                  for cacheKey in $cacheKeysForPR
+                  do
+                    if [ "$cacheKey" != "${{ runner.os }}-gatsby-build-preview-${{github.head_ref}}-${{ github.run_id }}" ]; then
+                        echo "Deleting cache: $cacheKey"
+                        gh actions-cache delete "$cacheKey" -R $REPO --confirm
+                    else
+                        echo "Skipping cache: $cacheKey (does not match $CACHE_KEY or matches $LATEST_CACHE_KEY)"
+                    fi
+                  done
+                  echo "Done"
+              env:
+                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
