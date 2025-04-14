@@ -53,7 +53,7 @@ const Connector = ({
                         href: '/integrations',
                     },
                     {
-                        title: mappedConnector?.title,
+                        title: mappedConnector?.title ?? 'Connector',
                     },
                 ]}
             />
@@ -61,10 +61,7 @@ const Connector = ({
                 <Hero
                     connector={{
                         title: mappedConnector?.title,
-                        logo: mappedConnector?.logo
-                            ? mappedConnector?.logo?.childImageSharp
-                                  ?.gatsbyImageData
-                            : null,
+                        logo: mappedConnector?.logo,
                         type: mappedConnector?.type,
                     }}
                 />
@@ -116,6 +113,7 @@ export const Head = ({
     return <Seo title={title} description={description} />;
 };
 
+// TODO: I think shortDescription, longDescription, logoUrl are not being used here on this page. Check this.
 export const pageQuery = graphql`
     query ConnectorData($id: PostGraphile_Flowid!) {
         postgres {

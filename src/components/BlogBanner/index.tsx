@@ -1,7 +1,14 @@
 import { ReactNode } from 'react';
+import clsx from 'clsx';
 import StraightLinesBackground from '../BackgroundImages/StraightLinesBackground';
 import OutboundLinkFilled from '../LinksAndButtons/OutboundLinkFilled';
-import { background, container, banner } from './styles.module.less';
+import {
+    background,
+    container,
+    darkContainer,
+    banner,
+    darkBanner,
+} from './styles.module.less';
 
 interface BlogBanner {
     title: ReactNode;
@@ -10,13 +17,16 @@ interface BlogBanner {
         title: string;
         href: string;
     };
+    isDarkTheme?: boolean;
 }
 
-const BlogBanner = ({ title, button }: BlogBanner) => {
+const BlogBanner = ({ title, button, isDarkTheme = false }: BlogBanner) => {
     return (
         <div className={background}>
-            <StraightLinesBackground className={container}>
-                <div className={banner}>
+            <StraightLinesBackground
+                className={clsx(container, isDarkTheme ? darkContainer : null)}
+            >
+                <div className={clsx(banner, isDarkTheme ? darkBanner : null)}>
                     {title}
                     <OutboundLinkFilled
                         id={button.id}

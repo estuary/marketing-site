@@ -1,4 +1,4 @@
-import { GatsbyImage, StaticImage, getImage } from 'gatsby-plugin-image';
+import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
 import ActiveUsersIcon from '../../../svgs/metric-active-users.svg';
 import LatencyIcon from '../../../svgs/metric-latency.svg';
 import OfConnectorsIcon from '../../../svgs/metric-of-connectors.svg';
@@ -6,20 +6,19 @@ import SingleDataflowIcon from '../../../svgs/metric-single-dataflow.svg';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import EstuaryLogo from '../../../svgs/colored-logo.svg';
 import MetricCard from '../../MetricCard';
-import NewsletterSignupForm from '../../NewsletterSignupForm';
 import VanityLogosMarquee from '../../VanityLogosMarquee';
-import { Connector } from '../shared';
-import { activeUsersAmount, dashboardRegisterUrl } from '../../../../shared';
+import { Connectors } from '../shared';
+import { activeUsersAmount } from '../../../../shared';
 import Container from '../../Container';
-import LinkOutlined from '../../LinksAndButtons/LinkOutlined';
 import ConnectorLogoPlaceholder from '../../ConnectorLogoPlaceholder';
+import HeroSectionDetails from '../../HeroSectionDetails';
+import HeroSectionActions from '../../HeroSectionActions';
 import {
     container,
     backgroundImageWraper,
     bgImage,
     bgMiddleImageWrapper,
     bgSideImageWrapper,
-    contactUsCta,
     iconWrapper,
     metricCardsList,
     middleLine,
@@ -32,57 +31,46 @@ import {
 const metricIconColor = 'var(--white)';
 const connectorIconSize = 64;
 
-export interface HeroProps {
-    sourceConnector: Connector;
-    destConnector: Connector;
-}
-
-const Hero = ({ sourceConnector, destConnector }: HeroProps) => {
-    const sourceConnectorLogo = sourceConnector.logo?.childImageSharp
-        ?.gatsbyImageData
-        ? getImage(sourceConnector.logo.childImageSharp.gatsbyImageData)
-        : null;
-
-    const destinationConnectorLogo = destConnector.logo?.childImageSharp
-        ?.gatsbyImageData
-        ? getImage(destConnector.logo.childImageSharp.gatsbyImageData)
-        : null;
-
+const Hero = ({ sourceConnector, destConnector }: Connectors) => {
     return (
         <section className={defaultWrapperDarkBlue}>
             <Container className={container}>
-                <div>
-                    <div className={preTitleWrapper}>
-                        <div className={iconWrapper}>
-                            <StaticImage
-                                placeholder="none"
-                                src="../../../svgs/plugs.svg"
-                                alt="Integration icon"
-                                loading="eager"
-                            />
+                <HeroSectionDetails
+                    additionalElementsOnTop={
+                        <div className={preTitleWrapper}>
+                            <div className={iconWrapper}>
+                                <StaticImage
+                                    placeholder="none"
+                                    src="../../../svgs/plugs.svg"
+                                    alt="Integration icon"
+                                    loading="eager"
+                                />
+                            </div>
+                            <span>FASTEST, MOST RELIABLE CDC AND ETL</span>
                         </div>
-                        <span>FASTEST, MOST RELIABLE CDC AND ETL</span>
-                    </div>
-                    <h1>
-                        STREAM DATA FROM {sourceConnector.title} TO{' '}
-                        {destConnector.title}
-                    </h1>
-                    <label htmlFor="newsletter-signup">
-                        Enter your company e-mail to register
-                    </label>
-                    <NewsletterSignupForm
-                        inputPlaceholder="Email"
-                        buttonTitle="Get Started"
-                        redirectUrl={dashboardRegisterUrl}
-                    />
-                </div>
+                    }
+                    title={`STREAM DATA FROM ${sourceConnector.title} TO ${destConnector.title}`}
+                    description={`Sync your ${sourceConnector.title} data with ${destConnector.title} in minutes using Estuary Flow for real-time, no-code integration and seamless data pipelines.`}
+                    ctaButtons={
+                        <HeroSectionActions
+                            pageId={`integration-page-${sourceConnector.title}-to-${destConnector.title}`}
+                            registerButtonTitle="Start Streaming for Free"
+                            contactUsButtonTitle="Get Demo"
+                        />
+                    }
+                    hasSubscriptionBenefits
+                />
                 <div>
                     <div className={backgroundImageWraper}>
                         <div className={semiCircleLeftSide}>
                             <div className={bgSideImageWrapper}>
-                                {sourceConnectorLogo ? (
+                                {sourceConnector.logo?.childImageSharp
+                                    ?.gatsbyImageData ? (
                                     <GatsbyImage
-                                        image={sourceConnectorLogo}
+                                        image={
+                                            sourceConnector.logo.childImageSharp
+                                                .gatsbyImageData
+                                        }
                                         alt={`${sourceConnector.title} logo`}
                                         loading="eager"
                                         className={bgImage}
@@ -103,9 +91,12 @@ const Hero = ({ sourceConnector, destConnector }: HeroProps) => {
                         </div>
                         <div className={semiCircleRightSide}>
                             <div className={bgSideImageWrapper}>
-                                {destinationConnectorLogo ? (
+                                {destConnector.logo?.childImageSharp ? (
                                     <GatsbyImage
-                                        image={destinationConnectorLogo}
+                                        image={
+                                            destConnector.logo.childImageSharp
+                                                .gatsbyImageData
+                                        }
                                         alt={`${destConnector.title} logo`}
                                         loading="eager"
                                         className={bgImage}
@@ -118,12 +109,6 @@ const Hero = ({ sourceConnector, destConnector }: HeroProps) => {
                                 )}
                             </div>
                         </div>
-                    </div>
-                    <div className={contactUsCta}>
-                        <span>Schedule an appointment</span>
-                        <LinkOutlined href="/contact-us/">
-                            Contact Us
-                        </LinkOutlined>
                     </div>
                 </div>
             </Container>

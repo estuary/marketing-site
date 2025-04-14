@@ -35,14 +35,14 @@ interface BlogIndexProps {
         };
     };
     pageContext: {
-        blogPostIds: String[];
+        blogPostIds: string[];
         tabCategories: Array<{
-            Type: String;
+            Type: string;
             Slug: string;
-            Name: String;
+            Name: string;
         }>;
-        categoryTitle: String;
-        categorySlug: String;
+        categoryTitle: string;
+        categorySlug: string;
         pagination: {
             page: number;
             totalPages: number;
@@ -173,7 +173,6 @@ const BlogIndex = ({
                     </div>
                     <SearchInput
                         placeholder="Search Blog Posts"
-                        query={query}
                         handleQueryChange={handleQueryChange}
                     />
                 </div>
@@ -208,16 +207,68 @@ const BlogIndex = ({
 
 export default BlogIndex;
 
-/**
- * Head export to define metadata for the page
- *
- * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
- */
-export const Head = () => {
+export const Head = ({ pageContext }: BlogIndexProps) => {
+    const { categorySlug, pagination } = pageContext;
+    const currentPage = pagination.page;
+    const pageNumber = currentPage + 1;
+    const titlePrefix = 'Estuary Blog | ';
+
+    const seoConfig = {
+        'data-basics': {
+            page1: {
+                title: `${titlePrefix}Data Basics for Data Engineers`,
+                description:
+                    'Fundamental data concepts explained for engineers. Get started with data basics on the Estuary blog.',
+            },
+            pageN: {
+                title: `${titlePrefix}Data Basics for Data Engineers - Page ${pageNumber}`,
+                description: `Page ${pageNumber} of Data Basics. Continue exploring foundational data concepts and best practices for engineers.`,
+            },
+        },
+        'data-engineering': {
+            page1: {
+                title: `${titlePrefix}Data Engineering Insights & Best Practices`,
+                description:
+                    'Deep dives and thought leadership on data engineering from the Estuary team. Explore tools, trends, and best practices.',
+            },
+            pageN: {
+                title: `${titlePrefix}Data Engineering Insights - Page ${pageNumber}`,
+                description: `Page ${pageNumber} of Data Engineering content. More insights, trends, and practical guides for data teams.`,
+            },
+        },
+        'tutorial': {
+            page1: {
+                title: `${titlePrefix}Tutorials on Data Integration & Engineering`,
+                description:
+                    'Hands-on tutorials for real-time data integration and engineering use cases using Estuary and other tools.',
+            },
+            pageN: {
+                title: `${titlePrefix}Tutorials on Data Integration - Page ${pageNumber}`,
+                description: `Page ${pageNumber} of Tutorials. Continue learning real-time data integration through practical how-to articles.`,
+            },
+        },
+    };
+
+    const config = seoConfig[categorySlug] ?? {
+        page1: {
+            title: `${titlePrefix}Insights on Data Strategy and Engineering`,
+            description:
+                'Explore all Estuary blog posts covering data strategy, engineering insights, tutorials, and best practices.',
+        },
+        pageN: {
+            title: `${titlePrefix}Insights on Data Strategy and Engineering - Page ${pageNumber}`,
+            description: `Page ${pageNumber} of all Estuary blog posts. Discover more insights into data strategy and engineering best practices.`,
+        },
+    };
+
+    const seoData = currentPage === 0 ? config.page1 : config.pageN;
+
     return (
         <Seo
-            title="Estuary Blog | Insights on Data Strategy and Engineering"
-            description="Get expert insights on data strategy, integration, ETL, and engineering from Estuary Flow's blog. Explore tutorials, trends, and solutions crafted by our team of engineers."
+            title={seoData.title}
+            description={seoData.description}
+            prevUrl={pagination.prevPage}
+            nextUrl={pagination.nextPage}
         />
     );
 };
@@ -268,7 +319,7 @@ export const pageQuery = graphql`
                                 width: 400
                                 placeholder: BLURRED
                                 aspectRatio: 1.7
-                                formats: [AUTO, WEBP]
+                                formats: [AUTO, WEBP, AVIF]
                             )
                             # Further below in this doc you can learn how to use these response images
                         }

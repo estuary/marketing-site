@@ -9,6 +9,7 @@ import logoUrl from '../../images/estuary.png';
 import { getAuthorSeoJson } from '../../../shared';
 import BlogPost from '../../components/BlogPost';
 
+// TODO: Change this to the one Travis suggested.
 dayjs.extend(reltime);
 
 const BlogPostTemplate = ({ data: { post } }) => {
@@ -60,7 +61,7 @@ export const Head = ({
             <Seo
                 title={post.title}
                 description={post.description ?? ''}
-                url={`${siteUrl}/${post.slug}`}
+                url={`${siteUrl}/blog/${post.slug}`}
                 image={ogImage}
             />
             <script type="application/ld+json">
@@ -163,7 +164,7 @@ export const pageQuery = graphql`
                             layout: FULL_WIDTH
                             placeholder: BLURRED
                             # aspectRatio: 2
-                            formats: [AUTO, WEBP]
+                            formats: [AUTO, WEBP, AVIF]
                         )
                         metaImg: gatsbyImageData(layout: FIXED, width: 500)
                         # Further below in this doc you can learn how to use these response images

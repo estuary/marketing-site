@@ -2,7 +2,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { useMemo, useState } from 'react';
 import { normalizeConnector } from '../../utils';
 
-import { ConnectorType } from '../../../shared';
+import { Connector, ConnectorType, getIntegrationSlug } from '../../../shared';
 import XvsYFilter from '../XvsYFilter';
 
 type ConnectorsLinkProps = {
@@ -53,7 +53,7 @@ const ConnectorsLink = ({
         }
     `);
     const [captureConnectors, materializationConnectors] = useMemo(() => {
-        const mapped: ReturnType<typeof normalizeConnector>[] = connectors
+        const mapped: Connector[] = connectors
             .map(normalizeConnector)
             .filter((connector) => connector !== undefined);
 
@@ -72,10 +72,14 @@ const ConnectorsLink = ({
 
     const detailsHref = useMemo(() => {
         if (sourceId && destinationId) {
-            return `/integrations/${captureConnectors.find((c) => c.id === sourceId)?.slugified_name}-to-${
-                materializationConnectors.find((c) => c.id === destinationId)
-                    ?.slugified_name
-            }/`;
+            const sourceName = captureConnectors.find(
+                (c) => c.id === sourceId
+            )?.slugified_name;
+            const destinationName = materializationConnectors.find(
+                (c) => c.id === destinationId
+            )?.slugified_name;
+
+            return `${getIntegrationSlug(sourceName, destinationName)}/`;
         } else {
             return '#';
         }
@@ -86,13 +90,13 @@ const ConnectorsLink = ({
 
     const sourceSelectItems = captureConnectors.map((c) => ({
         id: c.id,
-        image: c.logo ? c.logo.childImageSharp.gatsbyImageData : null,
+        image: c.logo,
         title: c.title,
     }));
 
     const destinationSelectItems = materializationConnectors.map((c) => ({
         id: c.id,
-        image: c.logo ? c.logo.childImageSharp.gatsbyImageData : null,
+        image: c.logo,
         title: c.title,
     }));
 

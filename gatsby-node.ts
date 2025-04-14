@@ -4,7 +4,12 @@ import { CreatePagesArgs, GatsbyNode } from 'gatsby';
 import { createRemoteFileNode } from 'gatsby-source-filesystem';
 import { SUPABASE_CONNECTION_STRING } from './config';
 import { normalizeConnector } from './src/utils';
-import { getAuthorPathBySlug, getComparisonSlug, Vendor } from './shared';
+import {
+    getAuthorPathBySlug,
+    getComparisonSlug,
+    getIntegrationSlug,
+    Vendor,
+} from './shared';
 
 /**
  * Implement Gatsby's Node APIs in this file.
@@ -391,10 +396,7 @@ const createConnectors: CreateHelper = async (
                 allConnectors(orderBy: [RECOMMENDED_DESC, CREATED_AT_DESC]) {
                     nodes {
                         id
-                        externalUrl
                         imageName
-                        shortDescription
-                        longDescription
                         title
                         logoUrl
                         recommended
@@ -406,6 +408,7 @@ const createConnectors: CreateHelper = async (
             }
         }
     `);
+
     if (connectors.errors) {
         reporter.panicOnBuild(`${QUERY_PANIC_MSG} ${name}`, connectors.errors);
         return;
@@ -413,7 +416,7 @@ const createConnectors: CreateHelper = async (
 
     const mapped_connectors =
         connectors.data?.postgres.allConnectors.nodes
-            .filter((conn) => conn?.connectorTagsByConnectorIdList?.length > 0)
+            .filter((conn) => conn.connectorTagsByConnectorIdList.length > 0)
             .map(normalizeConnector)
             .filter((connector) => connector !== undefined) ?? [];
 
@@ -439,11 +442,17 @@ const createConnectors: CreateHelper = async (
                     (con) => con.type === 'materialization'
                 )) {
                     createPage({
-                        path: `/integrations/${normalized_connector.slugified_name}-to-${destination_connector.slugified_name}`,
+                        path: getIntegrationSlug(
+                            normalized_connector.slugified_name,
+                            destination_connector.slugified_name
+                        ),
                         component: connectionTemplate,
                         context: {
                             source_id: normalized_connector.id,
                             destination_id: destination_connector.id,
+                            source_title: normalized_connector.slugified_name,
+                            destination_title:
+                                destination_connector.slugified_name,
                         },
                     });
                 }
@@ -665,9 +674,6 @@ export const createPages: GatsbyNode['createPages'] = async ({
 // and query them all through a "side-channel" here, so that we can actually pass them through Gatsby's Sharp
 // transformer. Then we can just attach a much simpler resolver to `PostGraphile_Connector` that just
 // looks up that previously created and processed logo.
-const createLogoNodeId = (connectorId: string) =>
-    `ConnectorLogo-${connectorId}`;
-
 exports.createSchemaCustomization = ({ actions }) => {
     const { createTypes } = actions;
     const typeDefs = `
@@ -681,12 +687,16 @@ exports.createSchemaCustomization = ({ actions }) => {
 };
 
 export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
-    actions: { createNode },
+    actions: { createNode, touchNode },
     createNodeId,
+    cache,
     getCache,
+    getNode,
     createContentDigest,
+    reporter,
 }) => {
-    // console.log('sourceNodes:start');
+    reporter.info('sourceNodes:begin');
+
     const pool = new pg.Pool({
         connectionString: SUPABASE_CONNECTION_STRING,
         connectionTimeoutMillis: 30 * 1000,
@@ -695,65 +705,109 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
     });
 
     // Make sure we know if there is an error
-    pool.on('error', (err: any, client: any) =>
-        console.error('sourceNodes:postgres:error', { err, client })
+    pool.on('error', (err: any) =>
+        reporter.error('sourceNodes:postgres:error', err)
     );
 
     const connectors = await pool.query(
         'select connectors.id as id, connectors.logo_url as logo_url from public.connectors;'
     );
 
+    reporter.info(
+        `sourceNodes:postgres:${connectors.rows.length} connector rows found`
+    );
+
+    let cachedCount = 0;
     let createdCount = 0;
     for (const conn of connectors.rows) {
         const usUrl = conn.logo_url?.['en-US'];
 
-        if (usUrl) {
-            const fileNode = await createRemoteFileNode({
+        // A logo is 100% required - so leave if we don't get one
+        if (!usUrl) {
+            reporter.warn(`sourceNodes:postgres:${conn.id}:missing logo`);
+            return;
+        }
+
+        // We just care about the URL here. If two connectors use the same URL we should just use the
+        //  cached one. Only issue is if the logo changes while the URL stays the same. But this
+        //  should be very rare... if it ever happens at all.
+        const cacheKey = `connector-logo-${conn.id}-${usUrl}`;
+
+        // Need to somehow read from gatsby-source-filesystem cache
+        const cachedConnectorLogo = await cache.get(cacheKey);
+
+        let fileNodeID;
+        const uniqueNodeId = createNodeId(cacheKey);
+
+        if (
+            cachedConnectorLogo
+            // Since we cache the id AND url we assume if both those are the same then
+            //  we can keep using the cached version.
+            // cachedConnectorLogo.updatedAt === conn.updatedAt
+        ) {
+            fileNodeID = cachedConnectorLogo.id;
+
+            const cachedNode = getNode(fileNodeID);
+
+            if (cachedNode) {
+                touchNode(cachedNode);
+                cachedCount += 1;
+                reporter.verbose(`sourceNodes:postgres:${conn.id}:cached`);
+            }
+        }
+
+        if (!fileNodeID) {
+            fileNodeID = uniqueNodeId;
+            const image = await createRemoteFileNode({
                 url: usUrl,
+                getCache,
                 createNode,
                 createNodeId,
-                getCache,
             });
 
-            // console.log('sourceNodes:creating connector logo', conn.id);
-
-            await createNode({
+            const nodeSettings = {
+                // These are our own fields
                 connectorId: conn.id,
                 logoUrl: usUrl,
-                logo: fileNode,
-                id: createNodeId(createLogoNodeId(conn.id)),
+                logo: image,
+                // Required Gatsby fields
+                id: fileNodeID,
                 internal: {
                     type: 'ConnectorLogo',
-                    contentDigest: createContentDigest(fileNode),
+                    contentDigest: createContentDigest(image),
                 },
-            });
+            };
+            await createNode(nodeSettings);
+
+            // Need to cache the ENTIRE node so that all our own fields
+            //  make it back in when we touchNode
+            await cache.set(cacheKey, nodeSettings);
+
+            reporter.verbose(`sourceNodes:postgres:${conn.id}:created`);
 
             createdCount += 1;
-        } else {
-            console.log('sourceNodes:missing  connector logo', conn.id);
         }
     }
 
     await pool.end();
 
-    console.log('sourceNodes:', {
-        completed: `${createdCount}/${connectors.rowCount}`,
-    });
+    reporter.info(`sourceNodes:postgres:cached:${cachedCount}`);
+    reporter.info(`sourceNodes:postgres:created:${createdCount}`);
+    reporter.info(`sourceNodes:postgres:total:${connectors.rowCount}`);
+
+    reporter.success(`sourceNodes:completed`);
 };
 
 export const createResolvers: GatsbyNode['createResolvers'] = async ({
     createResolvers: createResolversParam,
     reporter,
 }) => {
-    // console.log('createResolvers:start');
     createResolversParam({
         PostGraphile_Connector: {
             logo: {
                 type: 'File',
-                async resolve(node, _, ctx) {
+                async resolve(node, _args, ctx) {
                     const { id } = node;
-
-                    // console.log('resolvePostGraphileConnector:logo:find', id);
 
                     const logoNode = await ctx.nodeModel.findOne({
                         type: 'ConnectorLogo',
@@ -761,27 +815,17 @@ export const createResolvers: GatsbyNode['createResolvers'] = async ({
                     });
 
                     if (logoNode?.logo) {
-                        // console.log(
-                        //     'resolvePostGraphileConnector:logo:returning',
-                        //     {
-                        //         url1: logoNode?.logoUrl,
-                        //         url2: logoNode?.logo.url,
-                        //         logo_relativePath: logoNode?.logo.relativePath,
-                        //     }
-                        // );
-
                         return logoNode.logo;
                     }
 
                     reporter.warn(
-                        `resolvePostGraphileConnector:logo:missing->${id}`
+                        `resolvePostGraphileConnector:logo:missing ${id}`
                     );
                     return null;
                 },
             },
         },
     });
-    // console.log('createResolvers:done');
 };
 
 export const onCreateWebpackConfig = ({ stage, actions, getConfig }) => {
@@ -793,6 +837,7 @@ export const onCreateWebpackConfig = ({ stage, actions, getConfig }) => {
         if (miniCssExtractPlugin) {
             miniCssExtractPlugin.options.ignoreOrder = true;
         }
+
         actions.replaceWebpackConfig(config);
     }
 };

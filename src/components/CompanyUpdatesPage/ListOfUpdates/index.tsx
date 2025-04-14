@@ -32,7 +32,7 @@ const ListOfUpdates = () => {
                                 gatsbyImageData(
                                     layout: FULL_WIDTH
                                     placeholder: BLURRED
-                                    formats: [AUTO, WEBP]
+                                    formats: [AUTO, WEBP, AVIF]
                                 )
                                 metaImg: gatsbyImageData(
                                     layout: FIXED

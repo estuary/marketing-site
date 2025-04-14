@@ -17,7 +17,7 @@ const SuccessStoryTemplate = ({ data: { successStory } }) => {
             <Hero
                 title={Title}
                 description={Description}
-                image={Logo.localFile.childImageSharp.gatsbyImageData}
+                image={Logo.localFile}
             />
             <Content content={SideContent} {...About} />
             <SectionBody content={Body} />
@@ -49,7 +49,7 @@ export const pageQuery = graphql`
                         gatsbyImageData(
                             layout: FULL_WIDTH
                             placeholder: BLURRED
-                            formats: [AUTO, WEBP]
+                            formats: [AUTO, WEBP, AVIF]
                         )
                         metaImg: gatsbyImageData(
                             layout: FIXED
@@ -88,7 +88,7 @@ export const pageQuery = graphql`
                                 gatsbyImageData(
                                     layout: FULL_WIDTH
                                     placeholder: BLURRED
-                                    formats: [AUTO, WEBP]
+                                    formats: [AUTO, WEBP, AVIF]
                                 )
                             }
                         }

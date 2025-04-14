@@ -6,6 +6,8 @@
   border-radius: 16px;
   transition: var(--default-transition);
   height: 100%;
+  cursor: pointer;
+  max-width: 628px;
 
   @media (max-width: 375px) {
     border: none;
@@ -42,6 +44,17 @@
     font-size: 1rem;
     line-height: 30px;
     margin: 0 0 30px 0;
+  }
+}
+
+.darkContainer {
+  background-color: var(--dark-blue-2);
+  border-color: #5072eb99;
+
+  h3,
+  .cardFooter>span,
+  .authorInfo>span {
+    color: var(--white);
   }
 }
 
@@ -140,6 +153,10 @@
     font-size: 0.875rem;
     font-weight: 500;
     line-height: 30px;
+  }
+
+  svg {
+    margin-left: auto;
   }
 }
 

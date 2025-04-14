@@ -4,9 +4,10 @@ import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
 import { useMemo, useState } from 'react';
 import { useLunr } from 'react-lunr';
 import clsx from 'clsx';
+import { debounce } from 'lodash';
 import { ConnectorType, getSlugifiedText } from '../../../shared';
 import FlowLogo from '../../svgs/flow-logo.svg';
-import { normalizeConnector } from '../../utils';
+import { fireTagEvent, normalizeConnector } from '../../utils';
 import BigImageBackground from '../BackgroundImages/BigImageBackground';
 import ConnectorsLink from '../ConnectorsLink';
 import SearchInput from '../SearchInput';
@@ -78,7 +79,7 @@ const ConnectorCard = ({
         >
             <div className={connectorCard}>
                 <div className={connectorCardTop}>
-                    {logo?.childImageSharp?.gatsbyImageData ? (
+                    {logo.childImageSharp?.gatsbyImageData ? (
                         <GatsbyImage
                             image={logo.childImageSharp.gatsbyImageData}
                             alt={`${title} Logo`}
@@ -118,8 +119,8 @@ const ConnectorCard = ({
                     ) : null}
                 </div>
                 <h4>{title}</h4>
-                {shortDescription?.length > 0 ? (
-                    <p>{truncate(shortDescription || '', 100)}</p>
+                {shortDescription && shortDescription.length > 0 ? (
+                    <p>{truncate(shortDescription, 100)}</p>
                 ) : null}
                 <div style={{ flexGrow: 1 }} />
                 <span className={connectorCardReadMore}>
@@ -219,6 +220,7 @@ export const Connectors = ({
     }, [mappedConnectors]);
 
     const [query, setQuery] = useState('');
+
     const results = useLunr(
         query.length > 0
             ? query
@@ -232,7 +234,21 @@ export const Connectors = ({
         showAllConnectors ? true : (res as any).type === connectorType
     );
 
-    const handleQueryChange = (evt) => setQuery(evt.target.value);
+    const handleQueryChange = (evt: any) => {
+        const newVal = evt.target.value;
+        setQuery(newVal ?? '');
+
+        if (newVal && newVal.length > 0) {
+            fireTagEvent('event', 'Connector_Search', {
+                filterQuery: newVal,
+            });
+        }
+    };
+
+    const debouncedHandleQueryChange = useMemo(
+        () => debounce(handleQueryChange, 400),
+        []
+    );
 
     return (
         <BigImageBackground>
@@ -248,8 +264,7 @@ export const Connectors = ({
                     <div className={connectorsSearchBody}>
                         <SearchInput
                             placeholder={`Search ${title}`}
-                            query={query}
-                            handleQueryChange={handleQueryChange}
+                            handleQueryChange={debouncedHandleQueryChange}
                         />
                         <ConnectorsLink />
                     </div>

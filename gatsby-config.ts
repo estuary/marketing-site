@@ -345,6 +345,7 @@ const cfg: GatsbyConfig = {
         title: 'Estuary',
         description: 'Estuary',
         siteUrl: 'https://estuary.dev',
+        siteName: 'Estuary',
         social: {
             twitter: 'estuary twitter',
         },
@@ -520,7 +521,7 @@ const cfg: GatsbyConfig = {
                                             placeholder: BLURRED
                                             width: 400
                                             aspectRatio: 1.7
-                                            formats: [AUTO, WEBP]
+                                            formats: [AUTO, WEBP, AVIF]
                                         )
                                         # Further below in this doc you can learn how to use these response images
                                     }
