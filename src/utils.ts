@@ -10,18 +10,15 @@ import {
 } from './components/PricingCalculator/shared';
 
 // eslint-disable-next-line no-useless-escape
-const CONNECTOR_IMAGE_RE = /(source|materialize)-([a-z0-9\-]+)/;
+const CONNECTOR_IMAGE_RE = /(source|materialize|dekaf)-([a-z0-9\-]+)/;
 
 export const normalizeConnector = (
     connector: Connector | undefined
 ): Connector | undefined => {
     if (
-        // Exclude any Dekaf connector
-        // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
-        connector?.imageName.includes('ghcr.io/estuary/dekaf') ||
         // Exclude connectors without a tag (Kelkoo)
-        (connector?.connectorTagsByConnectorIdList &&
-            connector.connectorTagsByConnectorIdList.length < 1)
+        connector?.connectorTagsByConnectorIdList &&
+        connector.connectorTagsByConnectorIdList.length < 1
     ) {
         return undefined;
     }
@@ -58,6 +55,15 @@ export const normalizeConnector = (
         throw new Error(`Error:connector:${id}:missing prop:Connector`);
     }
 
+    // For dekaf connectors we want to use the entire end portion so that there is less chance
+    //  that the name will overlap. Especially for when we end up making a native connector that
+    //  was previously dekaf.
+    const slugified_name: string = connector.imageName.includes(
+        'ghcr.io/estuary/dekaf'
+    )
+        ? regex_result[0]
+        : regex_result[2];
+
     return {
         id: connector.id,
         externalUrl: connector.externalUrl,
@@ -69,8 +75,8 @@ export const normalizeConnector = (
         logo: connector.logo,
         recommended: connector.recommended,
         type,
-        slugified_name: regex_result[2],
-        slug: `/${type === 'capture' ? 'source' : 'destination'}/${regex_result[2]}`,
+        slugified_name,
+        slug: `/${type === 'capture' ? 'source' : 'destination'}/${slugified_name}`,
         connectorTagsByConnectorIdList:
             connector.connectorTagsByConnectorIdList,
     };
