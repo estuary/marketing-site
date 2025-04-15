@@ -26,11 +26,7 @@ const SuccessStoryBanner = ({
                 logo: Logo {
                     localFile {
                         childImageSharp {
-                            gatsbyImageData(
-                                layout: CONSTRAINED
-                                placeholder: BLURRED
-                                quality: 100
-                            )
+                            gatsbyImageData(placeholder: BLURRED, quality: 100)
                         }
                     }
                 }
