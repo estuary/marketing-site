@@ -219,8 +219,7 @@ const Comparison = ({
                         best option for you based on your current and future
                         needs.
                     </p>
-                    {xVendor.slugKey === 'airbyte' &&
-                    yVendor.slugKey === 'estuary' ? (
+                    {[xVendor.slugKey, yVendor.slugKey].includes('airbyte') ? (
                         <SuccessStoryBanner pageId="comparison-page" />
                     ) : null}
                     <h2 id={comparisonMatrix.id}>{comparisonMatrix.heading}</h2>
