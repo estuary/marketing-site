@@ -7,6 +7,7 @@ import {
 import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import BlogBanner from '../../BlogBanner';
 import ArticleSidebar from '../../ArticleSidebar';
+import SuccessStoryBanner from '../../SuccessStoryBanner';
 import {
     container,
     rightColumn,
@@ -218,6 +219,9 @@ const Comparison = ({
                         best option for you based on your current and future
                         needs.
                     </p>
+                    {[xVendor.slugKey, yVendor.slugKey].includes('airbyte') ? (
+                        <SuccessStoryBanner pageId="comparison-page" />
+                    ) : null}
                     <h2 id={comparisonMatrix.id}>{comparisonMatrix.heading}</h2>
                     <table
                         className={
