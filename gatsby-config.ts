@@ -185,6 +185,9 @@ const strapiConfig = {
                             AI_Pipelines: {
                                 populate: '*',
                             },
+                            Apache_Iceberg_Support: {
+                                populate: '*',
+                            },
                         },
                     },
                     Connectors: {

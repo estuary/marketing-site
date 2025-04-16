@@ -11,6 +11,7 @@ const rows = [
     { label: 'Stream processing', key: 'streamProcessing' },
     { label: 'Operational analytics', key: 'operationalAnalytics' },
     { label: 'AI pipelines', key: 'aiPipelines' },
+    { label: 'Apache Iceberg Support', key: 'apacheIcebergSupport' },
 ];
 
 const UseCases = ({ xVendor, yVendor, estuaryVendor }: ComparisonVendors) => {

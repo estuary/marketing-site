@@ -90,6 +90,14 @@ export const pageQuery = graphql`
                         }
                     }
                 }
+                apacheIcebergSupport: Apache_Iceberg_Support {
+                    icon: Icon
+                    subText: Sub_Text {
+                        data {
+                            subText: Sub_Text
+                        }
+                    }
+                }
                 operationalAnalytics: Operational_Analytics {
                     icon: Icon
                     subText: Sub_Text {
@@ -332,6 +340,14 @@ export const pageQuery = graphql`
                         }
                     }
                 }
+                apacheIcebergSupport: Apache_Iceberg_Support {
+                    icon: Icon
+                    subText: Sub_Text {
+                        data {
+                            subText: Sub_Text
+                        }
+                    }
+                }
                 operationalAnalytics: Operational_Analytics {
                     icon: Icon
                     subText: Sub_Text {
@@ -567,6 +583,14 @@ export const pageQuery = graphql`
                     }
                 }
                 aiPipelines: AI_Pipelines {
+                    icon: Icon
+                    subText: Sub_Text {
+                        data {
+                            subText: Sub_Text
+                        }
+                    }
+                }
+                apacheIcebergSupport: Apache_Iceberg_Support {
                     icon: Icon
                     subText: Sub_Text {
                         data {
