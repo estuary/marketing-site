@@ -9,7 +9,7 @@ const TheBestRealTimeCdc = () => {
             <Advantages
                 title={
                     <>
-                        USE THE BEST <span>REAL-TIME CDC</span>
+                        Use the best <span>real-time CDC</span>
                     </>
                 }
                 subtitle="Estuary Flow is the most real-time, most reliable change

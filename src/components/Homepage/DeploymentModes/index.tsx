@@ -30,7 +30,7 @@ const DeploymentModes = () => (
         <DeploymentOptions
             title={
                 <>
-                    <span>DEPLOYMENT MODES</span> FOR EVERY ENVIRONMENT
+                    <span>Deployment modes</span> for every environment
                 </>
             }
             buttonTitle="See Details"

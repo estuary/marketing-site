@@ -35,7 +35,7 @@ const SuccessStories = () => {
     return (
         <DarkSwoopingLinesLeftDirectionBackground>
             <Container isVertical className={container}>
-                <h2>SUCCESS STORIES</h2>
+                <h2>Success stories</h2>
                 <SlideDeckCarousel
                     items={sortedSuccessStories}
                     itemsPerSlide={3}

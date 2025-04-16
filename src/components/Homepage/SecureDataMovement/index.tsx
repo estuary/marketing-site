@@ -18,8 +18,8 @@ const SecureDataMovement = () => {
                 isReverseColumnOnMobile
             >
                 <h2>
-                    <span>SECURE DATA MOVEMENT BETWEEN</span> ANY SOURCE{' '}
-                    <span>AND</span> DESTINATION
+                    <span>Secure data movement between</span> any source{' '}
+                    <span>and</span> destination
                 </h2>
                 <div className={rightColumn}>
                     <div className={badgesWrapper}>

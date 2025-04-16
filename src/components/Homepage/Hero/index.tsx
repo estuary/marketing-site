@@ -18,9 +18,9 @@ const Hero = () => {
                 <HeroSectionDetails
                     title={
                         <>
-                            <span className="white-text">MEET</span>{' '}
-                            <span>THE FASTEST</span>
-                            <span>,</span> <span>MOST RELIABLE</span>{' '}
+                            <span className="white-text">Meet</span>{' '}
+                            <span>the fastest</span>
+                            <span>,</span> <span>most reliable</span>{' '}
                             <span className="white-text">ETL</span>
                         </>
                     }
