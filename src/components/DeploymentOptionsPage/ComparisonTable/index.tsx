@@ -20,7 +20,7 @@ const ComparisonTable = () => {
     return (
         <section className={defaultWrapperDark}>
             <Container className={container} isVertical>
-                <h2>COMPARISON TABLE</h2>
+                <h2>Comparison table</h2>
                 <Table headers={headers} data={data} />
             </Container>
         </section>
