@@ -34,7 +34,7 @@ const Streaming = () => {
         <section className={defaultWrapperDarkBlue}>
             <Container isVertical isDarkTheme>
                 <h2 className={title}>
-                    STREAMING <span>ETL VS. BATCH ELT</span>
+                    Streaming <span>ETL vs. Batch ELT</span>
                 </h2>
                 <div className={columns}>
                     <div className={clsx(streamingEtlColumn, column)}>
@@ -91,7 +91,7 @@ const Streaming = () => {
                             />
                         </div>
                         <div className={textWrapper}>
-                            <h3 className={streamingEtlTitle}>STREAMING ETL</h3>
+                            <h3 className={streamingEtlTitle}>Streaming ETL</h3>
                             <p className={streamingEtlDescription}>
                                 With Estuary, you extract data exactly and only
                                 once using CDC, real-time, or batch; use ELT and
@@ -171,7 +171,7 @@ const Streaming = () => {
                             />
                         </div>
                         <div className={textWrapper}>
-                            <h3 className={batchEltTitle}>BATCH</h3>
+                            <h3 className={batchEltTitle}>Batch</h3>
                             <p className={batchEltDescription}>
                                 SaaS ELT tools are batch only, point-to-point
                                 replication. Each destination requires its own

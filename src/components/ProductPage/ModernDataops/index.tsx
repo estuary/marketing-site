@@ -20,7 +20,7 @@ const ModernDataops = () => {
                 }
                 title={
                     <>
-                        USE MODERN <span>DATAOPS</span>
+                        Use modern <span>DataOps</span>
                     </>
                 }
                 subtitle="Rely on built-in data pipeline best practices, integrate tooling, and automate DataOps to improve productivity and reduce downtime."

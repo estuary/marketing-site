@@ -107,7 +107,7 @@ const KeyFeatures = () => {
         <section className={defaultWrapperDarkBlue}>
             <Container isVertical>
                 <div className={textWrapper}>
-                    <h2>KEY FEATURES</h2>
+                    <h2>Key features</h2>
                     <p>
                         Estuary Flow stands out because it brings together the
                         best of CDC, real-time, and batch with modern data

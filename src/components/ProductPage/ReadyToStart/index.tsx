@@ -23,12 +23,12 @@ const ReadyToStart = () => {
     return (
         <section className={defaultWrapperDark}>
             <Container isVertical className={container}>
-                <h2>READY TO START?</h2>
+                <h2>Ready to start?</h2>
                 <div className={columns}>
                     <div className={boxes}>
                         <div className={getStartedBox}>
                             <div className={textWrapper}>
-                                <h3>BUILD A PIPELINE</h3>
+                                <h3>Build a pipeline</h3>
                                 <p>
                                     Try out Estuary free, and build a new
                                     pipeline in minutes.
@@ -43,12 +43,12 @@ const ReadyToStart = () => {
                                 <div className={iconWrapper}>
                                     <LoginIcon color={iconColor} />
                                 </div>
-                                GET STARTED
+                                Get started
                             </OutboundLinkOutlined>
                         </div>
                         <div className={contactUsBox}>
                             <div className={textWrapper}>
-                                <h3>SET UP AN APPOINTMENT</h3>
+                                <h3>Set up an appointment</h3>
                                 <p>
                                     Set up an appointment to get a personalized
                                     overview.
@@ -62,7 +62,7 @@ const ReadyToStart = () => {
                                 <div className={iconWrapper}>
                                     <CalendarIcon color={iconColor} />
                                 </div>
-                                CONTACT US
+                                Contact us
                             </LinkOutlined>
                         </div>
                     </div>

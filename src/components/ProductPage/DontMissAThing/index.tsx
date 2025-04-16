@@ -23,7 +23,7 @@ const DontMissAThing = () => {
                             src="../../../svgs/product-page/section-thirteen/email-outlined.svg"
                         />
                     </div>
-                    <h2>DON&apos;T MISS A THING</h2>
+                    <h2>Don&apos;t miss a thing</h2>
                     <label htmlFor="newsletter-signup">
                         Join our newsletter to get best practices, events, and
                         news.

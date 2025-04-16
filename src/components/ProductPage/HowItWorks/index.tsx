@@ -16,7 +16,7 @@ const HowItWorks = () => {
     return (
         <section className={wrapper}>
             <Container isVertical>
-                <h2>HOW IT WORKS</h2>
+                <h2>How it works</h2>
                 <Carousel
                     hasArrow
                     aria-label="How Estuary Flow works carousel"
