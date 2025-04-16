@@ -16,7 +16,7 @@ const ChooseYourPlan = () => {
     return (
         <section className={defaultWrapperGrey}>
             <Container isVertical className={container}>
-                <h2>CHOOSE YOUR PLAN</h2>
+                <h2>Choose your plan</h2>
                 {isMobile ? (
                     <Carousel
                         aria-label="Pricing plan carousel"

@@ -21,7 +21,7 @@ const PricingCalculatorSection = () => {
             <Container isReverseColumnOnMobile>
                 <div className={textWrapper}>
                     <div>
-                        <h2>PRICING CALCULATOR</h2>
+                        <h2>Pricing calculator</h2>
                         {hasWindow ? (
                             <CopyToClipboardButton
                                 contentToCopy={`${window.location.origin}/pricing/#pricing-calculator`}

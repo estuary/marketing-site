@@ -10,7 +10,7 @@ const Hero = () => {
         <section className={defaultWrapperDarkBlue}>
             <Container>
                 <HeroSectionDetails
-                    title={<span>SIMPLY PRICED, PAY AS YOU GO</span>}
+                    title={<span>Simply priced, pay as you go</span>}
                     description={
                         <>
                             <span>
