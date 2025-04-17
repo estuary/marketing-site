@@ -8,7 +8,7 @@ const AutomateDataops = () => {
     return (
         <section className={defaultWrapperGrey}>
             <Advantages
-                title={<>AUTOMATE DATAOPS</>}
+                title={<>Automate DataOps</>}
                 image={
                     <StaticImage
                         quality={100}

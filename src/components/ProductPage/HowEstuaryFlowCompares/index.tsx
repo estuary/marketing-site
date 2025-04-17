@@ -9,7 +9,7 @@ const HowEstuaryFlowCompares = () => {
         <section className={defaultWrapperDark}>
             <Container isVertical>
                 <h2 className={title}>
-                    HOW <span>ESTUARY FLOW</span> COMPARES
+                    How <span>Estuary Flow</span> compares
                 </h2>
                 <div className={tableWrapper}>
                     <h3>Feature Comparison</h3>

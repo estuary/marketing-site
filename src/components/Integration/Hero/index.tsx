@@ -49,7 +49,7 @@ const Hero = ({ sourceConnector, destConnector }: Connectors) => {
                             <span>FASTEST, MOST RELIABLE CDC AND ETL</span>
                         </div>
                     }
-                    title={`STREAM DATA FROM ${sourceConnector.title} TO ${destConnector.title}`}
+                    title={`Stream data from ${sourceConnector.title} to ${destConnector.title}`}
                     description={`Sync your ${sourceConnector.title} data with ${destConnector.title} in minutes using Estuary Flow for real-time, no-code integration and seamless data pipelines.`}
                     ctaButtons={
                         <HeroSectionActions

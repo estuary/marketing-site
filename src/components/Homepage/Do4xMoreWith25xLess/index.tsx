@@ -9,7 +9,7 @@ const Do4xMoreWith25xLess = () => {
             <Advantages
                 title={
                     <>
-                        DO <span>MORE </span> WITH <span>LESS</span>
+                        Do <span>more </span> with <span>less</span>
                     </>
                 }
                 subtitle="We combine agentless CDC, zero-code pipelines, and enterprise-grade governance to simplify data integration, and drive business agility at a fraction of the cost"

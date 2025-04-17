@@ -9,7 +9,7 @@ const Hero = () => {
         <section className={defaultWrapperDarkBlue}>
             <Container>
                 <HeroSectionDetails
-                    title={<span>STAY CURRENT WITH ESTUARY FLOW</span>}
+                    title={<span>Stay current with Estuary Flow</span>}
                     description="Stay informed and make the most of Flow's powerful capabilities."
                     ctaButtons={
                         <HeroSectionActions pageId="company-updates-page" />

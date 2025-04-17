@@ -12,8 +12,8 @@ const ThreeQuickSteps = ({ sourceConnector, destConnector }: Connectors) => {
         <section className={defaultWrapperGrey}>
             <Container isVertical className={container}>
                 <h2>
-                    How to Integrate <span>{sourceConnector.title}</span> with{' '}
-                    <span>{destConnector.title}</span> in 3 Simple Steps Using
+                    How to integrate <span>{sourceConnector.title}</span> with{' '}
+                    <span>{destConnector.title}</span> in 3 simple steps using
                     Estuary Flow
                 </h2>
                 <StepCards>

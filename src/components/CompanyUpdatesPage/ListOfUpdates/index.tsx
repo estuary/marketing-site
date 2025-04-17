@@ -57,7 +57,7 @@ const ListOfUpdates = () => {
     return (
         <section className={defaultWrapperGrey}>
             <Container isVertical className={container}>
-                <h2>THE LATEST PRODUCT UPDATES</h2>
+                <h2>The latest product updates</h2>
                 <VerticalList
                     items={companyUpdatePostsWithPrefixedSlugs}
                     pageId="company-updates-page"

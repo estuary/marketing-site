@@ -7,7 +7,7 @@ const IncreaseProductivity4x = () => {
     return (
         <section className={defaultWrapperGrey}>
             <div className={container}>
-                <h2 className={sectionTitle}>INCREASE PRODUCTIVITY 4X</h2>
+                <h2 className={sectionTitle}>Increase productivity 4x</h2>
                 <p className={description}>
                     With Flow companies increase productivity 4x and deliver new
                     projects in days, not months. Spend much less time on

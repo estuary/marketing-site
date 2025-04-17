@@ -23,7 +23,7 @@ const SecurityCertificates = ({
             title={
                 title ?? (
                     <>
-                        <span>SECURE</span> YOUR DATA
+                        <span>Secure</span> your data
                     </>
                 )
             }

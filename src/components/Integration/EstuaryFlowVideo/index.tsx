@@ -11,7 +11,7 @@ const EstuaryFlowVideo = () => {
         <section className={defaultWrapperDarkBlue}>
             <div className={container}>
                 <h2 className={sectionTitle}>
-                    <span>ESTUARY FLOW</span> IN ACTION
+                    <span>Estuary Flow</span> in action
                 </h2>
                 <p className={description}>
                     See how to build end-to-end pipelines using no-code

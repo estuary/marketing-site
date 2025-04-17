@@ -7,7 +7,7 @@ import Link from '../../Card/Link';
 import CardsSection from '../../CardsSection';
 
 const ResourcesAndGettingStarted = () => (
-    <CardsSection title="RESOURCES AND GETTING STARTED">
+    <CardsSection title="Resources and getting started">
         <Card
             Icon={DocsIcon}
             title="Docs"

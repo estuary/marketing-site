@@ -52,7 +52,7 @@ const SuccessStories = ({ hasRelatedArticles }: SuccessStoriesProps) => {
             }
         >
             <Container isVertical>
-                <h2 className={sectionTitle}>SUCCESS STORIES</h2>
+                <h2 className={sectionTitle}>Success stories</h2>
                 <Grid>
                     {successStories.map((successStory) => (
                         <Card

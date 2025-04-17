@@ -33,7 +33,7 @@ const DeliverRealTimeData = () => {
                 }
                 title={
                     <>
-                        DELIVER <span>REAL-TIME DATA</span> AT SCALE
+                        Deliver <span>real-time data</span> at scale
                     </>
                 }
                 subtitle="Estuary Flow delivers reliable, real-time performance in production for over 3,000 active users, including some the most demanding workloads proven to 10x the scale of the alternatives."

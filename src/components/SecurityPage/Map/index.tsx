@@ -8,8 +8,8 @@ const Map = () => (
         <Container isVertical isDarkTheme className={container}>
             <div>
                 <h2>
-                    <span>SECURITY</span> IN EVERY REGION &{' '}
-                    <span>DATA PLANE MOBILITY</span> AND CONTROL
+                    <span>Security</span> in every region &{' '}
+                    <span>data plane mobility</span> and control
                 </h2>
                 <p>
                     Data is processed and stored within regional boundaries,

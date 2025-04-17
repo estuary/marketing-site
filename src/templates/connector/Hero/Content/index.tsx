@@ -30,17 +30,17 @@ const Content = ({ connector }: ContentProps) => {
                 title={
                     connector.type === 'capture' ? (
                         <>
-                            <span>MOVE</span>{' '}
+                            <span>Move</span>{' '}
                             <span>
-                                YOUR DATA FROM {connector.title} WITH YOUR
+                                your data from {connector.title} with your
                             </span>{' '}
-                            <span>FREE</span> <span>ACCOUNT</span>
+                            <span>free</span> <span>account</span>
                         </>
                     ) : (
                         <>
-                            <span>STREAM</span>{' '}
-                            <span>INTO {connector.title} WITH YOUR</span>{' '}
-                            <span>FREE</span> <span>ACCOUNT</span>
+                            <span>Stream</span>{' '}
+                            <span>into {connector.title} with your</span>{' '}
+                            <span>free</span> <span>account</span>
                         </>
                     )
                 }

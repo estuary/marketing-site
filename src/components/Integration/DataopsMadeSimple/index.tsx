@@ -10,7 +10,7 @@ const DataopsMadeSimple = () => {
                 icon={<SingleDataflowIcon color="var(--blue)" />}
                 title={
                     <>
-                        <span>DATAOPS</span> MADE SIMPLE
+                        <span>DataOps</span> made simple
                     </>
                 }
                 subtitle="Add advanced capabilities like schema inference and evolution with a few clicks. Or automate your data pipeline and integrate into your existing DataOps using Flow's rich CLI."

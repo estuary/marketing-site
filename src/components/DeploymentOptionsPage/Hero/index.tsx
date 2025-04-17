@@ -20,7 +20,7 @@ const Hero = () => {
         <section className={defaultWrapperDarkBlue}>
             <Container className={container}>
                 <HeroSectionDetails
-                    title="ESTUARY FLOW DEPLOYMENT OPTIONS"
+                    title="Estuary Flow deployment options"
                     description="Estuary Flow offers three main deployment options to
                         cater to various organizational needs and security
                         requirements. This section provides a high-level

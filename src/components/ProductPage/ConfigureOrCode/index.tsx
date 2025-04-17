@@ -16,7 +16,7 @@ const ConfigureOrCode = () => {
                 }
                 title={
                     <>
-                        <span>CONFIGURE</span> OR CODE
+                        <span>Configure</span> or code
                     </>
                 }
                 subtitle="Choose the best combination of no-code configuration and coding to move and transform data."

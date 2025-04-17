@@ -13,8 +13,8 @@ const RelatedIntegrations = ({
         <section className={defaultWrapperGrey}>
             <Container isVertical className={container}>
                 <h2>
-                    RELATED INTEGRATIONS WITH{' '}
-                    <span>{sourceConnector.title?.toUpperCase()}</span>
+                    Related integrations with{' '}
+                    <span>{sourceConnector.title}</span>
                 </h2>
                 <RelatedIntegrationLinks
                     sourceConnector={sourceConnector}

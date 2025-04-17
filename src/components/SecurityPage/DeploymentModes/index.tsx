@@ -13,7 +13,7 @@ const DeploymentModes = () => (
         <DeploymentOptions
             title={
                 <>
-                    <span>DEPLOYMENT MODES</span> THAT FIT ANY ENVIRONMENT
+                    <span>Deployment modes</span> the fit any environment
                 </>
             }
             optionsDescription={optionsDescription}

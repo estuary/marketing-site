@@ -5,7 +5,7 @@ import GiveAccessIcon from '../../../svgs/give-access.svg';
 import SecuredCommunicationsIcon from '../../../svgs/secured-communications.svg';
 
 const SecurityFeatures = () => (
-    <CardsSection title="CORE SECURITY FEATURES">
+    <CardsSection title="Core security features">
         <Card Icon={InfrastructureIcon} title="Immutable Infrastructure">
             Systems are rebuilt with every new update to ensure they remain
             secure and up-to-date.

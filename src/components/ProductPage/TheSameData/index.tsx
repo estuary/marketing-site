@@ -48,7 +48,7 @@ const TheSameData = () => {
                         </div>
                     </div>
                     <h2>
-                        THE SAME DATA ACROSS <span>ANALYTICS, OPS,</span> AND{' '}
+                        The same data across <span>analytics, Ops,</span> and{' '}
                         <span>AI</span>
                     </h2>
                     <p>

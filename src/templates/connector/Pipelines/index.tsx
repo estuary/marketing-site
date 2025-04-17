@@ -9,11 +9,11 @@ const Pipelines = () => {
         <section className={defaultWrapperDark}>
             <Container isVertical>
                 <h2 className={sectionTitle}>
-                    PIPELINES AS <span>FAST</span> AS KAFKA,{' '}
+                    Pipelines as <span>fast</span> as Kafka,{' '}
                     <span className={lineBreak} />
-                    <span>EASY</span> AS MANAGED ELT/ETL,{' '}
+                    <span>easy</span> as managed ELT/ETL,{' '}
                     <span className={lineBreak} />
-                    <span>CHEAPER</span> THAN BUILDING IT.
+                    <span>cheaper</span> than building it.
                 </h2>
                 <div className={tableWrapper}>
                     <h3>Feature Comparison</h3>

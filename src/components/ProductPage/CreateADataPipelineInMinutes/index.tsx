@@ -13,7 +13,7 @@ const CreateADataPipelineInMinutes = () => {
             <Container isVertical>
                 <div className={textWrapper}>
                     <h2>
-                        CREATE A DATA PIPELINE IN <span>MINUTES</span>
+                        Create a data pipeline in <span>minutes</span>
                     </h2>
                     <p>
                         Build new data pipelines that connect many sources to

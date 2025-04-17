@@ -25,7 +25,7 @@ const IncreaseProductivity = () => {
                 }
                 title={
                     <>
-                        INCREASE PRODUCTIVITY, <span>LOWER COSTS</span>
+                        Increase productivity, <span>lower costs</span>
                     </>
                 }
                 image={
@@ -40,7 +40,7 @@ const IncreaseProductivity = () => {
                                     src="../../../images/c&g-logo.png"
                                 />
                             </div>
-                            <h3>CONNECT&GO</h3>
+                            <h3>Connect&GO</h3>
                             <p>
                                 Connect&GO lowers MySQL to Snowflake latency up
                                 to 180x, improves productivity 4x with Estuary.
@@ -60,7 +60,7 @@ const IncreaseProductivity = () => {
                                         src="../../../images/soli&company-logo.png"
                                     />
                                 </div>
-                                <h3>SOLI & COMPANY</h3>
+                                <h3>Soli & Company</h3>
                                 <p>
                                     Soli & Company trusts Estuary&apos;s
                                     approachable pricing and quick setup to

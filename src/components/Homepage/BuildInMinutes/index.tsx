@@ -10,7 +10,7 @@ const BuildInMinutes = () => {
                 <div className={textWrapper}>
                     <h2>
                         Deliver
-                        <span> Value </span>
+                        <span> value </span>
                         in minutes
                     </h2>
                     <p>

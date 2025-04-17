@@ -16,7 +16,7 @@ const Hero = () => (
             <HeroSectionDetails
                 title={
                     <>
-                        <span>ESTUARY FLOW</span> POWERS ORGANIZATIONS WORLDWIDE
+                        <span>Estuary Flow</span> powers organizations worldwide
                     </>
                 }
                 description="See how our customers build with Estuary Flow to solve their challanges."
@@ -35,7 +35,7 @@ const Hero = () => (
                 loading="eager"
             />
         </Container>
-        <h2>FEATURED CUSTOMERS</h2>
+        <h2>Featured customers</h2>
         <ul>
             <li key="coalesce">
                 <StaticImage
