@@ -15,7 +15,7 @@ const Hero = ({ vendors }: SectionOneProps) => {
         <section className={defaultWrapperDarkBlue}>
             <Container className={container}>
                 <HeroSectionDetails
-                    title="ETL, ELT AND CDC TOOLS COMPARISON CENTER"
+                    title="ETL, ELT and CDC tools comparison center"
                     additionalElements={
                         <VendorsLink vendors={vendors} isDarkTheme />
                     }

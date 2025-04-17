@@ -33,9 +33,9 @@ const ChangeData = ({ connector: { id, title, type } }: ChangeDataProps) => {
                 </div>
                 <div className={containerContent}>
                     <h2>
-                        <span>REAL-TIME</span>
+                        <span>Real-time</span>
                         <span className={lineBreak} />
-                        HIGH THROUGHPUT
+                        high throughput
                     </h2>
                     <p className={description}>
                         Point a connector and replicate changes{' '}
