@@ -39,7 +39,7 @@ const GettingStartedSection = ({
                 className={clsx(container, isDarkTheme ? darkContainer : null)}
             >
                 <h2>
-                    GETTING STARTED WITH <span>ESTUARY</span>
+                    Getting started with <span>Estuary</span>
                 </h2>
                 <ul>
                     <FeatureCard
