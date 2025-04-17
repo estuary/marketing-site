@@ -14,7 +14,7 @@ const PrivateDeployment = () => {
                 className={clsx(container, reverseAdaptedContainer)}
             >
                 <DeploymentOptionDetails
-                    title="Private deployment"
+                    title="Private Deployment"
                     description="Private Deployment allows customers to run Estuary Flow's data infrastructure within their private environment while maintaining the simplicity of a SaaS platform. Suitable for enterprises and organizations with strict data security and compliance needs, such as those in highly regulated industries or handling sensitive data."
                     keyFeatures={features.private}
                     TitleHeadingLevel="h2"

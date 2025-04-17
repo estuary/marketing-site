@@ -98,7 +98,7 @@ const techPartners: Partner[] = [
 const JoinPartnerProgram = () => (
     <section className={defaultWrapperGrey}>
         <div className={container}>
-            <h2>Join the Estuary partner program</h2>
+            <h2>Join the Estuary Partner Program</h2>
             <p>
                 Join leaders in the data integration space. If you have the
                 technology, solutions, and expertise to drive faster, smarter
