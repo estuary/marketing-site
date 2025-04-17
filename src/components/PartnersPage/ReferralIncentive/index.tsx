@@ -8,7 +8,7 @@ const ReferralIncentive = () => (
     <section className={defaultWrapperDarkBlue}>
         <Container isDarkTheme>
             <div className={header}>
-                <h2>REFERRAL INCENTIVE</h2>
+                <h2>Referral incentive</h2>
                 <p>
                     Estuary offers an incentive after a deal is made through a
                     referral.

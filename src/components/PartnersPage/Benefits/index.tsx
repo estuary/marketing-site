@@ -12,7 +12,7 @@ const Benefits = () => {
     return (
         <section className={defaultWrapperDarkBlue}>
             <Container isDarkTheme isVertical className={container}>
-                <h2>PARTNER BENEFITS</h2>
+                <h2>Partner benefits</h2>
                 <div className={subContainer}>
                     <StaticImage
                         src="../../../images/partners-page/digital-gift-card.png"

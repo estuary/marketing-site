@@ -90,7 +90,7 @@ const SIPartners = () => (
     <section className={defaultWrapperDarkBlue}>
         <div className={globalMaxWidth}>
             <PartnerProgramDetails
-                title="SERVICE INTEGRATION PARTNERS"
+                title="Service integration partners"
                 description="Enable clients to build efficient, real-time data pipelines using Estuary Flow, transforming their data management and analytics capabilities."
                 partners={serviceIntegrationPartners}
                 isReverse

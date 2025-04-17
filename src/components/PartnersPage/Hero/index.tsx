@@ -10,7 +10,7 @@ const Hero = () => {
         <section className={defaultWrapperDarkBlue}>
             <Container isDarkTheme className={container}>
                 <HeroSectionDetails
-                    title="THE ESTUARY PARTNER PROGRAM"
+                    title="The Estuary partner program"
                     description="Become an Estuary Partner to accelerate business results through real-time data integrations."
                     ctaButtons={
                         <ContactUsCta

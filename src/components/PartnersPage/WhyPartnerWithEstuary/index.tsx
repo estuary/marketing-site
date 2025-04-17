@@ -6,7 +6,7 @@ import CardsSection from '../../CardsSection';
 
 const WhyPartnerWithEstuary = () => (
     <CardsSection
-        title="WHY PARTNER WITH ESTUARY?"
+        title="Why partner with Estuary?"
         description="Revolutionize Data Integration"
     >
         <Card Icon={TopPlatformIcon} title="Top Platform">
