@@ -137,6 +137,7 @@ export interface Vendor {
         dataMigration: HasFeature;
         dataIntegration: HasFeature;
         aiPipelines: HasFeature;
+        apacheIcebergSupport: HasFeature;
         operationalAnalytics: HasFeature;
         streamProcessing: HasFeature;
     };
