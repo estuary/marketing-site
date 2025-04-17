@@ -15,7 +15,7 @@ const StayUpdated = () => {
     return (
         <section className={defaultWrapperDarkBlue}>
             <Container isVertical isDarkTheme className={container}>
-                <h2>STAY UPDATED</h2>
+                <h2>Stay updated</h2>
                 <div className={contentWrapper}>
                     <div className={linkedinCta}>
                         <p>Follow us on LinkedIn for frequent updates.</p>
