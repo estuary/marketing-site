@@ -121,14 +121,9 @@ const BlogPost = ({
                                     <span className={blogPostDate}>
                                         <span>
                                             {hasBeenUpdated
-                                                ? `Published ${post.publishedAt}`
+                                                ? `Last updated: ${post.updatedAt}`
                                                 : post.publishedAt}
                                         </span>
-                                        {hasBeenUpdated ? (
-                                            <span>
-                                                Updated {post.updatedAt}
-                                            </span>
-                                        ) : null}
                                     </span>
                                 </div>
                             </div>
