@@ -10,8 +10,8 @@ const Hero = () => {
                 <HeroSectionDetails
                     title={
                         <>
-                            UNCOMPROMISING DATA SECURITY WITH{' '}
-                            <span>ESTUARY FLOW</span>
+                            Uncompromising data security with{' '}
+                            <span>Estuary Flow</span>
                         </>
                     }
                     description="Estuary Flow ensures the security of your data with a robust architecture and advanced security measures, whether in our cloud or your private environment."

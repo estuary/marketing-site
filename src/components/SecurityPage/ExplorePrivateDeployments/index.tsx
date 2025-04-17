@@ -13,8 +13,8 @@ const ExplorePrivateDeployments = () => (
             icon={<SecureDataIcon color="var(--blue)" />}
             title={
                 <>
-                    EXPLORE PRIVATE DEPLOYMENTS FOR{' '}
-                    <span>ENHANCED SECURITY</span>
+                    Explore private deployments for{' '}
+                    <span>enhanced security</span>
                 </>
             }
             subtitle="Maintain full control of your data with private deployments, ensuring maximum security and compliance within your own infrastructure."
