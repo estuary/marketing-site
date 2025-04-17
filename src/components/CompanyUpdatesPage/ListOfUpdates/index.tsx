@@ -18,12 +18,6 @@ const ListOfUpdates = () => {
                     title
                     publishedAt(formatString: "MMMM D, YYYY")
                     postedDate: updatedAt(formatString: "MMMM D, YYYY")
-                    machineReadablePublishDate: publishedAt(
-                        formatString: "YYYY-MM-DD"
-                    )
-                    machineReadableUpdateDate: updatedAt(
-                        formatString: "YYYY-MM-DD"
-                    )
                     description
                     slug
                     picture: hero {
