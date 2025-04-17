@@ -39,7 +39,7 @@ const WhatCustomersSay = () => {
         <section className={defaultWrapperDarkBlue}>
             <Container isVertical isDarkTheme>
                 <h2 className={sectionTitle}>
-                    WHAT <span>OUR CUSTOMERS</span> SAY ABOUT US
+                    What <span>our customers</span> say about us
                 </h2>
                 <SlideDeckCarousel
                     items={testimonials}
