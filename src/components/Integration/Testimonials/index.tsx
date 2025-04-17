@@ -8,7 +8,7 @@ const Testimonials = () => {
         <section className={defaultWrapperDarkBlue}>
             <div className={container}>
                 <h2 className={sectionTitle}>
-                    WHAT <span>CUSTOMERS</span> ARE SAYING
+                    What <span>customers</span> are saying
                 </h2>
                 <TestimonialsCarousel />
             </div>

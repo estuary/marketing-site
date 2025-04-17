@@ -9,8 +9,8 @@ const RealTimeAndBatch = () => {
             <Advantages
                 title={
                     <>
-                        WHY <span>ESTUARY FLOW</span> IS THE BEST CHOICE FOR{' '}
-                        <span>DATA INTEGRATION</span>
+                        Why <span>Estuary Flow</span> is the best choice for{' '}
+                        <span>data integration</span>
                     </>
                 }
                 subtitle="Estuary Flow combines the most real-time, streaming change data capture (CDC), and batch connectors together into a unified modern data pipeline:"
