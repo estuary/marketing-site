@@ -747,6 +747,7 @@ const cfg: GatsbyConfig = {
                             title
                             date
                             updated
+                            published: true
                           }
                         }
                       }
