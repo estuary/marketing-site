@@ -727,11 +727,6 @@ const cfg: GatsbyConfig = {
                                     url,
                                     guid: url,
                                     custom_elements: [
-                                        {
-                                            'content:encoded':
-                                                post.body?.data?.childHtmlRehype
-                                                    ?.html,
-                                        },
                                         { updated: post.updatedAt },
                                     ],
                                 };
@@ -747,13 +742,6 @@ const cfg: GatsbyConfig = {
                                         title: Title
                                         slug:  Slug
                                         description: Description
-                                        body: Body {
-                                            data {
-                                                childHtmlRehype {
-                                                    html
-                                                }
-                                            }
-                                        }
                                         publishedAt
                                         updatedAt
                                     }
