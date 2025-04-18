@@ -58,6 +58,7 @@ import {
     authorName,
     authorRole,
 } from './styles.module.less';
+import Faq from './Faq';
 
 interface BlogPostProps {
     post: any;
@@ -196,6 +197,7 @@ const BlogPost = ({
                     </div>
                 </section>
             ) : null}
+            <Faq faqs={post.faq} />
             {post?.authors?.length >= 1 ? (
                 <section className={nextStepsAndAboutAuthorSection}>
                     {/* <div className={nextSteps}>

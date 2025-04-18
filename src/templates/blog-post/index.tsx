@@ -133,6 +133,7 @@ export const pageQuery = graphql`
                     }
                 }
             }
+            faq
             authors {
                 id
                 name: Name
