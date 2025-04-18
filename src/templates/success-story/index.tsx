@@ -37,7 +37,6 @@ export const pageQuery = graphql`
             }
         }
         successStory: strapiCaseStudy(id: { eq: $id }) {
-            machineReadablePublishDate: publishedAt(formatString: "YYYY-MM-DD")
             metaTitle
             metaDescription
             Slug
