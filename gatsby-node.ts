@@ -682,12 +682,6 @@ exports.createSchemaCustomization = ({ actions }) => {
         logoUrl: String!
         logo: File!
       }
-      type MarkdownRemarkFrontmatter {
-        title:     String!
-        date:      Date! @dateformat
-        updated:   Date   @dateformat
-        published: Boolean!
-      }
     `;
     createTypes(typeDefs);
 };

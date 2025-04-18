@@ -717,42 +717,49 @@ const cfg: GatsbyConfig = {
               `,
                 feeds: [
                     {
-                        serialize: ({ query: { site, allMarkdownRemark } }) => {
-                            return allMarkdownRemark.nodes.map((node) => {
-                                const url = `${site.siteMetadata.siteUrl}/blog/${node.fields.slug}`;
+                        serialize: ({ query: { site, allStrapiBlogPost } }) => {
+                            return allStrapiBlogPost.nodes.map((post) => {
+                                const url = `${site.siteMetadata.siteUrl}/blog/${post.slug}`;
                                 return {
-                                    title: node.frontmatter.title,
-                                    description: node.excerpt,
-                                    date: node.frontmatter.date,
-                                    custom_elements: [
-                                        { 'content:encoded': node.html },
-                                        { updated: node.frontmatter.updated },
-                                    ],
+                                    title: post.title,
+                                    description: post.description,
+                                    date: post.publishedAt,
                                     url,
                                     guid: url,
+                                    custom_elements: [
+                                        {
+                                            'content:encoded':
+                                                post.body?.data?.childHtmlRehype
+                                                    ?.html,
+                                        },
+                                        { updated: post.updatedAt },
+                                    ],
                                 };
                             });
                         },
                         query: `
-                    {
-                      allMarkdownRemark(
-                        filter: { frontmatter: { published: { eq: true } } }
-                        sort:   { frontmatter: { date: DESC } }
-                      ) {
-                        nodes {
-                          excerpt
-                          html
-                          fields { slug }
-                          frontmatter {
-                            title
-                            date
-                            updated
-                            published
-                          }
-                        }
-                      }
-                    }
-                  `,
+                            {
+                                allStrapiBlogPost(
+                                    filter: { publishedAt: { ne: null } }
+                                    sort:   { publishedAt: DESC }
+                                ) {
+                                    nodes {
+                                        title: Title
+                                        slug:  Slug
+                                        description: Description
+                                        body: Body {
+                                            data {
+                                                childHtmlRehype {
+                                                    html
+                                                }
+                                            }
+                                        }
+                                        publishedAt
+                                        updatedAt
+                                    }
+                                }
+                            }
+                        `,
                         output: '/blog/rss.xml',
                         title: 'Estuary Blog RSS Feed',
                     },
