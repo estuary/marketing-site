@@ -701,55 +701,59 @@ const cfg: GatsbyConfig = {
                 plugins: [`gatsby-remark-reading-time`],
             },
         },
-        // {
-        //   resolve: `gatsby-plugin-feed`,
-        //   options: {
-        //     query: `
-        //       {
-        //         site {
-        //           siteMetadata {
-        //             title
-        //             description
-        //             siteUrl
-        //             site_url: siteUrl
-        //           }
-        //         }
-        //       }
-        //     `,
-        //     feeds: [
-        //       {
-        //         serialize: ({ query: { site, allMarkdownRemark } }) => {
-        //           return allMarkdownRemark.nodes.map(node => {
-        //             return Object.assign({}, node.frontmatter, {
-        //               description: node.excerpt,
-        //               date: node.frontmatter.date,
-        //               url: site.siteMetadata.siteUrl + node.fields.slug,
-        //               guid: site.siteMetadata.siteUrl + node.fields.slug,
-        //               custom_elements: [{ "content:encoded": node.html }],
-        //             })
-        //           })
-        //         },
-        //         query: `{
-        //           allMarkdownRemark(sort: {frontmatter: {date: DESC}}) {
-        //             nodes {
-        //               excerpt
-        //               html
-        //               fields {
-        //                 slug
-        //               }
-        //               frontmatter {
-        //                 title
-        //                 date
-        //               }
-        //             }
-        //           }
-        //         }`,
-        //         output: "/rss.xml",
-        //         title: "Gatsby Starter Blog RSS Feed",
-        //       },
-        //     ],
-        //   },
-        // },
+        {
+            resolve: `gatsby-plugin-feed`,
+            options: {
+                query: `
+                {
+                  site {
+                    siteMetadata {
+                      title
+                      description
+                      siteUrl
+                    }
+                  }
+                }
+              `,
+                feeds: [
+                    {
+                        serialize: ({ query: { site, allStrapiBlogPost } }) => {
+                            return allStrapiBlogPost.nodes.map((post) => {
+                                const url = `${site.siteMetadata.siteUrl}/blog/${post.slug}`;
+                                return {
+                                    title: post.title,
+                                    description: post.description,
+                                    date: post.publishedAt,
+                                    url,
+                                    guid: url,
+                                    custom_elements: [
+                                        { updated: post.updatedAt },
+                                    ],
+                                };
+                            });
+                        },
+                        query: `
+                            {
+                                allStrapiBlogPost(
+                                    filter: { publishedAt: { ne: null } }
+                                    sort:   { publishedAt: DESC }
+                                ) {
+                                    nodes {
+                                        title: Title
+                                        slug:  Slug
+                                        description: Description
+                                        publishedAt
+                                        updatedAt
+                                    }
+                                }
+                            }
+                        `,
+                        output: '/blog/rss.xml',
+                        title: 'Estuary Blog RSS Feed',
+                    },
+                ],
+            },
+        },
         `gatsby-plugin-provide-react`,
     ],
 };
