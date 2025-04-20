@@ -58,7 +58,7 @@ import {
     authorName,
     authorRole,
 } from './styles.module.less';
-import Faq from './Faq';
+import Faqs from './Faqs';
 
 interface BlogPostProps {
     post: any;
@@ -197,7 +197,6 @@ const BlogPost = ({
                     </div>
                 </section>
             ) : null}
-            <Faq faqs={post.faq} />
             {post?.authors?.length >= 1 ? (
                 <section className={nextStepsAndAboutAuthorSection}>
                     {/* <div className={nextSteps}>
@@ -317,6 +316,7 @@ const BlogPost = ({
                     <PopularArticles />
                 </section>
             ) : null}
+            {post?.faq?.length > 0 ? <Faqs faqs={post.faq} /> : null}
             <section className={bigBuildPipelineBannerSection}>
                 <div className={bigBuildPipelineBannerWrapper}>
                     <StraightLinesBackground

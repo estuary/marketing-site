@@ -1,10 +1,11 @@
 import { useState, SyntheticEvent } from 'react';
-import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
+import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import Container from '../../Container';
 import Accordion from '../../Faq/Accordion';
 import Wrapper from '../../Faq/Wrapper';
+import { sectionTitle } from './styles.module.less';
 
-const Faq = ({ faqs }) => {
+const Faqs = ({ faqs }) => {
     const [expanded, setExpanded] = useState<string | null>(null);
 
     const handleChange =
@@ -13,11 +14,11 @@ const Faq = ({ faqs }) => {
         };
 
     return (
-        <section className={defaultWrapperGrey}>
+        <section className={defaultWrapperDark}>
             <Container isVertical>
-                <h2>FAQ</h2>
+                <h2 className={sectionTitle}>FAQ</h2>
                 <Wrapper>
-                    {faqs.map(({ question, content }, index) => {
+                    {faqs.map(({ question, answer }, index) => {
                         const questionNumber = index + 1;
                         return (
                             <Accordion
@@ -31,7 +32,7 @@ const Faq = ({ faqs }) => {
                                     `question${questionNumber}`
                                 )}
                             >
-                                {content}
+                                {answer}
                             </Accordion>
                         );
                     })}
@@ -41,4 +42,4 @@ const Faq = ({ faqs }) => {
     );
 };
 
-export default Faq;
+export default Faqs;
