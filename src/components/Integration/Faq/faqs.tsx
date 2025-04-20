@@ -1,11 +1,14 @@
 import OutboundLink from '../../LinksAndButtons/OutboundLink';
 import InternalLink from '../../InternalLink';
 import { Connector } from '../../../../shared';
+import { FaqItem } from '../../Faq/FaqAccordions';
 
-export const faqs = (sourceConnector: Partial<Connector>) => [
+export const faqs = (
+    sourceConnector: Partial<Connector>
+): (FaqItem | null)[] => [
     {
         question: 'What is the difference between ETL, ELT, and CDC?',
-        content: (
+        answer: (
             <>
                 <p>
                     <InternalLink
@@ -39,7 +42,7 @@ export const faqs = (sourceConnector: Partial<Connector>) => [
     null
         ? {
               question: `What is ${sourceConnector.title}?`,
-              content: (
+              answer: (
                   <div
                       dangerouslySetInnerHTML={{
                           __html:
@@ -53,7 +56,7 @@ export const faqs = (sourceConnector: Partial<Connector>) => [
         : null,
     {
         question: `How do I Transfer Data from ${sourceConnector.title}?`,
-        content: (
+        answer: (
             <ol>
                 <li>
                     <span>Set Up Capture</span>: In Estuary Flow, go to{' '}
@@ -74,7 +77,7 @@ export const faqs = (sourceConnector: Partial<Connector>) => [
     },
     {
         question: 'What are the pricing options for Estuary Flow?',
-        content: (
+        answer: (
             <p>
                 Estuary offers competitive and transparent pricing, with a free
                 tier that includes 2 connector instances and up to 10 GB of data

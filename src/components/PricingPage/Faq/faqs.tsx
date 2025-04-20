@@ -12,7 +12,7 @@ import {
 export const faqs = [
     {
         question: 'How is my bill calculated?',
-        content: (
+        answer: (
             <>
                 <h4>Your bill has two main components:</h4>
                 <p>
@@ -36,7 +36,7 @@ export const faqs = [
     },
     {
         question: 'Do you offer discounted rates?',
-        content: (
+        answer: (
             <p>
                 Yes, discounts are available based on volume commitments and
                 contract duration.
@@ -45,7 +45,7 @@ export const faqs = [
     },
     {
         question: 'How does Pay-as-you-Go pricing work?',
-        content: (
+        answer: (
             <p>
                 For new users or those not wanting to commit to specific data
                 volumes, pay monthly based on actual data usage and active
@@ -56,7 +56,7 @@ export const faqs = [
     },
     {
         question: 'How does pre-pay work?',
-        content: (
+        answer: (
             <p>
                 Pay upfront for a fixed data transfer amount, usable over up to
                 12 months. Higher upfront payments receive greater discounts.
@@ -65,7 +65,7 @@ export const faqs = [
     },
     {
         question: 'What are pricing examples?',
-        content: (
+        answer: (
             <div className={answerSections}>
                 <div
                     className={clsx(answerSection, flexDirectionColumnReverse)}
@@ -117,7 +117,7 @@ export const faqs = [
     },
     {
         question: 'How does the Free Trial work?',
-        content: (
+        answer: (
             <p>
                 The free trial provides new users with 30 days of access to all
                 the features of our Cloud Plan. At the end of the trial period,
@@ -130,7 +130,7 @@ export const faqs = [
     },
     {
         question: 'What are my billing options?',
-        content: (
+        answer: (
             <>
                 <p>
                     <span>Free:</span> No credit card or billing information
@@ -148,7 +148,7 @@ export const faqs = [
     },
     {
         question: 'Where is my data stored?',
-        content: (
+        answer: (
             <p>
                 In the Free Plan, your data is securely stored in Estuary&apos;s
                 cloud storage and retained for a limited period. With the Cloud
