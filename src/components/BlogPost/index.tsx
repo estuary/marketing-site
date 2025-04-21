@@ -167,6 +167,9 @@ const BlogPost = ({
                             <ProcessedPost
                                 body={post.body.data.childHtmlRehype.html}
                             />
+                            {post?.faq?.length > 0 ? (
+                                <Faqs faqs={post.faq} />
+                            ) : null}
                             {hasBodyCtaBanner ? (
                                 <BlogBanner
                                     title={
@@ -316,7 +319,6 @@ const BlogPost = ({
                     <PopularArticles />
                 </section>
             ) : null}
-            {post?.faq?.length > 0 ? <Faqs faqs={post.faq} /> : null}
             <section className={bigBuildPipelineBannerSection}>
                 <div className={bigBuildPipelineBannerWrapper}>
                     <StraightLinesBackground

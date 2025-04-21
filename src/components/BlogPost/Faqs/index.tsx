@@ -1,15 +1,11 @@
-import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
-import Container from '../../Container';
 import FaqAccordions from '../../Faq/FaqAccordions';
-import { sectionTitle } from './styles.module.less';
+import { container } from './styles.module.less';
 
 const Faqs = ({ faqs }) => (
-    <section className={defaultWrapperDark}>
-        <Container isVertical>
-            <h2 className={sectionTitle}>FAQ</h2>
-            <FaqAccordions faqs={faqs} />
-        </Container>
-    </section>
+    <div className={container}>
+        <h2>FAQ</h2>
+        <FaqAccordions faqs={faqs} />
+    </div>
 );
 
 export default Faqs;
