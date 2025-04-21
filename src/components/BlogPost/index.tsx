@@ -198,7 +198,10 @@ const BlogPost = ({
                                 post?.faq?.length > 0
                                     ? [
                                           ...bodyToc,
-                                          { id: 'faq', heading: 'FAQ' },
+                                          {
+                                              id: 'blog-post-hardcoded-faq',
+                                              heading: 'FAQ',
+                                          },
                                       ]
                                     : bodyToc
                             }
