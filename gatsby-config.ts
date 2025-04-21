@@ -717,10 +717,11 @@ const cfg: GatsbyConfig = {
               `,
                 feeds: [
                     {
-                        feed_url: ({ query: { site } }) =>
-                            `${site.siteMetadata.siteUrl}/blog/rss.xml`,
-                        site_url: ({ query: { site } }) =>
-                            site.siteMetadata.siteUrl,
+                        custom_namespaces: {
+                            atom: 'http://www.w3.org/2005/Atom',
+                        },
+                        feed_url: 'https://estuary.dev/blog/rss.xml',
+                        site_url: 'https://estuary.dev',
                         serialize: ({ query: { site, allStrapiBlogPost } }) => {
                             return allStrapiBlogPost.nodes.map((post) => {
                                 const url = `${site.siteMetadata.siteUrl}/blog/${post.slug}`;
