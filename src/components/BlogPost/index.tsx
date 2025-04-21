@@ -85,6 +85,8 @@ const BlogPost = ({
 
     const shareArticleSectionTitle = `Share this ${hasPopularArticlesSection ? 'article' : 'update'}`;
 
+    const bodyToc = post.body.data.childHtmlRehype.tableOfContents;
+
     return (
         <article
             className={article}
@@ -193,7 +195,12 @@ const BlogPost = ({
                                 slug: post.slug,
                             }}
                             tableOfContents={
-                                post.body.data.childHtmlRehype.tableOfContents
+                                post.faq
+                                    ? [
+                                          ...bodyToc,
+                                          { id: 'faq', heading: 'FAQ' },
+                                      ]
+                                    : bodyToc
                             }
                             shareArticleSectionTitle={shareArticleSectionTitle}
                         />
