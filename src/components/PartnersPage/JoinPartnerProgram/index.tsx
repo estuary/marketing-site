@@ -14,7 +14,7 @@ const techPartners: Partner[] = [
             />
         ),
         name: 'Bytewax',
-        href: 'https://docs.estuary.dev/reference/Connectors/dekaf/dekaf-bytewax/',
+        href: 'https://estuary.dev/destination/dekaf-bytewax/',
     },
     {
         icon: (
@@ -25,7 +25,7 @@ const techPartners: Partner[] = [
             />
         ),
         name: 'Materialize',
-        href: 'https://docs.estuary.dev/reference/Connectors/dekaf/dekaf-materialize/',
+        href: 'https://estuary.dev/destination/dekaf-materialize/',
     },
     {
         icon: (
@@ -47,7 +47,7 @@ const techPartners: Partner[] = [
             />
         ),
         name: 'SingleStore',
-        href: 'https://docs.estuary.dev/reference/Connectors/dekaf/dekaf-singlestore/',
+        href: 'https://estuary.dev/destination/dekaf-singlestore/',
     },
     {
         icon: (
@@ -69,7 +69,7 @@ const techPartners: Partner[] = [
             />
         ),
         name: 'StarTree',
-        href: 'https://docs.estuary.dev/reference/Connectors/dekaf/dekaf-startree/',
+        href: 'https://estuary.dev/destination/dekaf-startree/',
     },
     {
         icon: (
