@@ -717,6 +717,10 @@ const cfg: GatsbyConfig = {
               `,
                 feeds: [
                     {
+                        feed_url: ({ query: { site } }) =>
+                            `${site.siteMetadata.siteUrl}/blog/rss.xml`,
+                        site_url: ({ query: { site } }) =>
+                            site.siteMetadata.siteUrl,
                         serialize: ({ query: { site, allStrapiBlogPost } }) => {
                             return allStrapiBlogPost.nodes.map((post) => {
                                 const url = `${site.siteMetadata.siteUrl}/blog/${post.slug}`;
@@ -727,7 +731,7 @@ const cfg: GatsbyConfig = {
                                     url,
                                     guid: url,
                                     custom_elements: [
-                                        { updated: post.updatedAt },
+                                        { 'atom:updated': post.updatedAt },
                                     ],
                                 };
                             });
@@ -742,8 +746,12 @@ const cfg: GatsbyConfig = {
                                         title: Title
                                         slug:  Slug
                                         description: Description
-                                        publishedAt
-                                        updatedAt
+                                        publishedAt(
+                                            formatString: "YYYY-MM-DD[T]HH:mm:ssZ"
+                                        )
+                                        updatedAt(
+                                            formatString: "YYYY-MM-DD[T]HH:mm:ssZ"
+                                        )
                                     }
                                 }
                             }
