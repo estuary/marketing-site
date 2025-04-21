@@ -92,20 +92,22 @@ export const Head = ({
                     'dateModified': post.machineReadableUpdateDate,
                 })}
             </script>
-            <script type="application/ld+json">
-                {JSON.stringify({
-                    '@context': 'https://schema.org',
-                    '@type': 'FAQPage',
-                    'mainEntity': post.faq.map(({ question, answer }) => ({
-                        '@type': 'Question',
-                        'name': question,
-                        'acceptedAnswer': {
-                            '@type': 'Answer',
-                            'text': answer,
-                        },
-                    })),
-                })}
-            </script>
+            {post?.faq ? (
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        '@context': 'https://schema.org',
+                        '@type': 'FAQPage',
+                        'mainEntity': post.faq.map(({ question, answer }) => ({
+                            '@type': 'Question',
+                            'name': question,
+                            'acceptedAnswer': {
+                                '@type': 'Answer',
+                                'text': answer,
+                            },
+                        })),
+                    })}
+                </script>
+            ) : null}
         </>
     );
 };
