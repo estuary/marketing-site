@@ -21,8 +21,9 @@ const ReleaseBanner = ({ theme = 'dark' }) => {
             <div>
                 <a
                     id="hero-section-banner"
-                    href="/deployment-options/"
+                    href="https://lu.ma/9wazu8zx?utm_source=estuary_homepage"
                     rel="noreferrer"
+                    target="_blank"
                 >
                     <span>RSVP Now</span>
                     <p>
