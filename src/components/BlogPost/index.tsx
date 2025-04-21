@@ -195,7 +195,7 @@ const BlogPost = ({
                                 slug: post.slug,
                             }}
                             tableOfContents={
-                                post.faq
+                                post?.faq?.length > 0
                                     ? [
                                           ...bodyToc,
                                           { id: 'faq', heading: 'FAQ' },
