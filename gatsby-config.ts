@@ -13,7 +13,7 @@ import { SUPABASE_CONNECTION_STRING } from './config';
 // Disable multiple prepared statements because pgbouncer doesn't like 'em very much
 process.env.POSTGRAPHILE_PREPARED_STATEMENT_CACHE_SIZE = '1';
 
-const BLOG_PATH_REGEX = '^/blog/';
+const NO_MATCH_REGEX = '^/__no__match__$/';
 
 const strapiConfig = {
     apiURL: process.env.STRAPI_API_URL,
@@ -722,7 +722,7 @@ const cfg: GatsbyConfig = {
                         custom_namespaces: {
                             atom: 'http://www.w3.org/2005/Atom',
                         },
-                        match: BLOG_PATH_REGEX,
+                        match: NO_MATCH_REGEX,
                         feed_url: 'https://estuary.dev/blog/rss.xml',
                         site_url: 'https://estuary.dev',
                         serialize: ({ query: { site, allStrapiBlogPost } }) => {

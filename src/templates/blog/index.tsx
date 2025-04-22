@@ -264,12 +264,20 @@ export const Head = ({ pageContext }: BlogIndexProps) => {
     const seoData = currentPage === 0 ? config.page1 : config.pageN;
 
     return (
-        <Seo
-            title={seoData.title}
-            description={seoData.description}
-            prevUrl={pagination.prevPage}
-            nextUrl={pagination.nextPage}
-        />
+        <>
+            <Seo
+                title={seoData.title}
+                description={seoData.description}
+                prevUrl={pagination.prevPage}
+                nextUrl={pagination.nextPage}
+            />
+            <link
+                rel="alternate"
+                type="application/rss+xml"
+                title="Estuary Blog RSS Feed"
+                href="/blog/rss.xml"
+            />
+        </>
     );
 };
 
