@@ -87,6 +87,8 @@ const BlogPost = ({
 
     const bodyToc = post.body.data.childHtmlRehype.tableOfContents;
 
+    const hasFaq = post?.faq?.length > 0;
+
     return (
         <article
             className={article}
@@ -169,9 +171,7 @@ const BlogPost = ({
                             <ProcessedPost
                                 body={post.body.data.childHtmlRehype.html}
                             />
-                            {post?.faq?.length > 0 ? (
-                                <Faqs faqs={post.faq} />
-                            ) : null}
+                            {hasFaq ? <Faqs faqs={post.faq} /> : null}
                             {hasBodyCtaBanner ? (
                                 <BlogBanner
                                     title={
@@ -195,7 +195,7 @@ const BlogPost = ({
                                 slug: post.slug,
                             }}
                             tableOfContents={
-                                post?.faq?.length > 0
+                                hasFaq
                                     ? [
                                           ...bodyToc,
                                           {
