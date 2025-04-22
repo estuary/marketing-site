@@ -92,6 +92,12 @@ export const Head = ({
                     'dateModified': post.machineReadableUpdateDate,
                 })}
             </script>
+            <link
+                rel="alternate"
+                type="application/rss+xml"
+                title="Estuary Blog RSS Feed"
+                href="/blog/rss.xml"
+            />
             {post?.faq?.length > 0 ? (
                 <script type="application/ld+json">
                     {JSON.stringify({
