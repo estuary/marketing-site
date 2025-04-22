@@ -58,6 +58,7 @@ import {
     authorName,
     authorRole,
 } from './styles.module.less';
+import Faqs from './Faqs';
 
 interface BlogPostProps {
     post: any;
@@ -83,6 +84,10 @@ const BlogPost = ({
     );
 
     const shareArticleSectionTitle = `Share this ${hasPopularArticlesSection ? 'article' : 'update'}`;
+
+    const bodyToc = post.body.data.childHtmlRehype.tableOfContents;
+
+    const hasFaq = post?.faq?.length > 0;
 
     return (
         <article
@@ -166,6 +171,7 @@ const BlogPost = ({
                             <ProcessedPost
                                 body={post.body.data.childHtmlRehype.html}
                             />
+                            {hasFaq ? <Faqs faqs={post.faq} /> : null}
                             {hasBodyCtaBanner ? (
                                 <BlogBanner
                                     title={
@@ -189,7 +195,15 @@ const BlogPost = ({
                                 slug: post.slug,
                             }}
                             tableOfContents={
-                                post.body.data.childHtmlRehype.tableOfContents
+                                hasFaq
+                                    ? [
+                                          ...bodyToc,
+                                          {
+                                              id: 'blog-post-hardcoded-faq',
+                                              heading: 'FAQs',
+                                          },
+                                      ]
+                                    : bodyToc
                             }
                             shareArticleSectionTitle={shareArticleSectionTitle}
                         />

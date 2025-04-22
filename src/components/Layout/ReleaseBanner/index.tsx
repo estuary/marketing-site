@@ -21,13 +21,14 @@ const ReleaseBanner = ({ theme = 'dark' }) => {
             <div>
                 <a
                     id="hero-section-banner"
-                    href="/deployment-options/"
+                    href="https://lu.ma/9wazu8zx?utm_source=estuary_homepage"
                     rel="noreferrer"
+                    target="_blank"
                 >
-                    <span>A Step Ahead</span>
+                    <span>RSVP Now</span>
                     <p>
-                        Private deployments are now live! Explore how Estuary
-                        Flow can fit into your environment.
+                        Meet data pros in NYC! Join the Real-time Data Meetup
+                        for networking & streaming pipeline insights.
                     </p>
                     <ArrowRight color="var(--white)" />
                 </a>

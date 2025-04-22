@@ -98,6 +98,22 @@ export const Head = ({
                 title="Estuary Blog RSS Feed"
                 href="/blog/rss.xml"
             />
+            {post?.faq?.length > 0 ? (
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        '@context': 'https://schema.org',
+                        '@type': 'FAQPage',
+                        'mainEntity': post.faq.map(({ question, answer }) => ({
+                            '@type': 'Question',
+                            'name': question,
+                            'acceptedAnswer': {
+                                '@type': 'Answer',
+                                'text': answer,
+                            },
+                        })),
+                    })}
+                </script>
+            ) : null}
         </>
     );
 };
@@ -138,6 +154,10 @@ export const pageQuery = graphql`
                         }
                     }
                 }
+            }
+            faq {
+                question
+                answer
             }
             authors {
                 id
