@@ -200,7 +200,7 @@ const BlogPost = ({
                                           ...bodyToc,
                                           {
                                               id: 'blog-post-hardcoded-faq',
-                                              heading: 'FAQ',
+                                              heading: 'FAQs',
                                           },
                                       ]
                                     : bodyToc

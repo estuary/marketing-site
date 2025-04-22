@@ -13,7 +13,7 @@ const Faq = ({ sourceConnector }: FaqProps) => {
     return (
         <section className={defaultWrapperGrey}>
             <Container isVertical className={container}>
-                <h2>FAQ</h2>
+                <h2>FAQs</h2>
                 <FaqAccordions
                     faqs={faqs(sourceConnector).filter((faq) => faq != null)}
                 />

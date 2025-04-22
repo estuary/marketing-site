@@ -8,7 +8,7 @@ const Faq = () => {
     return (
         <section className={defaultWrapperGrey}>
             <Container isVertical>
-                <h2 className={title}>FAQ</h2>
+                <h2 className={title}>FAQs</h2>
                 <FaqAccordions faqs={faqs} />
             </Container>
         </section>
