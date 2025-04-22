@@ -92,7 +92,7 @@ export const Head = ({
                     'dateModified': post.machineReadableUpdateDate,
                 })}
             </script>
-            {post?.faq ? (
+            {post?.faq?.length > 0 ? (
                 <script type="application/ld+json">
                     {JSON.stringify({
                         '@context': 'https://schema.org',
