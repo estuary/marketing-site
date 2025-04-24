@@ -16,7 +16,7 @@ const Sources = () => (
 
 export const Head = () => (
     <Seo
-        title="Estuary Flow Data Sources - Real-Time & Batch Connectors"
+        title="Estuary Flow Real-time Capture Connectors"
         description="Ingest & stream data from databases, SaaS apps, warehouses & file stores with Estuary Flow's real-time & batch connectors. Automate pipelines with MongoDB, PostgreSQL & more."
     />
 );
