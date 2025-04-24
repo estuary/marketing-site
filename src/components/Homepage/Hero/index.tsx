@@ -25,7 +25,12 @@ const Hero = () => {
                         </>
                     }
                     description="Secure data integration with Estuary Flow, the enterprise data movement platform for real-time streaming and batch processing."
-                    ctaButtons={<HeroSectionActions pageId="homepage" />}
+                    ctaButtons={
+                        <HeroSectionActions
+                            pageId="homepage"
+                            contactUsButtonTitle="Book a Demo"
+                        />
+                    }
                     hasSubscriptionBenefits
                 />
                 <div className={flowAnimationContainer}>
