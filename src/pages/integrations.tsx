@@ -9,8 +9,8 @@ const Integrations = () => {
     return (
         <Layout>
             <Connectors
-                title="Integrations"
-                description={description}
+                title="Integrate & Move Data Anywhere - Estuary Flow Connectors"
+                description="Easily move data in real-time or batch with 200+ pre-built ETL connectors for databases, data warehouses, SaaS apps, and cloud platforms. Automate ingestion with seamless integrations for Redshift, Snowflake, BigQuery, Kafka, MySQL, PostgreSQL, and more—build powerful pipelines with minimal setup and maximum efficiency."
                 showAllConnectors={true}
             />
         </Layout>
