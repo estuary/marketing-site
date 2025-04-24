@@ -16,7 +16,7 @@ export const estuaryFlowGithubUrl = 'https://github.com/estuary/flow/';
 export const estuaryLinkedinUrl =
     'https://www.linkedin.com/company/estuary-tech/';
 export const estuaryProductFlowVideoUrl =
-    'https://www.youtube.com/embed/hlCh81ZbBik';
+    'https://www.youtube.com/embed/uOj77vFrx3U';
 
 export const socTwoLink = 'https://www.aicpa.org/soc4so';
 

@@ -15,7 +15,7 @@ const FlowDemoVideo = () => {
             <StaticImage
                 placeholder="none"
                 alt="estuary flow product end to end demo video"
-                src="../../images/end-to-end-demo-video-thumbnail.png"
+                src="../../images/overview-video-thumbnail.png"
                 style={{ borderRadius: '12px' }}
             />
         ),
@@ -32,7 +32,7 @@ const FlowDemoVideo = () => {
                 playIcon={
                     <div className={videoTextAndButtonsWrapper}>
                         <span>
-                            See Estuary in action — watch our 80-second demo!
+                            See Estuary in action — watch our 2-minute overview!
                         </span>
                         <ButtonFilled id="play-video-button">
                             <PlayIcon />
