@@ -3,7 +3,12 @@ import { cardsList } from './styles.module.less';
 
 const SlideDeckCarousel = ({ items, itemsPerSlide, renderCard, ariaLabel }) => {
     return (
-        <Carousel hasArrow aria-label={ariaLabel} hasMultipleItemsSlide>
+        <Carousel
+            hasArrow
+            aria-label={ariaLabel}
+            hasMultipleItemsSlide
+            hasViewport
+        >
             {Array.from(
                 { length: Math.ceil(items.length / itemsPerSlide) },
                 (_, index) => (

@@ -21,6 +21,7 @@ const ChooseYourPlan = () => {
                     <Carousel
                         aria-label="Pricing plan carousel"
                         hasArrow
+                        hasViewport
                         arrowColor="var(--grey)"
                         options={{
                             startIndex: 1,

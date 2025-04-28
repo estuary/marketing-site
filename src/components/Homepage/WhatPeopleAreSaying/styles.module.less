@@ -1,12 +1,76 @@
+@import '../../../globalStyles/sections.module.less';
+
 .container {
+    padding: 0;
+
+    @media (max-width: 1024px) {
+        gap: 60px;
+    }
+}
+
+.header {
+    .globalMaxWidth;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    width: 100%;
+
     h2 {
         font-size: 2.5rem;
+        line-height: 120%;
         font-weight: 600;
-        color: var(--blue);
-        text-align: center;
+        max-width: 557px;
 
-        @media (max-width: 425px) {
+        span {
+            color: var(--blue);
+        }
+    }
+
+    p {
+        font-size: 1.25rem;
+        columns: var(--white);
+        line-height: 30px;
+        margin: 0;
+    }
+
+    @media (max-width: 1024px) {
+        flex-direction: column;
+        gap: 32px;
+        align-items: start;
+
+        h2 {
+            max-width: 100%;
+        }
+    }
+
+    @media (max-width: 425px) {
+        h2 {
             font-size: 1.75rem;
         }
+    }
+}
+
+.headerRightColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.g2Wrapper {
+    display: flex;
+    gap: 20px;
+}
+
+.starsWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    span {
+        color: var(--white);
+        font-weight: 500;
+        font-size: 1.125rem;
+        line-height: 20px;
     }
 }

@@ -65,6 +65,7 @@ const HeaderNavbarProduct = ({ active, setActive }) => {
                         <Carousel
                             aria-label="Webinars carousel"
                             hasFullWidthSlide
+                            hasViewport
                         >
                             <div key="header-carousel-tour-2" className={slide}>
                                 <div className={imageWrapper}>

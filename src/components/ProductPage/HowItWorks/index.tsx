@@ -22,6 +22,7 @@ const HowItWorks = () => {
                     aria-label="How Estuary Flow works carousel"
                     arrowColor="var(--grey)"
                     hasMultipleItemsSlide
+                    hasViewport
                 >
                     <div className={slideStyle}>
                         <div className={desktopImageWrapper}>
