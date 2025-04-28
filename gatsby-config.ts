@@ -27,7 +27,30 @@ const strapiConfig = {
         'author',
         'connection',
         'connector',
-        'testimonial',
+        {
+            singularName: 'testimonial',
+            queryParams: {
+                populate: {
+                    Name: '*',
+                    Text: '*',
+                    Logo: {
+                        populate: '*',
+                    },
+                    Enabled: '*',
+                    sortOrder: '*',
+                    relatedSuccessStory: '*',
+                    author: {
+                        populate: {
+                            name: '*',
+                            role: '*',
+                            avatar: {
+                                populate: '*',
+                            },
+                        },
+                    },
+                },
+            },
+        },
         'vanity-logo',
         'job-posting',
         'employee',

@@ -7,9 +7,13 @@ import {
     isSeattleDataGuyLogo,
 } from './styles.module.less';
 
-const imgSize = 110;
+const imgSize = 67;
 
 const TestimonialAvatar = ({ logo, name }) => {
+    if (!logo?.localFile) {
+        return null;
+    }
+
     const isImageSvg = logo.localFile.extension === 'svg';
 
     return (

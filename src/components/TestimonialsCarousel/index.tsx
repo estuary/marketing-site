@@ -1,5 +1,6 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import { Divider } from '@mui/material';
+import clsx from 'clsx';
 import Carousel from '../Carousel';
 import InternalLink from '../InternalLink';
 import ArrowRightIcon from '../../svgs/arrow-right-2.svg';
@@ -10,6 +11,7 @@ import {
     slide,
     header,
     authorInfoWrapper,
+    threeRowsText,
 } from './styles.module.less';
 
 type Testimonial = {
@@ -18,10 +20,12 @@ type Testimonial = {
     name: string;
     text: string;
     author?: {
-        // TODO: Remove optional chaining (added for testing)
-        name?: string;
-        role?: string;
-        avatar?: any;
+        name: string;
+        role: string;
+        avatar: any;
+    };
+    relatedSuccessStory?: {
+        slug: string;
     };
 };
 
@@ -39,34 +43,37 @@ const TestimonialsCarousel = ({
             allStrapiTestimonial(sort: { Name: DESC }) {
                 nodes {
                     name: Name
-                    # author {
-                    #     name
-                    #     role
-                    #     avatar {
-                    #         localFile {
-                    #             childImageSharp {
-                    #                 gatsbyImageData(
-                    #                     layout: CONSTRAINED
-                    #                    placeholder: NONE
-                    #                    quality: 100
-                    #                    width: 67
-                    #                )
-                    #           }
-                    #           extension
-                    #           publicURL
-                    #      }
-                    #    }
-                    # }
+                    author {
+                        name
+                        role
+                        avatar {
+                            localFile {
+                                childImageSharp {
+                                    gatsbyImageData(
+                                        layout: CONSTRAINED
+                                        placeholder: NONE
+                                        quality: 100
+                                        width: 69
+                                    )
+                                }
+                                extension
+                                publicURL
+                            }
+                        }
+                    }
                     text: Text
                     id
+                    relatedSuccessStory {
+                        slug: Slug
+                    }
                     logo: Logo {
                         localFile {
                             childImageSharp {
                                 gatsbyImageData(
-                                    layout: CONSTRAINED
+                                    layout: FULL_WIDTH
                                     placeholder: NONE
                                     quality: 100
-                                    width: 110
+                                    width: 67
                                 )
                             }
                             extension
@@ -90,27 +97,55 @@ const TestimonialsCarousel = ({
             slideGap="32px"
             className={container}
         >
-            {testimonials.map(({ id, logo, name, text }: Testimonial) => (
-                <div key={id} className={slide}>
-                    <div className={header}>
-                        <TestimonialAvatar name={name} logo={logo} />
-                        <div className={authorInfoWrapper}>
-                            <span>{name}</span>
-                            <span>Position, Company</span>
+            {testimonials.map(
+                ({
+                    id,
+                    logo,
+                    name,
+                    text,
+                    author,
+                    relatedSuccessStory,
+                }: Testimonial) => (
+                    <div
+                        key={id}
+                        className={clsx(
+                            slide,
+                            relatedSuccessStory ? threeRowsText : null
+                        )}
+                    >
+                        <div className={header}>
+                            <TestimonialAvatar
+                                name={name}
+                                logo={author?.avatar ?? logo}
+                            />
+                            <div className={authorInfoWrapper}>
+                                <h3>{author?.name ?? name}</h3>
+                                {author?.avatar ? (
+                                    <span>
+                                        {author.role}, {name}
+                                    </span>
+                                ) : null}
+                            </div>
+                            {author?.avatar ? (
+                                <TestimonialAvatar name={name} logo={logo} />
+                            ) : null}
                         </div>
-                        <TestimonialAvatar name={name} logo={logo} />
+                        <Divider />
+                        <p className={theme === 'dark' ? isDarkTheme : null}>
+                            {text}
+                        </p>
+                        {relatedSuccessStory?.slug ? (
+                            <InternalLink
+                                href={`/success-stories/${relatedSuccessStory.slug}`}
+                                target="_blank"
+                            >
+                                Read the Success Story
+                                <ArrowRightIcon />
+                            </InternalLink>
+                        ) : null}
                     </div>
-                    <Divider />
-                    <h3>Lorem ipsum dolor sit amet, consectetur elit.</h3>
-                    <p className={theme === 'dark' ? isDarkTheme : null}>
-                        {text}
-                    </p>
-                    <InternalLink href="/" target="_blank">
-                        Read the Success Story
-                        <ArrowRightIcon />
-                    </InternalLink>
-                </div>
-            ))}
+                )
+            )}
         </Carousel>
     );
 };
