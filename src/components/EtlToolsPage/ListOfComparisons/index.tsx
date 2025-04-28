@@ -23,7 +23,7 @@ const a11yProps = (vendorId: string) => ({
 });
 
 const tabStyling = {
-    'border': '1px solid #5072EB4D',
+    'border': '1px solid var(--dark-border-color)',
     'borderRadius': '100px',
     'textTransform': 'none',
     'color': 'var(--dark-blue)',
@@ -89,14 +89,18 @@ const ListOfComparisons = ({ estuaryVendor, vendors }: SectionThreeProps) => {
                                 disableRipple
                                 label={
                                     <div className={tabLabel}>
-                                        <GatsbyImage
-                                            image={
-                                                logo.localFile.childImageSharp
-                                                    ?.gatsbyImageData
-                                            }
-                                            alt={`${name} Logo`}
-                                            className={itemImage}
-                                        />
+                                        {logo.localFile.childImageSharp
+                                            ?.gatsbyImageData ? (
+                                            <GatsbyImage
+                                                image={
+                                                    logo.localFile
+                                                        .childImageSharp
+                                                        .gatsbyImageData
+                                                }
+                                                alt={`${name} Logo`}
+                                                className={itemImage}
+                                            />
+                                        ) : null}
                                         <span>{name}</span>
                                         {selectedVendorId === id ? (
                                             <Checkmark
