@@ -1,9 +1,9 @@
-import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import TestimonialsCarousel from '../../TestimonialsCarousel';
 import Container from '../../Container';
 import G2LogoIcon from '../../../svgs/g2-logo.svg';
 import FiveStarsIcon from '../../../svgs/five-stars.svg';
 import {
+    wrapper,
     container,
     header,
     headerRightColumn,
@@ -13,7 +13,7 @@ import {
 
 const WhatPeopleAreSaying = () => {
     return (
-        <section className={defaultWrapperDarkBlue}>
+        <section className={wrapper}>
             <Container isVertical isDarkTheme className={container}>
                 <div className={header}>
                     <h2>

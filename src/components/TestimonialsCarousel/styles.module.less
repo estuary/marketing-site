@@ -2,7 +2,6 @@
 
 .container {
   .globalMaxWidth;
-  margin-right: 0;
   padding-right: 0;
   margin-left: 0;
 }
@@ -32,7 +31,7 @@
     margin-bottom: auto;
   }
 
-  @media (max-width: 425px) {
+  @media (max-width: 600px) {
     padding: 16px;
     min-width: 302px;
   }
@@ -47,7 +46,9 @@
   display: flex;
   align-items: center;
   gap: 24px;
+}
 
+.headerWithAuthor {
   @media (max-width: 768px) {
     flex-wrap: wrap;
     justify-content: space-between;
@@ -72,7 +73,7 @@
     color: var(--white);
     margin: 0;
 
-    @media (max-width: 425px) {
+    @media (max-width: 600px) {
       font-size: 1rem;
       line-height: 33.6px;
     }

@@ -12,6 +12,7 @@ import {
     header,
     authorInfoWrapper,
     threeRowsText,
+    headerWithAuthor,
 } from './styles.module.less';
 
 type Testimonial = {
@@ -93,7 +94,6 @@ const TestimonialsCarousel = ({
             arrowColor={theme === 'light' ? 'var(--white)' : 'var(--grey)'}
             options={{ align: 'start' }}
             slideSize="30%"
-            slideHorizontalMargin="0"
             slideGap="32px"
             className={container}
         >
@@ -113,7 +113,12 @@ const TestimonialsCarousel = ({
                             relatedSuccessStory ? threeRowsText : null
                         )}
                     >
-                        <div className={header}>
+                        <div
+                            className={clsx(
+                                header,
+                                author ? headerWithAuthor : null
+                            )}
+                        >
                             <TestimonialAvatar
                                 name={name}
                                 logo={author?.avatar ?? logo}

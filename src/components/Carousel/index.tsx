@@ -33,7 +33,6 @@ type CarouselProps = HTMLAttributes<HTMLDivElement> & {
     hasFullWidthSlide?: boolean;
     hasMultipleItemsSlide?: boolean;
     slideSize?: string;
-    slideHorizontalMargin?: string;
     slideGap?: string;
     hasViewport?: boolean;
 };
@@ -48,7 +47,6 @@ const Carousel = ({
     hasFullWidthSlide = false,
     hasMultipleItemsSlide,
     slideSize,
-    slideHorizontalMargin,
     slideGap,
     hasViewport,
     ...rest
@@ -67,9 +65,6 @@ const Carousel = ({
 
     const containerStyles: CSSProperties = {};
     if (slideSize) containerStyles['--slide-size'] = slideSize;
-    if (slideHorizontalMargin) {
-        containerStyles['--slide-horizontal-margin'] = slideHorizontalMargin;
-    }
     if (slideGap) containerStyles['--slide-gap'] = slideGap;
     const styleProps = Object.keys(containerStyles).length
         ? containerStyles

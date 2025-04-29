@@ -1,8 +1,7 @@
 import { useMediaQuery } from '@mui/material';
-import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import Carousel from '../../Carousel';
 import Container from '../../Container';
-import { container, planCardsWrapper } from './styles.module.less';
+import { wrapper, container, planCardsWrapper } from './styles.module.less';
 import PlanCard from './PlanCard';
 import { plans } from './utils';
 
@@ -14,14 +13,13 @@ const ChooseYourPlan = () => {
     const isMobile = useMediaQuery('(max-width:1024px)');
 
     return (
-        <section className={defaultWrapperGrey}>
+        <section className={wrapper}>
             <Container isVertical className={container}>
                 <h2>Choose your plan</h2>
                 {isMobile ? (
                     <Carousel
                         aria-label="Pricing plan carousel"
                         hasArrow
-                        hasViewport
                         arrowColor="var(--grey)"
                         options={{
                             startIndex: 1,
