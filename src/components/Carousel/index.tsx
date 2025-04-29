@@ -1,4 +1,4 @@
-import { Children, CSSProperties, HTMLAttributes, ReactNode } from 'react';
+import { Children, HTMLAttributes, ReactNode } from 'react';
 import { EmblaOptionsType } from 'embla-carousel';
 import useEmblaCarousel from 'embla-carousel-react';
 import CircleIcon from '@mui/icons-material/Circle';
@@ -63,12 +63,13 @@ const Carousel = ({
         onNextButtonClick,
     } = usePrevNextButtons(emblaApi);
 
-    const containerStyles: CSSProperties = {};
-    if (slideSize) containerStyles['--slide-size'] = slideSize;
-    if (slideGap) containerStyles['--slide-gap'] = slideGap;
-    const styleProps = Object.keys(containerStyles).length
-        ? containerStyles
-        : undefined;
+    const containerStyles = {};
+    if (slideSize) {
+        containerStyles['--slide-size'] = slideSize;
+    }
+    if (slideGap) {
+        containerStyles['--slide-gap'] = slideGap;
+    }
 
     return (
         <div
@@ -77,7 +78,11 @@ const Carousel = ({
                 hasMultipleItemsSlide ? threeItemsSlide : null,
                 rest.className
             )}
-            style={styleProps}
+            style={
+                Object.keys(containerStyles).length
+                    ? containerStyles
+                    : undefined
+            }
         >
             <div className={hasViewport ? viewport : null} ref={emblaRef}>
                 <div className={slideWrapper}>

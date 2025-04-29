@@ -15,17 +15,23 @@
   overflow: hidden;
 }
 
+.slide {
+  transform: translate3d(0, 0, 0);
+  flex: 0 0 calc(var(--slide-size) * 1.3);
+  margin: 0;
+}
+
 .slideWrapper {
   display: flex;
   align-items: stretch;
   touch-action: pan-y pinch-zoom;
   gap: var(--slide-gap);
-}
 
-.slide {
-  transform: translate3d(0, 0, 0);
-  flex: 0 0 calc(var(--slide-size) * 1.3);
-  margin: 0;
+  .slide:last-of-type {
+    @media (min-width: 426px) {
+      padding-right: 60px;
+    }
+  }
 }
 
 .oneContentSlide {

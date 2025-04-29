@@ -1,5 +1,6 @@
 import { GatsbyImage } from 'gatsby-plugin-image';
 import clsx from 'clsx';
+import { ImageType } from '../../../../shared';
 import {
     avatarWrapper,
     avatarSvg,
@@ -9,16 +10,31 @@ import {
 
 const imgSize = 67;
 
-const TestimonialAvatar = ({ logo, name }) => {
+interface LocalFile extends ImageType {
+    extension: string;
+    publicURL: string;
+}
+
+interface TestimonialAvatarProps {
+    logo?: {
+        localFile: LocalFile;
+    };
+    name: string;
+    className?: string;
+}
+
+const TestimonialAvatar = ({
+    logo,
+    name,
+    className,
+}: TestimonialAvatarProps) => {
     if (!logo?.localFile) {
         return null;
     }
 
-    const isImageSvg = logo.localFile.extension === 'svg';
-
     return (
-        <div className={avatarWrapper}>
-            {isImageSvg ? (
+        <div className={clsx(avatarWrapper, className)}>
+            {logo.localFile.extension === 'svg' ? (
                 <img
                     src={logo.localFile.publicURL}
                     alt={`${name} avatar`}
@@ -27,16 +43,16 @@ const TestimonialAvatar = ({ logo, name }) => {
                     className={avatarSvg}
                     loading="lazy"
                 />
-            ) : (
+            ) : logo.localFile.childImageSharp?.gatsbyImageData ? (
                 <GatsbyImage
-                    image={logo.localFile.childImageSharp?.gatsbyImageData}
+                    image={logo.localFile.childImageSharp.gatsbyImageData}
                     alt={`${name} avatar`}
                     className={clsx(
                         avatarImg,
                         name === 'Seattle Data Guy' && isSeattleDataGuyLogo
                     )}
                 />
-            )}
+            ) : null}
         </div>
     );
 };

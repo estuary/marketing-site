@@ -13,6 +13,7 @@ import {
     authorInfoWrapper,
     threeRowsText,
     headerWithAuthor,
+    companyLogoWrapper,
 } from './styles.module.less';
 
 type Testimonial = {
@@ -74,7 +75,7 @@ const TestimonialsCarousel = ({
                                     layout: FULL_WIDTH
                                     placeholder: NONE
                                     quality: 100
-                                    width: 67
+                                    width: 48
                                 )
                             }
                             extension
@@ -132,7 +133,11 @@ const TestimonialsCarousel = ({
                                 ) : null}
                             </div>
                             {author?.avatar ? (
-                                <TestimonialAvatar name={name} logo={logo} />
+                                <TestimonialAvatar
+                                    name={name}
+                                    logo={logo}
+                                    className={companyLogoWrapper}
+                                />
                             ) : null}
                         </div>
                         <Divider />
