@@ -11,25 +11,10 @@ import {
     slide,
     header,
     authorInfoWrapper,
-    threeRowsText,
     headerWithAuthor,
     companyLogoWrapper,
 } from './styles.module.less';
-
-type Testimonial = {
-    id: string;
-    logo: any;
-    name: string;
-    text: string;
-    author?: {
-        name: string;
-        role: string;
-        avatar: any;
-    };
-    relatedSuccessStory?: {
-        slug: string;
-    };
-};
+import { getSortedTestimonials } from './utils';
 
 type TestimonialsCarouselProps = {
     theme?: 'light' | 'dark';
@@ -42,7 +27,7 @@ const TestimonialsCarousel = ({
         allStrapiTestimonial: { nodes: testimonials },
     } = useStaticQuery(graphql`
         query GetTestimonials {
-            allStrapiTestimonial(sort: { Name: DESC }) {
+            allStrapiTestimonial(sort: { createdAt: DESC }) {
                 nodes {
                     name: Name
                     author {
@@ -87,6 +72,8 @@ const TestimonialsCarousel = ({
         }
     `);
 
+    const orderedTestimonials = getSortedTestimonials(testimonials);
+
     return (
         <Carousel
             hasArrow
@@ -98,22 +85,9 @@ const TestimonialsCarousel = ({
             slideGap="32px"
             className={container}
         >
-            {testimonials.map(
-                ({
-                    id,
-                    logo,
-                    name,
-                    text,
-                    author,
-                    relatedSuccessStory,
-                }: Testimonial) => (
-                    <div
-                        key={id}
-                        className={clsx(
-                            slide,
-                            relatedSuccessStory ? threeRowsText : null
-                        )}
-                    >
+            {orderedTestimonials.map(
+                ({ id, logo, name, text, author, relatedSuccessStory }) => (
+                    <div key={id} className={slide}>
                         <div
                             className={clsx(
                                 header,
