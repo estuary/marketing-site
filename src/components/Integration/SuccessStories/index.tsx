@@ -20,7 +20,7 @@ const SuccessStories = ({ hasRelatedArticles }: SuccessStoriesProps) => {
         query GetIntegrationSuccessStories {
             allStrapiCaseStudy(
                 filter: { Slug: { in: ["headset", "forward", "prodege"] } }
-                sort: { fields: [createdAt], order: DESC }
+                sort: { createdAt: DESC }
             ) {
                 nodes {
                     title: Title
