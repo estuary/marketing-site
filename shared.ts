@@ -129,7 +129,7 @@ export interface Vendor {
     id: string;
     name: string;
     logo: {
-        localFile: ImageType;
+        localFile: Required<ImageType>;
     };
     slugKey: string;
     useCases: {

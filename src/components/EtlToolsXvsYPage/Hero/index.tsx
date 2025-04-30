@@ -71,16 +71,13 @@ const Hero = ({ vendors, xVendor, yVendor }: SectionOneProps) => {
                 />
                 <div className={rightColumn}>
                     <div className={clsx(vendorLogo, leftVendorLogo)}>
-                        {xVendor.logo.localFile.childImageSharp
-                            ?.gatsbyImageData ? (
-                            <GatsbyImage
-                                image={
-                                    xVendor.logo.localFile.childImageSharp
-                                        .gatsbyImageData
-                                }
-                                {...commonXvendorImageProps}
-                            />
-                        ) : null}
+                        <GatsbyImage
+                            image={
+                                xVendor.logo.localFile.childImageSharp
+                                    .gatsbyImageData
+                            }
+                            {...commonXvendorImageProps}
+                        />
                     </div>
                     <StaticImage
                         src="../../../images/lp-comparison/xVendor-vs-yVendor.png"
@@ -89,16 +86,13 @@ const Hero = ({ vendors, xVendor, yVendor }: SectionOneProps) => {
                         placeholder="blurred"
                     />
                     <div className={clsx(vendorLogo, rightVendorLogo)}>
-                        {yVendor.logo.localFile.childImageSharp
-                            ?.gatsbyImageData ? (
-                            <GatsbyImage
-                                image={
-                                    yVendor.logo.localFile.childImageSharp
-                                        .gatsbyImageData
-                                }
-                                {...commonYvendorImageProps}
-                            />
-                        ) : null}
+                        <GatsbyImage
+                            image={
+                                yVendor.logo.localFile.childImageSharp
+                                    .gatsbyImageData
+                            }
+                            {...commonYvendorImageProps}
+                        />
                     </div>
                 </div>
             </Container>

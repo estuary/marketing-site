@@ -89,18 +89,14 @@ const ListOfComparisons = ({ estuaryVendor, vendors }: SectionThreeProps) => {
                                 disableRipple
                                 label={
                                     <div className={tabLabel}>
-                                        {logo.localFile.childImageSharp
-                                            ?.gatsbyImageData ? (
-                                            <GatsbyImage
-                                                image={
-                                                    logo.localFile
-                                                        .childImageSharp
-                                                        .gatsbyImageData
-                                                }
-                                                alt={`${name} Logo`}
-                                                className={itemImage}
-                                            />
-                                        ) : null}
+                                        <GatsbyImage
+                                            image={
+                                                logo.localFile.childImageSharp
+                                                    .gatsbyImageData
+                                            }
+                                            alt={`${name} Logo`}
+                                            className={itemImage}
+                                        />
                                         <span>{name}</span>
                                         {selectedVendorId === id ? (
                                             <Checkmark
