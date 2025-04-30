@@ -64,6 +64,7 @@ const Carousel = ({
     } = usePrevNextButtons(emblaApi);
 
     const containerStyles = {};
+
     if (slideSize) {
         containerStyles['--slide-size'] = slideSize;
     }
@@ -78,11 +79,7 @@ const Carousel = ({
                 hasMultipleItemsSlide ? threeItemsSlide : null,
                 rest.className
             )}
-            style={
-                Object.keys(containerStyles).length
-                    ? containerStyles
-                    : undefined
-            }
+            style={containerStyles}
         >
             <div className={hasViewport ? viewport : null} ref={emblaRef}>
                 <div className={slideWrapper}>
