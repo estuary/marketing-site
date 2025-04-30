@@ -15,26 +15,29 @@ interface Testimonial {
 
 const testimonialPriorityOrder = ['Resend', 'Forward', 'Headset'];
 
-export function getSortedTestimonials(items: Testimonial[]): Testimonial[] {
-    const priorityMap = new Map<string, Testimonial>();
-    const others: Testimonial[] = [];
+export function getSortedTestimonials(
+    testimonials: Testimonial[]
+): Testimonial[] {
+    const testimonialByPriority = new Map<string, Testimonial>();
+    const nonPriorityTestimonials: Testimonial[] = [];
 
-    for (const item of items) {
-        const matchKey = testimonialPriorityOrder.find((kw) =>
-            item.name.includes(kw)
+    for (const testimonial of testimonials) {
+        const priorityKeyword = testimonialPriorityOrder.find((keyword) =>
+            testimonial.name.includes(keyword)
         );
-        if (matchKey) {
-            if (!priorityMap.has(matchKey)) {
-                priorityMap.set(matchKey, item);
+
+        if (priorityKeyword) {
+            if (!testimonialByPriority.has(priorityKeyword)) {
+                testimonialByPriority.set(priorityKeyword, testimonial);
             }
         } else {
-            others.push(item);
+            nonPriorityTestimonials.push(testimonial);
         }
     }
 
-    const prioritized = testimonialPriorityOrder
-        .map((kw) => priorityMap.get(kw))
+    const prioritizedTestimonials = testimonialPriorityOrder
+        .map((keyword) => testimonialByPriority.get(keyword))
         .filter((t): t is Testimonial => Boolean(t));
 
-    return [...prioritized, ...others];
+    return [...prioritizedTestimonials, ...nonPriorityTestimonials];
 }
