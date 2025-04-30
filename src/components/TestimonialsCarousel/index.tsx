@@ -12,7 +12,6 @@ import {
     header,
     authorInfoWrapper,
     headerWithAuthor,
-    companyLogoWrapper,
 } from './styles.module.less';
 import { getSortedTestimonials } from './utils';
 
@@ -40,7 +39,7 @@ const TestimonialsCarousel = ({
                                         layout: CONSTRAINED
                                         placeholder: NONE
                                         quality: 100
-                                        width: 69
+                                        width: 80
                                     )
                                 }
                                 extension
@@ -60,7 +59,7 @@ const TestimonialsCarousel = ({
                                     layout: FULL_WIDTH
                                     placeholder: NONE
                                     quality: 100
-                                    width: 48
+                                    width: 80
                                 )
                             }
                             extension
@@ -97,6 +96,7 @@ const TestimonialsCarousel = ({
                             <TestimonialAvatar
                                 name={name}
                                 logo={author?.avatar ?? logo}
+                                isLogo={!author?.avatar}
                             />
                             <div className={authorInfoWrapper}>
                                 <h3>{author?.name ?? name}</h3>
@@ -110,7 +110,7 @@ const TestimonialsCarousel = ({
                                 <TestimonialAvatar
                                     name={name}
                                     logo={logo}
-                                    className={companyLogoWrapper}
+                                    isLogo
                                 />
                             ) : null}
                         </div>

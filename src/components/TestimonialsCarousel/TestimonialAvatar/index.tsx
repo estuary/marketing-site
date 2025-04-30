@@ -3,12 +3,12 @@ import clsx from 'clsx';
 import { ImageType } from '../../../../shared';
 import {
     avatarWrapper,
-    avatarSvg,
     avatarImg,
     isSeattleDataGuyLogo,
+    logoStyle,
 } from './styles.module.less';
 
-const imgSize = 67;
+const imgSize = 80;
 
 interface LocalFile extends ImageType {
     extension: string;
@@ -20,27 +20,26 @@ interface TestimonialAvatarProps {
         localFile: LocalFile;
     };
     name: string;
-    className?: string;
+    isLogo?: boolean;
 }
 
 const TestimonialAvatar = ({
     logo,
     name,
-    className,
+    isLogo = false,
 }: TestimonialAvatarProps) => {
     if (!logo?.localFile) {
         return null;
     }
 
     return (
-        <div className={clsx(avatarWrapper, className)}>
+        <div className={clsx(avatarWrapper, isLogo ? logoStyle : null)}>
             {logo.localFile.extension === 'svg' ? (
                 <img
                     src={logo.localFile.publicURL}
                     alt={`${name} avatar`}
                     width={imgSize}
                     height={imgSize}
-                    className={avatarSvg}
                     loading="lazy"
                 />
             ) : logo.localFile.childImageSharp?.gatsbyImageData ? (
