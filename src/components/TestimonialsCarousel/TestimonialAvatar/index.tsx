@@ -4,8 +4,8 @@ import { ImageType } from '../../../../shared';
 import {
     avatarWrapper,
     avatarImg,
-    isSeattleDataGuyLogo,
-    logoStyle,
+    wideLogo,
+    notRoundedLogo,
 } from './styles.module.less';
 
 const imgSize = 80;
@@ -33,7 +33,22 @@ const TestimonialAvatar = ({
     }
 
     return (
-        <div className={clsx(avatarWrapper, isLogo ? logoStyle : null)}>
+        <div
+            className={clsx(
+                avatarWrapper,
+                isLogo &&
+                    [
+                        'Resend',
+                        'Forward',
+                        'Headset',
+                        'Recart',
+                        'Revunit',
+                    ].includes(name)
+                    ? wideLogo
+                    : null,
+                ['Flashpack', 'Pompato'].includes(name) ? notRoundedLogo : null
+            )}
+        >
             {logo.localFile.extension === 'svg' ? (
                 <img
                     src={logo.localFile.publicURL}
@@ -46,10 +61,7 @@ const TestimonialAvatar = ({
                 <GatsbyImage
                     image={logo.localFile.childImageSharp.gatsbyImageData}
                     alt={`${name} avatar`}
-                    className={clsx(
-                        avatarImg,
-                        name === 'Seattle Data Guy' && isSeattleDataGuyLogo
-                    )}
+                    className={avatarImg}
                 />
             ) : null}
         </div>
