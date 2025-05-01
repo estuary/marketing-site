@@ -1,14 +1,7 @@
 import { GatsbyImage } from 'gatsby-plugin-image';
 import clsx from 'clsx';
 import { ImageType } from '../../../../shared';
-import {
-    avatarWrapper,
-    avatarImg,
-    wideLogo,
-    notRoundedLogo,
-} from './styles.module.less';
-
-const imgSize = 80;
+import { imgWrapper, logoWrapper, avatarImg, img } from './styles.module.less';
 
 interface LocalFile extends ImageType {
     extension: string;
@@ -33,35 +26,19 @@ const TestimonialAvatar = ({
     }
 
     return (
-        <div
-            className={clsx(
-                avatarWrapper,
-                isLogo &&
-                    [
-                        'Resend',
-                        'Forward',
-                        'Headset',
-                        'Recart',
-                        'Revunit',
-                    ].includes(name)
-                    ? wideLogo
-                    : null,
-                ['Flashpack', 'Pompato'].includes(name) ? notRoundedLogo : null
-            )}
-        >
+        <div className={clsx(imgWrapper, isLogo ? logoWrapper : null)}>
             {logo.localFile.extension === 'svg' ? (
                 <img
                     src={logo.localFile.publicURL}
                     alt={`${name} avatar`}
-                    width={imgSize}
-                    height={imgSize}
+                    height={80}
                     loading="lazy"
                 />
             ) : logo.localFile.childImageSharp?.gatsbyImageData ? (
                 <GatsbyImage
                     image={logo.localFile.childImageSharp.gatsbyImageData}
                     alt={`${name} avatar`}
-                    className={avatarImg}
+                    className={clsx(img, isLogo ? null : avatarImg)}
                 />
             ) : null}
         </div>

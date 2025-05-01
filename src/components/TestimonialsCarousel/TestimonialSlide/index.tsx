@@ -27,7 +27,7 @@ interface TestimonialSlideProps {
     theme: 'light' | 'dark';
 }
 
-const TestimonialSlide: React.FC<TestimonialSlideProps> = ({
+const TestimonialSlide = ({
     id,
     logo,
     name,
@@ -35,7 +35,7 @@ const TestimonialSlide: React.FC<TestimonialSlideProps> = ({
     author,
     relatedSuccessStory,
     theme,
-}) => (
+}: TestimonialSlideProps) => (
     <div key={id} className={slide}>
         <div className={clsx(header, author ? headerWithAuthor : null)}>
             <TestimonialAvatar
