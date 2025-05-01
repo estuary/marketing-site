@@ -12,7 +12,7 @@ const SuccessStories = () => {
         allStrapiCaseStudy: { nodes: allSuccessStories },
     } = useStaticQuery(graphql`
         query GetAllHomepageSuccessStories {
-            allStrapiCaseStudy(sort: { fields: [createdAt], order: DESC }) {
+            allStrapiCaseStudy(sort: { createdAt: DESC }) {
                 nodes {
                     description: Description
                     title: Title

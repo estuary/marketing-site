@@ -4,7 +4,7 @@ import Seo from '../components/seo';
 import { normalizeConnector } from '../utils';
 import Hero from '../components/Integration/Hero';
 import ThreeQuickSteps from '../components/Integration/ThreeQuickSteps';
-import Testimonials from '../components/Integration/Testimonials';
+import Testimonials from '../components/TestimonialsSection';
 import EstuaryFlowVideo from '../components/Integration/EstuaryFlowVideo';
 import RelatedIntegrations from '../components/Integration/RelatedIntegrations';
 import RealTimeAndBatch from '../components/Integration/RealTimeAndBatch';

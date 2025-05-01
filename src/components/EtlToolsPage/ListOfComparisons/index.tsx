@@ -23,7 +23,7 @@ const a11yProps = (vendorId: string) => ({
 });
 
 const tabStyling = {
-    'border': '1px solid #5072EB4D',
+    'border': '1px solid var(--dark-border-color)',
     'borderRadius': '100px',
     'textTransform': 'none',
     'color': 'var(--dark-blue)',
@@ -92,7 +92,7 @@ const ListOfComparisons = ({ estuaryVendor, vendors }: SectionThreeProps) => {
                                         <GatsbyImage
                                             image={
                                                 logo.localFile.childImageSharp
-                                                    ?.gatsbyImageData
+                                                    .gatsbyImageData
                                             }
                                             alt={`${name} Logo`}
                                             className={itemImage}

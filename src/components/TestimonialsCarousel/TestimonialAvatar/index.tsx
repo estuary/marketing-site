@@ -1,38 +1,46 @@
 import { GatsbyImage } from 'gatsby-plugin-image';
 import clsx from 'clsx';
-import {
-    avatarWrapper,
-    avatarSvg,
-    avatarImg,
-    isSeattleDataGuyLogo,
-} from './styles.module.less';
+import { ImageType } from '../../../../shared';
+import { imgWrapper, logoWrapper, avatarImg, img } from './styles.module.less';
 
-const imgSize = 110;
+interface LocalFile extends ImageType {
+    extension: string;
+    publicURL: string;
+}
 
-const TestimonialAvatar = ({ logo, name }) => {
-    const isImageSvg = logo.localFile.extension === 'svg';
+interface TestimonialAvatarProps {
+    logo?: {
+        localFile: LocalFile;
+    };
+    name: string;
+    isLogo?: boolean;
+}
+
+const TestimonialAvatar = ({
+    logo,
+    name,
+    isLogo = false,
+}: TestimonialAvatarProps) => {
+    if (!logo?.localFile) {
+        return null;
+    }
 
     return (
-        <div className={avatarWrapper}>
-            {isImageSvg ? (
+        <div className={clsx(imgWrapper, isLogo ? logoWrapper : null)}>
+            {logo.localFile.extension === 'svg' ? (
                 <img
                     src={logo.localFile.publicURL}
                     alt={`${name} avatar`}
-                    width={imgSize}
-                    height={imgSize}
-                    className={avatarSvg}
+                    height={80}
                     loading="lazy"
                 />
-            ) : (
+            ) : logo.localFile.childImageSharp?.gatsbyImageData ? (
                 <GatsbyImage
-                    image={logo.localFile.childImageSharp?.gatsbyImageData}
+                    image={logo.localFile.childImageSharp.gatsbyImageData}
                     alt={`${name} avatar`}
-                    className={clsx(
-                        avatarImg,
-                        name === 'Seattle Data Guy' && isSeattleDataGuyLogo
-                    )}
+                    className={clsx(img, isLogo ? null : avatarImg)}
                 />
-            )}
+            ) : null}
         </div>
     );
 };

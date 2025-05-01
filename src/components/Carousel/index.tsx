@@ -1,8 +1,8 @@
+import { Children, HTMLAttributes, ReactNode } from 'react';
 import { EmblaOptionsType } from 'embla-carousel';
 import useEmblaCarousel from 'embla-carousel-react';
 import CircleIcon from '@mui/icons-material/Circle';
 import clsx from 'clsx';
-import { Children, HTMLAttributes, ReactNode } from 'react';
 import ChevronLeftIcon from '../../svgs/chevron-left.svg';
 import ChevronRightIcon from '../../svgs/chevron-right.svg';
 import { useDotButton } from './hooks/useDotButton';
@@ -19,6 +19,7 @@ import {
     dot,
     oneContentSlide,
     navigation,
+    fullWidthNavigation,
     dotSelected,
 } from './styles.module.less';
 
@@ -31,6 +32,9 @@ type CarouselProps = HTMLAttributes<HTMLDivElement> & {
     arrowColor?: string;
     hasFullWidthSlide?: boolean;
     hasMultipleItemsSlide?: boolean;
+    slideSize?: string;
+    slideGap?: string;
+    hasViewport?: boolean;
 };
 
 const Carousel = ({
@@ -42,6 +46,9 @@ const Carousel = ({
     arrowColor = 'var(--white)',
     hasFullWidthSlide = false,
     hasMultipleItemsSlide,
+    slideSize,
+    slideGap,
+    hasViewport,
     ...rest
 }: CarouselProps) => {
     const [emblaRef, emblaApi] = useEmblaCarousel(options);
@@ -56,14 +63,25 @@ const Carousel = ({
         onNextButtonClick,
     } = usePrevNextButtons(emblaApi);
 
+    const containerStyles = {};
+
+    if (slideSize) {
+        containerStyles['--slide-size'] = slideSize;
+    }
+    if (slideGap) {
+        containerStyles['--slide-gap'] = slideGap;
+    }
+
     return (
         <div
             className={clsx(
                 container,
-                hasMultipleItemsSlide ? threeItemsSlide : null
+                hasMultipleItemsSlide ? threeItemsSlide : null,
+                rest.className
             )}
+            style={containerStyles}
         >
-            <div className={viewport} ref={emblaRef}>
+            <div className={hasViewport ? viewport : null} ref={emblaRef}>
                 <div className={slideWrapper}>
                     {Children.map(children, (child, index) => (
                         <div
@@ -79,7 +97,12 @@ const Carousel = ({
                 </div>
             </div>
 
-            <div className={navigation}>
+            <div
+                className={clsx(
+                    navigation,
+                    !hasViewport ? fullWidthNavigation : null
+                )}
+            >
                 {hasArrow ? (
                     <button
                         onClick={onPrevButtonClick}

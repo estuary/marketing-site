@@ -119,7 +119,7 @@ interface HasDollarSign {
     subText?: SubText;
 }
 
-interface ImageType {
+export interface ImageType {
     childImageSharp?: {
         gatsbyImageData: IGatsbyImageData;
     };
@@ -129,7 +129,7 @@ export interface Vendor {
     id: string;
     name: string;
     logo: {
-        localFile: ImageType;
+        localFile: Required<ImageType>;
     };
     slugKey: string;
     useCases: {
