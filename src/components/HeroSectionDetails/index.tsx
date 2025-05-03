@@ -3,7 +3,7 @@ import SubscriptionBenefits from '../SubscriptionBenefits';
 import { container, buttonsWrapper } from './styles.module.less';
 
 interface HeroSectionDetailsProps {
-    title: ReactNode;
+    title?: ReactNode;
     description?: ReactNode;
     ctaButtons?: ReactNode;
     additionalElementsOnTop?: ReactNode;
@@ -22,7 +22,7 @@ const HeroSectionDetails = ({
     return (
         <div className={container}>
             {additionalElementsOnTop ? additionalElementsOnTop : null}
-            <h1>{title}</h1>
+            {title ? <h1>{title}</h1> : null}
             {description ? <p>{description}</p> : null}
             {ctaButtons ? (
                 <div className={buttonsWrapper}>{ctaButtons}</div>
