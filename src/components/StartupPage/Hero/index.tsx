@@ -67,7 +67,7 @@ const Hero = () => {
                 <div className={imageWrapperOne}>
                     <StaticImage
                         src="../../../images/startup-page/hero-image-1.png"
-                        alt="" // Ask to Sourabh
+                        alt="" // TODO: Ask to Sourabh
                         quality={100}
                         placeholder="blurred"
                         loading="eager"
@@ -83,7 +83,7 @@ const Hero = () => {
                 <div className={imageWrapperTwo}>
                     <StaticImage
                         src="../../../images/startup-page/hero-image-2.png"
-                        alt="" // Ask to Sourabh
+                        alt="" // TODO: Ask to Sourabh
                         quality={100}
                         placeholder="blurred"
                         loading="eager"

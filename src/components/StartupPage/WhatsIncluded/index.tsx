@@ -54,7 +54,7 @@ const WhatsIncluded = () => {
                     <div className={imageWrapper}>
                         <StaticImage
                             src="../../../images/startup-page/whats-included-image.png"
-                            alt="" // Ask to Sourabh
+                            alt="" // TODO: Ask to Sourabh
                             quality={100}
                             placeholder="blurred"
                             loading="eager"

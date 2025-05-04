@@ -23,7 +23,7 @@ const a11yProps = (vendorId: string) => ({
 });
 
 const tabStyling = {
-    'border': '1px solid var(--dark-border-color)',
+    'border': '1px solid var(--blue-30-opacity)',
     'borderRadius': '100px',
     'textTransform': 'none',
     'color': 'var(--dark-blue)',
@@ -40,7 +40,7 @@ const tabStyling = {
     },
 
     '&.Mui-selected': {
-        backgroundColor: 'var(--blue-15-percent)',
+        backgroundColor: 'var(--blue-15-opacity)',
         border: '2px solid var(--blue);',
         color: 'var(--dark-blue)',
     },
