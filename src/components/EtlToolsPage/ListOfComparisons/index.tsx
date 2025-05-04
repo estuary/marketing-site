@@ -40,7 +40,7 @@ const tabStyling = {
     },
 
     '&.Mui-selected': {
-        backgroundColor: '#5072EB26',
+        backgroundColor: 'var(--blue-15-percent)',
         border: '2px solid var(--blue);',
         color: 'var(--dark-blue)',
     },

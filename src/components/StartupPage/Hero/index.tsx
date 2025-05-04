@@ -9,7 +9,7 @@ import {
     iconWrapper,
     imageWrapperOne,
     imageWrapperTwo,
-} from './style.module.less';
+} from './styles.module.less';
 
 const Hero = () => {
     return (

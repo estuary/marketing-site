@@ -17,6 +17,11 @@
   img {
     max-width: 536px;
     max-height: 536px;
+
+    @media (max-width: 1024px) {
+      max-width: 100%;
+      max-height: 100%;
+    }
   }
 
   ul {
@@ -80,15 +85,11 @@
     }
 
     @media (max-width: 1024px) {
-      font-size: 0.875rem;
-    }
-
-    @media (max-width: 670px) {
-      font-size: 2.1vw;
+      font-size: 2.05vw;
     }
 
     @media (max-width: 425px) {
-      font-size: 2.3vw;
+      font-size: 2.35vw;
     }
   }
 
@@ -135,15 +136,11 @@
     }
 
     @media (max-width: 1024px) {
-      font-size: 0.81rem;
-    }
-
-    @media (max-width: 680px) {
       font-size: 1.9vw;
     }
 
     @media (max-width: 425px) {
-      font-size: 2.18vw;
+      font-size: 2.15vw;
     }
   }
 
@@ -171,68 +168,17 @@
 
   @media (max-width: 1420px) {
     span:first-of-type {
-      top: 2.9vw;
+      top: 7.6%;
       left: 11%;
     }
 
     span:nth-of-type(2) {
-      top: 2.9vw;
+      top: 7.6%;
     }
 
     span:last-of-type {
       top: 56%;
       left: 13.5%;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    span:first-of-type {
-      top: 2.6rem;
-      left: 3.65rem;
-    }
-
-    span:nth-of-type(2) {
-      top: 2.6rem;
-      left: 23.3rem;
-    }
-
-    span:last-of-type {
-      top: 18.75rem;
-      left: 4.5rem;
-    }
-  }
-
-  @media (max-width: 680px) {
-    span:first-of-type {
-      top: 6vw;
-      left: 11%;
-    }
-
-    span:nth-of-type(2) {
-      top: 6vw;
-      left: 69.5%;
-    }
-
-    span:last-of-type {
-      top: 44.2vw;
-      left: 13.5%;
-    }
-  }
-
-  @media (max-width: 425px) {
-    span:first-of-type {
-      top: 7.5%;
-      left: 10.5%;
-    }
-
-    span:nth-of-type(2) {
-      top: 7.5%;
-      left: 69.5%;
-    }
-
-    span:last-of-type {
-      top: 56%;
-      left: 13%;
     }
   }
 }

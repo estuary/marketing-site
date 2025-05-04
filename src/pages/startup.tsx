@@ -1,11 +1,13 @@
 import Layout from '../components/Layout';
 import Seo from '../components/seo';
 import Hero from '../components/StartupPage/Hero';
+import WhatsIncluded from '../components/StartupPage/WhatsIncluded';
 
 const StartupPage = () => {
     return (
         <Layout>
             <Hero />
+            <WhatsIncluded />
         </Layout>
     );
 };
