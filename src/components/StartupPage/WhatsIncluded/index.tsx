@@ -18,7 +18,7 @@ const WhatsIncluded = () => {
     return (
         <section className={defaultWrapperGrey}>
             <Container isVertical className={outerContainer}>
-                <h2>What&apos;s Included</h2>
+                <h2>What&apos;s included</h2>
                 <Container className={innerContainer}>
                     <div className={advatangeCardsWrapper}>
                         <AdvantageCard

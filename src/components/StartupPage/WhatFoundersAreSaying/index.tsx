@@ -25,7 +25,7 @@ const WhatFoundersAreSaying = () => {
                     </div>
                 </div>
                 <div className={rightColumn}>
-                    <h2>What Founders Are Saying</h2>
+                    <h2>What founders are saying</h2>
                     <p>
                         “We needed a platform that allowed us to give our
                         customers more ways to analyze and visualize their

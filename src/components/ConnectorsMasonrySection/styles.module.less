@@ -1,0 +1,133 @@
+@import '../../globalStyles/sections.module.less';
+@import '../../globalStyles/wrappers.module.less';
+
+@badgeColor: #A4B6F480;
+
+.sectionStyle {
+    .defaultWrapperDarkBlue;
+
+    max-width: 100vw;
+    overflow: hidden;
+}
+
+.darkSection {
+    .defaultWrapperGrey;
+}
+
+.container {
+    flex-direction: row;
+
+    h2 {
+        max-width: 530px;
+        text-align: left;
+        font-size: 2.5rem;
+        font-weight: 600;
+        line-height: 48px;
+        color: var(--blue);
+        margin: 0;
+
+        span {
+            color: var(--white);
+        }
+
+        @media (max-width: 1024px) {
+            max-width: 100%;
+        }
+    }
+
+    p {
+        text-align: left;
+        font-size: 1.25rem;
+        font-weight: 400;
+        line-height: 30px;
+        color: var(--white);
+        margin: 0;
+        max-width: 720px;
+
+        @media (max-width: 1024px) {
+            font-size: 1rem;
+            max-width: 100%;
+            margin: auto;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        flex-direction: column;
+    }
+}
+
+.darkContainer {
+
+    h2>span,
+    p {
+        color: var(--grey);
+    }
+
+    strong {
+        font-weight: 900;
+    }
+}
+
+.badgesWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 84px;
+
+    img,
+    .addBadge {
+        min-width: 120px;
+        min-height: 120px;
+    }
+
+    @media (max-width: 768px) {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    @media (max-width: 425px) {
+        gap: 32px;
+    }
+}
+
+.addBadge {
+    border: 1px dashed @badgeColor;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0C2032;
+    min-height: 120px;
+
+    span {
+        font-size: 3rem;
+        color: @badgeColor;
+        font-weight: 200;
+        margin-bottom: 4px;
+    }
+
+    @media (max-width: 768px) {
+        min-width: 120px;
+    }
+}
+
+.rightColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.starsWrapper {
+    margin-left: 16px;
+
+    p {
+        color: #7786B6;
+        font-size: 1rem;
+        line-height: 30px;
+    }
+
+    @media (max-width: 768px) {
+        margin: 12px 0 0 0;
+    }
+}
