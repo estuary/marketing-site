@@ -7,6 +7,24 @@
   position: absolute;
   max-width: 9%;
   z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 55px;
+
+  @media (max-width: 1700px) {
+    height: 3.5vw;
+  }
+
+  @media (max-width: 1024px) {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  @media (max-width: 995px) {
+    width: 16%;
+    height: 16%;
+  }
 }
 
 .leftVendorLogo {
@@ -17,4 +35,26 @@
 .rightVendorLogo {
   top: 64.5%;
   left: 78.5%;
+}
+
+@media (max-width: 1024px) {
+  .rightVendorLogo {
+    left: 39.5rem;
+  }
+}
+
+@media (max-width: 995px) {
+  .leftVendorLogo {
+    right: 63vw;
+  }
+
+  .rightVendorLogo {
+    left: 78%;
+  }
+}
+
+@media (max-width: 425px) {
+  .leftVendorLogo {
+    right: 78.5%;
+  }
 }
