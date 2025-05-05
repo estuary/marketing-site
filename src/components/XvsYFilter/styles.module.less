@@ -23,13 +23,36 @@
 }
 
 .selectItem {
-    align-items: flex-start;
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 .itemImage {
     width: 20px;
-    margin-right: 15px;
-    vertical-align: middle;
+}
+
+.connectorSelect {
+    :global(.MuiSelect-select) {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-right: auto;
+
+        @media (min-width: 961px), (max-width: 320px) {
+            span {
+                display: inline-block;
+                width: 100px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+
+                @media (max-width: 1485px) {
+                    max-width: 100%;
+                }
+            }
+        }
+    }
 }
 
 .darkTheme {
