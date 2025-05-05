@@ -19,7 +19,7 @@ const WhatFoundersAreSaying = () => {
                             alt="SHP logo"
                             color="var(--dark-blue)"
                             placeholder="blurred"
-                            width={280}
+                            width={310}
                             height={121}
                         />
                     </div>
