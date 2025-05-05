@@ -40,7 +40,12 @@ const StartupPage = () => {
 
 // TODO: Ask metadata to Sourabh
 export const Head = () => {
-    return <Seo title="" description="" />;
+    return (
+        <Seo
+            title="Estuary Flow for Startups"
+            description="Estuary Flow automates real-time data pipelines from 200+ sources into your warehouse, data lake, or other destinations, empowering flexible, on-demand analytics."
+        />
+    );
 };
 
 export default StartupPage;
