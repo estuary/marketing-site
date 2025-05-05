@@ -3,6 +3,7 @@ import Layout from '../components/Layout';
 import Seo from '../components/seo';
 import GetStarted from '../components/StartupPage/GetStarted';
 import Hero from '../components/StartupPage/Hero';
+import ReadyToGo from '../components/StartupPage/ReadyToGo';
 import WhatFoundersAreSaying from '../components/StartupPage/WhatFoundersAreSaying';
 import WhatsIncluded from '../components/StartupPage/WhatsIncluded';
 
@@ -30,6 +31,7 @@ const StartupPage = () => {
                 isDarkTheme
             />
             <GetStarted />
+            <ReadyToGo />
         </Layout>
     );
 };
