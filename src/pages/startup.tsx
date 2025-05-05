@@ -2,6 +2,7 @@ import ConnectorsMasonrySection from '../components/ConnectorsMasonrySection';
 import Layout from '../components/Layout';
 import Seo from '../components/seo';
 import GetStarted from '../components/StartupPage/GetStarted';
+import HaveQuestions from '../components/StartupPage/HaveQuestions';
 import Hero from '../components/StartupPage/Hero';
 import ReadyToGo from '../components/StartupPage/ReadyToGo';
 import WhatFoundersAreSaying from '../components/StartupPage/WhatFoundersAreSaying';
@@ -32,6 +33,7 @@ const StartupPage = () => {
             />
             <GetStarted />
             <ReadyToGo />
+            <HaveQuestions />
         </Layout>
     );
 };

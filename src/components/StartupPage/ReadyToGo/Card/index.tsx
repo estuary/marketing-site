@@ -14,7 +14,7 @@ const Card = ({ image, title, href }: CardProps) => {
             {image}
             <div>
                 <h3>{title}</h3>
-                <ArrowRightIcon />
+                <ArrowRightIcon color="var(--blue)" />
             </div>
         </a>
     );

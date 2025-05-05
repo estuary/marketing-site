@@ -170,7 +170,7 @@ const Card = ({
 
                 <div className={cardFooter}>
                     {footerTag ? <span>{footerTag}</span> : null}
-                    <ArrowRight2 />
+                    <ArrowRight2 color="var(--blue)" />
                 </div>
             </CardLink>
         </li>
