@@ -38,12 +38,11 @@ const StartupPage = () => {
     );
 };
 
-// TODO: Ask metadata to Sourabh
 export const Head = () => {
     return (
         <Seo
-            title="Estuary Flow for Startups"
-            description="Estuary Flow automates real-time data pipelines from 200+ sources into your warehouse, data lake, or other destinations, empowering flexible, on-demand analytics."
+            title="Estuary for Startups: Get $2K in Free Credits for 12 Months"
+            description="Early-stage startup? Get $2,000 in free Estuary Flow credits for real-time data pipelines. Connect databases, cloud apps, and streams—no accelerator needed."
         />
     );
 };

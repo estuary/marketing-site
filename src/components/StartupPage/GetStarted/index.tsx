@@ -15,7 +15,7 @@ const GetStarted = () => {
                         image={
                             <StaticImage
                                 src="../../../images/startup-page/guides-and-resources.png"
-                                alt="" // TODO: Ask Sourabh
+                                alt="Guides and tutorials available in the Estuary Flow startup program."
                                 placeholder="blurred"
                                 quality={100}
                             />
@@ -27,7 +27,7 @@ const GetStarted = () => {
                         image={
                             <StaticImage
                                 src="../../../images/startup-page/apply-in-minutes.png"
-                                alt="" // TODO: Ask Sourabh
+                                alt="Quick application process to join the Estuary Flow startup program."
                                 placeholder="blurred"
                                 quality={100}
                             />

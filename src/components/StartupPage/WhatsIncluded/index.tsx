@@ -54,7 +54,7 @@ const WhatsIncluded = () => {
                     <div className={imageWrapper}>
                         <StaticImage
                             src="../../../images/startup-page/whats-included-image.png"
-                            alt="" // TODO: Ask to Sourabh
+                            alt=" Overview of Estuary Flow startup benefits: $2K credits, tech support, guides, and eligibility requirements."
                             quality={100}
                             placeholder="blurred"
                             loading="eager"

@@ -21,7 +21,7 @@ const ReadyToGo = () => {
                         image={
                             <StaticImage
                                 src="../../../images/startup-page/connectors.png"
-                                alt="" // TODO: Ask Sourabh
+                                alt="Estuary Flow's supported data connectors for real-time sync"
                                 placeholder="blurred"
                                 quality={100}
                             />
@@ -33,7 +33,7 @@ const ReadyToGo = () => {
                         image={
                             <StaticImage
                                 src="../../../images/startup-page/demo.png"
-                                alt="" // TODO: Ask Sourabh
+                                alt="Schedule a live demo to see how Estuary Flow works for startups"
                                 placeholder="blurred"
                                 quality={100}
                             />
@@ -46,7 +46,7 @@ const ReadyToGo = () => {
                             <div className={signInImageWrapper}>
                                 <StaticImage
                                     src="../../../images/startup-page/sign-in.png"
-                                    alt="" // TODO: Ask Sourabh
+                                    alt="Login to Estuary Flow"
                                     placeholder="blurred"
                                     quality={100}
                                 />
@@ -62,7 +62,7 @@ const ReadyToGo = () => {
                         image={
                             <StaticImage
                                 src="../../../images/startup-page/free.png"
-                                alt="" // TODO: Ask Sourabh
+                                alt="Start using Estuary Flow for free with $2,000 in startup credits"
                                 placeholder="blurred"
                                 quality={100}
                             />

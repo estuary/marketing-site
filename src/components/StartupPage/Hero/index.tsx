@@ -67,7 +67,7 @@ const Hero = () => {
                 <div className={imageWrapperOne}>
                     <StaticImage
                         src="../../../images/startup-page/hero-image-1.png"
-                        alt="" // TODO: Ask to Sourabh
+                        alt="Estuary Flow real-time dashboard for startups."
                         quality={100}
                         placeholder="blurred"
                         loading="eager"
@@ -83,7 +83,7 @@ const Hero = () => {
                 <div className={imageWrapperTwo}>
                     <StaticImage
                         src="../../../images/startup-page/hero-image-2.png"
-                        alt="" // TODO: Ask to Sourabh
+                        alt="Estuary Flow data sources including databases, cloud apps, and real-time streams like Kafka and Webhooks."
                         quality={100}
                         placeholder="blurred"
                         loading="eager"
