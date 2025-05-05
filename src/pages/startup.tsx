@@ -1,6 +1,7 @@
 import ConnectorsMasonrySection from '../components/ConnectorsMasonrySection';
 import Layout from '../components/Layout';
 import Seo from '../components/seo';
+import GetStarted from '../components/StartupPage/GetStarted';
 import Hero from '../components/StartupPage/Hero';
 import WhatFoundersAreSaying from '../components/StartupPage/WhatFoundersAreSaying';
 import WhatsIncluded from '../components/StartupPage/WhatsIncluded';
@@ -28,6 +29,7 @@ const StartupPage = () => {
                 }
                 isDarkTheme
             />
+            <GetStarted />
         </Layout>
     );
 };
