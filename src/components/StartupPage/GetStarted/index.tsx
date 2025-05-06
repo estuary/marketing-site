@@ -36,7 +36,9 @@ const GetStarted = () => {
                         description="Complete the short application and our team will confirm your eligibility within a few business days."
                     />
                 </div>
-                <LinkFilled>Apply Now</LinkFilled>
+                <LinkFilled href="/contact-us/" target="_blank">
+                    Apply Now
+                </LinkFilled>
             </Container>
         </section>
     );

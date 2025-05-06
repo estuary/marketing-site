@@ -68,7 +68,9 @@ const WhatsIncluded = () => {
                         <span>Eligibility</span>
                     </div>
                 </Container>
-                <LinkFilled>Apply Now</LinkFilled>
+                <LinkFilled href="/contact-us/" target="_blank">
+                    Apply Now
+                </LinkFilled>
             </Container>
         </section>
     );
