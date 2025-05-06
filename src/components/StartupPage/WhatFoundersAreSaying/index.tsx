@@ -26,16 +26,21 @@ const WhatFoundersAreSaying = () => {
                 </div>
                 <div className={rightColumn}>
                     <h2>What founders are saying</h2>
-                    <p>
-                        “We needed a platform that allowed us to give our
-                        customers more ways to analyze and visualize their
-                        social media performance vs their competitors, and scale
-                        with our rapid growth. With Estuary we were able to get
-                        enterprise-grade social analytics up in a few days with
-                        second-level latency and performance.”
-                    </p>
-                    <strong>Shane Iseminger</strong>
-                    <span>CTO, SocialHP</span>
+                    <blockquote>
+                        <p>
+                            “We needed a platform that allowed us to give our
+                            customers more ways to analyze and visualize their
+                            social media performance vs their competitors, and
+                            scale with our rapid growth. With Estuary we were
+                            able to get enterprise-grade social analytics up in
+                            a few days with second-level latency and
+                            performance.”
+                        </p>
+                        <footer>
+                            <strong>Shane Iseminger</strong>
+                            <cite>CTO, SocialHP</cite>
+                        </footer>
+                    </blockquote>
                 </div>
             </Container>
         </section>
