@@ -22,7 +22,9 @@ const AdvantageCard = ({
             {items && items.length > 0 ? (
                 <ul>
                     {items.map((item, index) => (
-                        <li key={`advantage-list-item-${index + 1}`}>{item}</li>
+                        <li key={`advantage-list-item-${index + 1}`}>
+                            <p>{item}</p>
+                        </li>
                     ))}
                 </ul>
             ) : null}
