@@ -1,6 +1,4 @@
 import { graphql } from 'gatsby';
-import dayjs from 'dayjs';
-import reltime from 'dayjs/plugin/relativeTime';
 import BlogPostPopupModal from '../../components/BlogPostPopupModal';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import Layout from '../../components/Layout';
@@ -8,9 +6,6 @@ import Seo from '../../components/seo';
 import logoUrl from '../../images/estuary.png';
 import { getAuthorSeoJson } from '../../../shared';
 import BlogPost from '../../components/BlogPost';
-
-// TODO: Change this to the one Travis suggested.
-dayjs.extend(reltime);
 
 const BlogPostTemplate = ({ data: { post } }) => {
     return (
