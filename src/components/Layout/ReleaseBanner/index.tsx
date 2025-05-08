@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import ArrowRight from '../../../svgs/arrow-right.svg';
+import { dashboardRegisterUrl } from '../../../../shared';
 import {
     container,
     darkBackgroundColor,
@@ -21,14 +22,14 @@ const ReleaseBanner = ({ theme = 'dark' }) => {
             <div>
                 <a
                     id="hero-section-banner"
-                    href="https://lu.ma/9wazu8zx?utm_source=estuary_homepage"
+                    href={dashboardRegisterUrl}
                     rel="noreferrer"
                     target="_blank"
                 >
-                    <span>RSVP Now</span>
+                    <span>Get started</span>
                     <p>
-                        Meet data pros in NYC! Join the Real-time Data Meetup
-                        for networking & streaming pipeline insights.
+                        Get 10GB and 2 connectors every month, 100% free — no
+                        strings attached.
                     </p>
                     <ArrowRight color="var(--white)" />
                 </a>

@@ -129,7 +129,11 @@ const HeaderNavbarResources = ({ active, setActive }) => {
                         <CardItem title="LISTEN" items={listen} />
                     </div>
                     <CardItem className={hideOnMobile} title="DEMO" onlyContent>
-                        <Carousel aria-label="Demos carousel" hasFullWidthSlide>
+                        <Carousel
+                            aria-label="Demos carousel"
+                            hasFullWidthSlide
+                            hasViewport
+                        >
                             <div key="header-carousel-demo-1" className={slide}>
                                 <div className={imageWrapper}>
                                     <StaticImage

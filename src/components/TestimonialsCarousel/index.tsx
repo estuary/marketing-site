@@ -1,15 +1,8 @@
-import clsx from 'clsx';
 import { graphql, useStaticQuery } from 'gatsby';
 import Carousel from '../Carousel';
-import TestimonialAvatar from './TestimonialAvatar';
-import { description, isDarkTheme, slide, title } from './styles.module.less';
-
-type Testimonial = {
-    id: string;
-    logo: any;
-    name: string;
-    text: string;
-};
+import TestimonialSlide from './TestimonialSlide';
+import { getSortedTestimonials } from './utils';
+import { container } from './styles.module.less';
 
 type TestimonialsCarouselProps = {
     theme?: 'light' | 'dark';
@@ -22,51 +15,66 @@ const TestimonialsCarousel = ({
         allStrapiTestimonial: { nodes: testimonials },
     } = useStaticQuery(graphql`
         query GetTestimonials {
-            allStrapiTestimonial(sort: { Name: DESC }) {
+            allStrapiTestimonial(sort: { createdAt: DESC }) {
                 nodes {
+                    id
                     name: Name
                     text: Text
-                    id
                     logo: Logo {
                         localFile {
                             childImageSharp {
                                 gatsbyImageData(
-                                    layout: CONSTRAINED
+                                    layout: FULL_WIDTH
                                     placeholder: NONE
                                     quality: 100
-                                    width: 110
+                                    width: 80
                                 )
                             }
                             extension
                             publicURL
                         }
                     }
+                    author {
+                        name
+                        role
+                        avatar {
+                            localFile {
+                                childImageSharp {
+                                    gatsbyImageData(
+                                        layout: CONSTRAINED
+                                        placeholder: NONE
+                                        quality: 100
+                                        width: 80
+                                    )
+                                }
+                                extension
+                                publicURL
+                            }
+                        }
+                    }
+                    relatedSuccessStory {
+                        slug: Slug
+                    }
                 }
             }
         }
     `);
 
+    const orderedTestimonials = getSortedTestimonials(testimonials);
+
     return (
         <Carousel
             hasArrow
+            hasMultipleItemsSlide
             aria-label="Customer testimonials carousel"
             arrowColor={theme === 'light' ? 'var(--white)' : 'var(--grey)'}
-            hasFullWidthSlide
-            options={{ loop: true }}
+            options={{ align: 'start' }}
+            slideSize="30%"
+            slideGap="32px"
+            className={container}
         >
-            {testimonials.map(({ id, logo, name, text }: Testimonial) => (
-                <div key={id} className={slide}>
-                    <TestimonialAvatar name={name} logo={logo} />
-                    <h3 className={title}>{name}</h3>
-                    <p
-                        className={clsx(
-                            description,
-                            theme === 'dark' && isDarkTheme
-                        )}
-                    >
-                        {text}
-                    </p>
-                </div>
+            {orderedTestimonials.map((item) => (
+                <TestimonialSlide key={item.id} {...item} theme={theme} />
             ))}
         </Carousel>
     );

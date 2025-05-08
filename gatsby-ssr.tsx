@@ -46,6 +46,22 @@ export const onRenderBody: GatsbySSR['onRenderBody'] = ({
       gtag('config', '${GA_MEASUREMENT_ID}');
   `;
 
+    // We need to add this attribute to try to get Google to not include this
+    //    text in their search results.
+    const consentBannerHandling = `
+        window.addEventListener("cf_layer_ready", (event) => {
+            if (!event || !event.detail) {
+                return;
+            }
+
+            const element = event.detail;
+            if (element && element.setAttribute) {
+                element.setAttribute('data-nosnippet', true);
+            }
+        });
+
+    `;
+
     setHeadComponents([
         <link
             rel="dns-prefetch"
@@ -89,6 +105,12 @@ export const onRenderBody: GatsbySSR['onRenderBody'] = ({
             key="api-cookiefirst"
             rel="dns-prefetch"
             href="//api.cookiefirst.com"
+        />,
+        <script
+            key="cookie-first-banner-load-handler"
+            dangerouslySetInnerHTML={{
+                __html: consentBannerHandling,
+            }}
         />,
         <script
             key="script-cookiefirst"

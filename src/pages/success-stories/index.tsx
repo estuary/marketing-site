@@ -3,18 +3,24 @@ import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
 import Hero from '../../components/SuccessStoriesPage/Hero';
 import SuccessStories from '../../components/SuccessStoriesPage/SuccessStories';
-import WhatCustomersSay from '../../components/SuccessStoriesPage/WhatCustomersSay';
 import SeeHowSection from '../../components/SeeHowSection';
 import OutboundLinkOutlined from '../../components/LinksAndButtons/OutboundLinkOutlined';
 import { webinarsUrl } from '../../../shared';
 import LinkFilled from '../../components/LinksAndButtons/LinkFilled';
+import Testimonials from '../../components/TestimonialsSection';
 
 const SuccessStoriesPage = () => {
     return (
         <Layout>
             <Hero />
             <SuccessStories />
-            <WhatCustomersSay />
+            <Testimonials
+                title={
+                    <>
+                        What <span>our customers</span> say about us
+                    </>
+                }
+            />
             <SeeHowSection
                 buttons={
                     <>
