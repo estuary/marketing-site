@@ -7,7 +7,6 @@ import {
     badgesWrapper,
     rightColumn,
     sectionStyle,
-    textWrapper,
     darkSection,
     darkContainer,
 } from './styles.module.less';
@@ -29,11 +28,7 @@ const ConnectorsMasonrySection = ({
             className={clsx(sectionStyle, isDarkTheme ? darkSection : null)}
         >
             <Container
-                className={clsx(
-                    textWrapper,
-                    container,
-                    isDarkTheme ? darkContainer : null
-                )}
+                className={clsx(container, isDarkTheme ? darkContainer : null)}
                 isReverseColumnOnMobile
             >
                 <h2>{title}</h2>
