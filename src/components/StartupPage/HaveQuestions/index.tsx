@@ -1,5 +1,5 @@
 import Container from '../../Container';
-import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
+import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import OutboundLinkFilled from '../../LinksAndButtons/OutboundLinkFilled';
 import LinkOutlined from '../../LinksAndButtons/LinkOutlined';
 import SlackIcon from '../../../svgs/slack-outline.svg';
@@ -11,7 +11,7 @@ const iconSize = 18;
 
 const HaveQuestions = () => {
     return (
-        <section className={defaultWrapperDark}>
+        <section className={defaultWrapperGrey}>
             <Container className={container} isVertical>
                 <h2>Have questions?</h2>
                 <div className={buttonsWrapper}>

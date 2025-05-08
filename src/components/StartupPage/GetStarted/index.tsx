@@ -1,13 +1,13 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import Container from '../../Container';
-import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
+import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import LinkFilled from '../../LinksAndButtons/LinkFilled';
 import { container, cardsWrapper } from './styles.module.less';
 import Card from './Card';
 
 const GetStarted = () => {
     return (
-        <section className={defaultWrapperDark}>
+        <section className={defaultWrapperGrey}>
             <Container className={container} isVertical>
                 <h2>Get started</h2>
                 <div className={cardsWrapper}>

@@ -5,7 +5,6 @@ import GetStarted from '../components/StartupPage/GetStarted';
 import HaveQuestions from '../components/StartupPage/HaveQuestions';
 import Hero from '../components/StartupPage/Hero';
 import ReadyToGo from '../components/StartupPage/ReadyToGo';
-import WhatFoundersAreSaying from '../components/StartupPage/WhatFoundersAreSaying';
 import WhatsIncluded from '../components/StartupPage/WhatsIncluded';
 
 const StartupPage = () => {
@@ -13,7 +12,7 @@ const StartupPage = () => {
         <Layout>
             <Hero />
             <WhatsIncluded />
-            <WhatFoundersAreSaying />
+            {/* <WhatFoundersAreSaying /> */}
             <ConnectorsMasonrySection
                 title={
                     <>

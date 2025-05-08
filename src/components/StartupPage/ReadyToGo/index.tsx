@@ -1,6 +1,6 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import Container from '../../Container';
-import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
+import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import { dashboardRegisterUrl } from '../../../../shared';
 import {
     container,
@@ -13,7 +13,7 @@ const signInPrefix = 'Sign in with ';
 
 const ReadyToGo = () => {
     return (
-        <section className={defaultWrapperGrey}>
+        <section className={defaultWrapperDark}>
             <Container isVertical className={container}>
                 <h2>Ready to go with Estuary Flow?</h2>
                 <div className={cardsWrapper}>
