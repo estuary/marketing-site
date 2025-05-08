@@ -124,7 +124,7 @@ const XvsYFilter = ({
                                     className={itemImage}
                                 />
                             )}
-                            {item.title}
+                            <span>{item.title}</span>
                         </MenuItem>
                     ))}
                 </Select>
@@ -172,7 +172,7 @@ const XvsYFilter = ({
                                     className={itemImage}
                                 />
                             )}
-                            {item.title}
+                            <span>{item.title}</span>
                         </MenuItem>
                     ))}
                 </Select>
