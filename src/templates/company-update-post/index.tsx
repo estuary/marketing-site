@@ -1,13 +1,9 @@
 import { graphql } from 'gatsby';
-import dayjs from 'dayjs';
-import reltime from 'dayjs/plugin/relativeTime';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
 import logoUrl from '../../images/estuary.png';
 import BlogPost from '../../components/BlogPost';
-
-dayjs.extend(reltime);
 
 const CompanyUpdatePostTemplate = ({ data: { post } }) => {
     const postWithPrefixedSlug = {
