@@ -68,7 +68,11 @@ const WhatsIncluded = () => {
                         <span>Eligibility</span>
                     </div>
                 </Container>
-                <LinkFilled href="/contact-us/" target="_blank">
+                <LinkFilled
+                    id="apply-now-button/whats-included-section/startup-page"
+                    href="/contact-us/"
+                    target="_blank"
+                >
                     Apply Now
                 </LinkFilled>
             </Container>

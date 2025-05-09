@@ -11,6 +11,8 @@ import Card from './Card';
 
 const signInPrefix = 'Sign in with ';
 
+const linkIdSuffix = '-card-button/ready-to-go-section/startup-page';
+
 const ReadyToGo = () => {
     return (
         <section className={defaultWrapperDark}>
@@ -28,6 +30,7 @@ const ReadyToGo = () => {
                         }
                         title="Connectors"
                         href="/integrations/"
+                        linkId={`connectors${linkIdSuffix}`}
                     />
                     <Card
                         image={
@@ -40,6 +43,7 @@ const ReadyToGo = () => {
                         }
                         title="Book a Demo"
                         href="/contact-us/"
+                        linkId={`book-a-demo${linkIdSuffix}`}
                     />
                     <Card
                         image={
@@ -57,6 +61,7 @@ const ReadyToGo = () => {
                         }
                         title="Login"
                         href={dashboardRegisterUrl}
+                        linkId={`login${linkIdSuffix}`}
                     />
                     <Card
                         image={
@@ -69,6 +74,7 @@ const ReadyToGo = () => {
                         }
                         title="Start Free"
                         href={dashboardRegisterUrl}
+                        linkId={`start-free${linkIdSuffix}`}
                     />
                 </div>
             </Container>

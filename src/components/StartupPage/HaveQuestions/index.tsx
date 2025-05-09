@@ -9,17 +9,27 @@ import { container, buttonsWrapper } from './styles.module.less';
 
 const iconSize = 18;
 
+const linkIdSuffix = '-button/have-questions-section/startup-page';
+
 const HaveQuestions = () => {
     return (
         <section className={defaultWrapperGrey}>
             <Container className={container} isVertical>
                 <h2>Have questions?</h2>
                 <div className={buttonsWrapper}>
-                    <OutboundLinkFilled href={slackUrl} target="_blank">
+                    <OutboundLinkFilled
+                        id={`join-our-community${linkIdSuffix}`}
+                        href={slackUrl}
+                        target="_blank"
+                    >
                         Join our community Slack{' '}
                         <SlackIcon width={iconSize} height={iconSize} />
                     </OutboundLinkFilled>
-                    <LinkOutlined href="/contact-us/" target="_blank">
+                    <LinkOutlined
+                        id={`reach-out${linkIdSuffix}`}
+                        href="/contact-us/"
+                        target="_blank"
+                    >
                         Reach out{' '}
                         <ArrowRightIcon
                             width={iconSize}

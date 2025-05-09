@@ -3,14 +3,21 @@ import ArrowRightIcon from '../../../../svgs/arrow-right-2.svg';
 import { container } from './styles.module.less';
 
 interface CardProps {
+    linkId: string;
     image: ReactNode;
     title: string;
     href: string;
 }
 
-const Card = ({ image, title, href }: CardProps) => {
+const Card = ({ linkId, image, title, href }: CardProps) => {
     return (
-        <a className={container} target="_blank" href={href} rel="noreferrer">
+        <a
+            id={linkId}
+            className={container}
+            target="_blank"
+            href={href}
+            rel="noreferrer"
+        >
             {image}
             <div>
                 <h3>{title}</h3>
