@@ -5,6 +5,8 @@ import HeroSectionDetails from '../../HeroSectionDetails';
 import LinkFilled from '../../LinksAndButtons/LinkFilled';
 import { container } from './styles.module.less';
 
+const pdfTitle = 'Estuary-visual-identity-guidelines.pdf';
+
 const Hero = () => {
     return (
         <section className={defaultWrapperDarkBlue}>
@@ -12,7 +14,11 @@ const Hero = () => {
                 <HeroSectionDetails
                     title="Estuary visual identity guidelines"
                     ctaButtons={
-                        <LinkFilled id="download-guidelines/hero-section/brand-guidelines-page">
+                        <LinkFilled
+                            id="download-guidelines/hero-section/brand-guidelines-page"
+                            href={`/${pdfTitle}`}
+                            download={pdfTitle}
+                        >
                             Download Guidelines
                         </LinkFilled>
                     }
