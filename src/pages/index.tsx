@@ -15,8 +15,8 @@ import SeeHowSection from '../components/SeeHowSection';
 import OutboundLinkFilled from '../components/LinksAndButtons/OutboundLinkFilled';
 import LinkOutlined from '../components/LinksAndButtons/LinkOutlined';
 import { dashboardRegisterUrl } from '../../shared';
-import SecureDataMovement from '../components/Homepage/SecureDataMovement';
 import OrganizationScript from '../components/OrganizationScript';
+import ConnectorsMasonrySection from '../components/ConnectorsMasonrySection';
 
 const IndexPage = () => {
     return (
@@ -29,7 +29,15 @@ const IndexPage = () => {
             <TheBestRealTimeCdc />
             <BuildInMinutes />
             <AutomateDataops />
-            <SecureDataMovement />
+            <ConnectorsMasonrySection
+                title={
+                    <>
+                        <span>Secure data movement between</span> any source{' '}
+                        <span>and</span> destination
+                    </>
+                }
+                description="Easily connect, synchronize and activate your data whether it's for AI, operations, data warehouses, or beyond."
+            />
             <Do4xMoreWith25xLess />
             <WhatPeopleAreSaying />
             <SeeHowSection

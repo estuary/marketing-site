@@ -1,0 +1,31 @@
+.container {
+  h2 {
+    color: var(--blue);
+    font-size: 2.5rem;
+    font-weight: 600;
+  }
+
+  a {
+    max-width: 246px;
+    width: 100%;
+  }
+
+  @media (max-width: 425px) {
+    a {
+      max-width: 100%;
+    }
+  }
+}
+
+.cardsWrapper {
+  display: flex;
+  gap: 38px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+
+  @media (max-width: 425px) {
+    gap: 20px;
+  }
+}

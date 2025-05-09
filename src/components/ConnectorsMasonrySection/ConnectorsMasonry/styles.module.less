@@ -1,0 +1,95 @@
+@gradientBackgroundToRight: linear-gradient(to right, rgba(80, 114, 235, 0) 0%, rgba(80, 114, 235, 0.15) 100%);
+@gradientBackgroundToLeft: linear-gradient(to left, rgba(80, 114, 235, 0) 0%, rgba(80, 114, 235, 0.15) 100%);
+@logoSize: 40px;
+
+.rowsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 60px;
+  width: 110vw;
+  margin-left: -5vw;
+  justify-content: center;
+  align-items: center;
+
+  -webkit-mask-image: radial-gradient(circle at top, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 90%);
+  mask-image: radial-gradient(circle at top, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 90%);
+
+  @media (max-width: 768px) {
+    -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 95%);
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 95%);
+  }
+}
+
+.item {
+  background-color: #5072EB14;
+  border-radius: 12px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--white);
+  box-shadow: none;
+  border: 1px solid #5072EB99;
+  font-size: 1rem;
+  height: 100%;
+
+  span {
+    white-space: nowrap;
+  }
+}
+
+.darkThemeItem {
+  color: var(--dark-blue);
+  border-color: #5072EB4D;
+}
+
+.nullItemBorderColor {
+  border-color: #5072EB20;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logoPlaceholder {
+  border-radius: 100%;
+  width: @logoSize;
+  height: @logoSize;
+}
+
+.logoPlaceholderGradientLeft {
+  background: @gradientBackgroundToRight;
+}
+
+.logoPlaceholderGradientRight {
+  background: @gradientBackgroundToLeft;
+}
+
+.namePlaceholder {
+  border-radius: 100px;
+  width: 77px;
+  height: 11px;
+}
+
+.namePlaceholderGradientLeft {
+  background: @gradientBackgroundToRight;
+}
+
+.namePlaceholderGradientRight {
+  background: @gradientBackgroundToLeft;
+}
+
+.logoStyle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: @logoSize;
+
+  img {
+    max-height: @logoSize;
+    border-radius: 4px;
+  }
+}
