@@ -4,16 +4,14 @@ import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import { container, cardsWrapper } from './styles.module.less';
 import Card from './Card';
 
-const linkIdSuffix = '-link/estuary-logo-section/visual-identity-page';
+const linkIdSuffix = '-link/estuary-logo-section/brand-guidelines-page';
 
-const colorOnLightImagePath =
-    '../../../images/visual-identity-page/estuary-logos/estuary-logo-color-on-light.png';
-const colorOnDarkImagePath =
-    '../../../images/visual-identity-page/estuary-logos/estuary-logo-color-on-dark.png';
-const monoOnLightImagePath =
-    '../../../images/visual-identity-page/estuary-logos/estuary-logo-mono-on-light.png';
-const monoOnDarkImagePath =
-    '../../../images/visual-identity-page/estuary-logos/estuary-logo-mono-on-dark.png';
+const imagePathPrefix =
+    '../../../images/brand-guidelines-page/estuary-logos/estuary-logo-';
+const colorOnLightImagePath = `${imagePathPrefix}color-on-light.png`;
+const colorOnDarkImagePath = `${imagePathPrefix}color-on-dark.png`;
+const monoOnLightImagePath = `${imagePathPrefix}mono-on-light.png`;
+const monoOnDarkImagePath = `${imagePathPrefix}mono-on-dark.png`;
 
 const EstuaryLogoUsage = () => {
     return (

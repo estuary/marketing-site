@@ -12,14 +12,14 @@ const Hero = () => {
                 <HeroSectionDetails
                     title="Estuary visual identity guidelines"
                     ctaButtons={
-                        <LinkFilled id="download-guidelines/hero-section/visual-identity-page">
+                        <LinkFilled id="download-guidelines/hero-section/brand-guidelines-page">
                             Download Guidelines
                         </LinkFilled>
                     }
                 />
                 <StaticImage
-                    src="../../../images/visual-identity-page/visual-identity-hero-image.png"
-                    alt="" // TODO: Ask to Sourabh
+                    src="../../../images/brand-guidelines-page/brand-guidelines-hero-image.png"
+                    alt="Estuary one-color logo on dark background"
                     quality={100}
                     placeholder="blurred"
                     loading="eager"
