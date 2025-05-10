@@ -5,6 +5,18 @@
   display: flex;
   flex-direction: column;
   gap: 100px;
+
+  .container:first-child {
+    img {
+      margin-left: auto;
+    }
+  }
+
+  .container:last-child {
+    img {
+      margin-right: auto;
+    }
+  }
 }
 
 .container {
@@ -16,7 +28,8 @@
 
   img {
     max-width: 536px;
-    max-height: 536px;
+    width: 100%;
+    height: auto;
 
     @media (max-width: 1024px) {
       max-width: 100%;
@@ -77,10 +90,10 @@
   span {
     position: absolute;
     color: var(--white);
-    font-size: 0.875rem;
+    font-size: 1rem;
     font-weight: 700;
 
-    @media (max-width: 1420px) {
+    @media (max-width: 1600px) {
       font-size: 1vw;
     }
 
@@ -94,12 +107,12 @@
   }
 
   span:first-of-type {
-    top: 179px;
-    right: 45px;
+    top: 204px;
+    right: 52px;
   }
 
   span:last-of-type {
-    top: 398px;
+    top: 454px;
     right: 34px;
     font-weight: 500;
 
@@ -109,7 +122,7 @@
     }
   }
 
-  @media (max-width: 1420px) {
+  @media (max-width: 1600px) {
     span:first-of-type {
       top: 33.5%;
       right: 8.4%;
@@ -128,10 +141,10 @@
   span {
     position: absolute;
     color: #4EFFF273;
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     font-weight: 500;
 
-    @media (max-width: 1420px) {
+    @media (max-width: 1600px) {
       font-size: 0.875vw;
     }
 
@@ -145,18 +158,18 @@
   }
 
   span:first-of-type {
-    top: 42px;
-    left: 62px;
+    top: 47px;
+    left: 72px;
   }
 
   span:nth-of-type(2) {
-    top: 42px;
-    left: 374px;
+    top: 47px;
+    left: 426px;
   }
 
   span:last-of-type {
-    top: 300px;
-    left: 76px;
+    top: 342px;
+    left: 84px;
   }
 
   @media (max-width: 1600px) {
@@ -166,7 +179,7 @@
     }
   }
 
-  @media (max-width: 1420px) {
+  @media (max-width: 1600px) {
     span:first-of-type {
       top: 7.6%;
       left: 11%;
