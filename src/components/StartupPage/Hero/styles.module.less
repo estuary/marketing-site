@@ -5,15 +5,21 @@
   display: flex;
   flex-direction: column;
   gap: 100px;
+
+  .container:first-child {
+    img {
+      margin-left: auto;
+    }
+  }
+
+  .container:last-child {
+    img {
+      margin-right: auto;
+    }
+  }
 }
 
 .container {
-
-  > :nth-child(1),
-  :nth-child(2) {
-    max-width: fit-content;
-  }
-
   img {
     max-width: 536px;
     max-height: 536px;
