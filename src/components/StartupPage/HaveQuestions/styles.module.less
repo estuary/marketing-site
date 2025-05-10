@@ -20,9 +20,20 @@
     color: var(--dark-blue);
   }
 
-  a:hover, svg:hover {
+  a:hover,
+  svg:hover {
     color: var(--white);
     stroke: var(--white);
+  }
+
+  @media (max-width: 768px) {
+    h2 {
+      text-align: center;
+    }
+
+    a:first-of-type, a:last-of-type {
+      max-width: 100%;
+    }
   }
 
   @media (max-width: 425px) {
