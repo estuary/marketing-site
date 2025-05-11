@@ -55,6 +55,7 @@ const Hero = () => (
                 <StaticImage
                     src="../../../images/customer-logos/shp.svg"
                     alt="SHP logo"
+                    color="var(--white)"
                     {...commonProps}
                 />
             </li>

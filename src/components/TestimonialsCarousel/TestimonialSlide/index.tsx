@@ -62,7 +62,7 @@ const TestimonialSlide = ({
                 href={`/success-stories/${relatedSuccessStory.slug}`}
                 target="_blank"
             >
-                Read the Success Story <ArrowRightIcon />
+                Read the Success Story <ArrowRightIcon color="var(--blue)" />
             </InternalLink>
         ) : null}
     </div>

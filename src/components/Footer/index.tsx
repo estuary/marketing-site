@@ -223,7 +223,7 @@ const Footer = () => {
                     <div className={globalFooterRightLinkWrapper}>
                         <p className={globalFooterSubtextTitle}>Company</p>
                         <FooterLink
-                            id={getFooterLinkId('status-us')}
+                            id={getFooterLinkId('about-us')}
                             to="/about/"
                             ariaLabel="Learn more about Estuary and the team"
                         >
@@ -257,6 +257,13 @@ const Footer = () => {
                             ariaLabel="Check the status of Estuary website"
                         >
                             Status
+                        </FooterLink>
+                        <FooterLink
+                            id={getFooterLinkId('startup-program')}
+                            to="/startup/"
+                            ariaLabel="Check the Estuary program for startups"
+                        >
+                            Startup
                         </FooterLink>
                     </div>
                 </div>
