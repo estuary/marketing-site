@@ -1,3 +1,4 @@
+import { getSlugifiedText } from '../../../../shared';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import Container from '../../Container';
 import SectionHeader from '../SectionHeader';
@@ -36,9 +37,9 @@ const EstuaryColorPalette = () => (
                 description="Our palette has been carefully chosen to allow for a diverse set of brand executions while remaining highly legible and accessible. Divided into two groups, color should be used with intention and restraint — favoring moments of calm over extremely colorful executions."
             />
 
-            {paletteGroups.map(({ title, colors }, index) => (
+            {paletteGroups.map(({ title, colors }) => (
                 <Palette
-                    key={`estuary-color-palette-${index + 1}`}
+                    key={`estuary-${getSlugifiedText(title)}`}
                     title={title}
                     colors={colors}
                 />
