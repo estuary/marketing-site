@@ -4,13 +4,17 @@ import { container } from './styles.module.less';
 interface SectionHeaderProps {
     title: ReactNode;
     description: string;
+    link?: ReactNode;
 }
 
-const SectionHeader = ({ title, description }: SectionHeaderProps) => {
+const SectionHeader = ({ title, description, link }: SectionHeaderProps) => {
     return (
         <div className={container}>
             <h2>{title}</h2>
-            <p>{description}</p>
+            <div>
+                <p>{description}</p>
+                <div>{link}</div>
+            </div>
         </div>
     );
 };

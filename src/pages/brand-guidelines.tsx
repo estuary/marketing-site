@@ -3,6 +3,7 @@ import Seo from '../components/seo';
 import EstuaryLogoUsage from '../components/BrandGuidelinesPage/EstuaryLogoUsage';
 import Hero from '../components/BrandGuidelinesPage/Hero';
 import EstuaryColorPalette from '../components/BrandGuidelinesPage/EstuaryColorPalette';
+import EstuaryTypography from '../components/BrandGuidelinesPage/EstuaryTypography';
 
 const BrandGuidelinesPage = () => {
     return (
@@ -10,6 +11,7 @@ const BrandGuidelinesPage = () => {
             <Hero />
             <EstuaryLogoUsage />
             <EstuaryColorPalette />
+            <EstuaryTypography />
         </Layout>
     );
 };

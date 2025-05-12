@@ -1,0 +1,141 @@
+.container {
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 120%;
+    color: var(--grey);
+
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+
+    @media (max-width: 425px) {
+      font-size: 1.75rem;
+      text-align: center;
+    }
+  }
+
+  ul {
+    margin: 0;
+    display: flex;
+    gap: 24px;
+
+    .card:nth-child(odd) {
+      .imageWrapper {
+        background-color: var(--white);
+      }
+    }
+
+    .card:nth-child(even) {
+      .imageWrapper {
+        background-color: var(--dark-blue);
+      }
+    }
+
+    li {
+      margin: 0;
+    }
+
+    @media (max-width: 980px) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+
+    @media (max-width: 500px) {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.cardsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(465px, 1fr));
+  gap: 20px;
+
+  .card:last-child {
+    div {
+      padding: 24px 32px;
+    }
+
+    span {
+      font-weight: 600;
+      line-height: 30px;
+    }
+
+    span:first-of-type {
+      font-size: 3.75rem;
+      line-height: 120%;
+    }
+
+    span:nth-of-type(2) {
+      font-size: 1.25rem;
+    }
+
+    span:last-of-type {
+      font-size: 1rem;
+      font-weight: 400;
+    }
+  }
+
+  @media (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+
+    .card:last-child {
+      padding: 4vw;
+
+      div {
+        padding: 6vw;
+      }
+
+      span:first-of-type {
+        font-size: 10vw;
+      }
+
+      span:nth-of-type(2) {
+        font-size: 3.35vw;
+      }
+
+      span:last-of-type {
+        font-size: 2.65vw;
+      }
+    }
+  }
+}
+
+.card {
+  padding: 24px;
+  border: 1px solid var(--blue-15-opacity);
+  border-radius: 20px;
+  background-color: var(--violet100);
+
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    padding: 40px 56px;
+    border-radius: 12px;
+    background-color: var(--white);
+    height: 100%;
+  }
+
+  span {
+    font-weight: 500;
+    font-size: 1.75rem;
+  }
+
+  @media (max-width: 600px) {
+    padding: 4vw;
+
+    div {
+      padding: 6vw;
+    }
+
+    span {
+      font-size: 4.75vw;
+    }
+  }
+}
