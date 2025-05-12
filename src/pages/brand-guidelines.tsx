@@ -2,12 +2,14 @@ import Layout from '../components/Layout';
 import Seo from '../components/seo';
 import EstuaryLogoUsage from '../components/BrandGuidelinesPage/EstuaryLogoUsage';
 import Hero from '../components/BrandGuidelinesPage/Hero';
+import EstuaryColorPalette from '../components/BrandGuidelinesPage/EstuaryColorPalette';
 
 const BrandGuidelinesPage = () => {
     return (
         <Layout>
             <Hero />
             <EstuaryLogoUsage />
+            <EstuaryColorPalette />
         </Layout>
     );
 };

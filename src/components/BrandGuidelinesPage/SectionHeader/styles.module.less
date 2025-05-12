@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+
+  h2 {
+    max-width: 464px;
+    line-height: 120%;
+  }
+
+  p {
+    max-width: 728px;
+    font-size: 1.25rem;
+  }
+
+  @media (max-width: 1220px) {
+    flex-direction: column;
+
+    h2,
+    p {
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: 425px) {
+    h2 {
+      text-align: center;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+}
