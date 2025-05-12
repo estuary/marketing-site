@@ -27,13 +27,15 @@ const Hero = () => {
                         </LinkFilled>
                     }
                 />
-                <StaticImage
-                    src="../../../images/brand-guidelines-page/brand-guidelines-hero-image.png"
-                    alt="Estuary one-color logo on dark background"
-                    quality={100}
-                    placeholder="blurred"
-                    loading="eager"
-                />
+                <div>
+                    <StaticImage
+                        src="../../../images/brand-guidelines-page/brand-guidelines-hero-image.png"
+                        alt="Estuary one-color logo on dark background"
+                        quality={100}
+                        placeholder="blurred"
+                        loading="eager"
+                    />
+                </div>
             </Container>
         </section>
     );
