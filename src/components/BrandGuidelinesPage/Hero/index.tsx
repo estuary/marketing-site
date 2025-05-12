@@ -10,7 +10,11 @@ const pdfTitle = 'Estuary-visual-identity-guidelines.pdf';
 const Hero = () => {
     return (
         <section className={defaultWrapperDarkBlue}>
-            <Container isDarkTheme className={container}>
+            <Container
+                isDarkTheme
+                isReverseColumnOnMobile
+                className={container}
+            >
                 <HeroSectionDetails
                     title="Estuary visual identity guidelines"
                     ctaButtons={
