@@ -265,6 +265,12 @@ const Footer = () => {
                         >
                             Startup
                         </FooterLink>
+                        <FooterLink
+                            id={getFooterLinkId('brand-guidelines')}
+                            to="/brand-guidelines/"
+                        >
+                            Brand guidelines
+                        </FooterLink>
                     </div>
                 </div>
             </div>
