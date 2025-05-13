@@ -13,7 +13,7 @@ import Boilerplate from './Boilerplate';
 const CompanyBoilerplate = () => (
     <section className={defaultWrapperDark}>
         <Container isVertical className={container}>
-            <h2 className={sectionTitle}>Company boilerplate</h2>
+            <h2 className={sectionTitle}>Value Proposition</h2>
             <Container className={innerContainer}>
                 <div className={imageWrapper}>
                     <StaticImage
