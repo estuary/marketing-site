@@ -6,9 +6,9 @@ import {
     container,
     innerContainer,
     imageWrapper,
-    boilerplatesList,
+    valuePropositionList,
 } from './styles.module.less';
-import Boilerplate from './Boilerplate';
+import ValueProposition from './ValueProposition';
 
 const CompanyBoilerplate = () => (
     <section className={defaultWrapperDark}>
@@ -23,8 +23,8 @@ const CompanyBoilerplate = () => (
                         placeholder="blurred"
                     />
                 </div>
-                <div className={boilerplatesList}>
-                    <Boilerplate
+                <div className={valuePropositionList}>
+                    <ValueProposition
                         title="One sentence"
                         text={
                             <p>
@@ -34,7 +34,7 @@ const CompanyBoilerplate = () => (
                             </p>
                         }
                     />
-                    <Boilerplate
+                    <ValueProposition
                         title="Short form"
                         text={
                             <p>
@@ -48,7 +48,7 @@ const CompanyBoilerplate = () => (
                             </p>
                         }
                     />
-                    <Boilerplate
+                    <ValueProposition
                         title="Long Form"
                         text={
                             <>
@@ -70,7 +70,7 @@ const CompanyBoilerplate = () => (
                                     ensures data consistency, reduces
                                     operational complexity, and accelerates your
                                     organization&apos;s analytics, AI, and
-                                    business decisions—all while maintaining
+                                    business decisions — all while maintaining
                                     enterprise-grade security, governance, and
                                     scalability.
                                 </p>
