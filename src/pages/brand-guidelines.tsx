@@ -5,6 +5,7 @@ import Hero from '../components/BrandGuidelinesPage/Hero';
 import EstuaryColorPalette from '../components/BrandGuidelinesPage/EstuaryColorPalette';
 import EstuaryTypography from '../components/BrandGuidelinesPage/EstuaryTypography';
 import EstuaryColorCombinations from '../components/BrandGuidelinesPage/EstuaryColorCombinations';
+import CompanyBoilerplate from '../components/BrandGuidelinesPage/CompanyBoilerplate';
 
 const BrandGuidelinesPage = () => {
     return (
@@ -14,6 +15,7 @@ const BrandGuidelinesPage = () => {
             <EstuaryColorPalette />
             <EstuaryTypography />
             <EstuaryColorCombinations />
+            <CompanyBoilerplate />
         </Layout>
     );
 };
