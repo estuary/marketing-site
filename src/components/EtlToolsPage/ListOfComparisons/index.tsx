@@ -23,7 +23,7 @@ const a11yProps = (vendorId: string) => ({
 });
 
 const tabStyling = {
-    'border': '1px solid var(--dark-border-color)',
+    'border': '1px solid var(--blue-30-opacity)',
     'borderRadius': '100px',
     'textTransform': 'none',
     'color': 'var(--dark-blue)',

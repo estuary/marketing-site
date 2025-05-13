@@ -1,13 +1,9 @@
 import { graphql } from 'gatsby';
-import dayjs from 'dayjs';
-import reltime from 'dayjs/plugin/relativeTime';
 import Wrapper from './Wrapper';
 import SectionBody from './Sections/Body';
 import Hero from './Sections/Hero';
 import Content from './Sections/Content';
 import SuccessStoryHead from './Head';
-
-dayjs.extend(reltime);
 
 const SuccessStoryTemplate = ({ data: { successStory } }) => {
     const { Title, Description, Logo, SideContent, About, Body } = successStory;

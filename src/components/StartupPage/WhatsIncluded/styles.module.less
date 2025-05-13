@@ -1,0 +1,139 @@
+.advatangeCardsWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+
+  @media (max-width: 425px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.outerContainer {
+  h2 {
+    margin-right: auto;
+    color: var(--blue);
+    font-size: 2.5rem;
+    font-weight: 600;
+  }
+
+  a {
+    margin-right: auto;
+    max-width: 311px;
+    width: 100%;
+
+    @media (max-width: 425px) {
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    h2 {
+      margin-right: 0;
+      text-align: center;
+    }
+
+    a {
+      margin: auto;
+    }
+  }
+}
+
+.innerContainer {
+  padding: 0;
+}
+
+.imageWrapper {
+  position: relative;
+  display: flex;
+  align-items: end;
+  justify-content: flex-end;
+
+  span {
+    position: absolute;
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 500;
+
+    @media (max-width: 1600px) {
+      font-size: 0.75vw;
+    }
+
+    @media (max-width: 1024px) {
+      font-size: 1.5vw;
+    }
+
+    @media (max-width: 425px) {
+      font-size: 1.85vw;
+    }
+  }
+
+  span:first-of-type {
+    top: 94px;
+    left: 91px;
+    color: var(--light-green);
+  }
+
+  span:nth-of-type(2) {
+    top: 94px;
+    left: 171px;
+    color: var(--light-green);
+  }
+
+  span:nth-of-type(3) {
+    top: 104px;
+    right: 224px;
+    color: var(--blue);
+    font-weight: 700;
+  }
+
+  span:nth-of-type(4) {
+    top: 104px;
+    right: 27px;
+    color: var(--blue-30-opacity);
+    font-weight: 700;
+  }
+
+  span:nth-of-type(5) {
+    top: 181px;
+    right: 146px;
+    color: var(--white);
+  }
+
+  span:last-of-type {
+    bottom: 195px;
+    right: 183px;
+    color: var(--light-green);
+  }
+
+  @media (max-width: 1600px) {
+    span:first-of-type {
+      top: 15.3%;
+      left: 15%;
+    }
+
+    span:nth-of-type(2) {
+      top: 15.3%;
+      left: 28%;
+    }
+
+    span:nth-of-type(3) {
+      top: 17%;
+      right: 36.5%;
+    }
+
+    span:nth-of-type(4) {
+      top: 17%;
+      right: 5%;
+    }
+
+    span:nth-of-type(5) {
+      top: 29.6%;
+      right: 24%;
+    }
+
+    span:last-of-type {
+      bottom: 32%;
+      right: 29.9%;
+    }
+  }
+}
