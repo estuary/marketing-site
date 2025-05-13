@@ -1,6 +1,6 @@
+import { Color } from '../../shared';
 import { container } from './styles.module.less';
 import Card from './Card';
-import { Color } from './shared';
 
 interface PaletteProps {
     title: string;

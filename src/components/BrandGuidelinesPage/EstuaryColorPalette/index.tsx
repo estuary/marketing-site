@@ -2,6 +2,7 @@ import { getSlugifiedText } from '../../../../shared';
 import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import Container from '../../Container';
 import SectionHeader from '../SectionHeader';
+import { container } from '../styles.module.less';
 import Palette from './Palette';
 
 const paletteGroups = [
@@ -27,7 +28,7 @@ const paletteGroups = [
 
 const EstuaryColorPalette = () => (
     <section className={defaultWrapperDarkBlue}>
-        <Container isDarkTheme isVertical>
+        <Container isDarkTheme isVertical className={container}>
             <SectionHeader
                 title={
                     <>
