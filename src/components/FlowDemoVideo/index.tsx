@@ -1,6 +1,6 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import ReactPlayer from 'react-player';
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { estuaryProductFlowVideoUrl } from '../../../shared';
 import useWindowExistence from '../../hooks/useWindowExistence';
 import PlayIcon from '../../svgs/play.svg';
