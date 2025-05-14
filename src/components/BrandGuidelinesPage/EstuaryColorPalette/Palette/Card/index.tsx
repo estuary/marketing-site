@@ -10,10 +10,10 @@ const Card = ({ title, hexCode, rgbCode }: Color) => {
             <h4>{title}</h4>
             <div className={colorCodesWrapper}>
                 <span>
-                    <strong>HEX</strong> {hexCode}
+                    <strong>HEX</strong> <span>{hexCode}</span>
                 </span>
                 <span>
-                    <strong>RGB</strong> {rgbCode}
+                    <strong>RGB</strong> <span>{rgbCode}</span>
                 </span>
             </div>
         </li>
