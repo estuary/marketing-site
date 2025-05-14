@@ -1,6 +1,6 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import ReactPlayer from 'react-player';
-import { useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { estuaryProductFlowVideoUrl } from '../../../shared';
 import useWindowExistence from '../../hooks/useWindowExistence';
 import PlayIcon from '../../svgs/play.svg';
@@ -9,6 +9,7 @@ import { container, videoTextAndButtonsWrapper } from './styles.module.less';
 
 const FlowDemoVideo = () => {
     const hasWindow = useWindowExistence();
+    const [isPlaying, setIsPlaying] = useState(false);
 
     const thumbnailComponent = useMemo(
         () => (
@@ -22,13 +23,20 @@ const FlowDemoVideo = () => {
         []
     );
 
-    return hasWindow ? (
+    const handlePreviewClick = () => setIsPlaying(true);
+
+    if (!hasWindow) return null;
+
+    return (
         <div className={container}>
             <ReactPlayer
                 light={thumbnailComponent}
                 url={estuaryProductFlowVideoUrl}
                 width="100%"
                 height="100%"
+                playing={isPlaying}
+                onClickPreview={handlePreviewClick}
+                controls
                 playIcon={
                     <div className={videoTextAndButtonsWrapper}>
                         <span>
@@ -42,7 +50,7 @@ const FlowDemoVideo = () => {
                 }
             />
         </div>
-    ) : null;
+    );
 };
 
 export default FlowDemoVideo;
