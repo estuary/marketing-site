@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { ReactNode, useState } from 'react';
 import CheckIcon from '@mui/icons-material/Check';
 import Tooltip from '@mui/material/Tooltip';
 import clsx from 'clsx';
@@ -13,10 +13,12 @@ import {
 
 interface CopyToClipboardButtonProps {
     contentToCopy: string;
+    copyIcon?: ReactNode;
 }
 
 const CopyToClipboardButton = ({
     contentToCopy,
+    copyIcon,
 }: CopyToClipboardButtonProps) => {
     const [isCopied, setIsCopied] = useState(false);
     const [isCopyFailed, setIsCopyFailed] = useState(false);
@@ -62,6 +64,8 @@ const CopyToClipboardButton = ({
                 >
                     {isCopied ? (
                         <CheckIcon fontSize="small" htmlColor="var(--green)" />
+                    ) : copyIcon ? (
+                        copyIcon
                     ) : (
                         <CopyIcon />
                     )}
