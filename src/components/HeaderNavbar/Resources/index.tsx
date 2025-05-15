@@ -146,7 +146,7 @@ const HeaderNavbarResources = ({ active, setActive }) => {
                                     href="/demo/"
                                     fullWidth
                                 >
-                                    Watch Interactive Demo
+                                    Play Interactive Demo
                                 </LinkOutlined>
                             </div>
                             <div key="header-carousel-demo-2" className={slide}>
