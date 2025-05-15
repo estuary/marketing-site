@@ -5,6 +5,7 @@ import { Vendor } from '../../../shared';
 import Hero from '../../components/EtlToolsPage/Hero';
 import LearnMoreArticles from '../../components/EtlToolsPage/LearnMoreArticles';
 import ListOfComparisons from '../../components/EtlToolsPage/ListOfComparisons';
+import Breadcrumbs from '../../components/Breadcrumbs';
 
 interface EtlToolsProps {
     data: {
@@ -23,6 +24,21 @@ const EtlTools = ({
 }: EtlToolsProps) => {
     return (
         <Layout>
+            <Breadcrumbs
+                breadcrumbs={[
+                    {
+                        title: 'Home',
+                        href: '/',
+                    },
+                    {
+                        title: 'Product',
+                        href: '/product',
+                    },
+                    {
+                        title: 'All comparisons',
+                    },
+                ]}
+            />
             <Hero vendors={vendors} />
             <LearnMoreArticles />
             <ListOfComparisons

@@ -4,6 +4,7 @@ import { Vendor } from '../../../shared';
 import Hero from '../../components/EtlToolsXvsYPage/Hero';
 import Comparison from '../../components/EtlToolsXvsYPage/Comparison';
 import GettingStartedSection from '../../components/GettingStartedSection';
+import Breadcrumbs from '../../components/Breadcrumbs';
 import VendorComparisonHead from './Head';
 
 interface EtlToolsProps {
@@ -27,6 +28,25 @@ const EtlTools = ({
 }: EtlToolsProps) => {
     return (
         <Layout>
+            <Breadcrumbs
+                breadcrumbs={[
+                    {
+                        title: 'Home',
+                        href: '/',
+                    },
+                    {
+                        title: 'Product',
+                        href: '/product',
+                    },
+                    {
+                        title: 'All comparisons',
+                        href: '/etl-tools',
+                    },
+                    {
+                        title: `${xVendor.name} vs ${yVendor.name}`,
+                    },
+                ]}
+            />
             <Hero vendors={vendors} xVendor={xVendor} yVendor={yVendor} />
             <Comparison
                 xVendor={xVendor}
