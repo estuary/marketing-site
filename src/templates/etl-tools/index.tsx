@@ -35,6 +35,10 @@ const EtlTools = ({
                         href: '/',
                     },
                     {
+                        title: 'Product',
+                        href: '/product',
+                    },
+                    {
                         title: 'All comparisons',
                         href: '/etl-tools',
                     },
