@@ -1,0 +1,54 @@
+.container {
+  ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(305px, 1fr));
+    gap: 20px;
+    width: 100%;
+
+    @media (max-width: 425px) {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+  }
+
+  ul,
+  li {
+    margin: 0;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  h3,
+  h4,
+  span {
+    color: var(--white);
+  }
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 120%;
+  color: var(--grey);
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 425px) {
+    font-size: 1.75rem;
+    text-align: center;
+  }
+}
+
+.colorCard {
+  padding: 20px;
+  border: 1px solid var(--blue-15-opacity);
+  border-radius: 20px;
+  background-color: var(--blue-5-opacity);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
