@@ -79,9 +79,9 @@ export const listen: MenuCardItem[] = [
 
 export const demo: MenuCardItem[] = [
     {
-        name: 'Watch Interactive Demo',
+        name: 'Play Interactive Demo',
         to: '/demo/',
-        linkId: getMenuLinkId('watch-interactive-demo'),
+        linkId: getMenuLinkId('play-interactive-demo'),
     },
     {
         name: 'Real-time 101 [30 min]',
