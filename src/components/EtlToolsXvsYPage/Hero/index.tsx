@@ -1,6 +1,5 @@
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
 import clsx from 'clsx';
-import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import VendorsLink from '../../VendorsLink';
 import { Vendor } from '../../../../shared';
 import InternalLink from '../../InternalLink';
@@ -34,7 +33,7 @@ const Hero = ({ vendors, xVendor, yVendor }: SectionOneProps) => {
     };
 
     return (
-        <section className={defaultWrapperDarkBlue}>
+        <section>
             <Container isDarkTheme>
                 <HeroSectionDetails
                     title={
