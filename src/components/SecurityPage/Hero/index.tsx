@@ -1,11 +1,10 @@
 import { StaticImage } from 'gatsby-plugin-image';
-import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import Container from '../../Container';
 import HeroSectionDetails from '../../HeroSectionDetails';
 
 const Hero = () => {
     return (
-        <section className={defaultWrapperDarkBlue}>
+        <section>
             <Container isDarkTheme>
                 <HeroSectionDetails
                     title={
