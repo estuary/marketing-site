@@ -1,7 +1,12 @@
 import { ReactNode } from 'react';
+import clsx from 'clsx';
 import Footer from '../Footer';
 import Header from '../Header';
-import { globalWrapper, globalMainFixedHeader } from './styles.module.less';
+import {
+    globalWrapper,
+    globalMainFixedHeader,
+    lightSections,
+} from './styles.module.less';
 import ReleaseBanner from './ReleaseBanner';
 
 // const TakeATour = lazy(() => import('../TakeATour'));
@@ -9,16 +14,26 @@ import ReleaseBanner from './ReleaseBanner';
 interface LayoutProps {
     showReleaseBanner?: boolean;
     children: ReactNode | ReactNode[];
+    hasLightSections?: boolean;
 }
 
-const Layout = ({ showReleaseBanner = false, children }: LayoutProps) => {
+const Layout = ({
+    showReleaseBanner = false,
+    hasLightSections = false,
+    children,
+}: LayoutProps) => {
     return (
         <div className={globalWrapper}>
             {/*            <Suspense fallback={null}>
                 <TakeATour />
             </Suspense>*/}
             <Header />
-            <main className={globalMainFixedHeader}>
+            <main
+                className={clsx(
+                    globalMainFixedHeader,
+                    hasLightSections ? lightSections : null
+                )}
+            >
                 {showReleaseBanner ? <ReleaseBanner /> : null}
                 {children}
             </main>

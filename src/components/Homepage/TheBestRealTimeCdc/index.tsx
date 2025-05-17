@@ -1,11 +1,10 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import Advantages from '../../Advantages';
-import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import LinkFilled from '../../LinksAndButtons/LinkFilled';
 
 const TheBestRealTimeCdc = () => {
     return (
-        <section className={defaultWrapperGrey}>
+        <section>
             <Advantages
                 title={
                     <>

@@ -20,6 +20,7 @@ const BackgroundWrapper = ({
                 wrapper,
                 isSection ? sectionTopBottomPadding : null
             )}
+            style={{ backgroundColor: 'transparent' }}
         >
             {children}
         </HtmlElementTag>

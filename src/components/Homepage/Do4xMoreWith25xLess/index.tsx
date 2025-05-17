@@ -1,11 +1,10 @@
 import { PricingCalculator } from '../../PricingCalculator';
 import Advantages from '../../Advantages';
-import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import LinkFilled from '../../LinksAndButtons/LinkFilled';
 
 const Do4xMoreWith25xLess = () => {
     return (
-        <section className={defaultWrapperGrey}>
+        <section>
             <Advantages
                 title={
                     <>
