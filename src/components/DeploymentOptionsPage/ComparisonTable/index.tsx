@@ -1,4 +1,3 @@
-import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import Table from '../../Table';
 import Container from '../../Container';
 import { container } from './styles.module.less';
@@ -18,7 +17,7 @@ const data = [
 
 const ComparisonTable = () => {
     return (
-        <section className={defaultWrapperDark}>
+        <section>
             <Container className={container} isVertical>
                 <h2>Comparison table</h2>
                 <Table headers={headers} data={data} />

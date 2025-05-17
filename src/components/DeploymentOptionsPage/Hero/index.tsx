@@ -1,6 +1,5 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import clsx from 'clsx';
-import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import CustomerCloudIcon from '../../../svgs/customer-cloud-icon.svg';
 import PublicDeploymentsIcon from '../../../svgs/public-deployments-icon.svg';
 import PrivateDeploymentsIcon from '../../../svgs/private-deployments-icon.svg';
@@ -17,7 +16,7 @@ import {
 
 const Hero = () => {
     return (
-        <section className={defaultWrapperDarkBlue}>
+        <section>
             <Container className={container}>
                 <HeroSectionDetails
                     title="Estuary Flow deployment options"
