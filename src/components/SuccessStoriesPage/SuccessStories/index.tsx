@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import Container from '../../Container';
 import Grid from '../../Grid';
 import Card from '../../Grid/Card';
@@ -48,7 +47,7 @@ const SuccessStories = () => {
     };
 
     return (
-        <section className={defaultWrapperGrey}>
+        <section>
             <Container isVertical>
                 <h2 className={sectionTitle}>Success stories</h2>
                 <Grid>

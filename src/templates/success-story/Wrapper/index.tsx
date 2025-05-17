@@ -3,7 +3,7 @@ import Breadcrumbs from '../../../components/Breadcrumbs';
 
 const SuccessStoryWrapper = ({ children, successStoryTitle }) => {
     return (
-        <Layout>
+        <Layout hasLightSections>
             <Breadcrumbs
                 breadcrumbs={[
                     {
