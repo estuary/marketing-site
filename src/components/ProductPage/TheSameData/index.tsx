@@ -1,7 +1,6 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import { Link } from 'gatsby';
 import clsx from 'clsx';
-import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import Tabs from '../../Tabs';
 import Container from '../../Container';
 import PieChartIcon from '../../../svgs/pie-chart.svg';
@@ -33,7 +32,7 @@ const generateButtonId = (connectorId: string) =>
 
 const TheSameData = () => {
     return (
-        <section className={defaultWrapperDarkBlue}>
+        <section>
             <Container isReverseColumnOnMobile>
                 <div className={textWrapper}>
                     <div className={iconsWrapper}>

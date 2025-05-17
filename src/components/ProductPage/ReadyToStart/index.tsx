@@ -1,5 +1,4 @@
 import { StaticImage } from 'gatsby-plugin-image';
-import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import CalendarIcon from '../../../svgs/product-page/section-fourteen/calendar.svg';
 import LoginIcon from '../../../svgs/product-page/section-fourteen/login.svg';
 import { dashboardRegisterUrl } from '../../../../shared';
@@ -21,7 +20,7 @@ const iconColor = 'var(--blue)';
 
 const ReadyToStart = () => {
     return (
-        <section className={defaultWrapperDark}>
+        <section>
             <Container isVertical className={container}>
                 <h2>Ready to start?</h2>
                 <div className={columns}>

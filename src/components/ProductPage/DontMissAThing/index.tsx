@@ -1,12 +1,11 @@
 import { StaticImage } from 'gatsby-plugin-image';
-import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import NewsletterSignupForm from '../../NewsletterSignupForm';
 import Container from '../../Container';
 import { formFields, iconWrapper, imageWrapper } from './styles.module.less';
 
 const DontMissAThing = () => {
     return (
-        <section className={defaultWrapperDarkBlue}>
+        <section>
             <Container isReverseColumnOnMobile>
                 <div className={imageWrapper}>
                     <StaticImage

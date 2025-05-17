@@ -4,7 +4,6 @@ import { useMemo } from 'react';
 import clsx from 'clsx';
 import { HTMLTooltipProps } from '../../HTMLTooltip';
 import Container from '../../Container';
-import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import NoCodeIcon from '../../../svgs/product-page/section-three/no-code.svg';
 import CdcIcon from '../../../svgs/cdc.svg';
 import KafkaIcon from '../../../svgs/kafka.svg';
@@ -104,7 +103,7 @@ const KeyFeatures = () => {
     );
 
     return (
-        <section className={defaultWrapperDarkBlue}>
+        <section>
             <Container isVertical>
                 <div className={textWrapper}>
                     <h2>Key features</h2>
