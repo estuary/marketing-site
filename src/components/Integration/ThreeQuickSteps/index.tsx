@@ -1,4 +1,3 @@
-import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import Container from '../../Container';
 import StepCards from '../../StepCards';
 import Step from '../../StepCards/Step';
@@ -9,7 +8,7 @@ import { container } from './styles.module.less';
 
 const ThreeQuickSteps = ({ sourceConnector, destConnector }: Connectors) => {
     return (
-        <section className={defaultWrapperGrey}>
+        <section>
             <Container isVertical className={container}>
                 <h2>
                     How to integrate <span>{sourceConnector.title}</span> with{' '}

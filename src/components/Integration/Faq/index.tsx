@@ -1,4 +1,3 @@
-import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import Container from '../../Container';
 import { Connector } from '../../../../shared';
 import FaqAccordions from '../../Faq/FaqAccordions';
@@ -11,9 +10,9 @@ interface FaqProps {
 
 const Faq = ({ sourceConnector }: FaqProps) => {
     return (
-        <section className={defaultWrapperGrey}>
+        <section style={{ backgroundColor: 'var(--lighter-grey)' }}>
             <Container isVertical className={container}>
-                <h2>FAQs</h2>
+                <h2 style={{ color: 'var(--grey)' }}>FAQs</h2>
                 <FaqAccordions
                     faqs={faqs(sourceConnector).filter((faq) => faq != null)}
                 />

@@ -1,8 +1,5 @@
 import { graphql, useStaticQuery } from 'gatsby';
-import {
-    defaultWrapperDark,
-    defaultWrapperGrey,
-} from '../../../globalStyles/wrappers.module.less';
+
 import Container from '../../Container';
 import Grid from '../../Grid';
 import Card from '../../Grid/Card';
@@ -47,9 +44,11 @@ const SuccessStories = ({ hasRelatedArticles }: SuccessStoriesProps) => {
 
     return (
         <section
-            className={
-                hasRelatedArticles ? defaultWrapperGrey : defaultWrapperDark
-            }
+            style={{
+                backgroundColor: hasRelatedArticles
+                    ? 'var(--lighter-grey)'
+                    : 'var(--light-blue)',
+            }}
         >
             <Container isVertical>
                 <h2 className={sectionTitle}>Success stories</h2>

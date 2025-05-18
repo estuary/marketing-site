@@ -13,13 +13,15 @@ import ReleaseBanner from './ReleaseBanner';
 
 interface LayoutProps {
     showReleaseBanner?: boolean;
-    children: ReactNode | ReactNode[];
     hasLightSections?: boolean;
+    mainClassName?: string;
+    children: ReactNode | ReactNode[];
 }
 
 const Layout = ({
     showReleaseBanner = false,
     hasLightSections = false,
+    mainClassName,
     children,
 }: LayoutProps) => {
     return (
@@ -31,7 +33,8 @@ const Layout = ({
             <main
                 className={clsx(
                     globalMainFixedHeader,
-                    hasLightSections ? lightSections : null
+                    hasLightSections ? lightSections : null,
+                    mainClassName
                 )}
             >
                 {showReleaseBanner ? <ReleaseBanner /> : null}

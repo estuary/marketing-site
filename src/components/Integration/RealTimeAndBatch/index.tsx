@@ -1,11 +1,10 @@
 import { StaticImage } from 'gatsby-plugin-image';
-import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import Advantages from '../../Advantages';
 import { estuaryFlowAdvantages } from '../advantages';
 
 const RealTimeAndBatch = () => {
     return (
-        <section className={defaultWrapperGrey}>
+        <section>
             <Advantages
                 title={
                     <>

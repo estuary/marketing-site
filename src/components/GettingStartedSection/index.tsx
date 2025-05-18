@@ -1,8 +1,3 @@
-import clsx from 'clsx';
-import {
-    defaultWrapperDark,
-    defaultWrapperDarkBlue,
-} from '../../globalStyles/wrappers.module.less';
 import EstuaryLogo from '../../svgs/estuary-icon.svg';
 import FileIcon from '../../svgs/file.svg';
 import SlackIcon from '../../svgs/slack-outline.svg';
@@ -15,29 +10,16 @@ import {
 } from '../../../shared';
 import BlogBanner from '../BlogBanner';
 import Container from '../Container';
-import { container, darkContainer } from './styles.module.less';
+import { container } from './styles.module.less';
 import FeatureCard from './FeatureCard';
 
 const iconColor = 'var(--blue)';
 const iconSize = 28;
 
-interface GettingStartedSectionProps {
-    isDarkTheme?: boolean;
-}
-
-const GettingStartedSection = ({
-    isDarkTheme = false,
-}: GettingStartedSectionProps) => {
+const GettingStartedSection = () => {
     return (
-        <section
-            className={
-                isDarkTheme ? defaultWrapperDarkBlue : defaultWrapperDark
-            }
-        >
-            <Container
-                isVertical
-                className={clsx(container, isDarkTheme ? darkContainer : null)}
-            >
+        <section>
+            <Container isVertical className={container}>
                 <h2>
                     Getting started with <span>Estuary</span>
                 </h2>
@@ -57,7 +39,6 @@ const GettingStartedSection = ({
                             title: 'Sign up',
                             href: dashboardRegisterUrl,
                         }}
-                        isDarkTheme={isDarkTheme}
                     />
                     <FeatureCard
                         icon={
@@ -74,7 +55,6 @@ const GettingStartedSection = ({
                             title: 'Learn more',
                             href: docsPageUrl,
                         }}
-                        isDarkTheme={isDarkTheme}
                     />
                     <FeatureCard
                         icon={
@@ -91,7 +71,6 @@ const GettingStartedSection = ({
                             title: 'Join Slack Community',
                             href: slackUrl,
                         }}
-                        isDarkTheme={isDarkTheme}
                     />
                     <FeatureCard
                         icon={
@@ -108,7 +87,6 @@ const GettingStartedSection = ({
                             title: 'Watch',
                             href: webinarsUrl,
                         }}
-                        isDarkTheme={isDarkTheme}
                     />
                 </ul>
                 <BlogBanner
@@ -123,7 +101,7 @@ const GettingStartedSection = ({
                         title: 'Contact us',
                         href: '/contact-us/',
                     }}
-                    isDarkTheme={isDarkTheme}
+                    isDarkTheme
                 />
             </Container>
         </section>
