@@ -1,8 +1,4 @@
 import Container from '../../../Container';
-import {
-    defaultWrapperGrey,
-    defaultWrapperDarkBlue,
-} from '../../../../globalStyles/wrappers.module.less';
 import Card from '../../Card';
 import { sectionText } from '../../styles.module.less';
 import { BenefitsSectionContent } from '../../../../templates/solutions/shared';
@@ -15,11 +11,7 @@ interface BenefitsProps extends SectionTheme {
 
 const Benefits = ({ data, isDarkTheme = false }: BenefitsProps) => {
     return (
-        <section
-            className={
-                isDarkTheme ? defaultWrapperDarkBlue : defaultWrapperGrey
-            }
-        >
+        <section>
             <Container className={wrapper} isVertical isDarkTheme={isDarkTheme}>
                 <div className={sectionText}>
                     <h2>

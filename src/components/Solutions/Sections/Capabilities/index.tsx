@@ -1,9 +1,6 @@
 import clsx from 'clsx';
 import Container from '../../../Container';
-import {
-    defaultWrapperDarkBlue,
-    defaultWrapperDark,
-} from '../../../../globalStyles/wrappers.module.less';
+
 import { sectionText } from '../../styles.module.less';
 import { CapabilitiesSectionContent } from '../../../../templates/solutions/shared';
 import { SectionTheme } from '../shared';
@@ -16,12 +13,7 @@ interface CapabilitiesProps extends SectionTheme {
 
 const Capabilities = ({ data, isDarkTheme = false }: CapabilitiesProps) => {
     return (
-        <section
-            className={clsx(
-                isDarkTheme ? defaultWrapperDarkBlue : defaultWrapperDark,
-                wrapper
-            )}
-        >
+        <section className={wrapper}>
             <Container
                 className={sectionText}
                 isDarkTheme={isDarkTheme}

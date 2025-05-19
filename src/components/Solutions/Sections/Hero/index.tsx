@@ -1,7 +1,6 @@
 import { GatsbyImage } from 'gatsby-plugin-image';
 import Container from '../../../Container';
 import HeroSectionDetails from '../../../HeroSectionDetails';
-import { defaultWrapperDarkBlue } from '../../../../globalStyles/wrappers.module.less';
 import HeroSectionActions from '../../../HeroSectionActions';
 import { container, heroImageWrapper } from './styles.module.less';
 
@@ -13,7 +12,7 @@ interface HeroProps {
 
 const Hero = ({ title, description, image }: HeroProps) => {
     return (
-        <section className={defaultWrapperDarkBlue}>
+        <section>
             <Container isDarkTheme className={container}>
                 <HeroSectionDetails
                     title={title}

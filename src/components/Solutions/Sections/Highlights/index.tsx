@@ -1,9 +1,6 @@
 import Container from '../../../Container';
 import { sectionText, noPadding } from '../../styles.module.less';
-import {
-    defaultWrapperDarkBlue,
-    defaultWrapperDark,
-} from '../../../../globalStyles/wrappers.module.less';
+
 import Card from '../../Card';
 import { HighlightsSectionContent } from '../../../../templates/solutions/shared';
 import ImageDark from '../../../../svgs/use-case-solutions-template/estuary-solutions-highlights-dark.svg';
@@ -17,11 +14,7 @@ interface HighlightsProps extends SectionTheme {
 
 const Highlights = ({ data, isDarkTheme = false }: HighlightsProps) => {
     return (
-        <section
-            className={
-                isDarkTheme ? defaultWrapperDarkBlue : defaultWrapperDark
-            }
-        >
+        <section>
             <Container className={wrapper} isDarkTheme={isDarkTheme} isVertical>
                 <Container className={noPadding}>
                     <div className={sectionText}>
