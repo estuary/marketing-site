@@ -62,17 +62,19 @@ const LpPodcats = ({
     return (
         <Layout hasLightSections hasLightHeroSection>
             <div className={container}>
-                <section className={hero}>
-                    <div className={heroLeft}>
-                        <h1>Tune into Real-Time</h1>
-                        <p>
-                            Join us as we join other thought-leaders in the data
-                            engineering community as we discuss the current and
-                            future state of real-time data.
-                        </p>
-                    </div>
-                    <div className={heroRight}>
-                        <HeroImage />
+                <section>
+                    <div className={hero}>
+                        <div className={heroLeft}>
+                            <h1>Tune into Real-Time</h1>
+                            <p>
+                                Join us as we join other thought-leaders in the
+                                data engineering community as we discuss the
+                                current and future state of real-time data.
+                            </p>
+                        </div>
+                        <div className={heroRight}>
+                            <HeroImage />
+                        </div>
                     </div>
                 </section>
                 <section className={episodes}>
