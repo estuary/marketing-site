@@ -4,7 +4,6 @@ import SuccessIcon from '../../../svgs/success.svg';
 import HealthWebsiteIcon from '../../../svgs/health-website.svg';
 import FileIcon from '../../../svgs/file.svg';
 import GiveAccessIcon from '../../../svgs/give-access.svg';
-import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import LinkFilled from '../../LinksAndButtons/LinkFilled';
 import AdvantageCard from './AdvantageCard';
 import {
@@ -16,7 +15,7 @@ import {
 
 const WhatsIncluded = () => {
     return (
-        <section className={defaultWrapperGrey}>
+        <section>
             <Container isVertical className={outerContainer}>
                 <h2>What&apos;s included</h2>
                 <Container className={innerContainer}>

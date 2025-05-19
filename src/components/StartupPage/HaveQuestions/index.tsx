@@ -1,5 +1,4 @@
 import Container from '../../Container';
-import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import OutboundLinkFilled from '../../LinksAndButtons/OutboundLinkFilled';
 import LinkOutlined from '../../LinksAndButtons/LinkOutlined';
 import SlackIcon from '../../../svgs/slack-outline.svg';
@@ -13,7 +12,7 @@ const linkIdSuffix = '-button/have-questions-section/startup-page';
 
 const HaveQuestions = () => {
     return (
-        <section className={defaultWrapperGrey}>
+        <section>
             <Container className={container} isVertical>
                 <h2>Have questions?</h2>
                 <div className={buttonsWrapper}>
