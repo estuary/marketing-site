@@ -1,4 +1,3 @@
-import React from 'react';
 import { graphql, Link } from 'gatsby';
 import {
     GatsbyImage,
@@ -23,6 +22,7 @@ import OutboundLink from '../../components/LinksAndButtons/OutboundLink';
 import LinkFilled from '../../components/LinksAndButtons/LinkFilled';
 import OrganizationScript from '../../components/OrganizationScript';
 import {
+    main,
     sectionOne,
     sectionOneBackgroundImageWrapper,
     sectionOneLeft,
@@ -38,7 +38,6 @@ import {
     currentOpeningsButton,
     textBoldRegular,
     careersTextWrapper,
-    sectionThree,
     sectionThreeWrapper,
     sectionTitle,
     sectionThreeTop,
@@ -187,7 +186,7 @@ const AboutPage = ({ data }: AboutPageProps) => {
     } = data;
 
     return (
-        <Layout>
+        <Layout mainClassName={main}>
             <section className={sectionOneBackgroundImageWrapper}>
                 <div className={sectionOne}>
                     <div className={sectionOneLeft}>
@@ -425,7 +424,7 @@ const AboutPage = ({ data }: AboutPageProps) => {
                     </LinkFilled>
                 </div>
             </section>
-            <section className={sectionThree}>
+            <section>
                 <div className={sectionThreeWrapper}>
                     <span className={preTitle}>WHAT&apos;S IT LIKE</span>
                     <div className={sectionThreeTop}>
