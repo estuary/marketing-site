@@ -105,7 +105,7 @@ const Connector = ({
                     longDescription: source_mapped?.longDescription,
                 }}
             />
-            <GettingStartedSection />
+            <GettingStartedSection isDarkTheme />
             <RelatedIntegrations
                 sourceConnector={{
                     id: source_mapped?.id,

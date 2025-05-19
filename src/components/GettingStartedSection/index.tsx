@@ -16,7 +16,13 @@ import FeatureCard from './FeatureCard';
 const iconColor = 'var(--blue)';
 const iconSize = 28;
 
-const GettingStartedSection = () => {
+interface GettingStartedSectionProps {
+    isDarkTheme?: boolean;
+}
+
+const GettingStartedSection = ({
+    isDarkTheme = false,
+}: GettingStartedSectionProps) => {
     return (
         <section>
             <Container isVertical className={container}>
@@ -39,6 +45,7 @@ const GettingStartedSection = () => {
                             title: 'Sign up',
                             href: dashboardRegisterUrl,
                         }}
+                        isDarkTheme={isDarkTheme}
                     />
                     <FeatureCard
                         icon={
@@ -55,6 +62,7 @@ const GettingStartedSection = () => {
                             title: 'Learn more',
                             href: docsPageUrl,
                         }}
+                        isDarkTheme={isDarkTheme}
                     />
                     <FeatureCard
                         icon={
@@ -71,6 +79,7 @@ const GettingStartedSection = () => {
                             title: 'Join Slack Community',
                             href: slackUrl,
                         }}
+                        isDarkTheme={isDarkTheme}
                     />
                     <FeatureCard
                         icon={
@@ -87,6 +96,7 @@ const GettingStartedSection = () => {
                             title: 'Watch',
                             href: webinarsUrl,
                         }}
+                        isDarkTheme={isDarkTheme}
                     />
                 </ul>
                 <BlogBanner
