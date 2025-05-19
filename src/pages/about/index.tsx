@@ -45,7 +45,6 @@ import {
     sectionThreeCard,
     cardTitle,
     referralText,
-    sectionFourCurrentOpenings,
     sectionFourCurrentOpeningsWrapper,
     currentOpeningsList,
     currentOpeningTitle,
@@ -485,7 +484,7 @@ const AboutPage = ({ data }: AboutPageProps) => {
                     </p>
                 </div>
             </section>
-            <section className={sectionFourCurrentOpenings} id="careers">
+            <section id="careers">
                 <div className={sectionFourCurrentOpeningsWrapper}>
                     <span className={preTitle}>APPLY TODAY</span>
                     <h2 className={sectionTitle}>Current Openings</h2>

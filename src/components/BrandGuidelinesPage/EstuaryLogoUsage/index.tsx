@@ -1,7 +1,6 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import Container from '../../Container';
-import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import { sectionTitle } from '../styles.module.less';
 import { container } from './styles.module.less';
 import Card from './Card';
@@ -108,7 +107,7 @@ export default function EstuaryLogoUsage() {
     ];
 
     return (
-        <section className={defaultWrapperGrey}>
+        <section>
             <Container isVertical className={container}>
                 <h2 className={sectionTitle}>
                     <span>Estuary</span> logo usage
