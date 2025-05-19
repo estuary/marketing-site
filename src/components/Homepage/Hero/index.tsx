@@ -18,17 +18,16 @@ const Hero = () => {
                 <HeroSectionDetails
                     title={
                         <>
-                            <span className="white-text">Meet</span>{' '}
-                            <span>the fastest</span>
-                            <span>,</span> <span>most reliable</span>{' '}
-                            <span className="white-text">ETL</span>
+                            <span>Unlock Your Data.</span>
+                            <br />
+                            Anywhere. Anytime.
                         </>
                     }
-                    description="Secure data integration with Estuary Flow, the enterprise data movement platform for real-time streaming and batch processing."
+                    description="Power analytics, operations, and AI with secure, real-time data delivery."
                     ctaButtons={
                         <HeroSectionActions
                             pageId="homepage"
-                            contactUsButtonTitle="Book a Demo"
+                            contactUsButtonTitle="See It in Action"
                         />
                     }
                     hasSubscriptionBenefits
@@ -40,7 +39,7 @@ const Hero = () => {
             <ul className={metricCardsList}>
                 <MetricCard value={activeUsersAmount} label="Users" />
                 <MetricCard value="&#60;100 ms" label="Latency" />
-                <MetricCard value="7+ gb/s" label="Throughput" />
+                <MetricCard value="1 petabyte / month" label="Data moved" />
                 <MetricCard value="99.9%" label="Uptime" />
             </ul>
             <VanityLogosMarquee />

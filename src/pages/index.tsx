@@ -20,7 +20,7 @@ import ConnectorsMasonrySection from '../components/ConnectorsMasonrySection';
 
 const IndexPage = () => {
     return (
-        <Layout showReleaseBanner>
+        <Layout>
             <Hero />
             <MoveAndTransform />
             <SuccessStories />
