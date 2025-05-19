@@ -6,6 +6,7 @@ import {
     globalWrapper,
     globalMainFixedHeader,
     lightSections,
+    lightHeroSection,
 } from './styles.module.less';
 import ReleaseBanner from './ReleaseBanner';
 
@@ -14,6 +15,7 @@ import ReleaseBanner from './ReleaseBanner';
 interface LayoutProps {
     showReleaseBanner?: boolean;
     hasLightSections?: boolean;
+    hasLightHeroSection?: boolean;
     mainClassName?: string;
     children: ReactNode | ReactNode[];
 }
@@ -21,6 +23,7 @@ interface LayoutProps {
 const Layout = ({
     showReleaseBanner = false,
     hasLightSections = false,
+    hasLightHeroSection = false,
     mainClassName,
     children,
 }: LayoutProps) => {
@@ -34,6 +37,7 @@ const Layout = ({
                 className={clsx(
                     globalMainFixedHeader,
                     hasLightSections ? lightSections : null,
+                    hasLightHeroSection ? lightHeroSection : null,
                     mainClassName
                 )}
             >

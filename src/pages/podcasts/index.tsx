@@ -60,7 +60,7 @@ const LpPodcats = ({
     },
 }: LpPodcatsProps) => {
     return (
-        <Layout>
+        <Layout hasLightSections hasLightHeroSection>
             <div className={container}>
                 <section className={hero}>
                     <div className={heroLeft}>
