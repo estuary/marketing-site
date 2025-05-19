@@ -60,7 +60,6 @@ import {
     historyWrap,
     historyLeft,
     historyRight,
-    media,
     mediaWrapper,
     mediaLogo,
     mediaWrap,
@@ -263,7 +262,7 @@ const AboutPage = ({ data }: AboutPageProps) => {
                     </div>
                 </div>
             </section>
-            <section className={media}>
+            <section>
                 <div className={mediaWrapper}>
                     <span className={preTitle}>WHAT&apos;S HAPPENING</span>
                     <h2 className={sectionTitle}>In the Media</h2>
