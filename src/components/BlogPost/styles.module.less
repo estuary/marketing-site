@@ -297,20 +297,16 @@
 .bigBuildPipelineBannerWrapper {
   .globalMaxWidth;
 
-  border-radius: 24px;
-  overflow: hidden;
+  position: relative;
+  z-index: 1;
 }
 
 .bigBuildPipelineBannerContainer {
-  background-color: var(--dark-blue);
-  border-radius: 24px;
   overflow: hidden;
   padding: 48px 90px;
   max-width: 1356px;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 24px;
-  overflow: hidden;
 
   @media (max-width: 1350px) {
     padding: 48px 30px;
@@ -326,6 +322,11 @@
     background-size: cover;
     align-items: flex-start;
   }
+}
+
+.straightLinesBackgroundWrapper {
+  border-radius: 24px;
+  overflow: hidden;
 }
 
 .popularArticlesWrapper {

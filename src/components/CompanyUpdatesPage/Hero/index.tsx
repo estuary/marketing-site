@@ -1,4 +1,3 @@
-import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import Container from '../../Container';
 import HeroSectionDetails from '../../HeroSectionDetails';
 import HeroSectionActions from '../../HeroSectionActions';
@@ -6,7 +5,7 @@ import FlowDiagram from './FlowDiagram';
 
 const Hero = () => {
     return (
-        <section className={defaultWrapperDarkBlue}>
+        <section>
             <Container>
                 <HeroSectionDetails
                     title={<span>Stay current with Estuary Flow</span>}

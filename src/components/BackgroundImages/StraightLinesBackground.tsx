@@ -1,16 +1,23 @@
-import { HTMLAttributes } from 'react';
+import { HTMLAttributes, ReactNode } from 'react';
 import clsx from 'clsx';
 import { StaticImage } from 'gatsby-plugin-image';
 import { backgroundImage, fullHeight } from './styles.module.less';
 import { darkImgStyle } from './shared';
 import BackgroundWrapper from './BackgroundWrapper';
 
+interface StraightLinesBackground extends HTMLAttributes<HTMLDivElement> {
+    children: ReactNode;
+    className?: string;
+    wrapperClassName?: string;
+}
+
 const StraightLinesBackground = ({
     children,
     className,
-}: HTMLAttributes<HTMLDivElement>) => {
+    wrapperClassName,
+}: StraightLinesBackground) => {
     return (
-        <BackgroundWrapper>
+        <BackgroundWrapper className={wrapperClassName}>
             <StaticImage
                 alt=""
                 src="../../images/lp-connector/real-time/Vector.png"

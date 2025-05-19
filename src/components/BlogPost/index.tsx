@@ -43,6 +43,7 @@ import {
     popularArticlesWrapper,
     bigBuildPipelineBannerWrapper,
     bigBuildPipelineBannerContainerLayout,
+    straightLinesBackgroundWrapper,
     leftColumnContainer,
     rightColumnContainer,
     buildPipelineAndPricingButtons,
@@ -331,6 +332,7 @@ const BlogPost = ({
                 <div className={bigBuildPipelineBannerWrapper}>
                     <StraightLinesBackground
                         className={bigBuildPipelineBannerContainer}
+                        wrapperClassName={straightLinesBackgroundWrapper}
                     >
                         <div className={bigBuildPipelineBannerContainerLayout}>
                             <div className={leftColumnContainer}>

@@ -6,11 +6,13 @@ import { wrapper } from './styles.module.less';
 interface BackgroundWrapperProps {
     children: ReactNode;
     isSection?: boolean;
+    className?: string;
 }
 
 const BackgroundWrapper = ({
     children,
     isSection = false,
+    className,
 }: BackgroundWrapperProps) => {
     const HtmlElementTag = isSection ? 'section' : 'div';
 
@@ -18,7 +20,8 @@ const BackgroundWrapper = ({
         <HtmlElementTag
             className={clsx(
                 wrapper,
-                isSection ? sectionTopBottomPadding : null
+                isSection ? sectionTopBottomPadding : null,
+                className
             )}
             style={{ backgroundColor: 'transparent' }}
         >
