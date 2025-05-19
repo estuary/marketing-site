@@ -27,7 +27,7 @@ const Hero = () => {
                     ctaButtons={
                         <HeroSectionActions
                             pageId="homepage"
-                            contactUsButtonTitle="See It in Action"
+                            contactUsButtonTitle="Book a Demo"
                         />
                     }
                     hasSubscriptionBenefits
