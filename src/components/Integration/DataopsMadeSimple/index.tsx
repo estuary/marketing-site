@@ -1,11 +1,10 @@
 import { StaticImage } from 'gatsby-plugin-image';
-import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import SingleDataflowIcon from '../../../svgs/metric-single-dataflow.svg';
 import Advantages from '../../Advantages';
 
 const DataopsMadeSimple = () => {
     return (
-        <section className={defaultWrapperDarkBlue}>
+        <section>
             <Advantages
                 icon={<SingleDataflowIcon color="var(--blue)" />}
                 title={

@@ -1,6 +1,5 @@
 import { GatsbyImage } from 'gatsby-plugin-image';
 import Container from '../../../Container';
-import { defaultWrapperGrey } from '../../../../globalStyles/wrappers.module.less';
 import { sectionText } from '../../styles.module.less';
 import { TestimonialSectionContent } from '../../../../templates/solutions/shared';
 import LinkOutlined from '../../../LinksAndButtons/LinkOutlined';
@@ -18,7 +17,7 @@ interface TestimonialProps {
 
 const Testimonial = ({ data }: TestimonialProps) => {
     return (
-        <section className={defaultWrapperGrey}>
+        <section>
             <Container className={sectionText}>
                 <div className={quoteBox}>
                     <div className={quoteContentWrapper}>

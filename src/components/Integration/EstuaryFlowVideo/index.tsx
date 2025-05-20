@@ -1,4 +1,3 @@
-import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import FlowDemoVideo from '../../FlowDemoVideo';
 import { dashboardRegisterUrl } from '../../../../shared';
 import OutboundLinkFilled from '../../LinksAndButtons/OutboundLinkFilled';
@@ -8,7 +7,7 @@ import { buttonsWrapper, container, description } from './styles.module.less';
 
 const EstuaryFlowVideo = () => {
     return (
-        <section className={defaultWrapperDarkBlue}>
+        <section>
             <div className={container}>
                 <h2 className={sectionTitle}>
                     <span>Estuary Flow</span> in action

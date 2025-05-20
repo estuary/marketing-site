@@ -9,7 +9,7 @@ import ComparisonTable from '../../components/DeploymentOptionsPage/ComparisonTa
 
 const DeploymentOptions = () => {
     return (
-        <Layout>
+        <Layout hasLightSections>
             <Hero />
             <PublicDeployment />
             <PrivateDeployment />

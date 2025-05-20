@@ -1,10 +1,32 @@
+@import '../../globalStyles/wrappers.module.less';
+
 .globalWrapper {
   display: flex;
   flex-direction: column;
 }
 
 .globalMainFixedHeader {
+  section:first-of-type, section:nth-of-type(odd) {
+    .defaultWrapperDarkBlue;
+  }
+
+  section:nth-of-type(even) {
+    .defaultWrapperGrey;
+  }
+
   @media (min-width: 810px) {
-      margin-top: 80px;
+    margin-top: 80px;
+  }
+}
+
+.lightSections {
+  section:nth-of-type(odd):not(:first-of-type) {
+    .defaultWrapperDark;
+  }
+}
+
+.lightHeroSection {
+  section:first-of-type {
+    .defaultWrapperDark;
   }
 }

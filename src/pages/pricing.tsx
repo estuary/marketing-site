@@ -8,7 +8,7 @@ import Faq from '../components/PricingPage/Faq';
 
 const PricingPage = () => {
     return (
-        <Layout>
+        <Layout hasLightSections>
             <Hero />
             <ChooseYourPlan />
             <PricingCalculatorSection />

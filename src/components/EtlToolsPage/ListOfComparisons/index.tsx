@@ -3,7 +3,6 @@ import { Tab, Tabs } from '@mui/material';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import TabPanel from '@mui/lab/TabPanel';
 import TabContext from '@mui/lab/TabContext';
-import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import { Vendor } from '../../../../shared';
 import Checkmark from '../../../svgs/checkmark.svg';
 import { container } from '../styles.module.less';
@@ -66,7 +65,7 @@ const ListOfComparisons = ({ estuaryVendor, vendors }: SectionThreeProps) => {
     );
 
     return (
-        <section className={defaultWrapperDark}>
+        <section>
             <Container isVertical className={container}>
                 <div className={textWrapper}>
                     <h2>Browse the Complete List of Comparisons</h2>

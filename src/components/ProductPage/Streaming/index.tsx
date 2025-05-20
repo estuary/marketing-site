@@ -2,7 +2,6 @@ import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import clsx from 'clsx';
 import Container from '../../Container';
-import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import {
     amazonRedshiftStreamingEtlLogoWrapper,
     batchEltColumn,
@@ -31,7 +30,7 @@ const generateButtonId = (connectorId: string) =>
 
 const Streaming = () => {
     return (
-        <section className={defaultWrapperDarkBlue}>
+        <section>
             <Container isVertical isDarkTheme>
                 <h2 className={title}>
                     Streaming <span>ETL vs. Batch ELT</span>

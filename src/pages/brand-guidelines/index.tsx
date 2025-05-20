@@ -1,14 +1,15 @@
-import Layout from '../components/Layout';
-import Seo from '../components/seo';
-import EstuaryLogoUsage from '../components/BrandGuidelinesPage/EstuaryLogoUsage';
-import Hero from '../components/BrandGuidelinesPage/Hero';
-import EstuaryColorPalette from '../components/BrandGuidelinesPage/EstuaryColorPalette';
-import EstuaryTypography from '../components/BrandGuidelinesPage/EstuaryTypography';
-import CompanyBoilerplate from '../components/BrandGuidelinesPage/CompanyBoilerplate';
+import Layout from '../../components/Layout';
+import Seo from '../../components/seo';
+import EstuaryLogoUsage from '../../components/BrandGuidelinesPage/EstuaryLogoUsage';
+import Hero from '../../components/BrandGuidelinesPage/Hero';
+import EstuaryColorPalette from '../../components/BrandGuidelinesPage/EstuaryColorPalette';
+import EstuaryTypography from '../../components/BrandGuidelinesPage/EstuaryTypography';
+import CompanyBoilerplate from '../../components/BrandGuidelinesPage/CompanyBoilerplate';
+import { main } from './styles.module.less';
 
 const BrandGuidelinesPage = () => {
     return (
-        <Layout>
+        <Layout mainClassName={main}>
             <Hero />
             <EstuaryLogoUsage />
             <EstuaryColorPalette />

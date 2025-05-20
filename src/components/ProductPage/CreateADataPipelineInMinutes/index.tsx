@@ -2,14 +2,13 @@ import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import FlowDemoVideo from '../../FlowDemoVideo';
 import Container from '../../Container';
-import { sectionTopBottomPadding } from '../../../globalStyles/sections.module.less';
 import Step from '../../StepCards/Step';
 import StepCards from '../../StepCards';
 import { textWrapper } from './styles.module.less';
 
 const CreateADataPipelineInMinutes = () => {
     return (
-        <section className={sectionTopBottomPadding}>
+        <section>
             <Container isVertical>
                 <div className={textWrapper}>
                     <h2>

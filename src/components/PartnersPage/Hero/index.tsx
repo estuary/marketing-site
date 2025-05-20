@@ -1,13 +1,12 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import Container from '../../Container';
 import HeroSectionDetails from '../../HeroSectionDetails';
-import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import ContactUsCta from '../../HeroSectionActions/ContactUsCta';
 import { container } from './styles.module.less';
 
 const Hero = () => {
     return (
-        <section className={defaultWrapperDarkBlue}>
+        <section>
             <Container isDarkTheme className={container}>
                 <HeroSectionDetails
                     title="The Estuary Partner Program"

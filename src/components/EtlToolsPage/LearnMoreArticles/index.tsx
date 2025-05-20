@@ -1,4 +1,3 @@
-import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import { container } from '../styles.module.less';
 import Container from '../../Container';
 import { cardsWrapper } from './styles.module.less';
@@ -8,7 +7,7 @@ const slugPrefix = '/blog';
 
 const LearnMoreArticles = () => {
     return (
-        <section className={defaultWrapperGrey}>
+        <section>
             <Container isVertical className={container}>
                 <h2>Learn more about ETL, ELT, and CDC alternatives</h2>
                 <div className={cardsWrapper}>

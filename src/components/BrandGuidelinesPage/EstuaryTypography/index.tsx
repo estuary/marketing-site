@@ -1,5 +1,4 @@
 import Container from '../../Container';
-import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import SectionHeader from '../SectionHeader';
 import ArrowRightIcon from '../../../svgs/arrow-right-2.svg';
 import OutboundLink from '../../LinksAndButtons/OutboundLink';
@@ -8,7 +7,7 @@ import { container, cardsList, card } from './styles.module.less';
 const GOOGLE_FONTS_INTER = 'https://fonts.google.com/specimen/Inter';
 
 const EstuaryTypography = () => (
-    <section className={defaultWrapperGrey}>
+    <section>
         <Container isVertical className={container}>
             <SectionHeader
                 title={

@@ -1,27 +1,28 @@
 import { graphql } from 'gatsby';
-import Layout from '../components/Layout';
-import Seo from '../components/seo';
-import { normalizeConnector } from '../utils';
-import Hero from '../components/Integration/Hero';
-import ThreeQuickSteps from '../components/Integration/ThreeQuickSteps';
-import Testimonials from '../components/TestimonialsSection';
-import EstuaryFlowVideo from '../components/Integration/EstuaryFlowVideo';
-import RelatedIntegrations from '../components/Integration/RelatedIntegrations';
-import RealTimeAndBatch from '../components/Integration/RealTimeAndBatch';
-import DataopsMadeSimple from '../components/Integration/DataopsMadeSimple';
-import IncreaseProductivity4x from '../components/Integration/IncreaseProductivity4x';
-import Spend25xLess from '../components/Integration/Spend25xLess';
-import SeeHowSection from '../components/SeeHowSection';
-import OutboundLinkFilled from '../components/LinksAndButtons/OutboundLinkFilled';
+import Layout from '../../components/Layout';
+import Seo from '../../components/seo';
+import { normalizeConnector } from '../../utils';
+import Hero from '../../components/Integration/Hero';
+import ThreeQuickSteps from '../../components/Integration/ThreeQuickSteps';
+import Testimonials from '../../components/TestimonialsSection';
+import EstuaryFlowVideo from '../../components/Integration/EstuaryFlowVideo';
+import RelatedIntegrations from '../../components/Integration/RelatedIntegrations';
+import RealTimeAndBatch from '../../components/Integration/RealTimeAndBatch';
+import DataopsMadeSimple from '../../components/Integration/DataopsMadeSimple';
+import IncreaseProductivity4x from '../../components/Integration/IncreaseProductivity4x';
+import Spend25xLess from '../../components/Integration/Spend25xLess';
+import SeeHowSection from '../../components/SeeHowSection';
+import OutboundLinkFilled from '../../components/LinksAndButtons/OutboundLinkFilled';
 import {
     Connector as GlobalConnectorType,
     dashboardRegisterUrl,
-} from '../../shared';
-import OpenHubspotModal from '../components/HubSpot/OpenModal';
-import Faq from '../components/Integration/Faq';
-import GettingStartedSection from '../components/GettingStartedSection';
-import SuccessStories from '../components/Integration/SuccessStories';
-import RelatedBlogPosts from '../components/Integration/RelatedBlogPosts';
+} from '../../../shared';
+import OpenHubspotModal from '../../components/HubSpot/OpenModal';
+import Faq from '../../components/Integration/Faq';
+import GettingStartedSection from '../../components/GettingStartedSection';
+import SuccessStories from '../../components/Integration/SuccessStories';
+import RelatedBlogPosts from '../../components/Integration/RelatedBlogPosts';
+import { layoutClassName } from './styles.module.less';
 
 export interface ConnectorProps {
     data: {
@@ -58,7 +59,7 @@ const Connector = ({
         sourceConnectorRelatedArticle?.nodes?.length > 0;
 
     return (
-        <Layout>
+        <Layout mainClassName={!hasRelatedArticles ? layoutClassName : null}>
             <Hero
                 sourceConnector={{
                     title: source_mapped?.title,

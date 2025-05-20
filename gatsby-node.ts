@@ -42,7 +42,7 @@ const successStoryTemplate = path.resolve(
 );
 
 const connectorTemplate = path.resolve('./src/templates/connector/index.tsx');
-const connectionTemplate = path.resolve('./src/templates/connection.tsx');
+const connectionTemplate = path.resolve('./src/templates/connection/index.tsx');
 const authorTemplate = path.resolve('./src/templates/author/index.tsx');
 const comparisonTemplate = path.resolve('./src/templates/etl-tools/index.tsx');
 

@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import DeploymentOptionDetails from '../../DeploymentOptions/DeploymentOptionDetails';
 import { features } from '../shared';
 import { container, reverseAdaptedContainer } from '../styles.module.less';
@@ -8,7 +7,7 @@ import Container from '../../Container';
 
 const PrivateDeployment = () => {
     return (
-        <section className={defaultWrapperDark}>
+        <section>
             <Container
                 isReverseColumnOnMobile
                 className={clsx(container, reverseAdaptedContainer)}

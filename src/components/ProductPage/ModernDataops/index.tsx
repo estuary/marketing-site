@@ -1,5 +1,4 @@
 import { StaticImage } from 'gatsby-plugin-image';
-import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import Advantages from '../../Advantages';
 import { sectionSevenAdvantages } from '../advantages';
 import { docsPageUrl } from '../../../../shared';
@@ -7,7 +6,7 @@ import OutboundLinkFilled from '../../LinksAndButtons/OutboundLinkFilled';
 
 const ModernDataops = () => {
     return (
-        <section className={defaultWrapperDarkBlue}>
+        <section>
             <Advantages
                 isDarkTheme
                 isImageOnTheLeft

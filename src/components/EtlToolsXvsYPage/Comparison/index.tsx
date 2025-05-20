@@ -4,7 +4,6 @@ import {
     getComparisonSlug,
     Vendor,
 } from '../../../../shared';
-import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import BlogBanner from '../../BlogBanner';
 import ArticleSidebar from '../../ArticleSidebar';
 import SuccessStoryBanner from '../../SuccessStoryBanner';
@@ -192,7 +191,7 @@ const Comparison = ({
     }, []);
 
     return (
-        <section className={defaultWrapperGrey}>
+        <section>
             <div className={container}>
                 <ArticleSidebar
                     ctaButtonid="build-a-pipeline-button/sidebar/comparison-page"

@@ -9,7 +9,7 @@ import WhatsIncluded from '../components/StartupPage/WhatsIncluded';
 
 const StartupPage = () => {
     return (
-        <Layout>
+        <Layout hasLightSections>
             <Hero />
             <WhatsIncluded />
             {/* <WhatFoundersAreSaying /> */}

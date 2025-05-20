@@ -1,12 +1,11 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import { docsPageUrl } from '../../../../shared';
 import Advantages from '../../Advantages';
-import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import OutboundLinkFilled from '../../LinksAndButtons/OutboundLinkFilled';
 
 const AutomateDataops = () => {
     return (
-        <section className={defaultWrapperGrey}>
+        <section>
             <Advantages
                 title={<>Automate DataOps</>}
                 image={

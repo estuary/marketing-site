@@ -9,7 +9,7 @@ import BlogPost from '../../components/BlogPost';
 
 const BlogPostTemplate = ({ data: { post } }) => {
     return (
-        <Layout>
+        <Layout hasLightSections>
             <Breadcrumbs
                 breadcrumbs={[
                     {

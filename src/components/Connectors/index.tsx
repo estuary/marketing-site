@@ -263,7 +263,7 @@ export const Connectors = ({
                 <div className={connectorsSearch}>
                     <div className={connectorsSearchBody}>
                         <SearchInput
-                            placeholder={`Search ${title}`}
+                            placeholder="Explore 200+ Connectors"
                             handleQueryChange={debouncedHandleQueryChange}
                         />
                         <ConnectorsLink />

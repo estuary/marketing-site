@@ -1,6 +1,5 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import clsx from 'clsx';
-import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import ActiveUsersIcon from '../../../svgs/metric-active-users.svg';
 import LatencyIcon from '../../../svgs/metric-latency.svg';
 import SingleDataflowIcon from '../../../svgs/metric-single-dataflow.svg';
@@ -20,7 +19,7 @@ import {
 
 const DeliverRealTimeData = () => {
     return (
-        <section className={defaultWrapperDarkBlue}>
+        <section>
             <Advantages
                 isDarkTheme
                 isImageOnTheLeft

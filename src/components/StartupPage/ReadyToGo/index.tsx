@@ -1,6 +1,5 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import Container from '../../Container';
-import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import { dashboardRegisterUrl } from '../../../../shared';
 import {
     container,
@@ -15,7 +14,7 @@ const linkIdSuffix = '-card-button/ready-to-go-section/startup-page';
 
 const ReadyToGo = () => {
     return (
-        <section className={defaultWrapperDark}>
+        <section>
             <Container isVertical className={container}>
                 <h2>Ready to go with Estuary Flow?</h2>
                 <div className={cardsWrapper}>

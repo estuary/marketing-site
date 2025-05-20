@@ -1,11 +1,10 @@
 import { StaticImage } from 'gatsby-plugin-image';
-import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import Container from '../../Container';
 import LinkOutlined from '../../LinksAndButtons/LinkOutlined';
 import { header } from './styles.module.less';
 
 const ReferralIncentive = () => (
-    <section className={defaultWrapperDarkBlue}>
+    <section>
         <Container isDarkTheme>
             <div className={header}>
                 <h2>Referral incentive</h2>

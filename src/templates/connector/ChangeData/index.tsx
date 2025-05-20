@@ -6,7 +6,6 @@ import Container from '../../../components/Container';
 import OutboundLink from '../../../components/LinksAndButtons/OutboundLink';
 import Cards from './components/Cards';
 import {
-    wrapper,
     containerImage,
     containerContent,
     observation,
@@ -26,7 +25,7 @@ const ChangeData = ({ connector: { id, title, type } }: ChangeDataProps) => {
     const isColumn = useMediaQuery('(max-width:1485px)');
 
     return (
-        <section className={wrapper}>
+        <section>
             <Container>
                 <div className={containerImage}>
                     <Cards />

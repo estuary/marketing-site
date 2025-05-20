@@ -1,6 +1,5 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import Container from '../../Container';
-import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import { sectionTitle } from '../styles.module.less';
 import {
     container,
@@ -11,7 +10,7 @@ import {
 import ValueProposition from './ValueProposition';
 
 const CompanyBoilerplate = () => (
-    <section className={defaultWrapperDark}>
+    <section>
         <Container isVertical className={container}>
             <h2 className={sectionTitle}>Value Proposition</h2>
             <Container className={innerContainer}>

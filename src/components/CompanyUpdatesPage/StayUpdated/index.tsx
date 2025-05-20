@@ -1,4 +1,3 @@
-import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import LinkedinIcon from '../../../svgs/linkedin-outline.svg';
 import Container from '../../Container';
 import NewsletterSignupForm from '../../NewsletterSignupForm';
@@ -13,7 +12,7 @@ import {
 
 const StayUpdated = () => {
     return (
-        <section className={defaultWrapperDarkBlue}>
+        <section>
             <Container isVertical isDarkTheme className={container}>
                 <h2>Stay updated</h2>
                 <div className={contentWrapper}>

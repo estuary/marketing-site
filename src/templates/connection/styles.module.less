@@ -1,0 +1,24 @@
+@import '../../globalStyles/wrappers.module.less';
+
+.layoutClassName {
+  section:nth-of-type(n+10) {
+    &:nth-of-type(odd) {
+      .defaultWrapperGrey;
+
+      h2,
+      p {
+        color: var(--grey);
+      }
+    }
+
+    &:nth-of-type(even) {
+      .defaultWrapperDarkBlue;
+
+      h2,
+      h3,
+      p {
+        color: var(--white);
+      }
+    }
+  }
+}

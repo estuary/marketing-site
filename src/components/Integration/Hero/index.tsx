@@ -3,7 +3,6 @@ import ActiveUsersIcon from '../../../svgs/metric-active-users.svg';
 import LatencyIcon from '../../../svgs/metric-latency.svg';
 import OfConnectorsIcon from '../../../svgs/metric-of-connectors.svg';
 import SingleDataflowIcon from '../../../svgs/metric-single-dataflow.svg';
-import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import EstuaryLogo from '../../../svgs/colored-logo.svg';
 import MetricCard from '../../MetricCard';
 import VanityLogosMarquee from '../../VanityLogosMarquee';
@@ -33,7 +32,7 @@ const connectorIconSize = 64;
 
 const Hero = ({ sourceConnector, destConnector }: Connectors) => {
     return (
-        <section className={defaultWrapperDarkBlue}>
+        <section>
             <Container className={container}>
                 <HeroSectionDetails
                     additionalElementsOnTop={

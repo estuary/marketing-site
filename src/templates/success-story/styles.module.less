@@ -1,4 +1,4 @@
-@import '../../globalStyles/wrappers.module.less';
+@import '../../globalStyles/sections.module.less';
 
 @aboutIconSize: 35px;
 
@@ -20,8 +20,6 @@
 }
 
 .contentContainer {
-    .sectionTopBottomPadding;
-
     > :nth-child(2) {
         max-width: 500px;
     }
@@ -128,10 +126,6 @@
     }
 }
 
-.bodyWrapper {
-    .defaultWrapperDark;
-}
-
 .body {
     .globalMaxWidth;
 
@@ -188,7 +182,6 @@
 
 .twoColumns {
     .globalMaxWidth;
-    .sectionTopBottomPadding;
 
     @media (min-width: 1024px) {
         display: flex;

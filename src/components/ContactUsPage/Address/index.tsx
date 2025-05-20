@@ -1,5 +1,4 @@
 import BuildingIcon from '@mui/icons-material/Apartment';
-import { sectionTopBottomPadding } from '../../../globalStyles/wrappers.module.less';
 import { estuaryAddress } from '../../../../shared';
 import {
     container,
@@ -20,7 +19,7 @@ const Address = () => {
     } = estuaryAddress;
 
     return (
-        <section className={sectionTopBottomPadding}>
+        <section>
             <div className={container}>
                 <div className={iconWrapper}>
                     <BuildingIcon htmlColor="var(--blue)" fontSize="large" />

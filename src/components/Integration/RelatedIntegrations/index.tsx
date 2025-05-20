@@ -1,4 +1,3 @@
-import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import Container from '../../Container';
 import LinkFilled from '../../LinksAndButtons/LinkFilled';
 import { Connectors } from '../shared';
@@ -10,7 +9,7 @@ const RelatedIntegrations = ({
     destConnector,
 }: Connectors) => {
     return (
-        <section className={defaultWrapperGrey}>
+        <section>
             <Container isVertical className={container}>
                 <h2>
                     Related integrations with{' '}

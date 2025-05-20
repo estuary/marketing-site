@@ -1,7 +1,6 @@
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { heroContent } from '../styles.module.less';
 import Container from '../../../components/Container';
-import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import { Connector } from '../../../../shared';
 
 interface HeroProps {
@@ -12,7 +11,7 @@ interface HeroProps {
 
 const Hero = ({ title, description, image }: HeroProps) => {
     return (
-        <section className={defaultWrapperDark}>
+        <section style={{ backgroundColor: 'var(--light-blue)' }}>
             <Container>
                 <div className={heroContent}>
                     <span>{title}</span>

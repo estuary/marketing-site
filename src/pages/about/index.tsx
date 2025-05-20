@@ -1,4 +1,3 @@
-import React from 'react';
 import { graphql, Link } from 'gatsby';
 import {
     GatsbyImage,
@@ -23,6 +22,7 @@ import OutboundLink from '../../components/LinksAndButtons/OutboundLink';
 import LinkFilled from '../../components/LinksAndButtons/LinkFilled';
 import OrganizationScript from '../../components/OrganizationScript';
 import {
+    main,
     sectionOne,
     sectionOneBackgroundImageWrapper,
     sectionOneLeft,
@@ -38,7 +38,6 @@ import {
     currentOpeningsButton,
     textBoldRegular,
     careersTextWrapper,
-    sectionThree,
     sectionThreeWrapper,
     sectionTitle,
     sectionThreeTop,
@@ -46,7 +45,6 @@ import {
     sectionThreeCard,
     cardTitle,
     referralText,
-    sectionFourCurrentOpenings,
     sectionFourCurrentOpeningsWrapper,
     currentOpeningsList,
     currentOpeningTitle,
@@ -62,7 +60,6 @@ import {
     historyWrap,
     historyLeft,
     historyRight,
-    media,
     mediaWrapper,
     mediaLogo,
     mediaWrap,
@@ -187,7 +184,7 @@ const AboutPage = ({ data }: AboutPageProps) => {
     } = data;
 
     return (
-        <Layout>
+        <Layout mainClassName={main}>
             <section className={sectionOneBackgroundImageWrapper}>
                 <div className={sectionOne}>
                     <div className={sectionOneLeft}>
@@ -265,7 +262,7 @@ const AboutPage = ({ data }: AboutPageProps) => {
                     </div>
                 </div>
             </section>
-            <section className={media}>
+            <section>
                 <div className={mediaWrapper}>
                     <span className={preTitle}>WHAT&apos;S HAPPENING</span>
                     <h2 className={sectionTitle}>In the Media</h2>
@@ -425,7 +422,7 @@ const AboutPage = ({ data }: AboutPageProps) => {
                     </LinkFilled>
                 </div>
             </section>
-            <section className={sectionThree}>
+            <section>
                 <div className={sectionThreeWrapper}>
                     <span className={preTitle}>WHAT&apos;S IT LIKE</span>
                     <div className={sectionThreeTop}>
@@ -486,7 +483,7 @@ const AboutPage = ({ data }: AboutPageProps) => {
                     </p>
                 </div>
             </section>
-            <section className={sectionFourCurrentOpenings} id="careers">
+            <section id="careers">
                 <div className={sectionFourCurrentOpeningsWrapper}>
                     <span className={preTitle}>APPLY TODAY</span>
                     <h2 className={sectionTitle}>Current Openings</h2>

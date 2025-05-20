@@ -27,7 +27,7 @@ const EtlTools = ({
     },
 }: EtlToolsProps) => {
     return (
-        <Layout>
+        <Layout hasLightSections>
             <Breadcrumbs
                 breadcrumbs={[
                     {
