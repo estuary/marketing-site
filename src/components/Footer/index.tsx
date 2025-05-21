@@ -251,6 +251,9 @@ const Footer = () => {
                         <FooterLink id={getFooterLinkId('terms')} to="/terms/">
                             Terms
                         </FooterLink>
+                        <FooterLink id={undefined} to="/data-requests/">
+                            Data Requests
+                        </FooterLink>
                         <FooterLink
                             id={getFooterLinkId('status')}
                             to={statusPageUrl}

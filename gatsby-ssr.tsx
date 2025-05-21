@@ -12,11 +12,18 @@ import { GA_ANALYTICS_ENDPOINT, GA_MEASUREMENT_ID, GA_ORIGIN } from './shared';
  */
 
 export const onRenderBody: GatsbySSR['onRenderBody'] = ({
+    pathname,
     setHtmlAttributes,
     setHeadComponents,
 }) => {
     // We always want the `lang` being set
     setHtmlAttributes({ lang: 'en' });
+
+    // COMPLIANCE WARNING - DO NOT INCLUDE TRACKING ON THIS PAGE
+    if (pathname && pathname.includes('data-requests')) {
+        return;
+    }
+    // COMPLIANCE WARNING - DO NOT INCLUDE TRACKING ON THIS PAGE
 
     // On non-production builds we don't want the rest added because it
     //  is just Cookie Consent and Google Tagging / Analytics
