@@ -1,0 +1,63 @@
+@import '../../../globalStyles/sections.module.less';
+
+.container {
+  .globalMaxWidth;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h1,
+  p,
+  span {
+    text-align: center;
+  }
+
+  h1 {
+    margin-top: 40px;
+    margin-bottom: 24px;
+  }
+
+  p {
+    color: var(--white);
+    margin: 0;
+  }
+
+  a {
+    margin-top: 36px;
+    margin-bottom: 14px;
+    max-width: 260px;
+    width: 100%;
+    max-height: 52px; // TODO: Set this max-height to all the button/links - This max-height value is being set all every time.
+  }
+
+  @media (max-width: 425px) {
+    h1 {
+      margin-top: 24px;
+      margin-bottom: 16px;
+    }
+
+    a {
+      max-width: 100%;
+      margin-top: 16px;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.iconWrapper {
+  background-color: var(--blue-10-opacity);
+  border-radius: 28px;
+  border: 1px solid var(--blue-5-opacity);
+  box-shadow: inset -1px 0 4px 2px var(--blue-20-opacity);
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footerText {
+  font-size: 0.875rem;
+  color: var(--light-text);
+}
