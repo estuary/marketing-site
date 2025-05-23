@@ -4,6 +4,7 @@ import Hero from '../components/CommunityPage/Hero';
 import WhyJoinEstuaryCommunity from '../components/CommunityPage/WhyJoinEstuaryCommunity';
 import SlackChannelsYouWillLove from '../components/CommunityPage/SlackChannelsYouWillLove';
 import BuiltOnOpenCore from '../components/CommunityPage/BuiltOnOpenCore';
+import SuccessStoriesSection from '../components/SuccessStoriesSection';
 
 const CommunityPage = () => {
     return (
@@ -12,6 +13,7 @@ const CommunityPage = () => {
             <WhyJoinEstuaryCommunity />
             <SlackChannelsYouWillLove />
             <BuiltOnOpenCore />
+            <SuccessStoriesSection isDarkTheme />
         </Layout>
     );
 };
