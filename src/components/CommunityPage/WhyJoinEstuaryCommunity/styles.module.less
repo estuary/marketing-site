@@ -1,0 +1,43 @@
+.container {
+  ul {
+    display: grid;
+    gap: 48px;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    margin: 0;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    @media (max-width: 425px) {
+      margin-top: 40px;
+      gap: 32px;
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  text-align: center;
+
+  h2 {
+    font-size: 2.5rem; // TODO: Set this font-size to all h2 - There is a lot of duplicates
+    font-weight: 600;  // Same for the font-weight
+
+    @media (max-width: 768px) {
+      font-size: 1.75rem;
+    }
+  }
+
+  p {
+    font-size: 1rem;
+    max-width: 860px;
+  }
+}

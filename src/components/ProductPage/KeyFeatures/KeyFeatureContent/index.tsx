@@ -33,7 +33,7 @@ const accordionStyles = {
     },
     '@media (max-width: 810px)': {
         'backgroundColor': '#091f38 !important',
-        'border': '1px solid #a4b6f41a !important',
+        'border': '1px solid var(--violet300-10-opacity) !important',
         'borderRadius': '36px !important',
         'padding': '20px !important',
         'minHeight': '100px',
