@@ -1,11 +1,13 @@
 import Layout from '../components/Layout';
 import Seo from '../components/seo';
 import Hero from '../components/CommunityPage/Hero';
+import WhyJoinEstuaryCommunity from '../components/CommunityPage/WhyJoinEstuaryCommunity';
 
 const CommunityPage = () => {
     return (
         <Layout>
             <Hero />
+            <WhyJoinEstuaryCommunity />
         </Layout>
     );
 };
