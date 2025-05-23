@@ -1,6 +1,6 @@
 import Container from '../../Container';
+import { CardProps } from '../shared';
 import Card from './Card';
-import { CardProps } from './shared';
 import { container, header } from './styles.module.less';
 
 const cardsData: CardProps[] = [
@@ -34,7 +34,7 @@ const WhyJoinEstuaryCommunity = () => {
             <Container isVertical className={container}>
                 <div className={header}>
                     <h2>
-                        Why Join <span>the Estuary Community</span>?
+                        Why join <span>the Estuary community</span>?
                     </h2>
                     <p>
                         Connect with developers, data engineers, and the Estuary
