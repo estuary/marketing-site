@@ -16,9 +16,9 @@ const CommunityPage = () => {
 
 export const Head = () => {
     return (
-        <Seo // TODO: Ask to Sourabh. Maybe add social preview image as well.
-            title=""
-            description=""
+        <Seo
+            title="Join the Estuary Community - Built for Data Engineers"
+            description="Join the Estuary Community and connect with data engineers building real-time pipelines. Get support, share ideas, and shape the future of data."
         />
     );
 };
