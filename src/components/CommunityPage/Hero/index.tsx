@@ -2,7 +2,8 @@ import { slackUrl } from '../../../../shared';
 import ColoredSlackLogoIcon from '../../../svgs/colored-slack-logo.svg';
 import OutboundLinkFilled from '../../LinksAndButtons/OutboundLinkFilled';
 import SlackIcon from '../../../svgs/slack-outline.svg';
-import { container, iconWrapper, footerText } from './styles.module.less';
+import { iconWrapper } from '../styles.module.less';
+import { container, footerText } from './styles.module.less';
 
 const Hero = () => {
     return (

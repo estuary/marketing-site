@@ -3,6 +3,7 @@ import Seo from '../components/seo';
 import Hero from '../components/CommunityPage/Hero';
 import WhyJoinEstuaryCommunity from '../components/CommunityPage/WhyJoinEstuaryCommunity';
 import SlackChannelsYouWillLove from '../components/CommunityPage/SlackChannelsYouWillLove';
+import BuiltOnOpenCore from '../components/CommunityPage/BuiltOnOpenCore';
 
 const CommunityPage = () => {
     return (
@@ -10,11 +11,13 @@ const CommunityPage = () => {
             <Hero />
             <WhyJoinEstuaryCommunity />
             <SlackChannelsYouWillLove />
+            <BuiltOnOpenCore />
         </Layout>
     );
 };
 
 export const Head = () => {
+    // TODO: Set preview image here? Left a comment on Figma to Dani
     return (
         <Seo
             title="Join the Estuary Community - Built for Data Engineers"
