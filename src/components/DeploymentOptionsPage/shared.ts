@@ -4,7 +4,7 @@ export const features = {
         'Quick setup and minimal configuration required',
         'Automatic updates and maintenance',
         'Multiple data processing region options',
-        'Suitable for organizations with less stringent data security requirements',
+        'Flexibility to store data in your own cloud',
     ],
     private: [
         'Enhanced security with data remaining within the private network',
