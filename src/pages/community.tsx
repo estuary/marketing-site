@@ -5,6 +5,7 @@ import WhyJoinEstuaryCommunity from '../components/CommunityPage/WhyJoinEstuaryC
 import SlackChannelsYouWillLove from '../components/CommunityPage/SlackChannelsYouWillLove';
 import BuiltOnOpenCore from '../components/CommunityPage/BuiltOnOpenCore';
 import SuccessStoriesSection from '../components/SuccessStoriesSection';
+import WantToGoAStepFurther from '../components/CommunityPage/WantToGoAStepFurther';
 
 const CommunityPage = () => {
     return (
@@ -14,6 +15,7 @@ const CommunityPage = () => {
             <SlackChannelsYouWillLove />
             <BuiltOnOpenCore />
             <SuccessStoriesSection isDarkTheme />
+            <WantToGoAStepFurther />
         </Layout>
     );
 };
