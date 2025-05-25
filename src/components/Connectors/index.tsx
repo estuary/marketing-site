@@ -13,6 +13,7 @@ import ConnectorsLink from '../ConnectorsLink';
 import SearchInput from '../SearchInput';
 import FlowLogoVector from '../FlowLogoVector';
 import ConnectorLogoPlaceholder from '../ConnectorLogoPlaceholder';
+import ContactUsForm from '../ContactUsForm/Form';
 import {
     container,
     connectorIndexHeader,
@@ -30,6 +31,7 @@ import {
     connectorCardReadMore,
     connectorCard,
     connectorBottomButton,
+    contactUsForm,
 } from './styles.module.less';
 
 export interface ConnectorsProps {
@@ -283,6 +285,16 @@ export const Connectors = ({
                         }
                     )}
                 </div>
+                {query !== '' && results.length === 0 ? (
+                    <div className={contactUsForm}>
+                        <h2>No results found</h2>
+                        <p>
+                            Would you like to request a connector? Fill out the
+                            form and we will get back to you.
+                        </p>
+                        <ContactUsForm />
+                    </div>
+                ) : null}
             </div>
             <>
                 <div className={connectorOnlycardsBackgroundImage}>
