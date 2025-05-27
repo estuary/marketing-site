@@ -48,6 +48,14 @@ export const normalizeConnector = (
         throw new Error(`Error:connector:${id}:missing prop:logoUrl`);
     }
 
+    // Reject SVG logos
+    const rawLogoUrl = logoUrl['en-US'];
+    if (rawLogoUrl.toLowerCase().includes('.svg')) {
+        throw new Error(
+            `Error:connector:${id}:invalid prop:logoUrl must not be an SVG (got ${rawLogoUrl})`
+        );
+    }
+
     const type = connectorTagsByConnectorIdList[0]
         ?.protocol as ConnectorType | null;
 
@@ -65,20 +73,19 @@ export const normalizeConnector = (
         : regex_result[2];
 
     return {
-        id: connector.id,
+        id,
         externalUrl: connector.externalUrl,
         imageName: connector.imageName,
         shortDescription: connector.shortDescription?.['en-US'],
         longDescription: connector.longDescription?.['en-US'],
         title: title['en-US'],
-        logoUrl: logoUrl['en-US'],
+        logoUrl: rawLogoUrl,
         logo: connector.logo,
         recommended: connector.recommended,
         type,
         slugified_name,
         slug: `/${type === 'capture' ? 'source' : 'destination'}/${slugified_name}`,
-        connectorTagsByConnectorIdList:
-            connector.connectorTagsByConnectorIdList,
+        connectorTagsByConnectorIdList,
     };
 };
 
