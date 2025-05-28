@@ -16,7 +16,10 @@ const Hero = () => {
                     <span>Join the</span> <span>Estuary</span>{' '}
                     <span>community</span>
                 </h1>
-                <p>Get support, share wins, and move fast — together.</p>
+                <p>
+                    Get support, share wins, and move fast — together with 1000+
+                    members.
+                </p>
                 <OutboundLinkFilled
                     id="join-our-slack-button/hero-section/community-page"
                     href={slackUrl}
