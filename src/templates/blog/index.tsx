@@ -120,7 +120,7 @@ const BlogIndex = ({
 
                 <Grid className={blogsIndexBody}>
                     {query.length > 0 && results.length < 1 ? (
-                        <Alert severity="info">No blog posts found</Alert>
+                        <Alert severity="info">No blog posts found.</Alert>
                     ) : null}
 
                     {postsToRender.map((post, idx) => (

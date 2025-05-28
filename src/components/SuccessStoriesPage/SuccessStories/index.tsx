@@ -2,6 +2,7 @@
 import { useMemo, useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import lunr, { type Index } from 'lunr';
+import { Alert } from '@mui/material';
 import Container from '../../Container';
 import Grid from '../../Grid';
 import Card from '../../Grid/Card';
@@ -77,7 +78,8 @@ const SuccessStories = () => {
 
     const successStoriesToRender =
         query.length > 0 ? results : sortedSuccessStories;
-    const noSearchResultsFound = query.length > 0 && results.length === 0;
+
+    const noSuccessStoriesFound = query.length > 0 && results.length < 1;
 
     return (
         <section>
@@ -89,8 +91,8 @@ const SuccessStories = () => {
                     className={searchInput}
                 />
 
-                {noSearchResultsFound ? (
-                    <p>No results found.</p>
+                {noSuccessStoriesFound ? (
+                    <Alert severity="info">No success stories found.</Alert>
                 ) : (
                     <Grid className={grid}>
                         {successStoriesToRender
@@ -108,7 +110,7 @@ const SuccessStories = () => {
                 )}
 
                 {visibleSuccessStoriesAmount < successStoriesToRender.length &&
-                !noSearchResultsFound ? (
+                !noSuccessStoriesFound ? (
                     <ButtonFilled onClick={handleShowMore}>
                         Show more
                     </ButtonFilled>
