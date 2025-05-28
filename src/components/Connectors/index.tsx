@@ -32,6 +32,8 @@ import {
     connectorCard,
     connectorBottomButton,
     contactUsForm,
+    contactUsFormWrapper,
+    hideContactUsForm,
 } from './styles.module.less';
 
 export interface ConnectorsProps {
@@ -291,9 +293,17 @@ export const Connectors = ({
                         <p>
                             Fill out the form and we will get back to you today.
                         </p>
-                        <ContactUsForm />
                     </div>
                 ) : null}
+                <div
+                    className={
+                        query !== '' && results.length === 0
+                            ? contactUsFormWrapper
+                            : hideContactUsForm
+                    }
+                >
+                    <ContactUsForm />
+                </div>
             </div>
             <>
                 <div className={connectorOnlycardsBackgroundImage}>
