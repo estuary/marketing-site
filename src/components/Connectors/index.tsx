@@ -287,10 +287,9 @@ export const Connectors = ({
                 </div>
                 {query !== '' && results.length === 0 ? (
                     <div className={contactUsForm}>
-                        <h2>No results found</h2>
+                        <h2>Can&apos;t find your connector?</h2>
                         <p>
-                            Would you like to request a connector? Fill out the
-                            form and we will get back to you.
+                            Fill out the form and we will get back to you today.
                         </p>
                         <ContactUsForm />
                     </div>
