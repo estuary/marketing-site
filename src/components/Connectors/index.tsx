@@ -32,6 +32,7 @@ import {
     connectorCard,
     connectorBottomButton,
     contactUsForm,
+    additionalMarginTop,
 } from './styles.module.less';
 
 export interface ConnectorsProps {
@@ -285,15 +286,18 @@ export const Connectors = ({
                         }
                     )}
                 </div>
-                {query !== '' && results.length === 0 ? (
-                    <div className={contactUsForm}>
-                        <h2>Can&apos;t find your connector?</h2>
-                        <p>
-                            Fill out the form and we will get back to you today.
-                        </p>
-                        <ContactUsForm />
-                    </div>
-                ) : null}
+                <div
+                    className={clsx(
+                        contactUsForm,
+                        query !== '' && results.length === 0
+                            ? null
+                            : additionalMarginTop
+                    )}
+                >
+                    <h2>Can&apos;t find your connector?</h2>
+                    <p>Fill out the form and we will get back to you today.</p>
+                    <ContactUsForm />
+                </div>
             </div>
             <>
                 <div className={connectorOnlycardsBackgroundImage}>
