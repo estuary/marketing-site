@@ -219,6 +219,12 @@ const Footer = () => {
                         >
                             Success Stories
                         </FooterLink>
+                        <FooterLink
+                            id={getFooterLinkId('community')}
+                            to="/community/"
+                        >
+                            Community
+                        </FooterLink>
                     </div>
                     <div className={globalFooterRightLinkWrapper}>
                         <p className={globalFooterSubtextTitle}>Company</p>
