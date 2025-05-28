@@ -1,5 +1,6 @@
 import { htmlToText } from 'html-to-text';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
+import lunr, { type Index } from 'lunr';
 import { features } from './src/components/DeploymentOptionsPage/shared';
 import { Author } from './src/templates/author/shared';
 
@@ -279,3 +280,64 @@ export const getIntegrationSlug = (
     connectorName1?: string,
     connectorName2?: string
 ) => `/integrations/${connectorName1}-to-${connectorName2}`;
+
+export function buildLunrQuery(query: string) {
+    // We might want to look into handling case better
+    //  but seems if you upper case stuff results don't come back
+    const lowerQuery = query.toLowerCase();
+    const splitQuery = lowerQuery.split(' ').filter((term) => term.length > 0);
+
+    return (q: lunr.Query) => {
+        // We still might want to try first searching for things that 100% match exactly what the user has provided
+        // q.term(lowerQuery, {
+        //     boost: 50,
+        // });
+
+        // Perfect match on a tag is highest as we put them there to make things searchable
+        q.term(splitQuery, {
+            fields: ['searchable_tags'],
+            wildcard: lunr.Query.wildcard.NONE,
+            boost: 35,
+        });
+
+        // Perfect match on the title
+        q.term(splitQuery, {
+            fields: ['title'],
+            wildcard: lunr.Query.wildcard.NONE,
+            boost: 30,
+        });
+
+        // Weight a trailing match "query*" for the title and slug together
+        //  often there is a mismatch of terms between the slug
+        q.term(splitQuery, {
+            fields: ['title', 'slug'],
+            wildcard: lunr.Query.wildcard.TRAILING,
+            boost: 15,
+        });
+
+        // Look in anything with a trailing match
+        q.term(splitQuery, {
+            wildcard: lunr.Query.wildcard.TRAILING,
+            boost: 10,
+        });
+
+        // TODO spelling alterations - previously we used this setting
+        //  but this returned A LOT of stuff that just was not related.
+        // Example :
+        //  searching "pinecone" would return "pipeline" because it is off by 3 alterations
+        // q.term(splitQuery, {
+        //     editDistance: Math.min(Math.max(0, term.length - 1), 3),
+        // });
+
+        return q;
+    };
+}
+
+export function searchIndex(
+    index: Index,
+    store: Record<string, any>,
+    query: string
+) {
+    if (!query) return [];
+    return index.query(buildLunrQuery(query)).map((r) => store[r.ref]);
+}
