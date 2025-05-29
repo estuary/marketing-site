@@ -2,7 +2,6 @@ import clsx from 'clsx';
 import { iconWrapper } from '../styles.module.less';
 import ColoredGithubLogo from '../../../svgs/colored-github-logo.svg';
 import OutboundLinkFilled from '../../LinksAndButtons/OutboundLinkFilled';
-import { estuaryFlowGithubUrl } from '../../../../shared';
 import { container, wrapper, lightIconWrapper } from './styles.module.less';
 
 const iconSize = 20;
@@ -21,7 +20,10 @@ const BuiltOnOpenCore = () => {
                     Estuary Flow is open core. Check out the codebase, follow
                     development, or get involved.
                 </p>
-                <OutboundLinkFilled href={estuaryFlowGithubUrl} target="_blank">
+                <OutboundLinkFilled
+                    href="https://github.com/estuary/"
+                    target="_blank"
+                >
                     <ColoredGithubLogo
                         color="var(--white)"
                         width={iconSize}
