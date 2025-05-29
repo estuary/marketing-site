@@ -41,6 +41,9 @@ const DataRequestPage = () => {
     );
 };
 
-export const Head = () => <Seo title="Estuary data-protection rights" />;
+// - COMPLIANCE WARNING -
+// You will need to talk with Compliance before changing the title
+// It should match as closely as possible to GDPR language and is very specific
+export const Head = () => <Seo title="Data Subject Access Request" />;
 
 export default DataRequestPage;
