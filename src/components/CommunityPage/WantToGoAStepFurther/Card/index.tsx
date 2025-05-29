@@ -5,7 +5,7 @@ import { container } from './styles.module.less';
 
 const Card = ({ title, link, outboundLink }: CardProps) => {
     return (
-        <div className={container}>
+        <li className={container}>
             <h3>{title}</h3>
             {link ? (
                 <LinkFilled
@@ -28,7 +28,7 @@ const Card = ({ title, link, outboundLink }: CardProps) => {
                     {outboundLink.label}
                 </OutboundLinkFilled>
             ) : null}
-        </div>
+        </li>
     );
 };
 
