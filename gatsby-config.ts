@@ -371,6 +371,12 @@ const rehypeSelectors = {
  * @type {import('gatsby').GatsbyConfig}
  */
 
+const gatsbyPluginLocalSearchSettings = {
+    engine: 'lunr',
+    ref: 'id',
+    store: ['id', 'title', 'slug'],
+};
+
 const cfg: GatsbyConfig = {
     siteMetadata: {
         title: 'Estuary',
@@ -524,7 +530,7 @@ const cfg: GatsbyConfig = {
 
                 // Set the search engine to create the index. This is required.
                 // The following engines are supported: flexsearch, lunr
-                engine: 'lunr',
+                engine: gatsbyPluginLocalSearchSettings.engine,
 
                 // GraphQL query used to fetch all data for the search index. This is required.
                 query: `
@@ -565,7 +571,7 @@ const cfg: GatsbyConfig = {
 
                 // Field used as the reference value for each document.
                 // Default: 'id'.
-                ref: 'id',
+                ref: gatsbyPluginLocalSearchSettings.ref,
 
                 // List of keys to index. The values of the keys are taken from the
                 // normalizer function below.
@@ -576,9 +582,7 @@ const cfg: GatsbyConfig = {
                 // the keys are taken from the normalizer function below.
                 // Default: all fields
                 store: [
-                    'id',
-                    'title',
-                    'slug',
+                    ...gatsbyPluginLocalSearchSettings.store,
                     'publishedAt',
                     'tags',
                     'authors',
@@ -593,11 +597,6 @@ const cfg: GatsbyConfig = {
                     const startTime = performance.now();
                     const response = data.allStrapiBlogPost.nodes.map(
                         (node) => {
-                            // console.log(
-                            //     'LunrSearch:normalizer:blog',
-                            //     node.slug
-                            // );
-
                             return {
                                 ...node,
                                 searchable_tags: node.tags
@@ -618,16 +617,10 @@ const cfg: GatsbyConfig = {
         {
             resolve: 'gatsby-plugin-local-search',
             options: {
-                // A unique name for the search index. This should be descriptive of
-                // what the index contains. This is required.
                 name: 'connectors',
 
-                // Set the search engine to create the index. This is required.
-                // The following engines are supported: flexsearch, lunr
-                engine: 'lunr',
+                engine: gatsbyPluginLocalSearchSettings.engine,
 
-                // GraphQL query used to fetch all data for the search index. This is
-                // required.
                 query: `
                 {
                     postgres {
@@ -650,42 +643,27 @@ const cfg: GatsbyConfig = {
                 }
               `,
 
-                // Field used as the reference value for each document.
-                // Default: 'id'.
-                ref: 'id',
+                ref: gatsbyPluginLocalSearchSettings.ref,
 
-                // List of keys to index. The values of the keys are taken from the
-                // normalizer function below.
-                // Default: all fields
                 index: ['title', 'shortDescription', 'type'],
 
                 // These match the response of normalizeConnector()
                 store: [
-                    'id',
+                    ...gatsbyPluginLocalSearchSettings.store,
                     'externalUrl',
                     'imageName',
                     'shortDescription',
                     'longDescription',
-                    'title',
                     'logoUrl',
                     'logo',
                     'recommended',
                     'type',
-                    'slug',
                 ],
 
-                // Function used to map the result from the GraphQL query. This should
-                // return an array of items to index in the form of flat objects
-                // containing properties to index. The objects must contain the `ref`
-                // field above (default: 'id'). This is required.
                 normalizer: ({ data }) => {
                     const startTime = performance.now();
                     const response = data.postgres.allConnectors.nodes
                         .map((node) => {
-                            // console.debug(
-                            //     'LunrSearch:normalizer:connector',
-                            //     node.imageName
-                            // );
                             return normalizeConnector(node);
                         })
                         .filter((connector) => {
@@ -702,15 +680,10 @@ const cfg: GatsbyConfig = {
         {
             resolve: 'gatsby-plugin-local-search',
             options: {
-                // A unique name for the search index. This should be descriptive of
-                // what the index contains. This is required.
                 name: 'cases',
 
-                // Set the search engine to create the index. This is required.
-                // The following engines are supported: flexsearch, lunr
-                engine: 'lunr',
+                engine: gatsbyPluginLocalSearchSettings.engine,
 
-                // GraphQL query used to fetch all data for the search index. This is required.
                 query: `
                 {
                     allStrapiCaseStudy(sort: { createdAt: DESC }) {
@@ -742,33 +715,21 @@ const cfg: GatsbyConfig = {
                 }
               `,
 
-                // Field used as the reference value for each document.
-                // Default: 'id'.
-                ref: 'id',
+                ref: gatsbyPluginLocalSearchSettings.ref,
 
-                // List of keys to index. The values of the keys are taken from the
-                // normalizer function below.
-                // Default: all fields
                 index: ['slug', 'title', 'searchable_tags'],
 
-                // List of keys to store and make available in your UI. The values of
-                // the keys are taken from the normalizer function below.
-                // Default: all fields
-                store: ['id', 'title', 'slug', 'tags', 'description', 'hero'],
+                store: [
+                    ...gatsbyPluginLocalSearchSettings.store,
+                    'tags',
+                    'description',
+                    'hero',
+                ],
 
-                // Function used to map the result from the GraphQL query. This should
-                // return an array of items to index in the form of flat objects
-                // containing properties to index. The objects must contain the `ref`
-                // field above (default: 'id'). This is required.
                 normalizer: ({ data }) => {
                     const startTime = performance.now();
                     const response = data.allStrapiCaseStudy.nodes.map(
                         (node) => {
-                            // console.log(
-                            //     'LunrSearch:normalizer:success-story',
-                            //     node.slug
-                            // );
-
                             return {
                                 ...node,
                                 searchable_tags: node.tags
