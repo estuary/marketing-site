@@ -1,19 +1,14 @@
-// src/components/SuccessStories/index.tsx
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import lunr, { type Index } from 'lunr';
 import { Alert } from '@mui/material';
 import Container from '../../Container';
 import Grid from '../../Grid';
 import Card from '../../Grid/Card';
 import ButtonFilled from '../../LinksAndButtons/ButtonFilled';
-import { sectionTitle, searchInput, grid } from '../styles.module.less';
-import {
-    getSlugifiedText,
-    getSortedSuccessStories,
-    searchIndex,
-} from '../../../../shared';
 import SearchInput from '../../SearchInput';
+import { sectionTitle, searchInput, grid } from '../styles.module.less';
+import { getSlugifiedText, getSortedSuccessStories } from '../../../../shared';
+import { useSearch } from '../../../hooks/useSearch';
 
 const SuccessStories = () => {
     const {
@@ -56,30 +51,17 @@ const SuccessStories = () => {
 
     const sortedSuccessStories = getSortedSuccessStories(successStories);
 
+    const { results, handleQueryChange, noResults } = useSearch({
+        indexJson: localSearchCases.index,
+        store: localSearchCases.store,
+        defaultItems: sortedSuccessStories,
+    });
+
     const [visibleSuccessStoriesAmount, setVisibleSuccessStoriesAmount] =
         useState(9);
     const handleShowMore = () => {
         setVisibleSuccessStoriesAmount((prev) => prev + 9);
     };
-
-    const index: Index = useMemo(
-        () => lunr.Index.load(JSON.parse(localSearchCases.index)),
-        [localSearchCases.index]
-    );
-
-    const [query, setQuery] = useState('');
-    const handleQueryChange = (evt: React.ChangeEvent<HTMLInputElement>) =>
-        setQuery(evt.target.value);
-
-    const results = useMemo(
-        () => searchIndex(index, localSearchCases.store, query),
-        [query, index, localSearchCases.store]
-    );
-
-    const successStoriesToRender =
-        query.length > 0 ? results : sortedSuccessStories;
-
-    const noSuccessStoriesFound = query.length > 0 && results.length < 1;
 
     return (
         <section>
@@ -91,11 +73,11 @@ const SuccessStories = () => {
                     className={searchInput}
                 />
 
-                {noSuccessStoriesFound ? (
+                {noResults ? (
                     <Alert severity="info">No success stories found.</Alert>
                 ) : (
                     <Grid className={grid}>
-                        {successStoriesToRender
+                        {results
                             .slice(0, visibleSuccessStoriesAmount)
                             .map((successStory) => (
                                 <Card
@@ -109,8 +91,7 @@ const SuccessStories = () => {
                     </Grid>
                 )}
 
-                {visibleSuccessStoriesAmount < successStoriesToRender.length &&
-                !noSuccessStoriesFound ? (
+                {!noResults && visibleSuccessStoriesAmount < results.length ? (
                     <ButtonFilled onClick={handleShowMore}>
                         Show more
                     </ButtonFilled>

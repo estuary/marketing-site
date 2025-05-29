@@ -1,8 +1,6 @@
 import { Link, graphql } from 'gatsby';
 import { Alert, Divider } from '@mui/material';
 import clsx from 'clsx';
-import lunr, { type Index } from 'lunr';
-import { useMemo, useState } from 'react';
 import BigImageBackground from '../../components/BackgroundImages/BigImageBackground';
 import { BlogPostCard } from '../../components/BlogPostCard';
 import Layout from '../../components/Layout';
@@ -10,7 +8,7 @@ import Seo from '../../components/seo';
 import SearchInput from '../../components/SearchInput';
 import FlowLogoVector from '../../components/FlowLogoVector';
 import Grid from '../../components/Grid';
-import { searchIndex } from '../../../shared';
+import { useSearch } from '../../hooks/useSearch';
 import {
     container,
     blogsIndexTabBar,
@@ -26,7 +24,7 @@ import {
 interface BlogIndexProps {
     data: {
         allStrapiBlogPost: { nodes: any[] };
-        localSearchPosts: { index: any; store: any };
+        localSearchPosts: { index: string; store: string[] };
     };
     pageContext: {
         blogPostIds: string[];
@@ -52,27 +50,16 @@ const BlogIndex = ({
 }: BlogIndexProps) => {
     const posts = data.allStrapiBlogPost.nodes;
 
-    const index: Index = useMemo(
-        () => lunr.Index.load(JSON.parse(data.localSearchPosts.index)),
-        [data.localSearchPosts.index]
-    );
-
-    const [query, setQuery] = useState('');
-
-    const handleQueryChange = (evt: React.ChangeEvent<HTMLInputElement>) =>
-        setQuery(evt.target.value);
-
-    const results = useMemo(
-        () => searchIndex(index, data.localSearchPosts.store, query),
-        [query, index, data.localSearchPosts.store]
-    );
-
     const tabCategories = [
         { Slug: '', Name: 'All', Type: 'category' },
         ...realTabCategories,
     ];
 
-    const postsToRender = query.length > 0 ? results : posts;
+    const { query, results, handleQueryChange, noResults } = useSearch({
+        indexJson: data.localSearchPosts.index,
+        store: data.localSearchPosts.store,
+        defaultItems: posts,
+    });
 
     return (
         <Layout>
@@ -119,11 +106,11 @@ const BlogIndex = ({
                 </div>
 
                 <Grid className={blogsIndexBody}>
-                    {query.length > 0 && results.length < 1 ? (
+                    {noResults ? (
                         <Alert severity="info">No blog posts found.</Alert>
                     ) : null}
 
-                    {postsToRender.map((post, idx) => (
+                    {results.map((post, idx) => (
                         <BlogPostCard key={`${post.id}-${idx}`} {...post} />
                     ))}
                 </Grid>
