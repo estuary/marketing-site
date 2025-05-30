@@ -6,7 +6,6 @@ import { globalMaxWidth } from '../globalStyles/sections.module.less';
 // DO NOT INCLUDE TRACKING ON THIS PAGE
 // DO NOT CHANGE THIS PATH WITHOUT CHECKING WITH OTHERS
 //      path is checked in `gatsby-ssr`
-//      path is checked in Tag Manager
 const DataRequestPage = () => {
     return (
         <Layout showReleaseBanner={false}>
