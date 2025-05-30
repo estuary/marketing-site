@@ -251,6 +251,13 @@ const Footer = () => {
                         <FooterLink id={getFooterLinkId('terms')} to="/terms/">
                             Terms
                         </FooterLink>
+
+                        {/*COMPLIANCE WARNING - DO NOT ADD A TRACKING ID*/}
+                        <FooterLink id={undefined} to="/data-requests/">
+                            Data Requests
+                        </FooterLink>
+                        {/*COMPLIANCE WARNING - DO NOT ADD A TRACKING ID*/}
+
                         <FooterLink
                             id={getFooterLinkId('status')}
                             to={statusPageUrl}

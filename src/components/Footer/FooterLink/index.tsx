@@ -7,7 +7,7 @@ interface FooterLinkProps {
     to: string;
     children: ReactNode;
     ariaLabel?: string;
-    id: string;
+    id: string | undefined; // Only the `data-request` links should use undefined
 }
 
 const FooterLink = ({ to, children, ariaLabel, id }: FooterLinkProps) => {
