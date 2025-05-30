@@ -20,7 +20,7 @@ import {
 import OpenHubspotModal from '../../components/HubSpot/OpenModal';
 import Faq from '../../components/Integration/Faq';
 import GettingStartedSection from '../../components/GettingStartedSection';
-import SuccessStories from '../../components/Integration/SuccessStories';
+import SuccessStoriesSection from '../../components/SuccessStoriesSection';
 import RelatedBlogPosts from '../../components/Integration/RelatedBlogPosts';
 import { layoutClassName } from './styles.module.less';
 
@@ -85,7 +85,7 @@ const Connector = ({
             <Testimonials />
             <IncreaseProductivity4x />
             <Spend25xLess />
-            <SuccessStories hasRelatedArticles={hasRelatedArticles} />
+            <SuccessStoriesSection />
             {hasRelatedArticles ? (
                 <RelatedBlogPosts
                     relatedArticles={[

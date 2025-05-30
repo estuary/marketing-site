@@ -323,9 +323,11 @@ const BlogPost = ({
                 </section>
             ) : null}
             {hasPopularArticlesSection ? (
-                <section className={popularArticlesWrapper}>
-                    <h2>Popular Articles</h2>
-                    <PopularArticles />
+                <section>
+                    <div className={popularArticlesWrapper}>
+                        <h2>Popular Articles</h2>
+                        <PopularArticles />
+                    </div>
                 </section>
             ) : null}
             <section>

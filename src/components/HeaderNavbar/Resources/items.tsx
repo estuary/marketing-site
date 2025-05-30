@@ -104,4 +104,17 @@ export const partners: MenuCardItem[] = [
         ),
         linkId: getMenuLinkId('partners'),
     },
+    {
+        name: 'Community',
+        to: '/community/',
+        description: 'Join our community of 1000+ members',
+        Image: () => (
+            <SuccessIcon
+                color="var(--blue)"
+                width={iconSize}
+                height={iconSize}
+            />
+        ),
+        linkId: getMenuLinkId('community'),
+    },
 ];
