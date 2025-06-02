@@ -1,16 +1,19 @@
 import { graphql, useStaticQuery } from 'gatsby';
 
-import Container from '../../Container';
-import Grid from '../../Grid';
-import Card from '../../Grid/Card';
-import { sectionTitle } from '../styles.module.less';
-import { getSlugifiedText } from '../../../../shared';
+import clsx from 'clsx';
+import Container from '../Container';
+import Grid from '../Grid';
+import Card from '../Grid/Card';
+import { getSlugifiedText } from '../../../shared';
+import { container, darkContainer } from './styles.module.less';
 
-interface SuccessStoriesProps {
-    hasRelatedArticles: boolean;
+interface SuccessStoriesSectionProps {
+    isDarkTheme?: boolean;
 }
 
-const SuccessStories = ({ hasRelatedArticles }: SuccessStoriesProps) => {
+const SuccessStoriesSection = ({
+    isDarkTheme = false,
+}: SuccessStoriesSectionProps) => {
     const {
         allStrapiCaseStudy: { nodes: successStories },
     } = useStaticQuery(graphql`
@@ -43,15 +46,14 @@ const SuccessStories = ({ hasRelatedArticles }: SuccessStoriesProps) => {
     `);
 
     return (
-        <section
-            style={{
-                backgroundColor: hasRelatedArticles
-                    ? 'var(--lighter-grey)'
-                    : 'var(--light-blue)',
-            }}
-        >
-            <Container isVertical>
-                <h2 className={sectionTitle}>Success stories</h2>
+        <section>
+            <Container
+                isVertical
+                className={clsx(container, isDarkTheme ? darkContainer : null)}
+            >
+                <h2>
+                    <span>Success</span> stories
+                </h2>
                 <Grid>
                     {successStories.map((successStory) => (
                         <Card
@@ -72,4 +74,4 @@ const SuccessStories = ({ hasRelatedArticles }: SuccessStoriesProps) => {
     );
 };
 
-export default SuccessStories;
+export default SuccessStoriesSection;
