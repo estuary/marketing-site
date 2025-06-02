@@ -16,22 +16,22 @@ const DEPRECATED_CONNECTOR_RE = /deprecated/i;
 
 // Update this whenever we add a new deprecated connector and create its redirect.
 const DEPRECATED_WITH_REDIRECT = new Set<string>([
-    'ghcr.io/estuary/source-jira-legacy',
-    'ghcr.io/estuary/source-shopify',
-    'ghcr.io/estuary/source-redshift',
-    'ghcr.io/estuary/source-jira',
-    'ghcr.io/estuary/source-mixpanel',
-    'ghcr.io/estuary/source-chargebee',
-    'ghcr.io/estuary/source-salesforce-next',
-    'ghcr.io/estuary/source-linkedin-ads',
-    'ghcr.io/estuary/source-google-analytics-data-api',
-    'ghcr.io/estuary/source-salesforce',
-    'ghcr.io/estuary/source-zendesk-support',
-    'ghcr.io/estuary/source-stripe',
-    'ghcr.io/estuary/source-hubspot',
-    'ghcr.io/estuary/source-intercom',
-    'ghcr.io/estuary/source-google-sheets',
-    'ghcr.io/estuary/materialize-rockset',
+    'ghcr.io/estuary/source-jira-legacy_11:3a:e6:c7:57:e7:34:00',
+    'ghcr.io/estuary/source-shopify_0b:a6:a3:60:c6:c6:b8:00',
+    'ghcr.io/estuary/source-redshift_0a:1b:da:11:55:5b:f8:00',
+    'ghcr.io/estuary/source-jira_09:e1:cd:bf:02:d8:44:00',
+    'ghcr.io/estuary/source-mixpanel_09:8f:57:f8:a8:ec:74:00',
+    'ghcr.io/estuary/source-chargebee_09:8c:01:0c:9c:de:b4:00',
+    'ghcr.io/estuary/source-salesforce-next_08:be:0b:95:61:c0:bc:00',
+    'ghcr.io/estuary/source-linkedin-ads_07:12:f3:b0:f4:72:58:00',
+    'ghcr.io/estuary/source-google-analytics-data-api_07:12:d0:f7:b2:72:4c:00',
+    'ghcr.io/estuary/source-salesforce_07:0e:07:f9:d6:a1:48:00',
+    'ghcr.io/estuary/source-zendesk-support_06:8e:c4:41:17:69:68:00',
+    'ghcr.io/estuary/source-stripe_06:8e:c4:41:17:69:6c:00',
+    'ghcr.io/estuary/source-hubspot_06:8e:c4:41:17:e9:78:00',
+    'ghcr.io/estuary/source-intercom_06:8e:c4:41:17:e9:7c:00',
+    'ghcr.io/estuary/source-google-sheets_06:8e:c4:41:17:e9:84:00',
+    'ghcr.io/estuary/materialize-rockset_05:f3:63:e5:ab:00:1c:00',
 ]);
 
 export const normalizeConnector = (
@@ -90,7 +90,7 @@ export const normalizeConnector = (
     // If the title contains the word "deprecated" (case-insensitive), ensure there's a redirect.
     const isDeprecated = DEPRECATED_CONNECTOR_RE.test(rawTitle);
     if (isDeprecated) {
-        if (!DEPRECATED_WITH_REDIRECT.has(imageName)) {
+        if (!DEPRECATED_WITH_REDIRECT.has(`${imageName}_${id}`)) {
             throw new Error(
                 `Error:connector:${id}:missing redirect for deprecated connector (title contains “deprecated” but no redirect entry found)`
             );
