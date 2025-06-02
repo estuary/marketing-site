@@ -153,7 +153,7 @@
             },
             {
                 "source": "/source/jira-legacy",
-                "destination": "/",
+                "destination": "/source/jira-native",
                 "type": 301
             },
             {
@@ -178,7 +178,7 @@
             },
             {
                 "source": "/source/chargebee",
-                "destination": "/",
+                "destination": "/source/chargebee-native",
                 "type": 301
             },
             {
@@ -188,12 +188,12 @@
             },
             {
                 "source": "/source/linkedin-ads",
-                "destination": "/",
+                "destination": "/source/linkedin-ads-v2",
                 "type": 301
             },
             {
                 "source": "/source/google-analytics-data-api",
-                "destination": "/",
+                "destination": "/source/google-analytics-data-api-native",
                 "type": 301
             },
             {
@@ -213,7 +213,7 @@
             },
             {
                 "source": "/source/hubspot",
-                "destination": "/",
+                "destination": "/source/hubspot-native",
                 "type": 301
             },
             {
@@ -228,11 +228,6 @@
             },
             {
                 "source": "/destination/rockset",
-                "destination": "/",
-                "type": 301
-            },
-            {
-                "source": "/source/jira-legacy",
                 "destination": "/",
                 "type": 301
             },
