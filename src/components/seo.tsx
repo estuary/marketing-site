@@ -74,7 +74,7 @@ const Seo: FC<SeoProps> = ({
             {image ? (
                 <>
                     <meta property="og:image" content={image} />
-                    <meta property="twitter:image" content={image} />
+                    <meta name="twitter:image" content={image} />
                 </>
             ) : null}
             <meta property="og:site_name" content="Estuary" />
