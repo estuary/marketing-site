@@ -16,3 +16,19 @@
     color: var(--blue);
   }
 }
+
+.searchInput {
+  margin-right: auto;
+}
+
+.grid {
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+
+  li {
+    height: 100%;
+  }
+
+  @media (max-width: 425px) {
+    grid-template-columns: 1fr;
+  }
+}
