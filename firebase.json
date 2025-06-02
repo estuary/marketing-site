@@ -152,6 +152,91 @@
                 "type": 301
             },
             {
+                "source": "/source/jira-legacy",
+                "destination": "/",
+                "type": 301
+            },
+            {
+                "source": "/source/shopify",
+                "destination": "/",
+                "type": 301
+            },
+            {
+                "source": "/source/redshift",
+                "destination": "/",
+                "type": 301
+            },
+            {
+                "source": "/source/jira",
+                "destination": "/",
+                "type": 301
+            },
+            {
+                "source": "/source/mixpanel",
+                "destination": "/",
+                "type": 301
+            },
+            {
+                "source": "/source/chargebee",
+                "destination": "/",
+                "type": 301
+            },
+            {
+                "source": "/source/salesforce-next",
+                "destination": "/",
+                "type": 301
+            },
+            {
+                "source": "/source/linkedin-ads",
+                "destination": "/",
+                "type": 301
+            },
+            {
+                "source": "/source/google-analytics-data-api",
+                "destination": "/",
+                "type": 301
+            },
+            {
+                "source": "/source/salesforce",
+                "destination": "/",
+                "type": 301
+            },
+            {
+                "source": "/source/zendesk-support",
+                "destination": "/",
+                "type": 301
+            },
+            {
+                "source": "/source/stripe",
+                "destination": "/",
+                "type": 301
+            },
+            {
+                "source": "/source/hubspot",
+                "destination": "/",
+                "type": 301
+            },
+            {
+                "source": "/source/intercom",
+                "destination": "/",
+                "type": 301
+            },
+            {
+                "source": "/source/google-sheets",
+                "destination": "/",
+                "type": 301
+            },
+            {
+                "source": "/destination/rockset",
+                "destination": "/",
+                "type": 301
+            },
+            {
+                "source": "/source/jira-legacy",
+                "destination": "/",
+                "type": 301
+            },
+            {
                 "source": "/ELT-comparison-guide",
                 "destination": "/ELT-alternatives-guide",
                 "type": 301
