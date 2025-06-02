@@ -1,3 +1,4 @@
+import { graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/Layout';
 import Seo from '../components/seo';
 import Hero from '../components/CommunityPage/Hero';
@@ -21,11 +22,25 @@ const CommunityPage = () => {
 };
 
 export const Head = () => {
-    // TODO: Set preview image here? Left a comment on Figma to Dani
+    const { metaImg } = useStaticQuery(graphql`
+        query {
+            metaImg: file(
+                relativePath: {
+                    eq: "community-page/join-the-estuary-community.jpg"
+                }
+            ) {
+                childImageSharp {
+                    gatsbyImageData(layout: FIXED, width: 536)
+                }
+            }
+        }
+    `);
+
     return (
         <Seo
             title="Join the Estuary Community - Built for Data Engineers"
             description="Join the Estuary Community and connect with data engineers building real-time pipelines. Get support, share ideas, and shape the future of data."
+            image={metaImg.childImageSharp.gatsbyImageData.images.fallback.src}
         />
     );
 };
