@@ -148,12 +148,12 @@
             },
             {
                 "source": "/source/netsuite-v",
-                "destination": "/source/netsuite-v2",
+                "destination": "/source/netsuite-v2/",
                 "type": 301
             },
             {
                 "source": "/source/jira-legacy",
-                "destination": "/source/jira-native",
+                "destination": "/source/jira-native/",
                 "type": 301
             },
             {
@@ -178,7 +178,7 @@
             },
             {
                 "source": "/source/chargebee",
-                "destination": "/source/chargebee-native",
+                "destination": "/source/chargebee-native/",
                 "type": 301
             },
             {
@@ -188,12 +188,12 @@
             },
             {
                 "source": "/source/linkedin-ads",
-                "destination": "/source/linkedin-ads-v2",
+                "destination": "/source/linkedin-ads-v2/",
                 "type": 301
             },
             {
                 "source": "/source/google-analytics-data-api",
-                "destination": "/source/google-analytics-data-api-native",
+                "destination": "/source/google-analytics-data-api-native/",
                 "type": 301
             },
             {
@@ -213,7 +213,7 @@
             },
             {
                 "source": "/source/hubspot",
-                "destination": "/source/hubspot-native",
+                "destination": "/source/hubspot-native/",
                 "type": 301
             },
             {
