@@ -74,7 +74,7 @@ const Seo: FC<SeoProps> = ({
             <meta property="og:description" content={metaDescription} />
             <meta property="og:type" content="website" />
             {url ? <meta property="og:url" content={url} /> : null}
-            {image ? (
+            {imageUrl ? (
                 <>
                     <meta property="og:image" content={imageUrl} />
                     <meta name="twitter:image" content={imageUrl} />
