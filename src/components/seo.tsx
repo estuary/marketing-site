@@ -44,16 +44,20 @@ const Seo: FC<SeoProps> = ({
             defaultMetaImg: file(
                 relativePath: { eq: "estuary-logo-metaimg.png" }
             ) {
-                publicURL
+                childImageSharp {
+                    gatsbyImageData(layout: FIXED, width: 400)
+                }
             }
         }
     `);
 
-    const rawPath = image ?? defaultMetaImg.publicURL;
+    const rawPath =
+        image ??
+        defaultMetaImg.childImageSharp.gatsbyImageData.images.fallback.src;
 
     const imageUrl = rawPath.startsWith('http')
         ? rawPath
-        : `https://estuary-marketing--pr853-brenosalv-bug-851-th-ax8qfa91.web.app${rawPath}`;
+        : `${site.siteMetadata.siteUrl}${rawPath}`;
 
     const metaDescription = description ?? site.siteMetadata.description;
     const defaultTitle = title.includes('Estuary')
