@@ -157,23 +157,28 @@
                 "type": 301
             },
             {
+                "source": "/source/salesforce",
+                "destination": "/source/salesforce-native/",
+                "type": 301
+            },
+            {
                 "source": "/source/shopify",
-                "destination": "/",
+                "destination": "/source/shopify-native/",
                 "type": 301
             },
             {
                 "source": "/source/redshift",
-                "destination": "/",
+                "destination": "/source/redshift-batch/",
                 "type": 301
             },
             {
                 "source": "/source/jira",
-                "destination": "/",
+                "destination": "/source/jira-native/",
                 "type": 301
             },
             {
                 "source": "/source/mixpanel",
-                "destination": "/",
+                "destination": "/source/mixpanel-native/",
                 "type": 301
             },
             {
@@ -183,7 +188,7 @@
             },
             {
                 "source": "/source/salesforce-next",
-                "destination": "/",
+                "destination": "/source/salesforce-native/",
                 "type": 301
             },
             {
@@ -198,17 +203,17 @@
             },
             {
                 "source": "/source/salesforce",
-                "destination": "/",
+                "destination": "/source/salesforce-native/",
                 "type": 301
             },
             {
                 "source": "/source/zendesk-support",
-                "destination": "/",
+                "destination": "/source/zendesk-support-native/",
                 "type": 301
             },
             {
                 "source": "/source/stripe",
-                "destination": "/",
+                "destination": "/source/stripe-native/",
                 "type": 301
             },
             {
@@ -218,12 +223,12 @@
             },
             {
                 "source": "/source/intercom",
-                "destination": "/",
+                "destination": "/source/intercom-native/",
                 "type": 301
             },
             {
                 "source": "/source/google-sheets",
-                "destination": "/",
+                "destination": "/source/google-sheets-native/",
                 "type": 301
             },
             {
