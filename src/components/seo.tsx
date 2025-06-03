@@ -53,7 +53,7 @@ const Seo: FC<SeoProps> = ({
 
     const imageUrl = rawPath.startsWith('http')
         ? rawPath
-        : `${site.siteMetadata.siteUrl}${rawPath}`;
+        : `https://estuary-marketing--pr853-brenosalv-bug-851-th-ax8qfa91.web.app${rawPath}`;
 
     const metaDescription = description ?? site.siteMetadata.description;
     const defaultTitle = title.includes('Estuary')
