@@ -95,6 +95,8 @@ export const normalizeConnector = (
                 `Error:connector:${id}:missing redirect for deprecated connector (title contains “deprecated” but no redirect entry found)`
             );
         }
+
+        return undefined;
     }
 
     // For dekaf connectors we want to use the entire end portion so that there is less chance
