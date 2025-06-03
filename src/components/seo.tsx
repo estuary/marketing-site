@@ -44,17 +44,16 @@ const Seo: FC<SeoProps> = ({
             defaultMetaImg: file(
                 relativePath: { eq: "estuary-logo-metaimg.png" }
             ) {
-                childImageSharp {
-                    gatsbyImageData(layout: FIXED, width: 400)
-                }
+                publicURL
             }
         }
     `);
 
-    if (!image) {
-        image =
-            defaultMetaImg.childImageSharp.gatsbyImageData.images.fallback.src;
-    }
+    const rawPath = image ?? defaultMetaImg.publicURL;
+
+    const imageUrl = rawPath.startsWith('http')
+        ? rawPath
+        : `${site.siteMetadata.siteUrl}${rawPath}`;
 
     const metaDescription = description ?? site.siteMetadata.description;
     const defaultTitle = title.includes('Estuary')
@@ -73,8 +72,8 @@ const Seo: FC<SeoProps> = ({
             {url ? <meta property="og:url" content={url} /> : null}
             {image ? (
                 <>
-                    <meta property="og:image" content={image} />
-                    <meta property="twitter:image" content={image} />
+                    <meta property="og:image" content={imageUrl} />
+                    <meta name="twitter:image" content={imageUrl} />
                 </>
             ) : null}
             <meta property="og:site_name" content="Estuary" />

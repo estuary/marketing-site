@@ -29,9 +29,7 @@ export const Head = () => {
                     eq: "community-page/join-the-estuary-community.jpg"
                 }
             ) {
-                childImageSharp {
-                    gatsbyImageData(layout: FIXED, width: 536)
-                }
+                publicURL
             }
         }
     `);
@@ -40,7 +38,7 @@ export const Head = () => {
         <Seo
             title="Join the Estuary Community - Built for Data Engineers"
             description="Join the Estuary Community and connect with data engineers building real-time pipelines. Get support, share ideas, and shape the future of data."
-            image={metaImg.childImageSharp.gatsbyImageData.images.fallback.src}
+            image={metaImg.publicURL}
         />
     );
 };
