@@ -202,11 +202,6 @@
                 "type": 301
             },
             {
-                "source": "/source/salesforce",
-                "destination": "/source/salesforce-native/",
-                "type": 301
-            },
-            {
                 "source": "/source/zendesk-support",
                 "destination": "/source/zendesk-support-native/",
                 "type": 301
