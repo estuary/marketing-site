@@ -62,6 +62,18 @@ export const normalizeConnector = (
         throw new Error(`Error:connector:${id}:missing prop:imageName`);
     }
 
+    // If the title contains the word "deprecated" (case-insensitive), ensure there's a redirect.
+    const isDeprecated = DEPRECATED_CONNECTOR_RE.test(rawTitle);
+    if (isDeprecated) {
+        if (!DEPRECATED_WITH_REDIRECT.has(`${imageName}_${id}`)) {
+            throw new Error(
+                `Error:connector:${id}:missing redirect for deprecated connector (title contains “deprecated” but no redirect entry found)`
+            );
+        }
+
+        return undefined;
+    }
+
     const regex_result = imageName.match(CONNECTOR_IMAGE_RE);
 
     if (!regex_result?.[2]) {
@@ -85,16 +97,6 @@ export const normalizeConnector = (
 
     if (!type) {
         throw new Error(`Error:connector:${id}:missing prop:Connector`);
-    }
-
-    // If the title contains the word "deprecated" (case-insensitive), ensure there's a redirect.
-    const isDeprecated = DEPRECATED_CONNECTOR_RE.test(rawTitle);
-    if (isDeprecated) {
-        if (!DEPRECATED_WITH_REDIRECT.has(`${imageName}_${id}`)) {
-            throw new Error(
-                `Error:connector:${id}:missing redirect for deprecated connector (title contains “deprecated” but no redirect entry found)`
-            );
-        }
     }
 
     // For dekaf connectors we want to use the entire end portion so that there is less chance
