@@ -1,8 +1,5 @@
 import clsx from 'clsx';
-import {
-    defaultWrapperGrey,
-    defaultWrapperDarkBlue,
-} from '../../../../globalStyles/wrappers.module.less';
+
 import { sectionText } from '../../styles.module.less';
 import KeyFeature1 from '../../../../svgs/use-case-solutions-template/key-features/key-feature-1.svg';
 import KeyFeature2 from '../../../../svgs/use-case-solutions-template/key-features/key-feature-2.svg';
@@ -20,11 +17,7 @@ const KeyFeatures = ({ data, isDarkTheme = false }: KeyFeaturesProps) => {
     const iconColor = isDarkTheme ? 'var(--white)' : 'var(--blue)';
 
     return (
-        <section
-            className={
-                isDarkTheme ? defaultWrapperDarkBlue : defaultWrapperGrey
-            }
-        >
+        <section>
             <div
                 className={clsx(
                     grid,

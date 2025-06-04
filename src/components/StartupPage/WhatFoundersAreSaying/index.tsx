@@ -1,6 +1,5 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import Container from '../../Container';
-import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import {
     container,
     outerImageWrapper,
@@ -10,7 +9,7 @@ import {
 
 const WhatFoundersAreSaying = () => {
     return (
-        <section className={defaultWrapperDark}>
+        <section>
             <Container className={container}>
                 <div className={outerImageWrapper}>
                     <div className={innerImageWrapper}>

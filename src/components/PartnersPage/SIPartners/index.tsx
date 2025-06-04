@@ -1,8 +1,5 @@
 import { StaticImage } from 'gatsby-plugin-image';
-import {
-    defaultWrapperDarkBlue,
-    globalMaxWidth,
-} from '../../../globalStyles/wrappers.module.less';
+import { globalMaxWidth } from '../../../globalStyles/wrappers.module.less';
 import PartnerProgramDetails from '../PartnerProgramDetails';
 import { Partner } from '../shared';
 
@@ -87,7 +84,7 @@ const serviceIntegrationPartners: Partner[] = [
 ];
 
 const SIPartners = () => (
-    <section className={defaultWrapperDarkBlue}>
+    <section>
         <div className={globalMaxWidth}>
             <PartnerProgramDetails
                 title="Service integration partners"

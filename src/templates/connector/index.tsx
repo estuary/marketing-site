@@ -37,7 +37,7 @@ const Connector = ({
     const mappedConnector = normalizeConnector(connector);
 
     return (
-        <Layout>
+        <Layout hasLightSections>
             <Breadcrumbs
                 breadcrumbs={[
                     {

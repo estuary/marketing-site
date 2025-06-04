@@ -13,6 +13,7 @@ import ConnectorsLink from '../ConnectorsLink';
 import SearchInput from '../SearchInput';
 import FlowLogoVector from '../FlowLogoVector';
 import ConnectorLogoPlaceholder from '../ConnectorLogoPlaceholder';
+import ContactUsForm from '../ContactUsForm/Form';
 import {
     container,
     connectorIndexHeader,
@@ -30,6 +31,8 @@ import {
     connectorCardReadMore,
     connectorCard,
     connectorBottomButton,
+    contactUsForm,
+    additionalMarginTop,
 } from './styles.module.less';
 
 export interface ConnectorsProps {
@@ -263,7 +266,7 @@ export const Connectors = ({
                 <div className={connectorsSearch}>
                     <div className={connectorsSearchBody}>
                         <SearchInput
-                            placeholder={`Search ${title}`}
+                            placeholder="Explore 200+ Connectors"
                             handleQueryChange={debouncedHandleQueryChange}
                         />
                         <ConnectorsLink />
@@ -282,6 +285,18 @@ export const Connectors = ({
                             );
                         }
                     )}
+                </div>
+                <div
+                    className={clsx(
+                        contactUsForm,
+                        query !== '' && results.length === 0
+                            ? null
+                            : additionalMarginTop
+                    )}
+                >
+                    <h2>Can&apos;t find your connector?</h2>
+                    <p>Fill out the form and we will get back to you today.</p>
+                    <ContactUsForm />
                 </div>
             </div>
             <>

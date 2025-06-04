@@ -1,10 +1,9 @@
 import { StaticImage } from 'gatsby-plugin-image';
-import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import Container from '../../Container';
 import { container } from './styles.module.less';
 
 const Map = () => (
-    <section className={defaultWrapperDarkBlue}>
+    <section>
         <Container isVertical isDarkTheme className={container}>
             <div>
                 <h2>

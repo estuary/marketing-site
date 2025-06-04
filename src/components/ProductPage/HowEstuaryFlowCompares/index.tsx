@@ -1,4 +1,3 @@
-import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import PipelinesTable from '../../PipelinesTable';
 import Container from '../../Container';
 import LinkFilled from '../../LinksAndButtons/LinkFilled';
@@ -6,7 +5,7 @@ import { tableWrapper, title } from './styles.module.less';
 
 const HowEstuaryFlowCompares = () => {
     return (
-        <section className={defaultWrapperDark}>
+        <section>
             <Container isVertical>
                 <h2 className={title}>
                     How <span>Estuary Flow</span> compares

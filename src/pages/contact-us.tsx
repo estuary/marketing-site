@@ -6,7 +6,7 @@ import GetEmail from '../components/ContactUsPage/GetEmail';
 
 const ContactUsPage = () => {
     return (
-        <Layout>
+        <Layout hasLightSections hasLightHeroSection>
             <FormSection />
             <Address />
             <GetEmail />

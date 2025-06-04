@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { defaultWrapperGrey } from '../../globalStyles/wrappers.module.less';
 import { container, cardList } from './styles.module.less';
 
 interface CardsSection {
@@ -8,7 +7,7 @@ interface CardsSection {
 }
 
 const CardsSection: FC<CardsSection> = ({ title, description, children }) => (
-    <section className={defaultWrapperGrey}>
+    <section>
         <div className={container}>
             <h2>{title}</h2>
             <p>{description}</p>

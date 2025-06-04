@@ -1,5 +1,4 @@
 import { StaticImage, GatsbyImage } from 'gatsby-plugin-image';
-import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import VendorsLink from '../../VendorsLink';
 import { Vendor } from '../../../../shared';
 import Container from '../../Container';
@@ -12,7 +11,7 @@ interface SectionOneProps {
 
 const Hero = ({ vendors }: SectionOneProps) => {
     return (
-        <section className={defaultWrapperDarkBlue}>
+        <section>
             <Container className={container}>
                 <HeroSectionDetails
                     title="ETL, ELT and CDC tools comparison center"

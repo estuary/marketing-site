@@ -1,5 +1,4 @@
 import { getSlugifiedText } from '../../../../shared';
-import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 import Container from '../../Container';
 import Grid from '../../Grid';
 import Card from '../../Grid/Card';
@@ -18,7 +17,7 @@ const RelatedBlogPosts = ({
     destConnectorSlugifiedTitle,
 }: RelatedBlogPostsProps) => {
     return (
-        <section className={defaultWrapperDarkBlue}>
+        <section>
             <Container isDarkTheme isVertical>
                 <h2 className={sectionTitle}>
                     RELATED ARTICLE{relatedArticles.length > 1 ? 'S' : null}

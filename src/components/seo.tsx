@@ -51,10 +51,13 @@ const Seo: FC<SeoProps> = ({
         }
     `);
 
-    if (!image) {
-        image =
-            defaultMetaImg.childImageSharp.gatsbyImageData.images.fallback.src;
-    }
+    const rawPath =
+        image ??
+        defaultMetaImg.childImageSharp.gatsbyImageData.images.fallback.src;
+
+    const imageUrl = rawPath.startsWith('http')
+        ? rawPath
+        : `${site.siteMetadata.siteUrl}${rawPath}`;
 
     const metaDescription = description ?? site.siteMetadata.description;
     const defaultTitle = title.includes('Estuary')
@@ -71,10 +74,10 @@ const Seo: FC<SeoProps> = ({
             <meta property="og:description" content={metaDescription} />
             <meta property="og:type" content="website" />
             {url ? <meta property="og:url" content={url} /> : null}
-            {image ? (
+            {imageUrl ? (
                 <>
-                    <meta property="og:image" content={image} />
-                    <meta property="twitter:image" content={image} />
+                    <meta property="og:image" content={imageUrl} />
+                    <meta name="twitter:image" content={imageUrl} />
                 </>
             ) : null}
             <meta property="og:site_name" content="Estuary" />

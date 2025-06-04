@@ -37,14 +37,13 @@ import {
     blogPostDate,
     heroImage,
     shareArticleMobile,
-    blogPostContent,
     blogPostContentWrapper,
     mainContent,
     bigBuildPipelineBannerContainer,
     popularArticlesWrapper,
-    bigBuildPipelineBannerSection,
     bigBuildPipelineBannerWrapper,
     bigBuildPipelineBannerContainerLayout,
+    straightLinesBackgroundWrapper,
     leftColumnContainer,
     rightColumnContainer,
     buildPipelineAndPricingButtons,
@@ -165,7 +164,7 @@ const BlogPost = ({
                 </Container>
             </SwoopingLinesBackground>
             {post.body ? (
-                <section className={blogPostContent}>
+                <section>
                     <div className={blogPostContentWrapper}>
                         <div className={mainContent}>
                             <ProcessedPost
@@ -324,15 +323,18 @@ const BlogPost = ({
                 </section>
             ) : null}
             {hasPopularArticlesSection ? (
-                <section className={popularArticlesWrapper}>
-                    <h2>Popular Articles</h2>
-                    <PopularArticles />
+                <section>
+                    <div className={popularArticlesWrapper}>
+                        <h2>Popular Articles</h2>
+                        <PopularArticles />
+                    </div>
                 </section>
             ) : null}
-            <section className={bigBuildPipelineBannerSection}>
+            <section>
                 <div className={bigBuildPipelineBannerWrapper}>
                     <StraightLinesBackground
                         className={bigBuildPipelineBannerContainer}
+                        wrapperClassName={straightLinesBackgroundWrapper}
                     >
                         <div className={bigBuildPipelineBannerContainerLayout}>
                             <div className={leftColumnContainer}>

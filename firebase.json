@@ -148,7 +148,87 @@
             },
             {
                 "source": "/source/netsuite-v",
-                "destination": "/source/netsuite-v2",
+                "destination": "/source/netsuite-v2/",
+                "type": 301
+            },
+            {
+                "source": "/source/jira-legacy",
+                "destination": "/source/jira-native/",
+                "type": 301
+            },
+            {
+                "source": "/source/salesforce",
+                "destination": "/source/salesforce-native/",
+                "type": 301
+            },
+            {
+                "source": "/source/shopify",
+                "destination": "/source/shopify-native/",
+                "type": 301
+            },
+            {
+                "source": "/source/redshift",
+                "destination": "/source/redshift-batch/",
+                "type": 301
+            },
+            {
+                "source": "/source/jira",
+                "destination": "/source/jira-native/",
+                "type": 301
+            },
+            {
+                "source": "/source/mixpanel",
+                "destination": "/source/mixpanel-native/",
+                "type": 301
+            },
+            {
+                "source": "/source/chargebee",
+                "destination": "/source/chargebee-native/",
+                "type": 301
+            },
+            {
+                "source": "/source/salesforce-next",
+                "destination": "/source/salesforce-native/",
+                "type": 301
+            },
+            {
+                "source": "/source/linkedin-ads",
+                "destination": "/source/linkedin-ads-v2/",
+                "type": 301
+            },
+            {
+                "source": "/source/google-analytics-data-api",
+                "destination": "/source/google-analytics-data-api-native/",
+                "type": 301
+            },
+            {
+                "source": "/source/zendesk-support",
+                "destination": "/source/zendesk-support-native/",
+                "type": 301
+            },
+            {
+                "source": "/source/stripe",
+                "destination": "/source/stripe-native/",
+                "type": 301
+            },
+            {
+                "source": "/source/hubspot",
+                "destination": "/source/hubspot-native/",
+                "type": 301
+            },
+            {
+                "source": "/source/intercom",
+                "destination": "/source/intercom-native/",
+                "type": 301
+            },
+            {
+                "source": "/source/google-sheets",
+                "destination": "/source/google-sheets-native/",
+                "type": 301
+            },
+            {
+                "source": "/destination/rockset",
+                "destination": "/",
                 "type": 301
             },
             {

@@ -1,5 +1,3 @@
-import clsx from 'clsx';
-import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import { PricingCalculator } from '../../PricingCalculator';
 import CopyToClipboardButton from '../../CopyToClipboardButton';
 import useWindowExistence from '../../../hooks/useWindowExistence';
@@ -14,10 +12,7 @@ const PricingCalculatorSection = () => {
     const hasWindow = useWindowExistence();
 
     return (
-        <section
-            className={clsx(defaultWrapperDark, jumpLinkOffset)}
-            id="pricing-calculator"
-        >
+        <section className={jumpLinkOffset} id="pricing-calculator">
             <Container isReverseColumnOnMobile>
                 <div className={textWrapper}>
                     <div>

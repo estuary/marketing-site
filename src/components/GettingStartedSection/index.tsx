@@ -1,8 +1,3 @@
-import clsx from 'clsx';
-import {
-    defaultWrapperDark,
-    defaultWrapperDarkBlue,
-} from '../../globalStyles/wrappers.module.less';
 import EstuaryLogo from '../../svgs/estuary-icon.svg';
 import FileIcon from '../../svgs/file.svg';
 import SlackIcon from '../../svgs/slack-outline.svg';
@@ -15,7 +10,7 @@ import {
 } from '../../../shared';
 import BlogBanner from '../BlogBanner';
 import Container from '../Container';
-import { container, darkContainer } from './styles.module.less';
+import { container } from './styles.module.less';
 import FeatureCard from './FeatureCard';
 
 const iconColor = 'var(--blue)';
@@ -29,15 +24,8 @@ const GettingStartedSection = ({
     isDarkTheme = false,
 }: GettingStartedSectionProps) => {
     return (
-        <section
-            className={
-                isDarkTheme ? defaultWrapperDarkBlue : defaultWrapperDark
-            }
-        >
-            <Container
-                isVertical
-                className={clsx(container, isDarkTheme ? darkContainer : null)}
-            >
+        <section>
+            <Container isVertical className={container}>
                 <h2>
                     Getting started with <span>Estuary</span>
                 </h2>
@@ -123,7 +111,7 @@ const GettingStartedSection = ({
                         title: 'Contact us',
                         href: '/contact-us/',
                     }}
-                    isDarkTheme={isDarkTheme}
+                    isDarkTheme
                 />
             </Container>
         </section>

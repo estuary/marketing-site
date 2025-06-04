@@ -1,4 +1,3 @@
-import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import DeploymentOptions from '../../DeploymentOptions';
 
 const optionsDescription = {
@@ -9,7 +8,7 @@ const optionsDescription = {
 };
 
 const DeploymentModes = () => (
-    <section className={defaultWrapperGrey}>
+    <section>
         <DeploymentOptions
             title={
                 <>

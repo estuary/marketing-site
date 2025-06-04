@@ -1,9 +1,8 @@
 import SecurityCertificates from '../../SecurityCertificates';
-import { defaultWrapperDarkBlue } from '../../../globalStyles/wrappers.module.less';
 
 const AlwaysSecure = () => {
     return (
-        <section className={defaultWrapperDarkBlue}>
+        <section>
             <SecurityCertificates
                 isDarkTheme
                 title={

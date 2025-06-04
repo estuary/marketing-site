@@ -1,5 +1,4 @@
 import { graphql, useStaticQuery } from 'gatsby';
-import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import Container from '../../Container';
 import VerticalList from '../../VerticalList';
 import { container } from './styles.module.less';
@@ -49,7 +48,7 @@ const ListOfUpdates = () => {
     );
 
     return (
-        <section className={defaultWrapperGrey}>
+        <section>
             <Container isVertical className={container}>
                 <h2>The latest product updates</h2>
                 <VerticalList

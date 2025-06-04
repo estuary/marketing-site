@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import DeploymentOptionDetails from '../../DeploymentOptions/DeploymentOptionDetails';
 import { features } from '../shared';
 import { container, adaptedContainer } from '../styles.module.less';
@@ -8,7 +7,7 @@ import Container from '../../Container';
 
 const ByocDeployment = () => {
     return (
-        <section className={defaultWrapperGrey}>
+        <section>
             <Container className={clsx(container, adaptedContainer)}>
                 <DeploymentOptionDiagram deploymentOption="byoc" />
                 <DeploymentOptionDetails

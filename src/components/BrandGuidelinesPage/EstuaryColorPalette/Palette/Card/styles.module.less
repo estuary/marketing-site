@@ -1,0 +1,38 @@
+.container {
+  h4 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin: 20px 0 12px 0;
+  }
+}
+
+.color {
+  border-radius: 10px;
+  height: 80px;
+  width: 100%;
+}
+
+.colorCodesWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  span {
+    white-space: nowrap;
+    font-size: 1rem;
+
+    span {
+      font-family: monospace;
+    }
+  }
+
+  strong {
+    font-weight: 600;
+  }
+
+  @media (max-width: 425px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

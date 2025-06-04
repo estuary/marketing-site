@@ -1,11 +1,10 @@
 import { StaticImage } from 'gatsby-plugin-image';
-import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import Advantages from '../../Advantages';
 import { sectionSixAdvantages } from '../advantages';
 
 const ConfigureOrCode = () => {
     return (
-        <section className={defaultWrapperDark}>
+        <section>
             <Advantages
                 icon={
                     <StaticImage

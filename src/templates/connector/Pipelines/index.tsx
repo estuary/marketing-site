@@ -1,12 +1,11 @@
 import PipelinesTable from '../../../components/PipelinesTable';
 import Container from '../../../components/Container';
-import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import LinkFilled from '../../../components/LinksAndButtons/LinkFilled';
 import { lineBreak, tableWrapper, sectionTitle } from './styles.module.less';
 
 const Pipelines = () => {
     return (
-        <section className={defaultWrapperDark}>
+        <section>
             <Container isVertical>
                 <h2 className={sectionTitle}>
                     Pipelines as <span>fast</span> as Kafka,{' '}

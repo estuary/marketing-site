@@ -219,6 +219,12 @@ const Footer = () => {
                         >
                             Success Stories
                         </FooterLink>
+                        <FooterLink
+                            id={getFooterLinkId('community')}
+                            to="/community/"
+                        >
+                            Community
+                        </FooterLink>
                     </div>
                     <div className={globalFooterRightLinkWrapper}>
                         <p className={globalFooterSubtextTitle}>Company</p>
@@ -251,6 +257,13 @@ const Footer = () => {
                         <FooterLink id={getFooterLinkId('terms')} to="/terms/">
                             Terms
                         </FooterLink>
+
+                        {/*COMPLIANCE WARNING - DO NOT ADD A TRACKING ID*/}
+                        <FooterLink id={undefined} to="/data-requests/">
+                            Data Requests
+                        </FooterLink>
+                        {/*COMPLIANCE WARNING - DO NOT ADD A TRACKING ID*/}
+
                         <FooterLink
                             id={getFooterLinkId('status')}
                             to={statusPageUrl}
@@ -264,6 +277,12 @@ const Footer = () => {
                             ariaLabel="Check the Estuary program for startups"
                         >
                             Startup
+                        </FooterLink>
+                        <FooterLink
+                            id={getFooterLinkId('brand-guidelines')}
+                            to="/brand-guidelines/"
+                        >
+                            Brand guidelines
                         </FooterLink>
                     </div>
                 </div>

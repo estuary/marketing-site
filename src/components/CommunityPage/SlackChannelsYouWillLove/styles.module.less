@@ -1,0 +1,49 @@
+.container {
+  ul {
+    display: grid;
+    gap: 32px;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0;
+
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    @media (max-width: 425px) {
+      margin-top: 24px;
+      gap: 24px;
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+
+    @media (max-width: 768px) {
+      font-size: 1.75rem;
+    }
+  }
+
+  p {
+    font-size: 1rem;
+    max-width: 860px;
+  }
+
+  @media (max-width: 425px) {
+
+    h2,
+    p {
+      text-align: center;
+    }
+  }
+}

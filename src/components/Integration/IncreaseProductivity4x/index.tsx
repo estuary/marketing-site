@@ -1,11 +1,10 @@
-import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import MainConnectors from '../../MainConnectors';
 import { sectionTitle } from '../styles.module.less';
 import { container, description } from './styles.module.less';
 
 const IncreaseProductivity4x = () => {
     return (
-        <section className={defaultWrapperGrey}>
+        <section>
             <div className={container}>
                 <h2 className={sectionTitle}>Increase productivity 4x</h2>
                 <p className={description}>

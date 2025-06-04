@@ -4,7 +4,6 @@ import { estuaryProductFlowVideoUrl } from '../../../../shared';
 import useWindowExistence from '../../../hooks/useWindowExistence';
 import { containerIcon } from '../styles.module.less';
 import Container from '../../../components/Container';
-import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import BubblesCircleBackground from '../../../components/BackgroundImages/BubblesCircleBackground';
 import {
     containerButton,
@@ -21,7 +20,7 @@ const TakeATour = () => {
     const hasWindow = useWindowExistence();
 
     return (
-        <section className={defaultWrapperDark}>
+        <section>
             <Container isReverseColumnOnMobile>
                 <BubblesCircleBackground className={containerLeft}>
                     {hasWindow ? (

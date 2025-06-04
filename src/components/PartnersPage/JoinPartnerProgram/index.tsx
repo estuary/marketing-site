@@ -1,5 +1,4 @@
 import { StaticImage } from 'gatsby-plugin-image';
-import { defaultWrapperGrey } from '../../../globalStyles/wrappers.module.less';
 import PartnerProgramDetails from '../PartnerProgramDetails';
 import { Partner } from '../shared';
 import { container } from './styles.module.less';
@@ -96,7 +95,7 @@ const techPartners: Partner[] = [
 ];
 
 const JoinPartnerProgram = () => (
-    <section className={defaultWrapperGrey}>
+    <section>
         <div className={container}>
             <h2>Join the Estuary Partner Program</h2>
             <p>

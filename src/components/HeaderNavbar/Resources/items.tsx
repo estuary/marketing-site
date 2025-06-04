@@ -79,9 +79,9 @@ export const listen: MenuCardItem[] = [
 
 export const demo: MenuCardItem[] = [
     {
-        name: 'Watch Interactive Demo',
+        name: 'Play Interactive Demo',
         to: '/demo/',
-        linkId: getMenuLinkId('watch-interactive-demo'),
+        linkId: getMenuLinkId('play-interactive-demo'),
     },
     {
         name: 'Real-time 101 [30 min]',
@@ -103,5 +103,18 @@ export const partners: MenuCardItem[] = [
             />
         ),
         linkId: getMenuLinkId('partners'),
+    },
+    {
+        name: 'Community',
+        to: '/community/',
+        description: 'Join our community of 1000+ members',
+        Image: () => (
+            <SuccessIcon
+                color="var(--blue)"
+                width={iconSize}
+                height={iconSize}
+            />
+        ),
+        linkId: getMenuLinkId('community'),
     },
 ];

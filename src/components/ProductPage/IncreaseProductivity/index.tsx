@@ -1,6 +1,5 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import clsx from 'clsx';
-import { defaultWrapperDark } from '../../../globalStyles/wrappers.module.less';
 import Advantages from '../../Advantages';
 import { sectionEightAdvantages } from '../advantages';
 import {
@@ -14,7 +13,7 @@ import {
 
 const IncreaseProductivity = () => {
     return (
-        <section className={defaultWrapperDark}>
+        <section>
             <Advantages
                 icon={
                     <StaticImage
