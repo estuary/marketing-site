@@ -79,6 +79,7 @@ const Seo: FC<SeoProps> = ({
             {url ? <meta property="og:url" content={url} /> : null}
             {imageUrl ? (
                 <>
+                    <meta name="twitter:card" content="summary_large_image" />
                     <meta property="og:image" content={imageUrl} />
                     <meta name="twitter:image" content={imageUrl} />
                     <meta
@@ -90,14 +91,13 @@ const Seo: FC<SeoProps> = ({
                         content={previewImageHeight}
                     />
                     <meta
-                        property="twitter:image:width"
+                        name="twitter:image:width"
                         content={previewImageWidth}
                     />
                     <meta
-                        property="twitter:image:height"
+                        name="twitter:image:height"
                         content={previewImageHeight}
                     />
-                    <meta name="twitter:card" content="summary_large_image" />
                 </>
             ) : (
                 <meta name="twitter:card" content="summary" />
