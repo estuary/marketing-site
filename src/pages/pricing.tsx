@@ -25,7 +25,7 @@ export const Head = () => {
                 relativePath: { eq: "pricing/pay-once-for-new-target-data.png" }
             ) {
                 childImageSharp {
-                    gatsbyImageData(layout: FIXED, width: 670)
+                    gatsbyImageData(layout: FIXED, width: 1200, height: 630)
                 }
             }
         }
