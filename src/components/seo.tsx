@@ -77,6 +77,7 @@ const Seo: FC<SeoProps> = ({
             <meta property="og:description" content={metaDescription} />
             <meta property="og:type" content="website" />
             {url ? <meta property="og:url" content={url} /> : null}
+            <meta name="twitter:card" content="summary" />
             {imageUrl ? (
                 <>
                     <meta property="og:image" content={imageUrl} />
@@ -101,7 +102,6 @@ const Seo: FC<SeoProps> = ({
                 </>
             ) : null}
             <meta property="og:site_name" content="Estuary" />
-            <meta name="twitter:card" content="summary" />
             <meta
                 name="twitter:creator"
                 content={site.siteMetadata?.social?.twitter || ''}
