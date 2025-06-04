@@ -81,7 +81,7 @@ const Seo: FC<SeoProps> = ({
                 </>
             ) : null}
             <meta property="og:site_name" content="Estuary" />
-            <meta name="twitter:card" content="summary" />
+            <meta name="twitter:card" content="summary_large_image" />
             <meta
                 name="twitter:creator"
                 content={site.siteMetadata?.social?.twitter || ''}
