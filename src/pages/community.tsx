@@ -30,7 +30,7 @@ export const Head = () => {
                 }
             ) {
                 childImageSharp {
-                    gatsbyImageData(layout: FIXED, width: 536)
+                    gatsbyImageData(layout: FIXED, width: 1200, height: 630)
                 }
             }
         }

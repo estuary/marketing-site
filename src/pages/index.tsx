@@ -70,7 +70,7 @@ export const Head = () => {
         query GetHomepageMetadata {
             metaImg: file(relativePath: { eq: "flow-desktop.png" }) {
                 childImageSharp {
-                    gatsbyImageData(layout: FIXED, width: 1200)
+                    gatsbyImageData(layout: FIXED, width: 1200, height: 630)
                 }
             }
             site {

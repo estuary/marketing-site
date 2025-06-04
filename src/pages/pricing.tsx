@@ -18,6 +18,7 @@ const PricingPage = () => {
 };
 
 export const Head = () => {
+    // TODO: This image should have at least 1200x630 size
     const { metaImg } = useStaticQuery(graphql`
         query {
             metaImg: file(
