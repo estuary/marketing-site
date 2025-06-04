@@ -58,6 +58,10 @@ export const normalizeConnector = (
 
     const rawTitle = title['en-US'];
 
+    if (!imageName) {
+        throw new Error(`Error:connector:${id}:missing prop:imageName`);
+    }
+
     // If the title contains the word "deprecated" (case-insensitive), ensure there's a redirect.
     const isDeprecated = DEPRECATED_CONNECTOR_RE.test(rawTitle);
     if (isDeprecated) {
@@ -68,10 +72,6 @@ export const normalizeConnector = (
         }
 
         return undefined;
-    }
-
-    if (!imageName) {
-        throw new Error(`Error:connector:${id}:missing prop:imageName`);
     }
 
     const regex_result = imageName.match(CONNECTOR_IMAGE_RE);
