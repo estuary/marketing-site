@@ -9,6 +9,9 @@ import { graphql, useStaticQuery } from 'gatsby';
 
 import { FC, ReactElement } from 'react';
 
+const previewImageWidth = '1200';
+const previewImageHeight = '630';
+
 export interface SeoProps {
     title: string;
     description?: string;
@@ -79,6 +82,22 @@ const Seo: FC<SeoProps> = ({
                     <meta name="twitter:card" content="summary_large_image" />
                     <meta property="og:image" content={imageUrl} />
                     <meta name="twitter:image" content={imageUrl} />
+                    <meta
+                        property="og:image:width"
+                        content={previewImageWidth}
+                    />
+                    <meta
+                        property="og:image:height"
+                        content={previewImageHeight}
+                    />
+                    <meta
+                        name="twitter:image:width"
+                        content={previewImageWidth}
+                    />
+                    <meta
+                        name="twitter:image:height"
+                        content={previewImageHeight}
+                    />
                 </>
             ) : (
                 <meta name="twitter:card" content="summary" />
