@@ -80,8 +80,8 @@ const Seo: FC<SeoProps> = ({
             {imageUrl ? (
                 <>
                     <meta name="twitter:card" content="summary_large_image" />
-                    <meta property="og:image" content={imageUrl} />
                     <meta name="twitter:image" content={imageUrl} />
+                    <meta property="og:image" content={imageUrl} />
                     <meta
                         property="og:image:width"
                         content={previewImageWidth}
