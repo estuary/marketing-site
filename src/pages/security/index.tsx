@@ -22,14 +22,19 @@ const SecurityPage = () => {
 };
 
 export const Head = () => {
-    // TODO: This image should have at least 1200x630 size
     const { metaImg } = useStaticQuery(graphql`
         query {
             metaImg: file(
                 relativePath: { eq: "security-page/security-hero-image.png" }
             ) {
                 childImageSharp {
-                    gatsbyImageData(layout: FIXED, width: 534)
+                    gatsbyImageData(
+                        layout: FIXED
+                        width: 1200
+                        height: 630
+                        transformOptions: { fit: CONTAIN }
+                        backgroundColor: "#fff"
+                    )
                 }
             }
         }

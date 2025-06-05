@@ -46,14 +46,19 @@ const SuccessStoriesPage = () => {
 };
 
 export const Head = () => {
-    // TODO: This image should have at least 1200x630 size
     const { metaImg } = useStaticQuery(graphql`
         query {
             metaImg: file(
                 relativePath: { eq: "customers-page/hero-image.png" }
             ) {
                 childImageSharp {
-                    gatsbyImageData(layout: FIXED, width: 670)
+                    gatsbyImageData(
+                        layout: FIXED
+                        width: 1200
+                        height: 630
+                        transformOptions: { fit: CONTAIN }
+                        backgroundColor: "#fff"
+                    )
                 }
             }
         }
