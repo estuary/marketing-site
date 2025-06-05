@@ -28,10 +28,8 @@ export const Head = () => {
                         layout: FIXED
                         width: 1200
                         height: 630
-                        transformOptions: {
-                            fit: CONTAIN
-                            background: "#ffffff"
-                        }
+                        transformOptions: { fit: CONTAIN }
+                        background: "#ffffff"
                     )
                 }
             }
