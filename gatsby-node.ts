@@ -384,6 +384,24 @@ const createConnectors: CreateHelper = async (
     const startTime = performance.now();
     console.log(`Creation:Start:${name}`);
 
+    const slugRedirectMap: Record<string, string> = {
+        'jira-legacy': 'jira-native',
+        'shopify': 'shopify-native',
+        'redshift': 'redshift-batch',
+        'jira': 'jira-native',
+        'mixpanel': 'mixpanel-native',
+        'chargebee': 'chargebee-native',
+        'salesforce-next': 'salesforce-native',
+        'linkedin-ads': 'linkedin-ads-v2',
+        'google-analytics-data-api': 'google-analytics-data-api-native',
+        'salesforce': 'salesforce-native',
+        'zendesk-support': 'zendesk-support-native',
+        'stripe': 'stripe-native',
+        'hubspot': 'hubspot-native',
+        'intercom': 'intercom-native',
+        'google-sheets': 'google-sheets-native',
+    };
+
     const connectors = await graphql<{
         postgres: {
             allConnectors: {
@@ -441,18 +459,20 @@ const createConnectors: CreateHelper = async (
                 for (const destination_connector of mapped_connectors.filter(
                     (con) => con.type === 'materialization'
                 )) {
+                    const sourceRaw = normalized_connector.slugified_name;
+                    const destRaw = destination_connector.slugified_name;
+
+                    const sourceClean = slugRedirectMap[sourceRaw] ?? sourceRaw;
+                    const destClean = slugRedirectMap[destRaw] ?? destRaw;
+
                     createPage({
-                        path: getIntegrationSlug(
-                            normalized_connector.slugified_name,
-                            destination_connector.slugified_name
-                        ),
+                        path: getIntegrationSlug(sourceClean, destClean),
                         component: connectionTemplate,
                         context: {
                             source_id: normalized_connector.id,
                             destination_id: destination_connector.id,
-                            source_title: normalized_connector.slugified_name,
-                            destination_title:
-                                destination_connector.slugified_name,
+                            source_title: sourceClean,
+                            destination_title: destClean,
                         },
                     });
                 }
