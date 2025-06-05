@@ -31,7 +31,13 @@ export const Head = () => {
         query {
             metaImg: file(relativePath: { eq: "partners-page/handshake.png" }) {
                 childImageSharp {
-                    gatsbyImageData(layout: FIXED, width: 536)
+                    gatsbyImageData(
+                        layout: FIXED
+                        width: 1200
+                        height: 630
+                        transformOptions: { fit: CONTAIN }
+                        backgroundColor: "#fff"
+                    )
                 }
             }
         }

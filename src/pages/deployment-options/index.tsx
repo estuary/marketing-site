@@ -33,7 +33,7 @@ export const Head = () => {
                         width: 1200
                         height: 630
                         transformOptions: { fit: CONTAIN }
-                        backgroundColor: "#04192B"
+                        backgroundColor: "#fff"
                     )
                 }
             }
