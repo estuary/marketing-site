@@ -171,7 +171,7 @@ const Footer = () => {
                             to="/product-updates/"
                             ariaLabel="Explore Estuary and Flow updates."
                         >
-                            Company Updates
+                            Product Updates
                         </FooterLink>
                         <FooterLink
                             id={getFooterLinkId('tutorials')}

@@ -20,7 +20,7 @@ const CompanyUpdatePostTemplate = ({ data: { post } }) => {
                         href: '/',
                     },
                     {
-                        title: 'Company Updates',
+                        title: 'Product Updates',
                         href: '/product-updates',
                     },
                     {

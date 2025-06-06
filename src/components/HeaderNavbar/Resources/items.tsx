@@ -14,10 +14,10 @@ export const read: MenuCardItem[] = [
         linkId: getMenuLinkId('blog'),
     },
     {
-        name: 'Company Updates',
+        name: 'Product Updates',
         to: '/product-updates/',
         Image: () => (
-            <StaticImage src="../../../svgs/blog.svg" alt="Company Updates" />
+            <StaticImage src="../../../svgs/blog.svg" alt="Product Updates" />
         ),
         linkId: getMenuLinkId('company-updates'),
     },
