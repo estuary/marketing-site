@@ -445,38 +445,44 @@ const createConnectors: CreateHelper = async (
             throw new Error(
                 `Unable to figure out a slug for the connector with image: ${normalized_connector.imageName}`
             );
-        } else {
+        }
+
+        createPage({
+            path: normalized_connector.slug,
+            component: connectorTemplate,
+            context: {
+                id: normalized_connector.id,
+                type: normalized_connector.type,
+            },
+        });
+
+        if (normalized_connector.type !== 'capture') {
+            continue;
+        }
+
+        for (const destination_connector of mapped_connectors.filter(
+            (con) => con.type === 'materialization'
+        )) {
+            const sourceRaw = normalized_connector.slugified_name;
+            const destRaw = destination_connector.slugified_name;
+
+            const sourceClean = slugRedirectMap[sourceRaw] ?? sourceRaw;
+            const destClean = slugRedirectMap[destRaw] ?? destRaw;
+
+            if (sourceClean === destClean) {
+                continue;
+            }
+
             createPage({
-                path: normalized_connector.slug,
-                component: connectorTemplate,
+                path: getIntegrationSlug(sourceClean, destClean),
+                component: connectionTemplate,
                 context: {
-                    id: normalized_connector.id,
-                    type: normalized_connector.type,
+                    source_id: normalized_connector.id,
+                    destination_id: destination_connector.id,
+                    source_title: sourceClean,
+                    destination_title: destClean,
                 },
             });
-
-            if (normalized_connector.type === 'capture') {
-                for (const destination_connector of mapped_connectors.filter(
-                    (con) => con.type === 'materialization'
-                )) {
-                    const sourceRaw = normalized_connector.slugified_name;
-                    const destRaw = destination_connector.slugified_name;
-
-                    const sourceClean = slugRedirectMap[sourceRaw] ?? sourceRaw;
-                    const destClean = slugRedirectMap[destRaw] ?? destRaw;
-
-                    createPage({
-                        path: getIntegrationSlug(sourceClean, destClean),
-                        component: connectionTemplate,
-                        context: {
-                            source_id: normalized_connector.id,
-                            destination_id: destination_connector.id,
-                            source_title: sourceClean,
-                            destination_title: destClean,
-                        },
-                    });
-                }
-            }
         }
     }
     console.log(
