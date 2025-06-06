@@ -402,12 +402,26 @@ const createConnectors: CreateHelper = async (
     const startTime = performance.now();
     console.log(`Creation:Start:${name}`);
 
+    const makeIntegrationPage = (
+        srcSlug: string,
+        dstSlug: string,
+        source_id: string,
+        destination_id: string
+    ) => {
+        createPage({
+            path: getIntegrationSlug(srcSlug, dstSlug),
+            component: connectionTemplate,
+            context: {
+                source_id,
+                destination_id,
+                source_title: srcSlug,
+                destination_title: dstSlug,
+            },
+        });
+    };
+
     const connectors = await graphql<{
-        postgres: {
-            allConnectors: {
-                nodes: any[];
-            };
-        };
+        postgres: { allConnectors: { nodes: any[] } };
     }>(`
         {
             postgres {
@@ -447,6 +461,7 @@ const createConnectors: CreateHelper = async (
             );
         }
 
+        // create the connector page itself
         createPage({
             path: normalized_connector.slug,
             component: connectorTemplate,
@@ -466,41 +481,68 @@ const createConnectors: CreateHelper = async (
             const sourceRaw = normalized_connector.slugified_name;
             const destRaw = destination_connector.slugified_name;
 
+            // 1) same→same case
+            if (sourceRaw === destRaw) {
+                if (sourceRaw in slugRedirectMap) {
+                    const clean = slugRedirectMap[sourceRaw];
+                    makeIntegrationPage(
+                        clean,
+                        clean,
+                        normalized_connector.id,
+                        destination_connector.id
+                    );
+                } else {
+                    makeIntegrationPage(
+                        sourceRaw,
+                        destRaw,
+                        normalized_connector.id,
+                        destination_connector.id
+                    );
+                }
+                continue;
+            }
+
+            // 2) apply old→new mapping
             let sourceClean = slugRedirectMap[sourceRaw] ?? sourceRaw;
             let destClean = slugRedirectMap[destRaw] ?? destRaw;
 
             if (sourceClean === destClean) {
+                // A) “new→old” reversal?
                 if (
                     sourceRaw === sourceClean &&
                     slugRedirectMap[destRaw] === sourceClean
                 ) {
                     destClean = destRaw;
-                } else if (
+                }
+                // B) “old→new” reversal?
+                else if (
                     destRaw === destClean &&
                     slugRedirectMap[sourceRaw] === destClean
                 ) {
                     sourceClean = sourceRaw;
-                } else {
+                }
+                // C) true collapse → skip
+                else {
                     continue;
                 }
             }
 
-            createPage({
-                path: getIntegrationSlug(sourceClean, destClean),
-                component: connectionTemplate,
-                context: {
-                    source_id: normalized_connector.id,
-                    destination_id: destination_connector.id,
-                    source_title: sourceClean,
-                    destination_title: destClean,
-                },
-            });
+            // 3) finally create
+            makeIntegrationPage(
+                sourceClean,
+                destClean,
+                normalized_connector.id,
+                destination_connector.id
+            );
         }
     }
+
     console.log(
         `Creation:Finish:${name} took ${Math.ceil(performance.now() - startTime)}ms`
     );
 };
+
+export default createConnectors;
 
 const createAuthors: CreateHelper = async (
     name,
