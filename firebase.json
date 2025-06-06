@@ -4429,7 +4429,12 @@
             {
                 "type": 301,
                 "source": "/company-updates/",
-                "destination": " /product-updates/"
+                "destination": "/product-updates/"
+            },
+            {
+                "type": 301,
+                "source": "/company-updates/:companyUpdateSlug*",
+                "destination": "/product-updates/:companyUpdateSlug/"
             }
         ],
         "public": "public",
