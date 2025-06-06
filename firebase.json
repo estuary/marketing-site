@@ -232,77 +232,77 @@
                 "type": 301
             },
             {
-                "source": "/integrations/jira-legacy-to-:secondConnector*",
+                "source": "/integrations/jira-legacy-to-:secondConnectorSlug*",
                 "destination": "/integrations/jira-native-to-$1/",
                 "type": 301
             },
             {
-                "source": "/integrations/shopify-to-:secondConnector*",
-                "destination": "/integrations/shopify-native-to-:secondConnector/",
+                "source": "/integrations/shopify-to-:secondConnectorSlug*",
+                "destination": "/integrations/shopify-native-to-:secondConnectorSlug/",
                 "type": 301
             },
             {
-                "source": "/integrations/redshift-to-:secondConnector*",
+                "source": "/integrations/redshift-to-:secondConnectorSlug*",
                 "destination": "/integrations/redshift-batch-to-$1",
                 "type": 301
             },
             {
-                "source": "/integrations/jira-to-:secondConnector*",
+                "source": "/integrations/jira-to-:secondConnectorSlug*",
                 "destination": "/integrations/jira-native-to-$1/",
                 "type": 301
             },
             {
-                "source": "/integrations/mixpanel-to-:secondConnector*",
+                "source": "/integrations/mixpanel-to-:secondConnectorSlug*",
                 "destination": "/integrations/mixpanel-native-to-$1/",
                 "type": 301
             },
             {
-                "source": "/integrations/chargebee-to-:secondConnector*",
+                "source": "/integrations/chargebee-to-:secondConnectorSlug*",
                 "destination": "/integrations/chargebee-native-to-$1/",
                 "type": 301
             },
             {
-                "source": "/integrations/salesforce-next-to-:secondConnector*",
+                "source": "/integrations/salesforce-next-to-:secondConnectorSlug*",
                 "destination": "/integrations/salesforce-native-to-$1/",
                 "type": 301
             },
             {
-                "source": "/integrations/linkedin-ads-to-:secondConnector*",
+                "source": "/integrations/linkedin-ads-to-:secondConnectorSlug*",
                 "destination": "/integrations/linkedin-ads-v2-to-$1/",
                 "type": 301
             },
             {
-                "source": "/integrations/google-analytics-data-api-to-:secondConnector*",
+                "source": "/integrations/google-analytics-data-api-to-:secondConnectorSlug*",
                 "destination": "/integrations/google-analytics-data-api-native-to-$1/",
                 "type": 301
             },
             {
-                "source": "/integrations/salesforce-to-:secondConnector*",
+                "source": "/integrations/salesforce-to-:secondConnectorSlug*",
                 "destination": "/integrations/salesforce-native-to-$1/",
                 "type": 301
             },
             {
-                "source": "/integrations/zendesk-support-to-:secondConnector*",
+                "source": "/integrations/zendesk-support-to-:secondConnectorSlug*",
                 "destination": "/integrations/zendesk-support-native-to-$1/",
                 "type": 301
             },
             {
-                "source": "/integrations/stripe-to-:secondConnector*",
+                "source": "/integrations/stripe-to-:secondConnectorSlug*",
                 "destination": "/integrations/stripe-native-to-$1/",
                 "type": 301
             },
             {
-                "source": "/integrations/hubspot-to-:secondConnector*",
+                "source": "/integrations/hubspot-to-:secondConnectorSlug*",
                 "destination": "/integrations/hubspot-native-to-$1/",
                 "type": 301
             },
             {
-                "source": "/integrations/intercom-to-:secondConnector*",
+                "source": "/integrations/intercom-to-:secondConnectorSlug*",
                 "destination": "/integrations/intercom-native-to-$1/",
                 "type": 301
             },
             {
-                "source": "/integrations/google-sheets-to-:secondConnector*",
+                "source": "/integrations/google-sheets-to-:secondConnectorSlug*",
                 "destination": "/integrations/google-sheets-native-to-$1/",
                 "type": 301
             },
