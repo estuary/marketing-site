@@ -466,11 +466,23 @@ const createConnectors: CreateHelper = async (
             const sourceRaw = normalized_connector.slugified_name;
             const destRaw = destination_connector.slugified_name;
 
-            const sourceClean = slugRedirectMap[sourceRaw] ?? sourceRaw;
-            const destClean = slugRedirectMap[destRaw] ?? destRaw;
+            let sourceClean = slugRedirectMap[sourceRaw] ?? sourceRaw;
+            let destClean = slugRedirectMap[destRaw] ?? destRaw;
 
             if (sourceClean === destClean) {
-                continue;
+                if (
+                    sourceRaw === sourceClean &&
+                    slugRedirectMap[destRaw] === sourceClean
+                ) {
+                    destClean = destRaw;
+                } else if (
+                    destRaw === destClean &&
+                    slugRedirectMap[sourceRaw] === destClean
+                ) {
+                    sourceClean = sourceRaw;
+                } else {
+                    continue;
+                }
             }
 
             createPage({
