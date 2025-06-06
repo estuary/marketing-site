@@ -232,77 +232,77 @@
                 "type": 301
             },
             {
-                "source": "/integrations/jira-legacy-to-*",
+                "source": "/integrations/jira-legacy-to-**",
                 "destination": "/integrations/jira-native-to-$1/",
                 "type": 301
             },
             {
-                "source": "/integrations/shopify-to-*",
+                "source": "/integrations/shopify-to-**",
                 "destination": "/integrations/shopify-native-to-$1/",
                 "type": 301
             },
             {
-                "source": "/integrations/redshift-to-*",
+                "source": "/integrations/redshift-to-**",
                 "destination": "/integrations/redshift-batch-to-$1/",
                 "type": 301
             },
             {
-                "source": "/integrations/jira-to-*",
+                "source": "/integrations/jira-to-**",
                 "destination": "/integrations/jira-native-to-$1/",
                 "type": 301
             },
             {
-                "source": "/integrations/mixpanel-to-*",
+                "source": "/integrations/mixpanel-to-**",
                 "destination": "/integrations/mixpanel-native-to-$1/",
                 "type": 301
             },
             {
-                "source": "/integrations/chargebee-to-*",
+                "source": "/integrations/chargebee-to-**",
                 "destination": "/integrations/chargebee-native-to-$1/",
                 "type": 301
             },
             {
-                "source": "/integrations/salesforce-next-to-*",
+                "source": "/integrations/salesforce-next-to-**",
                 "destination": "/integrations/salesforce-native-to-$1/",
                 "type": 301
             },
             {
-                "source": "/integrations/linkedin-ads-to-*",
+                "source": "/integrations/linkedin-ads-to-**",
                 "destination": "/integrations/linkedin-ads-v2-to-$1/",
                 "type": 301
             },
             {
-                "source": "/integrations/google-analytics-data-api-to-*",
+                "source": "/integrations/google-analytics-data-api-to-**",
                 "destination": "/integrations/google-analytics-data-api-native-to-$1/",
                 "type": 301
             },
             {
-                "source": "/integrations/salesforce-to-*",
+                "source": "/integrations/salesforce-to-**",
                 "destination": "/integrations/salesforce-native-to-$1/",
                 "type": 301
             },
             {
-                "source": "/integrations/zendesk-support-to-*",
+                "source": "/integrations/zendesk-support-to-**",
                 "destination": "/integrations/zendesk-support-native-to-$1/",
                 "type": 301
             },
             {
-                "source": "/integrations/stripe-to-*",
+                "source": "/integrations/stripe-to-**",
                 "destination": "/integrations/stripe-native-to-$1/",
                 "type": 301
             },
             {
-                "source": "/integrations/hubspot-to-*",
+                "source": "/integrations/hubspot-to-**",
                 "destination": "/integrations/hubspot-native-to-$1/",
                 "type": 301
             },
             {
-                "source": "/integrations/intercom-to-*",
+                "source": "/integrations/intercom-to-**",
                 "destination": "/integrations/intercom-native-to-$1/",
                 "type": 301
             },
             {
-                "source": "/integrations/google-sheets-to-*",
+                "source": "/integrations/google-sheets-to-**",
                 "destination": "/integrations/google-sheets-native-to-$1/",
                 "type": 301
             },
