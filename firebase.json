@@ -4425,6 +4425,11 @@
                 "type": 301,
                 "source": "/streaming-data-processing/index.html",
                 "destination": "/blog/streaming-data-processing/"
+            },
+            {
+                "type": 301,
+                "source": "/company-updates/",
+                "destination": " /product-updates/"
             }
         ],
         "public": "public",
