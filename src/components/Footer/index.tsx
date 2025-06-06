@@ -168,10 +168,10 @@ const Footer = () => {
                         </FooterLink>
                         <FooterLink
                             id={getFooterLinkId('company-updates')}
-                            to="/company-updates/"
+                            to="/product-updates/"
                             ariaLabel="Explore Estuary and Flow updates."
                         >
-                            Company Updates
+                            Product Updates
                         </FooterLink>
                         <FooterLink
                             id={getFooterLinkId('tutorials')}
