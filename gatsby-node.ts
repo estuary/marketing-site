@@ -377,7 +377,7 @@ const createBlogs: CreateHelper = async (
     );
 };
 
-const slugRedirectMap: Record<string, string> = {
+const sourceRedirectMap: Record<string, string> = {
     'jira-legacy': 'jira-native',
     'shopify': 'shopify-native',
     'redshift': 'redshift-batch',
@@ -394,6 +394,8 @@ const slugRedirectMap: Record<string, string> = {
     'intercom': 'intercom-native',
     'google-sheets': 'google-sheets-native',
 };
+
+const destinationRedirectMap: Record<string, string> = {};
 
 const createConnectors: CreateHelper = async (
     name,
@@ -420,7 +422,7 @@ const createConnectors: CreateHelper = async (
         });
     };
 
-    const connectors = await graphql<{
+    const result = await graphql<{
         postgres: { allConnectors: { nodes: any[] } };
     }>(`
         {
@@ -441,13 +443,13 @@ const createConnectors: CreateHelper = async (
         }
     `);
 
-    if (connectors.errors) {
-        reporter.panicOnBuild(`${QUERY_PANIC_MSG} ${name}`, connectors.errors);
+    if (result.errors) {
+        reporter.panicOnBuild(`${QUERY_PANIC_MSG} ${name}`, result.errors);
         return;
     }
 
     const mapped_connectors =
-        connectors.data?.postgres.allConnectors.nodes
+        result.data?.postgres.allConnectors.nodes
             .filter((conn) => conn.connectorTagsByConnectorIdList.length > 0)
             .map(normalizeConnector)
             .filter((connector) => connector !== undefined) ?? [];
@@ -481,8 +483,8 @@ const createConnectors: CreateHelper = async (
             const destRaw = destination_connector.slugified_name;
 
             if (sourceRaw === destRaw) {
-                if (sourceRaw in slugRedirectMap) {
-                    const clean = slugRedirectMap[sourceRaw];
+                if (sourceRaw in sourceRedirectMap) {
+                    const clean = sourceRedirectMap[sourceRaw];
                     createIntegrationPage(
                         clean,
                         clean,
@@ -500,18 +502,18 @@ const createConnectors: CreateHelper = async (
                 continue;
             }
 
-            let sourceClean = slugRedirectMap[sourceRaw] ?? sourceRaw;
-            let destClean = slugRedirectMap[destRaw] ?? destRaw;
+            let sourceClean = sourceRedirectMap[sourceRaw] ?? sourceRaw;
+            let destClean = destinationRedirectMap[destRaw] ?? destRaw;
 
             if (sourceClean === destClean) {
                 if (
                     sourceRaw === sourceClean &&
-                    slugRedirectMap[destRaw] === sourceClean
+                    destinationRedirectMap[destRaw] === sourceClean
                 ) {
                     destClean = destRaw;
                 } else if (
                     destRaw === destClean &&
-                    slugRedirectMap[sourceRaw] === destClean
+                    sourceRedirectMap[sourceRaw] === destClean
                 ) {
                     sourceClean = sourceRaw;
                 } else {
@@ -532,8 +534,6 @@ const createConnectors: CreateHelper = async (
         `Creation:Finish:${name} took ${Math.ceil(performance.now() - startTime)}ms`
     );
 };
-
-export default createConnectors;
 
 const createAuthors: CreateHelper = async (
     name,
