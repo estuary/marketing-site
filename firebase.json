@@ -4433,8 +4433,8 @@
             },
             {
                 "type": 301,
-                "source": "/company-updates/:companyUpdateSlug*",
-                "destination": "/product-updates/:companyUpdateSlug/"
+                "source": "/company-updates/:companyUpdateSlugKey*",
+                "destination": "/product-updates/:companyUpdateSlugKey/"
             }
         ],
         "public": "public",
