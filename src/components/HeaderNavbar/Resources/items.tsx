@@ -15,7 +15,7 @@ export const read: MenuCardItem[] = [
     },
     {
         name: 'Company Updates',
-        to: '/company-updates/',
+        to: '/product-updates/',
         Image: () => (
             <StaticImage src="../../../svgs/blog.svg" alt="Company Updates" />
         ),

@@ -547,7 +547,7 @@ const createCompanyPosts: CreateHelper = async (
 
     allCompanyUpdatePosts.forEach((post) => {
         createPage({
-            path: `company-updates/${post.slug}`,
+            path: `product-updates/${post.slug}`,
             component: companyUpdatesPostTemplate,
             context: {
                 id: post.id,

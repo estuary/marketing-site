@@ -8,7 +8,7 @@ import BlogPost from '../../components/BlogPost';
 const CompanyUpdatePostTemplate = ({ data: { post } }) => {
     const postWithPrefixedSlug = {
         ...post,
-        slug: `company-updates/${post.slug}/`,
+        slug: `product-updates/${post.slug}/`,
     };
 
     return (
@@ -21,7 +21,7 @@ const CompanyUpdatePostTemplate = ({ data: { post } }) => {
                     },
                     {
                         title: 'Company Updates',
-                        href: '/company-updates',
+                        href: '/product-updates',
                     },
                     {
                         title: post.title,

@@ -43,7 +43,7 @@ const ListOfUpdates = () => {
     const companyUpdatePostsWithPrefixedSlugs = allCompanyUpdatePosts.map(
         (post) => ({
             ...post,
-            slug: `company-updates/${post.slug}/`,
+            slug: `product-updates/${post.slug}/`,
         })
     );
 
