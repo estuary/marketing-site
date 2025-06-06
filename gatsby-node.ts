@@ -402,7 +402,7 @@ const createConnectors: CreateHelper = async (
     const startTime = performance.now();
     console.log(`Creation:Start:${name}`);
 
-    const makeIntegrationPage = (
+    const createIntegrationPage = (
         srcSlug: string,
         dstSlug: string,
         source_id: string,
@@ -461,7 +461,6 @@ const createConnectors: CreateHelper = async (
             );
         }
 
-        // create the connector page itself
         createPage({
             path: normalized_connector.slug,
             component: connectorTemplate,
@@ -481,18 +480,17 @@ const createConnectors: CreateHelper = async (
             const sourceRaw = normalized_connector.slugified_name;
             const destRaw = destination_connector.slugified_name;
 
-            // 1) same→same case
             if (sourceRaw === destRaw) {
                 if (sourceRaw in slugRedirectMap) {
                     const clean = slugRedirectMap[sourceRaw];
-                    makeIntegrationPage(
+                    createIntegrationPage(
                         clean,
                         clean,
                         normalized_connector.id,
                         destination_connector.id
                     );
                 } else {
-                    makeIntegrationPage(
+                    createIntegrationPage(
                         sourceRaw,
                         destRaw,
                         normalized_connector.id,
@@ -502,33 +500,26 @@ const createConnectors: CreateHelper = async (
                 continue;
             }
 
-            // 2) apply old→new mapping
             let sourceClean = slugRedirectMap[sourceRaw] ?? sourceRaw;
             let destClean = slugRedirectMap[destRaw] ?? destRaw;
 
             if (sourceClean === destClean) {
-                // A) “new→old” reversal?
                 if (
                     sourceRaw === sourceClean &&
                     slugRedirectMap[destRaw] === sourceClean
                 ) {
                     destClean = destRaw;
-                }
-                // B) “old→new” reversal?
-                else if (
+                } else if (
                     destRaw === destClean &&
                     slugRedirectMap[sourceRaw] === destClean
                 ) {
                     sourceClean = sourceRaw;
-                }
-                // C) true collapse → skip
-                else {
+                } else {
                     continue;
                 }
             }
 
-            // 3) finally create
-            makeIntegrationPage(
+            createIntegrationPage(
                 sourceClean,
                 destClean,
                 normalized_connector.id,
