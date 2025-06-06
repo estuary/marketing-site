@@ -377,30 +377,30 @@ const createBlogs: CreateHelper = async (
     );
 };
 
+const slugRedirectMap: Record<string, string> = {
+    'jira-legacy': 'jira-native',
+    'shopify': 'shopify-native',
+    'redshift': 'redshift-batch',
+    'jira': 'jira-native',
+    'mixpanel': 'mixpanel-native',
+    'chargebee': 'chargebee-native',
+    'salesforce-next': 'salesforce-native',
+    'linkedin-ads': 'linkedin-ads-v2',
+    'google-analytics-data-api': 'google-analytics-data-api-native',
+    'salesforce': 'salesforce-native',
+    'zendesk-support': 'zendesk-support-native',
+    'stripe': 'stripe-native',
+    'hubspot': 'hubspot-native',
+    'intercom': 'intercom-native',
+    'google-sheets': 'google-sheets-native',
+};
+
 const createConnectors: CreateHelper = async (
     name,
     { actions: { createPage }, graphql, reporter }
 ) => {
     const startTime = performance.now();
     console.log(`Creation:Start:${name}`);
-
-    const slugRedirectMap: Record<string, string> = {
-        'jira-legacy': 'jira-native',
-        'shopify': 'shopify-native',
-        'redshift': 'redshift-batch',
-        'jira': 'jira-native',
-        'mixpanel': 'mixpanel-native',
-        'chargebee': 'chargebee-native',
-        'salesforce-next': 'salesforce-native',
-        'linkedin-ads': 'linkedin-ads-v2',
-        'google-analytics-data-api': 'google-analytics-data-api-native',
-        'salesforce': 'salesforce-native',
-        'zendesk-support': 'zendesk-support-native',
-        'stripe': 'stripe-native',
-        'hubspot': 'hubspot-native',
-        'intercom': 'intercom-native',
-        'google-sheets': 'google-sheets-native',
-    };
 
     const connectors = await graphql<{
         postgres: {
