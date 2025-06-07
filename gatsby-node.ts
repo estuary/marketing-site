@@ -377,6 +377,26 @@ const createBlogs: CreateHelper = async (
     );
 };
 
+const sourceRedirectMap: Record<string, string> = {
+    'jira-legacy': 'jira-native',
+    'shopify': 'shopify-native',
+    'redshift': 'redshift-batch',
+    'jira': 'jira-native',
+    'mixpanel': 'mixpanel-native',
+    'chargebee': 'chargebee-native',
+    'salesforce-next': 'salesforce-native',
+    'linkedin-ads': 'linkedin-ads-v2',
+    'google-analytics-data-api': 'google-analytics-data-api-native',
+    'salesforce': 'salesforce-native',
+    'zendesk-support': 'zendesk-support-native',
+    'stripe': 'stripe-native',
+    'hubspot': 'hubspot-native',
+    'intercom': 'intercom-native',
+    'google-sheets': 'google-sheets-native',
+};
+
+const destinationRedirectMap: Record<string, string> = {};
+
 const createConnectors: CreateHelper = async (
     name,
     { actions: { createPage }, graphql, reporter }
@@ -384,12 +404,26 @@ const createConnectors: CreateHelper = async (
     const startTime = performance.now();
     console.log(`Creation:Start:${name}`);
 
-    const connectors = await graphql<{
-        postgres: {
-            allConnectors: {
-                nodes: any[];
-            };
-        };
+    const createIntegrationPage = (
+        srcSlug: string,
+        dstSlug: string,
+        source_id: string,
+        destination_id: string
+    ) => {
+        createPage({
+            path: getIntegrationSlug(srcSlug, dstSlug),
+            component: connectionTemplate,
+            context: {
+                source_id,
+                destination_id,
+                source_title: srcSlug,
+                destination_title: dstSlug,
+            },
+        });
+    };
+
+    const result = await graphql<{
+        postgres: { allConnectors: { nodes: any[] } };
     }>(`
         {
             postgres {
@@ -409,13 +443,13 @@ const createConnectors: CreateHelper = async (
         }
     `);
 
-    if (connectors.errors) {
-        reporter.panicOnBuild(`${QUERY_PANIC_MSG} ${name}`, connectors.errors);
+    if (result.errors) {
+        reporter.panicOnBuild(`${QUERY_PANIC_MSG} ${name}`, result.errors);
         return;
     }
 
     const mapped_connectors =
-        connectors.data?.postgres.allConnectors.nodes
+        result.data?.postgres.allConnectors.nodes
             .filter((conn) => conn.connectorTagsByConnectorIdList.length > 0)
             .map(normalizeConnector)
             .filter((connector) => connector !== undefined) ?? [];
@@ -427,38 +461,75 @@ const createConnectors: CreateHelper = async (
             throw new Error(
                 `Unable to figure out a slug for the connector with image: ${normalized_connector.imageName}`
             );
-        } else {
-            createPage({
-                path: normalized_connector.slug,
-                component: connectorTemplate,
-                context: {
-                    id: normalized_connector.id,
-                    type: normalized_connector.type,
-                },
-            });
+        }
 
-            if (normalized_connector.type === 'capture') {
-                for (const destination_connector of mapped_connectors.filter(
-                    (con) => con.type === 'materialization'
-                )) {
-                    createPage({
-                        path: getIntegrationSlug(
-                            normalized_connector.slugified_name,
-                            destination_connector.slugified_name
-                        ),
-                        component: connectionTemplate,
-                        context: {
-                            source_id: normalized_connector.id,
-                            destination_id: destination_connector.id,
-                            source_title: normalized_connector.slugified_name,
-                            destination_title:
-                                destination_connector.slugified_name,
-                        },
-                    });
+        createPage({
+            path: normalized_connector.slug,
+            component: connectorTemplate,
+            context: {
+                id: normalized_connector.id,
+                type: normalized_connector.type,
+            },
+        });
+
+        if (normalized_connector.type !== 'capture') {
+            continue;
+        }
+
+        for (const destination_connector of mapped_connectors.filter(
+            (con) => con.type === 'materialization'
+        )) {
+            const sourceRaw = normalized_connector.slugified_name;
+            const destRaw = destination_connector.slugified_name;
+
+            if (sourceRaw === destRaw) {
+                if (sourceRaw in sourceRedirectMap) {
+                    const clean = sourceRedirectMap[sourceRaw];
+                    createIntegrationPage(
+                        clean,
+                        clean,
+                        normalized_connector.id,
+                        destination_connector.id
+                    );
+                } else {
+                    createIntegrationPage(
+                        sourceRaw,
+                        destRaw,
+                        normalized_connector.id,
+                        destination_connector.id
+                    );
+                }
+                continue;
+            }
+
+            let sourceClean = sourceRedirectMap[sourceRaw] ?? sourceRaw;
+            let destClean = destinationRedirectMap[destRaw] ?? destRaw;
+
+            if (sourceClean === destClean) {
+                if (
+                    sourceRaw === sourceClean &&
+                    destinationRedirectMap[destRaw] === sourceClean
+                ) {
+                    destClean = destRaw;
+                } else if (
+                    destRaw === destClean &&
+                    sourceRedirectMap[sourceRaw] === destClean
+                ) {
+                    sourceClean = sourceRaw;
+                } else {
+                    continue;
                 }
             }
+
+            createIntegrationPage(
+                sourceClean,
+                destClean,
+                normalized_connector.id,
+                destination_connector.id
+            );
         }
     }
+
     console.log(
         `Creation:Finish:${name} took ${Math.ceil(performance.now() - startTime)}ms`
     );
