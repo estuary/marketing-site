@@ -18,7 +18,7 @@ const CompanyUpdates = () => {
 
 export const Head = () => (
     <Seo
-        title="Company Updates - News, Milestones & Announcements | Estuary"
+        title="Product Updates - News, Milestones & Announcements | Estuary"
         description="Stay up to date with Estuary's latest company news, product launches, partnerships, and more. Explore updates that showcase our journey and innovations."
     />
 );
