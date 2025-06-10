@@ -761,39 +761,48 @@ const cfg: GatsbyConfig = {
                 ],
 
                 normalizer: ({ data }) => {
+                    const startTime = performance.now();
                     const stripHtml = (html: string) =>
                         (html || '').replace(/<[^>]+>/g, ' ');
 
-                    return data.allStrapiCaseStudy.nodes.map((node) => {
-                        return {
-                            ...node,
-                            searchable_tags: node.tags
-                                .map((t: { Name: string }) => t.Name)
-                                .join(' '),
-                            heroImgAltText: node.hero?.alternativeText ?? '',
-                            sideContentText:
-                                stripHtml(
-                                    node.sideContent?.data?.sideContent
-                                ) || '',
-                            aboutDescriptionText:
-                                stripHtml(
-                                    node.about?.description?.data
-                                        ?.Description ?? ''
-                                ) || '',
-                            topicsText:
-                                (node.about?.topics ?? [])
-                                    .map(
-                                        (t: {
-                                            title?: string;
-                                            description?: string;
-                                        }) =>
-                                            `${t.title ?? ''} ${t.description ?? ''}`
-                                    )
-                                    .join(' ') ?? '',
-                            bodyText:
-                                stripHtml(node.body?.data?.body ?? '') || '',
-                        };
-                    });
+                    const response = data.allStrapiCaseStudy.nodes.map(
+                        (node) => {
+                            return {
+                                ...node,
+                                searchable_tags: node.tags
+                                    .map((t: { Name: string }) => t.Name)
+                                    .join(' '),
+                                heroImgAltText:
+                                    node.hero?.alternativeText ?? '',
+                                sideContentText:
+                                    stripHtml(
+                                        node.sideContent?.data?.sideContent
+                                    ) || '',
+                                aboutDescriptionText:
+                                    stripHtml(
+                                        node.about?.description?.data
+                                            ?.Description ?? ''
+                                    ) || '',
+                                topicsText:
+                                    (node.about?.topics ?? [])
+                                        .map(
+                                            (t: {
+                                                title?: string;
+                                                description?: string;
+                                            }) =>
+                                                `${t.title ?? ''} ${t.description ?? ''}`
+                                        )
+                                        .join(' ') ?? '',
+                                bodyText:
+                                    stripHtml(node.body?.data?.body ?? '') ||
+                                    '',
+                            };
+                        }
+                    );
+                    console.debug(
+                        `LunrSearch:normalizer:success-story took ${Math.ceil(performance.now() - startTime)}ms`
+                    );
+                    return response;
                 },
             },
         },
