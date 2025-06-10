@@ -6,8 +6,8 @@
 
 import path from 'path';
 import { GatsbyConfig } from 'gatsby';
+import lunr from 'lunr';
 import { normalizeConnector } from './src/utils';
-
 import { SUPABASE_CONNECTION_STRING } from './config';
 
 // Disable multiple prepared statements because pgbouncer doesn't like 'em very much
@@ -376,6 +376,8 @@ const gatsbyPluginLocalSearchSettings = {
     ref: 'id',
     store: ['id', 'title', 'slug'],
 };
+
+lunr.tokenizer.separator = /\s+/;
 
 const cfg: GatsbyConfig = {
     siteMetadata: {
