@@ -537,37 +537,36 @@ const cfg: GatsbyConfig = {
                 // GraphQL query used to fetch all data for the search index. This is required.
                 query: `
                 {
-                    allStrapiBlogPost{
-                        nodes {
-                            id
-                            description: Description
-                            title: Title
-                            slug: Slug
-                            publishedAt(formatString: "MMMM D, YYYY")
-                            tags: tags {
-                                Name
-                                Slug
-                                Type
-                            }
-                            authors {
-                                name: Name
-                            }
-                            hero: Hero {
-                                localFile {
-                                    childImageSharp {
-                                        gatsbyImageData(
-                                            layout: CONSTRAINED
-                                            placeholder: BLURRED
-                                            width: 400
-                                            aspectRatio: 1.7
-                                            formats: [AUTO, WEBP, AVIF]
-                                        )
-                                        # Further below in this doc you can learn how to use these response images
-                                    }
-                                }
-                            }
+                  allStrapiBlogPost {
+                    nodes {
+                      id
+                      slug: Slug
+                      title: Title
+                      description: Description
+                      publishedAt(formatString: "MMMM D, YYYY")
+                      tags {
+                        Name
+                        Slug
+                        Type
+                      }
+                      authors {
+                        name: Name
+                      }
+                      hero: Hero {
+                        localFile {
+                          childImageSharp {
+                            gatsbyImageData(
+                              layout: CONSTRAINED
+                              placeholder: BLURRED
+                              width: 400
+                              aspectRatio: 1.7
+                              formats: [AUTO, WEBP, AVIF]
+                            )
+                          }
                         }
+                      }
                     }
+                  }
                 }
               `,
 
@@ -578,7 +577,13 @@ const cfg: GatsbyConfig = {
                 // List of keys to index. The values of the keys are taken from the
                 // normalizer function below.
                 // Default: all fields
-                index: ['slug', 'title', 'searchable_tags'],
+                index: [
+                    'slug',
+                    'title',
+                    'description',
+                    'searchable_tags',
+                    'authorsText',
+                ],
 
                 // List of keys to store and make available in your UI. The values of
                 // the keys are taken from the normalizer function below.
@@ -598,14 +603,15 @@ const cfg: GatsbyConfig = {
                 normalizer: ({ data }) => {
                     const startTime = performance.now();
                     const response = data.allStrapiBlogPost.nodes.map(
-                        (node) => {
-                            return {
-                                ...node,
-                                searchable_tags: node.tags
-                                    .map((t) => t.Name)
-                                    .join(' '),
-                            };
-                        }
+                        (node) => ({
+                            ...node,
+                            searchable_tags: node.tags
+                                .map((t) => t.Name)
+                                .join(' '),
+                            authorsText: node.authors
+                                .map((a) => a.name)
+                                .join(' '),
+                        })
                     );
 
                     console.log(
