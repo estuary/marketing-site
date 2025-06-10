@@ -1,6 +1,6 @@
 import { htmlToText } from 'html-to-text';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
-import lunr, { type Index } from 'lunr';
+import lunr from 'lunr';
 import { features } from './src/components/DeploymentOptionsPage/shared';
 import { Author } from './src/templates/author/shared';
 
@@ -282,21 +282,29 @@ export const getIntegrationSlug = (
 ) => `/integrations/${connectorName1}-to-${connectorName2}`;
 
 export function searchIndex(
-    index: Index,
+    index: lunr.Index,
     store: Record<string, any>,
     query: string
 ) {
     if (!query) return [];
 
+    // We might want to look into handling case better
+    //  but seems if you upper case stuff results don't come back
+    const lowerQuery = query.toLowerCase();
+    const splitQuery = lowerQuery.split(' ').filter((term) => term.length > 0);
+
+    const exactOptions = {
+        wildcard: lunr.Query.wildcard.NONE,
+        usePipeline: true, // Lowercase + stem
+    };
+
+    const trailingOptions = {
+        wildcard: lunr.Query.wildcard.TRAILING,
+        usePipeline: true,
+    };
+
     return index
         .query((q: lunr.Query) => {
-            // We might want to look into handling case better
-            //  but seems if you upper case stuff results don't come back
-            const lowerQuery = query.toLowerCase();
-            const splitQuery = lowerQuery
-                .split(' ')
-                .filter((term) => term.length > 0);
-
             // We still might want to try first searching for things that 100% match exactly what the user has provided
             // q.term(lowerQuery, {
             //     boost: 50,
@@ -305,29 +313,65 @@ export function searchIndex(
             // Perfect match on a tag is highest as we put them there to make things searchable
             q.term(splitQuery, {
                 fields: ['searchable_tags'],
-                wildcard: lunr.Query.wildcard.NONE,
-                boost: 35,
+                boost: 40,
+                ...exactOptions,
+            });
+
+            // Perfect match on metaTitle terms
+            q.term(splitQuery, {
+                fields: ['metaTitle'],
+                boost: 30,
+                ...exactOptions,
+            });
+
+            // Perfect match on metaDescription terms
+            q.term(splitQuery, {
+                fields: ['metaDescription'],
+                boost: 30,
+                ...exactOptions,
             });
 
             // Perfect match on the title
             q.term(splitQuery, {
                 fields: ['title'],
-                wildcard: lunr.Query.wildcard.NONE,
-                boost: 30,
+                boost: 40,
+                ...exactOptions,
             });
 
-            // Weight a trailing match "query*" for the title and slug together
-            //  often there is a mismatch of terms between the slug
+            // Perfect match on description terms
+            q.term(splitQuery, {
+                fields: ['description'],
+                boost: 30,
+                ...exactOptions,
+            });
+
+            // Prefix match on title + slug
             q.term(splitQuery, {
                 fields: ['title', 'slug'],
-                wildcard: lunr.Query.wildcard.TRAILING,
                 boost: 15,
+                ...trailingOptions,
             });
 
-            // Look in anything with a trailing match
+            // Exact match on linkOneLiner
             q.term(splitQuery, {
-                wildcard: lunr.Query.wildcard.TRAILING,
+                fields: ['linkOneLiner'],
+                boost: 30,
+                ...exactOptions,
+            });
+
+            // Exact match on topicsText
+            q.term(splitQuery, {
+                fields: ['topicsText'],
+                boost: 30,
+                ...exactOptions,
+            });
+
+            // Low boost for rich text fields because long-form
+            //  content is noisy and would otherwise dominate results.
+            q.term(splitQuery, {
+                fields: ['sideContentText', 'aboutDescriptionText', 'bodyText'],
                 boost: 10,
+                ...trailingOptions,
             });
 
             // TODO spelling alterations - previously we used this setting

@@ -681,43 +681,77 @@ const cfg: GatsbyConfig = {
             resolve: 'gatsby-plugin-local-search',
             options: {
                 name: 'cases',
-
                 engine: gatsbyPluginLocalSearchSettings.engine,
-
                 query: `
                 {
-                    allStrapiCaseStudy(sort: { createdAt: DESC }) {
-                        nodes {
-                            title: Title
-                            description: Description
-                            slug: Slug
-                            id
-                            tags {
-                                Name
-                                Slug
-                                Type
-                            }
-                            hero: Logo {
-                                alternativeText
-                                localFile {
-                                    childImageSharp {
-                                        gatsbyImageData(
-                                            quality: 100
-                                            placeholder: BLURRED
-                                            height: 172
-                                            layout: FULL_WIDTH
-                                        )
-                                    }
-                                }
-                            }
+                  allStrapiCaseStudy(sort: { createdAt: DESC }) {
+                    nodes {
+                      id
+                      slug: Slug
+                      title: Title
+                      description: Description
+                      metaTitle
+                      metaDescription
+                      linkOneLiner: LinkOneLiner
+                      tags {
+                        Name
+                        Slug
+                        Type
+                      }
+                      hero: Logo {
+                        alternativeText
+                        localFile {
+                          childImageSharp {
+                            gatsbyImageData(
+                              quality: 100
+                              placeholder: BLURRED
+                              height: 172
+                              layout: FULL_WIDTH
+                            )
+                          }
                         }
+                      }
+                      sideContent: SideContent {
+                        data {
+                          sideContent: SideContent
+                        }
+                      }
+                      about: About {
+                        description: Description {
+                          data {
+                            description: Description
+                          }
+                        }
+                        topics: Topics {
+                          title: Title
+                          description: Description
+                        }
+                      }
+                      body: Body {
+                        data {
+                          body: Body
+                        }
+                      }
                     }
+                  }
                 }
               `,
-
                 ref: gatsbyPluginLocalSearchSettings.ref,
 
-                index: ['slug', 'title', 'searchable_tags'],
+                index: [
+                    'slug',
+                    'title',
+                    'description',
+                    'metaTitle',
+                    'metaDescription',
+                    'searchable_tags',
+                    'heroImgAltText',
+                    'sideContentText',
+                    'linkOneLiner',
+                    'aboutDescriptionText',
+                    'topicsText',
+                    'bodyText',
+                ],
 
                 store: [
                     ...gatsbyPluginLocalSearchSettings.store,
@@ -727,23 +761,39 @@ const cfg: GatsbyConfig = {
                 ],
 
                 normalizer: ({ data }) => {
-                    const startTime = performance.now();
-                    const response = data.allStrapiCaseStudy.nodes.map(
-                        (node) => {
-                            return {
-                                ...node,
-                                searchable_tags: node.tags
-                                    .map((t) => t.Name)
-                                    .join(' '),
-                            };
-                        }
-                    );
+                    const stripHtml = (html: string) =>
+                        (html || '').replace(/<[^>]+>/g, ' ');
 
-                    console.log(
-                        `LunrSearch:normalizer:success-story took ${Math.ceil(performance.now() - startTime)}ms`
-                    );
-
-                    return response;
+                    return data.allStrapiCaseStudy.nodes.map((node) => {
+                        return {
+                            ...node,
+                            searchable_tags: node.tags
+                                .map((t: { Name: string }) => t.Name)
+                                .join(' '),
+                            heroImgAltText: node.hero?.alternativeText ?? '',
+                            sideContentText:
+                                stripHtml(
+                                    node.sideContent?.data?.sideContent
+                                ) || '',
+                            aboutDescriptionText:
+                                stripHtml(
+                                    node.about?.description?.data
+                                        ?.Description ?? ''
+                                ) || '',
+                            topicsText:
+                                (node.about?.topics ?? [])
+                                    .map(
+                                        (t: {
+                                            title?: string;
+                                            description?: string;
+                                        }) =>
+                                            `${t.title ?? ''} ${t.description ?? ''}`
+                                    )
+                                    .join(' ') ?? '',
+                            bodyText:
+                                stripHtml(node.body?.data?.body ?? '') || '',
+                        };
+                    });
                 },
             },
         },
