@@ -1,12 +1,9 @@
-import clsx from 'clsx';
 import { StaticImage } from 'gatsby-plugin-image';
 import {
     pricingExamplesImageWrapper,
     pricingExamplesTextWrapper,
     answerSection,
     answerSections,
-    flexDirectionColumn,
-    flexDirectionColumnReverse,
 } from './styles.module.less';
 
 export const faqs = [
@@ -67,9 +64,7 @@ export const faqs = [
         question: 'What are pricing examples?',
         answer: (
             <div className={answerSections}>
-                <div
-                    className={clsx(answerSection, flexDirectionColumnReverse)}
-                >
+                <div className={answerSection}>
                     <div className={pricingExamplesTextWrapper}>
                         <h4>STREAMING ETL</h4>
                         <h5>Only pay once for source and target data</h5>
@@ -92,7 +87,7 @@ export const faqs = [
                         />
                     </div>
                 </div>
-                <div className={clsx(answerSection, flexDirectionColumn)}>
+                <div className={answerSection}>
                     <div className={pricingExamplesImageWrapper}>
                         <StaticImage
                             src="../../../images/pricing/pay-once-for-new-target-data.png"
