@@ -20,13 +20,9 @@ export function getSearchIndexFn(searchBlocks: SearchBlock[]) {
                     q.term(splitQuery, block);
                 }
 
-                // TODO spelling alterations - previously we used this setting
-                //  but this returned A LOT of stuff that just was not related.
-                // Example :
-                //  searching "pinecone" would return "pipeline" because it is off by 3 alterations
-                // q.term(splitQuery, {
-                //     editDistance: Math.min(Math.max(0, term.length - 1), 3),
-                // });
+                q.term(splitQuery, {
+                    editDistance: Math.min(Math.max(0, q.term.length - 1), 3),
+                });
             })
             .map((r) => store[r.ref]);
     };
