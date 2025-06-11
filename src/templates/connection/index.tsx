@@ -23,6 +23,7 @@ import GettingStartedSection from '../../components/GettingStartedSection';
 import SuccessStoriesSection from '../../components/SuccessStoriesSection';
 import RelatedBlogPosts from '../../components/Integration/RelatedBlogPosts';
 import { layoutClassName } from './styles.module.less';
+import { faqs } from './faqs';
 
 export interface ConnectorProps {
     data: {
@@ -153,11 +154,33 @@ export const Head = ({
         destination: { connector: destination_connector },
     },
 }) => {
+    const sourceConnectorFaqs = faqs(source_connector).filter(
+        (faq) => faq != null
+    );
+
     return (
-        <Seo
-            title={`${source_connector.title?.['en-US']} to ${destination_connector.title?.['en-US']} in Real-Time ETL & CDC`}
-            description={`Move ${source_connector.title?.['en-US']} to ${destination_connector.title?.['en-US']} instantly or in batches with Estuary's real-time ETL & CDC integration. Free, no-code, and easy to set up. Try it now.`}
-        />
+        <>
+            <Seo
+                title={`${source_connector.title?.['en-US']} to ${destination_connector.title?.['en-US']} in Real-Time ETL & CDC`}
+                description={`Move ${source_connector.title?.['en-US']} to ${destination_connector.title?.['en-US']} instantly or in batches with Estuary's real-time ETL & CDC integration. Free, no-code, and easy to set up. Try it now.`}
+            />
+            <script type="application/ld+json">
+                {JSON.stringify({
+                    '@context': 'https://schema.org',
+                    '@type': 'FAQPage',
+                    'mainEntity': sourceConnectorFaqs.map(
+                        ({ question, answer }) => ({
+                            '@type': 'Question',
+                            'name': question,
+                            'acceptedAnswer': {
+                                '@type': 'Answer',
+                                'text': answer,
+                            },
+                        })
+                    ),
+                })}
+            </script>
+        </>
     );
 };
 

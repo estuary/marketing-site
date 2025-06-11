@@ -1,8 +1,8 @@
 import Container from '../../Container';
 import { Connector } from '../../../../shared';
 import FaqAccordions from '../../Faq/FaqAccordions';
+import { faqs } from '../../../templates/connection/faqs';
 import { container } from './styles.module.less';
-import { faqs } from './faqs';
 
 interface FaqProps {
     sourceConnector: Partial<Connector>;

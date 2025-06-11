@@ -1,7 +1,7 @@
-import OutboundLink from '../../LinksAndButtons/OutboundLink';
-import InternalLink from '../../InternalLink';
-import { Connector } from '../../../../shared';
-import { FaqItem } from '../../Faq/FaqAccordions';
+import OutboundLink from '../../components/LinksAndButtons/OutboundLink';
+import InternalLink from '../../components/InternalLink';
+import { Connector } from '../../../shared';
+import { FaqItem } from '../../components/Faq/FaqAccordions';
 
 export const faqs = (
     sourceConnector: Partial<Connector>
