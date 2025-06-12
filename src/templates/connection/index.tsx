@@ -23,8 +23,8 @@ import GettingStartedSection from '../../components/GettingStartedSection';
 import SuccessStoriesSection from '../../components/SuccessStoriesSection';
 import RelatedBlogPosts from '../../components/Integration/RelatedBlogPosts';
 import { reactNodeToString } from '../../shared';
+import { faqs } from '../../components/Integration/Faq/faqs';
 import { layoutClassName } from './styles.module.less';
-import { faqs } from './faqs';
 
 export interface ConnectorProps {
     data: {

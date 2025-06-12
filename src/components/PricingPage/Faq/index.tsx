@@ -1,6 +1,6 @@
 import Container from '../../Container';
 import FaqAccordions from '../../Faq/FaqAccordions';
-import { faqs } from '../../../pages/pricing/faqs';
+import { faqs } from './faqs';
 import { title } from './styles.module.less';
 
 const Faq = () => {

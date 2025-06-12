@@ -1,12 +1,12 @@
 import { graphql, useStaticQuery } from 'gatsby';
-import Layout from '../../components/Layout';
-import Seo from '../../components/seo';
-import PricingCalculatorSection from '../../components/PricingPage/PricingCalculatorSection';
-import Hero from '../../components/PricingPage/Hero';
-import ChooseYourPlan from '../../components/PricingPage/ChooseYourPlan';
-import Faq from '../../components/PricingPage/Faq';
-import { reactNodeToString } from '../../shared';
-import { faqs } from './faqs';
+import Layout from '../components/Layout';
+import Seo from '../components/seo';
+import PricingCalculatorSection from '../components/PricingPage/PricingCalculatorSection';
+import Hero from '../components/PricingPage/Hero';
+import ChooseYourPlan from '../components/PricingPage/ChooseYourPlan';
+import Faq from '../components/PricingPage/Faq';
+import { faqs } from '../components/PricingPage/Faq/faqs';
+import { reactNodeToString } from '../shared';
 
 const PricingPage = () => {
     return (

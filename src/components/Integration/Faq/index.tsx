@@ -1,7 +1,7 @@
 import Container from '../../Container';
 import { Connector } from '../../../../shared';
 import FaqAccordions from '../../Faq/FaqAccordions';
-import { faqs } from '../../../templates/connection/faqs';
+import { faqs } from './faqs';
 import { container } from './styles.module.less';
 
 interface FaqProps {
