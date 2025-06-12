@@ -22,6 +22,7 @@ import Faq from '../../components/Integration/Faq';
 import GettingStartedSection from '../../components/GettingStartedSection';
 import SuccessStoriesSection from '../../components/SuccessStoriesSection';
 import RelatedBlogPosts from '../../components/Integration/RelatedBlogPosts';
+import { reactNodeToString } from '../../shared';
 import { layoutClassName } from './styles.module.less';
 import { faqs } from './faqs';
 
@@ -143,26 +144,23 @@ const Connector = ({
 
 export default Connector;
 
-/**
- * Head export to define metadata for the page
- *
- * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
- */
 export const Head = ({
     data: {
         source: { connector: source_connector },
         destination: { connector: destination_connector },
     },
 }) => {
-    const sourceConnectorFaqs = faqs(source_connector).filter(
-        (faq) => faq != null
-    );
+    const source_mapped = normalizeConnector(source_connector);
+
+    const sourceConnectorFaqs = (
+        source_mapped ? faqs(source_mapped) : []
+    ).filter((faq) => faq != null);
 
     return (
         <>
             <Seo
-                title={`${source_connector.title?.['en-US']} to ${destination_connector.title?.['en-US']} in Real-Time ETL & CDC`}
-                description={`Move ${source_connector.title?.['en-US']} to ${destination_connector.title?.['en-US']} instantly or in batches with Estuary's real-time ETL & CDC integration. Free, no-code, and easy to set up. Try it now.`}
+                title={`${source_mapped?.title} to ${destination_connector.title?.['en-US']} in Real-Time ETL & CDC`}
+                description={`Move ${source_mapped?.title} to ${destination_connector.title?.['en-US']} instantly or in batches with Estuary's real-time ETL & CDC integration. Free, no-code, and easy to set up. Try it now.`}
             />
             <script type="application/ld+json">
                 {JSON.stringify({
@@ -174,7 +172,7 @@ export const Head = ({
                             'name': question,
                             'acceptedAnswer': {
                                 '@type': 'Answer',
-                                'text': answer,
+                                'text': reactNodeToString(answer),
                             },
                         })
                     ),
