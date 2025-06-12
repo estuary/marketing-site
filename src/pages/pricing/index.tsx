@@ -5,6 +5,7 @@ import PricingCalculatorSection from '../../components/PricingPage/PricingCalcul
 import Hero from '../../components/PricingPage/Hero';
 import ChooseYourPlan from '../../components/PricingPage/ChooseYourPlan';
 import Faq from '../../components/PricingPage/Faq';
+import { reactNodeToString } from '../../shared';
 import { faqs } from './faqs';
 
 const PricingPage = () => {
@@ -46,20 +47,23 @@ export const Head = () => {
                     metaImg.childImageSharp.gatsbyImageData.images.fallback.src
                 }
             />
-            <script type="application/ld+json">
-                {JSON.stringify({
-                    '@context': 'https://schema.org',
-                    '@type': 'FAQPage',
-                    'mainEntity': faqs.map(({ question, answer }) => ({
-                        '@type': 'Question',
-                        'name': question,
-                        'acceptedAnswer': {
-                            '@type': 'Answer',
-                            'text': answer,
-                        },
-                    })),
-                })}
-            </script>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        '@context': 'https://schema.org',
+                        '@type': 'FAQPage',
+                        'mainEntity': faqs.map(({ question, answer }) => ({
+                            '@type': 'Question',
+                            'name': question,
+                            'acceptedAnswer': {
+                                '@type': 'Answer',
+                                'text': reactNodeToString(answer),
+                            },
+                        })),
+                    }),
+                }}
+            />
         </>
     );
 };
