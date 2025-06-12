@@ -162,22 +162,25 @@ export const Head = ({
                 title={`${source_mapped?.title} to ${destination_connector.title?.['en-US']} in Real-Time ETL & CDC`}
                 description={`Move ${source_mapped?.title} to ${destination_connector.title?.['en-US']} instantly or in batches with Estuary's real-time ETL & CDC integration. Free, no-code, and easy to set up. Try it now.`}
             />
-            <script type="application/ld+json">
-                {JSON.stringify({
-                    '@context': 'https://schema.org',
-                    '@type': 'FAQPage',
-                    'mainEntity': sourceConnectorFaqs.map(
-                        ({ question, answer }) => ({
-                            '@type': 'Question',
-                            'name': question,
-                            'acceptedAnswer': {
-                                '@type': 'Answer',
-                                'text': reactNodeToString(answer),
-                            },
-                        })
-                    ),
-                })}
-            </script>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        '@context': 'https://schema.org',
+                        '@type': 'FAQPage',
+                        'mainEntity': sourceConnectorFaqs.map(
+                            ({ question, answer }) => ({
+                                '@type': 'Question',
+                                'name': question,
+                                'acceptedAnswer': {
+                                    '@type': 'Answer',
+                                    'text': reactNodeToString(answer),
+                                },
+                            })
+                        ),
+                    }),
+                }}
+            />
         </>
     );
 };
