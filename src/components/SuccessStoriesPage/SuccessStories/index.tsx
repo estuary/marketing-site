@@ -9,6 +9,8 @@ import SearchInput from '../../SearchInput';
 import { sectionTitle, searchInput, grid } from '../styles.module.less';
 import { getSlugifiedText, getSortedSuccessStories } from '../../../../shared';
 import { useSearch } from '../../../hooks/useSearch';
+import { getSearchIndexFn } from '../../../hooks/useSearch/searchIndex';
+import { successStoriesSearchBlocks } from '../../../hooks/useSearch/searchBlocks';
 
 const SuccessStories = () => {
     const {
@@ -55,6 +57,7 @@ const SuccessStories = () => {
         indexJson: localSearchCases.index,
         store: localSearchCases.store,
         defaultItems: sortedSuccessStories,
+        searchIndexFn: getSearchIndexFn(successStoriesSearchBlocks),
     });
 
     const [visibleSuccessStoriesAmount, setVisibleSuccessStoriesAmount] =
