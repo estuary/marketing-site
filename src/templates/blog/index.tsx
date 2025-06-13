@@ -9,6 +9,8 @@ import SearchInput from '../../components/SearchInput';
 import FlowLogoVector from '../../components/FlowLogoVector';
 import Grid from '../../components/Grid';
 import { useSearch } from '../../hooks/useSearch';
+import { getSearchIndexFn } from '../../hooks/useSearch/searchIndex';
+import { blogPostsSearchBlocks } from '../../hooks/useSearch/searchBlocks';
 import {
     container,
     blogsIndexTabBar,
@@ -59,6 +61,7 @@ const BlogIndex = ({
         indexJson: data.localSearchPosts.index,
         store: data.localSearchPosts.store,
         defaultItems: posts,
+        searchIndexFn: getSearchIndexFn(blogPostsSearchBlocks),
     });
 
     return (

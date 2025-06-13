@@ -6,8 +6,8 @@
 
 import path from 'path';
 import { GatsbyConfig } from 'gatsby';
+import lunr from 'lunr';
 import { normalizeConnector } from './src/utils';
-
 import { SUPABASE_CONNECTION_STRING } from './config';
 
 // Disable multiple prepared statements because pgbouncer doesn't like 'em very much
@@ -377,6 +377,8 @@ const gatsbyPluginLocalSearchSettings = {
     store: ['id', 'title', 'slug'],
 };
 
+lunr.tokenizer.separator = /\s+/;
+
 const cfg: GatsbyConfig = {
     siteMetadata: {
         title: 'Estuary',
@@ -535,37 +537,36 @@ const cfg: GatsbyConfig = {
                 // GraphQL query used to fetch all data for the search index. This is required.
                 query: `
                 {
-                    allStrapiBlogPost{
-                        nodes {
-                            id
-                            description: Description
-                            title: Title
-                            slug: Slug
-                            publishedAt(formatString: "MMMM D, YYYY")
-                            tags: tags {
-                                Name
-                                Slug
-                                Type
-                            }
-                            authors {
-                                name: Name
-                            }
-                            hero: Hero {
-                                localFile {
-                                    childImageSharp {
-                                        gatsbyImageData(
-                                            layout: CONSTRAINED
-                                            placeholder: BLURRED
-                                            width: 400
-                                            aspectRatio: 1.7
-                                            formats: [AUTO, WEBP, AVIF]
-                                        )
-                                        # Further below in this doc you can learn how to use these response images
-                                    }
-                                }
-                            }
+                  allStrapiBlogPost {
+                    nodes {
+                      id
+                      slug: Slug
+                      title: Title
+                      description: Description
+                      publishedAt(formatString: "MMMM D, YYYY")
+                      tags {
+                        Name
+                        Slug
+                        Type
+                      }
+                      authors {
+                        name: Name
+                      }
+                      hero: Hero {
+                        localFile {
+                          childImageSharp {
+                            gatsbyImageData(
+                              layout: CONSTRAINED
+                              placeholder: BLURRED
+                              width: 400
+                              aspectRatio: 1.7
+                              formats: [AUTO, WEBP, AVIF]
+                            )
+                          }
                         }
+                      }
                     }
+                  }
                 }
               `,
 
@@ -576,7 +577,13 @@ const cfg: GatsbyConfig = {
                 // List of keys to index. The values of the keys are taken from the
                 // normalizer function below.
                 // Default: all fields
-                index: ['slug', 'title', 'searchable_tags'],
+                index: [
+                    'slug',
+                    'title',
+                    'description',
+                    'searchable_tags',
+                    'authorsText',
+                ],
 
                 // List of keys to store and make available in your UI. The values of
                 // the keys are taken from the normalizer function below.
@@ -596,14 +603,15 @@ const cfg: GatsbyConfig = {
                 normalizer: ({ data }) => {
                     const startTime = performance.now();
                     const response = data.allStrapiBlogPost.nodes.map(
-                        (node) => {
-                            return {
-                                ...node,
-                                searchable_tags: node.tags
-                                    .map((t) => t.Name)
-                                    .join(' '),
-                            };
-                        }
+                        (node) => ({
+                            ...node,
+                            searchable_tags: node.tags
+                                .map((t) => t.Name)
+                                .join(' '),
+                            authorsText: node.authors
+                                .map((a) => a.name)
+                                .join(' '),
+                        })
                     );
 
                     console.log(
@@ -681,43 +689,77 @@ const cfg: GatsbyConfig = {
             resolve: 'gatsby-plugin-local-search',
             options: {
                 name: 'cases',
-
                 engine: gatsbyPluginLocalSearchSettings.engine,
-
                 query: `
                 {
-                    allStrapiCaseStudy(sort: { createdAt: DESC }) {
-                        nodes {
-                            title: Title
-                            description: Description
-                            slug: Slug
-                            id
-                            tags {
-                                Name
-                                Slug
-                                Type
-                            }
-                            hero: Logo {
-                                alternativeText
-                                localFile {
-                                    childImageSharp {
-                                        gatsbyImageData(
-                                            quality: 100
-                                            placeholder: BLURRED
-                                            height: 172
-                                            layout: FULL_WIDTH
-                                        )
-                                    }
-                                }
-                            }
+                  allStrapiCaseStudy(sort: { createdAt: DESC }) {
+                    nodes {
+                      id
+                      slug: Slug
+                      title: Title
+                      description: Description
+                      metaTitle
+                      metaDescription
+                      linkOneLiner: LinkOneLiner
+                      tags {
+                        Name
+                        Slug
+                        Type
+                      }
+                      hero: Logo {
+                        alternativeText
+                        localFile {
+                          childImageSharp {
+                            gatsbyImageData(
+                              quality: 100
+                              placeholder: BLURRED
+                              height: 172
+                              layout: FULL_WIDTH
+                            )
+                          }
                         }
+                      }
+                      sideContent: SideContent {
+                        data {
+                          sideContent: SideContent
+                        }
+                      }
+                      about: About {
+                        description: Description {
+                          data {
+                            description: Description
+                          }
+                        }
+                        topics: Topics {
+                          title: Title
+                          description: Description
+                        }
+                      }
+                      body: Body {
+                        data {
+                          body: Body
+                        }
+                      }
                     }
+                  }
                 }
               `,
-
                 ref: gatsbyPluginLocalSearchSettings.ref,
 
-                index: ['slug', 'title', 'searchable_tags'],
+                index: [
+                    'slug',
+                    'title',
+                    'description',
+                    'metaTitle',
+                    'metaDescription',
+                    'searchable_tags',
+                    'heroImgAltText',
+                    'sideContentText',
+                    'linkOneLiner',
+                    'aboutDescriptionText',
+                    'topicsText',
+                    'bodyText',
+                ],
 
                 store: [
                     ...gatsbyPluginLocalSearchSettings.store,
@@ -728,21 +770,46 @@ const cfg: GatsbyConfig = {
 
                 normalizer: ({ data }) => {
                     const startTime = performance.now();
+                    const stripHtml = (html: string) =>
+                        (html || '').replace(/<[^>]+>/g, ' ');
+
                     const response = data.allStrapiCaseStudy.nodes.map(
                         (node) => {
                             return {
                                 ...node,
                                 searchable_tags: node.tags
-                                    .map((t) => t.Name)
+                                    .map((t: { Name: string }) => t.Name)
                                     .join(' '),
+                                heroImgAltText:
+                                    node.hero?.alternativeText ?? '',
+                                sideContentText:
+                                    stripHtml(
+                                        node.sideContent?.data?.sideContent
+                                    ) || '',
+                                aboutDescriptionText:
+                                    stripHtml(
+                                        node.about?.description?.data
+                                            ?.Description ?? ''
+                                    ) || '',
+                                topicsText:
+                                    (node.about?.topics ?? [])
+                                        .map(
+                                            (t: {
+                                                title?: string;
+                                                description?: string;
+                                            }) =>
+                                                `${t.title ?? ''} ${t.description ?? ''}`
+                                        )
+                                        .join(' ') ?? '',
+                                bodyText:
+                                    stripHtml(node.body?.data?.body ?? '') ||
+                                    '',
                             };
                         }
                     );
-
-                    console.log(
+                    console.debug(
                         `LunrSearch:normalizer:success-story took ${Math.ceil(performance.now() - startTime)}ms`
                     );
-
                     return response;
                 },
             },
