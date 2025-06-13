@@ -6,7 +6,7 @@ import Hero from '../components/PricingPage/Hero';
 import ChooseYourPlan from '../components/PricingPage/ChooseYourPlan';
 import Faq from '../components/PricingPage/Faq';
 import { faqs } from '../components/PricingPage/Faq/faqs';
-import { reactNodeToString } from '../shared';
+import { reactNodeToParagraphs } from '../shared';
 
 const PricingPage = () => {
     return (
@@ -58,7 +58,7 @@ export const Head = () => {
                             'name': question,
                             'acceptedAnswer': {
                                 '@type': 'Answer',
-                                'text': reactNodeToString(answer),
+                                'text': reactNodeToParagraphs(answer),
                             },
                         })),
                     }),

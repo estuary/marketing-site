@@ -2,13 +2,20 @@ import { ReactNode } from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { htmlToText } from 'html-to-text';
 
-const WHITESPACE_REGEX = /\s+/g;
+export const reactNodeToParagraphs = (node: ReactNode): string => {
+    const rawParagraphs = htmlToText(
+        ReactDOMServer.renderToStaticMarkup(<div>{node}</div>),
+        {
+            wordwrap: false,
+            baseElements: { selectors: ['p'] },
+            selectors: [{ selector: 'a', format: 'inline' }],
+            preserveNewlines: true,
+        }
+    );
 
-export const reactNodeToString = (node: ReactNode): string => {
-    return htmlToText(ReactDOMServer.renderToStaticMarkup(<div>{node}</div>), {
-        wordwrap: false,
-        selectors: [{ selector: 'img', format: 'skip' }],
-    })
-        .replace(WHITESPACE_REGEX, ' ')
-        .trim();
+    return rawParagraphs
+        .split(/\n{2,}/)
+        .map((p: string) => p.trim())
+        .filter(Boolean)
+        .join('\n');
 };

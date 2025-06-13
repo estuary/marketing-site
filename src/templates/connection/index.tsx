@@ -22,7 +22,7 @@ import Faq from '../../components/Integration/Faq';
 import GettingStartedSection from '../../components/GettingStartedSection';
 import SuccessStoriesSection from '../../components/SuccessStoriesSection';
 import RelatedBlogPosts from '../../components/Integration/RelatedBlogPosts';
-import { reactNodeToString } from '../../shared';
+import { reactNodeToParagraphs } from '../../shared';
 import { faqs } from '../../components/Integration/Faq/faqs';
 import { layoutClassName } from './styles.module.less';
 
@@ -174,7 +174,7 @@ export const Head = ({
                                 'name': question,
                                 'acceptedAnswer': {
                                     '@type': 'Answer',
-                                    'text': reactNodeToString(answer),
+                                    'text': reactNodeToParagraphs(answer),
                                 },
                             })
                         ),
