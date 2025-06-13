@@ -80,7 +80,7 @@ export const faqs = [
                     </div>
                     <div className={pricingExamplesImageWrapper}>
                         <StaticImage
-                            src="../../../images/pricing/pay-once-for-source-and-target-data.png"
+                            src="../../../../images/pricing/pay-once-for-source-and-target-data.png"
                             alt="Graphic for adding new target"
                             placeholder="none"
                             quality={100}
@@ -90,7 +90,7 @@ export const faqs = [
                 <div className={answerSection}>
                     <div className={pricingExamplesImageWrapper}>
                         <StaticImage
-                            src="../../../images/pricing/pay-once-for-new-target-data.png"
+                            src="../../../../images/pricing/pay-once-for-new-target-data.png"
                             alt="Graphic for adding new source and target"
                             placeholder="none"
                             quality={100}
