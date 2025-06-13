@@ -17,5 +17,5 @@ export const reactNodeToParagraphs = (node: ReactNode): string => {
         .split(/\n{2,}/)
         .map((p: string) => p.trim())
         .filter(Boolean)
-        .join('\n');
+        .join('\n\n');
 };
