@@ -5,6 +5,8 @@ import PricingCalculatorSection from '../components/PricingPage/PricingCalculato
 import Hero from '../components/PricingPage/Hero';
 import ChooseYourPlan from '../components/PricingPage/ChooseYourPlan';
 import Faq from '../components/PricingPage/Faq';
+import { faqs } from '../components/PricingPage/Faq/faqs';
+import { reactNodeToParagraphs } from '../shared';
 
 const PricingPage = () => {
     return (
@@ -37,11 +39,32 @@ export const Head = () => {
     `);
 
     return (
-        <Seo
-            title="Pricing & Plans | Get Started for Free"
-            description="Estuary Flow offers simple pay-as-you-go pricing for real-time data integration and ETL. Build free pipelines, estimate costs with the calculator, and scale with flexible plans."
-            image={metaImg.childImageSharp.gatsbyImageData.images.fallback.src}
-        />
+        <>
+            <Seo
+                title="Pricing & Plans | Get Started for Free"
+                description="Estuary Flow offers simple pay-as-you-go pricing for real-time data integration and ETL. Build free pipelines, estimate costs with the calculator, and scale with flexible plans."
+                image={
+                    metaImg.childImageSharp.gatsbyImageData.images.fallback.src
+                }
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        '@context': 'https://schema.org',
+                        '@type': 'FAQPage',
+                        'mainEntity': faqs.map(({ question, answer }) => ({
+                            '@type': 'Question',
+                            'name': question,
+                            'acceptedAnswer': {
+                                '@type': 'Answer',
+                                'text': reactNodeToParagraphs(answer),
+                            },
+                        })),
+                    }),
+                }}
+            />
+        </>
     );
 };
 

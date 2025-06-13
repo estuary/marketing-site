@@ -22,6 +22,8 @@ import Faq from '../../components/Integration/Faq';
 import GettingStartedSection from '../../components/GettingStartedSection';
 import SuccessStoriesSection from '../../components/SuccessStoriesSection';
 import RelatedBlogPosts from '../../components/Integration/RelatedBlogPosts';
+import { reactNodeToParagraphs } from '../../shared';
+import { faqs } from '../../components/Integration/Faq/faqs';
 import { layoutClassName } from './styles.module.less';
 
 export interface ConnectorProps {
@@ -142,22 +144,44 @@ const Connector = ({
 
 export default Connector;
 
-/**
- * Head export to define metadata for the page
- *
- * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
- */
 export const Head = ({
     data: {
         source: { connector: source_connector },
         destination: { connector: destination_connector },
     },
 }) => {
+    const source_mapped = normalizeConnector(source_connector);
+
+    const sourceConnectorFaqs = (
+        source_mapped ? faqs(source_mapped) : []
+    ).filter((faq) => faq != null);
+
     return (
-        <Seo
-            title={`${source_connector.title?.['en-US']} to ${destination_connector.title?.['en-US']} in Real-Time ETL & CDC`}
-            description={`Move ${source_connector.title?.['en-US']} to ${destination_connector.title?.['en-US']} instantly or in batches with Estuary's real-time ETL & CDC integration. Free, no-code, and easy to set up. Try it now.`}
-        />
+        <>
+            <Seo
+                title={`${source_mapped?.title} to ${destination_connector.title?.['en-US']} in Real-Time ETL & CDC`}
+                description={`Move ${source_mapped?.title} to ${destination_connector.title?.['en-US']} instantly or in batches with Estuary's real-time ETL & CDC integration. Free, no-code, and easy to set up. Try it now.`}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        '@context': 'https://schema.org',
+                        '@type': 'FAQPage',
+                        'mainEntity': sourceConnectorFaqs.map(
+                            ({ question, answer }) => ({
+                                '@type': 'Question',
+                                'name': question,
+                                'acceptedAnswer': {
+                                    '@type': 'Answer',
+                                    'text': reactNodeToParagraphs(answer),
+                                },
+                            })
+                        ),
+                    }),
+                }}
+            />
+        </>
     );
 };
 
