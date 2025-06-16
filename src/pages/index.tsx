@@ -8,7 +8,6 @@ import SecureYourData from '../components/Homepage/SecureYourData';
 import BuildInMinutes from '../components/Homepage/BuildInMinutes';
 import AutomateDataops from '../components/Homepage/AutomateDataops';
 import Do4xMoreWith25xLess from '../components/Homepage/Do4xMoreWith25xLess';
-import WhatPeopleAreSaying from '../components/Homepage/WhatPeopleAreSaying';
 import DeploymentModes from '../components/Homepage/DeploymentModes';
 import TheBestRealTimeCdc from '../components/Homepage/TheBestRealTimeCdc';
 import SeeHowSection from '../components/SeeHowSection';
@@ -17,6 +16,7 @@ import LinkOutlined from '../components/LinksAndButtons/LinkOutlined';
 import { dashboardRegisterUrl } from '../../shared';
 import OrganizationScript from '../components/OrganizationScript';
 import ConnectorsMasonrySection from '../components/ConnectorsMasonrySection';
+import HowEstuaryMakesADifferenceSection from '../components/HowEstuaryMakesADifferenceSection';
 
 const IndexPage = () => {
     return (
@@ -39,7 +39,7 @@ const IndexPage = () => {
                 description="Easily connect, synchronize and activate your data whether it's for AI, operations, data warehouses, or beyond."
             />
             <Do4xMoreWith25xLess />
-            <WhatPeopleAreSaying />
+            <HowEstuaryMakesADifferenceSection />
             <SeeHowSection
                 buttons={
                     <>
