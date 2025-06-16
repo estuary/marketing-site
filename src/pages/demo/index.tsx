@@ -1,11 +1,13 @@
 import Hero from '../../components/DemoPage/Hero';
 import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
+import WhatsNext from '../../components/DemoPage/WhatsNext';
 
 const Demo = () => {
     return (
         <Layout hasLightSections hasLightHeroSection>
             <Hero />
+            <WhatsNext />
         </Layout>
     );
 };
