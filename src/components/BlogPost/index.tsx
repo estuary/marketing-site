@@ -25,6 +25,7 @@ import StraightLinesBackground from '../../components/BackgroundImages/StraightL
 import { PopularArticles } from '../../components/BlogPopularArticles';
 import { costPerGB } from '../../utils';
 import ShareArticle from '../ShareArticle';
+import RelatedArticles from '../RelatedArticles';
 import {
     article,
     blogPostHeaderWrapper,
@@ -40,7 +41,6 @@ import {
     blogPostContentWrapper,
     mainContent,
     bigBuildPipelineBannerContainer,
-    popularArticlesWrapper,
     bigBuildPipelineBannerWrapper,
     bigBuildPipelineBannerContainerLayout,
     straightLinesBackgroundWrapper,
@@ -58,6 +58,7 @@ import {
     authorRole,
 } from './styles.module.less';
 import Faqs from './Faqs';
+import ArticleCardsSection from './ArticleCardsSection';
 
 interface BlogPostProps {
     post: any;
@@ -322,13 +323,17 @@ const BlogPost = ({
                     </div>
                 </section>
             ) : null}
+            {post?.relatedPosts?.length > 0 ? (
+                <ArticleCardsSection sectionTitle="Related Articles">
+                    <RelatedArticles
+                        relatedPosts={post?.relatedPosts.slice(0, 3)}
+                    />
+                </ArticleCardsSection>
+            ) : null}
             {hasPopularArticlesSection ? (
-                <section>
-                    <div className={popularArticlesWrapper}>
-                        <h2>Popular Articles</h2>
-                        <PopularArticles />
-                    </div>
-                </section>
+                <ArticleCardsSection sectionTitle="Popular Articles">
+                    <PopularArticles />
+                </ArticleCardsSection>
             ) : null}
             <section>
                 <div className={bigBuildPipelineBannerWrapper}>

@@ -200,6 +200,42 @@ export const pageQuery = graphql`
                 name: Name
                 type: Type
             }
+            relatedPosts: RelatedPosts {
+                id
+                title: Title
+                slug: Slug
+                updatedAt(formatString: "MMMM D, YYYY")
+                authors {
+                    id
+                    name: Name
+                    picture: Picture {
+                        localFile {
+                            childImageSharp {
+                                gatsbyImageData(
+                                    layout: CONSTRAINED
+                                    placeholder: BLURRED
+                                    quality: 100
+                                )
+                                fixedImg: gatsbyImageData(
+                                    layout: FIXED
+                                    width: 60
+                                )
+                            }
+                        }
+                    }
+                }
+                hero: Hero {
+                    localFile {
+                        childImageSharp {
+                            gatsbyImageData(
+                                layout: FULL_WIDTH
+                                placeholder: BLURRED
+                                formats: [AUTO, WEBP, AVIF]
+                            )
+                        }
+                    }
+                }
+            }
         }
     }
 `;

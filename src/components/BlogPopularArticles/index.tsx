@@ -64,6 +64,7 @@ export const PopularArticles = () => {
                         data={{ ...rest, id, title, slug: `/blog/${slug}` }}
                         footerTag="Article"
                         linkId={`${getSlugifiedText(title)}-popular-article/blog-post-page`}
+                        target="_blank"
                     />
                 )
             )}
