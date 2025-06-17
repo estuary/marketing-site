@@ -324,18 +324,16 @@ const BlogPost = ({
                 </section>
             ) : null}
             {post?.relatedPosts?.length > 0 ? (
-                <ArticleCardsSection
-                    sectionTitle="Related Articles"
-                    articleCards={
-                        <RelatedArticles posts={post?.relatedPosts} />
-                    }
-                />
+                <ArticleCardsSection sectionTitle="Related Articles">
+                    <RelatedArticles
+                        relatedPosts={post?.relatedPosts.slice(0, 3)}
+                    />
+                </ArticleCardsSection>
             ) : null}
             {hasPopularArticlesSection ? (
-                <ArticleCardsSection
-                    sectionTitle="Popular Articles"
-                    articleCards={<PopularArticles />}
-                />
+                <ArticleCardsSection sectionTitle="Popular Articles">
+                    <PopularArticles />
+                </ArticleCardsSection>
             ) : null}
             <section>
                 <div className={bigBuildPipelineBannerWrapper}>

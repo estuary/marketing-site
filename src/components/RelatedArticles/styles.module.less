@@ -1,0 +1,14 @@
+.container {
+  li {
+    width: 100%;
+  }
+
+  @media (min-width: 1056px) {
+    justify-content: center;
+
+    &:has(> li:only-child),
+    &:has(> li:nth-child(2):last-child) {
+      grid-template-columns: repeat(auto-fit, 410px);
+    }
+  }
+}

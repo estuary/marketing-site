@@ -1,20 +1,19 @@
-import { ReactNode } from 'react';
+import { FC } from 'react';
 import { container } from './styles.module.less';
 
 interface ArticleCardsSectionProps {
     sectionTitle: string;
-    articleCards: ReactNode;
 }
 
-const ArticleCardsSection = ({
+const ArticleCardsSection: FC<ArticleCardsSectionProps> = ({
     sectionTitle,
-    articleCards,
-}: ArticleCardsSectionProps) => {
+    children,
+}) => {
     return (
         <section>
             <div className={container}>
                 <h2>{sectionTitle}</h2>
-                {articleCards}
+                {children}
             </div>
         </section>
     );

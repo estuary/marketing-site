@@ -200,10 +200,11 @@ export const pageQuery = graphql`
                 name: Name
                 type: Type
             }
-            relatedPosts: RelatedPosts(sort: { publishedAt: DESC }) {
+            relatedPosts: RelatedPosts {
                 id
                 title: Title
                 slug: Slug
+                updatedAt(formatString: "MMMM D, YYYY")
                 authors {
                     id
                     name: Name
