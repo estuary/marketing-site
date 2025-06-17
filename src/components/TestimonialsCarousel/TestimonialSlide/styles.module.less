@@ -24,21 +24,21 @@
     text-align: center;
     padding: 1.5rem 2rem;
   }
-  
+
   p::before,
   p::after {
     position: absolute;
     font-family: serif;
     font-size: 3.5rem;
   }
-  
+
   p::before {
     content: '“';
     top: -1rem;
     left: 0.5rem;
     line-height: 1;
   }
-  
+
   p::after {
     content: '”';
     bottom: -2rem;
@@ -61,7 +61,7 @@
     p::before {
       top: -2rem;
     }
-    
+
     p::after {
       bottom: -3rem;
     }
@@ -79,7 +79,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
 
-    & > :nth-child(2) {
+    &> :nth-child(2) {
       order: 1;
       flex-basis: 100%;
     }
@@ -113,6 +113,12 @@
   }
 }
 
-.isDarkTheme {
-  color: var(--grey);
+.lightThemeSlide {
+  background-color: var(--light-grey);
+  border-color: var(--blue-30-opacity);
+
+  h3,
+  p {
+    color: var(--grey);
+  }
 }

@@ -8,7 +8,7 @@ import {
     header,
     authorInfoWrapper,
     headerWithAuthor,
-    isDarkTheme,
+    lightThemeSlide,
 } from './styles.module.less';
 
 interface TestimonialSlideProps {
@@ -24,7 +24,7 @@ interface TestimonialSlideProps {
     relatedSuccessStory?: {
         slug: string;
     };
-    theme: 'light' | 'dark';
+    theme: 'dark' | 'light';
 }
 
 const TestimonialSlide = ({
@@ -35,37 +35,52 @@ const TestimonialSlide = ({
     author,
     relatedSuccessStory,
     theme,
-}: TestimonialSlideProps) => (
-    <div key={id} className={slide}>
-        <div className={clsx(header, author ? headerWithAuthor : null)}>
-            <TestimonialAvatar
-                name={name}
-                logo={author?.avatar ?? logo}
-                isLogo={!author?.avatar}
-            />
-            <div className={authorInfoWrapper}>
-                <h3>{author?.name ?? name}</h3>
+}: TestimonialSlideProps) => {
+    return (
+        <div
+            key={id}
+            className={clsx(
+                slide,
+                theme === 'light' ? lightThemeSlide : undefined
+            )}
+        >
+            <div className={clsx(header, author ? headerWithAuthor : null)}>
+                <TestimonialAvatar
+                    name={name}
+                    logo={author?.avatar ?? logo}
+                    isLogo={!author?.avatar}
+                    isLightTheme={theme === 'light'}
+                />
+                <div className={authorInfoWrapper}>
+                    <h3>{author?.name ?? name}</h3>
+                    {author?.avatar ? (
+                        <span>
+                            {author.role}, {name}
+                        </span>
+                    ) : null}
+                </div>
                 {author?.avatar ? (
-                    <span>
-                        {author.role}, {name}
-                    </span>
+                    <TestimonialAvatar
+                        name={name}
+                        logo={logo}
+                        isLogo
+                        isLightTheme={theme === 'light'}
+                    />
                 ) : null}
             </div>
-            {author?.avatar ? (
-                <TestimonialAvatar name={name} logo={logo} isLogo />
+            <Divider />
+            <p>{text}</p>
+            {relatedSuccessStory?.slug ? (
+                <InternalLink
+                    href={`/success-stories/${relatedSuccessStory.slug}`}
+                    target="_blank"
+                >
+                    Read the Success Story{' '}
+                    <ArrowRightIcon color="var(--blue)" />
+                </InternalLink>
             ) : null}
         </div>
-        <Divider />
-        <p className={theme === 'dark' ? isDarkTheme : undefined}>{text}</p>
-        {relatedSuccessStory?.slug ? (
-            <InternalLink
-                href={`/success-stories/${relatedSuccessStory.slug}`}
-                target="_blank"
-            >
-                Read the Success Story <ArrowRightIcon color="var(--blue)" />
-            </InternalLink>
-        ) : null}
-    </div>
-);
+    );
+};
 
 export default TestimonialSlide;
