@@ -5,11 +5,11 @@ import { getSortedTestimonials } from './utils';
 import { container } from './styles.module.less';
 
 type TestimonialsCarouselProps = {
-    theme?: 'light' | 'dark';
+    theme?: 'dark' | 'light';
 };
 
 const TestimonialsCarousel = ({
-    theme = 'light',
+    theme = 'dark',
 }: TestimonialsCarouselProps) => {
     const {
         allStrapiTestimonial: { nodes: testimonials },
@@ -67,7 +67,7 @@ const TestimonialsCarousel = ({
             hasArrow
             hasMultipleItemsSlide
             aria-label="Customer testimonials carousel"
-            arrowColor={theme === 'light' ? 'var(--white)' : 'var(--grey)'}
+            arrowColor={theme === 'dark' ? 'var(--white)' : 'var(--grey)'}
             options={{ align: 'start' }}
             slideSize="30%"
             slideGap="32px"

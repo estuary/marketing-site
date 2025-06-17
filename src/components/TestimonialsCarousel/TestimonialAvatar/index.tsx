@@ -1,7 +1,14 @@
 import { GatsbyImage } from 'gatsby-plugin-image';
 import clsx from 'clsx';
 import { ImageType } from '../../../../shared';
-import { imgWrapper, logoWrapper, avatarImg, img } from './styles.module.less';
+import {
+    imgWrapper,
+    logoWrapper,
+    avatarImg,
+    img,
+    lightLogoWrapper,
+    imgExtraPadding,
+} from './styles.module.less';
 
 interface LocalFile extends ImageType {
     extension: string;
@@ -14,19 +21,28 @@ interface TestimonialAvatarProps {
     };
     name: string;
     isLogo?: boolean;
+    isLightTheme?: boolean;
 }
 
 const TestimonialAvatar = ({
     logo,
     name,
     isLogo = false,
+    isLightTheme = false,
 }: TestimonialAvatarProps) => {
     if (!logo?.localFile) {
         return null;
     }
 
     return (
-        <div className={clsx(imgWrapper, isLogo ? logoWrapper : null)}>
+        <div
+            className={clsx(
+                imgWrapper,
+                isLogo ? logoWrapper : null,
+                isLogo && isLightTheme ? lightLogoWrapper : undefined,
+                logo.localFile.extension === 'svg' ? imgExtraPadding : undefined
+            )}
+        >
             {logo.localFile.extension === 'svg' ? (
                 <img
                     src={logo.localFile.publicURL}

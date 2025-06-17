@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import ArrowRightIcon from '../../../../svgs/arrow-right-2.svg';
+import ArrowRightIcon from '../../../svgs/arrow-right-2.svg';
 import { container } from './styles.module.less';
 
 interface CardProps {
