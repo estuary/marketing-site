@@ -1,7 +1,7 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import Container from '../../Container';
 import HeroSectionDetails from '../../HeroSectionDetails';
-import { wrapper, container, imageWrapperOne } from './styles.module.less';
+import { wrapper, container } from './styles.module.less';
 
 const Hero = () => {
     return (
@@ -20,16 +20,14 @@ const Hero = () => {
                     }
                     description="An in-depth performance comparison of major data warehouses under realistic workloads."
                 />
-                <div className={imageWrapperOne}>
-                    <StaticImage
-                        src="../../../images/benchmark-page/hero-image.png"
-                        alt="" // TODO: Asked to Sourabh
-                        quality={100}
-                        placeholder="blurred"
-                        loading="eager"
-                        layout="constrained"
-                    />
-                </div>
+                <StaticImage
+                    src="../../../images/benchmark-page/hero-image.png"
+                    alt="Data warehouse Performance Benchmark Report"
+                    quality={100}
+                    placeholder="blurred"
+                    loading="eager"
+                    layout="constrained"
+                />
             </Container>
         </section>
     );

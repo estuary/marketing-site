@@ -2,11 +2,13 @@ import { graphql, useStaticQuery } from 'gatsby';
 import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
 import Hero from '../../components/BenchmarkPage/Hero';
+import KeyHighlights from '../../components/BenchmarkPage/KeyHighlights';
 
 const Benchmark = () => {
     return (
         <Layout>
             <Hero />
+            <KeyHighlights />
         </Layout>
     );
 };
