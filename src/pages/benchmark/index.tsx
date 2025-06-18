@@ -3,12 +3,14 @@ import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
 import Hero from '../../components/BenchmarkPage/Hero';
 import KeyHighlights from '../../components/BenchmarkPage/KeyHighlights';
+import GetTheReport from '../../components/BenchmarkPage/GetTheReport';
 
 const Benchmark = () => {
     return (
         <Layout>
             <Hero />
             <KeyHighlights />
+            <GetTheReport />
         </Layout>
     );
 };
