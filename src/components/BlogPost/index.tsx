@@ -326,7 +326,7 @@ const BlogPost = ({
             {post?.relatedPosts?.length > 0 ? (
                 <ArticleCardsSection sectionTitle="Related Articles">
                     <RelatedArticles
-                        relatedPosts={post?.relatedPosts.slice(0, 3)}
+                        relatedPosts={post.relatedPosts.slice(0, 3)}
                     />
                 </ArticleCardsSection>
             ) : null}
