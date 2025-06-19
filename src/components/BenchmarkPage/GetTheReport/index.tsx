@@ -9,7 +9,7 @@ const GetTheReport = () => {
             <Container isReverseColumnOnMobile>
                 <StaticImage
                     src="../../../images/benchmark-page/pdf.png"
-                    alt="" // TODO: Asked to Sourabh
+                    alt="Get the 2025 data warehouse benchmark report in PDF format"
                     quality={100}
                     placeholder="blurred"
                     loading="eager"

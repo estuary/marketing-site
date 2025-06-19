@@ -32,8 +32,8 @@ export const Head = () => {
 
     return (
         <Seo
-            title="" // TODO: Asked to Sourabh
-            description="" // TODO: Asked to Sourabh
+            title="Top 5 Data Warehouses of 2025: Performance Benchmark Report"
+            description="Compare the top 5 data warehouses of 2025 on cost, speed, scalability, and reliability. Unbiased benchmark report to guide your data platform decisions."
             image={metaImg.childImageSharp.gatsbyImageData.images.fallback.src}
         />
     );
