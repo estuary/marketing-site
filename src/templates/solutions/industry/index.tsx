@@ -6,14 +6,21 @@ import Capabilities from '../../../components/Solutions/Sections/Capabilities';
 import KeyFeatures from '../../../components/Solutions/Sections/KeyFeatures';
 import { SolutionTemplateProps } from '../shared';
 import SolutionPageLayout from '../solution-page-layout';
+import OneTitleThreeCards from '../../../components/Solutions/Sections/OneTitleThreeCards';
 
 const IndustrySolutions = ({ data: { solution } }: SolutionTemplateProps) => {
     return (
         <SolutionPageLayout solution={solution}>
-            <Benefits data={solution.benefits} isDarkTheme />
-            <Capabilities data={solution.capabilities} />
-            <KeyFeatures data={solution.keyFeatures} isDarkTheme />
-            <Highlights data={solution.highlights} />
+            {solution.slug.includes('industry/snowflake') ? (
+                <OneTitleThreeCards data={solution.buildForAnyCloud} />
+            ) : (
+                <>
+                    <Benefits data={solution.benefits} isDarkTheme />
+                    <Capabilities data={solution.capabilities} />
+                    <KeyFeatures data={solution.keyFeatures} isDarkTheme />
+                    <Highlights data={solution.highlights} />
+                </>
+            )}
         </SolutionPageLayout>
     );
 };
@@ -118,6 +125,17 @@ export const pageQuery = graphql`
                 description
                 capabilityItems {
                     strapi_json_value
+                }
+            }
+            oneTitleThreeCards {
+                sectionTitle: section_title {
+                    highlightedText
+                    normalText
+                }
+                description
+                cardItems {
+                    title
+                    description
                 }
             }
         }

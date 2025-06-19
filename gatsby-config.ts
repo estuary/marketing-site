@@ -20,6 +20,7 @@ const strapiConfig = {
     accessToken: process.env.STRAPI_TOKEN,
     maxParallelRequests: 3,
     version: 4, // They now assume v5
+    preview: true, // TODO: remove this after testing draft content from Strapi
     collectionTypes: [
         'blog-post',
         'company-update-post',
@@ -160,6 +161,23 @@ const strapiConfig = {
                             'description': '*',
                             'keyFeatureItems': {
                                 populate: '*',
+                            },
+                        },
+                    },
+                    oneTitleThreeCards: {
+                        populate: {
+                            'section-title': {
+                                populate: {
+                                    highlightedText: '*',
+                                    normalText: '*',
+                                },
+                            },
+                            'description': '*',
+                            'cardItems': {
+                                populate: {
+                                    title: '*',
+                                    description: '*',
+                                },
                             },
                         },
                     },

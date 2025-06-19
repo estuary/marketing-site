@@ -38,6 +38,10 @@ export interface KeyFeaturesSectionContent extends SectionText {
     keyFeatureItems: StrapiJsonValue;
 }
 
+export interface OneTitleThreeCardsSectionContent extends SectionText {
+    cardItems: StrapiJsonValue;
+}
+
 export interface TemplatePageProps {
     slug: string;
     metadata: {
@@ -54,6 +58,7 @@ export interface TemplatePageProps {
     benefits: BenefitsSectionContent;
     capabilities: CapabilitiesSectionContent;
     keyFeatures: KeyFeaturesSectionContent;
+    buildForAnyCloud: BuildForAnyCloudSectionContent;
 }
 
 export interface SolutionTemplateProps {

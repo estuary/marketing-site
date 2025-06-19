@@ -120,6 +120,17 @@ export const pageQuery = graphql`
                     strapi_json_value
                 }
             }
+            oneTitleThreeCards {
+                sectionTitle: section_title {
+                    highlightedText
+                    normalText
+                }
+                description
+                cardItems {
+                    title
+                    description
+                }
+            }
         }
     }
 `;
