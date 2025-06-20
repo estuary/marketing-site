@@ -10,8 +10,10 @@ interface CardProps {
 const Card = ({ icon, title, description }: CardProps) => {
     return (
         <li className={container}>
-            {icon}
-            <h3>{title}</h3>
+            <div>
+                {icon}
+                <h3>{title}</h3>
+            </div>
             <p>{description}</p>
         </li>
     );
