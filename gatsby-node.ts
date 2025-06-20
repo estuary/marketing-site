@@ -676,6 +676,16 @@ const createSolutions: CreateHelper = async (
         solution.slug.includes('/technology/')
     );
 
+    console.log(
+        `Creation:Start:${name}:Filtered:useCaseSolutions-${useCaseSolutions.length}`
+    );
+    console.log(
+        `Creation:Start:${name}:Filtered:industrySolutions-${industrySolutions.length}`
+    );
+    console.log(
+        `Creation:Start:${name}:Filtered:technologySolutions-${technologySolutions.length}`
+    );
+
     const solutionsUrlPrefix = '/solutions';
     await Promise.all([
         Promise.all(
