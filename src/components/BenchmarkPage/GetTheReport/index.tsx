@@ -16,7 +16,6 @@ const GetTheReport = () => {
                     layout="constrained"
                 />
                 <div className={formWrapper}>
-                    <h2>Get the report</h2>
                     <HubSpotFormWrapper formId="6c9314d9-906f-4942-8924-28ac899e972c" />
                 </div>
             </Container>
