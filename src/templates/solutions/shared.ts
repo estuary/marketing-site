@@ -1,6 +1,7 @@
-interface SectionTitle {
+export interface SectionTitle {
     highlightedText: string;
     normalText: string;
+    normalTextComesFirst?: boolean;
 }
 
 interface SectionText {
@@ -39,7 +40,15 @@ export interface KeyFeaturesSectionContent extends SectionText {
 }
 
 export interface OneTitleThreeCardsSectionContent extends SectionText {
-    cardItems: StrapiJsonValue;
+    cardItems: {
+        title: string;
+        description: string;
+    }[];
+}
+
+export interface HeroButton {
+    title: string;
+    urlOrPath: string;
 }
 
 export interface TemplatePageProps {
@@ -52,13 +61,15 @@ export interface TemplatePageProps {
         title: string;
         description: string;
         image: any; // TODO: Check this type
+        primaryButton: HeroButton;
+        secondaryButton: HeroButton;
     };
     testimonial: TestimonialSectionContent;
     highlights: HighlightsSectionContent;
     benefits: BenefitsSectionContent;
     capabilities: CapabilitiesSectionContent;
     keyFeatures: KeyFeaturesSectionContent;
-    buildForAnyCloud: BuildForAnyCloudSectionContent;
+    oneTitleThreeCards: OneTitleThreeCardsSectionContent;
 }
 
 export interface SolutionTemplateProps {

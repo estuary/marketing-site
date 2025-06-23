@@ -1,55 +1,43 @@
-import clsx from 'clsx';
 import { sectionText } from '../../styles.module.less';
 import { OneTitleThreeCardsSectionContent } from '../../../../templates/solutions/shared';
-import { SectionTheme } from '../shared';
+import Container from '../../../Container';
+import SectionTitle from '../../SectionTitle';
 import Card from './Card';
-import { grid, darkGrid, atLeastOneKeyFeature } from './styles.module.less';
+import { container } from './styles.module.less';
 
-interface OneTitleThreeCardsProps extends SectionTheme {
+interface OneTitleThreeCardsProps {
     data: OneTitleThreeCardsSectionContent;
 }
 
-const OneTitleThreeCards = ({
-    data,
-    isDarkTheme = false,
-}: OneTitleThreeCardsProps) => {
+const OneTitleThreeCards = ({ data }: OneTitleThreeCardsProps) => {
     return (
         <section>
-            <div
-                className={clsx(
-                    grid,
-                    isDarkTheme ? darkGrid : null,
-                    data.cardItems.strapi_json_value.length > 0
-                        ? atLeastOneKeyFeature
-                        : null
-                )}
-            >
+            <Container isVertical className={container}>
                 <div className={sectionText}>
-                    <h2>
-                        <span>{data.sectionTitle.highlightedText}</span>{' '}
-                        {data.sectionTitle.normalText}
-                    </h2>
-                    <p>{data.description}</p>
+                    <SectionTitle sectionTitle={data.sectionTitle} />
+                    {data.description ? <p>{data.description}</p> : null}
                 </div>
-                {data.cardItems[0] ? (
-                    <Card
-                        title={data.cardItems[0].title}
-                        description={data.cardItems[0].description}
-                    />
-                ) : null}
-                {data.cardItems[1] ? (
-                    <Card
-                        title={data.cardItems[1].title}
-                        description={data.cardItems[1].description}
-                    />
-                ) : null}
-                {data.cardItems[2] ? (
-                    <Card
-                        title={data.cardItems[2].title}
-                        description={data.cardItems[2].description}
-                    />
-                ) : null}
-            </div>
+                <ul>
+                    {data.cardItems[0] ? (
+                        <Card
+                            title={data.cardItems[0].title}
+                            description={data.cardItems[0].description}
+                        />
+                    ) : null}
+                    {data.cardItems[1] ? (
+                        <Card
+                            title={data.cardItems[1].title}
+                            description={data.cardItems[1].description}
+                        />
+                    ) : null}
+                    {data.cardItems[2] ? (
+                        <Card
+                            title={data.cardItems[2].title}
+                            description={data.cardItems[2].description}
+                        />
+                    ) : null}
+                </ul>
+            </Container>
         </section>
     );
 };

@@ -7,14 +7,22 @@ import KeyFeatures from '../../../components/Solutions/Sections/KeyFeatures';
 import { SolutionTemplateProps } from '../shared';
 import SolutionPageLayout from '../solution-page-layout';
 import OneTitleThreeCards from '../../../components/Solutions/Sections/OneTitleThreeCards';
+import Testimonial from '../../../components/Solutions/Sections/Testimonial';
 
 const IndustrySolutions = ({ data: { solution } }: SolutionTemplateProps) => {
     return (
         <SolutionPageLayout solution={solution}>
-            {solution.slug.includes('industry/snowflake') ? (
-                <OneTitleThreeCards data={solution.buildForAnyCloud} />
+            {solution.slug.includes(
+                '/industry/real-time-snowflake-streaming'
+            ) ? (
+                <>
+                    <OneTitleThreeCards data={solution.oneTitleThreeCards} />
+                    <Capabilities data={solution.capabilities} />
+                    <KeyFeatures data={solution.keyFeatures} isDarkTheme />
+                </>
             ) : (
                 <>
+                    <Testimonial data={solution.testimonial} />
                     <Benefits data={solution.benefits} isDarkTheme />
                     <Capabilities data={solution.capabilities} />
                     <KeyFeatures data={solution.keyFeatures} isDarkTheme />
@@ -55,11 +63,20 @@ export const pageQuery = graphql`
                         }
                     }
                 }
+                primaryButton {
+                    title
+                    urlOrPath
+                }
+                secondaryButton {
+                    title
+                    urlOrPath
+                }
             }
             testimonial {
                 sectionTitle: section_title {
                     highlightedText
                     normalText
+                    normalTextComesFirst
                 }
                 description
                 quote {
@@ -83,6 +100,7 @@ export const pageQuery = graphql`
                 sectionTitle: section_title {
                     highlightedText
                     normalText
+                    normalTextComesFirst
                 }
                 description
                 benefitItems {
@@ -101,6 +119,7 @@ export const pageQuery = graphql`
                 sectionTitle: section_title {
                     highlightedText
                     normalText
+                    normalTextComesFirst
                 }
                 description
                 highlightItems {
@@ -111,6 +130,7 @@ export const pageQuery = graphql`
                 sectionTitle: section_title {
                     highlightedText
                     normalText
+                    normalTextComesFirst
                 }
                 description
                 keyFeatureItems {
@@ -121,6 +141,7 @@ export const pageQuery = graphql`
                 sectionTitle: section_title {
                     highlightedText
                     normalText
+                    normalTextComesFirst
                 }
                 description
                 capabilityItems {
@@ -131,6 +152,7 @@ export const pageQuery = graphql`
                 sectionTitle: section_title {
                     highlightedText
                     normalText
+                    normalTextComesFirst
                 }
                 description
                 cardItems {

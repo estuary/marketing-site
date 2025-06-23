@@ -6,6 +6,7 @@ import { HighlightsSectionContent } from '../../../../templates/solutions/shared
 import ImageDark from '../../../../svgs/use-case-solutions-template/estuary-solutions-highlights-dark.svg';
 import ImageLight from '../../../../svgs/use-case-solutions-template/estuary-solutions-highlights-light.svg';
 import { SectionTheme } from '../shared';
+import SectionTitle from '../../SectionTitle';
 import { wrapper } from './styles.module.less';
 
 interface HighlightsProps extends SectionTheme {
@@ -18,10 +19,7 @@ const Highlights = ({ data, isDarkTheme = false }: HighlightsProps) => {
             <Container className={wrapper} isDarkTheme={isDarkTheme} isVertical>
                 <Container className={noPadding}>
                     <div className={sectionText}>
-                        <h2>
-                            <span>{data.sectionTitle.highlightedText}</span>{' '}
-                            {data.sectionTitle.normalText}
-                        </h2>
+                        <SectionTitle sectionTitle={data.sectionTitle} />
                         <p>{data.description}</p>
                     </div>
                     {isDarkTheme ? <ImageDark /> : <ImageLight />}

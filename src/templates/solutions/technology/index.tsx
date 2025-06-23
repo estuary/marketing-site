@@ -6,10 +6,12 @@ import Capabilities from '../../../components/Solutions/Sections/Capabilities';
 import KeyFeatures from '../../../components/Solutions/Sections/KeyFeatures';
 import { SolutionTemplateProps } from '../shared';
 import SolutionPageLayout from '../solution-page-layout';
+import Testimonial from '../../../components/Solutions/Sections/Testimonial';
 
 const TechnologySolutions = ({ data: { solution } }: SolutionTemplateProps) => {
     return (
         <SolutionPageLayout solution={solution}>
+            <Testimonial data={solution.testimonial} />
             <KeyFeatures data={solution.keyFeatures} isDarkTheme />
             <Highlights data={solution.highlights} />
             <Capabilities data={solution.capabilities} isDarkTheme />
@@ -48,11 +50,20 @@ export const pageQuery = graphql`
                         }
                     }
                 }
+                primaryButton {
+                    title
+                    urlOrPath
+                }
+                secondaryButton {
+                    title
+                    urlOrPath
+                }
             }
             testimonial {
                 sectionTitle: section_title {
                     highlightedText
                     normalText
+                    normalTextComesFirst
                 }
                 description
                 quote {
@@ -76,6 +87,7 @@ export const pageQuery = graphql`
                 sectionTitle: section_title {
                     highlightedText
                     normalText
+                    normalTextComesFirst
                 }
                 description
                 benefitItems {
@@ -94,6 +106,7 @@ export const pageQuery = graphql`
                 sectionTitle: section_title {
                     highlightedText
                     normalText
+                    normalTextComesFirst
                 }
                 description
                 highlightItems {
@@ -104,6 +117,7 @@ export const pageQuery = graphql`
                 sectionTitle: section_title {
                     highlightedText
                     normalText
+                    normalTextComesFirst
                 }
                 description
                 keyFeatureItems {
@@ -114,6 +128,7 @@ export const pageQuery = graphql`
                 sectionTitle: section_title {
                     highlightedText
                     normalText
+                    normalTextComesFirst
                 }
                 description
                 capabilityItems {
@@ -124,6 +139,7 @@ export const pageQuery = graphql`
                 sectionTitle: section_title {
                     highlightedText
                     normalText
+                    normalTextComesFirst
                 }
                 description
                 cardItems {

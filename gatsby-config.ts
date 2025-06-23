@@ -15,12 +15,17 @@ process.env.POSTGRAPHILE_PREPARED_STATEMENT_CACHE_SIZE = '1';
 
 const NO_MATCH_REGEX = '^/__no__match__$/';
 
+const isProd = process.env.NODE_ENV === 'production';
+
 const strapiConfig = {
-    apiURL: process.env.STRAPI_API_URL,
-    accessToken: process.env.STRAPI_TOKEN,
+    apiURL: isProd
+        ? process.env.STRAPI_API_URL
+        : process.env.STRAPI_API_URL_DEV,
+    accessToken: isProd
+        ? process.env.STRAPI_TOKEN
+        : process.env.STRAPI_TOKEN_DEV,
     maxParallelRequests: 3,
     version: 4, // They now assume v5
-    preview: true, // TODO: remove this after testing draft content from Strapi
     collectionTypes: [
         'blog-post',
         'company-update-post',
@@ -74,6 +79,18 @@ const strapiConfig = {
                             image: {
                                 populate: '*',
                             },
+                            primaryButton: {
+                                populate: {
+                                    title: '*',
+                                    urlOrPath: '*',
+                                },
+                            },
+                            secondaryButton: {
+                                populate: {
+                                    title: '*',
+                                    urlOrPath: '*',
+                                },
+                            },
                         },
                     },
                     testimonial: {
@@ -82,6 +99,7 @@ const strapiConfig = {
                                 populate: {
                                     highlightedText: '*',
                                     normalText: '*',
+                                    normalTextComesFirst: '*',
                                 },
                             },
                             'description': {
@@ -111,6 +129,7 @@ const strapiConfig = {
                                 populate: {
                                     highlightedText: '*',
                                     normalText: '*',
+                                    normalTextComesFirst: '*',
                                 },
                             },
                             'description': '*',
@@ -128,6 +147,7 @@ const strapiConfig = {
                                 populate: {
                                     highlightedText: '*',
                                     normalText: '*',
+                                    normalTextComesFirst: '*',
                                 },
                             },
                             'description': '*',
@@ -142,6 +162,7 @@ const strapiConfig = {
                                 populate: {
                                     highlightedText: '*',
                                     normalText: '*',
+                                    normalTextComesFirst: '*',
                                 },
                             },
                             'description': '*',
@@ -156,6 +177,7 @@ const strapiConfig = {
                                 populate: {
                                     highlightedText: '*',
                                     normalText: '*',
+                                    normalTextComesFirst: '*',
                                 },
                             },
                             'description': '*',
@@ -170,6 +192,7 @@ const strapiConfig = {
                                 populate: {
                                     highlightedText: '*',
                                     normalText: '*',
+                                    normalTextComesFirst: '*',
                                 },
                             },
                             'description': '*',

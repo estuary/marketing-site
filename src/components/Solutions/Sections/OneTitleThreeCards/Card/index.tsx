@@ -7,12 +7,10 @@ interface CardProps {
 
 const Card = ({ title, description }: CardProps) => {
     return (
-        <div className={container}>
-            <div>
-                <h3>{title}</h3>
-                <p>{description}</p>
-            </div>
-        </div>
+        <li className={container}>
+            <h3>{title}</h3>
+            <p>{description}</p>
+        </li>
     );
 };
 
