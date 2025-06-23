@@ -1,4 +1,3 @@
-import React from 'react';
 import { SectionTitle as SectionTitleType } from '../../../templates/solutions/shared';
 
 interface SectionTitleProps {

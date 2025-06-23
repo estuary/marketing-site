@@ -32,7 +32,7 @@ export const Head = ({ data: { solution } }: SolutionTemplateProps) => {
 export default Solutions;
 
 export const pageQuery = graphql`
-    query GetSolution($id: String!) {
+    query GetUseCaseSolution($id: String!) {
         solution: strapiSolution(id: { eq: $id }) {
             slug
             metadata {
@@ -145,6 +145,42 @@ export const pageQuery = graphql`
                 cardItems {
                     title
                     description
+                }
+            }
+            carouselSection {
+                sectionTitle: section_title {
+                    highlightedText
+                    normalText
+                    normalTextComesFirst
+                }
+                description
+                successStories {
+                    id
+                    slug: Slug
+                    title: Title
+                    description: Description
+                    hero: Logo {
+                        alternativeText
+                        localFile {
+                            childImageSharp {
+                                gatsbyImageData
+                            }
+                        }
+                    }
+                }
+                blogPosts {
+                    id
+                    slug: Slug
+                    title: Title
+                    description: Description
+                    hero: Hero {
+                        alternativeText
+                        localFile {
+                            childImageSharp {
+                                gatsbyImageData
+                            }
+                        }
+                    }
                 }
             }
         }

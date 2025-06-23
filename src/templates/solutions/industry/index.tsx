@@ -8,6 +8,7 @@ import { SolutionTemplateProps } from '../shared';
 import SolutionPageLayout from '../solution-page-layout';
 import OneTitleThreeCards from '../../../components/Solutions/Sections/OneTitleThreeCards';
 import Testimonial from '../../../components/Solutions/Sections/Testimonial';
+import CarouselSection from '../../../components/Solutions/Sections/CarouselSection';
 
 const IndustrySolutions = ({ data: { solution } }: SolutionTemplateProps) => {
     return (
@@ -17,6 +18,7 @@ const IndustrySolutions = ({ data: { solution } }: SolutionTemplateProps) => {
             ) ? (
                 <>
                     <OneTitleThreeCards data={solution.oneTitleThreeCards} />
+                    <CarouselSection data={solution.carouselSection} />
                     <Capabilities data={solution.capabilities} />
                     <KeyFeatures data={solution.keyFeatures} isDarkTheme />
                 </>
@@ -45,7 +47,7 @@ export const Head = ({ data: { solution } }: SolutionTemplateProps) => {
 export default IndustrySolutions;
 
 export const pageQuery = graphql`
-    query GetSolution($id: String!) {
+    query GetIndustrySolution($id: String!) {
         solution: strapiSolution(id: { eq: $id }) {
             slug
             metadata {
@@ -158,6 +160,42 @@ export const pageQuery = graphql`
                 cardItems {
                     title
                     description
+                }
+            }
+            carouselSection {
+                sectionTitle: section_title {
+                    highlightedText
+                    normalText
+                    normalTextComesFirst
+                }
+                description
+                successStories {
+                    id
+                    slug: Slug
+                    title: Title
+                    description: Description
+                    hero: Logo {
+                        alternativeText
+                        localFile {
+                            childImageSharp {
+                                gatsbyImageData
+                            }
+                        }
+                    }
+                }
+                blogPosts {
+                    id
+                    slug: Slug
+                    title: Title
+                    description: Description
+                    hero: Hero {
+                        alternativeText
+                        localFile {
+                            childImageSharp {
+                                gatsbyImageData
+                            }
+                        }
+                    }
                 }
             }
         }

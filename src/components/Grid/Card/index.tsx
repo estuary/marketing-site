@@ -152,7 +152,7 @@ const Card = ({
                     cardImage
                 )}
 
-                {(tagsContent ?? dateContent) === null ? (
+                {(tagsContent ?? dateContent) !== null ? (
                     <div className={cardHeader}>
                         {tagsContent}
                         {dateContent}

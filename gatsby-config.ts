@@ -204,6 +204,20 @@ const strapiConfig = {
                             },
                         },
                     },
+                    carouselSection: {
+                        populate: {
+                            'section-title': {
+                                populate: {
+                                    highlightedText: '*',
+                                    normalText: '*',
+                                    normalTextComesFirst: '*',
+                                },
+                            },
+                            'description': '*',
+                            'successStories': '*',
+                            'blogPosts': '*',
+                        },
+                    },
                 },
             },
         },

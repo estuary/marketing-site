@@ -1,3 +1,5 @@
+import { ImageType } from '../../../shared';
+
 export interface SectionTitle {
     highlightedText: string;
     normalText: string;
@@ -46,6 +48,27 @@ export interface OneTitleThreeCardsSectionContent extends SectionText {
     }[];
 }
 
+export interface CarouselSectionContent extends SectionText {
+    successStories?: {
+        id: string;
+        slug: string;
+        title: string;
+        description: string;
+        logo: {
+            localFile: Required<ImageType>;
+        };
+    }[];
+    blogPosts?: {
+        id: string;
+        slug: string;
+        title: string;
+        description: string;
+        hero: {
+            localFile: Required<ImageType>;
+        };
+    }[];
+}
+
 export interface HeroButton {
     title: string;
     urlOrPath: string;
@@ -70,6 +93,7 @@ export interface TemplatePageProps {
     capabilities: CapabilitiesSectionContent;
     keyFeatures: KeyFeaturesSectionContent;
     oneTitleThreeCards: OneTitleThreeCardsSectionContent;
+    carouselSection: CarouselSectionContent;
 }
 
 export interface SolutionTemplateProps {
