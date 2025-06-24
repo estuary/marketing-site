@@ -7,9 +7,13 @@ const orderByUpdateDate = (a, b) =>
     new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime();
 
 const RelatedArticles = ({ relatedPosts }) => {
+    if (!relatedPosts || relatedPosts.length < 1) {
+        return null;
+    }
+
     return (
         <Grid className={container}>
-            {[...(relatedPosts || [])]
+            {relatedPosts
                 .sort(orderByUpdateDate)
                 .map(({ id, slug, title, ...rest }) => (
                     <Card
