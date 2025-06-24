@@ -27,8 +27,6 @@ type CarouselProps = HTMLAttributes<HTMLDivElement> & {
     children: ReactNode;
     options?: EmblaOptionsType;
     hasArrow?: boolean;
-    dotColor?: string;
-    activeDotColor?: string;
     arrowColor?: string;
     hasFullWidthSlide?: boolean;
     hasMultipleItemsSlide?: boolean;
@@ -41,8 +39,6 @@ const Carousel = ({
     children,
     options,
     hasArrow = false,
-    dotColor,
-    activeDotColor,
     arrowColor = 'var(--white)',
     hasFullWidthSlide = false,
     hasMultipleItemsSlide,
