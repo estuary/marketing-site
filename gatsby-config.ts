@@ -26,13 +26,83 @@ const strapiConfig = {
         : process.env.STRAPI_TOKEN_DEV,
     maxParallelRequests: 3,
     version: 4, // They now assume v5
+    queryLimit: 30,
     collectionTypes: [
-        'blog-post',
         'company-update-post',
-        'tag',
-        'author',
         'connection',
         'connector',
+        {
+            singularName: 'blog-post',
+            queryParams: {
+                fields: [
+                    'id',
+                    'Slug',
+                    'Title',
+                    'Description',
+                    'Body',
+                    'createdAt',
+                    'updatedAt',
+                    'publishedAt',
+                ],
+                populate: {
+                    authors: { fields: ['id', 'Name', 'Slug'] },
+                    Hero: {
+                        fields: ['url', 'alternativeText'],
+                    },
+                    faq: {
+                        fields: ['question', 'answer'],
+                    },
+                    RelatedPosts: {
+                        fields: ['id', 'Title', 'Slug', 'updatedAt'],
+                        populate: {
+                            authors: {
+                                fields: ['id', 'Name'],
+                                populate: {
+                                    Picture: {
+                                        fields: ['url', 'alternativeText'],
+                                    },
+                                },
+                            },
+                            Hero: {
+                                fields: ['url', 'alternativeText'],
+                            },
+                        },
+                    },
+                    tags: {
+                        fields: ['Name', 'Slug', 'Type', 'IsTab'],
+                    },
+                },
+            },
+        },
+        {
+            singularName: 'author',
+            queryParams: {
+                fields: ['id', 'Name', 'Slug', 'bio', 'role'],
+                populate: {
+                    Picture: {
+                        fields: ['url', 'alternativeText'],
+                    },
+                    Socials: {
+                        fields: ['linked_in', 'twitter', 'other'],
+                    },
+                    blog_posts: {
+                        fields: ['id', 'Title', 'Slug', 'updatedAt'],
+                        populate: {
+                            Hero: {
+                                fields: ['url', 'alternativeText'],
+                            },
+                        },
+                    },
+                },
+            },
+        },
+        {
+            singularName: 'tag',
+            queryParams: {
+                fields: ['Name', 'Slug', 'Type', 'IsTab'],
+                populate: {},
+            },
+        },
         {
             singularName: 'testimonial',
             queryParams: {
