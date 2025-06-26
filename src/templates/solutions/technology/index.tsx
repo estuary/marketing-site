@@ -10,6 +10,7 @@ import Testimonial from '../../../components/Solutions/Sections/Testimonial';
 import OneTitleThreeCards from '../../../components/Solutions/Sections/OneTitleThreeCards';
 import CarouselSection from '../../../components/Solutions/Sections/CarouselSection';
 import GraphicSection from '../../../components/Solutions/Sections/GraphicSection';
+import ButtonsSection from '../../../components/Solutions/Sections/ButtonsSection';
 
 const TechnologySolutions = ({ data: { solution } }: SolutionTemplateProps) => {
     return (
@@ -31,6 +32,7 @@ const TechnologySolutions = ({ data: { solution } }: SolutionTemplateProps) => {
                         isGraphicTitleCentralized
                     />
                     <Capabilities data={solution.capabilities} isDarkTheme />
+                    <ButtonsSection data={solution.buttonsSection} />
                 </>
             ) : (
                 <>
@@ -251,6 +253,22 @@ export const pageQuery = graphql`
                     highlightedText
                     normalText
                     normalTextComesFirst
+                }
+            }
+            buttonsSection {
+                sectionTitle: section_title {
+                    highlightedText
+                    normalText
+                    normalTextComesFirst
+                }
+                description
+                primaryButton {
+                    title
+                    urlOrPath
+                }
+                secondaryButton {
+                    title
+                    urlOrPath
                 }
             }
         }

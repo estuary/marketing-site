@@ -91,10 +91,15 @@ export interface GraphicSectionContent extends SectionText {
     cardsTitle?: SectionTitle;
     cardItems?: StrapiJsonValue;
 }
-
-export interface HeroButton {
+export interface Button {
     title: string;
     urlOrPath: string;
+}
+
+export interface ButtonsSectionContent extends SectionText {
+    description: string;
+    primaryButton: Button;
+    secondaryButton: Button;
 }
 
 export interface TemplatePageProps {
@@ -107,8 +112,8 @@ export interface TemplatePageProps {
         title: string;
         description: string;
         image: any; // TODO: Check this type
-        primaryButton: HeroButton;
-        secondaryButton: HeroButton;
+        primaryButton: Button;
+        secondaryButton: Button;
     };
     testimonial: TestimonialSectionContent;
     highlights: HighlightsSectionContent;
@@ -118,6 +123,7 @@ export interface TemplatePageProps {
     oneTitleThreeCards: OneTitleThreeCardsSectionContent;
     carouselSection: CarouselSectionContent;
     graphicSections: GraphicSectionContent[];
+    buttonsSection: ButtonsSectionContent;
 }
 
 export interface SolutionTemplateProps {

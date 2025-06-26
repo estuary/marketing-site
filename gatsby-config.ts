@@ -330,6 +330,30 @@ const strapiConfig = {
                             },
                         },
                     },
+                    buttonsSection: {
+                        populate: {
+                            'section-title': {
+                                populate: {
+                                    highlightedText: '*',
+                                    normalText: '*',
+                                    normalTextComesFirst: '*',
+                                },
+                            },
+                            'description': '*',
+                            'primaryButton': {
+                                populate: {
+                                    title: '*',
+                                    urlOrPath: '*',
+                                },
+                            },
+                            'secondaryButton': {
+                                populate: {
+                                    title: '*',
+                                    urlOrPath: '*',
+                                },
+                            },
+                        },
+                    },
                 },
             },
         },
