@@ -15,18 +15,21 @@ import {
     sectionDescription,
     graphicOnTheLeft,
     darkGraphicWrapper,
+    centralizeGraphicTitle,
 } from './styles.module.less';
 
 interface GraphicSectionProps {
     data: GraphicSectionContent;
     isDarkTheme?: boolean;
     isGraphicOnTheLeft?: boolean;
+    isGraphicTitleCentralized?: boolean;
 }
 
 const GraphicSection: React.FC<GraphicSectionProps> = ({
     data,
     isDarkTheme = false,
     isGraphicOnTheLeft = false,
+    isGraphicTitleCentralized = false,
 }) => {
     return (
         <section>
@@ -59,7 +62,10 @@ const GraphicSection: React.FC<GraphicSectionProps> = ({
                     <div
                         className={clsx(
                             graphicWrapper,
-                            isDarkTheme ? darkGraphicWrapper : null
+                            isDarkTheme ? darkGraphicWrapper : null,
+                            isGraphicTitleCentralized
+                                ? centralizeGraphicTitle
+                                : null
                         )}
                     >
                         {data.graphic.title ? (
@@ -73,18 +79,26 @@ const GraphicSection: React.FC<GraphicSectionProps> = ({
                             alt={data.graphic.image.alternativeText ?? ''}
                             loading="eager"
                         />
-                        <ul>
-                            {data.graphic.subtitles?.map((subtitle, index) => (
-                                <li key={`graphic-subtitle-${index + 1}`}>
-                                    <div
-                                        style={{
-                                            backgroundColor: subtitle.color,
-                                        }}
-                                    />
-                                    <span>{subtitle.name}</span>
-                                </li>
-                            ))}
-                        </ul>
+                        {data.graphic.subtitles &&
+                        data.graphic.subtitles.length > 0 ? (
+                            <ul>
+                                {data.graphic.subtitles.map(
+                                    (subtitle, index) => (
+                                        <li
+                                            key={`graphic-subtitle-${index + 1}`}
+                                        >
+                                            <div
+                                                style={{
+                                                    backgroundColor:
+                                                        subtitle.color,
+                                                }}
+                                            />
+                                            <span>{subtitle.name}</span>
+                                        </li>
+                                    )
+                                )}
+                            </ul>
+                        ) : null}
                     </div>
                 </Container>
                 {data.cardsTitle ?? data.cardItems ? (
