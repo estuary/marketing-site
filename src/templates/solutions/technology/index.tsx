@@ -30,7 +30,7 @@ const TechnologySolutions = ({ data: { solution } }: SolutionTemplateProps) => {
                         data={solution.graphicSections[2]}
                         isGraphicTitleCentralized
                     />
-                    <Capabilities data={solution.capabilities} />
+                    <Capabilities data={solution.capabilities} isDarkTheme />
                 </>
             ) : (
                 <>
