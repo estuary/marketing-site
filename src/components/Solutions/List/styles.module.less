@@ -1,0 +1,43 @@
+.container {
+  h3 {
+    font-weight: 600;
+    font-size: 1.125rem;
+    color: var(--blue);
+    margin-bottom: 24px;
+  }
+
+  ul,
+  li {
+    margin: 0; // TODO: Remove the list and list item (ul and li) margin globally to remove duplicates. 
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.iconWrapper {
+  border-radius: 100%;
+  padding: 4px;
+  border: 1px solid var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  margin-bottom: auto;
+  margin-top: 6px;
+}

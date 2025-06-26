@@ -9,16 +9,18 @@ import SolutionPageLayout from '../solution-page-layout';
 import OneTitleThreeCards from '../../../components/Solutions/Sections/OneTitleThreeCards';
 import Testimonial from '../../../components/Solutions/Sections/Testimonial';
 import CarouselSection from '../../../components/Solutions/Sections/CarouselSection';
+import GraphicSection from '../../../components/Solutions/Sections/GraphicSection';
 
 const IndustrySolutions = ({ data: { solution } }: SolutionTemplateProps) => {
     return (
         <SolutionPageLayout solution={solution}>
             {solution.slug.includes(
-                '/industry/real-time-snowflake-streaming'
+                '/industry/real-time-snowflake-streaming' // TODO: Use the slug or the id?
             ) ? (
                 <>
                     <OneTitleThreeCards data={solution.oneTitleThreeCards} />
                     <CarouselSection data={solution.carouselSection} />
+                    <GraphicSection data={solution.graphicSections[0]} />
                     <Capabilities data={solution.capabilities} />
                     <KeyFeatures data={solution.keyFeatures} isDarkTheme />
                 </>
@@ -196,6 +198,51 @@ export const pageQuery = graphql`
                             }
                         }
                     }
+                }
+            }
+            graphicSections {
+                id
+                sectionTitle: section_title {
+                    highlightedText
+                    normalText
+                    normalTextComesFirst
+                }
+                description
+                list {
+                    title
+                    items {
+                        text {
+                            data {
+                                text
+                            }
+                        }
+                    }
+                }
+                graphic {
+                    title
+                    image {
+                        alternativeText
+                        localFile {
+                            childImageSharp {
+                                gatsbyImageData(
+                                    quality: 100
+                                    placeholder: BLURRED
+                                )
+                            }
+                        }
+                    }
+                    subtitles {
+                        name
+                        color
+                    }
+                }
+                cardItems {
+                    strapi_json_value
+                }
+                cardsTitle {
+                    highlightedText
+                    normalText
+                    normalTextComesFirst
                 }
             }
         }

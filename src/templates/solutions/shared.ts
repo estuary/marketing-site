@@ -1,4 +1,4 @@
-import { ImageType } from '../../../shared';
+import { ImageData } from '../../../shared';
 
 export interface SectionTitle {
     highlightedText: string;
@@ -54,19 +54,42 @@ export interface CarouselSectionContent extends SectionText {
         slug: string;
         title: string;
         description: string;
-        logo: {
-            localFile: Required<ImageType>;
-        };
+        logo: ImageData;
     }[];
     blogPosts?: {
         id: string;
         slug: string;
         title: string;
         description: string;
-        hero: {
-            localFile: Required<ImageType>;
-        };
+        hero: ImageData;
     }[];
+}
+
+export interface SolutionSectionListItem {
+    text: {
+        data: {
+            text: string;
+        };
+    };
+}
+
+export interface GraphicSectionContent extends SectionText {
+    id: string;
+    description: string;
+    list?: {
+        title: string;
+        items: SolutionSectionListItem[];
+    };
+    graphic: {
+        title?: string;
+        image: ImageData;
+        subtitles?: {
+            name: string;
+            color: string;
+        }[];
+    };
+    cardsTitle?: SectionTitle;
+    cardItems: StrapiJsonValue;
 }
 
 export interface HeroButton {
@@ -94,6 +117,7 @@ export interface TemplatePageProps {
     keyFeatures: KeyFeaturesSectionContent;
     oneTitleThreeCards: OneTitleThreeCardsSectionContent;
     carouselSection: CarouselSectionContent;
+    graphicSections: GraphicSectionContent[];
 }
 
 export interface SolutionTemplateProps {

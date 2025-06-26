@@ -125,12 +125,15 @@ export interface ImageType {
     };
 }
 
+export interface ImageData {
+    alternativeText?: string;
+    localFile: Required<ImageType>;
+}
+
 export interface Vendor {
     id: string;
     name: string;
-    logo: {
-        localFile: Required<ImageType>;
-    };
+    logo: ImageData;
     slugKey: string;
     useCases: {
         databaseReplication: string;

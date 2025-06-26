@@ -183,6 +183,51 @@ export const pageQuery = graphql`
                     }
                 }
             }
+            graphicSections {
+                id
+                sectionTitle: section_title {
+                    highlightedText
+                    normalText
+                    normalTextComesFirst
+                }
+                description
+                list {
+                    title
+                    items {
+                        text {
+                            data {
+                                text
+                            }
+                        }
+                    }
+                }
+                graphic {
+                    title
+                    image {
+                        alternativeText
+                        localFile {
+                            childImageSharp {
+                                gatsbyImageData(
+                                    quality: 100
+                                    placeholder: BLURRED
+                                )
+                            }
+                        }
+                    }
+                    subtitles {
+                        name
+                        color
+                    }
+                }
+                cardItems {
+                    strapi_json_value
+                }
+                cardsTitle {
+                    highlightedText
+                    normalText
+                    normalTextComesFirst
+                }
+            }
         }
     }
 `;

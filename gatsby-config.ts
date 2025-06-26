@@ -288,6 +288,48 @@ const strapiConfig = {
                             'blogPosts': '*',
                         },
                     },
+                    graphicSections: {
+                        populate: {
+                            'section-title': {
+                                populate: {
+                                    highlightedText: '*',
+                                    normalText: '*',
+                                    normalTextComesFirst: '*',
+                                },
+                            },
+                            'description': '*',
+                            'list': {
+                                populate: {
+                                    title: '*',
+                                    items: {
+                                        populate: '*',
+                                    },
+                                },
+                            },
+                            'graphic': {
+                                populate: {
+                                    title: '*',
+                                    image: {
+                                        fields: ['url', 'alternativeText'],
+                                    },
+                                    subtitles: {
+                                        title: '*',
+                                        color: '*',
+                                    },
+                                },
+                            },
+                            'cardItems': {
+                                populate: '*',
+                            },
+                            'cardsTitle': {
+                                populate: {
+                                    highlightedText: '*',
+                                    normalText: '*',
+                                    normalTextComesFirst: '*',
+                                },
+                            },
+                        },
+                    },
                 },
             },
         },
