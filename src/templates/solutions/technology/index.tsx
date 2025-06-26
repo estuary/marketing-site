@@ -7,15 +7,32 @@ import KeyFeatures from '../../../components/Solutions/Sections/KeyFeatures';
 import { SolutionTemplateProps } from '../shared';
 import SolutionPageLayout from '../solution-page-layout';
 import Testimonial from '../../../components/Solutions/Sections/Testimonial';
+import OneTitleThreeCards from '../../../components/Solutions/Sections/OneTitleThreeCards';
+import CarouselSection from '../../../components/Solutions/Sections/CarouselSection';
+import GraphicSection from '../../../components/Solutions/Sections/GraphicSection';
 
 const TechnologySolutions = ({ data: { solution } }: SolutionTemplateProps) => {
     return (
         <SolutionPageLayout solution={solution}>
-            <Testimonial data={solution.testimonial} />
-            <KeyFeatures data={solution.keyFeatures} isDarkTheme />
-            <Highlights data={solution.highlights} />
-            <Capabilities data={solution.capabilities} isDarkTheme />
-            <Benefits data={solution.benefits} />
+            {solution.slug.includes(
+                '/technology/real-time-snowflake-streaming' // TODO: Use the slug or the id?
+            ) ? (
+                <>
+                    <OneTitleThreeCards data={solution.oneTitleThreeCards} />
+                    <CarouselSection data={solution.carouselSection} />
+                    <GraphicSection data={solution.graphicSections[0]} />
+                    <Capabilities data={solution.capabilities} />
+                    <KeyFeatures data={solution.keyFeatures} isDarkTheme />
+                </>
+            ) : (
+                <>
+                    <Testimonial data={solution.testimonial} />
+                    <Benefits data={solution.benefits} isDarkTheme />
+                    <Capabilities data={solution.capabilities} />
+                    <KeyFeatures data={solution.keyFeatures} isDarkTheme />
+                    <Highlights data={solution.highlights} />
+                </>
+            )}
         </SolutionPageLayout>
     );
 };
