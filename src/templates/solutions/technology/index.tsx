@@ -21,6 +21,11 @@ const TechnologySolutions = ({ data: { solution } }: SolutionTemplateProps) => {
                     <OneTitleThreeCards data={solution.oneTitleThreeCards} />
                     <CarouselSection data={solution.carouselSection} />
                     <GraphicSection data={solution.graphicSections[0]} />
+                    <GraphicSection
+                        data={solution.graphicSections[1]}
+                        isDarkTheme
+                        isGraphicOnTheLeft
+                    />
                     <Capabilities data={solution.capabilities} />
                     <KeyFeatures data={solution.keyFeatures} isDarkTheme />
                 </>

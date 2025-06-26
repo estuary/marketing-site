@@ -13,17 +13,35 @@ import {
     cardsContainer,
     graphicWrapper,
     sectionDescription,
+    graphicOnTheLeft,
+    darkGraphicWrapper,
 } from './styles.module.less';
 
 interface GraphicSectionProps {
     data: GraphicSectionContent;
+    isDarkTheme?: boolean;
+    isGraphicOnTheLeft?: boolean;
 }
 
-const GraphicSection: React.FC<GraphicSectionProps> = ({ data }) => {
+const GraphicSection: React.FC<GraphicSectionProps> = ({
+    data,
+    isDarkTheme = false,
+    isGraphicOnTheLeft = false,
+}) => {
     return (
         <section>
-            <Container isVertical className={clsx(sectionText, container)}>
-                <Container className={graphicContainer}>
+            <Container
+                isVertical
+                className={clsx(sectionText, container)}
+                isDarkTheme={isDarkTheme}
+            >
+                <Container
+                    className={clsx(
+                        graphicContainer,
+                        isGraphicOnTheLeft ? graphicOnTheLeft : null
+                    )}
+                    isDarkTheme={isDarkTheme}
+                >
                     <div>
                         <SectionTitle sectionTitle={data.sectionTitle} />
                         {data.description ? (
@@ -38,7 +56,12 @@ const GraphicSection: React.FC<GraphicSectionProps> = ({ data }) => {
                             />
                         ) : null}
                     </div>
-                    <div className={graphicWrapper}>
+                    <div
+                        className={clsx(
+                            graphicWrapper,
+                            isDarkTheme ? darkGraphicWrapper : null
+                        )}
+                    >
                         {data.graphic.title ? (
                             <h3>{data.graphic.title}</h3>
                         ) : null}
@@ -64,12 +87,22 @@ const GraphicSection: React.FC<GraphicSectionProps> = ({ data }) => {
                         </ul>
                     </div>
                 </Container>
-                <Container isVertical className={cardsContainer}>
-                    {data.cardsTitle ? (
-                        <SectionTitle sectionTitle={data.cardsTitle} />
-                    ) : null}
-                    <TextCardsList items={data.cardItems.strapi_json_value} />
-                </Container>
+                {data.cardsTitle ?? data.cardItems ? (
+                    <Container
+                        isVertical
+                        className={cardsContainer}
+                        isDarkTheme={isDarkTheme}
+                    >
+                        {data.cardsTitle ? (
+                            <SectionTitle sectionTitle={data.cardsTitle} />
+                        ) : null}
+                        {data.cardItems ? (
+                            <TextCardsList
+                                items={data.cardItems.strapi_json_value}
+                            />
+                        ) : null}
+                    </Container>
+                ) : null}
             </Container>
         </section>
     );

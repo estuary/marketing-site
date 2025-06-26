@@ -89,7 +89,7 @@ export interface GraphicSectionContent extends SectionText {
         }[];
     };
     cardsTitle?: SectionTitle;
-    cardItems: StrapiJsonValue;
+    cardItems?: StrapiJsonValue;
 }
 
 export interface HeroButton {
