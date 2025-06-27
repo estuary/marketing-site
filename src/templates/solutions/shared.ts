@@ -111,7 +111,8 @@ export interface TemplatePageProps {
     hero: {
         title: string;
         description: string;
-        image: any; // TODO: Check this type
+        image: ImageData;
+        videoUrl?: string;
         primaryButton: Button;
         secondaryButton: Button;
     };

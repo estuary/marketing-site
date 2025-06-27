@@ -126,7 +126,7 @@ export interface ImageType {
 }
 
 export interface ImageData {
-    alternativeText?: string;
+    alternativeText?: string; // TODO: Maybe it should not be optional?
     localFile: Required<ImageType>;
 }
 

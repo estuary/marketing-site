@@ -77,6 +77,7 @@ export const pageQuery = graphql`
                         }
                     }
                 }
+                videoUrl
                 primaryButton {
                     title
                     urlOrPath

@@ -149,6 +149,7 @@ const strapiConfig = {
                             image: {
                                 populate: '*',
                             },
+                            videoUrl: '*',
                             primaryButton: {
                                 populate: {
                                     title: '*',

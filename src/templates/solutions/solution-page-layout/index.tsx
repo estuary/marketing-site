@@ -17,6 +17,7 @@ const SolutionPageLayout: FC<SolutionPageLayoutProps> = ({
                 title={solution.hero.title}
                 description={solution.hero.description}
                 image={solution.hero.image}
+                videoUrl={solution.hero.videoUrl}
                 primaryButton={solution.hero.primaryButton}
                 secondaryButton={solution.hero.secondaryButton}
             />
