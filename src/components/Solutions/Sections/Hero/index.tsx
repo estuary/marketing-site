@@ -13,8 +13,8 @@ interface HeroProps {
     description: string;
     image: ImageData;
     videoUrl?: string;
-    primaryButton: Button;
-    secondaryButton: Button;
+    primaryButton?: Button;
+    secondaryButton?: Button;
 }
 
 const pageId = 'solutions-page';
@@ -47,8 +47,8 @@ const Hero = ({
                     ctaButtons={
                         <HeroSectionActions
                             pageId={pageId}
-                            registerButtonTitle={primaryButton.title}
-                            contactUsButtonTitle={secondaryButton.title}
+                            registerButtonTitle={primaryButton?.title}
+                            contactUsButtonTitle={secondaryButton?.title}
                         />
                     }
                 />
