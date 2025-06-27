@@ -16,7 +16,7 @@ const TechnologySolutions = ({ data: { solution } }: SolutionTemplateProps) => {
     return (
         <SolutionPageLayout solution={solution}>
             {solution.slug.includes(
-                '/technology/real-time-snowflake-streaming' // TODO: Use the slug or the id?
+                '/technology/real-time-snowflake-streaming'
             ) ? (
                 <>
                     <OneTitleThreeCards data={solution.oneTitleThreeCards} />
