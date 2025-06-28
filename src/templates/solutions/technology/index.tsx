@@ -191,7 +191,7 @@ export const pageQuery = graphql`
                         alternativeText
                         localFile {
                             childImageSharp {
-                                gatsbyImageData
+                                gatsbyImageData(placeholder: BLURRED)
                             }
                         }
                     }
@@ -205,7 +205,7 @@ export const pageQuery = graphql`
                         alternativeText
                         localFile {
                             childImageSharp {
-                                gatsbyImageData
+                                gatsbyImageData(placeholder: BLURRED)
                             }
                         }
                     }
