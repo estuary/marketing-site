@@ -755,22 +755,210 @@ export const createPages: GatsbyNode['createPages'] = async ({
 // and query them all through a "side-channel" here, so that we can actually pass them through Gatsby's Sharp
 // transformer. Then we can just attach a much simpler resolver to `PostGraphile_Connector` that just
 // looks up that previously created and processed logo.
-export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] =
-    ({ actions }) => {
-        const { createTypes } = actions;
-        const typeDefs = `
-        type ConnectorLogo implements Node @dontInfer {
-            connectorId: String!
-            logoUrl: String!
-            logo: File!
-        }
+// gatsby-node.js
+// gatsby-node.js
+exports.createSchemaCustomization = ({ actions }) => {
+    const { createTypes } = actions;
+    createTypes(`
+    # ————————————————————————————
+    # Top-level Solution node
+    type StrapiSolution implements Node @dontInfer {
+      slug: String
+      metadata: StrapiSolutionMetadata
+      hero: StrapiSolutionHero
+      testimonial: StrapiSolutionTestimonial
+      benefits: StrapiSolutionBenefits
+      highlights: StrapiSolutionHighlights
+      keyFeatures: StrapiSolutionKeyFeatures
+      capabilities: StrapiSolutionCapabilities
+      oneTitleThreeCards: StrapiSolutionOneTitleThreeCards
+      carouselSection: STRAPI__COMPONENT_SOLUTION_CAROUSEL_SECTION
+      graphicSections: [STRAPI__COMPONENT_SOLUTION_GRAPHIC_SECTIONS]
+      buttonsSection: STRAPI__COMPONENT_SOLUTION_BUTTONS_SECTION
+    }
 
-        type STRAPI__COMPONENT_SOLUTION_CAROUSEL_SECTION implements Node @dontInfer {
-            description: String
-        }
-  `;
-        createTypes(typeDefs);
-    };
+    # allow all JSON dumps
+    scalar JSON
+
+    # ————————————————————————————
+    # Metadata block
+    type StrapiSolutionMetadata implements Node @dontInfer {
+      title: String
+      description: String
+    }
+
+    # ————————————————————————————
+    # Hero block
+    type StrapiSolutionHero implements Node @dontInfer {
+      title: String
+      description: String
+      image: StrapiSolutionHeroImage
+      videoUrl: String
+      primaryButton: STRAPI__COMPONENT_SHARED_LINK
+      secondaryButton: STRAPI__COMPONENT_SHARED_LINK
+    }
+    type StrapiSolutionHeroImage implements Node @dontInfer {
+      alternativeText: String
+      localFile: File
+    }
+
+    # ————————————————————————————
+    # Testimonial block
+    type StrapiSolutionTestimonial implements Node @dontInfer {
+      sectionTitle: STRAPI__COMPONENT_SHARED_SECTION_TITLE
+      description: String
+      quote: StrapiSolutionTestimonialQuote
+    }
+    type StrapiSolutionTestimonialQuote implements Node @dontInfer {
+      companyName: String
+      successStoryUrl: String
+      companyLogo: StrapiSolutionTestimonialQuoteCompanyLogo
+      text: String
+    }
+    type StrapiSolutionTestimonialQuoteCompanyLogo implements Node @dontInfer {
+      alternativeText: String
+      localFile: File
+    }
+
+    # ————————————————————————————
+    # Benefits block
+    type StrapiSolutionBenefits implements Node @dontInfer {
+      sectionTitle: STRAPI__COMPONENT_SHARED_SECTION_TITLE
+      description: String
+      benefitItems: [StrapiSolutionBenefitsBenefitItem]
+      images: [StrapiSolutionBenefitsImage]
+    }
+    type StrapiSolutionBenefitsBenefitItem implements Node @dontInfer {
+      strapi_json_value: JSON
+    }
+    type StrapiSolutionBenefitsImage implements Node @dontInfer {
+      alternativeText: String
+      localFile: File
+    }
+
+    # ————————————————————————————
+    # Highlights block
+    type StrapiSolutionHighlights implements Node @dontInfer {
+      sectionTitle: STRAPI__COMPONENT_SHARED_SECTION_TITLE
+      description: String
+      highlightItems: [StrapiSolutionHighlightsHighlightItem]
+    }
+    type StrapiSolutionHighlightsHighlightItem implements Node @dontInfer {
+      strapi_json_value: JSON
+    }
+
+    # ————————————————————————————
+    # Key Features block
+    type StrapiSolutionKeyFeatures implements Node @dontInfer {
+      sectionTitle: STRAPI__COMPONENT_SHARED_SECTION_TITLE
+      description: String
+      keyFeatureItems: [StrapiSolutionKeyFeaturesItem]
+    }
+    type StrapiSolutionKeyFeaturesItem implements Node @dontInfer {
+      strapi_json_value: JSON
+    }
+
+    # ————————————————————————————
+    # Capabilities block
+    type StrapiSolutionCapabilities implements Node @dontInfer {
+      sectionTitle: STRAPI__COMPONENT_SHARED_SECTION_TITLE
+      description: String
+      capabilityItems: [StrapiSolutionCapabilitiesItem]
+    }
+    type StrapiSolutionCapabilitiesItem implements Node @dontInfer {
+      strapi_json_value: JSON
+    }
+
+    # ————————————————————————————
+    # One-title-three-cards block
+    type StrapiSolutionOneTitleThreeCards implements Node @dontInfer {
+      sectionTitle: STRAPI__COMPONENT_SHARED_SECTION_TITLE
+      description: String
+      cardItems: [StrapiSolutionOneTitleThreeCardsCardItem]
+    }
+    type StrapiSolutionOneTitleThreeCardsCardItem implements Node @dontInfer {
+      title: String
+      description: String
+    }
+
+    # ————————————————————————————
+    # Carousel section block
+    type STRAPI__COMPONENT_SOLUTION_CAROUSEL_SECTION implements Node @dontInfer {
+      sectionTitle: STRAPI__COMPONENT_SHARED_SECTION_TITLE
+      description: String
+      successStories: [StrapiSolutionCarouselSectionSuccessStory]
+      blogPosts: [StrapiSolutionCarouselSectionBlogPost]
+    }
+    type StrapiSolutionCarouselSectionSuccessStory implements Node @dontInfer {
+      id: ID
+      slug: String
+      title: String
+      description: String
+      hero: StrapiSolutionCarouselSectionHeroImage
+    }
+    type StrapiSolutionCarouselSectionBlogPost implements Node @dontInfer {
+      id: ID
+      slug: String
+      title: String
+      description: String
+      hero: StrapiSolutionCarouselSectionHeroImage
+    }
+    type StrapiSolutionCarouselSectionHeroImage implements Node @dontInfer {
+      alternativeText: String
+      localFile: File
+    }
+
+    # ————————————————————————————
+    # Graphic sections block
+    type STRAPI__COMPONENT_SOLUTION_GRAPHIC_SECTIONS implements Node @dontInfer {
+      id: ID
+      sectionTitle: STRAPI__COMPONENT_SHARED_SECTION_TITLE
+      description: String
+      list: StrapiSolutionGraphicSectionsList
+      graphic: StrapiSolutionGraphicSectionsGraphic
+      cardItems: [StrapiSolutionGraphicSectionsCardItem]
+      cardsTitle: STRAPI__COMPONENT_SHARED_SECTION_TITLE
+    }
+    type StrapiSolutionGraphicSectionsList implements Node @dontInfer {
+      title: String
+      items: [StrapiSolutionGraphicSectionsListItem]
+    }
+    type StrapiSolutionGraphicSectionsListItem implements Node @dontInfer {
+      text: StrapiSolutionGraphicSectionsListItemText
+    }
+    type StrapiSolutionGraphicSectionsListItemText implements Node @dontInfer {
+      data: [StrapiSolutionGraphicSectionsListItemTextDatum]
+    }
+    type StrapiSolutionGraphicSectionsListItemTextDatum implements Node @dontInfer {
+      text: String
+    }
+    type StrapiSolutionGraphicSectionsGraphic implements Node @dontInfer {
+      title: String
+      image: StrapiSolutionGraphicSectionsGraphicImage
+      subtitles: [StrapiSolutionGraphicSectionsGraphicSubtitle]
+    }
+    type StrapiSolutionGraphicSectionsGraphicImage implements Node @dontInfer {
+      alternativeText: String
+      localFile: File
+    }
+    type StrapiSolutionGraphicSectionsGraphicSubtitle implements Node @dontInfer {
+      name: String
+      color: String
+    }
+    type StrapiSolutionGraphicSectionsCardItem implements Node @dontInfer {
+      strapi_json_value: JSON
+    }
+
+    # ————————————————————————————
+    # Buttons section block
+    type STRAPI__COMPONENT_SOLUTION_BUTTONS_SECTION implements Node @dontInfer {
+      sectionTitle: STRAPI__COMPONENT_SHARED_SECTION_TITLE
+      description: String
+      primaryButton: STRAPI__COMPONENT_SHARED_LINK
+      secondaryButton: STRAPI__COMPONENT_SHARED_LINK
+    }
+  `);
+};
 
 export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
     actions: { createNode, touchNode },
