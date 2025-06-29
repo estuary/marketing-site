@@ -766,9 +766,6 @@ exports.createSchemaCustomization = ({ actions }) => {
       logo: File!
     }
 
-    # Interfaces
-    interface JsonItemFields { strapi_json_value: JSON }
-
     # ----------------------------------------------------------------
     # Shared title type
     type STRAPI__COMPONENT_SHARED_SECTION_TITLE implements Node @dontInfer {
@@ -847,7 +844,9 @@ exports.createSchemaCustomization = ({ actions }) => {
       benefitItems: STRAPI__COMPONENT_SOLUTION_BENEFITS_BENEFIT_ITEMS
       images: [STRAPI__COMPONENT_SOLUTION_BENEFITS_IMAGE]
     }
-    type STRAPI__COMPONENT_SOLUTION_BENEFITS_BENEFIT_ITEMS implements Node & JsonItemFields @dontInfer {}
+    type STRAPI__COMPONENT_SOLUTION_BENEFITS_BENEFIT_ITEMS implements Node @dontInfer {
+      strapi_json_value: JSON
+    }
     type STRAPI__COMPONENT_SOLUTION_BENEFITS_IMAGE implements Node @dontInfer {
       alternativeText: String
       localFile: File
@@ -860,7 +859,9 @@ exports.createSchemaCustomization = ({ actions }) => {
       description: String
       highlightItems: STRAPI__COMPONENT_SOLUTION_HIGHLIGHTS_HIGHLIGHT_ITEMS
     }
-    type STRAPI__COMPONENT_SOLUTION_HIGHLIGHTS_HIGHLIGHT_ITEMS implements Node & JsonItemFields @dontInfer {}
+    type STRAPI__COMPONENT_SOLUTION_HIGHLIGHTS_HIGHLIGHT_ITEMS implements Node @dontInfer {
+      strapi_json_value: JSON
+    }
 
     # ----------------------------------------------------------------
     # Key Features block
@@ -869,7 +870,9 @@ exports.createSchemaCustomization = ({ actions }) => {
       description: String
       keyFeatureItems: STRAPI__COMPONENT_SOLUTION_KEY_FEATURES_KEY_FEATURE_ITEMS
     }
-    type STRAPI__COMPONENT_SOLUTION_KEY_FEATURES_KEY_FEATURE_ITEMS implements Node & JsonItemFields @dontInfer {}
+    type STRAPI__COMPONENT_SOLUTION_KEY_FEATURES_KEY_FEATURE_ITEMS implements Node @dontInfer {
+      strapi_json_value: JSON
+    }
 
     # ----------------------------------------------------------------
     # Capabilities block
@@ -878,7 +881,9 @@ exports.createSchemaCustomization = ({ actions }) => {
       description: String
       capabilityItems: STRAPI__COMPONENT_SOLUTION_CAPABILITIES_CAPABILITY_ITEMS
     }
-    type STRAPI__COMPONENT_SOLUTION_CAPABILITIES_CAPABILITY_ITEMS implements Node & JsonItemFields @dontInfer {}
+    type STRAPI__COMPONENT_SOLUTION_CAPABILITIES_CAPABILITY_ITEMS implements Node @dontInfer {
+      strapi_json_value: JSON
+    }
 
     # ----------------------------------------------------------------
     # One-title-three-cards block
@@ -934,7 +939,9 @@ exports.createSchemaCustomization = ({ actions }) => {
       cardsTitle: STRAPI__COMPONENT_SHARED_SECTION_TITLE
       cardItems: STRAPI__COMPONENT_SOLUTION_GRAPHIC_SECTION_CARD_ITEMS
     }
-    type STRAPI__COMPONENT_SOLUTION_GRAPHIC_SECTION_CARD_ITEMS implements Node & JsonItemFields @dontInfer {}
+    type STRAPI__COMPONENT_SOLUTION_GRAPHIC_SECTION_CARD_ITEMS implements Node @dontInfer {
+      strapi_json_value: JSON
+    }
 
     # ----------------------------------------------------------------
     # List component
