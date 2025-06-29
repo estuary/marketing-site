@@ -792,7 +792,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       capabilities: STRAPI__COMPONENT_SOLUTION_CAPABILITIES
       oneTitleThreeCards: STRAPI__COMPONENT_SOLUTION_ONE_TITLE_THREE_CARDS
       carouselSection: STRAPI__COMPONENT_SOLUTION_CAROUSEL_SECTION
-      graphicSections: [STRAPI__COMPONENT_SOLUTION_GRAPHIC_SECTIONS]
+      graphicSections: [STRAPI__COMPONENT_SOLUTION_GRAPHIC_SECTION]
       buttonsSection: STRAPI__COMPONENT_SOLUTION_BUTTONS_SECTION
     }
 
@@ -841,11 +841,8 @@ exports.createSchemaCustomization = ({ actions }) => {
     type STRAPI__COMPONENT_SOLUTION_BENEFITS implements Node @dontInfer {
       section_title: STRAPI__COMPONENT_SHARED_SECTION_TITLE
       description: String
-      benefitItems: [STRAPI__COMPONENT_SOLUTION_BENEFITS_BENEFIT_ITEM]
+      benefitItems: JSON
       images: [STRAPI__COMPONENT_SOLUTION_BENEFITS_IMAGE]
-    }
-    type STRAPI__COMPONENT_SOLUTION_BENEFITS_BENEFIT_ITEM implements Node @dontInfer {
-      strapi_json_value: JSON
     }
     type STRAPI__COMPONENT_SOLUTION_BENEFITS_IMAGE implements Node @dontInfer {
       alternativeText: String
@@ -857,10 +854,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     type STRAPI__COMPONENT_SOLUTION_HIGHLIGHTS implements Node @dontInfer {
       section_title: STRAPI__COMPONENT_SHARED_SECTION_TITLE
       description: String
-      highlightItems: [STRAPI__COMPONENT_SOLUTION_HIGHLIGHTS_HIGHLIGHT_ITEM]
-    }
-    type STRAPI__COMPONENT_SOLUTION_HIGHLIGHTS_HIGHLIGHT_ITEM implements Node @dontInfer {
-      strapi_json_value: JSON
+      highlightItems: JSON
     }
 
     # ----------------------------------------------------------------
@@ -868,10 +862,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     type STRAPI__COMPONENT_SOLUTION_KEY_FEATURES implements Node @dontInfer {
       section_title: STRAPI__COMPONENT_SHARED_SECTION_TITLE
       description: String
-      keyFeatureItems: [STRAPI__COMPONENT_SOLUTION_KEY_FEATURES_ITEM]
-    }
-    type STRAPI__COMPONENT_SOLUTION_KEY_FEATURES_ITEM implements Node @dontInfer {
-      strapi_json_value: JSON
+      keyFeatureItems: JSON
     }
 
     # ----------------------------------------------------------------
@@ -879,10 +870,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     type STRAPI__COMPONENT_SOLUTION_CAPABILITIES implements Node @dontInfer {
       section_title: STRAPI__COMPONENT_SHARED_SECTION_TITLE
       description: String
-      capabilityItems: [STRAPI__COMPONENT_SOLUTION_CAPABILITIES_ITEM]
-    }
-    type STRAPI__COMPONENT_SOLUTION_CAPABILITIES_ITEM implements Node @dontInfer {
-      strapi_json_value: JSON
+      capabilityItems: JSON
     }
 
     # ----------------------------------------------------------------
@@ -902,49 +890,20 @@ exports.createSchemaCustomization = ({ actions }) => {
     type STRAPI__COMPONENT_SOLUTION_CAROUSEL_SECTION implements Node @dontInfer {
       section_title: STRAPI__COMPONENT_SHARED_SECTION_TITLE
       description: String
-      successStories: [JSON]
-      blogPosts: [JSON]
+      successStories: [StrapiCaseStudy]
+      blogPosts: [StrapiBlogPost]
     }
 
     # ----------------------------------------------------------------
     # Graphic sections block
-    type STRAPI__COMPONENT_SOLUTION_GRAPHIC_SECTIONS implements Node @dontInfer {
+    type STRAPI__COMPONENT_SOLUTION_GRAPHIC_SECTION implements Node @dontInfer {
       id: ID
       section_title: STRAPI__COMPONENT_SHARED_SECTION_TITLE
       description: String
-      list: STRAPI__COMPONENT_SOLUTION_GRAPHIC_SECTIONS_LIST
-      graphic: STRAPI__COMPONENT_SOLUTION_GRAPHIC_SECTIONS_GRAPHIC
-      cardItems: [STRAPI__COMPONENT_SOLUTION_GRAPHIC_SECTIONS_CARD_ITEM]
+      list: STRAPI__COMPONENT_SOLUTION_LIST
+      graphic: STRAPI__COMPONENT_SOLUTION_GRAPHIC
       cardsTitle: STRAPI__COMPONENT_SHARED_SECTION_TITLE
-    }
-    type STRAPI__COMPONENT_SOLUTION_GRAPHIC_SECTIONS_LIST implements Node @dontInfer {
-      title: String
-      items: [STRAPI__COMPONENT_SOLUTION_GRAPHIC_SECTIONS_LIST_ITEM]
-    }
-    type STRAPI__COMPONENT_SOLUTION_GRAPHIC_SECTIONS_LIST_ITEM implements Node @dontInfer {
-      text: STRAPI__COMPONENT_SOLUTION_GRAPHIC_SECTIONS_LIST_ITEM_TEXT
-    }
-    type STRAPI__COMPONENT_SOLUTION_GRAPHIC_SECTIONS_LIST_ITEM_TEXT implements Node @dontInfer {
-      data: [STRAPI__COMPONENT_SOLUTION_GRAPHIC_SECTIONS_LIST_ITEM_TEXT_DATUM]
-    }
-    type STRAPI__COMPONENT_SOLUTION_GRAPHIC_SECTIONS_LIST_ITEM_TEXT_DATUM implements Node @dontInfer {
-      text: String
-    }
-    type STRAPI__COMPONENT_SOLUTION_GRAPHIC_SECTIONS_GRAPHIC implements Node @dontInfer {
-      title: String
-      image: STRAPI__COMPONENT_SOLUTION_GRAPHIC_SECTIONS_GRAPHIC_IMAGE
-      subtitles: [STRAPI__COMPONENT_SOLUTION_GRAPHIC_SECTIONS_GRAPHIC_SUBTITLE]
-    }
-    type STRAPI__COMPONENT_SOLUTION_GRAPHIC_SECTIONS_GRAPHIC_IMAGE implements Node @dontInfer {
-      alternativeText: String
-      localFile: File
-    }
-    type STRAPI__COMPONENT_SOLUTION_GRAPHIC_SECTIONS_GRAPHIC_SUBTITLE implements Node @dontInfer {
-      name: String
-      color: String
-    }
-    type STRAPI__COMPONENT_SOLUTION_GRAPHIC_SECTIONS_CARD_ITEM implements Node @dontInfer {
-      strapi_json_value: JSON
+      cardItems: JSON
     }
 
     # ----------------------------------------------------------------
