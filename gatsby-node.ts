@@ -813,7 +813,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       primaryButton: STRAPI__COMPONENT_SHARED_LINK
       secondaryButton: STRAPI__COMPONENT_SHARED_LINK
     }
-    type STRAPI__COMPONENT_SOLUTION_HERO_IMAGE implements Node @dontInfer {
+    type STRAPI__COMPONENT_SOLUTION_HERO_IMAGE implements Node {
       alternativeText: String
       localFile: File
     }
@@ -831,7 +831,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       companyLogo: STRAPI__COMPONENT_SOLUTION_TESTIMONIAL_QUOTE_COMPANY_LOGO
       text: String
     }
-    type STRAPI__COMPONENT_SOLUTION_TESTIMONIAL_QUOTE_COMPANY_LOGO implements Node @dontInfer {
+    type STRAPI__COMPONENT_SOLUTION_TESTIMONIAL_QUOTE_COMPANY_LOGO implements Node {
       alternativeText: String
       localFile: File
     }
@@ -844,10 +844,10 @@ exports.createSchemaCustomization = ({ actions }) => {
       benefitItems: STRAPI__COMPONENT_SOLUTION_BENEFITS_BENEFIT_ITEMS
       images: [STRAPI__COMPONENT_SOLUTION_BENEFITS_IMAGE]
     }
-    type STRAPI__COMPONENT_SOLUTION_BENEFITS_BENEFIT_ITEMS implements Node @dontInfer {
+    type STRAPI__COMPONENT_SOLUTION_BENEFITS_BENEFIT_ITEMS implements Node {
       strapi_json_value: JSON
     }
-    type STRAPI__COMPONENT_SOLUTION_BENEFITS_IMAGE implements Node @dontInfer {
+    type STRAPI__COMPONENT_SOLUTION_BENEFITS_IMAGE implements Node {
       alternativeText: String
       localFile: File
     }
@@ -859,7 +859,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       description: String
       highlightItems: STRAPI__COMPONENT_SOLUTION_HIGHLIGHTS_HIGHLIGHT_ITEMS
     }
-    type STRAPI__COMPONENT_SOLUTION_HIGHLIGHTS_HIGHLIGHT_ITEMS implements Node @dontInfer {
+    type STRAPI__COMPONENT_SOLUTION_HIGHLIGHTS_HIGHLIGHT_ITEMS implements Node {
       strapi_json_value: JSON
     }
 
@@ -870,7 +870,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       description: String
       keyFeatureItems: STRAPI__COMPONENT_SOLUTION_KEY_FEATURES_KEY_FEATURE_ITEMS
     }
-    type STRAPI__COMPONENT_SOLUTION_KEY_FEATURES_KEY_FEATURE_ITEMS implements Node @dontInfer {
+    type STRAPI__COMPONENT_SOLUTION_KEY_FEATURES_KEY_FEATURE_ITEMS implements Node {
       strapi_json_value: JSON
     }
 
@@ -881,7 +881,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       description: String
       capabilityItems: STRAPI__COMPONENT_SOLUTION_CAPABILITIES_CAPABILITY_ITEMS
     }
-    type STRAPI__COMPONENT_SOLUTION_CAPABILITIES_CAPABILITY_ITEMS implements Node @dontInfer {
+    type STRAPI__COMPONENT_SOLUTION_CAPABILITIES_CAPABILITY_ITEMS implements Node {
       strapi_json_value: JSON
     }
 
@@ -912,7 +912,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       Description: String
       Logo: STRAPI__COMPONENT_SOLUTION_CAROUSEL_SECTION_LOGO
     }
-    type STRAPI__COMPONENT_SOLUTION_CAROUSEL_SECTION_LOGO implements Node @dontInfer {
+    type STRAPI__COMPONENT_SOLUTION_CAROUSEL_SECTION_LOGO implements Node {
       alternativeText: String
       localFile: File
     }
@@ -923,7 +923,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       Description: String
       Hero: STRAPI__COMPONENT_SOLUTION_CAROUSEL_SECTION_HERO
     }
-    type STRAPI__COMPONENT_SOLUTION_CAROUSEL_SECTION_HERO implements Node @dontInfer {
+    type STRAPI__COMPONENT_SOLUTION_CAROUSEL_SECTION_HERO implements Node {
       alternativeText: String
       localFile: File
     }
@@ -939,7 +939,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       cardsTitle: STRAPI__COMPONENT_SHARED_SECTION_TITLE
       cardItems: STRAPI__COMPONENT_SOLUTION_GRAPHIC_SECTION_CARD_ITEMS
     }
-    type STRAPI__COMPONENT_SOLUTION_GRAPHIC_SECTION_CARD_ITEMS implements Node @dontInfer {
+    type STRAPI__COMPONENT_SOLUTION_GRAPHIC_SECTION_CARD_ITEMS implements Node {
       strapi_json_value: JSON
     }
 
@@ -966,7 +966,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       image: STRAPI__COMPONENT_SOLUTION_GRAPHIC_IMAGE
       subtitles: [STRAPI__COMPONENT_SOLUTION_GRAPHIC_SUBTITLE]
     }
-    type STRAPI__COMPONENT_SOLUTION_GRAPHIC_IMAGE implements Node @dontInfer {
+    type STRAPI__COMPONENT_SOLUTION_GRAPHIC_IMAGE implements Node {
       alternativeText: String
       localFile: File
     }
