@@ -821,7 +821,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     # ————————————————————————————
     # Testimonial block
     type StrapiSolutionTestimonial implements Node @dontInfer {
-      sectionTitle: STRAPI__COMPONENT_SHARED_SECTION_TITLE
+      section_title: STRAPI__COMPONENT_SHARED_SECTION_TITLE
       description: String
       quote: StrapiSolutionTestimonialQuote
     }
@@ -839,7 +839,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     # ————————————————————————————
     # Benefits block
     type StrapiSolutionBenefits implements Node @dontInfer {
-      sectionTitle: STRAPI__COMPONENT_SHARED_SECTION_TITLE
+      section_title: STRAPI__COMPONENT_SHARED_SECTION_TITLE
       description: String
       benefitItems: [StrapiSolutionBenefitsBenefitItem]
       images: [StrapiSolutionBenefitsImage]
@@ -855,7 +855,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     # ————————————————————————————
     # Highlights block
     type StrapiSolutionHighlights implements Node @dontInfer {
-      sectionTitle: STRAPI__COMPONENT_SHARED_SECTION_TITLE
+      section_title: STRAPI__COMPONENT_SHARED_SECTION_TITLE
       description: String
       highlightItems: [StrapiSolutionHighlightsHighlightItem]
     }
@@ -866,7 +866,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     # ————————————————————————————
     # Key Features block
     type StrapiSolutionKeyFeatures implements Node @dontInfer {
-      sectionTitle: STRAPI__COMPONENT_SHARED_SECTION_TITLE
+      section_title: STRAPI__COMPONENT_SHARED_SECTION_TITLE
       description: String
       keyFeatureItems: [StrapiSolutionKeyFeaturesItem]
     }
@@ -877,7 +877,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     # ————————————————————————————
     # Capabilities block
     type StrapiSolutionCapabilities implements Node @dontInfer {
-      sectionTitle: STRAPI__COMPONENT_SHARED_SECTION_TITLE
+      section_title: STRAPI__COMPONENT_SHARED_SECTION_TITLE
       description: String
       capabilityItems: [StrapiSolutionCapabilitiesItem]
     }
@@ -888,7 +888,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     # ————————————————————————————
     # One-title-three-cards block
     type StrapiSolutionOneTitleThreeCards implements Node @dontInfer {
-      sectionTitle: STRAPI__COMPONENT_SHARED_SECTION_TITLE
+      section_title: STRAPI__COMPONENT_SHARED_SECTION_TITLE
       description: String
       cardItems: [StrapiSolutionOneTitleThreeCardsCardItem]
     }
@@ -900,24 +900,24 @@ exports.createSchemaCustomization = ({ actions }) => {
     # ————————————————————————————
     # Carousel section block
     type STRAPI__COMPONENT_SOLUTION_CAROUSEL_SECTION implements Node @dontInfer {
-      sectionTitle: STRAPI__COMPONENT_SHARED_SECTION_TITLE
+      section_title: STRAPI__COMPONENT_SHARED_SECTION_TITLE
       description: String
       successStories: [StrapiSolutionCarouselSectionSuccessStory]
       blogPosts: [StrapiSolutionCarouselSectionBlogPost]
     }
     type StrapiSolutionCarouselSectionSuccessStory implements Node @dontInfer {
       id: ID
-      slug: String
-      title: String
-      description: String
-      hero: StrapiSolutionCarouselSectionHeroImage
+      Slug: String
+      Title: String
+      Description: String
+      Logo: StrapiSolutionCarouselSectionHeroImage
     }
     type StrapiSolutionCarouselSectionBlogPost implements Node @dontInfer {
       id: ID
-      slug: String
-      title: String
-      description: String
-      hero: StrapiSolutionCarouselSectionHeroImage
+      Slug: String
+      Title: String
+      Description: String
+      Hero: StrapiSolutionCarouselSectionHeroImage
     }
     type StrapiSolutionCarouselSectionHeroImage implements Node @dontInfer {
       alternativeText: String
@@ -928,7 +928,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     # Graphic sections block
     type STRAPI__COMPONENT_SOLUTION_GRAPHIC_SECTIONS implements Node @dontInfer {
       id: ID
-      sectionTitle: STRAPI__COMPONENT_SHARED_SECTION_TITLE
+      section_title: STRAPI__COMPONENT_SHARED_SECTION_TITLE
       description: String
       list: StrapiSolutionGraphicSectionsList
       graphic: StrapiSolutionGraphicSectionsGraphic
@@ -968,7 +968,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     # ————————————————————————————
     # Buttons section block
     type STRAPI__COMPONENT_SOLUTION_BUTTONS_SECTION implements Node @dontInfer {
-      sectionTitle: STRAPI__COMPONENT_SHARED_SECTION_TITLE
+      section_title: STRAPI__COMPONENT_SHARED_SECTION_TITLE
       description: String
       primaryButton: STRAPI__COMPONENT_SHARED_LINK
       secondaryButton: STRAPI__COMPONENT_SHARED_LINK
