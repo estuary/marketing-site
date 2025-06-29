@@ -779,6 +779,11 @@ exports.createSchemaCustomization = ({ actions }) => {
       urlOrPath: String
     }
 
+    type Image implements Node @dontInfer {
+      alternativeText: String
+      localFile: File
+    }
+
     # ----------------------------------------------------------------
     # Solution root type
     type StrapiSolution implements Node @dontInfer {
@@ -808,14 +813,10 @@ exports.createSchemaCustomization = ({ actions }) => {
     type STRAPI__COMPONENT_SOLUTION_HERO implements Node @dontInfer {
       title: String
       description: String
-      image: STRAPI__COMPONENT_SOLUTION_HERO_IMAGE
+      image: Image
       videoUrl: String
       primaryButton: STRAPI__COMPONENT_SHARED_LINK
       secondaryButton: STRAPI__COMPONENT_SHARED_LINK
-    }
-    type STRAPI__COMPONENT_SOLUTION_HERO_IMAGE implements Node @dontInfer {
-      alternativeText: String
-      localFile: File
     }
 
     # ----------------------------------------------------------------
@@ -828,12 +829,8 @@ exports.createSchemaCustomization = ({ actions }) => {
     type STRAPI__COMPONENT_SOLUTION_TESTIMONIAL_QUOTE implements Node @dontInfer {
       companyName: String
       successStoryUrl: String
-      companyLogo: STRAPI__COMPONENT_SOLUTION_TESTIMONIAL_QUOTE_COMPANY_LOGO
+      companyLogo: Image
       text: String
-    }
-    type STRAPI__COMPONENT_SOLUTION_TESTIMONIAL_QUOTE_COMPANY_LOGO implements Node @dontInfer {
-      alternativeText: String
-      localFile: File
     }
 
     # ----------------------------------------------------------------
@@ -842,11 +839,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       section_title: STRAPI__COMPONENT_SHARED_SECTION_TITLE
       description: String
       benefitItems: JSON
-      images: [STRAPI__COMPONENT_SOLUTION_BENEFITS_IMAGE]
-    }
-    type STRAPI__COMPONENT_SOLUTION_BENEFITS_IMAGE implements Node @dontInfer {
-      alternativeText: String
-      localFile: File
+      images: [Image]
     }
 
     # ----------------------------------------------------------------
@@ -892,6 +885,20 @@ exports.createSchemaCustomization = ({ actions }) => {
       description: String
       successStories: [StrapiCaseStudy]
       blogPosts: [StrapiBlogPost]
+    }
+    type StrapiCaseStudy implements Node @dontInfer {
+      id: ID
+      Slug: String
+      Title: String
+      Description: String
+      Logo: Image
+    }
+    type StrapiBlogPost implements Node @dontInfer {
+      id: ID
+      Slug: String
+      Title: String
+      Description: String
+      Hero: Image
     }
 
     # ----------------------------------------------------------------
