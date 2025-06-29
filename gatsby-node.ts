@@ -755,14 +755,10 @@ export const createPages: GatsbyNode['createPages'] = async ({
 // and query them all through a "side-channel" here, so that we can actually pass them through Gatsby's Sharp
 // transformer. Then we can just attach a much simpler resolver to `PostGraphile_Connector` that just
 // looks up that previously created and processed logo.
-// gatsby-node.js
-// gatsby-node.js
-// gatsby-node.js
-// gatsby-node.js
+
 exports.createSchemaCustomization = ({ actions }) => {
     const { createTypes } = actions;
     createTypes(`
-    # ————————————————————————————
     # Connector type
     type ConnectorLogo implements Node @dontInfer {
       connectorId: String!
@@ -770,8 +766,21 @@ exports.createSchemaCustomization = ({ actions }) => {
       logo: File!
     }
 
-    # ————————————————————————————
-    # Top-level Solution node
+    # ----------------------------------------------------------------
+    # Shared title type
+    type STRAPI__COMPONENT_SHARED_SECTION_TITLE implements Node @dontInfer {
+      highlightedText: String
+      normalText: String
+      normalTextComesFirst: Boolean
+    }
+
+    type STRAPI__COMPONENT_SHARED_LINK implements Node @dontInfer {
+      title: String
+      urlOrPath: String
+    }
+
+    # ----------------------------------------------------------------
+    # Solution types (all fields nullable)
     type StrapiSolution implements Node @dontInfer {
       slug: String
       metadata: StrapiSolutionMetadata
