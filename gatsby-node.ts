@@ -766,6 +766,14 @@ exports.createSchemaCustomization = ({ actions }) => {
       logo: File!
     }
 
+    # Interfaces
+    interface ImageFields {
+      alternativeText: String
+      localFile: File
+    }
+
+    interface JsonItemFields { strapi_json_value: JSON }
+
     # ----------------------------------------------------------------
     # Shared title type
     type STRAPI__COMPONENT_SHARED_SECTION_TITLE implements Node @dontInfer {
@@ -777,11 +785,6 @@ exports.createSchemaCustomization = ({ actions }) => {
     type STRAPI__COMPONENT_SHARED_LINK implements Node @dontInfer {
       title: String
       urlOrPath: String
-    }
-
-    type Image implements Node @dontInfer {
-      alternativeText: String
-      localFile: File
     }
 
     # ----------------------------------------------------------------
@@ -813,11 +816,13 @@ exports.createSchemaCustomization = ({ actions }) => {
     type STRAPI__COMPONENT_SOLUTION_HERO implements Node @dontInfer {
       title: String
       description: String
-      image: Image
+      image: STRAPI__COMPONENT_SOLUTION_HERO_IMAGE
       videoUrl: String
       primaryButton: STRAPI__COMPONENT_SHARED_LINK
       secondaryButton: STRAPI__COMPONENT_SHARED_LINK
     }
+    type STRAPI__COMPONENT_SOLUTION_HERO_IMAGE
+      implements Node & ImageFields @dontInfer {}
 
     # ----------------------------------------------------------------
     # Testimonial block
@@ -829,42 +834,54 @@ exports.createSchemaCustomization = ({ actions }) => {
     type STRAPI__COMPONENT_SOLUTION_TESTIMONIAL_QUOTE implements Node @dontInfer {
       companyName: String
       successStoryUrl: String
-      companyLogo: Image
+      companyLogo: STRAPI__COMPONENT_SOLUTION_TESTIMONIAL_QUOTE_COMPANY_LOGO
       text: String
     }
+    type STRAPI__COMPONENT_SOLUTION_TESTIMONIAL_QUOTE_COMPANY_LOGO
+      implements Node & ImageFields @dontInfer {}
 
     # ----------------------------------------------------------------
     # Benefits block
     type STRAPI__COMPONENT_SOLUTION_BENEFITS implements Node @dontInfer {
       section_title: STRAPI__COMPONENT_SHARED_SECTION_TITLE
       description: String
-      benefitItems: JSON
-      images: [Image]
+      benefitItems: STRAPI__COMPONENT_SOLUTION_BENEFITS_BENEFIT_ITEMS
+      images: [STRAPI__COMPONENT_SOLUTION_BENEFITS_IMAGE]
     }
+    type STRAPI__COMPONENT_SOLUTION_BENEFITS_BENEFIT_ITEMS
+      implements Node & JsonItemFields @dontInfer {}
+    type STRAPI__COMPONENT_SOLUTION_BENEFITS_IMAGE
+      implements Node & ImageFields @dontInfer {}
 
     # ----------------------------------------------------------------
     # Highlights block
     type STRAPI__COMPONENT_SOLUTION_HIGHLIGHTS implements Node @dontInfer {
       section_title: STRAPI__COMPONENT_SHARED_SECTION_TITLE
       description: String
-      highlightItems: JSON
+      highlightItems: STRAPI__COMPONENT_SOLUTION_HIGHLIGHTS_HIGHLIGHT_ITEMS
     }
+    type STRAPI__COMPONENT_SOLUTION_HIGHLIGHTS_HIGHLIGHT_ITEMS
+      implements Node & JsonItemFields @dontInfer {}
 
     # ----------------------------------------------------------------
     # Key Features block
     type STRAPI__COMPONENT_SOLUTION_KEY_FEATURES implements Node @dontInfer {
       section_title: STRAPI__COMPONENT_SHARED_SECTION_TITLE
       description: String
-      keyFeatureItems: JSON
+      keyFeatureItems: STRAPI__COMPONENT_SOLUTION_KEY_FEATURES_KEY_FEATURE_ITEMS
     }
+    type STRAPI__COMPONENT_SOLUTION_KEY_FEATURES_KEY_FEATURE_ITEMS
+      implements Node & JsonItemFields @dontInfer {}
 
     # ----------------------------------------------------------------
     # Capabilities block
     type STRAPI__COMPONENT_SOLUTION_CAPABILITIES implements Node @dontInfer {
       section_title: STRAPI__COMPONENT_SHARED_SECTION_TITLE
       description: String
-      capabilityItems: JSON
+      capabilityItems: STRAPI__COMPONENT_SOLUTION_CAPABILITIES_CAPABILITY_ITEMS
     }
+    type STRAPI__COMPONENT_SOLUTION_CAPABILITIES_CAPABILITY_ITEMS
+      implements Node & JsonItemFields @dontInfer {}
 
     # ----------------------------------------------------------------
     # One-title-three-cards block
@@ -891,15 +908,19 @@ exports.createSchemaCustomization = ({ actions }) => {
       Slug: String
       Title: String
       Description: String
-      Logo: Image
+      Logo: STRAPI__COMPONENT_SOLUTION_CAROUSEL_SECTION_LOGO
     }
+    type STRAPI__COMPONENT_SOLUTION_CAROUSEL_SECTION_LOGO
+      implements Node & ImageFields @dontInfer {}
     type StrapiBlogPost implements Node @dontInfer {
       id: ID
       Slug: String
       Title: String
       Description: String
-      Hero: Image
+      Hero: STRAPI__COMPONENT_SOLUTION_CAROUSEL_SECTION_HERO
     }
+    type STRAPI__COMPONENT_SOLUTION_CAROUSEL_SECTION_HERO
+      implements Node & ImageFields @dontInfer {}
 
     # ----------------------------------------------------------------
     # Graphic sections block
@@ -910,7 +931,38 @@ exports.createSchemaCustomization = ({ actions }) => {
       list: STRAPI__COMPONENT_SOLUTION_LIST
       graphic: STRAPI__COMPONENT_SOLUTION_GRAPHIC
       cardsTitle: STRAPI__COMPONENT_SHARED_SECTION_TITLE
-      cardItems: JSON
+      cardItems: STRAPI__COMPONENT_SOLUTION_GRAPHIC_SECTION_CARD_ITEMS
+    }
+    type STRAPI__COMPONENT_SOLUTION_GRAPHIC_SECTION_CARD_ITEMS
+      implements Node & JsonItemFields @dontInfer {}
+
+    # ----------------------------------------------------------------
+    # List component
+    type STRAPI__COMPONENT_SOLUTION_LIST implements Node @dontInfer {
+      title: String
+      items: [STRAPI__COMPONENT_SOLUTION_LIST_ITEM]
+    }
+    type STRAPI__COMPONENT_SOLUTION_LIST_ITEM implements Node @dontInfer {
+      text: STRAPI__COMPONENT_SOLUTION_LIST_ITEM_TEXT
+    }
+    type STRAPI__COMPONENT_SOLUTION_LIST_ITEM_TEXT implements Node @dontInfer {
+      data: [STRAPI__COMPONENT_SOLUTION_LIST_ITEM_TEXT_DATA]
+    }
+    type STRAPI__COMPONENT_SOLUTION_LIST_ITEM_TEXT_DATA implements Node @dontInfer {
+      text: String
+    }
+
+    # ----------------------------------------------------------------
+    # Graphic component
+    type STRAPI__COMPONENT_SOLUTION_GRAPHIC implements Node @dontInfer {
+      title: String
+      image: STRAPI__COMPONENT_SOLUTION_GRAPHIC_IMAGE
+      subtitles: [STRAPI__COMPONENT_SOLUTION_GRAPHIC_SUBTITLE]
+    }
+    type STRAPI__COMPONENT_SOLUTION_GRAPHIC_IMAGE implements Node & ImageFields @dontInfer {}
+    type STRAPI__COMPONENT_SOLUTION_GRAPHIC_SUBTITLE implements Node @dontInfer {
+      name: String
+      color: String
     }
 
     # ----------------------------------------------------------------
