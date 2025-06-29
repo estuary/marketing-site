@@ -767,11 +767,6 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
 
     # Interfaces
-    interface ImageFields {
-      alternativeText: String
-      localFile: File
-    }
-
     interface JsonItemFields { strapi_json_value: JSON }
 
     # ----------------------------------------------------------------
@@ -821,7 +816,10 @@ exports.createSchemaCustomization = ({ actions }) => {
       primaryButton: STRAPI__COMPONENT_SHARED_LINK
       secondaryButton: STRAPI__COMPONENT_SHARED_LINK
     }
-    type STRAPI__COMPONENT_SOLUTION_HERO_IMAGE implements Node & ImageFields @dontInfer {}
+    type STRAPI__COMPONENT_SOLUTION_HERO_IMAGE implements Node @dontInfer {
+      alternativeText: String
+      localFile: File
+    }
 
     # ----------------------------------------------------------------
     # Testimonial block
@@ -836,7 +834,10 @@ exports.createSchemaCustomization = ({ actions }) => {
       companyLogo: STRAPI__COMPONENT_SOLUTION_TESTIMONIAL_QUOTE_COMPANY_LOGO
       text: String
     }
-    type STRAPI__COMPONENT_SOLUTION_TESTIMONIAL_QUOTE_COMPANY_LOGO implements Node & ImageFields @dontInfer {}
+    type STRAPI__COMPONENT_SOLUTION_TESTIMONIAL_QUOTE_COMPANY_LOGO implements Node @dontInfer {
+      alternativeText: String
+      localFile: File
+    }
 
     # ----------------------------------------------------------------
     # Benefits block
@@ -847,7 +848,10 @@ exports.createSchemaCustomization = ({ actions }) => {
       images: [STRAPI__COMPONENT_SOLUTION_BENEFITS_IMAGE]
     }
     type STRAPI__COMPONENT_SOLUTION_BENEFITS_BENEFIT_ITEMS implements Node & JsonItemFields @dontInfer {}
-    type STRAPI__COMPONENT_SOLUTION_BENEFITS_IMAGE implements Node & ImageFields @dontInfer {}
+    type STRAPI__COMPONENT_SOLUTION_BENEFITS_IMAGE implements Node @dontInfer {
+      alternativeText: String
+      localFile: File
+    }
 
     # ----------------------------------------------------------------
     # Highlights block
@@ -903,7 +907,10 @@ exports.createSchemaCustomization = ({ actions }) => {
       Description: String
       Logo: STRAPI__COMPONENT_SOLUTION_CAROUSEL_SECTION_LOGO
     }
-    type STRAPI__COMPONENT_SOLUTION_CAROUSEL_SECTION_LOGO implements Node & ImageFields @dontInfer {}
+    type STRAPI__COMPONENT_SOLUTION_CAROUSEL_SECTION_LOGO implements Node @dontInfer {
+      alternativeText: String
+      localFile: File
+    }
     type StrapiBlogPost implements Node @dontInfer {
       id: ID
       Slug: String
@@ -911,7 +918,10 @@ exports.createSchemaCustomization = ({ actions }) => {
       Description: String
       Hero: STRAPI__COMPONENT_SOLUTION_CAROUSEL_SECTION_HERO
     }
-    type STRAPI__COMPONENT_SOLUTION_CAROUSEL_SECTION_HERO implements Node & ImageFields @dontInfer {}
+    type STRAPI__COMPONENT_SOLUTION_CAROUSEL_SECTION_HERO implements Node @dontInfer {
+      alternativeText: String
+      localFile: File
+    }
 
     # ----------------------------------------------------------------
     # Graphic sections block
@@ -949,7 +959,10 @@ exports.createSchemaCustomization = ({ actions }) => {
       image: STRAPI__COMPONENT_SOLUTION_GRAPHIC_IMAGE
       subtitles: [STRAPI__COMPONENT_SOLUTION_GRAPHIC_SUBTITLE]
     }
-    type STRAPI__COMPONENT_SOLUTION_GRAPHIC_IMAGE implements Node & ImageFields @dontInfer {}
+    type STRAPI__COMPONENT_SOLUTION_GRAPHIC_IMAGE implements Node @dontInfer {
+      alternativeText: String
+      localFile: File
+    }
     type STRAPI__COMPONENT_SOLUTION_GRAPHIC_SUBTITLE implements Node @dontInfer {
       name: String
       color: String
