@@ -755,17 +755,22 @@ export const createPages: GatsbyNode['createPages'] = async ({
 // and query them all through a "side-channel" here, so that we can actually pass them through Gatsby's Sharp
 // transformer. Then we can just attach a much simpler resolver to `PostGraphile_Connector` that just
 // looks up that previously created and processed logo.
-exports.createSchemaCustomization = ({ actions }) => {
-    const { createTypes } = actions;
-    const typeDefs = `
-      type ConnectorLogo implements Node @dontInfer {
-        connectorId: String!
-        logoUrl: String!
-        logo: File!
-      }
-    `;
-    createTypes(typeDefs);
-};
+export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] =
+    ({ actions }) => {
+        const { createTypes } = actions;
+        const typeDefs = `
+        type ConnectorLogo implements Node @dontInfer {
+            connectorId: String!
+            logoUrl: String!
+            logo: File!
+        }
+
+        type STRAPI__COMPONENT_SOLUTION_CAROUSEL_SECTION implements Node @dontInfer {
+            description: String
+        }
+  `;
+        createTypes(typeDefs);
+    };
 
 export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
     actions: { createNode, touchNode },

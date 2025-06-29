@@ -18,10 +18,10 @@ const NO_MATCH_REGEX = '^/__no__match__$/';
 const isProd = process.env.NODE_ENV === 'production';
 
 const strapiConfig = {
-    apiURL: !isProd
+    apiURL: isProd
         ? process.env.STRAPI_API_URL
         : process.env.STRAPI_API_URL_DEV,
-    accessToken: !isProd
+    accessToken: isProd
         ? process.env.STRAPI_TOKEN
         : process.env.STRAPI_TOKEN_DEV,
     maxParallelRequests: 3,
