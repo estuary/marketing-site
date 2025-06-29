@@ -757,9 +757,19 @@ export const createPages: GatsbyNode['createPages'] = async ({
 // looks up that previously created and processed logo.
 // gatsby-node.js
 // gatsby-node.js
+// gatsby-node.js
+// gatsby-node.js
 exports.createSchemaCustomization = ({ actions }) => {
     const { createTypes } = actions;
     createTypes(`
+    # ————————————————————————————
+    # Connector type
+    type ConnectorLogo implements Node @dontInfer {
+      connectorId: String!
+      logoUrl: String!
+      logo: File!
+    }
+
     # ————————————————————————————
     # Top-level Solution node
     type StrapiSolution implements Node @dontInfer {
@@ -776,9 +786,6 @@ exports.createSchemaCustomization = ({ actions }) => {
       graphicSections: [STRAPI__COMPONENT_SOLUTION_GRAPHIC_SECTIONS]
       buttonsSection: STRAPI__COMPONENT_SOLUTION_BUTTONS_SECTION
     }
-
-    # allow all JSON dumps
-    scalar JSON
 
     # ————————————————————————————
     # Metadata block
