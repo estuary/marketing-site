@@ -7,6 +7,8 @@ interface ListProps {
     items: SolutionSectionListItem[];
 }
 
+const iconSize = 10;
+
 const List = ({ title, items }: ListProps) => {
     return (
         <div className={container}>
@@ -15,7 +17,11 @@ const List = ({ title, items }: ListProps) => {
                 {items.map((item, index) => (
                     <li key={`solution-section-list-item-${index + 1}`}>
                         <div className={iconWrapper}>
-                            <Checkmark color="var(--green)" />
+                            <Checkmark
+                                color="var(--green)"
+                                width={iconSize}
+                                height={iconSize}
+                            />
                         </div>
                         <div
                             dangerouslySetInnerHTML={{
