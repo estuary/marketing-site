@@ -1,0 +1,35 @@
+.container {
+  gap: 40px;
+
+  h2 {
+    margin: auto;
+    text-align: center;
+  }
+
+  p {
+    margin: 24px 0 0;
+    text-align: center;
+  }
+}
+
+.buttonsWrapeper {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  a {
+    width: 100%;
+    max-width: 289px;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+
+    a {
+      max-width: 100%;
+    }
+  }
+}

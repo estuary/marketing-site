@@ -4,6 +4,7 @@ import Container from '../../../Container';
 import { sectionText } from '../../styles.module.less';
 import { CapabilitiesSectionContent } from '../../../../templates/solutions/shared';
 import { SectionTheme } from '../shared';
+import SectionTitle from '../../SectionTitle';
 import Card from './Card';
 import { wrapper, box, darkBox } from './styles.module.less';
 
@@ -20,10 +21,7 @@ const Capabilities = ({ data, isDarkTheme = false }: CapabilitiesProps) => {
                 isReverseColumnOnMobile
             >
                 <div>
-                    <h2>
-                        <span>{data.sectionTitle.highlightedText}</span>{' '}
-                        {data.sectionTitle.normalText}
-                    </h2>
+                    <SectionTitle sectionTitle={data.sectionTitle} />
                     <p>{data.description}</p>
                 </div>
                 <div>

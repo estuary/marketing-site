@@ -3,6 +3,7 @@ import Card from '../../Card';
 import { sectionText } from '../../styles.module.less';
 import { BenefitsSectionContent } from '../../../../templates/solutions/shared';
 import { SectionTheme } from '../shared';
+import SectionTitle from '../../SectionTitle';
 import { wrapper } from './styles.module.less';
 
 interface BenefitsProps extends SectionTheme {
@@ -14,10 +15,7 @@ const Benefits = ({ data, isDarkTheme = false }: BenefitsProps) => {
         <section>
             <Container className={wrapper} isVertical isDarkTheme={isDarkTheme}>
                 <div className={sectionText}>
-                    <h2>
-                        <span>{data.sectionTitle.highlightedText}</span>{' '}
-                        {data.sectionTitle.normalText}
-                    </h2>
+                    <SectionTitle sectionTitle={data.sectionTitle} />
                     <p>{data.description}</p>
                 </div>
                 <ul>

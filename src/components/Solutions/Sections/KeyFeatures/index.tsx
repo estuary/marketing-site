@@ -6,6 +6,7 @@ import KeyFeature2 from '../../../../svgs/use-case-solutions-template/key-featur
 import KeyFeature3 from '../../../../svgs/use-case-solutions-template/key-features/key-feature-3.svg';
 import { KeyFeaturesSectionContent } from '../../../../templates/solutions/shared';
 import { SectionTheme } from '../shared';
+import SectionTitle from '../../SectionTitle';
 import Card from './Card';
 import { grid, darkGrid, atLeastOneKeyFeature } from './styles.module.less';
 
@@ -28,10 +29,7 @@ const KeyFeatures = ({ data, isDarkTheme = false }: KeyFeaturesProps) => {
                 )}
             >
                 <div className={sectionText}>
-                    <h2>
-                        <span>{data.sectionTitle.highlightedText}</span>{' '}
-                        {data.sectionTitle.normalText}
-                    </h2>
+                    <SectionTitle sectionTitle={data.sectionTitle} />
                     <p>{data.description}</p>
                 </div>
                 {data.keyFeatureItems.strapi_json_value[0] ? (

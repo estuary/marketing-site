@@ -116,4 +116,11 @@ export const technologySolutionItems: MenuCardItem[] = [
         Image: () => <AdaptedNoCodeIcon />,
         linkId: getMenuLinkId('kafka'),
     },
+    {
+        name: 'Snowflake',
+        to: `${urlPrefix}/technology/real-time-snowflake-streaming/`,
+        description: '',
+        Image: () => <AdaptedNoCodeIcon />,
+        linkId: getMenuLinkId('snowflake'),
+    },
 ];

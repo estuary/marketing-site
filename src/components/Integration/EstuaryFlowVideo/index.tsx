@@ -16,7 +16,7 @@ const EstuaryFlowVideo = () => {
                     See how to build end-to-end pipelines using no-code
                     connectors in minutes. Estuary Flow does the rest.
                 </p>
-                <FlowDemoVideo />
+                <FlowDemoVideo pageId="integration-page" />
                 <div className={buttonsWrapper}>
                     <OutboundLinkFilled
                         href={dashboardRegisterUrl}
