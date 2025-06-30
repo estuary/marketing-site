@@ -759,23 +759,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
 exports.createSchemaCustomization = ({ actions }) => {
     const { createTypes } = actions;
 
-    createTypes(`
-    # Make every top-level solution field optional
-    type StrapiSolution implements Node {
-      slug: String
-      metadata: STRAPI__COMPONENT_SOLUTION_METADATA
-      hero: STRAPI__COMPONENT_SOLUTION_HERO
-      testimonial: STRAPI__COMPONENT_SOLUTION_TESTIMONIAL
-      benefits: STRAPI__COMPONENT_SOLUTION_BENEFITS
-      highlights: STRAPI__COMPONENT_SOLUTION_HIGHLIGHTS
-      keyFeatures: STRAPI__COMPONENT_SOLUTION_KEY_FEATURES
-      capabilities: STRAPI__COMPONENT_SOLUTION_CAPABILITIES
-      oneTitleThreeCards: STRAPI__COMPONENT_SOLUTION_ONE_TITLE_THREE_CARDS
-      carouselSection: STRAPI__COMPONENT_SOLUTION_CAROUSEL_SECTION
-      graphicSections: [STRAPI__COMPONENT_SOLUTION_GRAPHIC_SECTION]
-      buttonsSection: STRAPI__COMPONENT_SOLUTION_BUTTONS_SECTION
-    }
-    
+    createTypes(` 
     type ConnectorLogo implements Node @dontInfer {
       connectorId: String!
       logoUrl: String!
