@@ -169,19 +169,13 @@ export const pageQuery = graphql`
                     normalText
                     normalTextComesFirst
                 }
-                description
                 cardItems {
                     title
                     description
                 }
             }
             carouselSection {
-                sectionTitle: section_title {
-                    highlightedText
-                    normalText
-                    normalTextComesFirst
-                }
-                description
+                title
                 successStories {
                     id
                     slug: Slug

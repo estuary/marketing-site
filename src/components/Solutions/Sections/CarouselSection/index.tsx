@@ -3,14 +3,12 @@ import clsx from 'clsx';
 import { useMediaQuery } from '@mui/material';
 import { CarouselSectionContent } from '../../../../templates/solutions/shared';
 import Container from '../../../Container';
-import SectionTitle from '../../SectionTitle';
 import { sectionText } from '../../styles.module.less';
 import Carousel from '../../../Carousel';
 import Card from '../../../Grid/Card';
 import { getSlugifiedText } from '../../../../../shared';
 import {
     container,
-    header,
     slideCard,
     carousel,
     cardsList,
@@ -75,10 +73,7 @@ const CarouselSection = ({ data }: CarouselSectionProps) => {
                 className={clsx(sectionText, container)}
                 isDarkTheme
             >
-                <div className={header}>
-                    <SectionTitle sectionTitle={data.sectionTitle} />
-                    {data.description ? <p>{data.description}</p> : null}
-                </div>
+                <h2>{data.title}</h2>
 
                 {isMobile ? (
                     <div className={cardsList}>{renderCards()}</div>

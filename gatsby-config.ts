@@ -266,7 +266,6 @@ const strapiConfig = {
                                     normalTextComesFirst: '*',
                                 },
                             },
-                            'description': '*',
                             'cardItems': {
                                 populate: {
                                     title: '*',
@@ -277,16 +276,9 @@ const strapiConfig = {
                     },
                     carouselSection: {
                         populate: {
-                            'section-title': {
-                                populate: {
-                                    highlightedText: '*',
-                                    normalText: '*',
-                                    normalTextComesFirst: '*',
-                                },
-                            },
-                            'description': '*',
-                            'successStories': '*',
-                            'blogPosts': '*',
+                            title: '*',
+                            successStories: '*',
+                            blogPosts: '*',
                         },
                     },
                     graphicSections: {

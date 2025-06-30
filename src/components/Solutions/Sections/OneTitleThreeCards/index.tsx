@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { sectionText } from '../../styles.module.less';
 import { OneTitleThreeCardsSectionContent } from '../../../../templates/solutions/shared';
 import Container from '../../../Container';
@@ -12,11 +13,8 @@ interface OneTitleThreeCardsProps {
 const OneTitleThreeCards = ({ data }: OneTitleThreeCardsProps) => {
     return (
         <section>
-            <Container isVertical className={container}>
-                <div className={sectionText}>
-                    <SectionTitle sectionTitle={data.sectionTitle} />
-                    {data.description ? <p>{data.description}</p> : null}
-                </div>
+            <Container isVertical className={clsx(sectionText, container)}>
+                <SectionTitle sectionTitle={data.sectionTitle} />
                 <ul>
                     {data.cardItems[0] ? (
                         <Card

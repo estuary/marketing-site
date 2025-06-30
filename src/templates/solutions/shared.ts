@@ -41,14 +41,16 @@ export interface KeyFeaturesSectionContent extends SectionText {
     keyFeatureItems: StrapiJsonValue;
 }
 
-export interface OneTitleThreeCardsSectionContent extends SectionText {
+export interface OneTitleThreeCardsSectionContent {
+    sectionTitle: SectionTitle;
     cardItems: {
         title: string;
         description: string;
     }[];
 }
 
-export interface CarouselSectionContent extends SectionText {
+export interface CarouselSectionContent {
+    title: string;
     successStories?: {
         id: string;
         slug: string;
