@@ -1,5 +1,6 @@
 import Checkmark from '../../../svgs/checkmark.svg';
 import { SolutionSectionListItem } from '../../../templates/solutions/shared';
+import { ProcessedPost } from '../../BlogPostProcessor';
 import { container, iconWrapper } from './styles.module.less';
 
 interface ListProps {
@@ -23,11 +24,7 @@ const List = ({ title, items }: ListProps) => {
                                 height={iconSize}
                             />
                         </div>
-                        <div
-                            dangerouslySetInnerHTML={{
-                                __html: item.text.data.text,
-                            }}
-                        />
+                        <ProcessedPost body={item.text.data.text} />
                     </li>
                 ))}
             </ul>
