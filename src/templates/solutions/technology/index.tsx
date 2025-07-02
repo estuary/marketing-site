@@ -4,7 +4,7 @@ import Highlights from '../../../components/Solutions/Sections/Highlights';
 import Benefits from '../../../components/Solutions/Sections/Benefits';
 import Capabilities from '../../../components/Solutions/Sections/Capabilities';
 import KeyFeatures from '../../../components/Solutions/Sections/KeyFeatures';
-import { SolutionTemplateProps } from '../shared';
+import { checkSnowflakeSolution, SolutionTemplateProps } from '../shared';
 import SolutionPageLayout from '../solution-page-layout';
 import Testimonial from '../../../components/Solutions/Sections/Testimonial';
 import OneTitleThreeCards from '../../../components/Solutions/Sections/OneTitleThreeCards';
@@ -13,13 +13,16 @@ import GraphicSection from '../../../components/Solutions/Sections/GraphicSectio
 import ButtonsSection from '../../../components/Solutions/Sections/ButtonsSection';
 
 const TechnologySolutions = ({ data: { solution } }: SolutionTemplateProps) => {
+    const isSnowflakeSolution = checkSnowflakeSolution(solution.slug);
+
     return (
         <SolutionPageLayout solution={solution}>
-            {solution.slug.includes(
-                '/technology/real-time-snowflake-streaming'
-            ) ? (
+            {isSnowflakeSolution ? (
                 <>
-                    <OneTitleThreeCards data={solution.oneTitleThreeCards} />
+                    <OneTitleThreeCards
+                        data={solution.oneTitleThreeCards}
+                        isSnowflakeSolution={isSnowflakeSolution}
+                    />
                     <CarouselSection data={solution.carouselSection} />
                     <GraphicSection data={solution.graphicSections[0]} />
                     <GraphicSection
@@ -52,6 +55,10 @@ export const Head = ({ data: { solution } }: SolutionTemplateProps) => {
         <Seo
             title={solution.metadata.title}
             description={solution.metadata.description}
+            image={
+                solution.metadata.image?.localFile.childImageSharp
+                    ?.gatsbyImageData.images.fallback?.src
+            }
         />
     );
 };
@@ -65,6 +72,13 @@ export const pageQuery = graphql`
             metadata {
                 title
                 description
+                image {
+                    localFile {
+                        childImageSharp {
+                            gatsbyImageData(quality: 100, placeholder: BLURRED)
+                        }
+                    }
+                }
             }
             hero {
                 title

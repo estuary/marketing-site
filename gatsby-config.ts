@@ -140,6 +140,9 @@ const strapiConfig = {
                         populate: {
                             title: '*',
                             description: '*',
+                            image: {
+                                populate: '*',
+                            },
                         },
                     },
                     hero: {

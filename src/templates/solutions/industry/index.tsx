@@ -25,6 +25,10 @@ export const Head = ({ data: { solution } }: SolutionTemplateProps) => {
         <Seo
             title={solution.metadata.title}
             description={solution.metadata.description}
+            image={
+                solution.metadata.image?.localFile.childImageSharp
+                    ?.gatsbyImageData.images.fallback?.src
+            }
         />
     );
 };
@@ -38,6 +42,13 @@ export const pageQuery = graphql`
             metadata {
                 title
                 description
+                image {
+                    localFile {
+                        childImageSharp {
+                            gatsbyImageData(quality: 100, placeholder: BLURRED)
+                        }
+                    }
+                }
             }
             hero {
                 title
