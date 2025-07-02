@@ -1,5 +1,4 @@
 import { graphql } from 'gatsby';
-import Seo from '../../../components/seo';
 import Highlights from '../../../components/Solutions/Sections/Highlights';
 import Benefits from '../../../components/Solutions/Sections/Benefits';
 import Capabilities from '../../../components/Solutions/Sections/Capabilities';
@@ -7,6 +6,7 @@ import KeyFeatures from '../../../components/Solutions/Sections/KeyFeatures';
 import { SolutionTemplateProps } from '../shared';
 import SolutionPageLayout from '../solution-page-layout';
 import Testimonial from '../../../components/Solutions/Sections/Testimonial';
+import SolutionTemplatePageHead from '../Head';
 
 const IndustrySolutions = ({ data: { solution } }: SolutionTemplateProps) => {
     return (
@@ -20,23 +20,17 @@ const IndustrySolutions = ({ data: { solution } }: SolutionTemplateProps) => {
     );
 };
 
-export const Head = ({ data: { solution } }: SolutionTemplateProps) => {
-    return (
-        <Seo
-            title={solution.metadata.title}
-            description={solution.metadata.description}
-            image={
-                solution.metadata.image?.localFile.childImageSharp
-                    ?.gatsbyImageData.images.fallback?.src
-            }
-        />
-    );
-};
+export const Head = SolutionTemplatePageHead;
 
 export default IndustrySolutions;
 
 export const pageQuery = graphql`
     query GetIndustrySolution($id: String!) {
+        site {
+            siteMetadata {
+                siteUrl
+            }
+        }
         solution: strapiSolution(id: { eq: $id }) {
             slug
             metadata {

@@ -134,6 +134,12 @@ export interface TemplatePageProps {
 
 export interface SolutionTemplateProps {
     data: {
+        site: {
+            siteMetadata: {
+                siteName: string;
+                siteUrl: string;
+            };
+        };
         solution: TemplatePageProps;
     };
 }

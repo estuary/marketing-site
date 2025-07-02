@@ -1,5 +1,4 @@
 import { graphql } from 'gatsby';
-import Seo from '../../../components/seo';
 import Highlights from '../../../components/Solutions/Sections/Highlights';
 import Benefits from '../../../components/Solutions/Sections/Benefits';
 import Capabilities from '../../../components/Solutions/Sections/Capabilities';
@@ -11,6 +10,7 @@ import OneTitleThreeCards from '../../../components/Solutions/Sections/OneTitleT
 import CarouselSection from '../../../components/Solutions/Sections/CarouselSection';
 import GraphicSection from '../../../components/Solutions/Sections/GraphicSection';
 import ButtonsSection from '../../../components/Solutions/Sections/ButtonsSection';
+import SolutionTemplatePageHead from '../Head';
 
 const TechnologySolutions = ({ data: { solution } }: SolutionTemplateProps) => {
     const isSnowflakeSolution = checkSnowflakeSolution(solution.slug);
@@ -50,23 +50,17 @@ const TechnologySolutions = ({ data: { solution } }: SolutionTemplateProps) => {
     );
 };
 
-export const Head = ({ data: { solution } }: SolutionTemplateProps) => {
-    return (
-        <Seo
-            title={solution.metadata.title}
-            description={solution.metadata.description}
-            image={
-                solution.metadata.image?.localFile.childImageSharp
-                    ?.gatsbyImageData.images.fallback?.src
-            }
-        />
-    );
-};
+export const Head = SolutionTemplatePageHead;
 
 export default TechnologySolutions;
 
 export const pageQuery = graphql`
     query GetTechnologySolution($id: String!) {
+        site {
+            siteMetadata {
+                siteUrl
+            }
+        }
         solution: strapiSolution(id: { eq: $id }) {
             slug
             metadata {
