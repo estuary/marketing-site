@@ -1,70 +1,40 @@
 import React, { useMemo } from 'react';
 import clsx from 'clsx';
-import { useMediaQuery } from '@mui/material';
 import { CarouselSectionContent } from '../../../../templates/solutions/shared';
 import Container from '../../../Container';
 import { sectionText } from '../../styles.module.less';
 import Carousel from '../../../Carousel';
 import Card from '../../../Grid/Card';
 import { getSlugifiedText } from '../../../../../shared';
-import {
-    container,
-    slideCard,
-    carousel,
-    cardsList,
-} from './styles.module.less';
+import { container, slideCard, carousel } from './styles.module.less';
 
-const CARD_TYPE = {
+const cardType = {
     successStory: 'Success story',
-    article: 'Article',
-} as const;
-
-type CardItem = {
-    id: string;
-    title: string;
-    slug: string;
-    type: (typeof CARD_TYPE)[keyof typeof CARD_TYPE];
+    article: 'article',
 };
 
 interface CarouselSectionProps {
     data: CarouselSectionContent;
 }
 
-const CarouselSection = ({ data }: CarouselSectionProps) => {
-    const isMobile = useMediaQuery('(max-width:768px)');
-
-    const items = useMemo<CardItem[]>(() => {
-        const stories = data.successStories ?? [];
-        const posts = data.blogPosts ?? [];
+const CarouselSection: React.FC<CarouselSectionProps> = ({ data }) => {
+    const carouselItems = useMemo(() => {
+        const successStories = data.successStories ?? [];
+        const blogPosts = data.blogPosts ?? [];
 
         return [
-            ...stories.map(({ id, slug, ...rest }) => ({
-                id,
+            ...successStories.map(({ slug, ...rest }) => ({
                 ...rest,
                 slug: `/success-stories/${slug}/`,
-                type: CARD_TYPE.successStory,
+                type: cardType.successStory,
             })),
-            ...posts.map(({ id, slug, ...rest }) => ({
-                id,
+            ...blogPosts.map(({ slug, ...rest }) => ({
                 ...rest,
                 slug: `/blog/${slug}/`,
-                type: CARD_TYPE.article,
+                type: cardType.article,
             })),
         ];
     }, [data.successStories, data.blogPosts]);
-
-    const renderCards = () =>
-        items.map((item) => (
-            <Card
-                key={item.id}
-                data={item}
-                footerTag={item.type}
-                linkId={`${getSlugifiedText(item.title)}-popular-article-solution-page`}
-                target="_blank"
-                containerClassName={slideCard}
-                hasImgBackground={item.type === CARD_TYPE.successStory}
-            />
-        ));
 
     return (
         <section>
@@ -75,21 +45,29 @@ const CarouselSection = ({ data }: CarouselSectionProps) => {
             >
                 <h2>{data.title}</h2>
 
-                {isMobile ? (
-                    <div className={cardsList}>{renderCards()}</div>
-                ) : (
-                    <Carousel
-                        hasArrow
-                        hasMultipleItemsSlide
-                        aria-label="Successes and resources carousel"
-                        options={{ align: 'start' }}
-                        slideSize="30%"
-                        slideGap="32px"
-                        className={carousel}
-                    >
-                        {renderCards()}
-                    </Carousel>
-                )}
+                <Carousel
+                    hasArrow
+                    hasMultipleItemsSlide
+                    aria-label="Successes and resources carousel"
+                    options={{ align: 'start' }}
+                    slideSize="30%"
+                    slideGap="32px"
+                    className={carousel}
+                >
+                    {carouselItems.map((item) => (
+                        <Card
+                            key={item.id}
+                            data={item}
+                            footerTag={item.type}
+                            linkId={`${getSlugifiedText(item.title)}-popular-article/solution-page`}
+                            target="_blank"
+                            containerClassName={slideCard}
+                            hasImgBackground={
+                                item.type === cardType.successStory
+                            }
+                        />
+                    ))}
+                </Carousel>
             </Container>
         </section>
     );
