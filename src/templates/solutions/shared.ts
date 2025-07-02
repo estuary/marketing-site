@@ -1,4 +1,4 @@
-import { ImageData } from '../../../shared';
+import { ImageData, ImageType } from '../../../shared';
 
 export interface SectionTitle {
     highlightedText: string;
@@ -109,6 +109,9 @@ export interface TemplatePageProps {
     metadata: {
         title: string;
         description: string;
+        image?: {
+            localFile: ImageType;
+        };
     };
     hero: {
         title: string;
@@ -134,3 +137,9 @@ export interface SolutionTemplateProps {
         solution: TemplatePageProps;
     };
 }
+
+const snowflakeSolutionSlugInStrapi =
+    '/technology/real-time-snowflake-streaming';
+
+export const checkSnowflakeSolution = (slug: string) =>
+    slug.includes(snowflakeSolutionSlugInStrapi);

@@ -1,20 +1,40 @@
 import clsx from 'clsx';
+import { StaticImage } from 'gatsby-plugin-image';
 import { sectionText } from '../../styles.module.less';
 import { OneTitleThreeCardsSectionContent } from '../../../../templates/solutions/shared';
 import Container from '../../../Container';
 import SectionTitle from '../../SectionTitle';
 import Card from './Card';
-import { container } from './styles.module.less';
+import { container, snowflakeBadgeWrapper, header } from './styles.module.less';
 
 interface OneTitleThreeCardsProps {
     data: OneTitleThreeCardsSectionContent;
+    isSnowflakeSolution?: boolean;
 }
 
-const OneTitleThreeCards = ({ data }: OneTitleThreeCardsProps) => {
+const OneTitleThreeCards = ({
+    data,
+    isSnowflakeSolution = false,
+}: OneTitleThreeCardsProps) => {
     return (
         <section>
             <Container isVertical className={clsx(sectionText, container)}>
-                <SectionTitle sectionTitle={data.sectionTitle} />
+                <div className={header}>
+                    {isSnowflakeSolution ? (
+                        <div className={snowflakeBadgeWrapper}>
+                            <StaticImage
+                                src="../../../../images/trusted-partner-badges/ai-data-cloud-products-snowflake-partner.png"
+                                alt="AI data-cloud products partner"
+                                placeholder="blurred"
+                                quality={100}
+                                loading="eager"
+                                width={100}
+                                height={100}
+                            />
+                        </div>
+                    ) : null}
+                    <SectionTitle sectionTitle={data.sectionTitle} />
+                </div>
                 <ul>
                     {data.cardItems[0] ? (
                         <Card
