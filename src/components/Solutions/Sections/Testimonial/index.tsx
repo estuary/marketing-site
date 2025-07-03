@@ -4,6 +4,7 @@ import { sectionText } from '../../styles.module.less';
 import { TestimonialSectionContent } from '../../../../templates/solutions/shared';
 import LinkOutlined from '../../../LinksAndButtons/LinkOutlined';
 import { getSlugifiedText } from '../../../../../shared';
+import SectionTitle from '../../SectionTitle';
 import {
     quoteBox,
     quoteTextMargin,
@@ -55,10 +56,7 @@ const Testimonial = ({ data }: TestimonialProps) => {
                     </div>
                 </div>
                 <div>
-                    <h2>
-                        <span>{data.sectionTitle.highlightedText}</span>{' '}
-                        {data.sectionTitle.normalText}
-                    </h2>
+                    <SectionTitle sectionTitle={data.sectionTitle} />
                     <p>{data.description}</p>
                 </div>
             </Container>

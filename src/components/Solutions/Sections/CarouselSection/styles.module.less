@@ -1,0 +1,62 @@
+@import '../../../../globalStyles/sections.module.less';
+
+.container {
+  padding-left: 0;
+  padding-right: 0;
+
+  h2 {
+    color: var(--white);
+    padding: 0 24px;
+    text-align: center;
+    max-width: 100%;
+  }
+}
+
+.carousel {
+  .globalMaxWidth;
+
+  a {
+    height: 100%;
+    width: 100%;
+    list-style: none;
+  }
+}
+
+.slideCard {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 24px;
+  border: 1px solid var(--violet300-20-opacity);
+  border-radius: 16px;
+  padding: 32px;
+  height: 100%;
+  min-width: 500px;
+
+  h3,
+  span {
+    color: var(--white);
+  }
+
+  h3,
+  p {
+    margin: 0;
+  }
+
+  p {
+    color: var(--light-grey);
+    margin-bottom: auto;
+  }
+
+  span {
+    background-color: var(--violet300-10-opacity);
+  }
+
+  @media (max-width: 600px) {
+    min-width: 400px;
+  }
+
+  @media (max-width: 480px) {
+    min-width: 230px;
+  }
+}

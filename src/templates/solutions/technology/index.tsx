@@ -1,41 +1,78 @@
 import { graphql } from 'gatsby';
-import Seo from '../../../components/seo';
 import Highlights from '../../../components/Solutions/Sections/Highlights';
 import Benefits from '../../../components/Solutions/Sections/Benefits';
 import Capabilities from '../../../components/Solutions/Sections/Capabilities';
 import KeyFeatures from '../../../components/Solutions/Sections/KeyFeatures';
-import { SolutionTemplateProps } from '../shared';
+import { checkSnowflakeSolution, SolutionTemplateProps } from '../shared';
 import SolutionPageLayout from '../solution-page-layout';
+import Testimonial from '../../../components/Solutions/Sections/Testimonial';
+import OneTitleThreeCards from '../../../components/Solutions/Sections/OneTitleThreeCards';
+import CarouselSection from '../../../components/Solutions/Sections/CarouselSection';
+import GraphicSection from '../../../components/Solutions/Sections/GraphicSection';
+import ButtonsSection from '../../../components/Solutions/Sections/ButtonsSection';
+import SolutionTemplatePageHead from '../Head';
 
 const TechnologySolutions = ({ data: { solution } }: SolutionTemplateProps) => {
+    const isSnowflakeSolution = checkSnowflakeSolution(solution.slug);
+
     return (
         <SolutionPageLayout solution={solution}>
-            <KeyFeatures data={solution.keyFeatures} isDarkTheme />
-            <Highlights data={solution.highlights} />
-            <Capabilities data={solution.capabilities} isDarkTheme />
-            <Benefits data={solution.benefits} />
+            {isSnowflakeSolution ? (
+                <>
+                    <OneTitleThreeCards
+                        data={solution.oneTitleThreeCards}
+                        isSnowflakeSolution={isSnowflakeSolution}
+                    />
+                    <CarouselSection data={solution.carouselSection} />
+                    <GraphicSection data={solution.graphicSections[0]} />
+                    <GraphicSection
+                        data={solution.graphicSections[1]}
+                        isDarkTheme
+                        isGraphicOnTheLeft
+                    />
+                    <GraphicSection
+                        data={solution.graphicSections[2]}
+                        isGraphicTitleCentralized
+                    />
+                    <Capabilities data={solution.capabilities} isDarkTheme />
+                    <ButtonsSection data={solution.buttonsSection} />
+                </>
+            ) : (
+                <>
+                    <Testimonial data={solution.testimonial} />
+                    <Benefits data={solution.benefits} isDarkTheme />
+                    <Capabilities data={solution.capabilities} />
+                    <KeyFeatures data={solution.keyFeatures} isDarkTheme />
+                    <Highlights data={solution.highlights} />
+                </>
+            )}
         </SolutionPageLayout>
     );
 };
 
-export const Head = ({ data: { solution } }: SolutionTemplateProps) => {
-    return (
-        <Seo
-            title={solution.metadata.title}
-            description={solution.metadata.description}
-        />
-    );
-};
+export const Head = SolutionTemplatePageHead;
 
 export default TechnologySolutions;
 
 export const pageQuery = graphql`
-    query GetSolution($id: String!) {
+    query GetTechnologySolution($id: String!) {
+        site {
+            siteMetadata {
+                siteUrl
+            }
+        }
         solution: strapiSolution(id: { eq: $id }) {
             slug
             metadata {
                 title
                 description
+                image {
+                    localFile {
+                        childImageSharp {
+                            gatsbyImageData(quality: 100, placeholder: BLURRED)
+                        }
+                    }
+                }
             }
             hero {
                 title
@@ -48,11 +85,21 @@ export const pageQuery = graphql`
                         }
                     }
                 }
+                videoUrl
+                primaryButton {
+                    title
+                    urlOrPath
+                }
+                secondaryButton {
+                    title
+                    urlOrPath
+                }
             }
             testimonial {
                 sectionTitle: section_title {
                     highlightedText
                     normalText
+                    normalTextComesFirst
                 }
                 description
                 quote {
@@ -76,6 +123,7 @@ export const pageQuery = graphql`
                 sectionTitle: section_title {
                     highlightedText
                     normalText
+                    normalTextComesFirst
                 }
                 description
                 benefitItems {
@@ -94,6 +142,7 @@ export const pageQuery = graphql`
                 sectionTitle: section_title {
                     highlightedText
                     normalText
+                    normalTextComesFirst
                 }
                 description
                 highlightItems {
@@ -104,6 +153,7 @@ export const pageQuery = graphql`
                 sectionTitle: section_title {
                     highlightedText
                     normalText
+                    normalTextComesFirst
                 }
                 description
                 keyFeatureItems {
@@ -114,10 +164,121 @@ export const pageQuery = graphql`
                 sectionTitle: section_title {
                     highlightedText
                     normalText
+                    normalTextComesFirst
                 }
                 description
                 capabilityItems {
                     strapi_json_value
+                }
+            }
+            oneTitleThreeCards {
+                sectionTitle: section_title {
+                    highlightedText
+                    normalText
+                    normalTextComesFirst
+                }
+                cardItems {
+                    title
+                    description
+                }
+            }
+            carouselSection {
+                title
+                successStories {
+                    id
+                    slug: Slug
+                    title: Title
+                    description: Description
+                    hero: Logo {
+                        alternativeText
+                        localFile {
+                            childImageSharp {
+                                gatsbyImageData(placeholder: BLURRED)
+                            }
+                        }
+                    }
+                }
+                blogPosts {
+                    id
+                    slug: Slug
+                    title: Title
+                    description: Description
+                    hero: Hero {
+                        alternativeText
+                        localFile {
+                            childImageSharp {
+                                gatsbyImageData(placeholder: BLURRED)
+                            }
+                        }
+                    }
+                }
+            }
+            graphicSections {
+                id
+                sectionTitle: section_title {
+                    highlightedText
+                    normalText
+                    normalTextComesFirst
+                }
+                description
+                list {
+                    title
+                    items {
+                        text {
+                            data {
+                                text
+                            }
+                        }
+                    }
+                }
+                sectionCta {
+                    link {
+                        title
+                        urlOrPath
+                    }
+                    type
+                }
+                graphic {
+                    title
+                    image {
+                        alternativeText
+                        localFile {
+                            childImageSharp {
+                                gatsbyImageData(
+                                    quality: 100
+                                    placeholder: BLURRED
+                                )
+                            }
+                        }
+                    }
+                    subtitles {
+                        name
+                        color
+                    }
+                }
+                cardItems {
+                    strapi_json_value
+                }
+                cardsTitle {
+                    highlightedText
+                    normalText
+                    normalTextComesFirst
+                }
+            }
+            buttonsSection {
+                sectionTitle: section_title {
+                    highlightedText
+                    normalText
+                    normalTextComesFirst
+                }
+                description
+                primaryButton {
+                    title
+                    urlOrPath
+                }
+                secondaryButton {
+                    title
+                    urlOrPath
                 }
             }
         }

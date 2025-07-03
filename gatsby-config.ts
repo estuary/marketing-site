@@ -15,9 +15,15 @@ process.env.POSTGRAPHILE_PREPARED_STATEMENT_CACHE_SIZE = '1';
 
 const NO_MATCH_REGEX = '^/__no__match__$/';
 
+const isProd = process.env.NODE_ENV === 'production';
+
 const strapiConfig = {
-    apiURL: process.env.STRAPI_API_URL,
-    accessToken: process.env.STRAPI_TOKEN,
+    apiURL: isProd
+        ? process.env.STRAPI_API_URL
+        : process.env.STRAPI_API_URL_DEV,
+    accessToken: isProd
+        ? process.env.STRAPI_TOKEN
+        : process.env.STRAPI_TOKEN_DEV,
     maxParallelRequests: 3,
     version: 4, // They now assume v5
     queryLimit: 30,
@@ -134,6 +140,9 @@ const strapiConfig = {
                         populate: {
                             title: '*',
                             description: '*',
+                            image: {
+                                populate: '*',
+                            },
                         },
                     },
                     hero: {
@@ -143,6 +152,19 @@ const strapiConfig = {
                             image: {
                                 populate: '*',
                             },
+                            videoUrl: '*',
+                            primaryButton: {
+                                populate: {
+                                    title: '*',
+                                    urlOrPath: '*',
+                                },
+                            },
+                            secondaryButton: {
+                                populate: {
+                                    title: '*',
+                                    urlOrPath: '*',
+                                },
+                            },
                         },
                     },
                     testimonial: {
@@ -151,6 +173,7 @@ const strapiConfig = {
                                 populate: {
                                     highlightedText: '*',
                                     normalText: '*',
+                                    normalTextComesFirst: '*',
                                 },
                             },
                             'description': {
@@ -180,6 +203,7 @@ const strapiConfig = {
                                 populate: {
                                     highlightedText: '*',
                                     normalText: '*',
+                                    normalTextComesFirst: '*',
                                 },
                             },
                             'description': '*',
@@ -197,6 +221,7 @@ const strapiConfig = {
                                 populate: {
                                     highlightedText: '*',
                                     normalText: '*',
+                                    normalTextComesFirst: '*',
                                 },
                             },
                             'description': '*',
@@ -211,6 +236,7 @@ const strapiConfig = {
                                 populate: {
                                     highlightedText: '*',
                                     normalText: '*',
+                                    normalTextComesFirst: '*',
                                 },
                             },
                             'description': '*',
@@ -225,11 +251,115 @@ const strapiConfig = {
                                 populate: {
                                     highlightedText: '*',
                                     normalText: '*',
+                                    normalTextComesFirst: '*',
                                 },
                             },
                             'description': '*',
                             'keyFeatureItems': {
                                 populate: '*',
+                            },
+                        },
+                    },
+                    oneTitleThreeCards: {
+                        populate: {
+                            'section-title': {
+                                populate: {
+                                    highlightedText: '*',
+                                    normalText: '*',
+                                    normalTextComesFirst: '*',
+                                },
+                            },
+                            'cardItems': {
+                                populate: {
+                                    title: '*',
+                                    description: '*',
+                                },
+                            },
+                        },
+                    },
+                    carouselSection: {
+                        populate: {
+                            title: '*',
+                            successStories: '*',
+                            blogPosts: '*',
+                        },
+                    },
+                    graphicSections: {
+                        populate: {
+                            'section-title': {
+                                populate: {
+                                    highlightedText: '*',
+                                    normalText: '*',
+                                    normalTextComesFirst: '*',
+                                },
+                            },
+                            'description': '*',
+                            'list': {
+                                populate: {
+                                    title: '*',
+                                    items: {
+                                        populate: '*',
+                                    },
+                                },
+                            },
+                            'sectionCta': {
+                                populate: {
+                                    link: {
+                                        populate: {
+                                            title: '*',
+                                            urlOrPath: '*',
+                                        },
+                                    },
+                                    type: {
+                                        populate: '*',
+                                    },
+                                },
+                            },
+                            'graphic': {
+                                populate: {
+                                    title: '*',
+                                    image: {
+                                        fields: ['url', 'alternativeText'],
+                                    },
+                                    subtitles: {
+                                        title: '*',
+                                        color: '*',
+                                    },
+                                },
+                            },
+                            'cardItems': {
+                                populate: '*',
+                            },
+                            'cardsTitle': {
+                                populate: {
+                                    highlightedText: '*',
+                                    normalText: '*',
+                                    normalTextComesFirst: '*',
+                                },
+                            },
+                        },
+                    },
+                    buttonsSection: {
+                        populate: {
+                            'section-title': {
+                                populate: {
+                                    highlightedText: '*',
+                                    normalText: '*',
+                                    normalTextComesFirst: '*',
+                                },
+                            },
+                            'description': '*',
+                            'primaryButton': {
+                                populate: {
+                                    title: '*',
+                                    urlOrPath: '*',
+                                },
+                            },
+                            'secondaryButton': {
+                                populate: {
+                                    title: '*',
+                                    urlOrPath: '*',
+                                },
                             },
                         },
                     },

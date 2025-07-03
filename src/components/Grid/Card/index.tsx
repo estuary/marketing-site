@@ -140,40 +140,32 @@ const Card = ({
     const dateContent = renderDateAndTime(data.updatedAt, readingTime);
 
     return (
-        <li key={data.id}>
-            <CardLink
-                data={data}
-                target={target}
-                commonLinkProps={commonLinkProps}
-            >
-                {hasImgBackground ? (
-                    <div className={imgWrapper}>{cardImage}</div>
-                ) : (
-                    cardImage
-                )}
+        <CardLink data={data} target={target} commonLinkProps={commonLinkProps}>
+            {hasImgBackground ? (
+                <div className={imgWrapper}>{cardImage}</div>
+            ) : (
+                cardImage
+            )}
 
-                {(tagsContent ?? dateContent) === null ? (
-                    <div className={cardHeader}>
-                        {tagsContent}
-                        {dateContent}
-                    </div>
-                ) : null}
-
-                <h3>{data.title}</h3>
-                {data.description ? <p>{data.description}</p> : null}
-
-                {data.authors ? (
-                    <div className={cardAuthors}>
-                        {renderAuthors(data.authors)}
-                    </div>
-                ) : null}
-
-                <div className={cardFooter}>
-                    {footerTag ? <span>{footerTag}</span> : null}
-                    <ArrowRight2 color="var(--blue)" />
+            {(tagsContent ?? dateContent) !== null ? (
+                <div className={cardHeader}>
+                    {tagsContent}
+                    {dateContent}
                 </div>
-            </CardLink>
-        </li>
+            ) : null}
+
+            <h3>{data.title}</h3>
+            {data.description ? <p>{data.description}</p> : null}
+
+            {data.authors ? (
+                <div className={cardAuthors}>{renderAuthors(data.authors)}</div>
+            ) : null}
+
+            <div className={cardFooter}>
+                {footerTag ? <span>{footerTag}</span> : null}
+                <ArrowRight2 color="var(--blue)" />
+            </div>
+        </CardLink>
     );
 };
 
