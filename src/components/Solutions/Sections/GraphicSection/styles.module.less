@@ -152,3 +152,41 @@
     }
   }
 }
+
+.ctaBanner {
+  background-color: var(--blue-10-opacity);
+  border: 1px solid var(--blue);
+  border-radius: 16px;
+  padding: 20px;
+  color: var(--white);
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  p {
+    margin: 0 auto 0 0;
+    max-width: 430px;
+    font-weight: 500;
+  }
+
+  a {
+    max-width: 140px;
+    width: 100%;
+    white-space: nowrap;
+  }
+
+  @media (min-width: 1025px) and (max-width: 1180px),
+  (max-width: 550px) {
+    flex-direction: column;
+
+    a {
+      max-width: 100%;
+    }
+  }
+}
+
+.ctaButton {
+  margin-top: 40px;
+  width: fit-content;
+}

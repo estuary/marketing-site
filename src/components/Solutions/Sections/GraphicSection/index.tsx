@@ -1,12 +1,17 @@
 import React from 'react';
 import clsx from 'clsx';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import { GraphicSectionContent } from '../../../../templates/solutions/shared';
+import {
+    GraphicSectionContent,
+    SECTION_CTA_TYPE,
+} from '../../../../templates/solutions/shared';
 import Container from '../../../Container';
 import SectionTitle from '../../SectionTitle';
 import { sectionText } from '../../styles.module.less';
 import List from '../../List';
 import TextCardsList from '../../TextCardsList';
+import OutboundLinkFilled from '../../../LinksAndButtons/OutboundLinkFilled';
+import LinkFilled from '../../../LinksAndButtons/LinkFilled';
 import {
     container,
     graphicContainer,
@@ -16,6 +21,8 @@ import {
     graphicOnTheLeft,
     darkGraphicWrapper,
     centralizeGraphicTitle,
+    ctaBanner,
+    ctaButton,
 } from './styles.module.less';
 
 interface GraphicSectionProps {
@@ -57,6 +64,33 @@ const GraphicSection: React.FC<GraphicSectionProps> = ({
                                 title={data.list.title}
                                 items={data.list.items}
                             />
+                        ) : null}
+                        {data.sectionCta?.type === SECTION_CTA_TYPE.button ? (
+                            <OutboundLinkFilled
+                                href={data.sectionCta.link.urlOrPath}
+                                target="_blank"
+                                className={ctaButton}
+                            >
+                                {data.sectionCta.link.title}
+                            </OutboundLinkFilled>
+                        ) : null}
+                        {data.sectionCta?.type === SECTION_CTA_TYPE.banner ? (
+                            <div className={ctaBanner}>
+                                <p>{data.sectionCta.link.title}</p>
+                                <LinkFilled
+                                    href={
+                                        data.sectionCta.link.urlOrPath.startsWith(
+                                            'http'
+                                        )
+                                            ? data.sectionCta.link.urlOrPath
+                                            : `${data.sectionCta.link.urlOrPath}`
+                                    }
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    Read more
+                                </LinkFilled>
+                            </div>
                         ) : null}
                     </div>
                     <div

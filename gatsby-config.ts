@@ -302,6 +302,19 @@ const strapiConfig = {
                                     },
                                 },
                             },
+                            'sectionCta': {
+                                populate: {
+                                    link: {
+                                        populate: {
+                                            title: '*',
+                                            urlOrPath: '*',
+                                        },
+                                    },
+                                    type: {
+                                        populate: '*',
+                                    },
+                                },
+                            },
                             'graphic': {
                                 populate: {
                                     title: '*',

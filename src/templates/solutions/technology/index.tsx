@@ -231,6 +231,13 @@ export const pageQuery = graphql`
                         }
                     }
                 }
+                sectionCta {
+                    link {
+                        title
+                        urlOrPath
+                    }
+                    type
+                }
                 graphic {
                     title
                     image {

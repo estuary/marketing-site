@@ -75,12 +75,21 @@ export interface SolutionSectionListItem {
     };
 }
 
+export const SECTION_CTA_TYPE = {
+    button: 'Button',
+    banner: 'Banner',
+} as const;
+
 export interface GraphicSectionContent extends SectionText {
     id: string;
     description: string;
     list?: {
         title: string;
         items: SolutionSectionListItem[];
+    };
+    sectionCta?: {
+        link: Button;
+        type: (typeof SECTION_CTA_TYPE)[keyof typeof SECTION_CTA_TYPE];
     };
     graphic: {
         title?: string;
