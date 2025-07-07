@@ -185,7 +185,7 @@ const BlogPost = ({
                                 <div className={leftSidebarHeader}>
                                     <div className={leftSidebarImgWrapper}>
                                         <GatsbyImage
-                                            alt={`${post.relatedSuccessStories.logo.alternativeText} logo`}
+                                            alt={`${post.relatedSuccessStories.logo.alternativeText} success story logo`}
                                             image={
                                                 post.relatedSuccessStories.logo
                                                     .localFile.childImageSharp
