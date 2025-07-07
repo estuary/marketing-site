@@ -256,8 +256,11 @@
   flex-direction: column;
   gap: 32px;
   max-width: 1280px;
-  min-width: 560px;
   overflow: hidden;
+
+  @media (min-width: 1025px) {
+      min-width: 560px;
+  }
 
   @media (max-width: 1024px) {
     width: 100%;
