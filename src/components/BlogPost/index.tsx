@@ -4,6 +4,7 @@ import DoneIcon from '@mui/icons-material/Done';
 import { Divider, useTheme } from '@mui/material';
 import { Link } from 'gatsby';
 import { Fragment } from 'react';
+import clsx from 'clsx';
 import SwoopingLinesBackground from '../BackgroundImages/LightSwoopingLinesRightDirectionBackground';
 import Bio from '../Bio';
 import ReadingTimeIcon from '../../svgs/time.svg';
@@ -26,6 +27,7 @@ import { PopularArticles } from '../../components/BlogPopularArticles';
 import { costPerGB } from '../../utils';
 import ShareArticle from '../ShareArticle';
 import RelatedArticles from '../RelatedArticles';
+import LinkFilled from '../LinksAndButtons/LinkFilled';
 import {
     article,
     blogPostHeaderWrapper,
@@ -39,6 +41,10 @@ import {
     heroImage,
     shareArticleMobile,
     blogPostContentWrapper,
+    blogPostContentWrapperFullWidth,
+    leftSidebar,
+    leftSidebarHeader,
+    leftSidebarImgWrapper,
     mainContent,
     bigBuildPipelineBannerContainer,
     bigBuildPipelineBannerWrapper,
@@ -166,7 +172,36 @@ const BlogPost = ({
             </SwoopingLinesBackground>
             {post.body ? (
                 <section>
-                    <div className={blogPostContentWrapper}>
+                    <div
+                        className={clsx(
+                            blogPostContentWrapper,
+                            post?.relatedSuccessStories
+                                ? blogPostContentWrapperFullWidth
+                                : null
+                        )}
+                    >
+                        {post?.relatedSuccessStories ? (
+                            <div className={leftSidebar}>
+                                <div className={leftSidebarHeader}>
+                                    <div className={leftSidebarImgWrapper}>
+                                        <GatsbyImage
+                                            alt={`${post.relatedSuccessStories.logo.alternativeText} logo`}
+                                            image={
+                                                post.relatedSuccessStories.logo
+                                                    .localFile.childImageSharp
+                                                    .gatsbyImageData
+                                            }
+                                        />
+                                    </div>
+                                    <span>
+                                        {post.relatedSuccessStories.title}
+                                    </span>
+                                </div>
+                                <hr />
+                                <p>{post.relatedSuccessStories.description}.</p>
+                                <LinkFilled>Read Success Story</LinkFilled>
+                            </div>
+                        ) : null}
                         <div className={mainContent}>
                             <ProcessedPost
                                 body={post.body.data.childHtmlRehype.html}

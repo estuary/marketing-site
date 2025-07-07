@@ -1,18 +1,19 @@
 .container {
   display: flex;
   flex-direction: column;
-  width: 256px;
   gap: 24px;
   height: fit-content;
 
-  @media (max-width: 1024px) {
+  @media (min-width: 1025px) {
     width: 100%;
-  }
-
-  @media (min-width: 1151px) {
+    max-width: 256px;
+    min-width: 155px;
     position: sticky;
     top: 100px;
-    height: calc(100vh - 124px);
+  }
+
+  @media (max-width: 1024px) {
+    width: 100%;
   }
 
   @media (max-width: 767px) {
