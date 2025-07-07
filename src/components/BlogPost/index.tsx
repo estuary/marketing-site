@@ -199,7 +199,12 @@ const BlogPost = ({
                                 </div>
                                 <hr />
                                 <p>{post.relatedSuccessStories.description}.</p>
-                                <LinkFilled>Read Success Story</LinkFilled>
+                                <LinkFilled
+                                    href={`/success-stories/${post.relatedSuccessStories.slug}`}
+                                    target="_blank"
+                                >
+                                    Read Success Story
+                                </LinkFilled>
                             </div>
                         ) : null}
                         <div className={mainContent}>
