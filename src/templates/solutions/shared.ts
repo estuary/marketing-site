@@ -113,7 +113,7 @@ export interface ButtonsSectionContent extends SectionText {
     secondaryButton: Button;
 }
 
-export interface TemplatePageProps {
+export interface SolutionTemplatePageProps {
     slug: string;
     metadata: {
         title: string;
@@ -130,15 +130,15 @@ export interface TemplatePageProps {
         primaryButton: Button;
         secondaryButton: Button;
     };
-    testimonial: TestimonialSectionContent;
-    highlights: HighlightsSectionContent;
-    benefits: BenefitsSectionContent;
+    testimonial?: TestimonialSectionContent;
+    highlights?: HighlightsSectionContent;
+    benefits?: BenefitsSectionContent;
     capabilities: CapabilitiesSectionContent;
-    keyFeatures: KeyFeaturesSectionContent;
-    oneTitleThreeCards: OneTitleThreeCardsSectionContent;
-    carouselSection: CarouselSectionContent;
-    graphicSections: GraphicSectionContent[];
-    buttonsSection: ButtonsSectionContent;
+    keyFeatures?: KeyFeaturesSectionContent;
+    oneTitleThreeCards?: OneTitleThreeCardsSectionContent;
+    carouselSection?: CarouselSectionContent;
+    graphicSections?: GraphicSectionContent[];
+    buttonsSection?: ButtonsSectionContent;
 }
 
 export interface SolutionTemplateProps {
@@ -149,12 +149,6 @@ export interface SolutionTemplateProps {
                 siteUrl: string;
             };
         };
-        solution: TemplatePageProps;
+        solution: SolutionTemplatePageProps;
     };
 }
-
-const snowflakeSolutionSlugInStrapi =
-    '/technology/real-time-snowflake-streaming';
-
-export const checkSnowflakeSolution = (slug: string) =>
-    slug.includes(snowflakeSolutionSlugInStrapi);

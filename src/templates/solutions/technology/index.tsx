@@ -3,7 +3,7 @@ import Highlights from '../../../components/Solutions/Sections/Highlights';
 import Benefits from '../../../components/Solutions/Sections/Benefits';
 import Capabilities from '../../../components/Solutions/Sections/Capabilities';
 import KeyFeatures from '../../../components/Solutions/Sections/KeyFeatures';
-import { checkSnowflakeSolution, SolutionTemplateProps } from '../shared';
+import { SolutionTemplateProps } from '../shared';
 import SolutionPageLayout from '../solution-page-layout';
 import Testimonial from '../../../components/Solutions/Sections/Testimonial';
 import OneTitleThreeCards from '../../../components/Solutions/Sections/OneTitleThreeCards';
@@ -13,39 +13,59 @@ import ButtonsSection from '../../../components/Solutions/Sections/ButtonsSectio
 import SolutionTemplatePageHead from '../Head';
 
 const TechnologySolutions = ({ data: { solution } }: SolutionTemplateProps) => {
-    const isSnowflakeSolution = checkSnowflakeSolution(solution.slug);
+    const {
+        oneTitleThreeCards,
+        carouselSection,
+        graphicSections = [],
+        buttonsSection,
+        testimonial,
+        benefits,
+        keyFeatures,
+        highlights,
+        capabilities,
+    } = solution;
+
+    const hasSnowflakeSections =
+        !!oneTitleThreeCards &&
+        !!carouselSection &&
+        graphicSections.length >= 3 &&
+        !!buttonsSection;
+
+    const hasDefaultSections =
+        !!testimonial && !!benefits && !!keyFeatures && !!highlights;
 
     return (
         <SolutionPageLayout solution={solution}>
-            {isSnowflakeSolution ? (
+            {hasSnowflakeSections ? (
                 <>
                     <OneTitleThreeCards
-                        data={solution.oneTitleThreeCards}
-                        isSnowflakeSolution={isSnowflakeSolution}
+                        data={oneTitleThreeCards}
+                        isSnowflakeSolution={true}
                     />
-                    <CarouselSection data={solution.carouselSection} />
-                    <GraphicSection data={solution.graphicSections[0]} />
+                    <CarouselSection data={carouselSection} />
+                    <GraphicSection data={graphicSections[0]} />
                     <GraphicSection
-                        data={solution.graphicSections[1]}
+                        data={graphicSections[1]}
                         isDarkTheme
                         isGraphicOnTheLeft
                     />
                     <GraphicSection
-                        data={solution.graphicSections[2]}
+                        data={graphicSections[2]}
                         isGraphicTitleCentralized
                     />
-                    <Capabilities data={solution.capabilities} isDarkTheme />
-                    <ButtonsSection data={solution.buttonsSection} />
+                    <Capabilities data={capabilities} isDarkTheme />
+                    <ButtonsSection data={buttonsSection} />
                 </>
-            ) : (
+            ) : null}
+            {hasDefaultSections ? (
                 <>
-                    <Testimonial data={solution.testimonial} />
-                    <Benefits data={solution.benefits} isDarkTheme />
-                    <Capabilities data={solution.capabilities} />
-                    <KeyFeatures data={solution.keyFeatures} isDarkTheme />
-                    <Highlights data={solution.highlights} />
+                    <Testimonial data={testimonial} />
+                    <Benefits data={benefits} isDarkTheme />
+                    <Capabilities data={capabilities} />
+                    <KeyFeatures data={keyFeatures} isDarkTheme />
+                    <Highlights data={highlights} />
                 </>
-            )}
+            ) : null}
         </SolutionPageLayout>
     );
 };
