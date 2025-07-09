@@ -236,6 +236,20 @@ export const pageQuery = graphql`
                     }
                 }
             }
+            relatedSuccessStories {
+                id
+                slug: Slug
+                title: Title
+                description: Description
+                logo: Logo {
+                    alternativeText
+                    localFile {
+                        childImageSharp {
+                            gatsbyImageData
+                        }
+                    }
+                }
+            }
         }
     }
 `;

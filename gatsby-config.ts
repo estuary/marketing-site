@@ -68,6 +68,14 @@ const strapiConfig = {
                             },
                         },
                     },
+                    relatedSuccessStories: {
+                        fields: ['id', 'Title', 'Slug', 'Description'],
+                        populate: {
+                            Logo: {
+                                fields: ['url', 'alternativeText'],
+                            },
+                        },
+                    },
                     tags: {
                         fields: ['Name', 'Slug', 'Type', 'IsTab'],
                     },
