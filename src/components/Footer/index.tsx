@@ -59,7 +59,7 @@ const Footer = () => {
                 <div>
                     <Link className={globalFooterLogoLink} to="/">
                         <StaticImage
-                            src="../../images/estuary-text-logo.png"
+                            src="../../images/brand-guidelines-page/estuary-logos/estuary-logo-color-on-dark.png"
                             alt="Estuary logo - Real-time data integration platform"
                             height={35}
                             placeholder="none"
