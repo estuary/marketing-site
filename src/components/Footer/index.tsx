@@ -20,7 +20,6 @@ import {
     footer,
     globalFooterWrapper,
     globalFooterLogoLink,
-    globalFooterTitle,
     globalFooterSubtext,
     globalFooterSubtextTitle,
     globalFooterRight,
@@ -60,14 +59,12 @@ const Footer = () => {
                 <div>
                     <Link className={globalFooterLogoLink} to="/">
                         <StaticImage
-                            src="../../images/estuary-icon.png"
-                            alt="Estuary logo"
-                            width={27}
+                            src="../../images/estuary-text-logo.png"
+                            alt="Estuary logo - Real-time data integration platform"
                             height={35}
-                            layout="fixed"
                             placeholder="none"
+                            quality={100}
                         />
-                        <strong className={globalFooterTitle}>ESTUARY</strong>
                     </Link>
                     <p className={globalFooterSubtext}>
                         Estuary provides real-time data integration and ETL for
