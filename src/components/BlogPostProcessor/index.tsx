@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-export const ProcessedPost = ({
+export const ProcessedHtml = ({
     body,
     className,
 }: {

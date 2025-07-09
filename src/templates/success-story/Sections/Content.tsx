@@ -6,7 +6,7 @@ import {
     sideContentStyleHtml,
     contentContainer,
 } from '../styles.module.less';
-import { ProcessedPost } from '../../../components/BlogPostProcessor';
+import { ProcessedHtml } from '../../../components/BlogPostProcessor';
 import Container from '../../../components/Container';
 import Topic from '../Topic';
 
@@ -15,7 +15,7 @@ const Content = ({ content, Title, Description, Topics }) => {
         <section>
             <Container className={contentContainer}>
                 <div className={sideContentStyle}>
-                    <ProcessedPost
+                    <ProcessedHtml
                         body={content.data.childHtmlRehype.html}
                         className={sideContentStyleHtml}
                     />
@@ -28,7 +28,7 @@ const Content = ({ content, Title, Description, Topics }) => {
                         ))}
                     </div>
                     <div className={description}>
-                        <ProcessedPost
+                        <ProcessedHtml
                             body={Description.data.childHtmlRehype.html}
                         />
                     </div>

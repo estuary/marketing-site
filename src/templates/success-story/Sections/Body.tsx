@@ -1,11 +1,11 @@
 import { body, dynamicHtml } from '../styles.module.less';
-import { ProcessedPost } from '../../../components/BlogPostProcessor';
+import { ProcessedHtml } from '../../../components/BlogPostProcessor';
 
 const SuccessStoryBody = ({ content }) => {
     return (
         <section>
             <div className={body}>
-                <ProcessedPost
+                <ProcessedHtml
                     body={content.data.childHtmlRehype.html}
                     className={dynamicHtml}
                 />

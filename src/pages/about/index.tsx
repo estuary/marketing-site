@@ -4,7 +4,7 @@ import {
     IGatsbyImageData,
     StaticImage,
 } from 'gatsby-plugin-image';
-import { ProcessedPost } from '../../components/BlogPostProcessor';
+import { ProcessedHtml } from '../../components/BlogPostProcessor';
 import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
 import { estuaryHelpsYourTeam } from '../../content/seo';
@@ -537,7 +537,7 @@ const AboutPage = ({ data }: AboutPageProps) => {
                                                   <b>{job.location}</b>
                                               </p>
                                           </div>
-                                          <ProcessedPost
+                                          <ProcessedHtml
                                               body={
                                                   job.description.data
                                                       .childHtmlRehype.html

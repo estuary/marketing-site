@@ -10,7 +10,7 @@ import Bio from '../Bio';
 import ReadingTimeIcon from '../../svgs/time.svg';
 import Container from '../Container';
 import HeroSectionDetails from '../HeroSectionDetails';
-import { ProcessedPost } from '../BlogPostProcessor';
+import { ProcessedHtml } from '../BlogPostProcessor';
 import BlogBanner from '../BlogBanner';
 import ArticleSidebar from '../ArticleSidebar';
 import {
@@ -208,7 +208,7 @@ const BlogPost = ({
                             </div>
                         ) : null}
                         <div className={mainContent}>
-                            <ProcessedPost
+                            <ProcessedHtml
                                 body={post.body.data.childHtmlRehype.html}
                             />
                             {hasFaq ? <Faqs faqs={post.faq} /> : null}
