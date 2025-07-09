@@ -96,7 +96,7 @@
     "unified": "9.2.2",
     "graphql": "15.8.0",
     "parse-url": "^8.1.0",
-    "loader-utils": "^1.4.1",
+    "loader-utils": "^2.0.4",
     "axios": "^1.8.2",
     "path-to-regexp": "^0.1.12",
     "multer": "^2.0.0",
