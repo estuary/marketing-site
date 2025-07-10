@@ -94,7 +94,13 @@
     "@types/react-dom": "17.0.2",
     "sharp": "0.31.3",
     "unified": "9.2.2",
-    "graphql": "15.8.0"
+    "graphql": "15.8.0",
+    "parse-url": "^8.1.0",
+    "loader-utils": "^2.0.4",
+    "axios": "^1.8.2",
+    "path-to-regexp": "^0.1.12",
+    "multer": "^2.0.0",
+    "json5": "^2.2.2"
   },
   "scripts": {
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
