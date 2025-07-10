@@ -1,12 +1,17 @@
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { useMemo } from 'react';
+import clsx from 'clsx';
 import Container from '../../../Container';
 import HeroSectionDetails from '../../../HeroSectionDetails';
 import HeroSectionActions from '../../../HeroSectionActions';
 import { Button } from '../../../../templates/solutions/shared';
 import Video from '../../../Video';
 import { ImageData } from '../../../../../shared';
-import { container, heroImageWrapper } from './styles.module.less';
+import {
+    container,
+    heroImageWrapper,
+    heroVideoWrapper,
+} from './styles.module.less';
 
 interface HeroProps {
     title: string;
@@ -52,7 +57,12 @@ const Hero = ({
                         />
                     }
                 />
-                <div className={heroImageWrapper}>
+                <div
+                    className={clsx(
+                        heroImageWrapper,
+                        videoUrl ? heroVideoWrapper : null
+                    )}
+                >
                     {videoUrl ? (
                         <Video
                             thumbnail={heroImage}
