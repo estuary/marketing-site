@@ -1,23 +1,17 @@
+import clsx from 'clsx';
 import { SectionTitle as SectionTitleType } from '../../../templates/solutions/shared';
+import { title, reverseTitle } from './styles.module.less';
 
 interface SectionTitleProps {
-    sectionTitle?: SectionTitleType;
+    sectionTitle: SectionTitleType;
 }
 
-const SectionTitle = ({ sectionTitle }: SectionTitleProps) => {
+const SectionTitle = ({
+    sectionTitle: { normalTextComesFirst, normalText, highlightedText },
+}: SectionTitleProps) => {
     return (
-        <h2>
-            {sectionTitle?.normalTextComesFirst ? (
-                <>
-                    {sectionTitle.normalText}{' '}
-                    <span>{sectionTitle.highlightedText}</span>
-                </>
-            ) : (
-                <>
-                    <span>{sectionTitle?.highlightedText}</span>{' '}
-                    {sectionTitle?.normalText}
-                </>
-            )}
+        <h2 className={clsx(title, normalTextComesFirst ? null : reverseTitle)}>
+            <span>{highlightedText}</span> <span>{normalText}</span>
         </h2>
     );
 };
