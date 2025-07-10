@@ -10,7 +10,7 @@ const SectionTitle = ({
     sectionTitle: { normalTextComesFirst, normalText, highlightedText },
 }: SectionTitleProps) => {
     return (
-        <h2 className={clsx(title, normalTextComesFirst ? null : reverseTitle)}>
+        <h2 className={clsx(title, normalTextComesFirst ? reverseTitle : null)}>
             <span>{highlightedText}</span> <span>{normalText}</span>
         </h2>
     );
