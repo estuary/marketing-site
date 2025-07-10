@@ -19,7 +19,7 @@ const BuildInMinutes = () => {
                     </p>
                 </div>
                 <div>
-                    <FlowDemoVideo pageId="build-in-times-section/homepage" />
+                    <FlowDemoVideo pageId="build-in-minutes-video-section/homepage" />
                 </div>
             </Container>
         </DarkSwoopingLinesLeftDirectionBackground>
