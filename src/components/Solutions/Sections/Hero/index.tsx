@@ -1,30 +1,77 @@
 import { GatsbyImage } from 'gatsby-plugin-image';
+import { useMemo } from 'react';
+import clsx from 'clsx';
 import Container from '../../../Container';
 import HeroSectionDetails from '../../../HeroSectionDetails';
 import HeroSectionActions from '../../../HeroSectionActions';
-import { container, heroImageWrapper } from './styles.module.less';
+import { Button } from '../../../../templates/solutions/shared';
+import Video from '../../../Video';
+import { ImageData } from '../../../../../shared';
+import {
+    container,
+    heroImageWrapper,
+    heroVideoWrapper,
+} from './styles.module.less';
 
 interface HeroProps {
     title: string;
     description: string;
-    image: any; // TODO: Check this type
+    image: ImageData;
+    videoUrl?: string;
+    primaryButton?: Button;
+    secondaryButton?: Button;
 }
 
-const Hero = ({ title, description, image }: HeroProps) => {
+const pageId = 'solutions-page';
+
+const Hero = ({
+    title,
+    description,
+    image,
+    videoUrl,
+    primaryButton,
+    secondaryButton,
+}: HeroProps) => {
+    const heroImage = useMemo(
+        () => (
+            <GatsbyImage
+                image={image.localFile.childImageSharp.gatsbyImageData}
+                alt={image.alternativeText ?? ''}
+                loading="eager"
+            />
+        ),
+        [image]
+    );
+
     return (
         <section>
             <Container isDarkTheme className={container}>
                 <HeroSectionDetails
                     title={title}
                     description={description}
-                    ctaButtons={<HeroSectionActions pageId="solutions-page" />}
+                    ctaButtons={
+                        <HeroSectionActions
+                            pageId={pageId}
+                            registerButtonTitle={primaryButton?.title}
+                            contactUsButtonTitle={secondaryButton?.title}
+                        />
+                    }
                 />
-                <div className={heroImageWrapper}>
-                    <GatsbyImage
-                        image={image.localFile.childImageSharp.gatsbyImageData}
-                        alt={image.alternativeText}
-                        loading="eager"
-                    />
+                <div
+                    className={clsx(
+                        heroImageWrapper,
+                        videoUrl ? heroVideoWrapper : null
+                    )}
+                >
+                    {videoUrl ? (
+                        <Video
+                            thumbnail={heroImage}
+                            url={videoUrl}
+                            pageId={pageId}
+                        />
+                    ) : (
+                        heroImage
+                    )}
                 </div>
             </Container>
         </section>

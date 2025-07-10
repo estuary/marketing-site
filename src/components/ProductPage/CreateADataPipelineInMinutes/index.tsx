@@ -55,7 +55,7 @@ const CreateADataPipelineInMinutes = () => {
                         }
                     />
                 </StepCards>
-                <FlowDemoVideo />
+                <FlowDemoVideo pageId="product-page" />
             </Container>
         </section>
     );
