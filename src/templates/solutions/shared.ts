@@ -130,11 +130,11 @@ export interface SolutionTemplatePageProps {
         primaryButton: Button;
         secondaryButton: Button;
     };
-    testimonial?: TestimonialSectionContent;
-    highlights?: HighlightsSectionContent;
-    benefits?: BenefitsSectionContent;
+    testimonial: TestimonialSectionContent;
+    highlights: HighlightsSectionContent;
+    benefits: BenefitsSectionContent;
     capabilities: CapabilitiesSectionContent;
-    keyFeatures?: KeyFeaturesSectionContent;
+    keyFeatures: KeyFeaturesSectionContent;
     oneTitleThreeCards?: OneTitleThreeCardsSectionContent;
     carouselSection?: CarouselSectionContent;
     graphicSections?: GraphicSectionContent[];

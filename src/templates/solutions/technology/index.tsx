@@ -26,13 +26,10 @@ const TechnologySolutions = ({ data: { solution } }: SolutionTemplateProps) => {
     } = solution;
 
     const hasSnowflakeSections =
-        !!oneTitleThreeCards &&
-        !!carouselSection &&
-        graphicSections.length >= 3 &&
-        !!buttonsSection;
-
-    const hasDefaultSections =
-        !!testimonial && !!benefits && !!keyFeatures && !!highlights;
+        oneTitleThreeCards &&
+        carouselSection &&
+        graphicSections.length > 0 &&
+        buttonsSection;
 
     return (
         <SolutionPageLayout solution={solution}>
@@ -56,8 +53,7 @@ const TechnologySolutions = ({ data: { solution } }: SolutionTemplateProps) => {
                     <Capabilities data={capabilities} isDarkTheme />
                     <ButtonsSection data={buttonsSection} />
                 </>
-            ) : null}
-            {hasDefaultSections ? (
+            ) : (
                 <>
                     <Testimonial data={testimonial} />
                     <Benefits data={benefits} isDarkTheme />
@@ -65,7 +61,7 @@ const TechnologySolutions = ({ data: { solution } }: SolutionTemplateProps) => {
                     <KeyFeatures data={keyFeatures} isDarkTheme />
                     <Highlights data={highlights} />
                 </>
-            ) : null}
+            )}
         </SolutionPageLayout>
     );
 };
