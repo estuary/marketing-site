@@ -53,11 +53,10 @@ const KeyHighlights = () => {
             <Container isVertical className={container}>
                 <h2>Key highlights</h2>
                 <ul>
-                    {keyHighlights.map(({ title, ...rest }) => (
+                    {keyHighlights.map((keyHighlight, index) => (
                         <Card
-                            key={`key-highlight-${title.toLowerCase()}`}
-                            title={title}
-                            {...rest}
+                            key={`key-highlight-${index}`}
+                            {...keyHighlight}
                         />
                     ))}
                 </ul>

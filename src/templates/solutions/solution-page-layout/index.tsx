@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import Layout from '../../../components/Layout';
 import Hero from '../../../components/Solutions/Sections/Hero';
-import Testimonial from '../../../components/Solutions/Sections/Testimonial';
 import { TemplatePageProps } from '../shared';
 
 interface SolutionPageLayoutProps {
@@ -18,8 +17,10 @@ const SolutionPageLayout: FC<SolutionPageLayoutProps> = ({
                 title={solution.hero.title}
                 description={solution.hero.description}
                 image={solution.hero.image}
+                videoUrl={solution.hero.videoUrl}
+                primaryButton={solution.hero.primaryButton}
+                secondaryButton={solution.hero.secondaryButton}
             />
-            <Testimonial data={solution.testimonial} />
             {children}
         </Layout>
     );

@@ -6,7 +6,34 @@
 
 .heroImageWrapper {
   div {
-    max-width: 536px;
-    margin: auto;
+    height: 100%;
+    margin-left: auto;
+  }
+
+  @media (min-width: 1025px) {
+    div {
+      max-width: 536px;
+    }
+  }
+}
+
+.heroVideoWrapper {
+  div {
+    aspect-ratio: 514 / 306;
+  }
+
+  @media (max-width: 1024px) {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    padding-top: calc(306 / 514 * 100%);
+
+    > div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
   }
 }
