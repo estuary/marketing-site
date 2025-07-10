@@ -56,10 +56,10 @@ const TechnologySolutions = ({ data: { solution } }: SolutionTemplateProps) => {
             ) : (
                 <>
                     <Testimonial data={testimonial} />
-                    <Benefits data={benefits} isDarkTheme />
-                    <Capabilities data={capabilities} />
                     <KeyFeatures data={keyFeatures} isDarkTheme />
                     <Highlights data={highlights} />
+                    <Capabilities data={capabilities} isDarkTheme />
+                    <Benefits data={benefits} />
                 </>
             )}
         </SolutionPageLayout>

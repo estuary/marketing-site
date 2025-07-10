@@ -12,10 +12,10 @@ const IndustrySolutions = ({ data: { solution } }: SolutionTemplateProps) => {
     return (
         <SolutionPageLayout solution={solution}>
             <Testimonial data={solution.testimonial} />
+            <Benefits data={solution.benefits} isDarkTheme />
+            <Capabilities data={solution.capabilities} />
             <KeyFeatures data={solution.keyFeatures} isDarkTheme />
             <Highlights data={solution.highlights} />
-            <Capabilities data={solution.capabilities} isDarkTheme />
-            <Benefits data={solution.benefits} />
         </SolutionPageLayout>
     );
 };
