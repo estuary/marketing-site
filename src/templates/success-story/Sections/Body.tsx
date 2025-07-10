@@ -1,5 +1,5 @@
 import { body, dynamicHtml } from '../styles.module.less';
-import { ProcessedHtml } from '../../../components/BlogPostProcessor';
+import { ProcessedHtml } from '../../../components/HtmlProcessor';
 
 const SuccessStoryBody = ({ content }) => {
     return (

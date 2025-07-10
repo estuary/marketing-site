@@ -1,6 +1,6 @@
 import Checkmark from '../../../svgs/checkmark.svg';
 import { SolutionSectionListItem } from '../../../templates/solutions/shared';
-import { ProcessedHtml } from '../../BlogPostProcessor';
+import { ProcessedHtml } from '../../HtmlProcessor';
 import { container, iconWrapper } from './styles.module.less';
 
 interface ListProps {

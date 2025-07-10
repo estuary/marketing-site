@@ -6,7 +6,7 @@ import {
     sideContentStyleHtml,
     contentContainer,
 } from '../styles.module.less';
-import { ProcessedHtml } from '../../../components/BlogPostProcessor';
+import { ProcessedHtml } from '../../../components/HtmlProcessor';
 import Container from '../../../components/Container';
 import Topic from '../Topic';
 

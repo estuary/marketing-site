@@ -10,7 +10,7 @@ import Bio from '../Bio';
 import ReadingTimeIcon from '../../svgs/time.svg';
 import Container from '../Container';
 import HeroSectionDetails from '../HeroSectionDetails';
-import { ProcessedHtml } from '../BlogPostProcessor';
+import { ProcessedHtml } from '../HtmlProcessor';
 import BlogBanner from '../BlogBanner';
 import ArticleSidebar from '../ArticleSidebar';
 import {

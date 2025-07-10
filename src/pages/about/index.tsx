@@ -4,7 +4,7 @@ import {
     IGatsbyImageData,
     StaticImage,
 } from 'gatsby-plugin-image';
-import { ProcessedHtml } from '../../components/BlogPostProcessor';
+import { ProcessedHtml } from '../../components/HtmlProcessor';
 import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
 import { estuaryHelpsYourTeam } from '../../content/seo';
