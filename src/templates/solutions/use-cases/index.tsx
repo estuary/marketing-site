@@ -8,7 +8,7 @@ import SolutionPageLayout from '../solution-page-layout';
 import Testimonial from '../../../components/Solutions/Sections/Testimonial';
 import SolutionTemplatePageHead from '../Head';
 
-const Solutions = ({ data: { solution } }: SolutionTemplateProps) => {
+const UseCaseSolutions = ({ data: { solution } }: SolutionTemplateProps) => {
     return (
         <SolutionPageLayout solution={solution}>
             <Testimonial data={solution.testimonial} />
@@ -22,7 +22,7 @@ const Solutions = ({ data: { solution } }: SolutionTemplateProps) => {
 
 export const Head = SolutionTemplatePageHead;
 
-export default Solutions;
+export default UseCaseSolutions;
 
 export const pageQuery = graphql`
     query GetUseCaseSolution($id: String!) {
