@@ -226,6 +226,7 @@ export const pageQuery = graphql`
                     }
                 }
                 hero: Hero {
+                    alternativeText
                     localFile {
                         childImageSharp {
                             gatsbyImageData(
