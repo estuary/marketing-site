@@ -533,8 +533,8 @@ const strapiConfig = {
     //      * For http request with a image or other files need authorization
     //      * For expamle: Fetch a CDN file which has a security config when gatsby building needs
     //      */
-    //     Referer: "https://your-site-domain/",
-    //     // Authorization: "Bearer eyJhabcdefg_replace_it_with_your_own_token",
+    //     Referer: 'https://your-site-domain/',
+    //     // Authorization: 'Bearer eyJhabcdefg_replace_it_with_your_own_token',
     // },
 };
 
