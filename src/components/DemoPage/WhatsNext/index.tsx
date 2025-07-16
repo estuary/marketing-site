@@ -6,14 +6,13 @@ import {
 } from '../../../../shared';
 import CtaCards from '../../CtaCards';
 import Container from '../../Container';
-import { container } from './styles.module.less';
 
 const linkIdSuffix = `-card-button/whats-next-section/demo-page`;
 
 const WhatsNext = () => {
     return (
         <section>
-            <Container isVertical className={container}>
+            <Container isVertical>
                 <h2>
                     What&apos;s <span>Next</span>?
                 </h2>

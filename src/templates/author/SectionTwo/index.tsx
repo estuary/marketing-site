@@ -27,7 +27,7 @@ const SectionTwo = ({ author: { name, blogPosts } }: SectionTwoProps) => {
     return (
         <section className={container}>
             <h2>
-                CONTENT FROM <span>{name}</span>
+                Content from <span>{name}</span>
             </h2>
             <Grid>
                 {blogPosts
