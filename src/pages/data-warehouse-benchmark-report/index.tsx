@@ -10,7 +10,7 @@ const Benchmark = () => {
         <Layout>
             <Hero />
             <KeyHighlights />
-            <HowEstuaryMakesADifferenceSection theme="light" />
+            <HowEstuaryMakesADifferenceSection />
         </Layout>
     );
 };
