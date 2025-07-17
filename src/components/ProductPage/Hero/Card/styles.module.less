@@ -38,12 +38,12 @@
 
 .activeCard {
     background-color: #5072eb80;
-            border-color: #5072eb40;
+    border-color: #5072eb40;
 
-            &:hover {
-                border-color: var(--blue);
-                background-color: #5072eb99;
-            }
+    &:hover {
+        border-color: var(--blue);
+        background-color: #5072eb99;
+    }
 }
 
 @iconWrapperSizeDesktop: 80px;
@@ -92,28 +92,27 @@
     }
 
     h3 {
-    font-weight: 700;
-    font-size: 1.25rem;
-    line-height: 24px;
-    margin: 0;
-    color: var(--white);
-
-    @media (max-width: 1160px) {
-        font-size: 1rem;
-    }
-
-    @media (max-width: 670px) {
+        font-weight: 700;
         font-size: 1.25rem;
-    }
-}
+        line-height: 24px;
+        color: var(--white);
 
-p {
-    font-weight: 400;
-    font-size: 1rem;
-    line-height: 30px;
-    margin: 0;
-    color: var(--white);
-}
+        @media (max-width: 1160px) {
+            font-size: 1rem;
+        }
+
+        @media (max-width: 670px) {
+            font-size: 1.25rem;
+        }
+    }
+
+    p {
+        font-weight: 400;
+        font-size: 1rem;
+        line-height: 30px;
+        margin: 0;
+        color: var(--white);
+    }
 }
 
 .chevronIconWrapper {
