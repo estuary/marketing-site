@@ -258,7 +258,7 @@ export const Connectors = ({
             <div className={container}>
                 <div className={connectorIndexHeader}>
                     <div style={{ maxWidth: '30rem' }}>
-                        <h2>{title}</h2>
+                        <h1>{title}</h1>
                         <p>{description}</p>
                     </div>
                     <FlowLogoVector />
