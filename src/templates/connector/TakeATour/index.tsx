@@ -17,6 +17,7 @@ import {
 import TakeATourButtons from './TakeATourButtons';
 
 const TakeATour = () => {
+    // We are not using this section anymore. Is it okay if we remove it?
     const hasWindow = useWindowExistence();
 
     return (
