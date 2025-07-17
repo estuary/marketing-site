@@ -1,5 +1,14 @@
 {
     "hosting": {
+        "rewrites": [
+            {
+                "source": "/:dataplane/.well-known/openid-configuration",
+                "run": {
+                    "serviceId": "oidc-discovery-server",
+                    "region": "us-central1"
+                }
+            }
+        ],
         "redirects": [
             {
                 "source": "/real-time-data-pros-cons",
