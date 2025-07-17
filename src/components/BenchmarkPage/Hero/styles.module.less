@@ -16,6 +16,7 @@
 }
 
 .container {
+  min-height: 600px;
 
   img {
     max-width: 536px;
@@ -34,6 +35,10 @@
 
   p {
     font-size: 1.125rem;
+  }
+
+  @media (max-width: 1024px) {
+    min-height: 100%;
   }
 
   @media (max-width: 350px) {
