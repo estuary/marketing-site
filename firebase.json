@@ -1,14 +1,5 @@
 {
     "hosting": {
-        "rewrites": [
-            {
-                "source": "/:dataplane/.well-known/openid-configuration",
-                "run": {
-                    "serviceId": "oidc-discovery-server",
-                    "region": "us-central1"
-                }
-            }
-        ],
         "redirects": [
             {
                 "source": "/real-time-data-pros-cons",
@@ -4524,6 +4515,11 @@
                 "type": 301,
                 "source": "/company-updates/:companyUpdateSlugKey*",
                 "destination": "/product-updates/:companyUpdateSlugKey/"
+            },
+            {
+                "type": 301,
+                "source": "/:dataplane/.well-known/openid-configuration",
+                "destination": "https://oidc-discovery-server-1084703453822.us-central1.run.app/:dataplane/.well-known/openid-configuration"
             }
         ],
         "public": "public",
