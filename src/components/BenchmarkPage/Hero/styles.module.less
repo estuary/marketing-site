@@ -1,7 +1,6 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  gap: 100px;
 
   .container:first-child {
     img {
@@ -17,11 +16,6 @@
 }
 
 .container {
-
-  > :nth-child(1),
-  :nth-child(2) {
-    max-width: fit-content;
-  }
 
   img {
     max-width: 536px;
@@ -42,7 +36,7 @@
     font-size: 1.125rem;
   }
 
-  @media (max-width: 425px) {
+  @media (max-width: 350px) {
     text-align: center;
 
     h1 {
@@ -53,4 +47,10 @@
       font-size: 1rem;
     }
   }
+}
+
+.formWrapper {
+  background-color: var(--white);
+  border-radius: 24px;
+  width: 100%;
 }

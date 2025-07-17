@@ -1,7 +1,7 @@
-import { StaticImage } from 'gatsby-plugin-image';
 import Container from '../../Container';
 import HeroSectionDetails from '../../HeroSectionDetails';
-import { wrapper, container } from './styles.module.less';
+import HubSpotFormWrapper from '../../HubSpot/FormWrapper';
+import { wrapper, container, formWrapper } from './styles.module.less';
 
 const Hero = () => {
     return (
@@ -20,14 +20,9 @@ const Hero = () => {
                     }
                     description="An in-depth performance comparison of major data warehouses under realistic workloads."
                 />
-                <StaticImage
-                    src="../../../images/benchmark-page/hero-image.png"
-                    alt="Data warehouse Performance Benchmark Report"
-                    quality={100}
-                    placeholder="blurred"
-                    loading="eager"
-                    layout="constrained"
-                />
+                <div className={formWrapper}>
+                    <HubSpotFormWrapper formId="6c9314d9-906f-4942-8924-28ac899e972c" />
+                </div>
             </Container>
         </section>
     );

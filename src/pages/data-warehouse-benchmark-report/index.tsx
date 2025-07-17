@@ -3,7 +3,6 @@ import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
 import Hero from '../../components/BenchmarkPage/Hero';
 import KeyHighlights from '../../components/BenchmarkPage/KeyHighlights';
-import GetTheReport from '../../components/BenchmarkPage/GetTheReport';
 import HowEstuaryMakesADifferenceSection from '../../components/HowEstuaryMakesADifferenceSection';
 
 const Benchmark = () => {
@@ -11,7 +10,6 @@ const Benchmark = () => {
         <Layout>
             <Hero />
             <KeyHighlights />
-            <GetTheReport />
             <HowEstuaryMakesADifferenceSection theme="light" />
         </Layout>
     );
