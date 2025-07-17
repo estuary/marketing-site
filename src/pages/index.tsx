@@ -20,7 +20,7 @@ import HowEstuaryMakesADifferenceSection from '../components/HowEstuaryMakesADif
 
 const IndexPage = () => {
     return (
-        <Layout>
+        <Layout showReleaseBanner>
             <Hero />
             <MoveAndTransform />
             <SuccessStories />

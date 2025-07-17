@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import ArrowRight from '../../../svgs/arrow-right.svg';
-import { dashboardRegisterUrl } from '../../../../shared';
 import {
     container,
     darkBackgroundColor,
@@ -22,14 +21,15 @@ const ReleaseBanner = ({ theme = 'dark' }) => {
             <div>
                 <a
                     id="hero-section-banner"
-                    href={dashboardRegisterUrl}
+                    href="/data-warehouse-benchmark-report/"
                     rel="noreferrer"
                     target="_blank"
                 >
-                    <span>Get started</span>
+                    <span>Download the Report</span>
                     <p>
-                        Get 10GB and 2 connectors every month, 100% free — no
-                        strings attached.
+                        2025 Data Warehouse Benchmark - We pushed BigQuery,
+                        Snowflake, Databricks & more to their limits. See who
+                        held up.
                     </p>
                     <ArrowRight color="var(--white)" />
                 </a>
