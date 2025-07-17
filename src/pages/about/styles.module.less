@@ -9,7 +9,8 @@
     .defaultWrapperGrey;
   }
 
-  section:nth-of-type(even):not(:first-of-type):not(:nth-of-type(6)):not(:nth-of-type(8)), section:nth-of-type(7) {
+  section:nth-of-type(even):not(:first-of-type):not(:nth-of-type(6)):not(:nth-of-type(8)),
+  section:nth-of-type(7) {
     .defaultWrapperDark;
   }
 
@@ -83,8 +84,6 @@
 
   @media (max-width: 1512px) {
     max-width: 100%;
-    padding-left: ~'calc(min(9%, 146px))';
-    padding-right: ~'calc(min(9%, 146px))';
   }
 }
 
@@ -469,6 +468,13 @@
 
     @media (max-width: 1512px) {
       max-width: 100%;
+      padding-left: ~'calc(min(9%, 146px))';
+      padding-right: ~'calc(min(9%, 146px))';
+    }
+  }
+
+  span {
+    @media (max-width: 1512px) {
       padding-left: ~'calc(min(9%, 146px))';
       padding-right: ~'calc(min(9%, 146px))';
     }
