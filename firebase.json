@@ -4527,6 +4527,15 @@
         "cleanUrls": true,
         "headers": [
             {
+                "source": "/*/.well-known/openid-configuration",
+                "headers": [
+                    {
+                        "key": "Access-Control-Allow-Origin",
+                        "value": "*"
+                    }
+                ]
+            },
+            {
                 "source": "**/*",
                 "headers": [
                     {
