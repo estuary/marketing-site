@@ -4515,11 +4515,6 @@
                 "type": 301,
                 "source": "/company-updates/:companyUpdateSlugKey*",
                 "destination": "/product-updates/:companyUpdateSlugKey/"
-            },
-            {
-                "type": 301,
-                "source": "/:dataplane/.well-known/openid-configuration",
-                "destination": "https://oidc-discovery-server-1084703453822.us-central1.run.app/:dataplane/.well-known/openid-configuration"
             }
         ],
         "public": "public",
