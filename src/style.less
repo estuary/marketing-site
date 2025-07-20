@@ -194,18 +194,21 @@ p {
     color: var(--grey);
 }
 
+ol,
+ul,
+li {
+    margin: 0;
+    list-style: none;
+}
+
 ul,
 ol {
-    margin-left: var(--spacing-6);
-    margin-right: var(--spacing-0);
     padding: var(--spacing-0);
-    margin-bottom: var(--spacing-4);
     list-style-position: outside;
     list-style-image: none;
     line-height: var(--lineHeight-relaxed);
 }
 
-ul li,
 ol li {
     padding-left: var(--spacing-0);
     margin-bottom: calc(var(--spacing-6) / 2);
@@ -213,10 +216,6 @@ ol li {
 
 li>p {
     margin-bottom: calc(var(--spacing-6) / 2);
-}
-
-li *:last-child {
-    margin-bottom: var(--spacing-0);
 }
 
 li>ul {

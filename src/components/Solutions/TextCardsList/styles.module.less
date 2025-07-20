@@ -1,15 +1,8 @@
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-
-  list-style: none;
   gap: 20px;
-  margin: 0;
   width: 100%;
-
-  li {
-    margin: 0;
-  }
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
