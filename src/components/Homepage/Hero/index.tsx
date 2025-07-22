@@ -42,7 +42,7 @@ const Hero = () => {
                 <MetricCard value="1 petabyte / month" label="Data moved" />
                 <MetricCard value="99.9%" label="Uptime" />
             </ul>
-            <VanityLogosMarquee />
+            <VanityLogosMarquee pageId="homepage" />
         </section>
     );
 };

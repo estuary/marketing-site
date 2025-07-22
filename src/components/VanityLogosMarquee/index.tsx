@@ -4,7 +4,11 @@ import Marquee from 'react-fast-marquee';
 import './styles.less';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 
-const VanityLogosMarquee = () => {
+interface VanityLogosMarqueeProps {
+    pageId: string;
+}
+
+const VanityLogosMarquee = ({ pageId }: VanityLogosMarqueeProps) => {
     const logos = useStaticQuery(graphql`
         {
             allStrapiVanityLogo(
@@ -66,7 +70,7 @@ const VanityLogosMarquee = () => {
                             )}
                             {logo.relatedSuccessStory?.slug ? (
                                 <a
-                                    id={`${logo.relatedSuccessStory.slug}-vanity-logo-link/homepage`}
+                                    id={`${logo.relatedSuccessStory.slug}-vanity-logo-link/${pageId}`}
                                     href={`/success-stories/${logo.relatedSuccessStory.slug}`}
                                     target="_blank"
                                     rel="noreferrer"
