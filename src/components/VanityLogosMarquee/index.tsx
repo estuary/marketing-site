@@ -38,7 +38,7 @@ const VanityLogosMarquee = () => {
 
     return (
         <div className="container">
-            <Marquee autoFill>
+            <Marquee autoFill pauseOnHover>
                 {logos.allStrapiVanityLogo.nodes?.map((logo) => {
                     const isImageSvg = logo.logo.localFile.extension === 'svg';
                     const imgAltText = 'Customer logo';
