@@ -133,7 +133,7 @@ const Hero = ({ sourceConnector, destConnector }: Connectors) => {
                     label="Single dataflow"
                 />
             </MetricCardsList>
-            <VanityLogosMarquee />
+            <VanityLogosMarquee pageId="integration-page" />
         </section>
     );
 };
