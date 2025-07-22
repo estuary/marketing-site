@@ -1,14 +1,14 @@
-import MetricCard from '../../MetricCard';
+import MetricCard from '../../MetricCards/Card';
 import VanityLogosMarquee from '../../VanityLogosMarquee';
 import HeroSectionDetails from '../../HeroSectionDetails';
 import { activeUsersAmount } from '../../../../shared';
 import HeroSectionActions from '../../HeroSectionActions';
+import MetricCardsList from '../../MetricCards';
 import AnimatedHero from './AnimatedHero';
 import {
     container,
     flowAnimationContainer,
     mainContent,
-    metricCardsList,
 } from './styles.module.less';
 
 const Hero = () => {
@@ -36,12 +36,12 @@ const Hero = () => {
                     <AnimatedHero />
                 </div>
             </div>
-            <ul className={metricCardsList}>
+            <MetricCardsList>
                 <MetricCard value={activeUsersAmount} label="Users" />
                 <MetricCard value="&#60;100 ms" label="Latency" />
                 <MetricCard value="1 petabyte / month" label="Data moved" />
                 <MetricCard value="99.9%" label="Uptime" />
-            </ul>
+            </MetricCardsList>
             <VanityLogosMarquee />
         </section>
     );

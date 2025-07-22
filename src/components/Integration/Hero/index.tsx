@@ -4,7 +4,7 @@ import LatencyIcon from '../../../svgs/metric-latency.svg';
 import OfConnectorsIcon from '../../../svgs/metric-of-connectors.svg';
 import SingleDataflowIcon from '../../../svgs/metric-single-dataflow.svg';
 import EstuaryLogo from '../../../svgs/colored-logo.svg';
-import MetricCard from '../../MetricCard';
+import MetricCard from '../../MetricCards/Card';
 import VanityLogosMarquee from '../../VanityLogosMarquee';
 import { Connectors } from '../shared';
 import { activeUsersAmount } from '../../../../shared';
@@ -12,15 +12,14 @@ import Container from '../../Container';
 import ConnectorLogoPlaceholder from '../../ConnectorLogoPlaceholder';
 import HeroSectionDetails from '../../HeroSectionDetails';
 import HeroSectionActions from '../../HeroSectionActions';
+import MetricCardsList from '../../MetricCards';
 import {
-    wrapper,
     container,
     backgroundImageWraper,
     bgImage,
     bgMiddleImageWrapper,
     bgSideImageWrapper,
     iconWrapper,
-    metricCardsList,
     middleLine,
     preTitleWrapper,
     semiCircleLeftSide,
@@ -33,7 +32,7 @@ const connectorIconSize = 64;
 
 const Hero = ({ sourceConnector, destConnector }: Connectors) => {
     return (
-        <section className={wrapper}>
+        <section>
             <Container className={container}>
                 <HeroSectionDetails
                     additionalElementsOnTop={
@@ -112,7 +111,7 @@ const Hero = ({ sourceConnector, destConnector }: Connectors) => {
                     </div>
                 </div>
             </Container>
-            <ul className={metricCardsList}>
+            <MetricCardsList hasIconCards>
                 <MetricCard
                     icon={<OfConnectorsIcon color={metricIconColor} />}
                     value="100S"
@@ -133,7 +132,7 @@ const Hero = ({ sourceConnector, destConnector }: Connectors) => {
                     value="7+GB/SEC"
                     label="Single dataflow"
                 />
-            </ul>
+            </MetricCardsList>
             <VanityLogosMarquee />
         </section>
     );
