@@ -55,6 +55,6 @@ export const BlogPostCard = ({
             {authors.map((author) => author.name).join(', ')} ·{' '}
             {updatedAt ?? publishedAt}
         </p>
-        <div className={blogsPostCardTitle}>{title}</div>
+        <h2 className={blogsPostCardTitle}>{title}</h2>
     </Link>
 );
