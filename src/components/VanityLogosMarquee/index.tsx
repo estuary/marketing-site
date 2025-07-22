@@ -66,6 +66,7 @@ const VanityLogosMarquee = () => {
                             )}
                             {logo.relatedSuccessStory?.slug ? (
                                 <a
+                                    id={`${logo.relatedSuccessStory.slug}-vanity-logo-link/homepage`}
                                     href={`/success-stories/${logo.relatedSuccessStory.slug}`}
                                     target="_blank"
                                     rel="noreferrer"
