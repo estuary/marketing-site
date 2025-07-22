@@ -12,6 +12,7 @@ import { useSearch } from '../../hooks/useSearch';
 import { getSearchIndexFn } from '../../hooks/useSearch/searchIndex';
 import { blogPostsSearchBlocks } from '../../hooks/useSearch/searchBlocks';
 import {
+    main,
     container,
     blogsIndexTabBar,
     blogsIndexTabs,
@@ -65,7 +66,7 @@ const BlogIndex = ({
     });
 
     return (
-        <Layout>
+        <Layout mainClassName={main}>
             <BigImageBackground>
                 <div className={container}>
                     <div className={blogsIndexHeader}>
@@ -107,7 +108,6 @@ const BlogIndex = ({
                         handleQueryChange={handleQueryChange}
                     />
                 </div>
-
                 <Grid className={blogsIndexBody}>
                     {noResults ? (
                         <Alert severity="info">No blog posts found.</Alert>

@@ -13,6 +13,7 @@ import ConnectorLogoPlaceholder from '../../ConnectorLogoPlaceholder';
 import HeroSectionDetails from '../../HeroSectionDetails';
 import HeroSectionActions from '../../HeroSectionActions';
 import {
+    wrapper,
     container,
     backgroundImageWraper,
     bgImage,
@@ -32,7 +33,7 @@ const connectorIconSize = 64;
 
 const Hero = ({ sourceConnector, destConnector }: Connectors) => {
     return (
-        <section>
+        <section className={wrapper}>
             <Container className={container}>
                 <HeroSectionDetails
                     additionalElementsOnTop={

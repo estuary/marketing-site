@@ -1,5 +1,88 @@
 @import '../../../globalStyles/sections.module.less';
 
+.wrapper {
+  .metricCardsList {
+    .globalMaxWidth;
+    .sectionTopBottomPadding;
+
+    margin-top: 29px;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 29px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 24px;
+
+    li {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      padding: 16px;
+      border: 1px solid var(--blue-30-opacity);
+      border-radius: 24px;
+      background-color: var(--dark-blue-2);
+      margin-bottom: 0;
+
+      @media (min-width: 1281px) {
+        margin-top: 4.5vh;
+        margin-bottom: 4.5vh;
+        padding: 2vh;
+      }
+
+      @media (max-width: 345px) {
+        padding: 12px;
+      }
+    }
+
+    @media (max-width: 1536px) {
+      &>li {
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      div:nth-of-type(2n) {
+        align-items: center;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 1280px) {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+
+      &>li {
+        flex-direction: row;
+        justify-content: left;
+      }
+
+      div:nth-of-type(2n) {
+        align-items: flex-start;
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 840px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+    }
+
+    @media (max-width: 380px) {
+      &>li {
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      div:nth-of-type(2n) {
+        align-items: center;
+        text-align: center;
+      }
+    }
+  }
+}
+
 .container {
   > :nth-child(1) {
     h1 {
@@ -86,64 +169,6 @@
   .connectorLogo;
   top: 42%;
   right: 12%;
-}
-
-.metricCardsList {
-  .globalMaxWidth;
-  .sectionTopBottomPadding;
-
-  margin-top: 29px;
-  margin-bottom: 0;
-  padding-top: 0;
-  padding-bottom: 29px;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 24px;
-
-  @media (max-width: 1536px) {
-    &>li {
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    div:nth-of-type(2n) {
-      align-items: center;
-      text-align: center;
-    }
-  }
-
-  @media (max-width: 1280px) {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-
-    &>li {
-      flex-direction: row;
-      justify-content: left;
-    }
-
-    div:nth-of-type(2n) {
-      align-items: flex-start;
-      text-align: left;
-    }
-  }
-
-  @media (max-width: 840px) {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-  }
-
-  @media (max-width: 380px) {
-    &>li {
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    div:nth-of-type(2n) {
-      align-items: center;
-      text-align: center;
-    }
-  }
 }
 
 .backgroundImageWraper {

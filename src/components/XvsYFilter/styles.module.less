@@ -28,6 +28,10 @@
     gap: 15px;
 }
 
+.selectItem:not(:first-of-type) {
+    padding: 6px 16px !important;
+}
+
 .itemImage {
     width: 20px;
 }
@@ -39,7 +43,8 @@
         gap: 15px;
         margin-right: auto;
 
-        @media (min-width: 961px), (max-width: 320px) {
+        @media (min-width: 961px),
+        (max-width: 320px) {
             span {
                 display: inline-block;
                 width: 100px;
