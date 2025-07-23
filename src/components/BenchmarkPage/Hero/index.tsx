@@ -18,7 +18,17 @@ const Hero = () => {
                             <span>Big 5</span>
                         </>
                     }
-                    description="An in-depth performance comparison of major data warehouses under realistic workloads."
+                    description={
+                        <>
+                            An in-depth performance comparison of major data
+                            warehouses under realistic workloads. We benchmarked{' '}
+                            <strong>Snowflake</strong>,{' '}
+                            <strong>Databricks</strong>,{' '}
+                            <strong>Redshift</strong>, <strong>Fabric</strong>{' '}
+                            and <strong>BigQuery</strong> on terabyte scale
+                            transformations.
+                        </>
+                    }
                 />
                 <div className={formWrapper}>
                     <HubSpotFormWrapper formId="6c9314d9-906f-4942-8924-28ac899e972c" />

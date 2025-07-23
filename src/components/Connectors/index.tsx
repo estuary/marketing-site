@@ -121,7 +121,7 @@ const ConnectorCard = ({
                         </>
                     ) : null}
                 </div>
-                <h4>{title}</h4>
+                <h2>{title}</h2>
                 {shortDescription && shortDescription.length > 0 ? (
                     <p>{truncate(shortDescription, 100)}</p>
                 ) : null}

@@ -1,7 +1,6 @@
 .tableOfContents {
   background: var(--white);
   counter-reset: toc-counter;
-  padding: 0 8px;
 
   h3 {
     margin: 0 0 8px;
@@ -35,9 +34,7 @@
   }
 
   ol {
-    margin: 0;
     padding-bottom: 12px;
-    list-style: none;
 
     li {
       color: #989daf;
@@ -49,13 +46,35 @@
     }
   }
 
+  ol {
+    margin-top: 12px;
+  }
+
+  ul {
+    margin-bottom: 24px;
+  }
+
+  ul li,
+  ol li {
+    margin: 12px 0;
+  }
+
+  ul>li:first-child,
+  ol>li:first-child {
+    margin-top: 0;
+  }
+
+  ul>li:last-child,
+  ol>li:last-child {
+    margin-bottom: 0;
+  }
+
   @media (max-width: 1150px) {
     margin-top: 0;
   }
 }
 
 .tocItem {
-  list-style: none;
   line-height: 20px;
   margin: 12px 0;
 
@@ -77,10 +96,6 @@
 
 .accordionSidePadding {
   padding: 0;
-
-  ul {
-    margin: 0;
-  }
 
   svg {
     color: var(--grey);

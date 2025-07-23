@@ -13,7 +13,6 @@ import TextCardsList from '../../TextCardsList';
 import OutboundLinkFilled from '../../../LinksAndButtons/OutboundLinkFilled';
 import LinkFilled from '../../../LinksAndButtons/LinkFilled';
 import {
-    container,
     graphicContainer,
     cardsContainer,
     graphicWrapper,
@@ -42,7 +41,7 @@ const GraphicSection: React.FC<GraphicSectionProps> = ({
         <section>
             <Container
                 isVertical
-                className={clsx(sectionText, container)}
+                className={sectionText}
                 isDarkTheme={isDarkTheme}
             >
                 <Container

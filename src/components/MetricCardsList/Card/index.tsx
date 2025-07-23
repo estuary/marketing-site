@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
 import clsx from 'clsx';
 import {
-    container,
     metricIconWrapper,
     metricLabel,
     metricsWrapper,
@@ -17,7 +16,7 @@ interface MetricCardProps {
 
 const MetricCard = ({ icon, value, label }: MetricCardProps) => {
     return (
-        <li key={label} className={container}>
+        <li key={label}>
             {icon ? <div className={metricIconWrapper}>{icon}</div> : null}
             <div
                 className={clsx(

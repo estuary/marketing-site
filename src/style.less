@@ -1,5 +1,3 @@
-@import './globalStyles/sections.module.less';
-
 :root {
     --spacing-0: 0;
     --spacing-1: 0.25rem;
@@ -194,41 +192,6 @@ p {
     color: var(--grey);
 }
 
-ul,
-ol {
-    margin-left: var(--spacing-6);
-    margin-right: var(--spacing-0);
-    padding: var(--spacing-0);
-    margin-bottom: var(--spacing-4);
-    list-style-position: outside;
-    list-style-image: none;
-    line-height: var(--lineHeight-relaxed);
-}
-
-ul li,
-ol li {
-    padding-left: var(--spacing-0);
-    margin-bottom: calc(var(--spacing-6) / 2);
-}
-
-li>p {
-    margin-bottom: calc(var(--spacing-6) / 2);
-}
-
-li *:last-child {
-    margin-bottom: var(--spacing-0);
-}
-
-li>ul {
-    margin-left: var(--spacing-8);
-    margin-top: calc(var(--spacing-8) / 2);
-}
-
-li,
-label {
-    font-style: normal;
-}
-
 blockquote {
     color: var(--color-text-light);
     margin-left: 2px;
@@ -282,6 +245,47 @@ span {
 }
 
 .dynamic-html {
+
+    ul,
+    ol {
+        margin-left: var(--spacing-6);
+        margin-right: var(--spacing-0);
+        padding: var(--spacing-0);
+        margin-bottom: var(--spacing-4);
+        list-style-position: outside;
+        list-style-image: none;
+        line-height: var(--lineHeight-relaxed);
+    }
+
+    ul li,
+    ol li {
+        padding-left: var(--spacing-0);
+        margin-bottom: calc(var(--spacing-6) / 2);
+    }
+
+    li>p {
+        margin-bottom: calc(var(--spacing-6) / 2);
+    }
+
+    ul>li:last-child,
+    ol>li:last-child {
+        margin-bottom: 0;
+    }
+
+    li *:last-child {
+        margin-bottom: var(--spacing-0);
+    }
+
+    li>ul {
+        margin-left: var(--spacing-8);
+        margin-top: calc(var(--spacing-8) / 2);
+    }
+
+    li,
+    label {
+        font-style: normal;
+    }
+
     .table {
         overflow-x: auto;
         margin-left: 0;
@@ -313,6 +317,19 @@ span {
         margin-top: 32px !important;
         margin-bottom: 32px !important;
     }
+}
+
+ol:not(.dynamic-html *):not(.metric-cards-list):not(.metric-cards-list *),
+ul:not(.dynamic-html *):not(.metric-cards-list):not(.metric-cards-list *),
+li:not(.dynamic-html *):not(.metric-cards-list):not(.metric-cards-list *) {
+    margin: 0;
+    list-style: none;
+    padding: 0;
+}
+
+ul:not(.dynamic-html *):not(.metric-cards-list):not(.metric-cards-list *)>li:last-child,
+ol:not(.dynamic-html *):not(.metric-cards-list):not(.metric-cards-list *)>li:last-child {
+    margin-bottom: 0;
 }
 
 table td,

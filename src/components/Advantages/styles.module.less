@@ -31,9 +31,6 @@
   }
 
   ul {
-    list-style: none;
-    margin: 0;
-
     li {
       display: flex;
       gap: 20px;
@@ -64,6 +61,10 @@
           }
         }
       }
+    }
+
+    li:not(:last-of-type) {
+      margin-bottom: 12px;
     }
   }
 }
@@ -126,7 +127,7 @@
 
   h2,
   p,
-  ul > li > p {
+  ul>li>p {
     color: var(--white);
   }
 }

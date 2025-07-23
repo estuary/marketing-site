@@ -11,7 +11,10 @@
     display: grid;
     gap: 24px;
     grid-template-columns: repeat(auto-fit, minmax(289px, 1fr));
-    margin: 0;
+
+    li {
+      padding: 20px;
+    }
 
     @media (max-width: 425px) {
       grid-template-columns: repeat(auto-fit, minmax(189px, 1fr));
