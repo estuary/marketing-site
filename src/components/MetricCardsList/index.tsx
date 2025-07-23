@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { FC } from 'react';
-import './styles.less';
+import { metricCardsList, metricCardsWithIcon } from './styles.module.less';
 
 interface MetricCardsListProps {
     hasIconCards?: boolean;
@@ -13,8 +13,8 @@ const MetricCardsList: FC<MetricCardsListProps> = ({
     return (
         <ul
             className={clsx(
-                'metric-cards-list',
-                hasIconCards ? 'metric-cards-with-icon' : null
+                metricCardsList,
+                hasIconCards ? metricCardsWithIcon : null
             )}
         >
             {children}
