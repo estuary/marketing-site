@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import './styles.less';
 
 export const ProcessedHtml = ({
     body,
