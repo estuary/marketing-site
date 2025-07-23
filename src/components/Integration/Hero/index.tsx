@@ -4,7 +4,7 @@ import LatencyIcon from '../../../svgs/metric-latency.svg';
 import OfConnectorsIcon from '../../../svgs/metric-of-connectors.svg';
 import SingleDataflowIcon from '../../../svgs/metric-single-dataflow.svg';
 import EstuaryLogo from '../../../svgs/colored-logo.svg';
-import MetricCard from '../../MetricCards/Card';
+import MetricCard from '../../MetricCardsList/Card';
 import VanityLogosMarquee from '../../VanityLogosMarquee';
 import { Connectors } from '../shared';
 import { activeUsersAmount } from '../../../../shared';
@@ -12,7 +12,7 @@ import Container from '../../Container';
 import ConnectorLogoPlaceholder from '../../ConnectorLogoPlaceholder';
 import HeroSectionDetails from '../../HeroSectionDetails';
 import HeroSectionActions from '../../HeroSectionActions';
-import MetricCardsList from '../../MetricCards';
+import MetricCardsList from '../../MetricCardsList';
 import {
     container,
     backgroundImageWraper,

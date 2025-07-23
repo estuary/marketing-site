@@ -1,9 +1,9 @@
-import MetricCard from '../../MetricCards/Card';
+import MetricCard from '../../MetricCardsList/Card';
 import VanityLogosMarquee from '../../VanityLogosMarquee';
 import HeroSectionDetails from '../../HeroSectionDetails';
 import { activeUsersAmount } from '../../../../shared';
 import HeroSectionActions from '../../HeroSectionActions';
-import MetricCardsList from '../../MetricCards';
+import MetricCardsList from '../../MetricCardsList';
 import AnimatedHero from './AnimatedHero';
 import {
     container,
