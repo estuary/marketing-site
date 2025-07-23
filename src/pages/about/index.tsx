@@ -69,6 +69,7 @@ import {
     investors,
     investorsWrap,
     meetTheTeam,
+    teamGrid,
     teamItem,
     employeeImg,
     itemName,
@@ -346,7 +347,7 @@ const AboutPage = ({ data }: AboutPageProps) => {
             <section className={meetTheTeam}>
                 <span className={preTitle}>SAY HELLO</span>
                 <h2 className={sectionTitle}>Meet Our Team</h2>
-                <ul>
+                <ul className={teamGrid}>
                     {employees.map((employee, index) => (
                         <div className={teamItem} key={index}>
                             <GatsbyImage
