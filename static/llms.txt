@@ -3,16 +3,10 @@
 > Estuary (https://estuary.dev/) helps teams sync data in real-time across systems like databases, warehouses, and SaaS tools using a streaming-first approach. Estuary Flow, supports streaming change data capture (CDC), powerful SQL/TypeScript transformations, and scalable pipelines with exactly-once guarantees.
 
 ## Key Features
-- **Real-time and batch**: Connect apps, analytics, and AI using 100s of streaming CDC,
-                real-time, and batch no-code connectors built by Estuary for
-                speed and scale.
-- **Many to many**: Move data from many sources to collections, then to many
-                destinations all at once. Share and reuse data across projects,
-                or replace sources and destinations without impacting others.
+- **Real-time and batch**: Connect apps, analytics, and AI using 100s of streaming CDC, real-time, and batch no-code connectors built by Estuary for speed and scale.
+- **Many to many**: Move data from many sources to collections, then to many destinations all at once. Share and reuse data across projects, or replace sources and destinations without impacting others.
 - **Flexible Deployments**: Estuary provides flexible deployment options, SaaS, BYOC, or Private/Hybrid, delivering the same real-time capabilities and connector ecosystem while ensuring performance, security, and compliance across any environment.
-- **Backfill and replay**: Reuse collections to backfill destinations enabling fast and
-                effective one-to-many distribution, streaming transformations
-                and time travel, at any time.
+- **Backfill and replay**: Reuse collections to backfill destinations enabling fast and effective one-to-many distribution, streaming transformations and time travel, at any time.
 - **Many More**: [Key Features listed on the product overview](https://estuary.dev/product/)
 
 ## Getting Started Fast
