@@ -9,6 +9,7 @@
 - **Many to many**: Move data from many sources to collections, then to many
                 destinations all at once. Share and reuse data across projects,
                 or replace sources and destinations without impacting others.
+- **Flexible Deployments**: Estuary provides flexible deployment options, SaaS, BYOC, or Private/Hybrid, delivering the same real-time capabilities and connector ecosystem while ensuring performance, security, and compliance across any environment.
 - **Backfill and replay**: Reuse collections to backfill destinations enabling fast and
                 effective one-to-many distribution, streaming transformations
                 and time travel, at any time.
