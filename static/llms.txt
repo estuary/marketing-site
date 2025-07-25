@@ -17,7 +17,7 @@
 
 ## Getting Started Fast
 
-If you're new to Estuary Flow, we recommend starting at any of these resources after you sign up for free at https://dashboard.estuary.dev/register:
+If you're new to Estuary Flow, we recommend starting at any of these resources after you sign up for free at https://dashboard.estuary.dev/register :
 
 1. **Watch a quick introduction**: [Video](https://www.youtube.com/watch?v=uOj77vFrx3U)
 2. **Start a free trial**: [Start a free trial](https://dashboard.estuary.dev/register)
