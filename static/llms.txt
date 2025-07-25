@@ -28,12 +28,22 @@ If you're new to Estuary Flow, we recommend starting at any of these resources a
 - [Product Overview](https://estuary.dev/product/)
 - [Register](https://dashboard.estuary.dev/register)
 - [Security Overview](https://estuary.dev/security/)
+- [Solutions - AI](https://estuary.dev/solutions/use-cases/ai-data-integration/)
+- [Solutions - Kafka](https://estuary.dev/solutions/technology/kafka-streaming-integration/)
+- [Solutions - Real-time Analytics](https://estuary.dev/solutions/use-cases/real-time-analytics/)
+- [Solutions - Snowflake](https://estuary.dev/solutions/technology/real-time-snowflake-streaming/)
 - [Terms of Service](https://estuary.dev/terms/)
+- [Tool Comparison](https://estuary.dev/etl-tools/)
 
 ## Blog Posts
 
 - [Estuary’s backstory and vision](https://estuary.dev/blog/the-estuary-story-and-guiding-principles/)
 - [Estuary blog post tutorials](https://estuary.dev/blog/tutorial/)
+- [Change Data Capture (CDC) Done Correctly](https://estuary.dev/blog/cdc-done-correctly/)
+
+## Webinars
+
+- [Estuary 101 Webinar](https://try.estuary.dev/webinar-estuary101-ondemand/)
 
 
 # Developer Resources
