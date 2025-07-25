@@ -37,11 +37,6 @@ If you're new to Estuary Flow, we recommend starting at any of these resources a
 
 ## Blog Posts
 
-### Recommended Reading
-- [Estuary’s backstory and vision](https://estuary.dev/blog/the-estuary-story-and-guiding-principles/)
-- [Change Data Capture (CDC) Done Correctly](https://estuary.dev/blog/cdc-done-correctly/)
-- [Build a Data Pipeline for AI: Use ChatGPT on Your Own Data](https://estuary.dev/blog/chatgpt-custom-data/)
-
 ### Blog Posts by topic
 - [All Blog Posts](https://estuary.dev/blog/)
 - [AI & LLM Blog Posts](https://estuary.dev/blog/ai-llm/)
@@ -49,6 +44,11 @@ If you're new to Estuary Flow, we recommend starting at any of these resources a
 - [Data Engineering Blog Posts](https://estuary.dev/blog/data-engineering/)
 - [Data Insight Blog Posts](https://estuary.dev/blog/data-insights/)
 - [Tutorial Blog Posts](https://estuary.dev/blog/tutorial/)
+
+### Recommended Reading
+- [Estuary’s backstory and vision](https://estuary.dev/blog/the-estuary-story-and-guiding-principles/)
+- [Change Data Capture (CDC) Done Correctly](https://estuary.dev/blog/cdc-done-correctly/)
+- [Build a Data Pipeline for AI: Use ChatGPT on Your Own Data](https://estuary.dev/blog/chatgpt-custom-data/)
 
 ## Webinars
 
