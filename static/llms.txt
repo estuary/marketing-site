@@ -28,12 +28,25 @@ If you're new to Estuary Flow, we recommend starting at any of these resources a
 - [Product Overview](https://estuary.dev/product/)
 - [Register](https://dashboard.estuary.dev/register)
 - [Security Overview](https://estuary.dev/security/)
-- [Solutions - AI](https://estuary.dev/solutions/use-cases/ai-data-integration/)
-- [Solutions - Kafka](https://estuary.dev/solutions/technology/kafka-streaming-integration/)
-- [Solutions - Real-time Analytics](https://estuary.dev/solutions/use-cases/real-time-analytics/)
-- [Solutions - Snowflake](https://estuary.dev/solutions/technology/real-time-snowflake-streaming/)
 - [Terms of Service](https://estuary.dev/terms/)
 - [Tool Comparison](https://estuary.dev/etl-tools/)
+
+### Solutions
+
+- [Marketing Data Integration & Analytics](https://estuary.dev/solutions/industry/marketing-data-integration/)
+- [Modern Data Lake & Warehouse Integration](https://estuary.dev/solutions/use-cases/data-lakes-warehouses/)
+- [Real‑Time Data Movement & CDC Pipelines with Estuary Flow](https://estuary.dev/solutions/use-cases/data-movement/)
+- [Real-Time Data Analytics for Modern Businesses](https://estuary.dev/solutions/use-cases/real-time-analytics/)
+- [Real-Time Ecommerce Data Solutions | Estuary](https://estuary.dev/solutions/industry/ecommerce-data-integration/)
+- [Financial Data Integration & Compliance](https://estuary.dev/solutions/industry/finance-data-integration/)
+- [Secure Health & Wellness Data Solutions | Estuary](https://estuary.dev/solutions/industry/healthcare-data-integration/)
+- [Real-Time Supply Chain Data Integration](https://estuary.dev/solutions/industry/supply-chain-data-integration/)
+- [Modern Apache Iceberg Integration Solutions](https://estuary.dev/solutions/technology/apache-iceberg/)
+- [Effortless Kafka Data Integration with Dekaf](https://estuary.dev/solutions/technology/kafka-streaming-integration/)
+- [Maximize Efficiency with NetSuite Data Integration](https://estuary.dev/solutions/technology/netsuite-data-integration/)
+- [Secure Data Integration with Private Deployments](https://estuary.dev/solutions/technology/private-deployments/)
+- [Real-Time Data Pipelines for AI & Machine Learning](https://estuary.dev/solutions/use-cases/ai-data-integration/)
+- [Real-Time Snowflake Streaming with Snowpipe + Estuary](https://estuary.dev/solutions/technology/real-time-snowflake-streaming/)
 
 ## Blog Posts
 
