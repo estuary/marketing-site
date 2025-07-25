@@ -33,13 +33,15 @@ If you're new to Estuary Flow, we recommend starting at any of these resources a
 
 ### Solutions
 
+> Estuary Flow can be used within a wide-range of industries and use-cases.
+
 - [Marketing Data Integration & Analytics](https://estuary.dev/solutions/industry/marketing-data-integration/)
 - [Modern Data Lake & Warehouse Integration](https://estuary.dev/solutions/use-cases/data-lakes-warehouses/)
 - [Real‑Time Data Movement & CDC Pipelines with Estuary Flow](https://estuary.dev/solutions/use-cases/data-movement/)
 - [Real-Time Data Analytics for Modern Businesses](https://estuary.dev/solutions/use-cases/real-time-analytics/)
-- [Real-Time Ecommerce Data Solutions | Estuary](https://estuary.dev/solutions/industry/ecommerce-data-integration/)
+- [Real-Time Ecommerce Data Solutions](https://estuary.dev/solutions/industry/ecommerce-data-integration/)
 - [Financial Data Integration & Compliance](https://estuary.dev/solutions/industry/finance-data-integration/)
-- [Secure Health & Wellness Data Solutions | Estuary](https://estuary.dev/solutions/industry/healthcare-data-integration/)
+- [Secure Health & Wellness Data Solutions](https://estuary.dev/solutions/industry/healthcare-data-integration/)
 - [Real-Time Supply Chain Data Integration](https://estuary.dev/solutions/industry/supply-chain-data-integration/)
 - [Modern Apache Iceberg Integration Solutions](https://estuary.dev/solutions/technology/apache-iceberg/)
 - [Effortless Kafka Data Integration with Dekaf](https://estuary.dev/solutions/technology/kafka-streaming-integration/)
