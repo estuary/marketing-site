@@ -43,7 +43,7 @@ If you're new to Estuary Flow, we recommend starting here:
 
 # Developer Resources
 
-> This document is mainly for developers and data engineers (technical users) exploring Estuary Flow and aim to help you onboard or dive deeper efficiently.
+> This portion is mainly for developers and data engineers (technical users) exploring Estuary Flow and aim to help you onboard or dive deeper efficiently.
 
 ## Repos
 
