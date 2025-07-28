@@ -143,6 +143,10 @@ const createVendorCompare: CreateHelper = async (
 
     // Loop and process what we got (ignore blogs cause that is big and handled down below)
     if (vendors) {
+        const estuary = vendors.find((vendor) =>
+            vendor.slugKey?.includes('estuary')
+        );
+
         vendors.forEach((xVendor, i) => {
             vendors.slice(i + 1).forEach((yVendor) => {
                 if (xVendor.slugKey && yVendor.slugKey) {
@@ -155,8 +159,7 @@ const createVendorCompare: CreateHelper = async (
                         context: {
                             xVendorId: xVendor.id,
                             yVendorId: yVendor.id,
-                            estuaryVendorId:
-                                'd829928c-c473-5421-ac0a-f03c45b14993',
+                            estuaryVendorId: estuary?.id,
                         },
                     });
                 }
