@@ -31,6 +31,12 @@ If you're new to Estuary Flow, we recommend starting at any of these resources a
 - [Terms of Service](https://estuary.dev/terms/)
 - [Tool Comparison](https://estuary.dev/etl-tools/)
 
+### Contact Options
+
+- [Community Forum / Slack link](https://estuary-dev.slack.com/join/shared_invite/zt-86nal6yr-VPbv~YfZE9Q~6Zl~gmZdFQ#/shared-invite/email)
+- [Book a demo](https://estuary.dev/contact-us/)
+- [Email support](support@estuary.dev)
+
 ### Solutions
 
 > Estuary Flow can be used within a wide-range of industries and use-cases.
@@ -64,6 +70,8 @@ If you're new to Estuary Flow, we recommend starting at any of these resources a
 - [Estuary’s backstory and vision](https://estuary.dev/blog/the-estuary-story-and-guiding-principles/)
 - [Change Data Capture (CDC) Done Correctly](https://estuary.dev/blog/cdc-done-correctly/)
 - [Build a Data Pipeline for AI: Use ChatGPT on Your Own Data](https://estuary.dev/blog/chatgpt-custom-data/)
+- [Learn how Estuary integrates LLMs with real‑time data](https://estuary.dev/blog/modern-data-stack-LLMs/)
+- [Seven concrete, high-impact LLM integration patterns powered by streaming](https://estuary.dev/blog/real-time-data-use-cases-llm-applications/)
 
 ## Webinars
 
