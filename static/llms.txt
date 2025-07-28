@@ -1,6 +1,6 @@
 # Estuary Flow Overview
 
-> Estuary (https://estuary.dev/) helps teams sync data in real-time across systems like databases, warehouses, and SaaS tools using a streaming-first approach. Estuary Flow, supports streaming change data capture (CDC), powerful SQL/TypeScript transformations, and scalable pipelines with exactly-once guarantees.
+> Estuary (https://estuary.dev/) helps teams sync data in real-time across systems like databases, warehouses, and SaaS tools using a streaming-first approach. Estuary Flow supports streaming change data capture (CDC), powerful SQL/TypeScript transformations, and scalable pipelines with exactly-once guarantees.
 
 ## Key Features
 - **Real-time and batch**: Connect apps, analytics, and AI using 100s of streaming CDC, real-time, and batch no-code connectors built by Estuary for speed and scale.
