@@ -62,9 +62,7 @@ export default EtlTools;
 
 export const pageQuery = graphql`
     query GetAllComparisons {
-        estuaryVendor: strapiComparison(
-            id: { eq: "d829928c-c473-5421-ac0a-f03c45b14993" }
-        ) {
+        estuaryVendor: strapiComparison(slugKey: { in: "estuary" }) {
             id
         }
         vendors: allStrapiComparison(sort: { Vendor_Name: ASC }) {
