@@ -4515,6 +4515,11 @@
                 "type": 301,
                 "source": "/company-updates/:companyUpdateSlugKey*",
                 "destination": "/product-updates/:companyUpdateSlugKey/"
+            },
+            {
+                "type": 301,
+                "source": "/success-stories/forward/",
+                "destination": "/"
             }
         ],
         "public": "public",

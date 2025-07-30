@@ -16,10 +16,11 @@ const SuccessStoriesSection = ({
 }: SuccessStoriesSectionProps) => {
     const {
         allStrapiCaseStudy: { nodes: successStories },
+        // Removing Forward. The order was ["headset", "forward", "prodege"].
     } = useStaticQuery(graphql`
         query GetIntegrationSuccessStories {
             allStrapiCaseStudy(
-                filter: { Slug: { in: ["headset", "forward", "prodege"] } }
+                filter: { Slug: { in: ["headset", "prodege"] } }
                 sort: { createdAt: DESC }
             ) {
                 nodes {
