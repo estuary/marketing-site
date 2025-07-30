@@ -45,9 +45,9 @@ export const features: { [key: string]: Features } = {
         title: 'Real-time and batch',
         description: (
             <p>
-                Connect apps, analytics, and AI using 100s of streaming CDC,
-                real-time, and batch no-code connectors built by Estuary for
-                speed and scale.
+                Stream data from each source, then load each destination at any
+                speed, from &lt;100ms for operations or hour+ intervals, for
+                analytics.
             </p>
         ),
     },

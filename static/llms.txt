@@ -1,0 +1,134 @@
+# Estuary Flow Overview
+
+> Estuary (https://estuary.dev/) helps teams sync data in real-time across systems like databases, warehouses, and SaaS tools using a streaming-first approach. Estuary Flow supports streaming change data capture (CDC), powerful SQL/TypeScript transformations, and scalable pipelines with exactly-once guarantees.
+
+## Key Features
+- **Real-time and batch**: Connect apps, analytics, and AI using 100s of streaming CDC, real-time, and batch no-code connectors built by Estuary for speed and scale.
+- **Many to many**: Move data from many sources to collections, then to many destinations all at once. Share and reuse data across projects, or replace sources and destinations without impacting others.
+- **Flexible Deployments**: Estuary provides flexible deployment options, SaaS, BYOC, or Private/Hybrid, delivering the same real-time capabilities and connector ecosystem while ensuring performance, security, and compliance across any environment.
+- **Backfill and replay**: Reuse collections to backfill destinations enabling fast and effective one-to-many distribution, streaming transformations and time travel, at any time.
+- **Many More**: [Key Features listed on the product overview](https://estuary.dev/product/)
+
+## Getting Started Fast
+
+If you're new to Estuary Flow, we recommend starting at any of these resources after you sign up for free at https://dashboard.estuary.dev/register :
+
+1. **Watch a quick introduction**: [Video](https://www.youtube.com/watch?v=uOj77vFrx3U)
+2. **Start a free trial**: [Start a free trial](https://dashboard.estuary.dev/register)
+3. **Try out `flowctl` locally**: [Guide](https://docs.estuary.dev/guides/get-started-with-flowctl/)
+4. **Create your first dataflow**: [Guide](https://docs.estuary.dev/guides/create-dataflow/)
+
+## Company
+
+- [About](https://estuary.dev/about/)
+- [Community](https://estuary.dev/community/)
+- [Contact](https://estuary.dev/contact-us/)
+- [Pricing](https://estuary.dev/pricing/)
+- [Privacy policy](https://estuary.dev/privacy-policy/)
+- [Product Overview](https://estuary.dev/product/)
+- [Register](https://dashboard.estuary.dev/register)
+- [Security Overview](https://estuary.dev/security/)
+- [Terms of Service](https://estuary.dev/terms/)
+- [Tool Comparison](https://estuary.dev/etl-tools/)
+
+### Contact Options
+
+- [Community Forum / Slack link](https://estuary-dev.slack.com/join/shared_invite/zt-86nal6yr-VPbv~YfZE9Q~6Zl~gmZdFQ#/shared-invite/email)
+- [Book a demo](https://estuary.dev/contact-us/)
+- [Email support](support@estuary.dev)
+
+### Solutions
+
+> Estuary Flow can be used within a wide-range of industries and use-cases.
+
+- [Marketing Data Integration & Analytics](https://estuary.dev/solutions/industry/marketing-data-integration/)
+- [Modern Data Lake & Warehouse Integration](https://estuary.dev/solutions/use-cases/data-lakes-warehouses/)
+- [Real‑Time Data Movement & CDC Pipelines with Estuary Flow](https://estuary.dev/solutions/use-cases/data-movement/)
+- [Real-Time Data Analytics for Modern Businesses](https://estuary.dev/solutions/use-cases/real-time-analytics/)
+- [Real-Time Ecommerce Data Solutions](https://estuary.dev/solutions/industry/ecommerce-data-integration/)
+- [Financial Data Integration & Compliance](https://estuary.dev/solutions/industry/finance-data-integration/)
+- [Secure Health & Wellness Data Solutions](https://estuary.dev/solutions/industry/healthcare-data-integration/)
+- [Real-Time Supply Chain Data Integration](https://estuary.dev/solutions/industry/supply-chain-data-integration/)
+- [Modern Apache Iceberg Integration Solutions](https://estuary.dev/solutions/technology/apache-iceberg/)
+- [Effortless Kafka Data Integration with Dekaf](https://estuary.dev/solutions/technology/kafka-streaming-integration/)
+- [Maximize Efficiency with NetSuite Data Integration](https://estuary.dev/solutions/technology/netsuite-data-integration/)
+- [Secure Data Integration with Private Deployments](https://estuary.dev/solutions/technology/private-deployments/)
+- [Real-Time Data Pipelines for AI & Machine Learning](https://estuary.dev/solutions/use-cases/ai-data-integration/)
+- [Real-Time Snowflake Streaming with Snowpipe + Estuary](https://estuary.dev/solutions/technology/real-time-snowflake-streaming/)
+
+## Blog Posts
+
+### Blog Posts by topic
+- [All Blog Posts](https://estuary.dev/blog/)
+- [AI & LLM Blog Posts](https://estuary.dev/blog/ai-llm/)
+- [Data Basics Blog Posts](https://estuary.dev/blog/data-basics/)
+- [Data Engineering Blog Posts](https://estuary.dev/blog/data-engineering/)
+- [Data Insight Blog Posts](https://estuary.dev/blog/data-insights/)
+- [Tutorial Blog Posts](https://estuary.dev/blog/tutorial/)
+
+### Recommended Reading
+- [Estuary’s backstory and vision](https://estuary.dev/blog/the-estuary-story-and-guiding-principles/)
+- [Change Data Capture (CDC) Done Correctly](https://estuary.dev/blog/cdc-done-correctly/)
+- [Build a Data Pipeline for AI: Use ChatGPT on Your Own Data](https://estuary.dev/blog/chatgpt-custom-data/)
+- [Learn how Estuary integrates LLMs with real‑time data](https://estuary.dev/blog/modern-data-stack-LLMs/)
+- [Seven concrete, high-impact LLM integration patterns powered by streaming](https://estuary.dev/blog/real-time-data-use-cases-llm-applications/)
+
+## Webinars
+
+- [Estuary 101 Webinar](https://try.estuary.dev/webinar-estuary101-ondemand/)
+
+
+# Developer Resources
+
+> This portion is mainly for developers and data engineers (technical users) exploring Estuary Flow and aim to help you onboard or dive deeper efficiently.
+
+## Repos
+
+> Estuary Flow is built on the Open-core model.
+
+- [Primary repo for Flow](https://github.com/estuary/flow): Includes the sources for the Estuary Flow runtime, `flowctl`, and a bunch of related Rust libraries.
+- [Repo for connector-related code for sources and destinations](https://github.com/estuary/connectors)
+- [Repo of examples for working with Estuary Flow](https://github.com/estuary/examples)
+
+## Documentation
+- [Primary documentation site for Estuary](https://docs.estuary.dev/)
+- [Step-by-step guides that walk you through common Estuary Flow tasks](https://docs.estuary.dev/guides/)
+- [Learning experiences that help you get to know Estuary Flow using sample data](https://docs.estuary.dev/getting-started/tutorials/)
+
+### flowctl
+
+> `flowctl` is a command-line interface tool that gives you more direct control over the files and directories that comprise your Data Flows.
+
+- [Primary documentation site for `flowctl`](https://docs.estuary.dev/concepts/flowctl/)
+- [How to get started with `flowctl`](https://docs.estuary.dev/guides/get-started-with-flowctl/)
+- [How to edit a specification locally](https://docs.estuary.dev/guides/flowctl/edit-specification-locally/)
+- [How to create a derivation with `flowctl`](https://docs.estuary.dev/guides/flowctl/create-derivation/)
+- [How to troubleshoot a task with `flowctl`](https://docs.estuary.dev/guides/flowctl/troubleshoot-task/)
+- [How to use `flowctl` with CI/CD](https://docs.estuary.dev/guides/flowctl/ci-cd/)
+
+### Deployment
+
+> Estuary Flow provides several methods of deployment including public, private, and BYOC.
+
+- [Overview of deployment options](https://estuary.dev/deployment-options/)
+- [Deployment options available with Estuary Flow](https://docs.estuary.dev/getting-started/deployment-options/)
+- [How to setup a Bring Your Own Cloud (BYOC) deployment](https://docs.estuary.dev/private-byoc/byoc-deployments/)
+- [How to setup a Private deployment](https://docs.estuary.dev/private-byoc/private-deployments/)
+- [How to configure connections with PrivateLink](https://docs.estuary.dev/private-byoc/privatelink/)
+
+## Supported Integrations 
+
+> Estuary Flow supports 200+ pre-built ETL connectors for databases, data warehouses, SaaS apps, and cloud platforms.
+
+- [All supported source and destination integrations](https://estuary.dev/integrations/)
+- [All supported sources](https://estuary.dev/sources/)
+- [All supported destinations](https://estuary.dev/destinations/)
+
+# Advanced Topics
+
+## Gazette
+
+> Gazette is the event broker that sits at the center of Estuary Flow and manages reads and writes of all collection data. While not required for most users, advanced users may explore Gazette to understand Flow's underlying model.
+
+- [Primary docs site for Gazette](https://gazette.readthedocs.io/en/latest/)
+- [Primary repo for Gazette](https://github.com/gazette/core)
