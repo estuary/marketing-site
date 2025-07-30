@@ -13,7 +13,11 @@ interface Testimonial {
     };
 }
 
-const testimonialPriorityOrder = ['Resend', 'Forward', 'Headset'];
+const testimonialPriorityOrder = [
+    'Resend',
+    //'Forward',
+    'Headset',
+];
 
 export function getSortedTestimonials(
     testimonials: Testimonial[]

@@ -31,15 +31,12 @@ const iconSize = 16;
 const HeaderNavbarResources = ({ active, setActive }) => {
     const {
         allStrapiCaseStudy: { nodes: allSuccessStories },
+        // Removing Forward. The order was ["forward", "headset", "prodege", "davidenergy"].
     } = useStaticQuery(graphql`
         query GetAllMenuSuccessStories {
             allStrapiCaseStudy(
                 limit: 4
-                filter: {
-                    Slug: {
-                        in: ["forward", "headset", "prodege", "davidenergy"]
-                    }
-                }
+                filter: { Slug: { in: ["headset", "prodege", "davidenergy"] } }
             ) {
                 nodes {
                     LinkOneLiner
@@ -71,7 +68,7 @@ const HeaderNavbarResources = ({ active, setActive }) => {
     };
 
     const successStoriesSlugOrder = [
-        'forward',
+        //'forward',
         'headset',
         'prodege',
         'davidenergy',
