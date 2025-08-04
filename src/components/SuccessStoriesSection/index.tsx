@@ -24,11 +24,11 @@ const SuccessStoriesSection = ({
                 sort: { createdAt: DESC }
             ) {
                 nodes {
-                    title: Title
-                    description: Description
-                    slug: Slug
+                    title
+                    description
+                    slug
                     id
-                    hero: Logo {
+                    hero: logo {
                         alternativeText
                         localFile {
                             childImageSharp {

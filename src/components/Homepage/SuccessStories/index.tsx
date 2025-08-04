@@ -12,13 +12,13 @@ const SuccessStories = () => {
         allStrapiCaseStudy: { nodes: allSuccessStories },
     } = useStaticQuery(graphql`
         query GetAllHomepageSuccessStories {
-            allStrapiCaseStudy(sort: { createdAt: DESC }) {
+            allStrapiCaseStudy {
                 nodes {
-                    description: Description
-                    title: Title
-                    slug: Slug
+                    description
+                    title
+                    slug
                     id
-                    logo: Logo {
+                    logo {
                         localFile {
                             childImageSharp {
                                 gatsbyImageData

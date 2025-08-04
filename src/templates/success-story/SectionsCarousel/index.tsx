@@ -1,0 +1,299 @@
+import React from 'react';
+import TabbedCarousel from '../../../components/TabbedCarousel';
+import { ProcessedHtml } from '../../../components/HtmlProcessor';
+import {
+    sectionSlide,
+    sectionContent,
+    componentWrapper,
+    highlightedContent,
+    footnote,
+    numberedCards,
+    numberedCard,
+    number,
+    numberedCardContent,
+    testimonial,
+    author,
+    name,
+    role,
+    cardsGroup,
+    card as cardStyle,
+    aboutCard,
+    goalsCard,
+    imageComponent,
+} from './styles.module.less';
+
+interface SectionsCarouselProps {
+    successStory: any; // We'll type this properly later
+}
+
+const SectionsCarousel: React.FC<SectionsCarouselProps> = ({
+    successStory,
+}) => {
+    console.log('SectionsCarousel received successStory:', successStory);
+    console.log('keyMetrics:', successStory.keyMetrics);
+    console.log('challenges:', successStory.challenges);
+    console.log('solution:', successStory.solution);
+    console.log('aiUseCase:', successStory.aiUseCase);
+    console.log('results:', successStory.results);
+    console.log('whyEstuary:', successStory.whyEstuary);
+
+    const sections = [
+        { id: 0, label: 'Key Metrics', data: successStory.keyMetrics },
+        { id: 1, label: 'Challenges', data: successStory.challenges },
+        { id: 2, label: 'Solution', data: successStory.solution },
+        { id: 3, label: 'AI Use Case', data: successStory.aiUseCase },
+        { id: 4, label: 'Results', data: successStory.results },
+        { id: 5, label: 'Why Estuary', data: successStory.whyEstuary },
+    ];
+
+    console.log('Sections array:', sections);
+
+    const renderHighlightedContent = (component: any) => (
+        <div
+            key={component.title ? component.title : 'highlighted-content'}
+            className={highlightedContent}
+        >
+            {component.title ? <h3>{component.title}</h3> : null}
+            {component.description?.data?.description ? (
+                <ProcessedHtml body={component.description.data.description} />
+            ) : null}
+            {component.footnote ? (
+                <p className={footnote}>{component.footnote}</p>
+            ) : null}
+            {component.numberedCards &&
+            Array.isArray(component.numberedCards) ? (
+                <div className={numberedCards}>
+                    {component.numberedCards.map((card: any, index: number) => (
+                        <div key={index} className={numberedCard}>
+                            {card.number ? (
+                                <span className={number}>
+                                    {String(card.number).padStart(2, '0')}
+                                </span>
+                            ) : null}
+                            <div className={numberedCardContent}>
+                                {card.title ? <h4>{card.title}</h4> : null}
+                                {card.description?.data?.description ? (
+                                    <ProcessedHtml
+                                        body={card.description.data.description}
+                                    />
+                                ) : null}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            ) : null}
+        </div>
+    );
+
+    const renderTestimonial = (component: any) => (
+        <div
+            key={component.text ? component.text : 'testimonial'}
+            className={testimonial}
+        >
+            {component.text ? <blockquote>{component.text}</blockquote> : null}
+            {component.author ? (
+                <div className={author}>
+                    {component.author.name ? (
+                        <span className={name}>{component.author.name}</span>
+                    ) : null}
+                    {component.author.role ? (
+                        <span className={role}>{component.author.role}</span>
+                    ) : null}
+                </div>
+            ) : null}
+        </div>
+    );
+
+    const renderList = (component: any) => {
+        const title = component.title ? String(component.title) : 'List';
+        const items = Array.isArray(component.items?.strapi_json_value)
+            ? component.items.strapi_json_value
+            : [];
+
+        return (
+            <React.Fragment key={title}>
+                {component.title ? (
+                    <div className={cardsGroup}>
+                        <h3>{title}</h3>
+                    </div>
+                ) : null}
+                {items.map((item: any, index: number) => (
+                    <div key={`${title}-item-${index}`} className={cardStyle}>
+                        <p>{item ? String(item) : ''}</p>
+                    </div>
+                ))}
+            </React.Fragment>
+        );
+    };
+
+    const renderNumberedCard = (component: any) => (
+        <div
+            key={component.title ? component.title : 'numbered-card'}
+            className={numberedCard}
+        >
+            {component.number ? (
+                <span className={number}>{component.number}</span>
+            ) : null}
+            {component.title ? <h4>{component.title}</h4> : null}
+            {component.description?.data?.description ? (
+                <ProcessedHtml body={component.description.data.description} />
+            ) : null}
+        </div>
+    );
+
+    const renderCard = (component: any) => (
+        <div
+            key={component.title ? component.title : 'card'}
+            className={cardStyle}
+        >
+            {component.title ? <h4>{component.title}</h4> : null}
+            {component.description?.data?.description ? (
+                <ProcessedHtml body={component.description.data.description} />
+            ) : null}
+        </div>
+    );
+
+    const renderAboutCard = (component: any) => (
+        <div
+            key={component.about ? component.about : 'about-card'}
+            className={aboutCard}
+        >
+            <h4>About {successStory.title}</h4>
+            {component.about?.data?.about ? (
+                <ProcessedHtml body={component.about.data.about} />
+            ) : null}
+        </div>
+    );
+
+    const renderIndustryCard = (component: any) => (
+        <div
+            key={component.industry ? component.industry : 'industry-card'}
+            className={aboutCard}
+        >
+            <h4>Industry</h4>
+            {component.industry?.data?.industry ? (
+                <ProcessedHtml body={component.industry.data.industry} />
+            ) : null}
+        </div>
+    );
+
+    const renderGoalsCard = (component: any) => (
+        <div
+            key={component.goals ? component.goals : 'goals-card'}
+            className={goalsCard}
+        >
+            <h4>Goals</h4>
+            {component.goals?.data?.goals ? (
+                <ProcessedHtml body={component.goals.data.goals} />
+            ) : null}
+        </div>
+    );
+
+    const renderLocationCard = (component: any) => (
+        <div
+            key={component.location ? component.location : 'location-card'}
+            className={aboutCard}
+        >
+            <h4>Location</h4>
+            {component.location?.data?.location ? (
+                <ProcessedHtml body={component.location.data.location} />
+            ) : null}
+        </div>
+    );
+
+    const renderImage = (component: any) => (
+        <div key="image" className={imageComponent}>
+            {component.logo?.localFile ? (
+                <img src={component.logo.localFile.publicURL} alt="Logo" />
+            ) : null}
+        </div>
+    );
+
+    const getComponentPriority = (component: any): number => {
+        const type = component.__typename;
+
+        // Define priority order (lower number = higher priority)
+        const priorities: { [key: string]: number } = {
+            STRAPI__COMPONENT_CASE_STUDY_HIGHLIGHTED_CONTENT: 1,
+            STRAPI__COMPONENT_CASE_STUDY_TESTIMONIAL: 2,
+            STRAPI__COMPONENT_CASE_STUDY_ABOUT_CARD: 3,
+            STRAPI__COMPONENT_CASE_STUDY_GOALS_CARD: 4,
+            STRAPI__COMPONENT_CASE_STUDY_INDUSTRY_CARD: 5,
+            STRAPI__COMPONENT_CASE_STUDY_LOCATION_CARD: 6,
+            STRAPI__COMPONENT_CASE_STUDY_LIST: 7,
+            STRAPI__COMPONENT_CASE_STUDY_NUMBERED_CARD: 8,
+            STRAPI__COMPONENT_CASE_STUDY_CARD: 9,
+            STRAPI__COMPONENT_CASE_STUDY_IMAGE: 10,
+        };
+
+        return priorities[type] || 999; // Unknown types get lowest priority
+    };
+
+    const renderComponent = (component: any) => {
+        console.log('component:', component.__typename);
+        switch (component.__typename) {
+            case 'STRAPI__COMPONENT_CASE_STUDY_HIGHLIGHTED_CONTENT':
+                return renderHighlightedContent(component);
+            case 'STRAPI__COMPONENT_CASE_STUDY_TESTIMONIAL':
+                return renderTestimonial(component);
+            case 'STRAPI__COMPONENT_CASE_STUDY_LIST':
+                return renderList(component);
+            case 'STRAPI__COMPONENT_CASE_STUDY_NUMBERED_CARD':
+                return renderNumberedCard(component);
+            case 'STRAPI__COMPONENT_CASE_STUDY_CARD':
+                return renderCard(component);
+            case 'STRAPI__COMPONENT_CASE_STUDY_ABOUT_CARD':
+                return renderAboutCard(component);
+            case 'STRAPI__COMPONENT_CASE_STUDY_INDUSTRY_CARD':
+                return renderIndustryCard(component);
+            case 'STRAPI__COMPONENT_CASE_STUDY_GOALS_CARD':
+                return renderGoalsCard(component);
+            case 'STRAPI__COMPONENT_CASE_STUDY_LOCATION_CARD':
+                return renderLocationCard(component);
+            case 'STRAPI__COMPONENT_CASE_STUDY_IMAGE':
+                return renderImage(component);
+            default:
+                return (
+                    <div key="unknown">
+                        Unknown component: {component.__typename}
+                    </div>
+                );
+        }
+    };
+
+    const renderSection = (section: any) => {
+        // Sort components by predefined priority order
+        const sortedComponents = section.data
+            .filter((component: any) => component?.__typename)
+            .map((component: any) => ({
+                component,
+                priority: getComponentPriority(component),
+            }))
+            .sort((a: any, b: any) => a.priority - b.priority);
+
+        return (
+            <div className={sectionContent}>
+                {sortedComponents.map(({ component }: any, index: number) => (
+                    <div
+                        key={`${section.label}-${component.__typename}-${index}`}
+                        className={componentWrapper}
+                    >
+                        {renderComponent(component)}
+                    </div>
+                ))}
+            </div>
+        );
+    };
+
+    return (
+        <TabbedCarousel tabs={sections}>
+            {sections.map((section) => (
+                <div key={section.id} className={sectionSlide}>
+                    {renderSection(section)}
+                </div>
+            ))}
+        </TabbedCarousel>
+    );
+};
+
+export default SectionsCarousel;

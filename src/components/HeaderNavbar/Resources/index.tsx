@@ -39,10 +39,10 @@ const HeaderNavbarResources = ({ active, setActive }) => {
                 filter: { Slug: { in: ["headset", "prodege", "davidenergy"] } }
             ) {
                 nodes {
-                    LinkOneLiner
-                    Description
-                    Title
-                    Slug
+                    linkOneLiner
+                    description
+                    title
+                    slug
                     id
                 }
             }
@@ -75,18 +75,18 @@ const HeaderNavbarResources = ({ active, setActive }) => {
     ];
 
     const orderedAllSuccessStories = allSuccessStories.sort(
-        (a: { Slug: string }, b: { Slug: string }) => {
+        (a: { slug: string }, b: { slug: string }) => {
             return (
-                successStoriesSlugOrder.indexOf(a.Slug) -
-                successStoriesSlugOrder.indexOf(b.Slug)
+                successStoriesSlugOrder.indexOf(a.slug) -
+                successStoriesSlugOrder.indexOf(b.slug)
             );
         }
     );
 
     const successStoryItems = orderedAllSuccessStories.map((successStory) => ({
-        name: successStory.Title,
-        to: `/success-stories/${successStory.Slug}`,
-        description: successStory.LinkOneLiner,
+        name: successStory.title,
+        to: `/success-stories/${successStory.slug}`,
+        description: successStory.linkOneLiner,
         Image: () => <SuccessIcon width={iconSize} height={iconSize} />,
     }));
 

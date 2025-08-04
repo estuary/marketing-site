@@ -286,3 +286,27 @@ export const getIntegrationSlug = (
     connectorName1?: string,
     connectorName2?: string
 ) => `/integrations/${connectorName1}-to-${connectorName2}`;
+
+export const tabStyling = {
+    'border': '1px solid var(--blue-30-opacity)',
+    'borderRadius': '100px',
+    'textTransform': 'none',
+    'color': 'var(--dark-blue)',
+    'transition': 'var(--default-transition)',
+
+    '&:hover': {
+        backgroundColor: '#ECEFFC',
+        borderColor: '#AEBDF5',
+    },
+
+    '&:active': {
+        backgroundColor: '#E3E8FB',
+        border: '2px solid var(--blue);',
+    },
+
+    '&.Mui-selected': {
+        backgroundColor: 'var(--blue-15-opacity)',
+        border: '2px solid var(--blue);',
+        color: 'var(--dark-blue)',
+    },
+};

@@ -22,18 +22,18 @@ const SuccessStories = () => {
                 index
                 store
             }
-            allStrapiCaseStudy(sort: { createdAt: DESC }) {
+            allStrapiCaseStudy {
                 nodes {
-                    title: Title
-                    description: Description
-                    slug: Slug
+                    title
+                    description
+                    slug
                     id
                     tags {
                         Name
                         Slug
                         Type
                     }
-                    hero: Logo {
+                    hero: logo {
                         alternativeText
                         localFile {
                             childImageSharp {

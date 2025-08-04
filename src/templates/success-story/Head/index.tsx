@@ -14,7 +14,7 @@ const SuccessStoryHead = ({
             <Seo
                 title={successStory.metaTitle}
                 description={successStory.metaDescription}
-                url={`${siteUrl}/success-stories/${successStory.Slug}`}
+                url={`${siteUrl}/success-stories/${successStory.slug}`}
                 image={
                     successStory.Logo
                         ? `${siteUrl}${successStory.Logo.localFile.childImageSharp.metaImg.images.fallback.src}`
@@ -27,7 +27,7 @@ const SuccessStoryHead = ({
                     '@type': 'Article',
                     'mainEntityOfPage': {
                         '@type': 'WebPage',
-                        '@id': `${siteUrl}/success-stories/${successStory.Slug}`,
+                        '@id': `${siteUrl}/success-stories/${successStory.slug}`,
                     },
                     'headline': successStory.Title,
                     'description': successStory.Description ?? '',

@@ -202,10 +202,10 @@ export const pageQuery = graphql`
                 title
                 successStories {
                     id
-                    slug: Slug
-                    title: Title
-                    description: Description
-                    hero: Logo {
+                    slug
+                    title
+                    description
+                    hero: logo {
                         alternativeText
                         localFile {
                             childImageSharp {

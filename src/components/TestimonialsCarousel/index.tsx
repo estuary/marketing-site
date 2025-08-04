@@ -53,7 +53,7 @@ const TestimonialsCarousel = ({
                         }
                     }
                     relatedSuccessStory {
-                        slug: Slug
+                        slug
                     }
                 }
             }

@@ -19,11 +19,11 @@ const SuccessStoryBanner = ({
 }: SuccessStoryBannerProps) => {
     const { successStory } = useStaticQuery(graphql`
         query GetBannerSuccessStory {
-            successStory: strapiCaseStudy(Slug: { eq: "headset" }) {
-                slug: Slug
-                title: Title
-                description: Description
-                logo: Logo {
+            successStory: strapiCaseStudy(id: { eq: "headset" }) {
+                slug
+                title
+                description
+                logo {
                     localFile {
                         childImageSharp {
                             gatsbyImageData(placeholder: BLURRED, quality: 100)
@@ -50,7 +50,7 @@ const SuccessStoryBanner = ({
                     }
                 />
             </div>
-            <p>{successStory.description}.</p>
+            <p>{successStory.description?.data || ''}.</p>
             <LinkFilled
                 id={`success-story-banner/${pageId}`}
                 href={`/success-stories/${successStory.slug}`}

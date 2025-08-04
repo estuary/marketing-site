@@ -32,6 +32,49 @@ const strapiConfig = {
         'connection',
         'connector',
         {
+            singularName: 'case-study',
+            queryParams: {
+                fields: [
+                    'id',
+                    'title',
+                    'slug',
+                    'description',
+                    'linkOneLiner',
+                    'metaTitle',
+                    'metaDescription',
+                    'createdAt',
+                    'updatedAt',
+                    'publishedAt',
+                ],
+                populate: {
+                    logo: {
+                        fields: ['url', 'alternativeText'],
+                    },
+                    tags: {
+                        fields: ['name', 'slug'],
+                    },
+                    keyMetrics: {
+                        populate: '*',
+                    },
+                    challenges: {
+                        populate: '*',
+                    },
+                    solution: {
+                        populate: '*',
+                    },
+                    aiUseCase: {
+                        populate: '*',
+                    },
+                    results: {
+                        populate: '*',
+                    },
+                    whyEstuary: {
+                        populate: '*',
+                    },
+                },
+            },
+        },
+        {
             singularName: 'blog-post',
             queryParams: {
                 fields: [
@@ -69,7 +112,7 @@ const strapiConfig = {
                         },
                     },
                     relatedSuccessStories: {
-                        fields: ['id', 'Title', 'Slug', 'Description'],
+                        fields: ['id', 'title', 'slug', 'description'],
                         populate: {
                             Logo: {
                                 fields: ['url', 'alternativeText'],
@@ -375,26 +418,6 @@ const strapiConfig = {
             },
         },
         {
-            singularName: 'case-study',
-            queryParams: {
-                populate: {
-                    Logo: {
-                        populate: '*',
-                    },
-                    About: {
-                        populate: {
-                            Topics: {
-                                populate: '*',
-                            },
-                        },
-                    },
-                    tags: {
-                        populate: '*',
-                    },
-                },
-            },
-        },
-        {
             singularName: 'comparison',
             queryParams: {
                 populate: {
@@ -554,24 +577,6 @@ const rehypeSelectors = {
     STRAPI_JOB_POSTING_DESCRIPTION_TEXTNODE: {
         extractor: (node) => node.Description,
         pluginOpts: { enableToc: false },
-    },
-    STRAPI_CASE_STUDY_BODY_TEXTNODE: {
-        extractor: (node) => node.Body,
-        pluginOpts: {
-            enableToc: false,
-        },
-    },
-    STRAPI_CASE_STUDY_SIDECONTENT_TEXTNODE: {
-        extractor: (node) => node.SideContent,
-        pluginOpts: {
-            enableToc: false,
-        },
-    },
-    STRAPI__COMPONENT_CASE_STUDY_CASE_STUDY_ABOUT_DESCRIPTION_TEXTNODE: {
-        extractor: (node) => node.Description,
-        pluginOpts: {
-            enableToc: false,
-        },
     },
 };
 
@@ -903,18 +908,18 @@ const cfg: GatsbyConfig = {
                   allStrapiCaseStudy(sort: { createdAt: DESC }) {
                     nodes {
                       id
-                      slug: Slug
-                      title: Title
-                      description: Description
+                      slug
+                      title
+                      description
                       metaTitle
                       metaDescription
-                      linkOneLiner: LinkOneLiner
+                      linkOneLiner
                       tags {
                         Name
                         Slug
                         Type
                       }
-                      hero: Logo {
+                      hero: logo {
                         alternativeText
                         localFile {
                           childImageSharp {
@@ -927,31 +932,10 @@ const cfg: GatsbyConfig = {
                           }
                         }
                       }
-                      sideContent: SideContent {
-                        data {
-                          sideContent: SideContent
-                        }
-                      }
-                      about: About {
-                        description: Description {
-                          data {
-                            description: Description
-                          }
-                        }
-                        topics: Topics {
-                          title: Title
-                          description: Description
-                        }
-                      }
-                      body: Body {
-                        data {
-                          body: Body
-                        }
-                      }
                     }
                   }
                 }
-              `,
+                `,
                 ref: gatsbyPluginLocalSearchSettings.ref,
 
                 index: [
@@ -962,11 +946,13 @@ const cfg: GatsbyConfig = {
                     'metaDescription',
                     'searchable_tags',
                     'heroImgAltText',
-                    'sideContentText',
                     'linkOneLiner',
-                    'aboutDescriptionText',
-                    'topicsText',
-                    'bodyText',
+                    'keyMetricsText',
+                    'challengesText',
+                    'solutionText',
+                    'aiUseCaseText',
+                    'resultsText',
+                    'whyEstuaryText',
                 ],
 
                 store: [
@@ -981,6 +967,34 @@ const cfg: GatsbyConfig = {
                     const stripHtml = (html: string) =>
                         (html || '').replace(/<[^>]+>/g, ' ');
 
+                    const extractComponentText = (components: any[]) => {
+                        if (!Array.isArray(components)) return '';
+                        return components
+                            .map((component) => {
+                                switch (component.__component) {
+                                    case 'case-study.highlighted-content':
+                                        return `${component.title || ''} ${stripHtml(component.description?.data || '')} ${component.footnote || ''}`;
+                                    case 'case-study.testimonial':
+                                        return `${component.text || ''} ${component.author?.name || ''} ${component.author?.role || ''}`;
+                                    case 'case-study.cards-group':
+                                        return `${component.title || ''} ${(component.cards || []).map((card) => `${card.title || ''} ${stripHtml(card.description?.data || '')}`).join(' ')}`;
+                                    case 'case-study.numbered-card':
+                                        return `${component.title || ''} ${stripHtml(component.description?.data || '')}`;
+                                    case 'case-study.about-card':
+                                        return stripHtml(
+                                            component.about?.data || ''
+                                        );
+                                    case 'case-study.goals-card':
+                                        return stripHtml(
+                                            component.goals?.data || ''
+                                        );
+                                    default:
+                                        return '';
+                                }
+                            })
+                            .join(' ');
+                    };
+
                     const response = data.allStrapiCaseStudy.nodes.map(
                         (node) => {
                             return {
@@ -990,28 +1004,22 @@ const cfg: GatsbyConfig = {
                                     .join(' '),
                                 heroImgAltText:
                                     node.hero?.alternativeText ?? '',
-                                sideContentText:
-                                    stripHtml(
-                                        node.sideContent?.data?.sideContent
-                                    ) || '',
-                                aboutDescriptionText:
-                                    stripHtml(
-                                        node.about?.description?.data
-                                            ?.Description ?? ''
-                                    ) || '',
-                                topicsText:
-                                    (node.about?.topics ?? [])
-                                        .map(
-                                            (t: {
-                                                title?: string;
-                                                description?: string;
-                                            }) =>
-                                                `${t.title ?? ''} ${t.description ?? ''}`
-                                        )
-                                        .join(' ') ?? '',
-                                bodyText:
-                                    stripHtml(node.body?.data?.body ?? '') ||
-                                    '',
+                                keyMetricsText: extractComponentText(
+                                    node.keyMetrics
+                                ),
+                                challengesText: extractComponentText(
+                                    node.challenges
+                                ),
+                                solutionText: extractComponentText(
+                                    node.solution
+                                ),
+                                aiUseCaseText: extractComponentText(
+                                    node.aiUseCase
+                                ),
+                                resultsText: extractComponentText(node.results),
+                                whyEstuaryText: extractComponentText(
+                                    node.whyEstuary
+                                ),
                             };
                         }
                     );
