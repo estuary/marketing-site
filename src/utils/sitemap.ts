@@ -1,7 +1,7 @@
 import { createWriteStream } from 'fs';
 import { mkdir } from 'fs/promises';
 import * as path from 'path';
-import { SitemapStream, SitemapIndexStream } from 'sitemap';
+import { SitemapStream, SitemapAndIndexStream } from 'sitemap';
 
 interface SitemapUrl {
     url: string;
@@ -17,8 +17,6 @@ interface PageData {
 }
 
 const siteUrl = 'https://estuary.dev';
-const integrationsSitemapFilename = 'integrations-sitemap.xml';
-const mainSitemapFilename = 'sitemap-0.xml';
 
 const URL_CATEGORIES = {
     HOMEPAGE: 'homepage',
@@ -91,56 +89,49 @@ const convertToSitemapUrl = (page: PageData): SitemapUrl => {
     };
 };
 
-const generateSitemap = async (
+const generateLargeSitemap = async (
     urls: SitemapUrl[],
-    outputPath: string
+    publicPath: string,
+    sitemapName: string
 ): Promise<void> => {
-    const sitemap = new SitemapStream({
-        hostname: siteUrl,
-        xmlns: {
-            news: false,
-            xhtml: false,
-            image: false,
-            video: false,
+    const sms = new SitemapAndIndexStream({
+        limit: 45000,
+        getSitemapStream: (i) => {
+            const sitemapStream = new SitemapStream({
+                hostname: siteUrl,
+                xmlns: {
+                    news: false,
+                    xhtml: false,
+                    image: false,
+                    video: false,
+                },
+            });
+
+            const sitemapPath =
+                i === 0 ? `${sitemapName}.xml` : `${sitemapName}-${i}.xml`;
+            const fullPath = path.join(publicPath, sitemapPath);
+            const ws = sitemapStream.pipe(createWriteStream(fullPath));
+
+            return [
+                new URL(`/${sitemapPath}`, siteUrl).toString(),
+                sitemapStream,
+                ws,
+            ];
         },
     });
-    const writeStream = createWriteStream(outputPath);
 
-    sitemap.pipe(writeStream);
+    const indexPath = path.join(publicPath, `${sitemapName}-index.xml`);
+    const writeStream = sms.pipe(createWriteStream(indexPath));
 
     urls.forEach((url) => {
-        sitemap.write({
+        sms.write({
             url: url.url,
             lastmod: url.lastmod,
             changefreq: url.changefreq,
         });
     });
 
-    sitemap.end();
-
-    return new Promise((resolve, reject) => {
-        writeStream.on('finish', resolve);
-        writeStream.on('error', reject);
-    });
-};
-
-const generateSitemapIndex = async (
-    sitemaps: { url: string; lastmod?: string }[],
-    outputPath: string
-): Promise<void> => {
-    const sitemapIndex = new SitemapIndexStream();
-    const writeStream = createWriteStream(outputPath);
-
-    sitemapIndex.pipe(writeStream);
-
-    sitemaps.forEach((sitemap) => {
-        sitemapIndex.write({
-            url: `${siteUrl}${sitemap.url}`,
-            lastmod: sitemap.lastmod,
-        });
-    });
-
-    sitemapIndex.end();
+    sms.end();
 
     return new Promise((resolve, reject) => {
         writeStream.on('finish', resolve);
@@ -175,9 +166,10 @@ export const generateCustomSitemaps = async (
         const sortedOtherUrls = sortUrlsByCategory(otherUrls);
 
         if (integrationUrls.length > 0) {
-            await generateSitemap(
+            await generateLargeSitemap(
                 integrationUrls,
-                path.join(publicPath, integrationsSitemapFilename)
+                publicPath,
+                'integrations-sitemap'
             );
             console.log(
                 `Generated integrations sitemap with ${integrationUrls.length} URLs`
@@ -185,33 +177,15 @@ export const generateCustomSitemaps = async (
         }
 
         if (sortedOtherUrls.length > 0) {
-            await generateSitemap(
+            await generateLargeSitemap(
                 sortedOtherUrls,
-                path.join(publicPath, mainSitemapFilename)
+                publicPath,
+                'sitemap-0'
             );
             console.log(
                 `Generated main sitemap with ${sortedOtherUrls.length} URLs`
             );
         }
-
-        const sitemaps = [
-            {
-                url: `/${mainSitemapFilename}`,
-                lastmod: new Date().toISOString(),
-            },
-        ];
-
-        if (integrationUrls.length > 0) {
-            sitemaps.push({
-                url: `/${integrationsSitemapFilename}`,
-                lastmod: new Date().toISOString(),
-            });
-        }
-
-        await generateSitemapIndex(
-            sitemaps,
-            path.join(publicPath, 'sitemap-index.xml')
-        );
         console.log('Generated sitemap index');
     } catch (error) {
         console.error('Error generating sitemaps:', error);
