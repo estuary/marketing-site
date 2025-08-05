@@ -126,21 +126,30 @@ const generateSitemapIndex = async (
     sitemaps: { url: string; lastmod?: string }[],
     outputPath: string
 ): Promise<void> => {
-    const sitemapIndex = new SitemapStream({ hostname: 'https://estuary.dev' });
-
-    // Write to file
     const writeStream = createWriteStream(outputPath);
-    sitemapIndex.pipe(writeStream);
 
-    // Add sitemaps to index
+    // Write XML header
+    writeStream.write('<?xml version="1.0" encoding="UTF-8"?>\n');
+    writeStream.write(
+        '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    );
+
+    // Add each sitemap
     sitemaps.forEach((sitemap) => {
-        sitemapIndex.write({
-            url: sitemap.url,
-            lastmod: sitemap.lastmod,
-        });
+        const fullUrl = `https://estuary.dev${sitemap.url}`;
+        const lastmod = sitemap.lastmod
+            ? new Date(sitemap.lastmod).toISOString()
+            : new Date().toISOString();
+
+        writeStream.write('  <sitemap>\n');
+        writeStream.write(`    <loc>${fullUrl}</loc>\n`);
+        writeStream.write(`    <lastmod>${lastmod}</lastmod>\n`);
+        writeStream.write('  </sitemap>\n');
     });
 
-    sitemapIndex.end();
+    // Close XML
+    writeStream.write('</sitemapindex>\n');
+    writeStream.end();
 
     return new Promise((resolve, reject) => {
         writeStream.on('finish', resolve);
