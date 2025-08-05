@@ -38,8 +38,17 @@ const getUrlCategory = (url: string): UrlCategory => {
     return URL_CATEGORIES.OTHER;
 };
 
-const isIntegrationUrl = (url: string): boolean => {
+const isIntegrationUrl = (url: string) => {
     return url.startsWith('/integrations/');
+};
+
+const shouldExcludePage = (pagePath: string) => {
+    const excludedPaths = [
+        '/dev-404-page',
+        '/404',
+        '/offline-plugin-app-shell-fallback',
+    ];
+    return excludedPaths.includes(pagePath);
 };
 
 const sortUrlsByCategory = (urls: SitemapUrl[]): SitemapUrl[] => {
@@ -70,7 +79,7 @@ const sortUrlsByCategory = (urls: SitemapUrl[]): SitemapUrl[] => {
 
 const convertToSitemapUrl = (page: PageData): SitemapUrl => {
     const isBlogUrl = page.path.startsWith('/blog');
-    
+
     return {
         url: page.path,
         lastmod: page.pageContext?.lastMod,
@@ -138,6 +147,10 @@ export const generateCustomSitemaps = async (
         const otherUrls: SitemapUrl[] = [];
 
         pages.forEach((page) => {
+            if (shouldExcludePage(page.path)) {
+                return;
+            }
+
             const sitemapUrl = convertToSitemapUrl(page);
 
             if (isIntegrationUrl(page.path)) {
