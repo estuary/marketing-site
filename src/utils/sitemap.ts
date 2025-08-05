@@ -1,7 +1,6 @@
 import { createWriteStream } from 'fs';
 import { mkdir } from 'fs/promises';
 import * as path from 'path';
-import { SitemapStream } from 'sitemap';
 
 interface SitemapUrl {
     url: string;
@@ -102,18 +101,38 @@ const generateSitemap = async (
     urls: SitemapUrl[],
     outputPath: string
 ): Promise<void> => {
-    const sitemap = new SitemapStream({ hostname: 'https://estuary.dev' });
-
-    // Write to file
     const writeStream = createWriteStream(outputPath);
-    sitemap.pipe(writeStream);
 
-    // Add URLs to sitemap
+    // Write XML header
+    writeStream.write('<?xml version="1.0" encoding="UTF-8"?>\n');
+    writeStream.write(
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    );
+
+    // Add each URL
     urls.forEach((url) => {
-        sitemap.write(url);
+        const fullUrl = `https://estuary.dev${url.url}`;
+        const lastmod = url.lastmod
+            ? new Date(url.lastmod).toISOString()
+            : new Date().toISOString();
+
+        writeStream.write('  <url>\n');
+        writeStream.write(`    <loc>${fullUrl}</loc>\n`);
+        writeStream.write(`    <lastmod>${lastmod}</lastmod>\n`);
+        if (url.changefreq) {
+            writeStream.write(
+                `    <changefreq>${url.changefreq}</changefreq>\n`
+            );
+        }
+        if (url.priority !== undefined) {
+            writeStream.write(`    <priority>${url.priority}</priority>\n`);
+        }
+        writeStream.write('  </url>\n');
     });
 
-    sitemap.end();
+    // Close XML
+    writeStream.write('</urlset>\n');
+    writeStream.end();
 
     return new Promise((resolve, reject) => {
         writeStream.on('finish', resolve);
