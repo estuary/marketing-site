@@ -7,7 +7,6 @@ interface SitemapUrl {
     url: string;
     lastmod?: string;
     changefreq?: string;
-    priority?: number;
 }
 
 interface PageData {
@@ -70,21 +69,12 @@ const sortUrlsByCategory = (urls: SitemapUrl[]): SitemapUrl[] => {
 };
 
 const convertToSitemapUrl = (page: PageData): SitemapUrl => {
-    let priority = 0.5;
-
-    if (page.path === '/') {
-        priority = 1.0;
-    } else if (page.path === '/product' || page.path === '/product/') {
-        priority = 0.9;
-    } else if (page.path === '/pricing' || page.path === '/pricing/') {
-        priority = 0.8;
-    }
-
+    const isBlogUrl = page.path.startsWith('/blog');
+    
     return {
         url: page.path,
         lastmod: page.pageContext?.lastMod,
-        changefreq: 'weekly',
-        priority,
+        changefreq: isBlogUrl ? 'weekly' : undefined,
     };
 };
 
@@ -102,7 +92,6 @@ const generateSitemap = async (
             url: url.url,
             lastmod: url.lastmod,
             changefreq: url.changefreq,
-            priority: url.priority,
         });
     });
 
