@@ -95,7 +95,15 @@ const generateSitemap = async (
     urls: SitemapUrl[],
     outputPath: string
 ): Promise<void> => {
-    const sitemap = new SitemapStream({ hostname: siteUrl });
+    const sitemap = new SitemapStream({
+        hostname: siteUrl,
+        xmlns: {
+            news: false,
+            xhtml: false,
+            image: false,
+            video: false,
+        },
+    });
     const writeStream = createWriteStream(outputPath);
 
     sitemap.pipe(writeStream);
