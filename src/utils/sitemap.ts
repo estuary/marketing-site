@@ -16,6 +16,10 @@ interface PageData {
     };
 }
 
+const siteUrl = 'https://estuary.dev';
+const integrationsSitemapFilename = 'integrations-sitemap.xml';
+const mainSitemapFilename = 'sitemap-0.xml';
+
 const URL_CATEGORIES = {
     HOMEPAGE: 'homepage',
     PRODUCT: 'product',
@@ -91,7 +95,7 @@ const generateSitemap = async (
     urls: SitemapUrl[],
     outputPath: string
 ): Promise<void> => {
-    const sitemap = new SitemapStream({ hostname: 'https://estuary.dev' });
+    const sitemap = new SitemapStream({ hostname: siteUrl });
     const writeStream = createWriteStream(outputPath);
 
     sitemap.pipe(writeStream);
@@ -123,7 +127,7 @@ const generateSitemapIndex = async (
 
     sitemaps.forEach((sitemap) => {
         sitemapIndex.write({
-            url: `https://estuary.dev${sitemap.url}`,
+            url: `${siteUrl}${sitemap.url}`,
             lastmod: sitemap.lastmod,
         });
     });
@@ -165,7 +169,7 @@ export const generateCustomSitemaps = async (
         if (integrationUrls.length > 0) {
             await generateSitemap(
                 integrationUrls,
-                path.join(publicPath, 'integrations-sitemap.xml')
+                path.join(publicPath, integrationsSitemapFilename)
             );
             console.log(
                 `Generated integrations sitemap with ${integrationUrls.length} URLs`
@@ -175,7 +179,7 @@ export const generateCustomSitemaps = async (
         if (sortedOtherUrls.length > 0) {
             await generateSitemap(
                 sortedOtherUrls,
-                path.join(publicPath, 'sitemap-0.xml')
+                path.join(publicPath, mainSitemapFilename)
             );
             console.log(
                 `Generated main sitemap with ${sortedOtherUrls.length} URLs`
@@ -183,12 +187,15 @@ export const generateCustomSitemaps = async (
         }
 
         const sitemaps = [
-            { url: '/sitemap-0.xml', lastmod: new Date().toISOString() },
+            {
+                url: `/${mainSitemapFilename}`,
+                lastmod: new Date().toISOString(),
+            },
         ];
 
         if (integrationUrls.length > 0) {
             sitemaps.push({
-                url: '/integrations-sitemap.xml',
+                url: `/${integrationsSitemapFilename}`,
                 lastmod: new Date().toISOString(),
             });
         }
