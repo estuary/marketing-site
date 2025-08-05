@@ -1,6 +1,7 @@
 import { createWriteStream } from 'fs';
 import { mkdir } from 'fs/promises';
 import * as path from 'path';
+import { SitemapStream, SitemapIndexStream } from 'sitemap';
 
 interface SitemapUrl {
     url: string;
@@ -89,56 +90,25 @@ const convertToSitemapUrl = (page: PageData): SitemapUrl => {
     };
 };
 
-const XML_ESCAPE_PATTERNS = {
-    AMPERSAND: /&/g,
-    LESS_THAN: /</g,
-    GREATER_THAN: />/g,
-    QUOTE: /"/g,
-    APOSTROPHE: /'/g,
-} as const;
-
-const escapeXml = (text: string): string => {
-    return text
-        .replace(XML_ESCAPE_PATTERNS.AMPERSAND, '&amp;')
-        .replace(XML_ESCAPE_PATTERNS.LESS_THAN, '&lt;')
-        .replace(XML_ESCAPE_PATTERNS.GREATER_THAN, '&gt;')
-        .replace(XML_ESCAPE_PATTERNS.QUOTE, '&quot;')
-        .replace(XML_ESCAPE_PATTERNS.APOSTROPHE, '&#39;');
-};
-
 const generateSitemap = async (
     urls: SitemapUrl[],
     outputPath: string
 ): Promise<void> => {
+    const sitemap = new SitemapStream({ hostname: 'https://estuary.dev' });
     const writeStream = createWriteStream(outputPath);
 
-    writeStream.write('<?xml version="1.0" encoding="UTF-8"?>\n');
-    writeStream.write(
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-    );
+    sitemap.pipe(writeStream);
 
     urls.forEach((url) => {
-        const fullUrl = `https://estuary.dev${url.url}`;
-        const lastmod = url.lastmod
-            ? new Date(url.lastmod).toISOString()
-            : new Date().toISOString();
-
-        writeStream.write('  <url>\n');
-        writeStream.write(`    <loc>${escapeXml(fullUrl)}</loc>\n`);
-        writeStream.write(`    <lastmod>${escapeXml(lastmod)}</lastmod>\n`);
-        if (url.changefreq) {
-            writeStream.write(
-                `    <changefreq>${escapeXml(url.changefreq)}</changefreq>\n`
-            );
-        }
-        if (url.priority !== undefined) {
-            writeStream.write(`    <priority>${url.priority}</priority>\n`);
-        }
-        writeStream.write('  </url>\n');
+        sitemap.write({
+            url: url.url,
+            lastmod: url.lastmod,
+            changefreq: url.changefreq,
+            priority: url.priority,
+        });
     });
 
-    writeStream.write('</urlset>\n');
-    writeStream.end();
+    sitemap.end();
 
     return new Promise((resolve, reject) => {
         writeStream.on('finish', resolve);
@@ -150,27 +120,19 @@ const generateSitemapIndex = async (
     sitemaps: { url: string; lastmod?: string }[],
     outputPath: string
 ): Promise<void> => {
+    const sitemapIndex = new SitemapIndexStream();
     const writeStream = createWriteStream(outputPath);
 
-    writeStream.write('<?xml version="1.0" encoding="UTF-8"?>\n');
-    writeStream.write(
-        '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-    );
+    sitemapIndex.pipe(writeStream);
 
     sitemaps.forEach((sitemap) => {
-        const fullUrl = `https://estuary.dev${sitemap.url}`;
-        const lastmod = sitemap.lastmod
-            ? new Date(sitemap.lastmod).toISOString()
-            : new Date().toISOString();
-
-        writeStream.write('  <sitemap>\n');
-        writeStream.write(`    <loc>${escapeXml(fullUrl)}</loc>\n`);
-        writeStream.write(`    <lastmod>${escapeXml(lastmod)}</lastmod>\n`);
-        writeStream.write('  </sitemap>\n');
+        sitemapIndex.write({
+            url: `https://estuary.dev${sitemap.url}`,
+            lastmod: sitemap.lastmod,
+        });
     });
 
-    writeStream.write('</sitemapindex>\n');
-    writeStream.end();
+    sitemapIndex.end();
 
     return new Promise((resolve, reject) => {
         writeStream.on('finish', resolve);
