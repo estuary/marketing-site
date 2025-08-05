@@ -78,11 +78,22 @@ const sortUrlsByCategory = (urls: SitemapUrl[]): SitemapUrl[] => {
 
 // Convert page data to sitemap URL format
 const convertToSitemapUrl = (page: PageData): SitemapUrl => {
+    // Set specific priorities for key pages
+    let priority = 0.5;
+
+    if (page.path === '/') {
+        priority = 1.0;
+    } else if (page.path === '/product') {
+        priority = 0.9;
+    } else if (page.path === '/pricing') {
+        priority = 0.8;
+    }
+
     return {
         url: page.path,
         lastmod: page.pageContext?.lastMod,
         changefreq: 'weekly',
-        priority: 0.5,
+        priority,
     };
 };
 
