@@ -23,7 +23,7 @@ const URL_CATEGORIES = {
     PRICING: 'pricing',
     CONTACT: 'contact',
     BLOG: 'blog',
-    COMPARISON: 'comparison',
+    COMPARISON: 'etl-tools',
     OTHER: 'other',
 } as const;
 
@@ -35,9 +35,7 @@ const getUrlCategory = (url: string): UrlCategory => {
     if (url.startsWith('/pricing')) return URL_CATEGORIES.PRICING;
     if (url.startsWith('/contact')) return URL_CATEGORIES.CONTACT;
     if (url.startsWith('/blog')) return URL_CATEGORIES.BLOG;
-    if (url.includes('vs') || url.includes('comparison')) {
-        return URL_CATEGORIES.COMPARISON;
-    }
+    if (url.startsWith('/etl-tools')) return URL_CATEGORIES.COMPARISON;
     return URL_CATEGORIES.OTHER;
 };
 
