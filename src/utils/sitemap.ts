@@ -96,6 +96,25 @@ const convertToSitemapUrl = (page: PageData): SitemapUrl => {
     };
 };
 
+// XML escape regex patterns
+const XML_ESCAPE_PATTERNS = {
+    AMPERSAND: /&/g,
+    LESS_THAN: /</g,
+    GREATER_THAN: />/g,
+    QUOTE: /"/g,
+    APOSTROPHE: /'/g,
+} as const;
+
+// XML escape function
+const escapeXml = (text: string): string => {
+    return text
+        .replace(XML_ESCAPE_PATTERNS.AMPERSAND, '&amp;')
+        .replace(XML_ESCAPE_PATTERNS.LESS_THAN, '&lt;')
+        .replace(XML_ESCAPE_PATTERNS.GREATER_THAN, '&gt;')
+        .replace(XML_ESCAPE_PATTERNS.QUOTE, '&quot;')
+        .replace(XML_ESCAPE_PATTERNS.APOSTROPHE, '&#39;');
+};
+
 // Generate sitemap XML
 const generateSitemap = async (
     urls: SitemapUrl[],
@@ -117,11 +136,11 @@ const generateSitemap = async (
             : new Date().toISOString();
 
         writeStream.write('  <url>\n');
-        writeStream.write(`    <loc>${fullUrl}</loc>\n`);
-        writeStream.write(`    <lastmod>${lastmod}</lastmod>\n`);
+        writeStream.write(`    <loc>${escapeXml(fullUrl)}</loc>\n`);
+        writeStream.write(`    <lastmod>${escapeXml(lastmod)}</lastmod>\n`);
         if (url.changefreq) {
             writeStream.write(
-                `    <changefreq>${url.changefreq}</changefreq>\n`
+                `    <changefreq>${escapeXml(url.changefreq)}</changefreq>\n`
             );
         }
         if (url.priority !== undefined) {
@@ -161,8 +180,8 @@ const generateSitemapIndex = async (
             : new Date().toISOString();
 
         writeStream.write('  <sitemap>\n');
-        writeStream.write(`    <loc>${fullUrl}</loc>\n`);
-        writeStream.write(`    <lastmod>${lastmod}</lastmod>\n`);
+        writeStream.write(`    <loc>${escapeXml(fullUrl)}</loc>\n`);
+        writeStream.write(`    <lastmod>${escapeXml(lastmod)}</lastmod>\n`);
         writeStream.write('  </sitemap>\n');
     });
 
