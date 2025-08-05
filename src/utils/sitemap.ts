@@ -16,7 +16,6 @@ interface PageData {
     };
 }
 
-// URL categories for organizing the main sitemap
 const URL_CATEGORIES = {
     HOMEPAGE: 'homepage',
     PRODUCT: 'product',
@@ -29,7 +28,6 @@ const URL_CATEGORIES = {
 
 type UrlCategory = (typeof URL_CATEGORIES)[keyof typeof URL_CATEGORIES];
 
-// Define URL patterns and their categories
 const getUrlCategory = (url: string): UrlCategory => {
     if (url === '/' || url === '') return URL_CATEGORIES.HOMEPAGE;
     if (url.startsWith('/product')) return URL_CATEGORIES.PRODUCT;
@@ -42,12 +40,10 @@ const getUrlCategory = (url: string): UrlCategory => {
     return URL_CATEGORIES.OTHER;
 };
 
-// Check if URL is an integration URL
 const isIntegrationUrl = (url: string): boolean => {
     return url.startsWith('/integrations/');
 };
 
-// Sort URLs by category priority
 const sortUrlsByCategory = (urls: SitemapUrl[]): SitemapUrl[] => {
     const categoryOrder = [
         URL_CATEGORIES.HOMEPAGE,
@@ -70,14 +66,11 @@ const sortUrlsByCategory = (urls: SitemapUrl[]): SitemapUrl[] => {
             return indexA - indexB;
         }
 
-        // Within the same category, sort alphabetically
         return a.url.localeCompare(b.url);
     });
 };
 
-// Convert page data to sitemap URL format
 const convertToSitemapUrl = (page: PageData): SitemapUrl => {
-    // Set specific priorities for key pages
     let priority = 0.5;
 
     if (page.path === '/') {
@@ -96,7 +89,6 @@ const convertToSitemapUrl = (page: PageData): SitemapUrl => {
     };
 };
 
-// XML escape regex patterns
 const XML_ESCAPE_PATTERNS = {
     AMPERSAND: /&/g,
     LESS_THAN: /</g,
@@ -105,7 +97,6 @@ const XML_ESCAPE_PATTERNS = {
     APOSTROPHE: /'/g,
 } as const;
 
-// XML escape function
 const escapeXml = (text: string): string => {
     return text
         .replace(XML_ESCAPE_PATTERNS.AMPERSAND, '&amp;')
@@ -115,20 +106,17 @@ const escapeXml = (text: string): string => {
         .replace(XML_ESCAPE_PATTERNS.APOSTROPHE, '&#39;');
 };
 
-// Generate sitemap XML
 const generateSitemap = async (
     urls: SitemapUrl[],
     outputPath: string
 ): Promise<void> => {
     const writeStream = createWriteStream(outputPath);
 
-    // Write XML header
     writeStream.write('<?xml version="1.0" encoding="UTF-8"?>\n');
     writeStream.write(
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     );
 
-    // Add each URL
     urls.forEach((url) => {
         const fullUrl = `https://estuary.dev${url.url}`;
         const lastmod = url.lastmod
@@ -149,7 +137,6 @@ const generateSitemap = async (
         writeStream.write('  </url>\n');
     });
 
-    // Close XML
     writeStream.write('</urlset>\n');
     writeStream.end();
 
@@ -159,20 +146,17 @@ const generateSitemap = async (
     });
 };
 
-// Generate sitemap index
 const generateSitemapIndex = async (
     sitemaps: { url: string; lastmod?: string }[],
     outputPath: string
 ): Promise<void> => {
     const writeStream = createWriteStream(outputPath);
 
-    // Write XML header
     writeStream.write('<?xml version="1.0" encoding="UTF-8"?>\n');
     writeStream.write(
         '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     );
 
-    // Add each sitemap
     sitemaps.forEach((sitemap) => {
         const fullUrl = `https://estuary.dev${sitemap.url}`;
         const lastmod = sitemap.lastmod
@@ -185,7 +169,6 @@ const generateSitemapIndex = async (
         writeStream.write('  </sitemap>\n');
     });
 
-    // Close XML
     writeStream.write('</sitemapindex>\n');
     writeStream.end();
 
@@ -195,16 +178,13 @@ const generateSitemapIndex = async (
     });
 };
 
-// Main function to generate all sitemaps
 export const generateCustomSitemaps = async (
     pages: PageData[],
     publicPath: string
 ): Promise<void> => {
     try {
-        // Ensure public directory exists
         await mkdir(publicPath, { recursive: true });
 
-        // Separate integration URLs from other URLs
         const integrationUrls: SitemapUrl[] = [];
         const otherUrls: SitemapUrl[] = [];
 
@@ -218,10 +198,8 @@ export const generateCustomSitemaps = async (
             }
         });
 
-        // Sort other URLs by category
         const sortedOtherUrls = sortUrlsByCategory(otherUrls);
 
-        // Generate integrations sitemap
         if (integrationUrls.length > 0) {
             await generateSitemap(
                 integrationUrls,
@@ -232,7 +210,6 @@ export const generateCustomSitemaps = async (
             );
         }
 
-        // Generate main sitemap
         if (sortedOtherUrls.length > 0) {
             await generateSitemap(
                 sortedOtherUrls,
@@ -243,7 +220,6 @@ export const generateCustomSitemaps = async (
             );
         }
 
-        // Generate sitemap index
         const sitemaps = [
             { url: '/sitemap-0.xml', lastmod: new Date().toISOString() },
         ];
