@@ -75,9 +75,9 @@ const convertToSitemapUrl = (page: PageData): SitemapUrl => {
 
     if (page.path === '/') {
         priority = 1.0;
-    } else if (page.path === '/product') {
+    } else if (page.path === '/product' || page.path === '/product/') {
         priority = 0.9;
-    } else if (page.path === '/pricing') {
+    } else if (page.path === '/pricing' || page.path === '/pricing/') {
         priority = 0.8;
     }
 
