@@ -4,6 +4,7 @@ import { CreatePagesArgs, GatsbyNode } from 'gatsby';
 import { createRemoteFileNode } from 'gatsby-source-filesystem';
 import { SUPABASE_CONNECTION_STRING } from './config';
 import { normalizeConnector } from './src/utils';
+import { generateCustomSitemaps } from './src/utils/sitemap';
 import {
     getAuthorPathBySlug,
     getComparisonSlug,
@@ -924,5 +925,61 @@ export const onCreateWebpackConfig = ({ stage, actions, getConfig }) => {
         }
 
         actions.replaceWebpackConfig(config);
+    }
+};
+
+export const onPostBuild: GatsbyNode['onPostBuild'] = async ({
+    graphql,
+    reporter,
+}) => {
+    try {
+        // Query all pages to generate sitemaps
+        const result = await graphql<{
+            site: {
+                siteMetadata: {
+                    siteUrl: string;
+                };
+            };
+            allSitePage: {
+                nodes: {
+                    path: string;
+                    pageContext?: {
+                        lastMod?: string;
+                    };
+                }[];
+            };
+        }>(`
+            {
+                site {
+                    siteMetadata {
+                        siteUrl
+                    }
+                }
+                allSitePage {
+                    nodes {
+                        path
+                        pageContext
+                    }
+                }
+            }
+        `);
+
+        if (result.errors) {
+            reporter.panicOnBuild(
+                'Error querying pages for sitemap generation',
+                result.errors
+            );
+            return;
+        }
+
+        const pages = result.data?.allSitePage.nodes ?? [];
+        const publicPath = './public';
+
+        // Generate custom sitemaps
+        await generateCustomSitemaps(pages, publicPath);
+
+        reporter.success('Custom sitemaps generated successfully');
+    } catch (error) {
+        reporter.panicOnBuild('Error generating custom sitemaps', error);
     }
 };

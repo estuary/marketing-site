@@ -34,7 +34,6 @@
     "gatsby-plugin-react-svg": "^3.3.0",
     "gatsby-plugin-robots-txt": "^1.8.0",
     "gatsby-plugin-sharp": "^5.14.0",
-    "gatsby-plugin-sitemap": "^6.13.1",
     "gatsby-plugin-svgr-svgo": "^2.0.0",
     "gatsby-plugin-webfonts": "^2.3.2",
     "gatsby-rehype-inline-images": "^2.0.1",
@@ -70,6 +69,7 @@
     "rehype-react": "^7.1.2",
     "rehype-slug": "^5.1.0",
     "rehype-toc": "^3.0.2",
+    "sitemap": "^8.0.0",
     "unified": "^9.2.2",
     "unist-util-visit": "^4.1.2"
   },
