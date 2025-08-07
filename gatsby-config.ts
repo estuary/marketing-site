@@ -654,32 +654,6 @@ const cfg: GatsbyConfig = {
             resolve: 'gatsby-source-strapi',
             options: strapiConfig,
         },
-        {
-            resolve: 'gatsby-plugin-sitemap',
-            options: {
-                query: `
-              {
-                site {
-                  siteMetadata {
-                    siteUrl
-                  }
-                }
-                allSitePage {
-                  nodes {
-                    path
-                    pageContext
-                  }
-                }
-              }
-              `,
-                serialize: ({ path: serializePath, pageContext }) => {
-                    return {
-                        url: serializePath,
-                        lastmod: pageContext?.lastMod,
-                    };
-                },
-            },
-        },
         'gatsby-plugin-robots-txt',
         'gatsby-transformer-inline-svg',
         'gatsby-plugin-image',

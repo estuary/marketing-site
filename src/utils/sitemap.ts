@@ -1,0 +1,194 @@
+import { createWriteStream } from 'fs';
+import { mkdir } from 'fs/promises';
+import * as path from 'path';
+import { SitemapStream, SitemapAndIndexStream } from 'sitemap';
+
+interface SitemapUrl {
+    url: string;
+    lastmod?: string;
+    changefreq?: string;
+}
+
+interface PageData {
+    path: string;
+    pageContext?: {
+        lastMod?: string;
+    };
+}
+
+const siteUrl = 'https://estuary.dev';
+
+const URL_CATEGORIES = {
+    HOMEPAGE: 'homepage',
+    PRODUCT: 'product',
+    PRICING: 'pricing',
+    CONTACT: 'contact',
+    BLOG: 'blog',
+    COMPARISON: 'etl-tools',
+    OTHER: 'other',
+} as const;
+
+type UrlCategory = (typeof URL_CATEGORIES)[keyof typeof URL_CATEGORIES];
+
+const getUrlCategory = (url: string): UrlCategory => {
+    if (url === '/' || url === '') return URL_CATEGORIES.HOMEPAGE;
+    if (url.startsWith('/product')) return URL_CATEGORIES.PRODUCT;
+    if (url.startsWith('/pricing')) return URL_CATEGORIES.PRICING;
+    if (url.startsWith('/contact')) return URL_CATEGORIES.CONTACT;
+    if (url.startsWith('/blog')) return URL_CATEGORIES.BLOG;
+    if (url.startsWith('/etl-tools')) return URL_CATEGORIES.COMPARISON;
+    return URL_CATEGORIES.OTHER;
+};
+
+const isIntegrationUrl = (url: string) => {
+    return url.startsWith('/integrations/');
+};
+
+const shouldExcludePage = (pagePath: string) => {
+    const excludedPaths = [
+        '/dev-404-page',
+        '/404',
+        '/offline-plugin-app-shell-fallback',
+    ];
+    return excludedPaths.includes(pagePath);
+};
+
+const sortUrlsByCategory = (urls: SitemapUrl[]): SitemapUrl[] => {
+    const categoryOrder = [
+        URL_CATEGORIES.HOMEPAGE,
+        URL_CATEGORIES.PRODUCT,
+        URL_CATEGORIES.PRICING,
+        URL_CATEGORIES.CONTACT,
+        URL_CATEGORIES.BLOG,
+        URL_CATEGORIES.COMPARISON,
+        URL_CATEGORIES.OTHER,
+    ];
+
+    return urls.sort((a, b) => {
+        const categoryA = getUrlCategory(a.url);
+        const categoryB = getUrlCategory(b.url);
+
+        const indexA = categoryOrder.indexOf(categoryA);
+        const indexB = categoryOrder.indexOf(categoryB);
+
+        if (indexA !== indexB) {
+            return indexA - indexB;
+        }
+
+        return a.url.localeCompare(b.url);
+    });
+};
+
+const convertToSitemapUrl = (page: PageData): SitemapUrl => {
+    const isBlogUrl = page.path.startsWith('/blog');
+
+    return {
+        url: page.path,
+        lastmod: page.pageContext?.lastMod,
+        changefreq: isBlogUrl ? 'weekly' : undefined,
+    };
+};
+
+const generateLargeSitemap = async (
+    urls: SitemapUrl[],
+    publicPath: string,
+    sitemapName: string
+): Promise<void> => {
+    const sms = new SitemapAndIndexStream({
+        limit: 45000,
+        getSitemapStream: (i) => {
+            const sitemapStream = new SitemapStream({
+                hostname: siteUrl,
+                xmlns: {
+                    news: false,
+                    xhtml: false,
+                    image: false,
+                    video: false,
+                },
+            });
+
+            const sitemapPath =
+                i === 0 ? `${sitemapName}.xml` : `${sitemapName}-${i}.xml`;
+            const fullPath = path.join(publicPath, sitemapPath);
+            const ws = sitemapStream.pipe(createWriteStream(fullPath));
+
+            return [
+                new URL(`/${sitemapPath}`, siteUrl).toString(),
+                sitemapStream,
+                ws,
+            ];
+        },
+    });
+
+    const indexPath = path.join(publicPath, `${sitemapName}-index.xml`);
+    const writeStream = sms.pipe(createWriteStream(indexPath));
+
+    urls.forEach((url) => {
+        sms.write({
+            url: url.url,
+            lastmod: url.lastmod,
+            changefreq: url.changefreq,
+        });
+    });
+
+    sms.end();
+
+    return new Promise((resolve, reject) => {
+        writeStream.on('finish', resolve);
+        writeStream.on('error', reject);
+    });
+};
+
+export const generateCustomSitemaps = async (
+    pages: PageData[],
+    publicPath: string
+): Promise<void> => {
+    try {
+        await mkdir(publicPath, { recursive: true });
+
+        const integrationUrls: SitemapUrl[] = [];
+        const otherUrls: SitemapUrl[] = [];
+
+        pages.forEach((page) => {
+            if (shouldExcludePage(page.path)) {
+                return;
+            }
+
+            const sitemapUrl = convertToSitemapUrl(page);
+
+            if (isIntegrationUrl(page.path)) {
+                integrationUrls.push(sitemapUrl);
+            } else {
+                otherUrls.push(sitemapUrl);
+            }
+        });
+
+        const sortedOtherUrls = sortUrlsByCategory(otherUrls);
+
+        if (integrationUrls.length > 0) {
+            await generateLargeSitemap(
+                integrationUrls,
+                publicPath,
+                'integrations-sitemap'
+            );
+            console.log(
+                `Generated integrations sitemap with ${integrationUrls.length} URLs`
+            );
+        }
+
+        if (sortedOtherUrls.length > 0) {
+            await generateLargeSitemap(
+                sortedOtherUrls,
+                publicPath,
+                'sitemap-0'
+            );
+            console.log(
+                `Generated main sitemap with ${sortedOtherUrls.length} URLs`
+            );
+        }
+        console.log('Generated sitemap index');
+    } catch (error) {
+        console.error('Error generating sitemaps:', error);
+        throw error;
+    }
+};
