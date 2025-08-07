@@ -36,7 +36,7 @@ const HeaderNavbarResources = ({ active, setActive }) => {
         query GetAllMenuSuccessStories {
             allStrapiCaseStudy(
                 limit: 4
-                filter: { Slug: { in: ["headset", "prodege", "davidenergy"] } }
+                filter: { slug: { in: ["headset", "prodege", "davidenergy"] } }
             ) {
                 nodes {
                     linkOneLiner
