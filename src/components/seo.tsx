@@ -116,6 +116,11 @@ const Seo: FC<SeoProps> = ({
             <meta name="mobile-web-app-capable" content="yes" />
             {prevUrl ? <link rel="prev" href={prevUrl} /> : null}
             {nextUrl ? <link rel="next" href={nextUrl} /> : null}
+            <link
+                rel="sitemap" // eslint-disable-line react/no-invalid-html-attribute
+                type="application/xml"
+                href="/sitemap-index.xml"
+            />
             {children}
             <script type="application/ld+json">
                 {JSON.stringify({
