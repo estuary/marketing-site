@@ -26,6 +26,10 @@ const HeaderNavbar = ({ activeMenu, setActiveMenu }: HeaderNavbarProps) => {
                 active={activeMenu === 'product'}
                 setActive={setActiveMenu}
             />
+            <LinkSolutions
+                active={activeMenu === 'solutions'}
+                setActive={setActiveMenu}
+            />
             <Link
                 onMouseEnter={handleMouseLeave}
                 className={globalHeaderLink}
@@ -42,10 +46,6 @@ const HeaderNavbar = ({ activeMenu, setActiveMenu }: HeaderNavbarProps) => {
             </Link>
             <LinkResources
                 active={activeMenu === 'resources'}
-                setActive={setActiveMenu}
-            />
-            <LinkSolutions
-                active={activeMenu === 'solutions'}
                 setActive={setActiveMenu}
             />
             <div className={mobileMenuButtons}>
