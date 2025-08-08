@@ -27,9 +27,9 @@ export const onRenderBody: GatsbySSR['onRenderBody'] = ({
 
     // On non-production builds we don't want the rest added because it
     //  is just Cookie Consent and Google Tagging / Analytics
-    if (process.env.NODE_ENV !== 'production') {
-        return;
-    }
+    // if (process.env.NODE_ENV !== 'production') {
+    //     return;
+    // }
 
     const googleAnalyticsHTML = `
       window.dataLayer = window.dataLayer || [];
@@ -67,6 +67,45 @@ export const onRenderBody: GatsbySSR['onRenderBody'] = ({
             }
         });
 
+    `;
+
+    // TODO - remove checking for localhost (only check prod)
+    // TODO - switch console log to gtag event
+    const clickTrackingScript = `
+        window.addEventListener(
+          "click",
+          function (e) {
+            console.log("click", e);
+            const anchor = e.target.closest("a");
+
+            if (!anchor || !window || window.gtag !== "function") {
+              return;
+            }
+
+            const targetLocation = anchor.href;
+            if (targetLocation && targetLocation.length > 0) {
+              if (
+                targetLocation.startsWith("https://estuary.dev") ||
+                targetLocation.startsWith("http://localhost")
+              ) {
+                const linkId = anchor.id ?? "_missing_id_";
+                console.log("click", {
+                  link_id: anchor.id,
+                  event_category: "internal",
+                  event_label: targetLocation,
+                });
+                // window.gtag("event", "click", {
+                //   link_id: anchor.id,
+                //   event_category: "internal",
+                //   event_label: targetLocation,
+                // });
+              }
+            }
+          },
+          false,
+        );
+
+        );
     `;
 
     setHeadComponents([
@@ -117,6 +156,12 @@ export const onRenderBody: GatsbySSR['onRenderBody'] = ({
             key="cookie-first-banner-load-handler"
             dangerouslySetInnerHTML={{
                 __html: consentBannerHandling,
+            }}
+        />,
+        <script
+            key="cookie-first-banner-load-handler"
+            dangerouslySetInnerHTML={{
+                __html: clickTrackingScript,
             }}
         />,
         <script
