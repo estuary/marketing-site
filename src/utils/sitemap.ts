@@ -107,7 +107,7 @@ const generateLargeSitemap = async (
     urls: SitemapUrl[],
     publicPath: string,
     sitemapName: string
-): Promise<void> => {
+): Promise<number> => {
     const sms = new SitemapAndIndexStream({
         limit: SITEMAP_URL_LIMIT,
         getSitemapStream: (i) => {
@@ -143,26 +143,37 @@ const generateLargeSitemap = async (
 
     sms.end();
 
-    return waitForStreamFinish(writeStream);
+    const sitemapCount = Math.ceil(urls.length / SITEMAP_URL_LIMIT);
+
+    await waitForStreamFinish(writeStream);
+    return sitemapCount;
 };
 
 const generateMainSitemapIndex = async (
     publicPath: string,
-    hasIntegrationSitemap: boolean
+    mainSitemapCount = 1,
+    integrationsSitemapCount = 0
 ): Promise<void> => {
     const sitemapIndex = new SitemapIndexStream();
 
     const indexPath = path.join(publicPath, 'sitemap-index.xml');
     const writeStream = sitemapIndex.pipe(createWriteStream(indexPath));
 
-    sitemapIndex.write({
-        url: `${siteUrl}/sitemap-0.xml`,
-        lastmod: new Date().toISOString(),
-    });
-
-    if (hasIntegrationSitemap) {
+    for (let i = 0; i < mainSitemapCount; i++) {
+        const sitemapName = i === 0 ? 'sitemap-0.xml' : `sitemap-0-${i}.xml`;
         sitemapIndex.write({
-            url: `${siteUrl}/integrations-sitemap.xml`,
+            url: `${siteUrl}/${sitemapName}`,
+            lastmod: new Date().toISOString(),
+        });
+    }
+
+    for (let i = 0; i < integrationsSitemapCount; i++) {
+        const sitemapName =
+            i === 0
+                ? 'integrations-sitemap.xml'
+                : `integrations-sitemap-${i}.xml`;
+        sitemapIndex.write({
+            url: `${siteUrl}/${sitemapName}`,
             lastmod: new Date().toISOString(),
         });
     }
@@ -198,29 +209,35 @@ export const generateCustomSitemaps = async (
 
         const sortedOtherUrls = sortUrlsByCategory(otherUrls);
 
+        let integrationsSitemapCount = 0;
         if (integrationUrls.length > 0) {
-            await generateLargeSitemap(
+            integrationsSitemapCount = await generateLargeSitemap(
                 integrationUrls,
                 publicPath,
                 'integrations-sitemap'
             );
             console.log(
-                `Generated integrations sitemap with ${integrationUrls.length} URLs at ${publicPath}`
+                `Generated integrations sitemap with ${integrationUrls.length} URLs at ${publicPath} (split into ${integrationsSitemapCount} files)`
             );
         }
 
+        let mainSitemapCount = 1;
         if (sortedOtherUrls.length > 0) {
-            await generateLargeSitemap(
+            mainSitemapCount = await generateLargeSitemap(
                 sortedOtherUrls,
                 publicPath,
                 'sitemap-0'
             );
             console.log(
-                `Generated main sitemap with ${sortedOtherUrls.length} URLs at ${publicPath}`
+                `Generated main sitemap with ${sortedOtherUrls.length} URLs at ${publicPath} (split into ${mainSitemapCount} files)`
             );
         }
 
-        await generateMainSitemapIndex(publicPath, integrationUrls.length > 0);
+        await generateMainSitemapIndex(
+            publicPath,
+            mainSitemapCount,
+            integrationsSitemapCount
+        );
         console.log('Generated main sitemap index');
     } catch (error) {
         console.error('Error generating sitemaps:', error);
