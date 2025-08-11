@@ -4,6 +4,7 @@ import Seo from '../../components/seo';
 import { normalizeConnector } from '../../utils';
 import Hero from '../../components/Integration/Hero';
 import ThreeQuickSteps from '../../components/Integration/ThreeQuickSteps';
+import ConnectorDetails from '../../components/Integration/ConnectorDetails';
 import Testimonials from '../../components/TestimonialsSection';
 import EstuaryFlowVideo from '../../components/Integration/EstuaryFlowVideo';
 import RelatedIntegrations from '../../components/Integration/RelatedIntegrations';
@@ -36,6 +37,24 @@ export interface ConnectorProps {
         };
         sourceConnectorRelatedArticle: any;
         destinationConnectorRelatedArticle: any;
+        sourceConnectorContent?: {
+            id: string;
+            slug: string;
+            content?: {
+                data?: {
+                    content?: string;
+                };
+            };
+        };
+        destinationConnectorContent?: {
+            id: string;
+            slug: string;
+            content?: {
+                data?: {
+                    content?: string;
+                };
+            };
+        };
     };
     pageContext: {
         source_id: string;
@@ -51,6 +70,8 @@ const Connector = ({
         destination: { connector: destination_connector },
         sourceConnectorRelatedArticle,
         destinationConnectorRelatedArticle,
+        sourceConnectorContent,
+        destinationConnectorContent,
     },
 }: ConnectorProps) => {
     const source_mapped = normalizeConnector(source_connector);
@@ -81,6 +102,22 @@ const Connector = ({
                 destConnector={{
                     title: dest_mapped?.title,
                 }}
+            />
+            <ConnectorDetails
+                sourceConnector={{
+                    title: source_mapped?.title,
+                    logo: source_mapped?.logo,
+                }}
+                destConnector={{
+                    title: dest_mapped?.title,
+                    logo: dest_mapped?.logo,
+                }}
+                sourceConnectorContent={
+                    sourceConnectorContent?.content?.data?.content
+                }
+                destConnectorContent={
+                    destinationConnectorContent?.content?.data?.content
+                }
             />
             <EstuaryFlowVideo />
             <RealTimeAndBatch />
@@ -192,6 +229,26 @@ export const pageQuery = graphql`
         $source_title: String!
         $destination_title: String!
     ) {
+        sourceConnectorContent: strapiConnector(slug: { eq: $source_title }) {
+            id
+            slug
+            content {
+                data {
+                    content
+                }
+            }
+        }
+        destinationConnectorContent: strapiConnector(
+            slug: { eq: $destination_title }
+        ) {
+            id
+            slug
+            content {
+                data {
+                    content
+                }
+            }
+        }
         source: postgres {
             connector: connectorById(id: $source_id) {
                 id
