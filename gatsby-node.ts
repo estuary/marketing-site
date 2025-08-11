@@ -933,7 +933,6 @@ export const onPostBuild: GatsbyNode['onPostBuild'] = async ({
     reporter,
 }) => {
     try {
-        // Query all pages to generate sitemaps
         const result = await graphql<{
             site: {
                 siteMetadata: {
@@ -973,9 +972,11 @@ export const onPostBuild: GatsbyNode['onPostBuild'] = async ({
         }
 
         const pages = result.data?.allSitePage.nodes ?? [];
-        const publicPath = './public';
+        const publicPath = path.resolve(process.cwd(), 'public');
 
-        // Generate custom sitemaps
+        console.log('Sitemap generation - publicPath:', publicPath);
+        console.log('Sitemap generation - process.cwd():', process.cwd());
+
         await generateCustomSitemaps(pages, publicPath);
 
         reporter.success('Custom sitemaps generated successfully');
