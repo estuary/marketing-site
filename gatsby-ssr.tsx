@@ -69,42 +69,54 @@ export const onRenderBody: GatsbySSR['onRenderBody'] = ({
 
     `;
 
-    // TODO - remove checking for localhost (only check prod)
-    // TODO - switch console log to gtag event
     const clickTrackingScript = `
         window.addEventListener(
           "click",
           function (e) {
-            console.log("click", e);
+            // Do not run without gtag running
+            if (
+              !window ||
+              !window.gtag ||
+              typeof window.gtag !== "function"
+            ) {
+              return true;
+            }
+            
+            // Get the closest anchor and make sure it is there
             const anchor = e.target.closest("a");
-
-            if (!anchor || !window || window.gtag !== "function") {
-              return;
+            if (!anchor) {
+              return true;
             }
 
+            // We only care about main button clicks
+            // The "special case" clicks can be ignored
+            //      alt+click will often download the page
+            //      meta+click will often allow moving page around
+            if (e.button !== 0 || e.altKey || e.metaKey) {
+              return true;
+            }
+
+            // Only want internal links
+            if (anchor.host === window.location.hostname) {
+              return true;
+            }
+
+            // If there is no href or the location is the same (header nav)
             const targetLocation = anchor.href;
-            if (targetLocation && targetLocation.length > 0) {
-              if (
-                targetLocation.startsWith("https://estuary.dev") ||
-                targetLocation.startsWith("http://localhost")
-              ) {
-                const linkId = anchor.id ?? "_missing_id_";
-                console.log("click", {
-                  link_id: anchor.id,
-                  event_category: "internal",
-                  event_label: targetLocation,
-                });
-                // window.gtag("event", "click", {
-                //   link_id: anchor.id,
-                //   event_category: "internal",
-                //   event_label: targetLocation,
-                // });
-              }
+            if (!targetLocation || targetLocation === window.location.href) {
+              return true;
             }
+
+            console.log(">> calling gtag");
+            // window.gtag("event", "click", {
+            //   link_id: anchor.id ?? "_missing_id_",
+            //   event_category: "internal",
+            //   event_label: targetLocation,
+            // });
+
+            return true;
           },
           false,
-        );
-
         );
     `;
 
