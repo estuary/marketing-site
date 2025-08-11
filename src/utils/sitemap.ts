@@ -120,8 +120,7 @@ const generateLargeSitemap = async (
                 },
             });
 
-            const sitemapPath =
-                i === 0 ? `${sitemapName}.xml` : `${sitemapName}-${i}.xml`;
+            const sitemapPath = `${sitemapName}-${i}.xml`;
             const fullPath = path.join(publicPath, sitemapPath);
             const ws = sitemapStream.pipe(createWriteStream(fullPath));
 
@@ -159,7 +158,7 @@ const generateMainSitemapIndex = async (
     const writeStream = sitemapIndex.pipe(createWriteStream(indexPath));
 
     for (let i = 0; i < mainSitemapCount; i++) {
-        const sitemapName = i === 0 ? 'sitemap-0.xml' : `sitemap-0-${i}.xml`;
+        const sitemapName = `sitemap-${i}.xml`;
         sitemapIndex.write({
             url: `${siteUrl}/${sitemapName}`,
             lastmod: new Date().toISOString(),
@@ -167,10 +166,7 @@ const generateMainSitemapIndex = async (
     }
 
     for (let i = 0; i < integrationsSitemapCount; i++) {
-        const sitemapName =
-            i === 0
-                ? 'integrations-sitemap.xml'
-                : `integrations-sitemap-${i}.xml`;
+        const sitemapName = `integrations-sitemap-${i}.xml`;
         sitemapIndex.write({
             url: `${siteUrl}/${sitemapName}`,
             lastmod: new Date().toISOString(),
