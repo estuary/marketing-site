@@ -27,7 +27,6 @@ export type ButtonStyleVariants =
     | 'outlinedPrimary'
     | 'outlinedSecondary';
 
-export const GTM_ID = 'GTM-WK8SB2L';
 export const GA_MEASUREMENT_ID = 'G-P1PZPE4HHZ';
 export const GA_ORIGIN = 'https://www.googletagmanager.com';
 export const GA_ANALYTICS_ENDPOINT = 'https://www.google-analytics.com';
