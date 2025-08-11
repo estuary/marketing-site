@@ -973,7 +973,10 @@ export const onPostBuild: GatsbyNode['onPostBuild'] = async ({
         }
 
         const pages = result.data?.allSitePage.nodes ?? [];
-        const publicPath = './public';
+        const publicPath = path.resolve(process.cwd(), 'public');
+
+        console.log('Sitemap generation - publicPath:', publicPath);
+        console.log('Sitemap generation - process.cwd():', process.cwd());
 
         // Generate custom sitemaps
         await generateCustomSitemaps(pages, publicPath);

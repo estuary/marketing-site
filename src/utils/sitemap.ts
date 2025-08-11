@@ -172,7 +172,7 @@ export const generateCustomSitemaps = async (
                 'integrations-sitemap'
             );
             console.log(
-                `Generated integrations sitemap with ${integrationUrls.length} URLs`
+                `Generated integrations sitemap with ${integrationUrls.length} URLs at ${publicPath}`
             );
         }
 
@@ -183,7 +183,7 @@ export const generateCustomSitemaps = async (
                 'sitemap-0'
             );
             console.log(
-                `Generated main sitemap with ${sortedOtherUrls.length} URLs`
+                `Generated main sitemap with ${sortedOtherUrls.length} URLs at ${publicPath}`
             );
         }
         console.log('Generated sitemap index');
