@@ -219,7 +219,7 @@ export const generateCustomSitemaps = async (
             mainSitemapCount = await generateLargeSitemap(
                 sortedOtherUrls,
                 publicPath,
-                'sitemap-0'
+                'sitemap'
             );
             console.log(
                 `Generated main sitemap with ${sortedOtherUrls.length} URLs at ${publicPath} (split into ${mainSitemapCount} files)`
