@@ -1,5 +1,4 @@
 import { createWriteStream } from 'fs';
-import { mkdir } from 'fs/promises';
 import * as path from 'path';
 import {
     SitemapStream,
@@ -188,8 +187,6 @@ export const generateCustomSitemaps = async (
     publicPath: string
 ): Promise<void> => {
     try {
-        await mkdir(publicPath, { recursive: true });
-
         const integrationUrls: SitemapUrl[] = [];
         const otherUrls: SitemapUrl[] = [];
 
