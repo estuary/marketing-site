@@ -113,7 +113,7 @@ export const onRenderBody: GatsbySSR['onRenderBody'] = ({
               return;
             }
 
-            // Fire the event
+            // Fire the event (similar to handleOutboundLinkClick)
             window.gtag("event", "click", {
               link_id: anchor.id ?? "_missing_id_",
               event_category: "internal",
