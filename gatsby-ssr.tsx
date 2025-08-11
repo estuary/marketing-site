@@ -73,19 +73,25 @@ export const onRenderBody: GatsbySSR['onRenderBody'] = ({
         window.addEventListener(
           "click",
           function (e) {
-            // Do not run without gtag running
+            // If we have prevent default just exit right away
+            if (e.defaultPrevented) {
+                return;
+            }
+
+            // Do not run without all the stuff we need
             if (
               !window ||
+              !window.location ||
               !window.gtag ||
               typeof window.gtag !== "function"
             ) { 
-              return true;
+              return;
             }
             
             // Get the closest anchor and make sure it is there
             const anchor = e.target.closest("a");
-            if (!anchor) {
-              return true;
+            if (!(anchor instanceof HTMLAnchorElement)) {
+              return;
             }
 
             // We only care about main button clicks
@@ -93,27 +99,28 @@ export const onRenderBody: GatsbySSR['onRenderBody'] = ({
             //      alt+click will often download the page
             //      meta+click will often allow moving page around
             if (e.button !== 0 || e.altKey || e.metaKey) {
-              return true;
+              return;
             }
 
             // Only want internal links
             if (anchor.host !== window.location.host) {
-              return true;
+              return;
             }
 
             // Ensure there is a location
             const targetLocation = anchor.href;
             if (!targetLocation) {
-              return true;
+              return;
             }
 
+            // Fire the event
             window.gtag("event", "click", {
               link_id: anchor.id ?? "_missing_id_",
               event_category: "internal",
               event_label: targetLocation,
             });
 
-            return true;
+            return;
           },
           false,
         );
