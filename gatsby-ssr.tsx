@@ -78,7 +78,7 @@ export const onRenderBody: GatsbySSR['onRenderBody'] = ({
               !window ||
               !window.gtag ||
               typeof window.gtag !== "function"
-            ) {
+            ) { 
               return true;
             }
             
@@ -97,22 +97,21 @@ export const onRenderBody: GatsbySSR['onRenderBody'] = ({
             }
 
             // Only want internal links
-            if (anchor.host === window.location.hostname) {
+            if (anchor.host !== window.location.host) {
               return true;
             }
 
-            // If there is no href or the location is the same (header nav)
+            // Ensure there is a location
             const targetLocation = anchor.href;
-            if (!targetLocation || targetLocation === window.location.href) {
+            if (!targetLocation) {
               return true;
             }
 
-            console.log(">> calling gtag");
-            // window.gtag("event", "click", {
-            //   link_id: anchor.id ?? "_missing_id_",
-            //   event_category: "internal",
-            //   event_label: targetLocation,
-            // });
+            window.gtag("event", "click", {
+              link_id: anchor.id ?? "_missing_id_",
+              event_category: "internal",
+              event_label: targetLocation,
+            });
 
             return true;
           },
