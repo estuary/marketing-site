@@ -27,9 +27,9 @@ export const onRenderBody: GatsbySSR['onRenderBody'] = ({
 
     // On non-production builds we don't want the rest added because it
     //  is just Cookie Consent and Google Tagging / Analytics
-    // if (process.env.NODE_ENV !== 'production') {
-    //     return;
-    // }
+    if (process.env.NODE_ENV !== 'production') {
+        return;
+    }
 
     const googleAnalyticsHTML = `
       window.dataLayer = window.dataLayer || [];
