@@ -177,16 +177,16 @@ export const onRenderBody: GatsbySSR['onRenderBody'] = ({
             }}
         />,
         <script
-            key="cookie-first-banner-load-handler"
-            dangerouslySetInnerHTML={{
-                __html: clickTrackingScript,
-            }}
-        />,
-        <script
             key="script-cookiefirst"
             id="CookieFirst"
             async
             src="https://consent.cookiefirst.com/sites/estuary.dev-bb4406bb-2dfd-4133-8a4c-7b737e5b0bac/consent.js"
+        />,
+        <script
+            key="google-analytics-click-tracking-handler"
+            dangerouslySetInnerHTML={{
+                __html: clickTrackingScript,
+            }}
         />,
     ]);
 };
