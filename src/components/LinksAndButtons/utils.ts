@@ -6,7 +6,7 @@ interface OutboundLinkProps
     href?: string;
 }
 
-// We have a similar funciton in gatsby-srr (clickTrackingScript)
+// We have a similar function in gatsby-srr (clickTrackingScript)
 export const handleOutboundLinkClick = (
     e: MouseEvent<HTMLAnchorElement>,
     props: OutboundLinkProps
