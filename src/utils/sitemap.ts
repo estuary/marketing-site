@@ -1,7 +1,11 @@
 import { createWriteStream } from 'fs';
 import { mkdir } from 'fs/promises';
 import * as path from 'path';
-import { SitemapStream, SitemapAndIndexStream, SitemapIndexStream } from 'sitemap';
+import {
+    SitemapStream,
+    SitemapAndIndexStream,
+    SitemapIndexStream,
+} from 'sitemap';
 
 interface SitemapUrl {
     url: string;
@@ -90,7 +94,9 @@ const convertToSitemapUrl = (page: PageData): SitemapUrl => {
     };
 };
 
-const waitForStreamFinish = (writeStream: NodeJS.WritableStream): Promise<void> => {
+const waitForStreamFinish = (
+    writeStream: NodeJS.WritableStream
+): Promise<void> => {
     return new Promise((resolve, reject) => {
         writeStream.on('finish', resolve);
         writeStream.on('error', reject);
@@ -120,11 +126,7 @@ const generateLargeSitemap = async (
             const fullPath = path.join(publicPath, sitemapPath);
             const ws = sitemapStream.pipe(createWriteStream(fullPath));
 
-            return [
-                `${siteUrl}/${sitemapPath}`,
-                sitemapStream,
-                ws,
-            ];
+            return [`${siteUrl}/${sitemapPath}`, sitemapStream, ws];
         },
     });
 
