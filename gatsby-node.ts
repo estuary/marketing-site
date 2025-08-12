@@ -473,6 +473,7 @@ const createConnectors: CreateHelper = async (
             context: {
                 id: normalized_connector.id,
                 type: normalized_connector.type,
+                slugified_name: normalized_connector.slugified_name,
             },
         });
 

@@ -5,6 +5,7 @@ import Breadcrumbs from '../../components/Breadcrumbs';
 import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
 import { normalizeConnector } from '../../utils';
+import ConnectorDetails from '../../components/ConnectorPage/ConnectorDetails';
 import ChangeData from './ChangeData';
 import Hero from './Hero';
 import Pipelines from './Pipelines';
@@ -14,6 +15,15 @@ export interface ConnectorProps {
     data: {
         postgres: {
             connector: any;
+        };
+        connectorContent?: {
+            id: string;
+            slug: string;
+            content?: {
+                data?: {
+                    content?: string;
+                };
+            };
         };
     };
     pageContext: {
@@ -32,6 +42,7 @@ export interface ConnectorProps {
 const Connector = ({
     data: {
         postgres: { connector },
+        connectorContent,
     },
 }: ConnectorProps) => {
     const mappedConnector = normalizeConnector(connector);
@@ -74,6 +85,18 @@ const Connector = ({
                 />
                 <Pipelines />
                 <RealTime />
+                <ConnectorDetails
+                    connector={{
+                        title: mappedConnector?.title,
+                        logo: mappedConnector?.logo,
+                        type: mappedConnector?.type,
+                        connectorTagsByConnectorIdList:
+                            mappedConnector?.connectorTagsByConnectorIdList,
+                    }}
+                    connectorStrapiContent={
+                        connectorContent?.content?.data?.content
+                    }
+                />
                 {/*<TakeATour />*/}
             </article>
         </Layout>
@@ -115,7 +138,16 @@ export const Head = ({
 
 // TODO: I think shortDescription, longDescription, logoUrl are not being used here on this page. Check this.
 export const pageQuery = graphql`
-    query ConnectorData($id: PostGraphile_Flowid!) {
+    query ConnectorData($id: PostGraphile_Flowid!, $slugified_name: String!) {
+        connectorContent: strapiConnector(slug: { eq: $slugified_name }) {
+            id
+            slug
+            content {
+                data {
+                    content
+                }
+            }
+        }
         postgres {
             connector: connectorById(id: $id) {
                 id
@@ -137,6 +169,7 @@ export const pageQuery = graphql`
                 recommended
                 connectorTagsByConnectorIdList {
                     protocol
+                    documentationUrl
                 }
             }
         }

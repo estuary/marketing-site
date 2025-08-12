@@ -107,10 +107,14 @@ const Connector = ({
                 sourceConnector={{
                     title: source_mapped?.title,
                     logo: source_mapped?.logo,
+                    connectorTagsByConnectorIdList:
+                        source_mapped?.connectorTagsByConnectorIdList,
                 }}
                 destConnector={{
                     title: dest_mapped?.title,
                     logo: dest_mapped?.logo,
+                    connectorTagsByConnectorIdList:
+                        dest_mapped?.connectorTagsByConnectorIdList,
                 }}
                 sourceConnectorContent={
                     sourceConnectorContent?.content?.data?.content
@@ -270,6 +274,7 @@ export const pageQuery = graphql`
                 recommended
                 connectorTagsByConnectorIdList {
                     protocol
+                    documentationUrl
                 }
             }
         }
@@ -294,6 +299,7 @@ export const pageQuery = graphql`
                 recommended
                 connectorTagsByConnectorIdList {
                     protocol
+                    documentationUrl
                 }
             }
         }

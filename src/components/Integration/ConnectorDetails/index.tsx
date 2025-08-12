@@ -1,17 +1,5 @@
-import { GatsbyImage } from 'gatsby-plugin-image';
-import Container from '../../Container';
 import { Connectors } from '../shared';
-import { ProcessedHtml } from '../../HtmlProcessor';
-import {
-    connectorCard,
-    connectorLogo,
-    connectorContent,
-    connectorTitle,
-    connectorDescription,
-    connectorBullets,
-    bulletItem,
-    sectionDescription,
-} from './styles.module.less';
+import ConnectorDetailsSection from '../../ConnectorDetailsSection';
 
 interface ConnectorDetailsProps extends Connectors {
     sourceConnectorContent?: string;
@@ -24,106 +12,23 @@ const ConnectorDetails = ({
     sourceConnectorContent,
     destConnectorContent,
 }: ConnectorDetailsProps) => {
-    const defaultSourceDescription = `${sourceConnector.title} connector provides seamless data extraction with real-time change data capture (CDC) capabilities. This powerful connector enables you to capture data changes as they happen, ensuring your data pipeline stays current and accurate.`;
-    const defaultDestDescription = `${destConnector.title} connector enables efficient data loading with support for both batch and streaming operations. This robust connector optimizes data transfer and transformation, providing reliable delivery to your target destination.`;
+    const defaultSourceDescription = `The ${sourceConnector.title} capture connector in Estuary Flow enables you to stream data from your source system in real time, with minimal impact on performance. Using log-based Change Data Capture (CDC), Flow continuously ingests new and updated records without heavy bulk loads. Whether you need low-latency replication, hybrid cloud integration, or continuous analytics, Estuary Flow ensures your data is accurate, fresh, and always moving where it needs to go.`;
 
-    const sourceDescription =
-        sourceConnectorContent ?? defaultSourceDescription;
-    const destDescription = destConnectorContent ?? defaultDestDescription;
+    const defaultDestDescription = `The ${destConnector.title} materialization connector in Estuary Flow delivers data from your pipelines directly into your destination system — continuously and in real time. Using merge-based writes, Flow efficiently updates only changed records, ensuring your destination stays perfectly in sync without unnecessary reprocessing. Whether for analytics, AI, or operational use cases, Estuary Flow provides a reliable, cost-efficient way to keep ${destConnector.title} up to date.`;
 
     return (
-        <section>
-            <Container isVertical isDarkTheme>
-                <h2>
-                    Connector details: <span>{sourceConnector.title}</span> to{' '}
-                    <span>{destConnector.title}</span>
-                </h2>
-                <div className={sectionDescription}>
-                    <p>
-                        Discover the unique capabilities, features, and benefits
-                        of each connector in this integration. Learn how these
-                        powerful connectors work together to create a seamless
-                        data pipeline that delivers real-time insights and
-                        operational efficiency.
-                    </p>
-                </div>
-                <div className={connectorCard}>
-                    <div className={connectorContent}>
-                        <div className={connectorLogo}>
-                            {sourceConnector.logo?.childImageSharp ? (
-                                <GatsbyImage
-                                    image={
-                                        sourceConnector.logo.childImageSharp
-                                            .gatsbyImageData
-                                    }
-                                    alt={`${sourceConnector.title} logo`}
-                                />
-                            ) : null}
-                        </div>
-                        <div>
-                            <h3 className={connectorTitle}>
-                                {sourceConnector.title}
-                            </h3>
-                            <div className={connectorDescription}>
-                                <ProcessedHtml body={sourceDescription} />
-                            </div>
-                            {!sourceConnectorContent ? (
-                                <ul className={connectorBullets}>
-                                    <li className={bulletItem}>
-                                        Real-time data capture and processing
-                                    </li>
-                                    <li className={bulletItem}>
-                                        Automatic schema detection and mapping
-                                    </li>
-                                    <li className={bulletItem}>
-                                        Built-in error handling and retry
-                                        mechanisms
-                                    </li>
-                                </ul>
-                            ) : null}
-                        </div>
-                    </div>
-                </div>
-                <div className={connectorCard}>
-                    <div className={connectorContent}>
-                        <div className={connectorLogo}>
-                            {destConnector.logo?.childImageSharp ? (
-                                <GatsbyImage
-                                    image={
-                                        destConnector.logo.childImageSharp
-                                            .gatsbyImageData
-                                    }
-                                    alt={`${destConnector.title} logo`}
-                                />
-                            ) : null}
-                        </div>
-                        <div>
-                            <h3 className={connectorTitle}>
-                                {destConnector.title}
-                            </h3>
-                            <div className={connectorDescription}>
-                                <ProcessedHtml body={destDescription} />
-                            </div>
-                            {!destConnectorContent ? (
-                                <ul className={connectorBullets}>
-                                    <li className={bulletItem}>
-                                        Optimized data loading and
-                                        transformation
-                                    </li>
-                                    <li className={bulletItem}>
-                                        Schema evolution and compatibility
-                                        handling
-                                    </li>
-                                    <li className={bulletItem}>
-                                        Performance monitoring and optimization
-                                    </li>
-                                </ul>
-                            ) : null}
-                        </div>
-                    </div>
-                </div>
-            </Container>
-        </section>
+        <ConnectorDetailsSection
+            isDarkTheme={true}
+            connectors={[sourceConnector, destConnector]}
+            connectorStrapiContents={[
+                sourceConnectorContent,
+                destConnectorContent,
+            ]}
+            defaultDescriptions={[
+                defaultSourceDescription,
+                defaultDestDescription,
+            ]}
+        />
     );
 };
 
