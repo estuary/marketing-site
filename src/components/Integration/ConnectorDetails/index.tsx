@@ -18,7 +18,7 @@ const ConnectorDetails = ({
 
     return (
         <ConnectorDetailsSection
-            isDarkTheme={true}
+            isDarkTheme={false}
             connectors={[sourceConnector, destConnector]}
             connectorStrapiContents={[
                 sourceConnectorContent,

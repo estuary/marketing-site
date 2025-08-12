@@ -95,14 +95,6 @@ const Connector = ({
                     type: dest_mapped?.type,
                 }}
             />
-            <ThreeQuickSteps
-                sourceConnector={{
-                    title: source_mapped?.title,
-                }}
-                destConnector={{
-                    title: dest_mapped?.title,
-                }}
-            />
             <ConnectorDetails
                 sourceConnector={{
                     title: source_mapped?.title,
@@ -123,12 +115,21 @@ const Connector = ({
                     destinationConnectorContent?.content?.data?.content
                 }
             />
-            <EstuaryFlowVideo />
-            <RealTimeAndBatch />
-            <Testimonials />
-            <IncreaseProductivity4x />
+            <ThreeQuickSteps
+                sourceConnector={{
+                    title: source_mapped?.title,
+                }}
+                destConnector={{
+                    title: dest_mapped?.title,
+                }}
+                isDarkTheme={true}
+            />
+            <EstuaryFlowVideo isDarkTheme={false} />
+            <RealTimeAndBatch isDarkTheme={true} />
+            <Testimonials isDarkTheme={false} />
+            <IncreaseProductivity4x isDarkTheme={true} />
             <Spend25xLess />
-            <SuccessStoriesSection />
+            <SuccessStoriesSection isDarkTheme={true} />
             {hasRelatedArticles ? (
                 <RelatedBlogPosts
                     relatedArticles={[
@@ -148,7 +149,7 @@ const Connector = ({
                     longDescription: source_mapped?.longDescription,
                 }}
             />
-            <GettingStartedSection isDarkTheme />
+            <GettingStartedSection isDarkTheme={true} />
             <RelatedIntegrations
                 sourceConnector={{
                     id: source_mapped?.id,

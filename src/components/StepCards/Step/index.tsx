@@ -1,18 +1,26 @@
 import { ReactNode } from 'react';
-import { container, stepWrapper } from './styles.module.less';
+import clsx from 'clsx';
+import { container, stepWrapper, darkTheme } from './styles.module.less';
 
 interface StepProps {
     step?: ReactNode | number;
     title: ReactNode | string;
     description: string;
     link?: ReactNode;
+    isDarkTheme?: boolean;
 }
 
-const Step = ({ step, title, description, link }: StepProps) => {
+const Step = ({
+    step,
+    title,
+    description,
+    link,
+    isDarkTheme = false,
+}: StepProps) => {
     const StepElement = typeof step === 'number' ? 'span' : 'div';
 
     return (
-        <div className={container}>
+        <div className={clsx(container, isDarkTheme && darkTheme)}>
             <StepElement className={stepWrapper}>{step}</StepElement>
             <h3>{title}</h3>
             <p>
