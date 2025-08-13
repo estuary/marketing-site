@@ -23,7 +23,7 @@ interface ConnectorCardProps {
     connector: Partial<Connector>;
     connectorContent?: string;
     defaultDescription: string;
-    defaultBullets?: string[];
+    defaultBullets: string[];
     isDarkTheme?: boolean;
 }
 
@@ -31,11 +31,7 @@ const ConnectorCard = ({
     connector,
     connectorContent,
     defaultDescription,
-    defaultBullets = [
-        'Real-time data capture and processing',
-        'Automatic schema detection and mapping',
-        'Built-in error handling and retry mechanisms',
-    ],
+    defaultBullets = [],
     isDarkTheme = false,
 }: ConnectorCardProps) => {
     const description = connectorContent ?? defaultDescription;
@@ -65,12 +61,9 @@ const ConnectorCard = ({
                         isDarkTheme && darkThemeDescription
                     )}
                 >
-                    <ProcessedHtml
-                        body={description}
-                        className={connectorDescription}
-                    />
+                    <ProcessedHtml body={description} />
                 </div>
-                {!connectorContent ? (
+                {!connectorContent && defaultBullets.length > 0 ? (
                     <ul
                         className={clsx(
                             connectorBullets,

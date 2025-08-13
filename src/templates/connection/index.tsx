@@ -4,7 +4,7 @@ import Seo from '../../components/seo';
 import { normalizeConnector } from '../../utils';
 import Hero from '../../components/Integration/Hero';
 import ThreeQuickSteps from '../../components/Integration/ThreeQuickSteps';
-import ConnectorDetails from '../../components/Integration/ConnectorDetails';
+import ConnectorDetailsSection from '../../components/ConnectorDetailsSection';
 import Testimonials from '../../components/TestimonialsSection';
 import EstuaryFlowVideo from '../../components/Integration/EstuaryFlowVideo';
 import RelatedIntegrations from '../../components/Integration/RelatedIntegrations';
@@ -81,6 +81,9 @@ const Connector = ({
         sourceConnectorRelatedArticle?.nodes?.length > 0 ||
         sourceConnectorRelatedArticle?.nodes?.length > 0;
 
+    const defaultSourceDescription = `The ${source_mapped?.title} capture connector in Estuary Flow enables you to stream data from your source system in real time, with minimal impact on performance. Using log-based Change Data Capture (CDC), Flow continuously ingests new and updated records without heavy bulk loads. Whether you need low-latency replication, hybrid cloud integration, or continuous analytics, Estuary Flow ensures your data is accurate, fresh, and always moving where it needs to go.`;
+    const defaultDestDescription = `The ${dest_mapped?.title} materialization connector in Estuary Flow delivers data from your pipelines directly into your destination system — continuously and in real time. Using merge-based writes, Flow efficiently updates only changed records, ensuring your destination stays perfectly in sync without unnecessary reprocessing. Whether for analytics, AI, or operational use cases, Estuary Flow provides a reliable, cost-efficient way to keep ${dest_mapped?.title} up to date.`;
+
     return (
         <Layout mainClassName={!hasRelatedArticles ? layoutClassName : null}>
             <Hero
@@ -95,25 +98,30 @@ const Connector = ({
                     type: dest_mapped?.type,
                 }}
             />
-            <ConnectorDetails
-                sourceConnector={{
-                    title: source_mapped?.title,
-                    logo: source_mapped?.logo,
-                    connectorTagsByConnectorIdList:
-                        source_mapped?.connectorTagsByConnectorIdList,
-                }}
-                destConnector={{
-                    title: dest_mapped?.title,
-                    logo: dest_mapped?.logo,
-                    connectorTagsByConnectorIdList:
-                        dest_mapped?.connectorTagsByConnectorIdList,
-                }}
-                sourceConnectorContent={
-                    sourceConnectorContent?.content?.data?.content
-                }
-                destConnectorContent={
-                    destinationConnectorContent?.content?.data?.content
-                }
+            <ConnectorDetailsSection
+                isDarkTheme={false}
+                connectors={[
+                    {
+                        title: source_mapped?.title,
+                        logo: source_mapped?.logo,
+                        connectorTagsByConnectorIdList:
+                            source_mapped?.connectorTagsByConnectorIdList,
+                    },
+                    {
+                        title: dest_mapped?.title,
+                        logo: dest_mapped?.logo,
+                        connectorTagsByConnectorIdList:
+                            dest_mapped?.connectorTagsByConnectorIdList,
+                    },
+                ]}
+                connectorStrapiContents={[
+                    sourceConnectorContent?.content?.data?.content,
+                    destinationConnectorContent?.content?.data?.content,
+                ]}
+                defaultDescriptions={[
+                    defaultSourceDescription,
+                    defaultDestDescription,
+                ]}
             />
             <ThreeQuickSteps
                 sourceConnector={{

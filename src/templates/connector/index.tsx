@@ -5,7 +5,7 @@ import Breadcrumbs from '../../components/Breadcrumbs';
 import Layout from '../../components/Layout';
 import Seo from '../../components/seo';
 import { normalizeConnector } from '../../utils';
-import ConnectorDetails from '../../components/ConnectorPage/ConnectorDetails';
+import ConnectorDetailsSection from '../../components/ConnectorDetailsSection';
 import ChangeData from './ChangeData';
 import Hero from './Hero';
 import Pipelines from './Pipelines';
@@ -47,6 +47,15 @@ const Connector = ({
 }: ConnectorProps) => {
     const mappedConnector = normalizeConnector(connector);
 
+    if (!mappedConnector) {
+        return null;
+    }
+
+    const defaultDescription =
+        mappedConnector.type.toLowerCase() === 'capture'
+            ? `The ${mappedConnector.title} capture connector in Estuary Flow enables you to stream data from your source system in real time, with minimal impact on performance. Using log-based Change Data Capture (CDC), Flow continuously ingests new and updated records without heavy bulk loads. Whether you need low-latency replication, hybrid cloud integration, or continuous analytics, Estuary Flow ensures your data is accurate, fresh, and always moving where it needs to go.`
+            : `The ${mappedConnector.title} materialization connector in Estuary Flow delivers data from your pipelines directly into your destination system — continuously and in real time. Using merge-based writes, Flow efficiently updates only changed records, ensuring your destination stays perfectly in sync without unnecessary reprocessing. Whether for analytics, AI, or operational use cases, Estuary Flow provides a reliable, cost-efficient way to keep ${mappedConnector.title} up to date.`;
+
     return (
         <Layout hasLightSections>
             <Breadcrumbs
@@ -64,35 +73,39 @@ const Connector = ({
                         href: '/integrations',
                     },
                     {
-                        title: mappedConnector?.title ?? 'Connector',
+                        title: mappedConnector.title,
                     },
                 ]}
             />
             <article itemScope itemType="http://schema.org/Article">
                 <Hero
                     connector={{
-                        title: mappedConnector?.title,
-                        logo: mappedConnector?.logo,
-                        type: mappedConnector?.type,
+                        title: mappedConnector.title,
+                        logo: mappedConnector.logo,
+                        type: mappedConnector.type,
                     }}
                 />
-                <ConnectorDetails
-                    connector={{
-                        title: mappedConnector?.title,
-                        logo: mappedConnector?.logo,
-                        type: mappedConnector?.type,
-                        connectorTagsByConnectorIdList:
-                            mappedConnector?.connectorTagsByConnectorIdList,
-                    }}
-                    connectorStrapiContent={
-                        connectorContent?.content?.data?.content
-                    }
+                <ConnectorDetailsSection
+                    isDarkTheme={false}
+                    connectors={[
+                        {
+                            title: mappedConnector.title,
+                            logo: mappedConnector.logo,
+                            type: mappedConnector.type,
+                            connectorTagsByConnectorIdList:
+                                mappedConnector.connectorTagsByConnectorIdList,
+                        },
+                    ]}
+                    connectorStrapiContents={[
+                        connectorContent?.content?.data?.content,
+                    ]}
+                    defaultDescriptions={[defaultDescription]}
                 />
                 <ChangeData
                     connector={{
-                        id: mappedConnector?.id,
-                        title: mappedConnector?.title,
-                        type: mappedConnector?.type,
+                        id: mappedConnector.id,
+                        title: mappedConnector.title,
+                        type: mappedConnector.type,
                     }}
                 />
                 <Pipelines />
@@ -119,19 +132,23 @@ export const Head = ({
     const mappedConnector = normalizeConnector(connector);
 
     const [title, description] = useMemo(() => {
+        if (!mappedConnector) {
+            return ['Connector', 'Connector details'];
+        }
+
         switch (connectorType) {
             case 'capture':
                 return [
-                    `Move ${mappedConnector?.title} to Any Destination, Real-time ETL & CDC`,
-                    `Effortlessly move ${mappedConnector?.title} data to any destination in real-time or batch with Estuary's no-code ETL & CDC platform. Free and easy to use. Get started now.`,
+                    `Move ${mappedConnector.title} to Any Destination, Real-time ETL & CDC`,
+                    `Effortlessly move ${mappedConnector.title} data to any destination in real-time or batch with Estuary's no-code ETL & CDC platform. Free and easy to use. Get started now.`,
                 ];
             default:
                 return [
-                    `Load Data to ${mappedConnector?.title} in Real-time ETL & CDC`,
-                    `Stream or batch load data to ${mappedConnector?.title} instantly with Estuary's free, no-code ETL & CDC platform. Easy setup, real-time results. Sign up for free today.`,
+                    `Load Data to ${mappedConnector.title} in Real-time ETL & CDC`,
+                    `Stream or batch load data to ${mappedConnector.title} instantly with Estuary's free, no-code ETL & CDC platform. Easy setup, real-time results. Sign up for free today.`,
                 ];
         }
-    }, [connectorType, mappedConnector?.title]);
+    }, [connectorType, mappedConnector]);
 
     return <Seo title={title} description={description} />;
 };
