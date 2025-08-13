@@ -65,7 +65,10 @@ const ConnectorCard = ({
                         isDarkTheme && darkThemeDescription
                     )}
                 >
-                    <ProcessedHtml body={description} />
+                    <ProcessedHtml
+                        body={description}
+                        className={connectorDescription}
+                    />
                 </div>
                 {!connectorContent ? (
                     <ul
