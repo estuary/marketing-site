@@ -76,15 +76,6 @@ const Connector = ({
                         type: mappedConnector?.type,
                     }}
                 />
-                <ChangeData
-                    connector={{
-                        id: mappedConnector?.id,
-                        title: mappedConnector?.title,
-                        type: mappedConnector?.type,
-                    }}
-                />
-                <Pipelines />
-                <RealTime />
                 <ConnectorDetails
                     connector={{
                         title: mappedConnector?.title,
@@ -97,6 +88,15 @@ const Connector = ({
                         connectorContent?.content?.data?.content
                     }
                 />
+                <ChangeData
+                    connector={{
+                        id: mappedConnector?.id,
+                        title: mappedConnector?.title,
+                        type: mappedConnector?.type,
+                    }}
+                />
+                <Pipelines />
+                <RealTime />
                 {/*<TakeATour />*/}
             </article>
         </Layout>
