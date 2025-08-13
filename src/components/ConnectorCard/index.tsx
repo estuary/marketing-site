@@ -6,16 +6,10 @@ import InternalLink from '../InternalLink';
 import {
     connectorCard,
     connectorLogo,
-    connectorTitle,
     connectorDescription,
-    connectorBullets,
-    bulletItem,
     darkThemeCard,
     darkThemeLogo,
-    darkThemeTitle,
     darkThemeDescription,
-    darkThemeBullets,
-    darkThemeBulletItem,
     footerText,
 } from './styles.module.less';
 
@@ -47,14 +41,7 @@ const ConnectorCard = ({
                 ) : null}
             </div>
             <div>
-                <h3
-                    className={clsx(
-                        connectorTitle,
-                        isDarkTheme && darkThemeTitle
-                    )}
-                >
-                    {connector.title} connector details
-                </h3>
+                <h3>{connector.title} connector details</h3>
                 <div
                     className={clsx(
                         connectorDescription,
@@ -64,22 +51,9 @@ const ConnectorCard = ({
                     <ProcessedHtml body={description} />
                 </div>
                 {!connectorContent && defaultBullets.length > 0 ? (
-                    <ul
-                        className={clsx(
-                            connectorBullets,
-                            isDarkTheme && darkThemeBullets
-                        )}
-                    >
+                    <ul>
                         {defaultBullets.map((bullet, index) => (
-                            <li
-                                key={index}
-                                className={clsx(
-                                    bulletItem,
-                                    isDarkTheme && darkThemeBulletItem
-                                )}
-                            >
-                                {bullet}
-                            </li>
+                            <li key={index}>{bullet}</li>
                         ))}
                     </ul>
                 ) : null}

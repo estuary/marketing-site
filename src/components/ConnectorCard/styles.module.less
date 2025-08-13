@@ -23,6 +23,80 @@
     background: linear-gradient(90deg, var(--blue), var(--violet));
   }
 
+  h3 {
+    font-size: var(--fontSize-4);
+    font-weight: var(--fontWeight-bold);
+    color: var(--grey);
+    line-height: var(--lineHeight-tight);
+    position: relative;
+    padding-bottom: 12px;
+    margin: 0 0 16px 0;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--blue), var(--violet));
+      border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+      font-size: var(--fontSize-3);
+      text-align: center;
+
+      &::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    border: 1px solid var(--blue-20-opacity);
+    background: var(--blue-5-opacity);
+    list-style: none;
+    padding: 24px;
+    margin-top: 24px;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      color: var(--grey);
+      font-size: var(--fontSize-0);
+      line-height: var(--lineHeight-relaxed);
+      font-weight: 500;
+      position: relative;
+      margin-bottom: calc(var(--spacing-6) / 2);
+
+      &::before {
+        content: '';
+        flex-shrink: 0;
+        width: 8px;
+        height: 8px;
+        background: linear-gradient(135deg, var(--blue), var(--violet));
+        border-radius: 50%;
+        margin-top: 8px;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 0.875rem;
+        gap: 12px;
+        padding-left: 6px;
+
+        &::before {
+          margin-top: 6px;
+        }
+      }
+    }
+  }
+
   @media (max-width: 768px) {
     padding: 32px;
     border-radius: 24px;
@@ -63,80 +137,6 @@
     margin: 24px auto;
     padding: 16px;
     border-radius: 20px;
-  }
-}
-
-.connectorTitle {
-  font-size: var(--fontSize-4);
-  font-weight: var(--fontWeight-bold);
-  color: var(--grey);
-  line-height: var(--lineHeight-tight);
-  position: relative;
-  padding-bottom: 12px;
-  margin: 0 0 16px 0;
-
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--blue), var(--violet));
-    border-radius: 2px;
-  }
-
-  @media (max-width: 768px) {
-    font-size: var(--fontSize-3);
-    text-align: center;
-
-    &::after {
-      left: 50%;
-      transform: translateX(-50%);
-    }
-  }
-}
-
-.connectorBullets {
-  display: flex;
-  flex-direction: column;
-  border-radius: 16px;
-  border: 1px solid var(--blue-20-opacity);
-  background: var(--blue-5-opacity);
-  list-style: none;
-  padding: 24px;
-  margin-top: 24px;
-}
-
-.bulletItem {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  color: var(--grey);
-  font-size: var(--fontSize-0);
-  line-height: var(--lineHeight-relaxed);
-  font-weight: 500;
-  position: relative;
-  margin-bottom: calc(var(--spacing-6) / 2);
-
-  &::before {
-    content: '';
-    flex-shrink: 0;
-    width: 8px;
-    height: 8px;
-    background: linear-gradient(135deg, var(--blue), var(--violet));
-    border-radius: 50%;
-    margin-top: 8px;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 0.875rem;
-    gap: 12px;
-    padding-left: 6px;
-
-    &::before {
-      margin-top: 6px;
-    }
   }
 }
 
@@ -282,29 +282,29 @@
     height: 4px;
     background: linear-gradient(90deg, var(--blue), var(--violet));
   }
+
+  h3 {
+    color: var(--white);
+  }
+
+  ul {
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    li {
+      color: var(--white);
+
+      &::before {
+        box-shadow: 0 2px 4px rgba(80, 114, 235, 0.3);
+      }
+    }
+  }
 }
 
 .darkThemeLogo {
   background: linear-gradient(135deg, var(--blue-10-opacity) 0%, var(--blue-15-opacity) 100%);
   border: 2px solid var(--blue-30-opacity);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.darkThemeTitle {
-  color: var(--white);
-}
-
-.darkThemeBullets {
-  backdrop-filter: blur(5px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.darkThemeBulletItem {
-  color: var(--white);
-
-  &::before {
-    box-shadow: 0 2px 4px rgba(80, 114, 235, 0.3);
-  }
 }
 
 .darkThemeDescription {
