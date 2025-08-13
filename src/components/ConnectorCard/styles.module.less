@@ -13,6 +13,16 @@
     align-items: flex-start;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--blue), var(--violet));
+    }
+
     @media (max-width: 768px) {
         padding: 32px;
         border-radius: 24px;
