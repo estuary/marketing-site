@@ -13,38 +13,58 @@ import {
     numberedCardContent,
     testimonial,
     author,
-    name,
-    role,
     cardsGroup,
     card as cardStyle,
     aboutCard,
     goalsCard,
+    industryCard,
+    locationCard,
+    industryLocationGroup,
     imageComponent,
+    emptySection,
 } from './styles.module.less';
 
 interface SectionsCarouselProps {
-    successStory: any; // We'll type this properly later
+    successStory: any;
 }
 
 const SectionsCarousel: React.FC<SectionsCarouselProps> = ({
     successStory,
 }) => {
     console.log('SectionsCarousel received successStory:', successStory);
-    console.log('keyMetrics:', successStory.keyMetrics);
-    console.log('challenges:', successStory.challenges);
-    console.log('solution:', successStory.solution);
-    console.log('aiUseCase:', successStory.aiUseCase);
-    console.log('results:', successStory.results);
-    console.log('whyEstuary:', successStory.whyEstuary);
 
-    const sections = [
-        { id: 0, label: 'Key Metrics', data: successStory.keyMetrics },
-        { id: 1, label: 'Challenges', data: successStory.challenges },
-        { id: 2, label: 'Solution', data: successStory.solution },
-        { id: 3, label: 'AI Use Case', data: successStory.aiUseCase },
-        { id: 4, label: 'Results', data: successStory.results },
-        { id: 5, label: 'Why Estuary', data: successStory.whyEstuary },
+    if (!successStory) {
+        return (
+            <div className={sectionSlide}>
+                <div className={emptySection}>
+                    <h3>No success story data available</h3>
+                    <p>Please check the data source.</p>
+                </div>
+            </div>
+        );
+    }
+
+    const allSections = [
+        { id: 0, label: 'Key Metrics', data: successStory?.keyMetrics || [] },
+        { id: 1, label: 'Challenges', data: successStory?.challenges || [] },
+        { id: 2, label: 'Solution', data: successStory?.solution || [] },
+        { id: 3, label: 'AI Use Case', data: successStory?.aiUseCase || [] },
+        { id: 4, label: 'Results', data: successStory?.results || [] },
+        { id: 5, label: 'Why Estuary', data: successStory?.whyEstuary || [] },
     ];
+
+    const sections = allSections
+        .filter((section) => {
+            if (!section.data || !Array.isArray(section.data)) return false;
+            const components = section.data.filter(
+                (component: any) => component?.__typename
+            );
+            return components.length > 0;
+        })
+        .map((section, index) => ({
+            ...section,
+            id: index,
+        }));
 
     console.log('Sections array:', sections);
 
@@ -93,11 +113,23 @@ const SectionsCarousel: React.FC<SectionsCarouselProps> = ({
             {component.text ? <blockquote>{component.text}</blockquote> : null}
             {component.author ? (
                 <div className={author}>
+                    <span>—</span>
                     {component.author.name ? (
-                        <span className={name}>{component.author.name}</span>
+                        <span>{component.author.name}</span>
                     ) : null}
                     {component.author.role ? (
-                        <span className={role}>{component.author.role}</span>
+                        <span>
+                            {component.author.name ? ', ' : ''}
+                            {component.author.role}
+                        </span>
+                    ) : null}
+                    {component.relatedSuccessStory?.title ? (
+                        <span>
+                            {component.author.name || component.author.role
+                                ? ', '
+                                : ''}
+                            {component.relatedSuccessStory.title}
+                        </span>
                     ) : null}
                 </div>
             ) : null}
@@ -168,7 +200,7 @@ const SectionsCarousel: React.FC<SectionsCarouselProps> = ({
     const renderIndustryCard = (component: any) => (
         <div
             key={component.industry ? component.industry : 'industry-card'}
-            className={aboutCard}
+            className={industryCard}
         >
             <h4>Industry</h4>
             {component.industry?.data?.industry ? (
@@ -192,12 +224,22 @@ const SectionsCarousel: React.FC<SectionsCarouselProps> = ({
     const renderLocationCard = (component: any) => (
         <div
             key={component.location ? component.location : 'location-card'}
-            className={aboutCard}
+            className={locationCard}
         >
             <h4>Location</h4>
             {component.location?.data?.location ? (
                 <ProcessedHtml body={component.location.data.location} />
             ) : null}
+        </div>
+    );
+
+    const renderIndustryLocationGroup = (
+        industryComponent: any,
+        locationComponent: any
+    ) => (
+        <div key="industry-location-group" className={industryLocationGroup}>
+            {renderIndustryCard(industryComponent)}
+            {renderLocationCard(locationComponent)}
         </div>
     );
 
@@ -208,26 +250,6 @@ const SectionsCarousel: React.FC<SectionsCarouselProps> = ({
             ) : null}
         </div>
     );
-
-    const getComponentPriority = (component: any): number => {
-        const type = component.__typename;
-
-        // Define priority order (lower number = higher priority)
-        const priorities: { [key: string]: number } = {
-            STRAPI__COMPONENT_CASE_STUDY_HIGHLIGHTED_CONTENT: 1,
-            STRAPI__COMPONENT_CASE_STUDY_TESTIMONIAL: 2,
-            STRAPI__COMPONENT_CASE_STUDY_ABOUT_CARD: 3,
-            STRAPI__COMPONENT_CASE_STUDY_GOALS_CARD: 4,
-            STRAPI__COMPONENT_CASE_STUDY_INDUSTRY_CARD: 5,
-            STRAPI__COMPONENT_CASE_STUDY_LOCATION_CARD: 6,
-            STRAPI__COMPONENT_CASE_STUDY_LIST: 7,
-            STRAPI__COMPONENT_CASE_STUDY_NUMBERED_CARD: 8,
-            STRAPI__COMPONENT_CASE_STUDY_CARD: 9,
-            STRAPI__COMPONENT_CASE_STUDY_IMAGE: 10,
-        };
-
-        return priorities[type] || 999; // Unknown types get lowest priority
-    };
 
     const renderComponent = (component: any) => {
         console.log('component:', component.__typename);
@@ -262,18 +284,40 @@ const SectionsCarousel: React.FC<SectionsCarouselProps> = ({
     };
 
     const renderSection = (section: any) => {
-        // Sort components by predefined priority order
-        const sortedComponents = section.data
-            .filter((component: any) => component?.__typename)
-            .map((component: any) => ({
-                component,
-                priority: getComponentPriority(component),
-            }))
-            .sort((a: any, b: any) => a.priority - b.priority);
+        const components = section.data.filter(
+            (component: any) => component?.__typename
+        );
+
+        const aboutCardComponent = components.find(
+            (c: any) =>
+                c.__typename === 'STRAPI__COMPONENT_CASE_STUDY_ABOUT_CARD'
+        );
+        const testimonialComponent = components.find(
+            (c: any) =>
+                c.__typename === 'STRAPI__COMPONENT_CASE_STUDY_TESTIMONIAL'
+        );
+        const industryCardComponent = components.find(
+            (c: any) =>
+                c.__typename === 'STRAPI__COMPONENT_CASE_STUDY_INDUSTRY_CARD'
+        );
+        const locationCardComponent = components.find(
+            (c: any) =>
+                c.__typename === 'STRAPI__COMPONENT_CASE_STUDY_LOCATION_CARD'
+        );
+
+        const otherComponents = components.filter(
+            (c: any) =>
+                ![
+                    'STRAPI__COMPONENT_CASE_STUDY_ABOUT_CARD',
+                    'STRAPI__COMPONENT_CASE_STUDY_TESTIMONIAL',
+                    'STRAPI__COMPONENT_CASE_STUDY_INDUSTRY_CARD',
+                    'STRAPI__COMPONENT_CASE_STUDY_LOCATION_CARD',
+                ].includes(c.__typename)
+        );
 
         return (
             <div className={sectionContent}>
-                {sortedComponents.map(({ component }: any, index: number) => (
+                {otherComponents.map((component: any, index: number) => (
                     <div
                         key={`${section.label}-${component.__typename}-${index}`}
                         className={componentWrapper}
@@ -281,6 +325,24 @@ const SectionsCarousel: React.FC<SectionsCarouselProps> = ({
                         {renderComponent(component)}
                     </div>
                 ))}
+                {industryCardComponent && locationCardComponent ? (
+                    <div className={componentWrapper}>
+                        {renderIndustryLocationGroup(
+                            industryCardComponent,
+                            locationCardComponent
+                        )}
+                    </div>
+                ) : null}
+                {aboutCardComponent ? (
+                    <div className={componentWrapper}>
+                        {renderAboutCard(aboutCardComponent)}
+                    </div>
+                ) : null}
+                {testimonialComponent ? (
+                    <div className={componentWrapper}>
+                        {renderTestimonial(testimonialComponent)}
+                    </div>
+                ) : null}
             </div>
         );
     };

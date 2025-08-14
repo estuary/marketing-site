@@ -1,6 +1,8 @@
 import React, { useState, useCallback, useEffect, ReactNode } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { Tabs, Tab } from '@mui/material';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { tabStyling } from '../../../shared';
 import {
     tabbedCarousel,
@@ -11,6 +13,12 @@ import {
     emblaSlide,
     contentArea,
     tabsStyles,
+    sectionIndicator,
+    indicatorContent,
+    indicatorText,
+    indicatorArrow,
+    indicatorSection,
+    indicatorDivider,
 } from './styles.module.less';
 
 export interface TabItem {
@@ -67,7 +75,6 @@ const TabbedCarousel: React.FC<TabbedCarouselProps> = ({
             onSelect();
         };
 
-        // Initialize after a short delay to ensure DOM is ready
         const timeoutId = setTimeout(initCarousel, 100);
 
         emblaApi.on('select', onSelect);
@@ -123,11 +130,52 @@ const TabbedCarousel: React.FC<TabbedCarouselProps> = ({
                                 className={emblaSlide}
                                 data-embla-slide={index}
                                 style={{
-                                    // Remove width restriction, let slide grow to content
                                     flex: '0 0 auto',
                                 }}
                             >
                                 <div className={contentArea}>{child}</div>
+                                {index === 0 ? (
+                                    <div className={sectionIndicator}>
+                                        <div className={indicatorContent}>
+                                            <div className={indicatorSection}>
+                                                <ArrowForwardIosIcon
+                                                    className={indicatorArrow}
+                                                />
+                                                <span className={indicatorText}>
+                                                    {tabs[
+                                                        index + 1
+                                                    ].label.toUpperCase()}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ) : index < tabs.length - 1 ? (
+                                    <div className={sectionIndicator}>
+                                        <div className={indicatorContent}>
+                                            <div className={indicatorSection}>
+                                                <ArrowForwardIosIcon
+                                                    className={indicatorArrow}
+                                                />
+                                                <span className={indicatorText}>
+                                                    {tabs[
+                                                        index + 1
+                                                    ].label.toUpperCase()}
+                                                </span>
+                                            </div>
+                                            <div className={indicatorDivider} />
+                                            <div className={indicatorSection}>
+                                                <span className={indicatorText}>
+                                                    {tabs[
+                                                        index - 1
+                                                    ].label.toUpperCase()}
+                                                </span>
+                                                <ArrowBackIosNewIcon
+                                                    className={indicatorArrow}
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                ) : null}
                             </div>
                         ))}
                     </div>

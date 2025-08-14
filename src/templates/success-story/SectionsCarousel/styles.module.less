@@ -10,28 +10,98 @@
 }
 
 .sectionContent {
-    column-count: 2;
-    column-gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
     max-width: 1200px;
 }
 
 @media (max-width: 1200px) {
     .sectionContent {
-        column-count: 2;
+        gap: 16px;
     }
 }
 
 @media (max-width: 700px) {
     .sectionContent {
-        column-count: 1;
+        flex-direction: column;
+    }
+    
+    .componentWrapper {
+        width: 100%;
     }
 }
 
 .componentWrapper {
-    display: block;
-    break-inside: avoid;
-    margin-bottom: 20px;
     width: 100%;
+}
+
+/* All cards should have at most half width and wrap naturally */
+.componentWrapper {
+    width: calc(50% - 10px);
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+/* Last component wrapper should fill remaining space only if no card next to it */
+.componentWrapper:last-child {
+    flex-grow: 1;
+}
+
+/* Special cases for full-width components */
+.highlightedContent {
+    width: 100%;
+}
+
+.industryLocationGroup {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+.industryCard {
+    background: #EEF1FD;
+    padding: 32px;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+
+    h4 {
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: var(--dark-blue);
+    }
+
+    p {
+        flex: 1;
+    }
+}
+
+.locationCard {
+    background: #EEF1FD;
+    padding: 32px;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+
+    h4 {
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: var(--dark-blue);
+    }
+
+    p {
+        flex: 1;
+    }
 }
 
 .highlightedContent {
@@ -40,11 +110,11 @@
     border-radius: 24px;
     display: flex;
     flex-direction: column;
+    height: 100%;
 
     h3 {
         font-size: 1.5rem;
         font-weight: 600;
-        margin-bottom: 1rem;
         color: white;
     }
 
@@ -108,52 +178,39 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
+    width: 100%;
 
     blockquote {
-        font-size: 1.125rem;
-        font-style: italic;
+        font-size: 1.5rem;
+        font-weight: 600;
+        font-style: normal;
         color: var(--dark-blue);
         margin: 0;
         position: relative;
-        padding-left: 2rem;
-
-        &::before {
-            content: '"';
-            font-size: 3rem;
-            color: #6B7280;
-            position: absolute;
-            left: 0;
-            top: -0.5rem;
-            line-height: 1;
-        }
     }
 
     .author {
         display: flex;
-        flex-direction: column;
-        gap: 0.25rem;
+        flex-direction: row;
+        align-items: center;
         margin-top: auto;
 
-        .name {
-            font-weight: 600;
-            color: var(--dark-blue);
+        span {
+            color: var(--grey);
         }
 
-        .role {
-            font-size: 0.875rem;
-            color: #666;
+        span:first-of-type {
+            margin-right: 4px;
         }
     }
 }
 
 .cardsGroup {
     color: var(--dark-blue);
-    margin-bottom: 1rem;
 
     h3 {
         font-size: 1.5rem;
         font-weight: 600;
-        margin-bottom: 1rem;
         color: var(--dark-blue);
     }
 }
@@ -165,7 +222,6 @@
 
     .number {
         display: inline-block;
-        color: white;
         font-weight: 600;
         font-size: 0.875rem;
     }
@@ -188,7 +244,8 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
-    width: fit-content;
+    width: 100%;
+    height: 100%;
 
     h4 {
         font-size: 1.125rem;
@@ -208,6 +265,8 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
+    width: 100%;
+    height: 100%;
 
     h4 {
         font-size: 1.125rem;
@@ -228,6 +287,7 @@
     background: #EEF1FD;
     border-radius: 16px;
     min-height: 150px;
+    height: 100%;
 
     img {
         max-width: 100%;
@@ -243,12 +303,11 @@
     align-items: center;
     justify-content: center;
     height: 100%;
-    color: #666;
+    color: var(--grey);
     text-align: center;
 
     h3 {
         font-size: 1.5rem;
-        margin-bottom: 1rem;
     }
 }
 
@@ -259,7 +318,7 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
-    margin-bottom: 20px;
+    height: 100%;
 
     h4 {
         font-size: 1.125rem;

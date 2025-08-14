@@ -60,11 +60,74 @@
     scroll-snap-align: start;
     flex-shrink: 0;
     position: relative;
+    margin-right: 100px; /* Add space for the right section indicator */
 }
 
 .contentArea {
     display: flex;
     flex-direction: column;
+}
+
+/* Section indicators - single bar between slides showing previous and next */
+.sectionIndicator {
+    position: absolute;
+    right: -100px;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.indicatorContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid var(--dark-blue);
+    border-radius: 24px;
+    padding: 48px 20px;
+    backdrop-filter: blur(8px);
+    height: 100%;
+    min-height: 200px;
+}
+
+.indicatorSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.indicatorDivider {
+    width: 60%;
+    height: 1px;
+    background: #e0e0e0;
+    margin: 8px 0;
+}
+
+.indicatorText {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.indicatorArrow {
+    font-size: 1.25rem;
+    color: #666;
+    width: 1.25rem;
+    height: 1.25rem;
 }
 
 @media (max-width: 768px) {
@@ -84,6 +147,16 @@
 
     .contentArea {
         padding: 1rem;
+    }
+    
+    /* Hide section indicators on mobile */
+    .sectionIndicator {
+        display: none;
+    }
+    
+    .emblaSlide {
+        margin-left: 0;
+        margin-right: 0;
     }
 }
 

@@ -76,6 +76,18 @@ export const pageQuery = graphql`
                 ... on STRAPI__COMPONENT_CASE_STUDY_TESTIMONIAL {
                     __typename
                     text
+                    author {
+                        name
+                        role
+                        avatar {
+                            localFile {
+                                publicURL
+                            }
+                        }
+                    }
+                    relatedSuccessStory {
+                        title
+                    }
                 }
                 ... on STRAPI__COMPONENT_CASE_STUDY_ABOUT_CARD {
                     __typename
@@ -133,6 +145,18 @@ export const pageQuery = graphql`
                 ... on STRAPI__COMPONENT_CASE_STUDY_TESTIMONIAL {
                     __typename
                     text
+                    author {
+                        name
+                        role
+                        avatar {
+                            localFile {
+                                publicURL
+                            }
+                        }
+                    }
+                    relatedSuccessStory {
+                        title
+                    }
                 }
                 ... on STRAPI__COMPONENT_CASE_STUDY_NUMBERED_CARD {
                     __typename
@@ -175,6 +199,18 @@ export const pageQuery = graphql`
                 ... on STRAPI__COMPONENT_CASE_STUDY_TESTIMONIAL {
                     __typename
                     text
+                    author {
+                        name
+                        role
+                        avatar {
+                            localFile {
+                                publicURL
+                            }
+                        }
+                    }
+                    relatedSuccessStory {
+                        title
+                    }
                 }
                 ... on STRAPI__COMPONENT_CASE_STUDY_CARD {
                     __typename
@@ -227,6 +263,18 @@ export const pageQuery = graphql`
                 ... on STRAPI__COMPONENT_CASE_STUDY_TESTIMONIAL {
                     __typename
                     text
+                    author {
+                        name
+                        role
+                        avatar {
+                            localFile {
+                                publicURL
+                            }
+                        }
+                    }
+                    relatedSuccessStory {
+                        title
+                    }
                 }
                 ... on STRAPI__COMPONENT_CASE_STUDY_CARD {
                     __typename
@@ -269,6 +317,18 @@ export const pageQuery = graphql`
                 ... on STRAPI__COMPONENT_CASE_STUDY_TESTIMONIAL {
                     __typename
                     text
+                    author {
+                        name
+                        role
+                        avatar {
+                            localFile {
+                                publicURL
+                            }
+                        }
+                    }
+                    relatedSuccessStory {
+                        title
+                    }
                 }
                 ... on STRAPI__COMPONENT_CASE_STUDY_CARD {
                     __typename
@@ -318,6 +378,18 @@ export const pageQuery = graphql`
                 ... on STRAPI__COMPONENT_CASE_STUDY_TESTIMONIAL {
                     __typename
                     text
+                    author {
+                        name
+                        role
+                        avatar {
+                            localFile {
+                                publicURL
+                            }
+                        }
+                    }
+                    relatedSuccessStory {
+                        title
+                    }
                 }
                 ... on STRAPI__COMPONENT_CASE_STUDY_CARD {
                     __typename
