@@ -9,7 +9,7 @@ on:
     #     - cron: '0 23 * * *' # ~ 6 pm eastern
     workflow_dispatch:
     repository_dispatch:
-        types: [strapi_updated]
+        types: [strapi_updated, postgres_connector_updated]
     push:
         branches:
             - master
@@ -67,9 +67,69 @@ jobs:
         # needs: check-recent-build
         # if: ${{ needs.check-recent-build.outputs.should_run == 'true' }}
         steps:
-            - env:
+            - name: Parse Strapi Webhook Payload
+              id: parse_webhook
+              env:
                   MESSAGE: ${{ toJson(github.event.client_payload) }}
-              run: echo PAYLOAD $MESSAGE
+              run: |
+                  echo "PAYLOAD: $MESSAGE"
+                  
+                  # Parse webhook payload to determine what content changed
+                  if [ "${{ github.event_name }}" = "repository_dispatch" ]; then
+                      DISPATCH_TYPE="${{ github.event.action }}"
+                      echo "Dispatch type: $DISPATCH_TYPE"
+                      
+                      if [ "$DISPATCH_TYPE" = "strapi_updated" ]; then
+                          # Extract model and entry information from Strapi webhook
+                          MODEL=$(echo "$MESSAGE" | jq -r '.model // "unknown"')
+                          ENTRY_ID=$(echo "$MESSAGE" | jq -r '.entry.id // "unknown"')
+                          ENTRY_SLUG=$(echo "$MESSAGE" | jq -r '.entry.slug // "unknown"')
+                          
+                          echo "Strapi - Changed model: $MODEL"
+                          echo "Strapi - Entry ID: $ENTRY_ID"
+                          echo "Strapi - Entry slug: $ENTRY_SLUG"
+                          
+                          # Set outputs for later steps
+                          echo "changed_model=$MODEL" >> $GITHUB_OUTPUT
+                          echo "entry_id=$ENTRY_ID" >> $GITHUB_OUTPUT
+                          echo "entry_slug=$ENTRY_SLUG" >> $GITHUB_OUTPUT
+                          echo "change_source=strapi" >> $GITHUB_OUTPUT
+                          
+                          # Determine if this affects connector content
+                          if [ "$MODEL" = "connector" ]; then
+                              echo "Strapi connector content changed: $ENTRY_SLUG"
+                              echo "connector_changed=true" >> $GITHUB_OUTPUT
+                              echo "changed_connector_slug=$ENTRY_SLUG" >> $GITHUB_OUTPUT
+                          else
+                              echo "Other Strapi content changed: $MODEL"
+                              echo "connector_changed=false" >> $GITHUB_OUTPUT
+                          fi
+                          
+                      elif [ "$DISPATCH_TYPE" = "postgres_connector_updated" ]; then
+                          # Extract connector information from Postgres webhook
+                          CONNECTOR_SLUG=$(echo "$MESSAGE" | jq -r '.connector_slug // "unknown"')
+                          CONNECTOR_ID=$(echo "$MESSAGE" | jq -r '.connector_id // "unknown"')
+                          CHANGE_TYPE=$(echo "$MESSAGE" | jq -r '.change_type // "unknown"')
+                          
+                          echo "Postgres - Connector slug: $CONNECTOR_SLUG"
+                          echo "Postgres - Connector ID: $CONNECTOR_ID"
+                          echo "Postgres - Change type: $CHANGE_TYPE"
+                          
+                          # Set outputs for later steps
+                          echo "changed_model=connector" >> $GITHUB_OUTPUT
+                          echo "entry_id=$CONNECTOR_ID" >> $GITHUB_OUTPUT
+                          echo "entry_slug=$CONNECTOR_SLUG" >> $GITHUB_OUTPUT
+                          echo "change_source=postgres" >> $GITHUB_OUTPUT
+                          echo "change_type=$CHANGE_TYPE" >> $GITHUB_OUTPUT
+                          
+                          echo "🎯 Postgres connector metadata changed: $CONNECTOR_SLUG"
+                          echo "connector_changed=true" >> $GITHUB_OUTPUT
+                          echo "changed_connector_slug=$CONNECTOR_SLUG" >> $GITHUB_OUTPUT
+                      fi
+                  else
+                      echo "🔄 Manual or push trigger - full rebuild"
+                      echo "connector_changed=false" >> $GITHUB_OUTPUT
+                  fi
 
             - name: Checkout
               uses: actions/checkout@v3
@@ -88,7 +148,7 @@ jobs:
                       node_modules
                       .cache
                       public
-                  key: ${{ runner.os }}-gatsby-build-prod-${{ github.run_id }}
+                  key: ${{ runner.os }}-gatsby-build-prod-${{ hashFiles('**/package-lock.json', '**/yarn.lock', 'gatsby-config.ts', 'gatsby-node.ts') }}
                   restore-keys: |
                       ${{ runner.os }}-gatsby-build-prod-
 
@@ -103,9 +163,21 @@ jobs:
               env:
                   CI: true
 
-            - run: yarn run build --verbose --log-pages
+            - name: Build Gatsby Site
+              run: yarn run build --verbose --log-pages
               env:
                   CI: true
+                  GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: true
+                  GATSBY_CPU_COUNT: 4
+                  # Webhook information for selective builds
+                  WEBHOOK_MODEL: ${{ steps.parse_webhook.outputs.changed_model }}
+                  WEBHOOK_ENTRY_SLUG: ${{ steps.parse_webhook.outputs.changed_connector_slug }}
+                  WEBHOOK_CHANGE_SOURCE: ${{ steps.parse_webhook.outputs.change_source }}
+                  CONNECTOR_CHANGED: ${{ steps.parse_webhook.outputs.connector_changed }}
+                  # Legacy support (can be removed later)
+                  STRAPI_CONNECTOR_CHANGED: ${{ steps.parse_webhook.outputs.connector_changed }}
+                  STRAPI_WEBHOOK_ENTRY_SLUG: ${{ steps.parse_webhook.outputs.changed_connector_slug }}
+                  # Connection credentials
                   STRAPI_API_URL: ${{ secrets.STRAPI_API_URL }}
                   STRAPI_TOKEN: ${{ secrets.STRAPI_TOKEN }}
                   GATSBY_DB_USER: ${{ secrets.GATSBY_DB_USER }}
@@ -127,22 +199,27 @@ jobs:
 
                   REPO=${{ github.repository }}
                   BRANCH="master"
-
-                  echo "Fetching list of cache key"
-                  cacheKeysForPR=$(gh actions-cache list -R $REPO -B $BRANCH | cut -f 1)
-
-                  ## Setting this to not fail the workflow while deleting cache keys. 
-                  set +e
-                  echo "Deleting caches..."
-                  for cacheKey in $cacheKeysForPR
-                  do
-                    if [ "$cacheKey" != "${{ runner.os }}-gatsby-build-prod-${{ github.run_id }}" ]; then
-                        echo "Deleting cache: $cacheKey"
-                        gh actions-cache delete "$cacheKey" -R $REPO --confirm
-                    else
-                        echo "Skipping cache: $cacheKey (does not match $CACHE_KEY or matches $LATEST_CACHE_KEY)"
-                    fi
-                  done
-                  echo "Done"
+                  
+                  # Only clean up old caches (keep recent ones for incremental builds)
+                  echo "Cleaning up caches older than 7 days..."
+                  
+                  # Get current cache key pattern
+                  CURRENT_CACHE_PREFIX="${{ runner.os }}-gatsby-build-prod-"
+                  
+                  # List all caches and filter by age (GitHub API doesn't provide creation date directly)
+                  # For now, keep the 5 most recent caches and delete older ones
+                  cacheKeys=$(gh actions-cache list -R $REPO -B $BRANCH --limit 100 | cut -f 1)
+                  
+                  # Convert to array and keep only first 5 (most recent)
+                  cacheArray=($cacheKeys)
+                  if [ ${#cacheArray[@]} -gt 5 ]; then
+                      echo "Found ${#cacheArray[@]} caches, keeping 5 most recent"
+                      for (( i=5; i<${#cacheArray[@]}; i++ )); do
+                          echo "Deleting old cache: ${cacheArray[i]}"
+                          gh actions-cache delete "${cacheArray[i]}" -R $REPO --confirm || true
+                      done
+                  else
+                      echo "Found ${#cacheArray[@]} caches, keeping all"
+                  fi
               env:
                   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

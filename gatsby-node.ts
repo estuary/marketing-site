@@ -6,6 +6,11 @@ import { SUPABASE_CONNECTION_STRING } from './config';
 import { normalizeConnector } from './src/utils';
 import { generateCustomSitemaps } from './src/utils/sitemap';
 import {
+    detectConnectorChanges,
+    generateConnectorHash,
+    getAffectedConnectors,
+} from './src/utils/connector-change-detector';
+import {
     getAuthorPathBySlug,
     getComparisonSlug,
     getIntegrationSlug,
@@ -51,7 +56,11 @@ type CreateHelperParams = Pick<
     CreatePagesArgs,
     'actions' | 'graphql' | 'reporter'
 >;
-type CreateHelper = (log: string, params: CreateHelperParams) => Promise<any>;
+type CreateHelper = (
+    log: string,
+    params: CreateHelperParams,
+    selectiveSlug?: string
+) => Promise<any>;
 
 const QUERY_PANIC_MSG = 'GQL FAILURE LOADING :';
 const validateDataExistence = (data: any[] | undefined, name: string) => {
@@ -401,30 +410,103 @@ const sourceRedirectMap: Record<string, string> = {
 
 const destinationRedirectMap: Record<string, string> = {};
 
+const createIntegrationPage = (
+    createPage: any,
+    srcSlug: string,
+    dstSlug: string,
+    source_id: string,
+    destination_id: string
+) => {
+    createPage({
+        path: getIntegrationSlug(srcSlug, dstSlug),
+        component: connectionTemplate,
+        context: {
+            source_id,
+            destination_id,
+            source_title: srcSlug,
+            destination_title: dstSlug,
+        },
+    });
+};
+
+// Process integration pages for a source connector
+const processSourceConnectorIntegrations = (
+    createPage: any,
+    sourceConnector: any,
+    destinationConnectors: any[],
+    selectiveConnectorSlug?: string
+) => {
+    for (const destination_connector of destinationConnectors) {
+        const sourceRaw = sourceConnector.slugified_name;
+        const destRaw = destination_connector.slugified_name;
+
+        // Only create integration page if either source or destination is the changed connector
+        if (
+            selectiveConnectorSlug &&
+            sourceRaw !== selectiveConnectorSlug &&
+            destRaw !== selectiveConnectorSlug
+        ) {
+            continue;
+        }
+
+        if (sourceRaw === destRaw) {
+            if (sourceRaw in sourceRedirectMap) {
+                const clean = sourceRedirectMap[sourceRaw];
+                createIntegrationPage(
+                    createPage,
+                    clean,
+                    clean,
+                    sourceConnector.id,
+                    destination_connector.id
+                );
+            } else {
+                createIntegrationPage(
+                    createPage,
+                    sourceRaw,
+                    destRaw,
+                    sourceConnector.id,
+                    destination_connector.id
+                );
+            }
+            continue;
+        }
+
+        let sourceClean = sourceRedirectMap[sourceRaw] || sourceRaw;
+        let destClean = destinationRedirectMap[destRaw] || destRaw;
+
+        if (sourceClean === destClean) {
+            if (
+                sourceRaw === sourceClean &&
+                destinationRedirectMap[destRaw] === sourceClean
+            ) {
+                destClean = destRaw;
+            } else if (
+                destRaw === destClean &&
+                sourceRedirectMap[sourceRaw] === destClean
+            ) {
+                sourceClean = sourceRaw;
+            } else {
+                continue;
+            }
+        }
+
+        createIntegrationPage(
+            createPage,
+            sourceClean,
+            destClean,
+            sourceConnector.id,
+            destination_connector.id
+        );
+    }
+};
+
 const createConnectors: CreateHelper = async (
     name,
-    { actions: { createPage }, graphql, reporter }
+    { actions: { createPage }, graphql, reporter },
+    selectiveConnectorSlug?: string
 ) => {
     const startTime = performance.now();
     console.log(`Creation:Start:${name}`);
-
-    const createIntegrationPage = (
-        srcSlug: string,
-        dstSlug: string,
-        source_id: string,
-        destination_id: string
-    ) => {
-        createPage({
-            path: getIntegrationSlug(srcSlug, dstSlug),
-            component: connectionTemplate,
-            context: {
-                source_id,
-                destination_id,
-                source_title: srcSlug,
-                destination_title: dstSlug,
-            },
-        });
-    };
 
     const result = await graphql<{
         postgres: { allConnectors: { nodes: any[] } };
@@ -460,7 +542,29 @@ const createConnectors: CreateHelper = async (
 
     validateDataExistence(mapped_connectors, name);
 
-    for (const normalized_connector of mapped_connectors) {
+    // Apply selective filtering if specified
+    let connectorsToProcess = mapped_connectors;
+    if (selectiveConnectorSlug) {
+        reporter.info(
+            `Filtering connectors for selective rebuild: ${selectiveConnectorSlug}`
+        );
+        connectorsToProcess = mapped_connectors.filter(
+            (connector) => connector.slugified_name === selectiveConnectorSlug
+        );
+
+        if (connectorsToProcess.length === 0) {
+            reporter.warn(
+                `No connector found with slug: ${selectiveConnectorSlug}`
+            );
+            return;
+        }
+
+        reporter.info(
+            `Creating pages for ${connectorsToProcess.length} connector(s)`
+        );
+    }
+
+    for (const normalized_connector of connectorsToProcess) {
         if (!normalized_connector.slug) {
             throw new Error(
                 `Unable to figure out a slug for the connector with image: ${normalized_connector.imageName}`
@@ -481,57 +585,47 @@ const createConnectors: CreateHelper = async (
             continue;
         }
 
-        for (const destination_connector of mapped_connectors.filter(
+        // For selective rebuilds, only create integration pages involving the changed connector
+        const destinationConnectors = mapped_connectors.filter(
             (con) => con.type === 'materialization'
-        )) {
-            const sourceRaw = normalized_connector.slugified_name;
-            const destRaw = destination_connector.slugified_name;
+        );
+        processSourceConnectorIntegrations(
+            createPage,
+            normalized_connector,
+            destinationConnectors,
+            selectiveConnectorSlug
+        );
+    }
 
-            if (sourceRaw === destRaw) {
-                if (sourceRaw in sourceRedirectMap) {
-                    const clean = sourceRedirectMap[sourceRaw];
-                    createIntegrationPage(
-                        clean,
-                        clean,
-                        normalized_connector.id,
-                        destination_connector.id
-                    );
-                } else {
-                    createIntegrationPage(
-                        sourceRaw,
-                        destRaw,
-                        normalized_connector.id,
-                        destination_connector.id
-                    );
-                }
-                continue;
-            }
+    // Handle selective rebuilds for destination connectors
+    if (selectiveConnectorSlug) {
+        const destinationConnector = mapped_connectors.find(
+            (connector) =>
+                connector.slugified_name === selectiveConnectorSlug &&
+                connector.type === 'materialization'
+        );
 
-            let sourceClean = sourceRedirectMap[sourceRaw] ?? sourceRaw;
-            let destClean = destinationRedirectMap[destRaw] ?? destRaw;
+        if (destinationConnector) {
+            reporter.info(
+                `Creating integration pages for destination connector: ${selectiveConnectorSlug}`
+            );
 
-            if (sourceClean === destClean) {
-                if (
-                    sourceRaw === sourceClean &&
-                    destinationRedirectMap[destRaw] === sourceClean
-                ) {
-                    destClean = destRaw;
-                } else if (
-                    destRaw === destClean &&
-                    sourceRedirectMap[sourceRaw] === destClean
-                ) {
-                    sourceClean = sourceRaw;
-                } else {
+            // Create integration pages for all source connectors with this destination
+            const sourceConnectors = mapped_connectors.filter(
+                (con) => con.type === 'capture'
+            );
+            for (const sourceConnector of sourceConnectors) {
+                // Skip if source is the changed connector (already handled above)
+                if (sourceConnector.slugified_name === selectiveConnectorSlug) {
                     continue;
                 }
+                processSourceConnectorIntegrations(
+                    createPage,
+                    sourceConnector,
+                    [destinationConnector],
+                    selectiveConnectorSlug
+                );
             }
-
-            createIntegrationPage(
-                sourceClean,
-                destClean,
-                normalized_connector.id,
-                destination_connector.id
-            );
         }
     }
 
@@ -732,6 +826,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
     graphql,
     actions,
     reporter,
+    cache,
 }) => {
     const createHelperParams: CreateHelperParams = {
         actions,
@@ -739,15 +834,144 @@ export const createPages: GatsbyNode['createPages'] = async ({
         reporter,
     };
 
-    await Promise.all([
-        createConnectors('connectors', createHelperParams),
-        createBlogs('blog posts', createHelperParams),
-        createAuthors('authors', createHelperParams),
-        createCompanyPosts('company posts', createHelperParams),
-        createSolutions('solutions', createHelperParams),
-        createSuccessStories('success stories', createHelperParams),
-        createVendorCompare('vendor compare', createHelperParams),
-    ]);
+    // Smart change detection: Check both webhooks AND detect Postgres changes
+    let selectiveConnectorSlugs: string[] = [];
+    let buildReason = 'full';
+
+    // 1. Check for webhook triggers (Strapi)
+    const connectorChanged = process.env.CONNECTOR_CHANGED === 'true';
+    const webhookConnectorSlug = process.env.WEBHOOK_ENTRY_SLUG;
+    const changeSource = process.env.WEBHOOK_CHANGE_SOURCE;
+
+    if (connectorChanged && webhookConnectorSlug) {
+        const sourceLabel =
+            changeSource === 'postgres' ? 'Postgres/Supabase' : 'Strapi';
+        reporter.info(
+            `Webhook trigger: ${sourceLabel} connector "${webhookConnectorSlug}" changed`
+        );
+        selectiveConnectorSlugs = [webhookConnectorSlug];
+        buildReason = 'webhook';
+    } else {
+        // 2. Detect Postgres connector changes (frontend-only detection)
+        reporter.info('Detecting Postgres connector changes...');
+
+        try {
+            // Get current connector data
+            const connectorResult = await graphql<{
+                postgres: { allConnectors: { nodes: any[] } };
+            }>(`
+                {
+                    postgres {
+                        allConnectors(
+                            orderBy: [RECOMMENDED_DESC, CREATED_AT_DESC]
+                        ) {
+                            nodes {
+                                id
+                                imageName
+                                title
+                                logoUrl
+                                recommended
+                                shortDescription
+                                longDescription
+                                updatedAt
+                                connectorTagsByConnectorIdList {
+                                    protocol
+                                    documentationUrl
+                                }
+                            }
+                        }
+                    }
+                }
+            `);
+
+            if (!connectorResult.errors && connectorResult.data) {
+                const currentConnectors =
+                    connectorResult.data.postgres.allConnectors.nodes
+                        .map(normalizeConnector)
+                        .filter((connector) => connector !== undefined);
+
+                // Get cached connector hashes
+                const cachedHashes =
+                    (await cache.get('connector-hashes')) || {};
+
+                // Detect changes
+                const changeResult = detectConnectorChanges(
+                    currentConnectors,
+                    cachedHashes
+                );
+
+                if (changeResult.hasChanges) {
+                    const affectedConnectors =
+                        getAffectedConnectors(changeResult);
+                    selectiveConnectorSlugs = affectedConnectors;
+                    buildReason = 'postgres-changes';
+
+                    reporter.info(`Postgres changes detected:`);
+                    reporter.info(
+                        `   - Changed: ${changeResult.changedConnectors.join(', ') || 'none'}`
+                    );
+                    reporter.info(
+                        `   - New: ${changeResult.newConnectors.join(', ') || 'none'}`
+                    );
+                    reporter.info(
+                        `   - Deleted: ${changeResult.deletedConnectors.join(', ') || 'none'}`
+                    );
+                    reporter.info(
+                        `   - Affected pages: ${affectedConnectors.length} connector(s)`
+                    );
+                } else {
+                    reporter.info('No Postgres connector changes detected');
+                }
+
+                // Update cache with current hashes
+                const newHashes: Record<string, string> = {};
+                currentConnectors.forEach((connector) => {
+                    if (connector?.slugified_name) {
+                        newHashes[connector.slugified_name] =
+                            generateConnectorHash(connector);
+                    }
+                });
+                await cache.set('connector-hashes', newHashes);
+            }
+        } catch (error) {
+            reporter.warn(
+                `Error detecting connector changes, falling back to full build: ${String(error)}`
+            );
+        }
+    }
+
+    // 3. Execute appropriate build strategy
+    if (selectiveConnectorSlugs.length > 0) {
+        reporter.info(
+            `Selective rebuild (${buildReason}): ${selectiveConnectorSlugs.length} connector(s)`
+        );
+
+        // Build each affected connector separately for maximum efficiency
+        await Promise.all([
+            ...selectiveConnectorSlugs.map((slug) =>
+                createConnectors(`connector-${slug}`, createHelperParams, slug)
+            ),
+            // Still need to create other pages for navigation/linking
+            createBlogs('blog posts', createHelperParams),
+            createAuthors('authors', createHelperParams),
+            createCompanyPosts('company posts', createHelperParams),
+            createSolutions('solutions', createHelperParams),
+            createSuccessStories('success stories', createHelperParams),
+            createVendorCompare('vendor compare', createHelperParams),
+        ]);
+    } else {
+        reporter.info('Full rebuild: Creating all pages');
+
+        await Promise.all([
+            createConnectors('connectors', createHelperParams),
+            createBlogs('blog posts', createHelperParams),
+            createAuthors('authors', createHelperParams),
+            createCompanyPosts('company posts', createHelperParams),
+            createSolutions('solutions', createHelperParams),
+            createSuccessStories('success stories', createHelperParams),
+            createVendorCompare('vendor compare', createHelperParams),
+        ]);
+    }
 };
 
 // Hacky hack :(
