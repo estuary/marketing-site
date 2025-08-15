@@ -85,9 +85,12 @@ export const normalizeConnector = (
         throw new Error(`Error:connector:${id}:missing prop:logoUrl`);
     }
 
-    // Reject SVG logos
+    // Reject SVG logos (except for data URIs in local development)
     const rawLogoUrl = logoUrl['en-US'];
-    if (rawLogoUrl.toLowerCase().includes('.svg')) {
+    if (
+        rawLogoUrl.toLowerCase().includes('.svg') &&
+        !rawLogoUrl.startsWith('data:')
+    ) {
         throw new Error(
             `Error:connector:${id}:invalid prop:logoUrl must not be an SVG (got ${rawLogoUrl})`
         );

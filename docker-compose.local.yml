@@ -1,0 +1,36 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: estuary-marketing-local-db
+    environment:
+      POSTGRES_DB: estuary_marketing
+      POSTGRES_USER: estuary_dev
+      POSTGRES_PASSWORD: local_dev_password
+      POSTGRES_INITDB_ARGS: "--encoding=UTF-8 --locale=C"
+      # Performance optimizations for local development
+      POSTGRES_SHARED_PRELOAD_LIBRARIES: ""
+      POSTGRES_MAX_CONNECTIONS: "50"
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./local-db-setup/init.sql:/docker-entrypoint-initdb.d/01-init.sql
+      - ./local-db-setup/seed.sql:/docker-entrypoint-initdb.d/02-seed.sql
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U estuary_dev -d estuary_marketing"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    # Resource limits for local development
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 256M
+
+volumes:
+  postgres_data:
+    driver: local

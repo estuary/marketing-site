@@ -845,12 +845,36 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
 
         if (!fileNodeID) {
             fileNodeID = uniqueNodeId;
-            const image = await createRemoteFileNode({
-                url: usUrl,
-                getCache,
-                createNode,
-                createNodeId,
-            });
+
+            let image;
+            // Handle data URIs (local development) vs regular URLs (production)
+            if (usUrl.startsWith('data:')) {
+                // For data URIs in local development, create a mock file object
+                // We can't create actual File nodes as that type is owned by gatsby-source-filesystem
+                // Instead, we create a simple object with the publicURL property for direct use
+                const extension = usUrl.includes('svg') ? 'svg' : 'png';
+                image = {
+                    id: createNodeId(`data-uri-${conn.id}`),
+                    publicURL: usUrl, // Use the data URI directly - works in HTML img src
+                    absolutePath: `data-uri-${conn.id}.${extension}`,
+                    extension,
+                    name: `data-uri-${conn.id}`,
+                    // Note: This won't go through Gatsby's Sharp transformer,
+                    // but data URIs work directly in browsers for local development
+                };
+
+                reporter.verbose(`sourceNodes:postgres:${conn.id}:data-uri`);
+            } else {
+                // For regular URLs (production), use the standard createRemoteFileNode
+                image = await createRemoteFileNode({
+                    url: usUrl,
+                    getCache,
+                    createNode,
+                    createNodeId,
+                });
+
+                reporter.verbose(`sourceNodes:postgres:${conn.id}:remote-file`);
+            }
 
             const nodeSettings = {
                 // These are our own fields
