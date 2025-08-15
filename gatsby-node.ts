@@ -386,6 +386,7 @@ const sourceRedirectMap: Record<string, string> = {
     'shopify': 'shopify-native',
     'redshift': 'redshift-batch',
     'jira': 'jira-native',
+    'klaviyo': 'klaviyo-native',
     'mixpanel': 'mixpanel-native',
     'chargebee': 'chargebee-native',
     'salesforce-next': 'salesforce-native',
