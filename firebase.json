@@ -177,6 +177,11 @@
                 "type": 301
             },
             {
+                "source": "/source/klaviyo",
+                "destination": "/source/klaviyo-native/",
+                "type": 301
+            },
+            {
                 "source": "/source/mixpanel",
                 "destination": "/source/mixpanel-native/",
                 "type": 301
@@ -249,6 +254,11 @@
             {
                 "source": "/integrations/jira-to-:secondConnectorSlug*",
                 "destination": "/integrations/jira-native-to-:secondConnectorSlug/",
+                "type": 301
+            },
+            {
+                "source": "/integrations/klaviyo-to-:secondConnectorSlug*",
+                "destination": "/integrations/klaviyo-native-to-:secondConnectorSlug/",
                 "type": 301
             },
             {

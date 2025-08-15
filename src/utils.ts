@@ -32,6 +32,7 @@ const DEPRECATED_WITH_REDIRECT = new Set<string>([
     'ghcr.io/estuary/source-intercom_06:8e:c4:41:17:e9:7c:00',
     'ghcr.io/estuary/source-google-sheets_06:8e:c4:41:17:e9:84:00',
     'ghcr.io/estuary/materialize-rockset_05:f3:63:e5:ab:00:1c:00',
+    'ghcr.io/estuary/source-klaviyo_09:8c:7f:34:13:e6:00:00',
 ]);
 
 export const normalizeConnector = (
