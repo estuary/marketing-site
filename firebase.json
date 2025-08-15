@@ -177,6 +177,11 @@
                 "type": 301
             },
             {
+                "source": "/source/klaviyo",
+                "destination": "/source/klaviyo-native/",
+                "type": 301
+            },
+            {
                 "source": "/source/mixpanel",
                 "destination": "/source/mixpanel-native/",
                 "type": 301
