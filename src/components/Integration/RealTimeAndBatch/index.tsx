@@ -2,7 +2,11 @@ import { StaticImage } from 'gatsby-plugin-image';
 import Advantages from '../../Advantages';
 import { estuaryFlowAdvantages } from '../advantages';
 
-const RealTimeAndBatch = () => {
+interface RealTimeAndBatchProps {
+    isDarkTheme?: boolean;
+}
+
+const RealTimeAndBatch = ({ isDarkTheme = false }: RealTimeAndBatchProps) => {
     return (
         <section>
             <Advantages
@@ -22,6 +26,7 @@ const RealTimeAndBatch = () => {
                     />
                 }
                 advantages={estuaryFlowAdvantages}
+                isDarkTheme={isDarkTheme}
             />
         </section>
     );

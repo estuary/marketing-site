@@ -10,9 +10,9 @@ interface FaqProps {
 
 const Faq = ({ sourceConnector }: FaqProps) => {
     return (
-        <section style={{ backgroundColor: 'var(--lighter-grey)' }}>
+        <section>
             <Container isVertical className={container}>
-                <h2 style={{ color: 'var(--grey)' }}>FAQs</h2>
+                <h2>FAQs</h2>
                 <FaqAccordions
                     faqs={faqs(sourceConnector).filter((faq) => faq != null)}
                 />

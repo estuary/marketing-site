@@ -601,6 +601,8 @@ const cfg: GatsbyConfig = {
         PRESERVE_FILE_DOWNLOAD_CACHE: true,
         PARALLEL_SOURCING: false,
         DEV_SSR: true,
+        PRESERVE_WEBPACK_CACHE: true,
+        FAST_DEV: true,
     },
     // graphqlTypegen: true,
     plugins: [
@@ -680,7 +682,7 @@ const cfg: GatsbyConfig = {
                     {
                         resolve: '@draftbox-co/gatsby-rehype-inline-images',
                         // all options are optional and can be omitted
-                        pluginOptions: {
+                        options: {
                             // all images larger are scaled down to maxWidth (default: maxWidth = imageWidth)
                             // maxWidth: 2000,
                             // disable, if you need to save memory
@@ -694,7 +696,7 @@ const cfg: GatsbyConfig = {
                         resolve: path.resolve(
                             './plugins/estuary-rehype-transformers'
                         ),
-                        pluginOptions: Object.assign(
+                        options: Object.assign(
                             {},
                             ...Object.entries(rehypeSelectors).map(
                                 ([k, { pluginOpts }]) => ({ [k]: pluginOpts })

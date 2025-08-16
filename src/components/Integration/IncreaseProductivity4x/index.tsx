@@ -1,13 +1,36 @@
+import clsx from 'clsx';
 import MainConnectors from '../../MainConnectors';
-import { sectionTitle } from '../styles.module.less';
-import { container, description } from './styles.module.less';
+import { sectionTitle, darkThemeSectionTitle } from '../styles.module.less';
+import {
+    container,
+    description,
+    darkThemeDescription,
+} from './styles.module.less';
 
-const IncreaseProductivity4x = () => {
+interface IncreaseProductivity4xProps {
+    isDarkTheme?: boolean;
+}
+
+const IncreaseProductivity4x = ({
+    isDarkTheme = false,
+}: IncreaseProductivity4xProps) => {
     return (
         <section>
             <div className={container}>
-                <h2 className={sectionTitle}>Increase productivity 4x</h2>
-                <p className={description}>
+                <h2
+                    className={clsx(
+                        sectionTitle,
+                        isDarkTheme && darkThemeSectionTitle
+                    )}
+                >
+                    Increase productivity 4x
+                </h2>
+                <p
+                    className={clsx(
+                        description,
+                        isDarkTheme && darkThemeDescription
+                    )}
+                >
                     With Flow companies increase productivity 4x and deliver new
                     projects in days, not months. Spend much less time on
                     troubleshooting, and much more on building new features
@@ -15,7 +38,7 @@ const IncreaseProductivity4x = () => {
                     add and change systems without impacting others, and share
                     data across analytics, apps, and AI.
                 </p>
-                <MainConnectors isLightTheme />
+                <MainConnectors isLightTheme={!isDarkTheme} />
             </div>
         </section>
     );

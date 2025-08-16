@@ -1,0 +1,18 @@
+@import '../../globalStyles/sections.module.less';
+
+.sectionDescription {
+    text-align: center;
+    max-width: 700px;
+    margin: 0;
+    font-size: var(--fontSize-2);
+    line-height: var(--lineHeight-relaxed);
+
+    @media (max-width: 768px) {
+        max-width: 100%;
+        margin-bottom: 32px;
+
+        p {
+            font-size: var(--fontSize-1);
+        }
+    }
+}

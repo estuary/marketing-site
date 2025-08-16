@@ -257,6 +257,11 @@
                 "type": 301
             },
             {
+                "source": "/integrations/klaviyo-to-:secondConnectorSlug*",
+                "destination": "/integrations/klaviyo-native-to-:secondConnectorSlug/",
+                "type": 301
+            },
+            {
                 "source": "/integrations/mixpanel-to-:secondConnectorSlug*",
                 "destination": "/integrations/mixpanel-native-to-:secondConnectorSlug/",
                 "type": 301

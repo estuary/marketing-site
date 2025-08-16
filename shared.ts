@@ -276,6 +276,7 @@ export interface Connector {
     recommended: boolean;
     connectorTagsByConnectorIdList: {
         protocol: string;
+        documentationUrl?: string;
     }[];
     slug: string | null;
     type: ConnectorType;

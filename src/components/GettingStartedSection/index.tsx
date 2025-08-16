@@ -25,7 +25,11 @@ const GettingStartedSection = ({
 }: GettingStartedSectionProps) => {
     return (
         <section>
-            <Container isVertical className={container}>
+            <Container
+                isVertical
+                className={container}
+                isDarkTheme={isDarkTheme}
+            >
                 <h2>
                     Getting started with <span>Estuary</span>
                 </h2>

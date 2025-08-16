@@ -63,3 +63,31 @@
     font-size: 1.5rem;
     font-weight: 700;
 }
+
+.darkTheme {
+    background: linear-gradient(135deg, var(--blue-5-opacity) 0%, var(--blue-10-opacity) 100%);
+    border-color: var(--blue-20-opacity);
+    backdrop-filter: blur(10px);
+
+    h3,
+    p {
+        color: var(--white);
+    }
+
+    h3 {
+        span {
+            color: var(--blue);
+        }
+    }
+
+    p {
+        a {
+            color: var(--blue);
+        }
+    }
+
+    .stepWrapper {
+        background-color: var(--blue-15-opacity);
+        color: var(--blue);
+    }
+}

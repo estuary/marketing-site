@@ -1,21 +1,37 @@
+import clsx from 'clsx';
 import Container from '../../Container';
 import StepCards from '../../StepCards';
 import Step from '../../StepCards/Step';
 import { Connectors } from '../shared';
 import OutboundLinkFilled from '../../LinksAndButtons/OutboundLinkFilled';
 import { dashboardRegisterUrl } from '../../../../shared';
-import { container } from './styles.module.less';
+import { container, darkThemeContainer } from './styles.module.less';
 
-const ThreeQuickSteps = ({ sourceConnector, destConnector }: Connectors) => {
+interface ThreeQuickStepsProps extends Connectors {
+    isDarkTheme?: boolean;
+}
+
+const ThreeQuickSteps = ({
+    sourceConnector,
+    destConnector,
+    isDarkTheme = false,
+}: ThreeQuickStepsProps) => {
     return (
         <section>
-            <Container isVertical className={container}>
+            <Container
+                isVertical
+                isDarkTheme={isDarkTheme}
+                className={clsx(
+                    container,
+                    isDarkTheme ? darkThemeContainer : null
+                )}
+            >
                 <h2>
                     How to integrate <span>{sourceConnector.title}</span> with{' '}
                     <span>{destConnector.title}</span> in 3 simple steps using
                     Estuary Flow
                 </h2>
-                <StepCards>
+                <StepCards isDarkTheme={isDarkTheme}>
                     <Step
                         title={
                             <>
