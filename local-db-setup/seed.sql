@@ -101,6 +101,21 @@ INSERT INTO public.connectors (
     false,
     '{"en-US": "The MongoDB source connector captures real-time data changes from MongoDB databases using change streams, supporting both full collection snapshots and incremental updates."}',
     7
+),
+
+-- Dekaf (Kafka) Source
+(
+    '08:9a:bc:de:f0:12:34:56',
+    '2022-04-05 10:00:00+00',
+    'Real-time data capture from Apache Kafka topics',
+    'https://github.com/estuary/connectors/tree/main/source-dekaf',
+    'ghcr.io/estuary/dekaf-kafka',
+    '{"en-US": "Capture streaming data from Apache Kafka topics with automatic schema detection"}',
+    '{"en-US": "Dekaf"}',
+    '{"en-US": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTMiIGhlaWdodD0iNTMiIHZpZXdCb3g9IjAgMCA1MyA1MyIgZmlsbD0ibm9uZSI+PHJlY3Qgd2lkdGg9IjUzIiBoZWlnaHQ9IjUzIiBmaWxsPSIjMjMxZjIwIi8+PHRleHQgeD0iMjYuNSIgeT0iMzAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPktBPC90ZXh0Pjwvc3ZnPg=="}',
+    true,
+    '{"en-US": "Dekaf is Estuary''s Kafka source connector that captures streaming data from Apache Kafka topics. It provides automatic schema detection, supports multiple serialization formats, and enables real-time data integration from Kafka-based streaming platforms."}',
+    8
 );
 
 -- Insert connector tags (protocols)
@@ -121,7 +136,10 @@ INSERT INTO public.connector_tags (connector_id, protocol) VALUES
 ('05:67:89:ab:cd:ef:01:23', 'materialization'),
 
 -- MongoDB (capture)
-('07:89:ab:cd:ef:01:23:45', 'capture');
+('07:89:ab:cd:ef:01:23:45', 'capture'),
+
+-- Dekaf (capture)
+('08:9a:bc:de:f0:12:34:56', 'capture');
 
 -- Update sequence values to avoid conflicts
 SELECT setval('connector_tags_id_seq', (SELECT MAX(id) FROM connector_tags));

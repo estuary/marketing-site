@@ -22,7 +22,7 @@ yarn start:local
 
 ```bash
 yarn start          # Production Supabase data
-yarn start:local    # Local seed data (8 sample connectors)
+yarn start:local    # Local seed data (7 sample connectors)
 ```
 
 **Build:**
@@ -54,7 +54,7 @@ The local setup provides sample connector data without requiring production data
 
 -   PostgreSQL 15 in Docker (port 5433)
 -   Sample connectors matching production schema
--   Environment configuration (`.env.local`)
+-   Environment-based switching (`.env.local` overrides `.env` when needed)
 
 ## 📦 Traditional Setup (Production/Strapi)
 
@@ -110,15 +110,13 @@ This clears the cache. Your next `start` will take extra time but show fresh con
 
 ### Site won't build locally
 
--   Make sure `.env.local` exists: `ls -la .env.local`
 -   Restart database: `docker-compose -f docker-compose.local.yml restart`
--   Clean and rebuild: `yarn clean && yarn start`
+-   Clean and rebuild: `yarn clean && yarn start:local`
 
 ### Need to reset everything
 
 ```bash
 docker-compose -f docker-compose.local.yml down -v
-rm .env.local
 yarn start:local
 ```
 

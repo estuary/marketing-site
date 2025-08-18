@@ -24,11 +24,6 @@ CREATE TABLE public.connectors (
     title JSONB NOT NULL,
     logo_url JSONB NOT NULL,
     recommended BOOLEAN DEFAULT FALSE,
-    -- OAuth fields (not used in marketing site but included for completeness)
-    oauth2_client_id TEXT,
-    oauth2_client_secret TEXT,
-    oauth2_spec JSONB,
-    oauth2_injected_values JSONB,
     -- Index field for ordering
     idx INTEGER DEFAULT 0
 );
