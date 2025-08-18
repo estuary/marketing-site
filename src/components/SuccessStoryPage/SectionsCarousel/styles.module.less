@@ -51,11 +51,6 @@
     flex-grow: 1;
 }
 
-/* Special cases for full-width components */
-.highlightedContent {
-    width: 100%;
-}
-
 .industryLocationGroup {
     width: 100%;
     display: flex;
@@ -111,6 +106,7 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    gap: 4px;
 
     h3 {
         font-size: 1.5rem;
@@ -179,6 +175,20 @@
     flex-direction: column;
     gap: 12px;
     width: 100%;
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+        content: '\201D';
+        position: absolute;
+        top: -50px;
+        right: 50px;
+        font-size: 12rem;
+        font-weight: 500;
+        color: var(--blue-20-opacity);
+        z-index: 0;
+        font-family: "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+    }
 
     blockquote {
         font-size: 1.5rem;
@@ -187,6 +197,9 @@
         color: var(--dark-blue);
         margin: 0;
         position: relative;
+        padding: 0;
+        border: none;
+        z-index: 1;
     }
 
     .author {
@@ -194,6 +207,8 @@
         flex-direction: row;
         align-items: center;
         margin-top: auto;
+        position: relative;
+        z-index: 1;
 
         span {
             color: var(--grey);
