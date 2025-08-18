@@ -1,27 +1,92 @@
 import { graphql } from 'gatsby';
-import Wrapper from './Wrapper';
-import Hero from './Sections/Hero';
-import SuccessStoryHead from './Head';
-import SectionsCarousel from './SectionsCarousel';
+import Hero from '../../components/SuccessStoryPage/Hero';
+import Layout from '../../components/Layout';
+import Breadcrumbs from '../../components/Breadcrumbs';
+import SectionsCarousel from '../../components/SuccessStoryPage/SectionsCarousel';
+import logoUrl from '../../images/estuary.png';
+import Seo from '../../components/seo';
 
 const SuccessStoryTemplate = ({ data: { successStory } }) => {
     const { title, description, logo } = successStory;
 
     return (
-        <Wrapper successStoryTitle={title}>
-            <Hero
-                title={title}
-                description={description}
-                image={logo?.localFile}
+        <Layout hasLightSections hasLightHeroSection>
+            <Breadcrumbs
+                breadcrumbs={[
+                    {
+                        title: 'Home',
+                        href: '/',
+                    },
+                    {
+                        title: 'Success Stories',
+                        href: '/success-stories',
+                    },
+                    {
+                        title,
+                    },
+                ]}
             />
-            <SectionsCarousel successStory={successStory} />
-        </Wrapper>
+            <article itemScope itemType="http://schema.org/Article">
+                <Hero
+                    title={title}
+                    description={description}
+                    image={logo?.localFile}
+                />
+                <SectionsCarousel successStory={successStory} />
+            </article>
+        </Layout>
     );
 };
 
 export default SuccessStoryTemplate;
 
-export const Head = SuccessStoryHead;
+export const Head = ({
+    data: {
+        successStory,
+        site: {
+            siteMetadata: { siteUrl },
+        },
+    },
+}) => {
+    return (
+        <>
+            <Seo
+                title={successStory.metaTitle}
+                description={successStory.metaDescription}
+                url={`${siteUrl}/success-stories/${successStory.slug}`}
+                image={
+                    successStory.Logo
+                        ? `${siteUrl}${successStory.Logo.localFile.childImageSharp.metaImg.images.fallback.src}`
+                        : undefined
+                }
+            />
+            <script type="application/ld+json">
+                {JSON.stringify({
+                    '@context': 'https://schema.org',
+                    '@type': 'Article',
+                    'mainEntityOfPage': {
+                        '@type': 'WebPage',
+                        '@id': `${siteUrl}/success-stories/${successStory.slug}`,
+                    },
+                    'headline': successStory.Title,
+                    'description': successStory.Description ?? '',
+                    'image':
+                        successStory.Logo &&
+                        `${siteUrl}${successStory.Logo.localFile.childImageSharp.metaImg.images.fallback.src}`,
+                    'publisher': {
+                        '@type': 'Organization',
+                        'name': 'Estuary',
+                        'logo': {
+                            '@type': 'ImageObject',
+                            'url': `${siteUrl}${logoUrl}`,
+                        },
+                    },
+                    'datePublished': successStory.machineReadablePublishDate,
+                })}
+            </script>
+        </>
+    );
+};
 
 export const pageQuery = graphql`
     query SuccessStoryQueryById($id: String!) {
@@ -41,9 +106,10 @@ export const pageQuery = graphql`
                 localFile {
                     childImageSharp {
                         gatsbyImageData(
-                            layout: FULL_WIDTH
                             placeholder: BLURRED
                             formats: [AUTO, WEBP, AVIF]
+                            width: 259
+                            height: 54
                         )
                         metaImg: gatsbyImageData(
                             layout: FIXED

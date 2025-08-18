@@ -6,4 +6,5 @@ export interface ContactUsProps extends CommonCtaProps {
     pageId: string;
     href?: string;
     title?: string;
+    linkOutlinedVariant?: 'primary' | 'secondary';
 }
