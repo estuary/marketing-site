@@ -5,27 +5,74 @@ import Breadcrumbs from '../../components/Breadcrumbs';
 import SectionsCarousel from '../../components/SuccessStoryPage/SectionsCarousel';
 import logoUrl from '../../images/estuary.png';
 import Seo from '../../components/seo';
+import LinkOutlined from '../../components/LinksAndButtons/LinkOutlined';
+import ChevronLeftIcon from '../../svgs/chevron-left.svg';
+import ChevronRightIcon from '../../svgs/chevron-right.svg';
+import { header, navigationLinks } from './styles.module.less';
 
-const SuccessStoryTemplate = ({ data: { successStory } }) => {
-    const { title, description, logo } = successStory;
+const SuccessStoryTemplate = ({
+    data: { successStory, allSuccessStories },
+}) => {
+    const { title, description, logo, slug } = successStory;
+
+    const allStories = allSuccessStories?.nodes || [];
+    const currentIndex = allStories.findIndex((story) => story.slug === slug);
+
+    const getPreviousStory = () => {
+        if (allStories.length <= 1) return null;
+        return currentIndex > 0
+            ? allStories[currentIndex - 1]
+            : allStories[allStories.length - 1];
+    };
+
+    const getNextStory = () => {
+        if (allStories.length <= 1) return null;
+        return currentIndex < allStories.length - 1
+            ? allStories[currentIndex + 1]
+            : allStories[0];
+    };
+
+    const previousStory = getPreviousStory();
+    const nextStory = getNextStory();
+
+    console.log('Previous story:', previousStory?.slug);
+    console.log('Next story:', nextStory?.slug);
 
     return (
         <Layout hasLightSections hasLightHeroSection>
-            <Breadcrumbs
-                breadcrumbs={[
-                    {
-                        title: 'Home',
-                        href: '/',
-                    },
-                    {
-                        title: 'Success Stories',
-                        href: '/success-stories',
-                    },
-                    {
-                        title,
-                    },
-                ]}
-            />
+            <div className={header}>
+                <Breadcrumbs
+                    breadcrumbs={[
+                        {
+                            title: 'Home',
+                            href: '/',
+                        },
+                        {
+                            title: 'Success Stories',
+                            href: '/success-stories',
+                        },
+                        {
+                            title,
+                        },
+                    ]}
+                />
+                <div className={navigationLinks}>
+                    <LinkOutlined
+                        href={`/success-stories/${previousStory.slug}`}
+                        variant="secondary"
+                    >
+                        <ChevronLeftIcon />
+                        {previousStory.title}
+                    </LinkOutlined>
+                    <LinkOutlined
+                        href={`/success-stories/${nextStory.slug}`}
+                        variant="secondary"
+                    >
+                        {nextStory.title}
+                        <ChevronRightIcon />
+                    </LinkOutlined>
+                </div>
+            </div>
             <article itemScope itemType="http://schema.org/Article">
                 <Hero
                     title={title}
@@ -95,6 +142,12 @@ export const pageQuery = graphql`
                 siteUrl
             }
         }
+        allSuccessStories: allStrapiCaseStudy(sort: { title: ASC }) {
+            nodes {
+                slug
+                title
+            }
+        }
         successStory: strapiCaseStudy(id: { eq: $id }) {
             metaTitle
             metaDescription
@@ -108,8 +161,6 @@ export const pageQuery = graphql`
                         gatsbyImageData(
                             placeholder: BLURRED
                             formats: [AUTO, WEBP, AVIF]
-                            width: 259
-                            height: 54
                         )
                         metaImg: gatsbyImageData(
                             layout: FIXED

@@ -3,7 +3,7 @@ import { Connector } from '../../../../shared';
 import HeroSectionActions from '../../HeroSectionActions';
 import HeroSectionDetails from '../../HeroSectionDetails';
 import { ContactUsProps } from '../../HeroSectionActions/types';
-import { header } from './styles.module.less';
+import { header, logoWrapper } from './styles.module.less';
 
 interface HeroProps {
     title: string;
@@ -16,13 +16,15 @@ const Hero = ({ title, description, image }: HeroProps) => {
     return (
         <section>
             <div className={header}>
-                {image.childImageSharp?.gatsbyImageData ? (
-                    <GatsbyImage
-                        alt={`${title} logo`}
-                        image={image.childImageSharp.gatsbyImageData}
-                        loading="eager"
-                    />
-                ) : null}
+                <div className={logoWrapper}>
+                    {image.childImageSharp?.gatsbyImageData ? (
+                        <GatsbyImage
+                            alt={`${title} logo`}
+                            image={image.childImageSharp.gatsbyImageData}
+                            loading="eager"
+                        />
+                    ) : null}
+                </div>
                 <HeroSectionDetails
                     title={description}
                     ctaButtons={
