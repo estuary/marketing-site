@@ -1,14 +1,13 @@
 import { graphql } from 'gatsby';
 import Hero from '../../components/SuccessStoryPage/Hero';
 import Layout from '../../components/Layout';
-import Breadcrumbs from '../../components/Breadcrumbs';
+import PageHeader from '../../components/PageHeader';
 import SectionsCarousel from '../../components/SuccessStoryPage/SectionsCarousel';
 import logoUrl from '../../images/estuary.png';
 import Seo from '../../components/seo';
 import LinkOutlined from '../../components/LinksAndButtons/LinkOutlined';
 import ChevronLeftIcon from '../../svgs/chevron-left.svg';
 import ChevronRightIcon from '../../svgs/chevron-right.svg';
-import { header, navigationLinks } from './styles.module.less';
 
 const SuccessStoryTemplate = ({
     data: { successStory, allSuccessStories },
@@ -38,41 +37,43 @@ const SuccessStoryTemplate = ({
     console.log('Previous story:', previousStory?.slug);
     console.log('Next story:', nextStory?.slug);
 
+    const navigationLinks = (
+        <>
+            <LinkOutlined
+                href={`/success-stories/${previousStory.slug}`}
+                variant="secondary"
+            >
+                <ChevronLeftIcon />
+                {previousStory.title}
+            </LinkOutlined>
+            <LinkOutlined
+                href={`/success-stories/${nextStory.slug}`}
+                variant="secondary"
+            >
+                {nextStory.title}
+                <ChevronRightIcon />
+            </LinkOutlined>
+        </>
+    );
+
     return (
         <Layout hasLightSections hasLightHeroSection>
-            <div className={header}>
-                <Breadcrumbs
-                    breadcrumbs={[
-                        {
-                            title: 'Home',
-                            href: '/',
-                        },
-                        {
-                            title: 'Success Stories',
-                            href: '/success-stories',
-                        },
-                        {
-                            title,
-                        },
-                    ]}
-                />
-                <div className={navigationLinks}>
-                    <LinkOutlined
-                        href={`/success-stories/${previousStory.slug}`}
-                        variant="secondary"
-                    >
-                        <ChevronLeftIcon />
-                        {previousStory.title}
-                    </LinkOutlined>
-                    <LinkOutlined
-                        href={`/success-stories/${nextStory.slug}`}
-                        variant="secondary"
-                    >
-                        {nextStory.title}
-                        <ChevronRightIcon />
-                    </LinkOutlined>
-                </div>
-            </div>
+            <PageHeader
+                breadcrumbs={[
+                    {
+                        title: 'Home',
+                        href: '/',
+                    },
+                    {
+                        title: 'Success Stories',
+                        href: '/success-stories',
+                    },
+                    {
+                        title,
+                    },
+                ]}
+                rightContent={navigationLinks}
+            />
             <article itemScope itemType="http://schema.org/Article">
                 <Hero
                     title={title}

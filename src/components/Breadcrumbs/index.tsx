@@ -1,6 +1,13 @@
 import { Link } from 'gatsby';
 import { FC } from 'react';
-import { links, crumbTitle, divider, container } from './styles.module.less';
+import clsx from 'clsx';
+import {
+    links,
+    crumbTitle,
+    divider,
+    container,
+    containerInsidePageHeader,
+} from './styles.module.less';
 
 interface Breadcrumb {
     title: string;
@@ -9,10 +16,19 @@ interface Breadcrumb {
 
 interface BreadcrumbsProps {
     breadcrumbs: Breadcrumb[];
+    isInsidePageHeader?: boolean;
 }
 
-const Breadcrumbs: FC<BreadcrumbsProps> = ({ breadcrumbs = [] }) => (
-    <nav aria-label="breadcrumb" className={container}>
+const Breadcrumbs: FC<BreadcrumbsProps> = ({
+    breadcrumbs = [],
+    isInsidePageHeader = false,
+}) => (
+    <nav
+        aria-label="breadcrumb"
+        className={clsx(
+            isInsidePageHeader ? containerInsidePageHeader : container
+        )}
+    >
         <ol className={links}>
             {breadcrumbs.map(({ title, href }) => (
                 <li key={`breadCrumb_${href ?? title}`}>
