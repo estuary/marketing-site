@@ -1,11 +1,7 @@
-.tabbedCarousel {
-    padding: 4rem 0;
-    background: #ffffff;
-}
+@import "../../globalStyles/sections.module.less";
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
+    .globalMaxWidth;
 }
 
 .tabsStyles {
@@ -60,7 +56,9 @@
     scroll-snap-align: start;
     flex-shrink: 0;
     position: relative;
-    margin-right: 100px; /* Add space for the right section indicator */
+    margin-right: 100px;
+    /* Add space for the right section indicator */
+    flex: 0 0 auto;
 }
 
 .contentArea {
@@ -148,12 +146,12 @@
     .contentArea {
         padding: 1rem;
     }
-    
+
     /* Hide section indicators on mobile */
     .sectionIndicator {
         display: none;
     }
-    
+
     .emblaSlide {
         margin-left: 0;
         margin-right: 0;

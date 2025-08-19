@@ -5,7 +5,6 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { tabStyling } from '../../../shared';
 import {
-    tabbedCarousel,
     container,
     tabNavigation,
     embla,
@@ -29,7 +28,6 @@ export interface TabItem {
 export interface TabbedCarouselProps {
     tabs: TabItem[];
     children: ReactNode[];
-    className?: string;
     maxSlidesInView?: number;
     slideHeight?: string;
 }
@@ -37,7 +35,6 @@ export interface TabbedCarouselProps {
 const TabbedCarousel: React.FC<TabbedCarouselProps> = ({
     tabs,
     children,
-    className = '',
     maxSlidesInView: _maxSlidesInView = 2,
     slideHeight: _slideHeight = '498px',
 }) => {
@@ -96,7 +93,7 @@ const TabbedCarousel: React.FC<TabbedCarouselProps> = ({
     };
 
     return (
-        <section className={`${tabbedCarousel} ${className}`}>
+        <section>
             <div className={container}>
                 <div className={tabNavigation}>
                     <Tabs
@@ -129,9 +126,6 @@ const TabbedCarousel: React.FC<TabbedCarouselProps> = ({
                                 key={index}
                                 className={emblaSlide}
                                 data-embla-slide={index}
-                                style={{
-                                    flex: '0 0 auto',
-                                }}
                             >
                                 <div className={contentArea}>{child}</div>
                                 {index === 0 ? (
