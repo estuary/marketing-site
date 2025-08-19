@@ -52,7 +52,7 @@ The local setup provides sample connector data without requiring production data
 
 **What it creates:**
 
--   PostgreSQL 15 in Docker (port 5433)
+-   PostgreSQL 15 in Docker (port 7654)
 -   Sample connectors matching production schema
 -   Environment-based switching (`.env.local` overrides `.env` when needed)
 
@@ -105,7 +105,7 @@ This clears the cache. Your next `start` will take extra time but show fresh con
 
 1. **Install Docker Desktop** if not installed: https://docker.com/products/docker-desktop
 2. **Make sure Docker is running** (Docker Desktop should be started)
-3. Check if port 5433 is busy: `lsof -i :5433`
+3. Check if port 7654 is busy: `lsof -i :7654`
 4. Reset database: `docker-compose -f docker-compose.local.yml down -v`
 
 ### Site won't build locally

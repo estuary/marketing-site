@@ -113,15 +113,12 @@
     "build:debug:network": "yarn run build:plugins && NODE_DEBUG=http,http2 gatsby build",
     "develop": "gatsby develop",
     "develop:debug": "gatsby develop --inspect",
-    "start": "yarn db:stop && GATSBY_USE_LOCAL_DB=false yarn run build:plugins && GATSBY_USE_LOCAL_DB=false gatsby develop",
-    "start:local": "yarn db:start && sleep 10 && cp local-db-setup/env.local.example .env.local && GATSBY_USE_LOCAL_DB=true yarn run build:plugins && GATSBY_USE_LOCAL_DB=true gatsby develop",
+    "start": "GATSBY_USE_LOCAL_DB=false yarn run build:plugins && GATSBY_USE_LOCAL_DB=false gatsby develop",
+    "start:local": "GATSBY_USE_LOCAL_DB=true yarn run build:plugins && GATSBY_USE_LOCAL_DB=true gatsby develop",
     "build": "GATSBY_USE_LOCAL_DB=false yarn run build:plugins && gatsby build",
-    "build:local": "yarn db:start && sleep 10 && cp local-db-setup/env.local.example .env.local && GATSBY_USE_LOCAL_DB=true yarn build",
+    "build:local": "GATSBY_USE_LOCAL_DB=true yarn build",
     "serve": "yarn run build:plugins && gatsby serve",
     "clean": "rm -r plugins/estuary-rehype-transformers/.parcel-cache && gatsby clean",
-    "db:start": "docker-compose -f docker-compose.local.yml up -d",
-    "db:stop": "docker-compose -f docker-compose.local.yml down",
-    "db:reset": "docker-compose -f docker-compose.local.yml down -v",
     "postinstall": "patch-package && husky install"
   }
 }
