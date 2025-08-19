@@ -1,6 +1,10 @@
 import React from 'react';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import BusinessOutlinedIcon from '@mui/icons-material/BusinessOutlined';
+import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined';
 import TabbedCarousel from '../../../components/TabbedCarousel';
 import { ProcessedHtml } from '../../../components/HtmlProcessor';
+import GoalsOutlinedIcon from '../../../svgs/viewfinder-circle.svg';
 import {
     sectionSlide,
     sectionContent,
@@ -23,6 +27,8 @@ import {
     imageComponent,
     emptySection,
 } from './styles.module.less';
+
+const iconColor = 'var(--blue)';
 
 interface SectionsCarouselProps {
     successStory: any;
@@ -190,7 +196,10 @@ const SectionsCarousel: React.FC<SectionsCarouselProps> = ({
             key={component.about ? component.about : 'about-card'}
             className={aboutCard}
         >
-            <h4>About {successStory.title}</h4>
+            <h4>
+                <InfoOutlinedIcon htmlColor={iconColor} />
+                About {successStory.title}
+            </h4>
             {component.about?.data?.about ? (
                 <ProcessedHtml body={component.about.data.about} />
             ) : null}
@@ -202,7 +211,10 @@ const SectionsCarousel: React.FC<SectionsCarouselProps> = ({
             key={component.industry ? component.industry : 'industry-card'}
             className={industryCard}
         >
-            <h4>Industry</h4>
+            <h4>
+                <BusinessOutlinedIcon htmlColor={iconColor} />
+                Industry
+            </h4>
             {component.industry?.data?.industry ? (
                 <ProcessedHtml body={component.industry.data.industry} />
             ) : null}
@@ -214,7 +226,10 @@ const SectionsCarousel: React.FC<SectionsCarouselProps> = ({
             key={component.goals ? component.goals : 'goals-card'}
             className={goalsCard}
         >
-            <h4>Goals</h4>
+            <h4>
+                <GoalsOutlinedIcon />
+                Goals
+            </h4>
             {component.goals?.data?.goals ? (
                 <ProcessedHtml body={component.goals.data.goals} />
             ) : null}
@@ -226,7 +241,10 @@ const SectionsCarousel: React.FC<SectionsCarouselProps> = ({
             key={component.location ? component.location : 'location-card'}
             className={locationCard}
         >
-            <h4>Location</h4>
+            <h4>
+                <FmdGoodOutlinedIcon htmlColor={iconColor} />
+                Location
+            </h4>
             {component.location?.data?.location ? (
                 <ProcessedHtml body={component.location.data.location} />
             ) : null}
