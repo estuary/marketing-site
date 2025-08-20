@@ -15,7 +15,8 @@ process.env.POSTGRAPHILE_PREPARED_STATEMENT_CACHE_SIZE = '1';
 
 const NO_MATCH_REGEX = '^/__no__match__$/';
 
-const isProd = process.env.NODE_ENV === 'production';
+const activeEnv = process.env.ACTIVE_ENV ?? process.env.NODE_ENV;
+const isProd = activeEnv === 'production';
 
 const strapiConfig = {
     apiURL: isProd
@@ -682,7 +683,7 @@ const cfg: GatsbyConfig = {
                     {
                         resolve: '@draftbox-co/gatsby-rehype-inline-images',
                         // all options are optional and can be omitted
-                        options: {
+                        pluginOptions: {
                             // all images larger are scaled down to maxWidth (default: maxWidth = imageWidth)
                             // maxWidth: 2000,
                             // disable, if you need to save memory
@@ -696,7 +697,7 @@ const cfg: GatsbyConfig = {
                         resolve: path.resolve(
                             './plugins/estuary-rehype-transformers'
                         ),
-                        options: Object.assign(
+                        pluginOptions: Object.assign(
                             {},
                             ...Object.entries(rehypeSelectors).map(
                                 ([k, { pluginOpts }]) => ({ [k]: pluginOpts })

@@ -116,7 +116,7 @@
     "start": "yarn run build:plugins && GATSBY_USE_LOCAL_DB=false gatsby develop",
     "start:local": "GATSBY_USE_LOCAL_DB=true yarn run build:plugins && GATSBY_USE_LOCAL_DB=true gatsby develop",
     "build": "yarn run build:plugins && gatsby build",
-    "build:local": "GATSBY_USE_LOCAL_DB=true yarn build",
+    "build:local": "GATSBY_USE_LOCAL_DB=true ACTIVE_ENV=development yarn run build",
     "serve": "yarn run build:plugins && gatsby serve",
     "clean": "rm -r plugins/estuary-rehype-transformers/.parcel-cache && gatsby clean",
     "postinstall": "patch-package && husky install"
