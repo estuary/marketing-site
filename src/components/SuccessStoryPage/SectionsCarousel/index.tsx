@@ -1,7 +1,8 @@
 import React from 'react';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import BusinessOutlinedIcon from '@mui/icons-material/BusinessOutlined';
-import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined';
+import FmdGoodOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
+import { StaticImage } from 'gatsby-plugin-image';
 import TabbedCarousel from '../../../components/TabbedCarousel';
 import { ProcessedHtml } from '../../../components/HtmlProcessor';
 import GoalsOutlinedIcon from '../../../svgs/viewfinder-circle.svg';
@@ -19,12 +20,14 @@ import {
     author,
     cardsGroup,
     card as cardStyle,
+    infoCardTitle,
     aboutCard,
     goalsCard,
     industryCard,
     locationCard,
     industryLocationGroup,
     imageComponent,
+    estuaryImgLogo,
     emptySection,
 } from './styles.module.less';
 
@@ -75,10 +78,7 @@ const SectionsCarousel: React.FC<SectionsCarouselProps> = ({
     console.log('Sections array:', sections);
 
     const renderHighlightedContent = (component: any) => (
-        <div
-            key={component.title ? component.title : 'highlighted-content'}
-            className={highlightedContent}
-        >
+        <div className={highlightedContent}>
             {component.title ? <h3>{component.title}</h3> : null}
             {component.description?.data?.description ? (
                 <ProcessedHtml body={component.description.data.description} />
@@ -89,15 +89,18 @@ const SectionsCarousel: React.FC<SectionsCarouselProps> = ({
             {component.numberedCards &&
             Array.isArray(component.numberedCards) ? (
                 <div className={numberedCards}>
-                    {component.numberedCards.map((card: any, index: number) => (
-                        <div key={index} className={numberedCard}>
+                    {component.numberedCards.map((card: any) => (
+                        <div
+                            key={`numbered-card-${card.number}`}
+                            className={numberedCard}
+                        >
                             {card.number ? (
                                 <span className={number}>
                                     {String(card.number).padStart(2, '0')}
                                 </span>
                             ) : null}
                             <div className={numberedCardContent}>
-                                {card.title ? <h4>{card.title}</h4> : null}
+                                {card.title ? <h3>{card.title}</h3> : null}
                                 {card.description?.data?.description ? (
                                     <ProcessedHtml
                                         body={card.description.data.description}
@@ -112,10 +115,7 @@ const SectionsCarousel: React.FC<SectionsCarouselProps> = ({
     );
 
     const renderTestimonial = (component: any) => (
-        <div
-            key={component.text ? component.text : 'testimonial'}
-            className={testimonial}
-        >
+        <div className={testimonial}>
             {component.text ? <blockquote>{component.text}</blockquote> : null}
             {component.author ? (
                 <div className={author}>
@@ -149,42 +149,46 @@ const SectionsCarousel: React.FC<SectionsCarouselProps> = ({
             : [];
 
         return (
-            <React.Fragment key={title}>
-                {component.title ? (
-                    <div className={cardsGroup}>
-                        <h3>{title}</h3>
-                    </div>
-                ) : null}
-                {items.map((item: any, index: number) => (
-                    <div key={`${title}-item-${index}`} className={cardStyle}>
-                        <p>{item ? String(item) : ''}</p>
-                    </div>
-                ))}
+            <React.Fragment>
+                {component.title ? <h3>{title}</h3> : null}
+                <div className={cardsGroup}>
+                    {items.map((item: string, index) => (
+                        <div
+                            key={`cards-group-card-${index + 1}`}
+                            className={cardStyle}
+                        >
+                            <p>
+                                <GoalsOutlinedIcon />
+                                {item ? String(item) : ''}
+                            </p>
+                        </div>
+                    ))}
+                </div>
             </React.Fragment>
         );
     };
 
     const renderNumberedCard = (component: any) => (
-        <div
-            key={component.title ? component.title : 'numbered-card'}
-            className={numberedCard}
-        >
+        <div className={numberedCard}>
             {component.number ? (
-                <span className={number}>{component.number}</span>
+                <span className={number}>
+                    {String(component.number).padStart(2, '0')}
+                </span>
             ) : null}
-            {component.title ? <h4>{component.title}</h4> : null}
-            {component.description?.data?.description ? (
-                <ProcessedHtml body={component.description.data.description} />
-            ) : null}
+            <div className={numberedCardContent}>
+                {component.title ? <h3>{component.title}</h3> : null}
+                {component.description?.data?.description ? (
+                    <ProcessedHtml
+                        body={component.description.data.description}
+                    />
+                ) : null}
+            </div>
         </div>
     );
 
     const renderCard = (component: any) => (
-        <div
-            key={component.title ? component.title : 'card'}
-            className={cardStyle}
-        >
-            {component.title ? <h4>{component.title}</h4> : null}
+        <div className={cardStyle}>
+            {component.title ? <h3>{component.title}</h3> : null}
             {component.description?.data?.description ? (
                 <ProcessedHtml body={component.description.data.description} />
             ) : null}
@@ -192,14 +196,11 @@ const SectionsCarousel: React.FC<SectionsCarouselProps> = ({
     );
 
     const renderAboutCard = (component: any) => (
-        <div
-            key={component.about ? component.about : 'about-card'}
-            className={aboutCard}
-        >
-            <h4>
+        <div className={aboutCard}>
+            <h3 className={infoCardTitle}>
                 <InfoOutlinedIcon htmlColor={iconColor} />
                 About {successStory.title}
-            </h4>
+            </h3>
             {component.about?.data?.about ? (
                 <ProcessedHtml body={component.about.data.about} />
             ) : null}
@@ -207,14 +208,11 @@ const SectionsCarousel: React.FC<SectionsCarouselProps> = ({
     );
 
     const renderIndustryCard = (component: any) => (
-        <div
-            key={component.industry ? component.industry : 'industry-card'}
-            className={industryCard}
-        >
-            <h4>
+        <div className={industryCard}>
+            <h3 className={infoCardTitle}>
                 <BusinessOutlinedIcon htmlColor={iconColor} />
                 Industry
-            </h4>
+            </h3>
             {component.industry?.data?.industry ? (
                 <ProcessedHtml body={component.industry.data.industry} />
             ) : null}
@@ -222,14 +220,11 @@ const SectionsCarousel: React.FC<SectionsCarouselProps> = ({
     );
 
     const renderGoalsCard = (component: any) => (
-        <div
-            key={component.goals ? component.goals : 'goals-card'}
-            className={goalsCard}
-        >
-            <h4>
+        <div className={goalsCard}>
+            <h3 className={infoCardTitle}>
                 <GoalsOutlinedIcon />
                 Goals
-            </h4>
+            </h3>
             {component.goals?.data?.goals ? (
                 <ProcessedHtml body={component.goals.data.goals} />
             ) : null}
@@ -237,14 +232,11 @@ const SectionsCarousel: React.FC<SectionsCarouselProps> = ({
     );
 
     const renderLocationCard = (component: any) => (
-        <div
-            key={component.location ? component.location : 'location-card'}
-            className={locationCard}
-        >
-            <h4>
+        <div className={locationCard}>
+            <h3 className={infoCardTitle}>
                 <FmdGoodOutlinedIcon htmlColor={iconColor} />
                 Location
-            </h4>
+            </h3>
             {component.location?.data?.location ? (
                 <ProcessedHtml body={component.location.data.location} />
             ) : null}
@@ -255,17 +247,26 @@ const SectionsCarousel: React.FC<SectionsCarouselProps> = ({
         industryComponent: any,
         locationComponent: any
     ) => (
-        <div key="industry-location-group" className={industryLocationGroup}>
+        <div className={industryLocationGroup}>
             {renderIndustryCard(industryComponent)}
             {renderLocationCard(locationComponent)}
         </div>
     );
 
     const renderImage = (component: any) => (
-        <div key="image" className={imageComponent}>
+        <div className={imageComponent}>
             {component.logo?.localFile ? (
                 <img src={component.logo.localFile.publicURL} alt="Logo" />
             ) : null}
+        </div>
+    );
+
+    const renderPlaceholderImage = () => (
+        <div className={estuaryImgLogo}>
+            <StaticImage
+                src="../../../images/estuary-grey-img-logo.png"
+                alt="Estuary image logo"
+            />
         </div>
     );
 
@@ -293,11 +294,7 @@ const SectionsCarousel: React.FC<SectionsCarouselProps> = ({
             case 'STRAPI__COMPONENT_CASE_STUDY_IMAGE':
                 return renderImage(component);
             default:
-                return (
-                    <div key="unknown">
-                        Unknown component: {component.__typename}
-                    </div>
-                );
+                return null;
         }
     };
 
@@ -306,14 +303,6 @@ const SectionsCarousel: React.FC<SectionsCarouselProps> = ({
             (component: any) => component?.__typename
         );
 
-        const aboutCardComponent = components.find(
-            (c: any) =>
-                c.__typename === 'STRAPI__COMPONENT_CASE_STUDY_ABOUT_CARD'
-        );
-        const testimonialComponent = components.find(
-            (c: any) =>
-                c.__typename === 'STRAPI__COMPONENT_CASE_STUDY_TESTIMONIAL'
-        );
         const industryCardComponent = components.find(
             (c: any) =>
                 c.__typename === 'STRAPI__COMPONENT_CASE_STUDY_INDUSTRY_CARD'
@@ -323,52 +312,49 @@ const SectionsCarousel: React.FC<SectionsCarouselProps> = ({
                 c.__typename === 'STRAPI__COMPONENT_CASE_STUDY_LOCATION_CARD'
         );
 
+        // Only exclude industry and location cards since they need to be grouped together
         const otherComponents = components.filter(
             (c: any) =>
                 ![
-                    'STRAPI__COMPONENT_CASE_STUDY_ABOUT_CARD',
-                    'STRAPI__COMPONENT_CASE_STUDY_TESTIMONIAL',
                     'STRAPI__COMPONENT_CASE_STUDY_INDUSTRY_CARD',
                     'STRAPI__COMPONENT_CASE_STUDY_LOCATION_CARD',
                 ].includes(c.__typename)
         );
 
         return (
-            <div className={sectionContent}>
-                {otherComponents.map((component: any, index: number) => (
-                    <div
-                        key={`${section.label}-${component.__typename}-${index}`}
-                        className={componentWrapper}
-                    >
-                        {renderComponent(component)}
-                    </div>
-                ))}
-                {industryCardComponent && locationCardComponent ? (
-                    <div className={componentWrapper}>
-                        {renderIndustryLocationGroup(
-                            industryCardComponent,
-                            locationCardComponent
-                        )}
-                    </div>
-                ) : null}
-                {aboutCardComponent ? (
-                    <div className={componentWrapper}>
-                        {renderAboutCard(aboutCardComponent)}
-                    </div>
-                ) : null}
-                {testimonialComponent ? (
-                    <div className={componentWrapper}>
-                        {renderTestimonial(testimonialComponent)}
-                    </div>
-                ) : null}
-            </div>
+            <>
+                <div className={sectionContent}>
+                    {otherComponents.map((component: any) => (
+                        <div
+                            key={`grid-section-component-${component.__typename}`}
+                            className={componentWrapper}
+                        >
+                            {renderComponent(component)}
+                        </div>
+                    ))}
+                    {industryCardComponent && locationCardComponent ? (
+                        <div className={componentWrapper}>
+                            {renderIndustryLocationGroup(
+                                industryCardComponent,
+                                locationCardComponent
+                            )}
+                        </div>
+                    ) : null}
+                </div>
+                <div className={componentWrapper}>
+                    {renderPlaceholderImage()}
+                </div>
+            </>
         );
     };
 
     return (
         <TabbedCarousel tabs={sections}>
             {sections.map((section) => (
-                <div key={section.id} className={sectionSlide}>
+                <div
+                    key={`carousel-section-${section.id}`}
+                    className={sectionSlide}
+                >
                     {renderSection(section)}
                 </div>
             ))}

@@ -1,4 +1,21 @@
+@grid-gap: 20px;
+@icon-size: 20px;
+@card-gap: 12px;
+@external-card-border-radius: 24px;
+@internal-card-border-radius: 16px;
+@card-background-color: var(--violet200);
+
 .sectionSlide {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    height: 100%;
+    gap: @grid-gap;
+
+    svg {
+        width: @icon-size;
+        height: @icon-size;
+        flex-shrink: 0;
+    }
 
     p {
         margin: 0;
@@ -9,18 +26,10 @@
     }
 }
 
-/* Card icon styling */
-:global(.card-icon) {
-    font-size: 1.25rem;
-    margin-right: 8px;
-    display: inline-block;
-    vertical-align: middle;
-}
-
 .sectionContent {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: @grid-gap;
     max-width: 1200px;
 }
 
@@ -41,20 +50,14 @@
 }
 
 .componentWrapper {
-    width: 100%;
-}
-
-/* All cards should have at most half width and wrap naturally */
-.componentWrapper {
     width: calc(50% - 10px);
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: @grid-gap;
     justify-content: space-between;
 }
 
-/* Last component wrapper should fill remaining space only if no card next to it */
 .componentWrapper:last-child {
     flex-grow: 1;
 }
@@ -62,28 +65,19 @@
 .industryLocationGroup {
     width: 100%;
     display: flex;
-    gap: 20px;
+    gap: @grid-gap;
     width: 100%;
     height: 100%;
 }
 
 .industryCard {
-    background: #EEF1FD;
+    background: @card-background-color;
     padding: 32px;
-    border-radius: 24px;
+    border-radius: @external-card-border-radius;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: @card-gap;
     flex: 1;
-
-    h4 {
-        font-size: 1.125rem;
-        font-weight: 600;
-        color: var(--dark-blue);
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
 
     p {
         flex: 1;
@@ -91,22 +85,13 @@
 }
 
 .locationCard {
-    background: #EEF1FD;
+    background: @card-background-color;
     padding: 32px;
-    border-radius: 24px;
+    border-radius: @external-card-border-radius;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: @card-gap;
     flex: 1;
-
-    h4 {
-        font-size: 1.125rem;
-        font-weight: 600;
-        color: var(--dark-blue);
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
 
     p {
         flex: 1;
@@ -116,7 +101,7 @@
 .highlightedContent {
     background: var(--dark-blue);
     padding: 32px;
-    border-radius: 24px;
+    border-radius: @external-card-border-radius;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -140,7 +125,7 @@
         margin-top: auto;
         padding: 8px 12px;
         background-color: #47506D29;
-        border-radius: 16px;
+        border-radius: @internal-card-border-radius;
     }
 
     .numberedCards {
@@ -150,45 +135,30 @@
     }
 
     .numberedCard {
-        display: flex;
-        gap: 18px;
         background-color: transparent;
         padding: 0;
 
         .number {
             color: var(--light-text-on-dark-background);
-            text-align: center;
-            font-weight: 400;
-            font-size: 0.875rem;
         }
     }
 
     .numberedCardContent {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-
-        h4 {
-            font-size: 1.5rem;
-            font-weight: 600;
+        h3 {
             color: var(--white);
-            margin-bottom: 0;
-        }
-
-        p {
-            margin: 0;
         }
     }
 }
 
 .testimonial {
-    background: #EEF1FD;
+    background: @card-background-color;
     padding: 32px;
-    border-radius: 24px;
+    border-radius: @external-card-border-radius;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: @card-gap;
     width: 100%;
+    height: 100%;
     position: relative;
     overflow: hidden;
 
@@ -206,6 +176,7 @@
 
     blockquote {
         font-size: 1.5rem;
+        line-height: 140%;
         font-weight: 600;
         font-style: normal;
         color: var(--dark-blue);
@@ -217,16 +188,7 @@
     }
 
     .author {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        margin-top: auto;
-        position: relative;
         z-index: 1;
-
-        span {
-            color: var(--grey);
-        }
 
         span:first-of-type {
             margin-right: 4px;
@@ -235,55 +197,66 @@
 }
 
 .cardsGroup {
-    color: var(--dark-blue);
+    display: flex;
+    flex-direction: column;
+    gap: @grid-gap;
+    height: 100%;
 
     h3 {
         font-size: 1.5rem;
         font-weight: 600;
         color: var(--dark-blue);
     }
+
+    .card {
+        p {
+            display: flex;
+            align-items: center;
+            gap: @card-gap;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+    }
 }
 
 .numberedCard {
-    background-color: #EEF1FD;
+    background-color: @card-background-color;
+    border-radius: @internal-card-border-radius;
     padding: 16px;
-    border-radius: 16px;
+    height: 100%;
+    display: flex;
+    gap: 18px;
 
     .number {
-        display: inline-block;
-        font-weight: 600;
         font-size: 0.875rem;
     }
+}
 
-    h4 {
-        font-size: 1.25rem;
-        font-weight: 600;
-        color: var(--dark-blue);
+.numberedCardContent {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    h3 {
+        font-size: 1rem;
+        font-weight: 500;
     }
 
     p {
-        flex: 1;
+        margin: 0;
+        font-size: 1rem;
     }
 }
 
 .aboutCard {
-    background: #EEF1FD;
+    background: @card-background-color;
     padding: 32px;
-    border-radius: 24px;
+    border-radius: @external-card-border-radius;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: @card-gap;
     width: 100%;
     height: 100%;
-
-    h4 {
-        font-size: 1.125rem;
-        font-weight: 600;
-        color: var(--dark-blue);
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
 
     p {
         flex: 1;
@@ -291,23 +264,14 @@
 }
 
 .goalsCard {
-    background: #EEF1FD;
+    background: @card-background-color;
     padding: 32px;
-    border-radius: 24px;
+    border-radius: @external-card-border-radius;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: @card-gap;
     width: 100%;
     height: 100%;
-
-    h4 {
-        font-size: 1.125rem;
-        font-weight: 600;
-        color: var(--dark-blue);
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
 
     p {
         flex: 1;
@@ -319,8 +283,8 @@
     justify-content: center;
     align-items: center;
     padding: 1.5rem;
-    background: #EEF1FD;
-    border-radius: 16px;
+    background: @card-background-color;
+    border-radius: @internal-card-border-radius;
     min-height: 150px;
     height: 100%;
 
@@ -330,6 +294,21 @@
         object-fit: contain;
         border-radius: 0.5rem;
     }
+}
+
+.estuaryImgLogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.sectionSlide>.componentWrapper:last-child {
+    width: 100%;
+    grid-row: 2;
+    padding: 24px;
+    background: @card-background-color;
+    border-radius: @external-card-border-radius;
 }
 
 .emptySection {
@@ -346,16 +325,25 @@
     }
 }
 
+.infoCardTitle {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--dark-blue);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
 .card {
-    background: #EEF1FD;
+    background: @card-background-color;
     padding: 32px;
-    border-radius: 24px;
+    border-radius: @external-card-border-radius;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: @card-gap;
     height: 100%;
 
-    h4 {
+    h3 {
         font-size: 1.125rem;
         font-weight: 600;
         color: var(--dark-blue);
