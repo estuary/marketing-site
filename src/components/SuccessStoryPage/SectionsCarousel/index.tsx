@@ -40,8 +40,6 @@ interface SectionsCarouselProps {
 const SectionsCarousel: React.FC<SectionsCarouselProps> = ({
     successStory,
 }) => {
-    console.log('SectionsCarousel received successStory:', successStory);
-
     if (!successStory) {
         return (
             <div className={sectionSlide}>
@@ -74,8 +72,6 @@ const SectionsCarousel: React.FC<SectionsCarouselProps> = ({
             ...section,
             id: index,
         }));
-
-    console.log('Sections array:', sections);
 
     const renderHighlightedContent = (component: any) => (
         <div className={highlightedContent}>
@@ -271,7 +267,6 @@ const SectionsCarousel: React.FC<SectionsCarouselProps> = ({
     );
 
     const renderComponent = (component: any) => {
-        console.log('component:', component.__typename);
         switch (component.__typename) {
             case 'STRAPI__COMPONENT_CASE_STUDY_HIGHLIGHTED_CONTENT':
                 return renderHighlightedContent(component);

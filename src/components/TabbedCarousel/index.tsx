@@ -58,7 +58,6 @@ const TabbedCarousel: React.FC<TabbedCarouselProps> = ({
     const scrollTo = useCallback(
         (index: number) => {
             if (!emblaApi) return;
-            console.log('Scrolling to index:', index);
             emblaApi.scrollTo(index);
         },
         [emblaApi]
@@ -87,7 +86,6 @@ const TabbedCarousel: React.FC<TabbedCarouselProps> = ({
     }, [emblaApi, onSelect]);
 
     const handleTabClick = (index: number) => {
-        console.log('Tab clicked:', index);
         setSelectedIndex(index);
         scrollTo(index);
     };
