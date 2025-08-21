@@ -42,6 +42,7 @@
 .embla {
     margin: 0 auto;
     position: relative;
+    min-height: 498px;
 }
 
 .emblaViewport {
@@ -57,16 +58,15 @@
     flex-shrink: 0;
     position: relative;
     margin-right: 100px;
-    /* Add space for the right section indicator */
     flex: 0 0 auto;
 }
 
 .contentArea {
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
-/* Section indicators - single bar between slides showing previous and next */
 .sectionIndicator {
     position: absolute;
     right: -100px;
@@ -147,7 +147,6 @@
         padding: 1rem;
     }
 
-    /* Hide section indicators on mobile */
     .sectionIndicator {
         display: none;
     }

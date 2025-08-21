@@ -128,7 +128,7 @@ const TabbedCarousel: React.FC<TabbedCarouselProps> = ({
                                 data-embla-slide={index}
                             >
                                 <div className={contentArea}>{child}</div>
-                                {index === 0 ? (
+                                {index < tabs.length - 1 ? (
                                     <div className={sectionIndicator}>
                                         <div className={indicatorContent}>
                                             <div className={indicatorSection}>
@@ -141,32 +141,35 @@ const TabbedCarousel: React.FC<TabbedCarouselProps> = ({
                                                     ].label.toUpperCase()}
                                                 </span>
                                             </div>
-                                        </div>
-                                    </div>
-                                ) : index < tabs.length - 1 ? (
-                                    <div className={sectionIndicator}>
-                                        <div className={indicatorContent}>
-                                            <div className={indicatorSection}>
-                                                <ArrowForwardIosIcon
-                                                    className={indicatorArrow}
-                                                />
-                                                <span className={indicatorText}>
-                                                    {tabs[
-                                                        index + 1
-                                                    ].label.toUpperCase()}
-                                                </span>
-                                            </div>
-                                            <div className={indicatorDivider} />
-                                            <div className={indicatorSection}>
-                                                <span className={indicatorText}>
-                                                    {tabs[
-                                                        index - 1
-                                                    ].label.toUpperCase()}
-                                                </span>
-                                                <ArrowBackIosNewIcon
-                                                    className={indicatorArrow}
-                                                />
-                                            </div>
+                                            {index > 0 ? (
+                                                <>
+                                                    <div
+                                                        className={
+                                                            indicatorDivider
+                                                        }
+                                                    />
+                                                    <div
+                                                        className={
+                                                            indicatorSection
+                                                        }
+                                                    >
+                                                        <span
+                                                            className={
+                                                                indicatorText
+                                                            }
+                                                        >
+                                                            {tabs[
+                                                                index
+                                                            ].label.toUpperCase()}
+                                                        </span>
+                                                        <ArrowBackIosNewIcon
+                                                            className={
+                                                                indicatorArrow
+                                                            }
+                                                        />
+                                                    </div>
+                                                </>
+                                            ) : null}
                                         </div>
                                     </div>
                                 ) : null}
