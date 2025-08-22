@@ -14,11 +14,11 @@ const SuccessStories = () => {
         query GetAllHomepageSuccessStories {
             allStrapiCaseStudy {
                 nodes {
-                    description
-                    title
-                    slug
+                    description: Description
+                    title: Title
+                    slug: Slug
                     id
-                    logo {
+                    logo: Logo {
                         localFile {
                             childImageSharp {
                                 gatsbyImageData

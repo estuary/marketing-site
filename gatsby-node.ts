@@ -79,7 +79,7 @@ const createSuccessStories: CreateHelper = async (
             allStrapiCaseStudy {
                 nodes {
                     id
-                    slug
+                    slug: Slug
                 }
             }
         }

@@ -33,7 +33,7 @@ const VanityLogosMarquee = ({ pageId }: VanityLogosMarqueeProps) => {
                         }
                     }
                     relatedSuccessStory {
-                        slug
+                        slug: Slug
                     }
                 }
             }

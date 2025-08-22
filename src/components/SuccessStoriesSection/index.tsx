@@ -20,15 +20,15 @@ const SuccessStoriesSection = ({
     } = useStaticQuery(graphql`
         query GetIntegrationSuccessStories {
             allStrapiCaseStudy(
-                filter: { slug: { in: ["headset", "prodege"] } }
+                filter: { Slug: { in: ["headset", "prodege"] } }
                 sort: { createdAt: DESC }
             ) {
                 nodes {
-                    title
-                    description
-                    slug
+                    title: Title
+                    description: Description
+                    slug: Slug
                     id
-                    hero: logo {
+                    hero: Logo {
                         alternativeText
                         localFile {
                             childImageSharp {

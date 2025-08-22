@@ -20,10 +20,10 @@ const SuccessStoryBanner = ({
     const { successStory } = useStaticQuery(graphql`
         query GetBannerSuccessStory {
             successStory: strapiCaseStudy(id: { eq: "headset" }) {
-                slug
-                title
-                description
-                logo {
+                slug: Slug
+                title: Title
+                description: Description
+                logo: Logo {
                     localFile {
                         childImageSharp {
                             gatsbyImageData(placeholder: BLURRED, quality: 100)

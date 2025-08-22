@@ -24,16 +24,16 @@ const SuccessStories = () => {
             }
             allStrapiCaseStudy {
                 nodes {
-                    title
-                    description
-                    slug
+                    title: Title
+                    description: Description
+                    slug: Slug
                     id
                     tags {
                         Name
                         Slug
                         Type
                     }
-                    hero: logo {
+                    hero: Logo {
                         alternativeText
                         localFile {
                             childImageSharp {

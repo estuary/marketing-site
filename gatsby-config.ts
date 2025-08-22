@@ -36,10 +36,10 @@ const strapiConfig = {
             queryParams: {
                 fields: [
                     'id',
-                    'title',
-                    'slug',
-                    'description',
-                    'linkOneLiner',
+                    'Title',
+                    'Slug',
+                    'Description',
+                    'LinkOneLiner',
                     'metaTitle',
                     'metaDescription',
                     'createdAt',
@@ -47,11 +47,11 @@ const strapiConfig = {
                     'publishedAt',
                 ],
                 populate: {
-                    logo: {
+                    Logo: {
                         fields: ['url', 'alternativeText'],
                     },
                     tags: {
-                        fields: ['name', 'slug'],
+                        fields: ['Name', 'Slug'],
                     },
                     keyMetrics: {
                         populate: '*',
@@ -882,18 +882,18 @@ const cfg: GatsbyConfig = {
                   allStrapiCaseStudy(sort: { createdAt: DESC }) {
                     nodes {
                       id
-                      slug
-                      title
-                      description
+                      slug: Slug
+                      title: Title
+                      description: Description
                       metaTitle
                       metaDescription
-                      linkOneLiner
+                      linkOneLiner: LinkOneLiner
                       tags {
                         Name
                         Slug
                         Type
                       }
-                      hero: logo {
+                      hero: Logo {
                         alternativeText
                         localFile {
                           childImageSharp {
@@ -950,8 +950,6 @@ const cfg: GatsbyConfig = {
                                         return `${component.title || ''} ${stripHtml(component.description?.data || '')} ${component.footnote || ''}`;
                                     case 'case-study.testimonial':
                                         return `${component.text || ''} ${component.author?.name || ''} ${component.author?.role || ''}`;
-                                    case 'case-study.cards-group':
-                                        return `${component.title || ''} ${(component.cards || []).map((card) => `${card.title || ''} ${stripHtml(card.description?.data || '')}`).join(' ')}`;
                                     case 'case-study.numbered-card':
                                         return `${component.title || ''} ${stripHtml(component.description?.data || '')}`;
                                     case 'case-study.about-card':

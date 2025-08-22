@@ -34,9 +34,6 @@ const SuccessStoryTemplate = ({
     const previousStory = getPreviousStory();
     const nextStory = getNextStory();
 
-    console.log('Previous story:', previousStory?.slug);
-    console.log('Next story:', nextStory?.slug);
-
     const navigationLinks = (
         <>
             <LinkOutlined
@@ -103,8 +100,8 @@ export const Head = ({
                 description={successStory.metaDescription}
                 url={`${siteUrl}/success-stories/${successStory.slug}`}
                 image={
-                    successStory.Logo
-                        ? `${siteUrl}${successStory.Logo.localFile.childImageSharp.metaImg.images.fallback.src}`
+                    successStory.logo
+                        ? `${siteUrl}${successStory.logo.localFile.childImageSharp.metaImg.images.fallback.src}`
                         : undefined
                 }
             />
@@ -116,11 +113,11 @@ export const Head = ({
                         '@type': 'WebPage',
                         '@id': `${siteUrl}/success-stories/${successStory.slug}`,
                     },
-                    'headline': successStory.Title,
-                    'description': successStory.Description ?? '',
+                    'headline': successStory.title,
+                    'description': successStory.description ?? '',
                     'image':
-                        successStory.Logo &&
-                        `${siteUrl}${successStory.Logo.localFile.childImageSharp.metaImg.images.fallback.src}`,
+                        successStory.logo &&
+                        `${siteUrl}${successStory.logo.localFile.childImageSharp.metaImg.images.fallback.src}`,
                     'publisher': {
                         '@type': 'Organization',
                         'name': 'Estuary',
@@ -143,20 +140,20 @@ export const pageQuery = graphql`
                 siteUrl
             }
         }
-        allSuccessStories: allStrapiCaseStudy(sort: { title: ASC }) {
+        allSuccessStories: allStrapiCaseStudy(sort: { Title: ASC }) {
             nodes {
-                slug
-                title
+                slug: Slug
+                title: Title
             }
         }
         successStory: strapiCaseStudy(id: { eq: $id }) {
             metaTitle
             metaDescription
-            slug
-            title
-            description
-            linkOneLiner
-            logo {
+            slug: Slug
+            title: Title
+            description: Description
+            linkOneLiner: LinkOneLiner
+            logo: Logo {
                 localFile {
                     childImageSharp {
                         gatsbyImageData(
@@ -204,7 +201,7 @@ export const pageQuery = graphql`
                         }
                     }
                     relatedSuccessStory {
-                        title
+                        title: Title
                     }
                 }
                 ... on STRAPI__COMPONENT_CASE_STUDY_ABOUT_CARD {
@@ -273,7 +270,7 @@ export const pageQuery = graphql`
                         }
                     }
                     relatedSuccessStory {
-                        title
+                        title: Title
                     }
                 }
                 ... on STRAPI__COMPONENT_CASE_STUDY_NUMBERED_CARD {
@@ -327,7 +324,7 @@ export const pageQuery = graphql`
                         }
                     }
                     relatedSuccessStory {
-                        title
+                        title: Title
                     }
                 }
                 ... on STRAPI__COMPONENT_CASE_STUDY_CARD {
@@ -391,7 +388,7 @@ export const pageQuery = graphql`
                         }
                     }
                     relatedSuccessStory {
-                        title
+                        title: Title
                     }
                 }
                 ... on STRAPI__COMPONENT_CASE_STUDY_CARD {
@@ -445,7 +442,7 @@ export const pageQuery = graphql`
                         }
                     }
                     relatedSuccessStory {
-                        title
+                        title: Title
                     }
                 }
                 ... on STRAPI__COMPONENT_CASE_STUDY_CARD {
@@ -506,7 +503,7 @@ export const pageQuery = graphql`
                         }
                     }
                     relatedSuccessStory {
-                        title
+                        title: Title
                     }
                 }
                 ... on STRAPI__COMPONENT_CASE_STUDY_CARD {
