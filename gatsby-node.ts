@@ -441,6 +441,7 @@ const createConnectors: CreateHelper = async (
                         recommended
                         connectorTagsByConnectorIdList {
                             protocol
+                            documentationUrl
                         }
                     }
                 }
@@ -797,9 +798,15 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
         reporter.error('sourceNodes:postgres:error', err)
     );
 
-    const connectors = await pool.query(
-        'select connectors.id as id, connectors.logo_url as logo_url from public.connectors;'
-    );
+    const connectors = await pool.query(`
+        SELECT 
+            c.id, 
+            c.logo_url,
+            ct.documentation_url
+        FROM public.connectors c
+        LEFT JOIN public.connector_tags ct ON c.id = ct.connector_id
+        WHERE ct.protocol IS NOT NULL
+    `);
 
     reporter.info(
         `sourceNodes:postgres:${connectors.rows.length} connector rows found`
@@ -819,7 +826,8 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
         // We just care about the URL here. If two connectors use the same URL we should just use the
         //  cached one. Only issue is if the logo changes while the URL stays the same. But this
         //  should be very rare... if it ever happens at all.
-        const cacheKey = `connector-logo-${conn.id}-${usUrl}`;
+        const documentationUrl = conn.documentation_url || 'no-doc-url';
+        const cacheKey = `connector-logo-${conn.id}-${usUrl}-${documentationUrl}`;
 
         // Need to somehow read from gatsby-source-filesystem cache
         const cachedConnectorLogo = await cache.get(cacheKey);
