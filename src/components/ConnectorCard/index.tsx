@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import { ProcessedHtml } from '../HtmlProcessor';
 import { Connector } from '../../../shared';
 import InternalLink from '../InternalLink';
+import ConnectorLogoPlaceholder from '../ConnectorLogoPlaceholder';
 import {
     connectorCard,
     connectorLogo,
@@ -38,7 +39,9 @@ const ConnectorCard = ({
                         image={connector.logo.childImageSharp.gatsbyImageData}
                         alt={`${connector.title} logo`}
                     />
-                ) : null}
+                ) : (
+                    <ConnectorLogoPlaceholder connectorType={connector.type} />
+                )}
             </div>
             <div>
                 <h3>{connector.title} connector details</h3>
