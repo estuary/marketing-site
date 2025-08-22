@@ -1,29 +1,137 @@
 import { graphql } from 'gatsby';
-import Wrapper from './Wrapper';
-import SectionBody from './Sections/Body';
-import Hero from './Sections/Hero';
-import Content from './Sections/Content';
-import SuccessStoryHead from './Head';
+import Hero from '../../components/SuccessStoryPage/Hero';
+import Layout from '../../components/Layout';
+import PageHeader from '../../components/PageHeader';
+import SectionsCarousel from '../../components/SuccessStoryPage/SectionsCarousel';
+import logoUrl from '../../images/estuary.png';
+import Seo from '../../components/seo';
+import LinkOutlined from '../../components/LinksAndButtons/LinkOutlined';
+import ChevronLeftIcon from '../../svgs/chevron-left.svg';
+import ChevronRightIcon from '../../svgs/chevron-right.svg';
 
-const SuccessStoryTemplate = ({ data: { successStory } }) => {
-    const { Title, Description, Logo, SideContent, About, Body } = successStory;
+const SuccessStoryTemplate = ({
+    data: { successStory, allSuccessStories },
+}) => {
+    const { title, description, logo, slug } = successStory;
+
+    const allStories = allSuccessStories?.nodes || [];
+    const currentIndex = allStories.findIndex((story) => story.slug === slug);
+
+    const getPreviousStory = () => {
+        if (allStories.length <= 1) return null;
+        return currentIndex > 0
+            ? allStories[currentIndex - 1]
+            : allStories[allStories.length - 1];
+    };
+
+    const getNextStory = () => {
+        if (allStories.length <= 1) return null;
+        return currentIndex < allStories.length - 1
+            ? allStories[currentIndex + 1]
+            : allStories[0];
+    };
+
+    const previousStory = getPreviousStory();
+    const nextStory = getNextStory();
+
+    const navigationLinks = (
+        <>
+            <LinkOutlined
+                href={`/success-stories/${previousStory.slug}`}
+                variant="secondary"
+            >
+                <ChevronLeftIcon />
+                {previousStory.title}
+            </LinkOutlined>
+            <LinkOutlined
+                href={`/success-stories/${nextStory.slug}`}
+                variant="secondary"
+            >
+                {nextStory.title}
+                <ChevronRightIcon />
+            </LinkOutlined>
+        </>
+    );
 
     return (
-        <Wrapper successStoryTitle={Title}>
-            <Hero
-                title={Title}
-                description={Description}
-                image={Logo.localFile}
+        <Layout hasLightSections hasLightHeroSection>
+            <PageHeader
+                breadcrumbs={[
+                    {
+                        title: 'Home',
+                        href: '/',
+                    },
+                    {
+                        title: 'Success Stories',
+                        href: '/success-stories',
+                    },
+                    {
+                        title,
+                    },
+                ]}
+                rightContent={navigationLinks}
             />
-            <Content content={SideContent} {...About} />
-            <SectionBody content={Body} />
-        </Wrapper>
+            <article itemScope itemType="http://schema.org/Article">
+                <Hero
+                    title={title}
+                    description={description}
+                    image={logo?.localFile}
+                />
+                <SectionsCarousel successStory={successStory} />
+            </article>
+        </Layout>
     );
 };
 
 export default SuccessStoryTemplate;
 
-export const Head = SuccessStoryHead;
+export const Head = ({
+    data: {
+        successStory,
+        site: {
+            siteMetadata: { siteUrl },
+        },
+    },
+}) => {
+    return (
+        <>
+            <Seo
+                title={successStory.metaTitle}
+                description={successStory.metaDescription}
+                url={`${siteUrl}/success-stories/${successStory.slug}`}
+                image={
+                    successStory.logo
+                        ? `${siteUrl}${successStory.logo.localFile.childImageSharp.metaImg.images.fallback.src}`
+                        : undefined
+                }
+            />
+            <script type="application/ld+json">
+                {JSON.stringify({
+                    '@context': 'https://schema.org',
+                    '@type': 'Article',
+                    'mainEntityOfPage': {
+                        '@type': 'WebPage',
+                        '@id': `${siteUrl}/success-stories/${successStory.slug}`,
+                    },
+                    'headline': successStory.title,
+                    'description': successStory.description ?? '',
+                    'image':
+                        successStory.logo &&
+                        `${siteUrl}${successStory.logo.localFile.childImageSharp.metaImg.images.fallback.src}`,
+                    'publisher': {
+                        '@type': 'Organization',
+                        'name': 'Estuary',
+                        'logo': {
+                            '@type': 'ImageObject',
+                            'url': `${siteUrl}${logoUrl}`,
+                        },
+                    },
+                    'datePublished': successStory.machineReadablePublishDate,
+                })}
+            </script>
+        </>
+    );
+};
 
 export const pageQuery = graphql`
     query SuccessStoryQueryById($id: String!) {
@@ -32,17 +140,23 @@ export const pageQuery = graphql`
                 siteUrl
             }
         }
+        allSuccessStories: allStrapiCaseStudy(sort: { Title: ASC }) {
+            nodes {
+                slug: Slug
+                title: Title
+            }
+        }
         successStory: strapiCaseStudy(id: { eq: $id }) {
             metaTitle
             metaDescription
-            Slug
-            Title
-            Description
-            Logo {
+            slug: Slug
+            title: Title
+            description: Description
+            linkOneLiner: LinkOneLiner
+            logo: Logo {
                 localFile {
                     childImageSharp {
                         gatsbyImageData(
-                            layout: FULL_WIDTH
                             placeholder: BLURRED
                             formats: [AUTO, WEBP, AVIF]
                         )
@@ -54,48 +168,366 @@ export const pageQuery = graphql`
                     }
                 }
             }
-            SideContent {
-                data {
-                    SideContent
-                    childHtmlRehype {
-                        html
-                        tableOfContents
-                    }
-                }
-            }
-            About {
-                Title
-                Description {
-                    data {
-                        Description
-                        childHtmlRehype {
-                            html
-                            tableOfContents
+            keyMetrics {
+                ... on STRAPI__COMPONENT_CASE_STUDY_HIGHLIGHTED_CONTENT {
+                    __typename
+                    title
+                    description {
+                        data {
+                            description
                         }
                     }
-                }
-                Topics {
-                    Title
-                    Description
-                    Icon {
-                        localFile {
-                            childImageSharp {
-                                gatsbyImageData(
-                                    layout: FULL_WIDTH
-                                    placeholder: BLURRED
-                                    formats: [AUTO, WEBP, AVIF]
-                                )
+                    footnote
+                    numberedCards {
+                        number
+                        title
+                        description {
+                            data {
+                                description
                             }
                         }
                     }
                 }
+                ... on STRAPI__COMPONENT_CASE_STUDY_TESTIMONIAL {
+                    __typename
+                    text
+                    author {
+                        name
+                        role
+                        avatar {
+                            localFile {
+                                publicURL
+                            }
+                        }
+                    }
+                    relatedSuccessStory {
+                        title: Title
+                    }
+                }
+                ... on STRAPI__COMPONENT_CASE_STUDY_ABOUT_CARD {
+                    __typename
+                    about {
+                        data {
+                            about
+                        }
+                    }
+                }
+                ... on STRAPI__COMPONENT_CASE_STUDY_INDUSTRY_CARD {
+                    __typename
+                    industry {
+                        data {
+                            industry
+                        }
+                    }
+                }
+                ... on STRAPI__COMPONENT_CASE_STUDY_GOALS_CARD {
+                    __typename
+                    goals {
+                        data {
+                            goals
+                        }
+                    }
+                }
+                ... on STRAPI__COMPONENT_CASE_STUDY_LOCATION_CARD {
+                    __typename
+                    location {
+                        data {
+                            location
+                        }
+                    }
+                }
             }
-            Body {
-                data {
-                    Body
-                    childHtmlRehype {
-                        html
-                        tableOfContents
+            challenges {
+                ... on STRAPI__COMPONENT_CASE_STUDY_HIGHLIGHTED_CONTENT {
+                    __typename
+                    title
+                    description {
+                        data {
+                            description
+                        }
+                    }
+                    footnote
+                    numberedCards {
+                        number
+                        title
+                        description {
+                            data {
+                                description
+                            }
+                        }
+                    }
+                }
+                ... on STRAPI__COMPONENT_CASE_STUDY_TESTIMONIAL {
+                    __typename
+                    text
+                    author {
+                        name
+                        role
+                        avatar {
+                            localFile {
+                                publicURL
+                            }
+                        }
+                    }
+                    relatedSuccessStory {
+                        title: Title
+                    }
+                }
+                ... on STRAPI__COMPONENT_CASE_STUDY_NUMBERED_CARD {
+                    __typename
+                    number
+                    title
+                    description {
+                        data {
+                            description
+                        }
+                    }
+                }
+                ... on STRAPI__COMPONENT_CASE_STUDY_LIST {
+                    __typename
+                    title
+                    items {
+                        strapi_json_value
+                    }
+                }
+            }
+            solution {
+                ... on STRAPI__COMPONENT_CASE_STUDY_HIGHLIGHTED_CONTENT {
+                    __typename
+                    title
+                    description {
+                        data {
+                            description
+                        }
+                    }
+                    footnote
+                    numberedCards {
+                        number
+                        title
+                        description {
+                            data {
+                                description
+                            }
+                        }
+                    }
+                }
+                ... on STRAPI__COMPONENT_CASE_STUDY_TESTIMONIAL {
+                    __typename
+                    text
+                    author {
+                        name
+                        role
+                        avatar {
+                            localFile {
+                                publicURL
+                            }
+                        }
+                    }
+                    relatedSuccessStory {
+                        title: Title
+                    }
+                }
+                ... on STRAPI__COMPONENT_CASE_STUDY_CARD {
+                    __typename
+                    title
+                    description {
+                        data {
+                            description
+                        }
+                    }
+                }
+                ... on STRAPI__COMPONENT_CASE_STUDY_IMAGE {
+                    __typename
+                    logo {
+                        localFile {
+                            publicURL
+                        }
+                    }
+                }
+                ... on STRAPI__COMPONENT_CASE_STUDY_NUMBERED_CARD {
+                    __typename
+                    number
+                    title
+                    description {
+                        data {
+                            description
+                        }
+                    }
+                }
+            }
+            aiUseCase {
+                ... on STRAPI__COMPONENT_CASE_STUDY_HIGHLIGHTED_CONTENT {
+                    __typename
+                    title
+                    description {
+                        data {
+                            description
+                        }
+                    }
+                    footnote
+                    numberedCards {
+                        number
+                        title
+                        description {
+                            data {
+                                description
+                            }
+                        }
+                    }
+                }
+                ... on STRAPI__COMPONENT_CASE_STUDY_TESTIMONIAL {
+                    __typename
+                    text
+                    author {
+                        name
+                        role
+                        avatar {
+                            localFile {
+                                publicURL
+                            }
+                        }
+                    }
+                    relatedSuccessStory {
+                        title: Title
+                    }
+                }
+                ... on STRAPI__COMPONENT_CASE_STUDY_CARD {
+                    __typename
+                    title
+                    description {
+                        data {
+                            description
+                        }
+                    }
+                }
+                ... on STRAPI__COMPONENT_CASE_STUDY_IMAGE {
+                    __typename
+                    logo {
+                        localFile {
+                            publicURL
+                        }
+                    }
+                }
+            }
+            results {
+                ... on STRAPI__COMPONENT_CASE_STUDY_HIGHLIGHTED_CONTENT {
+                    __typename
+                    title
+                    description {
+                        data {
+                            description
+                        }
+                    }
+                    footnote
+                    numberedCards {
+                        number
+                        title
+                        description {
+                            data {
+                                description
+                            }
+                        }
+                    }
+                }
+                ... on STRAPI__COMPONENT_CASE_STUDY_TESTIMONIAL {
+                    __typename
+                    text
+                    author {
+                        name
+                        role
+                        avatar {
+                            localFile {
+                                publicURL
+                            }
+                        }
+                    }
+                    relatedSuccessStory {
+                        title: Title
+                    }
+                }
+                ... on STRAPI__COMPONENT_CASE_STUDY_CARD {
+                    __typename
+                    title
+                    description {
+                        data {
+                            description
+                        }
+                    }
+                }
+                ... on STRAPI__COMPONENT_CASE_STUDY_LIST {
+                    __typename
+                    title
+                    items {
+                        strapi_json_value
+                    }
+                }
+                ... on STRAPI__COMPONENT_CASE_STUDY_IMAGE {
+                    __typename
+                    logo {
+                        localFile {
+                            publicURL
+                        }
+                    }
+                }
+            }
+            whyEstuary {
+                ... on STRAPI__COMPONENT_CASE_STUDY_HIGHLIGHTED_CONTENT {
+                    __typename
+                    title
+                    description {
+                        data {
+                            description
+                        }
+                    }
+                    footnote
+                    numberedCards {
+                        number
+                        title
+                        description {
+                            data {
+                                description
+                            }
+                        }
+                    }
+                }
+                ... on STRAPI__COMPONENT_CASE_STUDY_TESTIMONIAL {
+                    __typename
+                    text
+                    author {
+                        name
+                        role
+                        avatar {
+                            localFile {
+                                publicURL
+                            }
+                        }
+                    }
+                    relatedSuccessStory {
+                        title: Title
+                    }
+                }
+                ... on STRAPI__COMPONENT_CASE_STUDY_CARD {
+                    __typename
+                    title
+                    description {
+                        data {
+                            description
+                        }
+                    }
+                }
+                ... on STRAPI__COMPONENT_CASE_STUDY_LIST {
+                    __typename
+                    title
+                    items {
+                        strapi_json_value
+                    }
+                }
+                ... on STRAPI__COMPONENT_CASE_STUDY_IMAGE {
+                    __typename
+                    logo {
+                        localFile {
+                            publicURL
+                        }
                     }
                 }
             }

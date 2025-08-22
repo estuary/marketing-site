@@ -1,0 +1,357 @@
+@grid-gap: 20px;
+@icon-size: 20px;
+@card-gap: 12px;
+@external-card-border-radius: 24px;
+@internal-card-border-radius: 16px;
+@card-background-color: var(--violet200);
+
+.sectionSlide {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    height: 100%;
+    gap: @grid-gap;
+
+    svg {
+        width: @icon-size;
+        height: @icon-size;
+        flex-shrink: 0;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    li {
+        color: var(--white);
+    }
+}
+
+.sectionContent {
+    display: flex;
+    flex-wrap: wrap;
+    gap: @grid-gap;
+    max-width: 1200px;
+}
+
+@media (max-width: 1200px) {
+    .sectionContent {
+        gap: 16px;
+    }
+}
+
+@media (max-width: 700px) {
+    .sectionContent {
+        flex-direction: column;
+    }
+
+    .componentWrapper {
+        width: 100%;
+    }
+}
+
+.componentWrapper {
+    width: calc(50% - 10px);
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: @grid-gap;
+    justify-content: space-between;
+}
+
+.componentWrapper:last-child {
+    flex-grow: 1;
+}
+
+.industryLocationGroup {
+    width: 100%;
+    display: flex;
+    gap: @grid-gap;
+    width: 100%;
+    height: 100%;
+}
+
+.industryCard {
+    background: @card-background-color;
+    padding: 32px;
+    border-radius: @external-card-border-radius;
+    display: flex;
+    flex-direction: column;
+    gap: @card-gap;
+    flex: 1;
+
+    p {
+        flex: 1;
+    }
+}
+
+.locationCard {
+    background: @card-background-color;
+    padding: 32px;
+    border-radius: @external-card-border-radius;
+    display: flex;
+    flex-direction: column;
+    gap: @card-gap;
+    flex: 1;
+
+    p {
+        flex: 1;
+    }
+}
+
+.highlightedContent {
+    background: var(--dark-blue);
+    padding: 32px;
+    border-radius: @external-card-border-radius;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 24px;
+
+    h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--white);
+    }
+
+    p {
+        font-size: 1rem;
+        line-height: 160%;
+        color: var(--light-text-on-dark-background);
+    }
+
+    .footnote {
+        font-size: 0.75rem;
+        color: #9CA3BA;
+        margin-top: auto;
+        padding: 8px 12px;
+        background-color: #47506D29;
+        border-radius: @internal-card-border-radius;
+    }
+
+    .numberedCards {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .numberedCard {
+        background-color: transparent;
+        padding: 0;
+
+        .number {
+            color: var(--light-text-on-dark-background);
+        }
+    }
+
+    .numberedCardContent {
+        h3 {
+            color: var(--white);
+        }
+    }
+}
+
+.testimonial {
+    background: @card-background-color;
+    padding: 32px;
+    border-radius: @external-card-border-radius;
+    display: flex;
+    flex-direction: column;
+    gap: @card-gap;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+        content: '\201D';
+        position: absolute;
+        top: -50px;
+        right: 50px;
+        font-size: 12rem;
+        font-weight: 500;
+        color: var(--blue-20-opacity);
+        z-index: 0;
+        font-family: "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+    }
+
+    blockquote {
+        font-size: 1.5rem;
+        line-height: 140%;
+        font-weight: 600;
+        font-style: normal;
+        color: var(--dark-blue);
+        margin: 0;
+        position: relative;
+        padding: 0;
+        border: none;
+        z-index: 1;
+    }
+
+    .author {
+        z-index: 1;
+
+        span:first-of-type {
+            margin-right: 4px;
+        }
+    }
+}
+
+.cardsGroup {
+    display: flex;
+    flex-direction: column;
+    gap: @grid-gap;
+    height: 100%;
+
+    h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--dark-blue);
+    }
+
+    .card {
+        p {
+            display: flex;
+            align-items: center;
+            gap: @card-gap;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+    }
+}
+
+.numberedCard {
+    background-color: @card-background-color;
+    border-radius: @internal-card-border-radius;
+    padding: 16px;
+    height: 100%;
+    display: flex;
+    gap: 18px;
+
+    .number {
+        font-size: 0.875rem;
+    }
+}
+
+.numberedCardContent {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    h3 {
+        font-size: 1rem;
+        font-weight: 500;
+    }
+
+    p {
+        margin: 0;
+        font-size: 1rem;
+    }
+}
+
+.aboutCard {
+    background: @card-background-color;
+    padding: 32px;
+    border-radius: @external-card-border-radius;
+    display: flex;
+    flex-direction: column;
+    gap: @card-gap;
+    width: 100%;
+    height: 100%;
+
+    p {
+        flex: 1;
+    }
+}
+
+.goalsCard {
+    background: @card-background-color;
+    padding: 32px;
+    border-radius: @external-card-border-radius;
+    display: flex;
+    flex-direction: column;
+    gap: @card-gap;
+    width: 100%;
+    height: 100%;
+
+    p {
+        flex: 1;
+    }
+}
+
+.imageComponent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    background: @card-background-color;
+    border-radius: @internal-card-border-radius;
+    min-height: 150px;
+    height: 100%;
+
+    img {
+        max-width: 100%;
+        max-height: 150px;
+        object-fit: contain;
+        border-radius: 0.5rem;
+    }
+}
+
+.estuaryImgLogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.sectionSlide>.componentWrapper:last-child {
+    width: 100%;
+    grid-row: 2;
+    padding: 24px;
+    background: @card-background-color;
+    border-radius: @external-card-border-radius;
+}
+
+.emptySection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--grey);
+    text-align: center;
+
+    h3 {
+        font-size: 1.5rem;
+    }
+}
+
+.infoCardTitle {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--dark-blue);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.card {
+    background: @card-background-color;
+    padding: 32px;
+    border-radius: @external-card-border-radius;
+    display: flex;
+    flex-direction: column;
+    gap: @card-gap;
+    height: 100%;
+
+    h3 {
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: var(--dark-blue);
+    }
+
+    p {
+        flex: 1;
+        color: var(--grey);
+        opacity: 0.7;
+    }
+}

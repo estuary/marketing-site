@@ -22,7 +22,7 @@ const SuccessStories = () => {
                 index
                 store
             }
-            allStrapiCaseStudy(sort: { createdAt: DESC }) {
+            allStrapiCaseStudy {
                 nodes {
                     title: Title
                     description: Description

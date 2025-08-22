@@ -1,5 +1,6 @@
 import RegisterCta from './RegisterCta';
 import ContactUsCta from './ContactUsCta';
+import { ContactUsProps } from './types';
 
 interface HeroSectionActionsProps {
     pageId: string;
@@ -7,6 +8,7 @@ interface HeroSectionActionsProps {
     registerUrl?: string;
     contactUsButtonTitle?: string;
     contactUsButtonUrl?: string;
+    linkOutlinedVariant?: ContactUsProps['linkOutlinedVariant'];
 }
 
 function HeroSectionActions({
@@ -15,6 +17,7 @@ function HeroSectionActions({
     registerUrl,
     contactUsButtonTitle,
     contactUsButtonUrl,
+    linkOutlinedVariant = 'primary',
 }: HeroSectionActionsProps) {
     return (
         <>
@@ -27,6 +30,7 @@ function HeroSectionActions({
                 pageId={pageId}
                 title={contactUsButtonTitle}
                 href={contactUsButtonUrl}
+                linkOutlinedVariant={linkOutlinedVariant}
             />
         </>
     );

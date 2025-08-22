@@ -3,7 +3,7 @@ import { Tab, Tabs } from '@mui/material';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import TabPanel from '@mui/lab/TabPanel';
 import TabContext from '@mui/lab/TabContext';
-import { Vendor } from '../../../../shared';
+import { tabStyling, Vendor } from '../../../../shared';
 import Checkmark from '../../../svgs/checkmark.svg';
 import { container } from '../styles.module.less';
 import Container from '../../Container';
@@ -20,30 +20,6 @@ const a11yProps = (vendorId: string) => ({
     'id': `vendor-tab-${vendorId}`,
     'aria-controls': `vendor-tabpanel-${vendorId}`,
 });
-
-const tabStyling = {
-    'border': '1px solid var(--blue-30-opacity)',
-    'borderRadius': '100px',
-    'textTransform': 'none',
-    'color': 'var(--dark-blue)',
-    'transition': 'var(--default-transition)',
-
-    '&:hover': {
-        backgroundColor: '#ECEFFC',
-        borderColor: '#AEBDF5',
-    },
-
-    '&:active': {
-        backgroundColor: '#E3E8FB',
-        border: '2px solid var(--blue);',
-    },
-
-    '&.Mui-selected': {
-        backgroundColor: 'var(--blue-15-opacity)',
-        border: '2px solid var(--blue);',
-        color: 'var(--dark-blue)',
-    },
-};
 
 interface SectionThreeProps {
     estuaryVendor: Vendor;

@@ -70,7 +70,7 @@ const createSuccessStories: CreateHelper = async (
     const successStoryPages = await graphql<{
         allStrapiCaseStudy: {
             nodes: {
-                Slug: string;
+                slug: string;
                 id: string;
             }[];
         };
@@ -79,7 +79,7 @@ const createSuccessStories: CreateHelper = async (
             allStrapiCaseStudy {
                 nodes {
                     id
-                    Slug
+                    slug: Slug
                 }
             }
         }
@@ -97,7 +97,7 @@ const createSuccessStories: CreateHelper = async (
 
     allSuccessStories?.forEach((node) => {
         createPage({
-            path: `success-stories/${node.Slug}`,
+            path: `success-stories/${node.slug}`,
             component: successStoryTemplate,
             context: {
                 id: node.id,
