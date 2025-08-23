@@ -12,6 +12,156 @@ import {
     Vendor,
 } from './shared';
 
+interface CachedStrapiConnectorContent {
+    contentHash: string;
+}
+
+const validateCachedStrapiConnectorData = (cachedData: any): boolean => {
+    return typeof cachedData?.contentHash === 'string';
+};
+
+const STRAPI_CONNECTOR_CONTENT_CACHE_KEY = 'strapi-connector-content-cached';
+
+const MAX_TOTAL_LENGTH = 10000000;
+const CONTENT_PREVIEW_LENGTH = 100;
+
+const monitorStrapiConnectorContent = async ({
+    graphql,
+    reporter,
+    cache,
+    createContentDigest,
+}) => {
+    const startTime = performance.now();
+    reporter.info('monitorStrapiConnectorContent:begin');
+
+    try {
+        let cachedStrapiContent: CachedStrapiConnectorContent | null = null;
+        try {
+            const rawCachedData = await cache.get(
+                STRAPI_CONNECTOR_CONTENT_CACHE_KEY
+            );
+
+            if (
+                rawCachedData &&
+                validateCachedStrapiConnectorData(rawCachedData)
+            ) {
+                cachedStrapiContent =
+                    rawCachedData as CachedStrapiConnectorContent;
+            } else if (rawCachedData) {
+                reporter.warn(
+                    'monitorStrapiConnectorContent:corrupted-cache-data-detected-resetting'
+                );
+            }
+        } catch (cacheError) {
+            reporter.warn(
+                `monitorStrapiConnectorContent:cache-read-error: ${String(cacheError)}`
+            );
+        }
+
+        reporter.info(
+            'monitorStrapiConnectorContent:fetching-current-strapi-connector-content'
+        );
+
+        const strapiConnectorsResult = await graphql(`
+            {
+                allStrapiConnector {
+                    nodes {
+                        id
+                        slug
+                        content {
+                            data {
+                                content
+                            }
+                        }
+                    }
+                }
+            }
+        `);
+
+        if (strapiConnectorsResult.errors) {
+            reporter.warn(
+                `monitorStrapiConnectorContent:graphql-errors: ${JSON.stringify(strapiConnectorsResult.errors)}`
+            );
+            return;
+        }
+
+        if (!strapiConnectorsResult.data?.allStrapiConnector?.nodes) {
+            reporter.info(
+                'monitorStrapiConnectorContent:no-strapi-connector-data-available'
+            );
+            return;
+        }
+
+        const strapiConnectors =
+            strapiConnectorsResult.data.allStrapiConnector.nodes;
+
+        if (strapiConnectors.length === 0) {
+            reporter.info('monitorStrapiConnectorContent:no-connectors-found');
+            return;
+        }
+
+        reporter.info(
+            `monitorStrapiConnectorContent:${strapiConnectors.length} connector content entries found`
+        );
+
+        const allConnectorContent = strapiConnectors.map((connector) => {
+            const content = connector.content?.data?.content || '';
+            return {
+                id: connector.id,
+                slug: connector.slug,
+                content,
+            };
+        });
+
+        const totalContentLength = allConnectorContent.reduce(
+            (sum, c) => sum + c.content.length,
+            0
+        );
+
+        if (totalContentLength > MAX_TOTAL_LENGTH) {
+            reporter.warn(
+                `monitorStrapiConnectorContent:content-too-large: ${totalContentLength} chars (limit: ${MAX_TOTAL_LENGTH})`
+            );
+        }
+
+        const contentHashParts = allConnectorContent.map(
+            (connector) =>
+                `${connector.id}:${connector.content.length}:${connector.content.slice(0, CONTENT_PREVIEW_LENGTH)}:${connector.content.slice(-CONTENT_PREVIEW_LENGTH)}`
+        );
+        const currentContentHash = createContentDigest(
+            contentHashParts.join('|')
+        );
+
+        if (cachedStrapiContent) {
+            if (cachedStrapiContent.contentHash !== currentContentHash) {
+                reporter.info('STRAPI CONTENT CHANGED - TRIGGERING REBUILD');
+            } else {
+                reporter.info(
+                    'Strapi content unchanged - using cached version'
+                );
+            }
+        } else {
+            reporter.info('First time build - no cached Strapi content found');
+        }
+
+        await cache.set(STRAPI_CONNECTOR_CONTENT_CACHE_KEY, {
+            contentHash: currentContentHash,
+        });
+
+        const executionTime = Math.ceil(performance.now() - startTime);
+        reporter.info(
+            `monitorStrapiConnectorContent:completed-successfully in ${executionTime}ms`
+        );
+    } catch (error) {
+        const errorMessage =
+            error instanceof Error ? error.message : String(error);
+        const executionTime = Math.ceil(performance.now() - startTime);
+        reporter.warn(
+            `monitorStrapiConnectorContent:error after ${executionTime}ms: ${errorMessage}`
+        );
+    }
+};
+
 /**
  * Implement Gatsby's Node APIs in this file.
  *
@@ -734,6 +884,8 @@ export const createPages: GatsbyNode['createPages'] = async ({
     graphql,
     actions,
     reporter,
+    cache,
+    createContentDigest,
 }) => {
     const createHelperParams: CreateHelperParams = {
         actions,
@@ -750,6 +902,27 @@ export const createPages: GatsbyNode['createPages'] = async ({
         createSuccessStories('success stories', createHelperParams),
         createVendorCompare('vendor compare', createHelperParams),
     ]);
+
+    try {
+        reporter.info(
+            'createPages:strapi:beginning-connector-content-monitoring'
+        );
+
+        await monitorStrapiConnectorContent({
+            graphql,
+            reporter,
+            cache,
+            createContentDigest,
+        });
+
+        reporter.info(
+            'createPages:strapi:connector-content-monitoring-completed'
+        );
+    } catch (error) {
+        reporter.warn(
+            `createPages:strapi:connector-content-monitoring-error: ${String(error)}`
+        );
+    }
 };
 
 // Hacky hack :(
