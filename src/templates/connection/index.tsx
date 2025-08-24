@@ -25,7 +25,7 @@ import SuccessStoriesSection from '../../components/SuccessStoriesSection';
 import RelatedBlogPosts from '../../components/Integration/RelatedBlogPosts';
 import { reactNodeToParagraphs } from '../../shared';
 import { faqs } from '../../components/Integration/Faq/faqs';
-import { layoutClassName } from './styles.module.less';
+import { layoutWithRelatedArticlesSection } from './styles.module.less';
 
 export interface ConnectorProps {
     data: {
@@ -85,7 +85,11 @@ const Connector = ({
     const defaultDestDescription = `The ${dest_mapped?.title} materialization connector in Estuary Flow delivers data from your pipelines directly into your destination system — continuously and in real time. Using merge-based writes, Flow efficiently updates only changed records, ensuring your destination stays perfectly in sync without unnecessary reprocessing. Whether for analytics, AI, or operational use cases, Estuary Flow provides a reliable, cost-efficient way to keep ${dest_mapped?.title} up to date.`;
 
     return (
-        <Layout mainClassName={!hasRelatedArticles ? layoutClassName : null}>
+        <Layout
+            mainClassName={
+                hasRelatedArticles ? layoutWithRelatedArticlesSection : null
+            }
+        >
             <Hero
                 sourceConnector={{
                     title: source_mapped?.title,
