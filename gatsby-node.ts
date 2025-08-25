@@ -16,14 +16,7 @@ interface CachedStrapiConnectorContent {
     contentHash: string;
 }
 
-const validateCachedStrapiConnectorData = (cachedData: any): boolean => {
-    return typeof cachedData?.contentHash === 'string';
-};
-
 const STRAPI_CONNECTOR_CONTENT_CACHE_KEY = 'strapi-connector-content-cached';
-
-const MAX_TOTAL_LENGTH = 10000000;
-const CONTENT_PREVIEW_LENGTH = 100;
 
 const monitorStrapiConnectorContent = async ({
     graphql,
@@ -37,21 +30,9 @@ const monitorStrapiConnectorContent = async ({
     try {
         let cachedStrapiContent: CachedStrapiConnectorContent | null = null;
         try {
-            const rawCachedData = await cache.get(
+            cachedStrapiContent = await cache.get(
                 STRAPI_CONNECTOR_CONTENT_CACHE_KEY
             );
-
-            if (
-                rawCachedData &&
-                validateCachedStrapiConnectorData(rawCachedData)
-            ) {
-                cachedStrapiContent =
-                    rawCachedData as CachedStrapiConnectorContent;
-            } else if (rawCachedData) {
-                reporter.warn(
-                    'monitorStrapiConnectorContent:corrupted-cache-data-detected-resetting'
-                );
-            }
         } catch (cacheError) {
             reporter.warn(
                 `monitorStrapiConnectorContent:cache-read-error: ${String(cacheError)}`
@@ -113,23 +94,13 @@ const monitorStrapiConnectorContent = async ({
             };
         });
 
-        const totalContentLength = allConnectorContent.reduce(
-            (sum, c) => sum + c.content.length,
-            0
-        );
-
-        if (totalContentLength > MAX_TOTAL_LENGTH) {
-            reporter.warn(
-                `monitorStrapiConnectorContent:content-too-large: ${totalContentLength} chars (limit: ${MAX_TOTAL_LENGTH})`
-            );
-        }
-
-        const contentHashParts = allConnectorContent.map(
-            (connector) =>
-                `${connector.id}:${connector.content.length}:${connector.content.slice(0, CONTENT_PREVIEW_LENGTH)}:${connector.content.slice(-CONTENT_PREVIEW_LENGTH)}`
-        );
+        const hashStartTime = performance.now();
         const currentContentHash = createContentDigest(
-            contentHashParts.join('|')
+            allConnectorContent.map((connector) => connector.content).join('|')
+        );
+        const hashTime = Math.ceil(performance.now() - hashStartTime);
+        reporter.info(
+            `monitorStrapiConnectorContent:content-hashing-completed in ${hashTime}ms (${allConnectorContent.length} connectors)`
         );
 
         if (cachedStrapiContent) {
