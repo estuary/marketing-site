@@ -15,7 +15,8 @@ process.env.POSTGRAPHILE_PREPARED_STATEMENT_CACHE_SIZE = '1';
 
 const NO_MATCH_REGEX = '^/__no__match__$/';
 
-const isProd = process.env.NODE_ENV === 'production';
+const activeEnv = process.env.ACTIVE_ENV ?? process.env.NODE_ENV;
+const isProd = activeEnv === 'production';
 
 const strapiConfig = {
     apiURL: isProd
@@ -601,6 +602,8 @@ const cfg: GatsbyConfig = {
         PRESERVE_FILE_DOWNLOAD_CACHE: true,
         PARALLEL_SOURCING: false,
         DEV_SSR: true,
+        PRESERVE_WEBPACK_CACHE: true,
+        FAST_DEV: true,
     },
     // graphqlTypegen: true,
     plugins: [

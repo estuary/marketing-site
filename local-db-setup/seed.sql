@@ -119,27 +119,27 @@ INSERT INTO public.connectors (
 );
 
 -- Insert connector tags (protocols)
-INSERT INTO public.connector_tags (connector_id, protocol) VALUES
+INSERT INTO public.connector_tags (connector_id, protocol, documentation_url) VALUES
 -- Hello World (capture)
-('05:f3:63:e5:a8:80:04:00', 'capture'),
+('05:f3:63:e5:a8:80:04:00', 'capture', 'https://docs.estuary.dev/reference/Connectors/capture-connectors/hello-world/'),
 
 -- PostgreSQL (capture)
-('01:23:45:67:89:ab:cd:ef', 'capture'),
+('01:23:45:67:89:ab:cd:ef', 'capture', 'https://docs.estuary.dev/reference/Connectors/capture-connectors/PostgreSQL/'),
 
 -- MySQL (capture)
-('02:34:56:78:9a:bc:de:f0', 'capture'),
+('02:34:56:78:9a:bc:de:f0', 'capture', 'https://docs.estuary.dev/reference/Connectors/capture-connectors/MySQL/'),
 
 -- BigQuery (materialization)
-('04:56:78:9a:bc:de:f0:12', 'materialization'),
+('04:56:78:9a:bc:de:f0:12', 'materialization', 'https://docs.estuary.dev/reference/Connectors/materialization-connectors/BigQuery/'),
 
 -- Snowflake (materialization)
-('05:67:89:ab:cd:ef:01:23', 'materialization'),
+('05:67:89:ab:cd:ef:01:23', 'materialization', 'https://docs.estuary.dev/reference/Connectors/materialization-connectors/Snowflake/'),
 
 -- MongoDB (capture)
-('07:89:ab:cd:ef:01:23:45', 'capture'),
+('07:89:ab:cd:ef:01:23:45', 'capture', 'https://docs.estuary.dev/reference/Connectors/capture-connectors/MongoDB/'),
 
 -- Dekaf (capture)
-('08:9a:bc:de:f0:12:34:56', 'capture');
+('08:9a:bc:de:f0:12:34:56', 'capture', 'https://docs.estuary.dev/reference/Connectors/capture-connectors/dekaf/');
 
 -- Update sequence values to avoid conflicts
 SELECT setval('connector_tags_id_seq', (SELECT MAX(id) FROM connector_tags));

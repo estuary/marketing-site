@@ -1,18 +1,24 @@
 import { ReactNode } from 'react';
+import clsx from 'clsx';
 import TestimonialsCarousel from '../TestimonialsCarousel';
 import {
     wrapper,
     container,
     sectionTitleWithGlobalMaxWidth,
+    lightTheme,
 } from './styles.module.less';
 
 interface TestimonialsSectionProps {
     title?: ReactNode;
+    isDarkTheme?: boolean;
 }
 
-const TestimonialsSection = ({ title }: TestimonialsSectionProps) => {
+const TestimonialsSection = ({
+    title,
+    isDarkTheme = false,
+}: TestimonialsSectionProps) => {
     return (
-        <section className={wrapper}>
+        <section className={clsx(wrapper, !isDarkTheme && lightTheme)}>
             <div className={container}>
                 <h2 className={sectionTitleWithGlobalMaxWidth}>
                     {title ?? (
@@ -21,7 +27,7 @@ const TestimonialsSection = ({ title }: TestimonialsSectionProps) => {
                         </>
                     )}
                 </h2>
-                <TestimonialsCarousel />
+                <TestimonialsCarousel theme={isDarkTheme ? 'dark' : 'light'} />
             </div>
         </section>
     );

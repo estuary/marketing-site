@@ -1,14 +1,24 @@
+import clsx from 'clsx';
 import FlowDemoVideo from '../../FlowDemoVideo';
 import { dashboardRegisterUrl } from '../../../../shared';
 import OutboundLinkFilled from '../../LinksAndButtons/OutboundLinkFilled';
 import LinkOutlined from '../../LinksAndButtons/LinkOutlined';
 import { sectionTitle } from '../styles.module.less';
-import { buttonsWrapper, container, description } from './styles.module.less';
+import {
+    buttonsWrapper,
+    container,
+    description,
+    lightTheme,
+} from './styles.module.less';
 
-const EstuaryFlowVideo = () => {
+interface EstuaryFlowVideoProps {
+    isDarkTheme?: boolean;
+}
+
+const EstuaryFlowVideo = ({ isDarkTheme = false }: EstuaryFlowVideoProps) => {
     return (
         <section>
-            <div className={container}>
+            <div className={clsx(container, !isDarkTheme && lightTheme)}>
                 <h2 className={sectionTitle}>
                     <span>Estuary Flow</span> in action
                 </h2>
@@ -24,7 +34,12 @@ const EstuaryFlowVideo = () => {
                     >
                         Try Now
                     </OutboundLinkFilled>
-                    <LinkOutlined href="/contact-us">Contact Us</LinkOutlined>
+                    <LinkOutlined
+                        href="/contact-us"
+                        variant={isDarkTheme ? 'primary' : 'secondary'}
+                    >
+                        Contact Us
+                    </LinkOutlined>
                 </div>
             </div>
         </section>

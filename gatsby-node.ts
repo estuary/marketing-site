@@ -12,6 +12,127 @@ import {
     Vendor,
 } from './shared';
 
+interface CachedStrapiConnectorContent {
+    contentHash: string;
+}
+
+const STRAPI_CONNECTOR_CONTENT_CACHE_KEY = 'strapi-connector-content-cached';
+
+const monitorStrapiConnectorContent = async ({
+    graphql,
+    reporter,
+    cache,
+    createContentDigest,
+}) => {
+    const startTime = performance.now();
+    reporter.info('monitorStrapiConnectorContent:begin');
+
+    try {
+        let cachedStrapiContent: CachedStrapiConnectorContent | null = null;
+        try {
+            cachedStrapiContent = await cache.get(
+                STRAPI_CONNECTOR_CONTENT_CACHE_KEY
+            );
+        } catch (cacheError) {
+            reporter.warn(
+                `monitorStrapiConnectorContent:cache-read-error: ${String(cacheError)}`
+            );
+        }
+
+        reporter.info(
+            'monitorStrapiConnectorContent:fetching-current-strapi-connector-content'
+        );
+
+        const strapiConnectorsResult = await graphql(`
+            {
+                allStrapiConnector {
+                    nodes {
+                        id
+                        slug
+                        content {
+                            data {
+                                content
+                            }
+                        }
+                    }
+                }
+            }
+        `);
+
+        if (strapiConnectorsResult.errors) {
+            reporter.warn(
+                `monitorStrapiConnectorContent:graphql-errors: ${JSON.stringify(strapiConnectorsResult.errors)}`
+            );
+            return;
+        }
+
+        if (!strapiConnectorsResult.data?.allStrapiConnector?.nodes) {
+            reporter.info(
+                'monitorStrapiConnectorContent:no-strapi-connector-data-available'
+            );
+            return;
+        }
+
+        const strapiConnectors =
+            strapiConnectorsResult.data.allStrapiConnector.nodes;
+
+        if (strapiConnectors.length === 0) {
+            reporter.info('monitorStrapiConnectorContent:no-connectors-found');
+            return;
+        }
+
+        reporter.info(
+            `monitorStrapiConnectorContent:${strapiConnectors.length} connector content entries found`
+        );
+
+        const allConnectorContent = strapiConnectors.map((connector) => {
+            const content = connector.content?.data?.content || '';
+            return {
+                id: connector.id,
+                slug: connector.slug,
+                content,
+            };
+        });
+
+        const hashStartTime = performance.now();
+        const currentContentHash = createContentDigest(
+            allConnectorContent.map((connector) => connector.content).join('|')
+        );
+        const hashTime = Math.ceil(performance.now() - hashStartTime);
+        reporter.info(
+            `monitorStrapiConnectorContent:content-hashing-completed in ${hashTime}ms (${allConnectorContent.length} connectors)`
+        );
+
+        if (cachedStrapiContent) {
+            if (cachedStrapiContent.contentHash !== currentContentHash) {
+                reporter.info('STRAPI CONTENT CHANGED - TRIGGERING REBUILD');
+            } else {
+                reporter.info(
+                    'Strapi content unchanged - using cached version'
+                );
+            }
+        } else {
+            reporter.info('First time build - no cached Strapi content found');
+        }
+
+        await cache.set(STRAPI_CONNECTOR_CONTENT_CACHE_KEY, {
+            contentHash: currentContentHash,
+        });
+
+        const executionTime = Math.ceil(performance.now() - startTime);
+        reporter.info(
+            `monitorStrapiConnectorContent:completed-successfully in ${executionTime}ms`
+        );
+    } catch (error) {
+        const errorMessage =
+            error instanceof Error ? error.message : String(error);
+        const executionTime = Math.ceil(performance.now() - startTime);
+        reporter.warn(
+            `monitorStrapiConnectorContent:error after ${executionTime}ms: ${errorMessage}`
+        );
+    }
+};
+
 /**
  * Implement Gatsby's Node APIs in this file.
  *
@@ -441,6 +562,7 @@ const createConnectors: CreateHelper = async (
                         recommended
                         connectorTagsByConnectorIdList {
                             protocol
+                            documentationUrl
                         }
                     }
                 }
@@ -474,6 +596,7 @@ const createConnectors: CreateHelper = async (
             context: {
                 id: normalized_connector.id,
                 type: normalized_connector.type,
+                slugified_name: normalized_connector.slugified_name,
             },
         });
 
@@ -732,6 +855,8 @@ export const createPages: GatsbyNode['createPages'] = async ({
     graphql,
     actions,
     reporter,
+    cache,
+    createContentDigest,
 }) => {
     const createHelperParams: CreateHelperParams = {
         actions,
@@ -748,6 +873,27 @@ export const createPages: GatsbyNode['createPages'] = async ({
         createSuccessStories('success stories', createHelperParams),
         createVendorCompare('vendor compare', createHelperParams),
     ]);
+
+    try {
+        reporter.info(
+            'createPages:strapi:beginning-connector-content-monitoring'
+        );
+
+        await monitorStrapiConnectorContent({
+            graphql,
+            reporter,
+            cache,
+            createContentDigest,
+        });
+
+        reporter.info(
+            'createPages:strapi:connector-content-monitoring-completed'
+        );
+    } catch (error) {
+        reporter.warn(
+            `createPages:strapi:connector-content-monitoring-error: ${String(error)}`
+        );
+    }
 };
 
 // Hacky hack :(
@@ -796,9 +942,15 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
         reporter.error('sourceNodes:postgres:error', err)
     );
 
-    const connectors = await pool.query(
-        'select connectors.id as id, connectors.logo_url as logo_url from public.connectors;'
-    );
+    const connectors = await pool.query(`
+        SELECT 
+            c.id, 
+            c.logo_url,
+            ct.documentation_url
+        FROM public.connectors c
+        LEFT JOIN public.connector_tags ct ON c.id = ct.connector_id
+        WHERE ct.protocol IS NOT NULL
+    `);
 
     reporter.info(
         `sourceNodes:postgres:${connectors.rows.length} connector rows found`
@@ -818,7 +970,8 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
         // We just care about the URL here. If two connectors use the same URL we should just use the
         //  cached one. Only issue is if the logo changes while the URL stays the same. But this
         //  should be very rare... if it ever happens at all.
-        const cacheKey = `connector-logo-${conn.id}-${usUrl}`;
+        const documentationUrl = conn.documentation_url || 'no-doc-url';
+        const cacheKey = `connector-logo-${conn.id}-${usUrl}-${documentationUrl}`;
 
         // Need to somehow read from gatsby-source-filesystem cache
         const cachedConnectorLogo = await cache.get(cacheKey);

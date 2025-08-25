@@ -18,7 +18,7 @@ const RelatedBlogPosts = ({
 }: RelatedBlogPostsProps) => {
     return (
         <section>
-            <Container isDarkTheme isVertical>
+            <Container isDarkTheme={false} isVertical>
                 <h2 className={sectionTitle}>
                     RELATED ARTICLE{relatedArticles.length > 1 ? 'S' : null}
                 </h2>
@@ -41,7 +41,7 @@ const RelatedBlogPosts = ({
                                 }}
                                 footerTag="Article"
                                 linkId={`${getSlugifiedText(title)}-article/related-articles-section/integration-page`}
-                                isDarkTheme
+                                isDarkTheme={false}
                                 containerClassName={cardImageContainer}
                                 target="_blank"
                             />

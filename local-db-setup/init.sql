@@ -32,7 +32,8 @@ CREATE TABLE public.connectors (
 CREATE TABLE public.connector_tags (
     id SERIAL PRIMARY KEY,
     connector_id flowid REFERENCES public.connectors(id) ON DELETE CASCADE,
-    protocol VARCHAR NOT NULL
+    protocol VARCHAR NOT NULL,
+    documentation_url TEXT
 );
 
 -- Create indexes for better performance (matching production Supabase patterns)
