@@ -51,6 +51,9 @@ const shouldExcludePage = (pagePath: string) => {
     const excludedPaths = [
         '/dev-404-page',
         '/404',
+        '/404/',
+        '/404.html',
+        '/404.html/',
         '/offline-plugin-app-shell-fallback',
     ];
     return excludedPaths.includes(pagePath);
