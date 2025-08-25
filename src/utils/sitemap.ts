@@ -9,7 +9,6 @@ import {
 interface SitemapUrl {
     url: string;
     lastmod?: string;
-    changefreq?: string;
 }
 
 interface PageData {
@@ -52,6 +51,9 @@ const shouldExcludePage = (pagePath: string) => {
     const excludedPaths = [
         '/dev-404-page',
         '/404',
+        '/404/',
+        '/404.html',
+        '/404.html/',
         '/offline-plugin-app-shell-fallback',
     ];
     return excludedPaths.includes(pagePath);
@@ -84,12 +86,9 @@ const sortUrlsByCategory = (urls: SitemapUrl[]): SitemapUrl[] => {
 };
 
 const convertToSitemapUrl = (page: PageData): SitemapUrl => {
-    const isBlogUrl = page.path.startsWith('/blog');
-
     return {
         url: page.path,
         lastmod: page.pageContext?.lastMod,
-        changefreq: isBlogUrl ? 'weekly' : undefined,
     };
 };
 
@@ -135,7 +134,6 @@ const generateLargeSitemap = async (
         sms.write({
             url: url.url,
             lastmod: url.lastmod,
-            changefreq: url.changefreq,
         });
     });
 
